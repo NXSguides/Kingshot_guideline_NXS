@@ -380,6 +380,19 @@ function render() {
     <div class="muted" style="font-size:12px">${esc(fill(t("foot"), v))}</div>${importBox()}`;
   bind();
 }
+/* 📥 patch: [{op:"set", path:"leaders.0", value}, {op:"report", id, obs, sug}, {op:"detailRow", row}, {op:"growthCol", match:"2", date, values:{name: n}}] */
+function applyPatch(base, ops) {
+  const d = JSON.parse(JSON.stringify(base));
+  for (const o of ops) {
+    if (o.op === "set") { const ks = String(o.path).split("."); let t = d; for (const k of ks.slice(0, -1)) t = t[k]; t[ks[ks.length - 1]] = o.value; }
+    else if (o.op === "report") { const r = (d.reports || []).find((x) => x.id === o.id); if (r) { if (o.obs) r.obs = o.obs; if (o.sug) r.sug = o.sug; } }
+    else if (o.op === "detailRow" && d.detail) { const i = d.detail.rows.findIndex((x) => x[0] === o.row[0] && x[1] === o.row[1]); if (i >= 0) d.detail.rows[i] = o.row; else d.detail.rows.push(o.row); }
+    else if (o.op === "growthCol") { const g = [].concat(d.growth || []).find((x) => JSON.stringify(x.title || "").includes(o.match)); if (!g) continue;
+      let c = g.dates.indexOf(o.date); if (c < 0) { g.dates.push(o.date); c = g.dates.length - 1; g.rows.forEach((x) => { while (x.length < c + 2) x.push(null); }); }
+      for (const [n, v] of Object.entries(o.values)) { let x = g.rows.find((y) => y[0] === n); if (!x) { x = [n]; while (x.length < c + 1) x.push(null); x.push(null); g.rows.push(x); } x[c + 1] = v; } }
+  }
+  return d;
+}
 const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 function bind() {
   document.querySelectorAll("[data-bpn]").forEach((b) => b.onclick = () => { N = +b.dataset.bpn; render(); });
@@ -387,6 +400,7 @@ function bind() {
   sv.onclick = async () => {
     const m = $("bp_msg"); let d = null;
     try { d = JSON.parse($("bp_json").value); } catch (e) {}
+    if (d && Array.isArray(d.patch) && RV) d = applyPatch(RV, d.patch);   // small update: only the changed parts, merged into the review that is already open
     const isRv = !!(d && d.review && (Array.isArray(d.rows) || d.analysis));
     if (!d || (!isRv && (!Array.isArray(d.now) || !Array.isArray(d.order) || !Array.isArray(d.rows)))) { m.textContent = t("impBad"); return; }
     if (!OFFICER.token) { m.textContent = t("noTok"); return; }

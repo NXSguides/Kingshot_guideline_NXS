@@ -6,7 +6,7 @@
 (function () {
 const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
-const UPDATED = "2026-11-12", HUNTS = 10, SPAN = "10/25–11/10";
+const UPDATED = "2026-11-12", HUNTS = 11, SPAN = "10/25–11/12";
 /* 2026-11-07: the analysis chat keeps ONE ledger now; 11/07 Sherry: correct old ideas in place — no "corrected earlier" list (Project docs claude/bear-findings.md + bear-mails.csv, bear-totals.csv,
    bear-rosters.csv — handoff claude/research-ledger-handoff.md). This page follows that ledger: every point carries its status
    (✅ sure / 🟡 likely); old ideas are rewritten in place, no "corrected" list. Members' page: principles only (ledger A + C). */
@@ -15,7 +15,7 @@ const MIX = { inf: 1, cav: 25, arc: 74 };                   // ledger A5
 const HSETS = [[["amadeus", "petra", "marlin"], 1.00], [["amadeus", "jabel", "marlin"], 0.82], [["zoe", "petra", "marlin"], 0.79], [["zoe", "petra", "quinn"], 0.70]];   // ledger A14 (11/12)
 const P = { T9: 50, T10: 66, TG1: 71, TG2: 76, TG3: 83 };
 const VAL = [2, 4, 6, 9, 12, 15, 18, 21, 24, 27, 30];   // Valora talent, your own score + %, Lv1–11
-const TREND = [["10/31", 18, 11.30], ["11/02", 20, 11.98], ["11/04", 23, 16.86], ["11/06", 23, 19.10], ["11/08", 19, 15.89], ["11/10", 22, 18.30]];   // ledger D: alliance total (B), Bear Trap 2
+const TREND = [["10/31", 18, 11.30], ["11/02", 20, 11.98], ["11/04", 23, 16.86], ["11/06", 23, 19.10], ["11/08", 19, 15.89], ["11/10", 22, 18.30], ["11/12", 22, 20.58]];   // ledger D: alliance total (B), Bear Trap 2
 const TREND1 = [["10/31", 31, 24.47], ["11/06", 31, 29.72]];   // ledger D2: Bear Trap 1
 const T = {
   en: { title: "🐻 Bear Hunt report", intro: "", obs: ["The same march can score about 3× more in one rally than in another.", "Most of the score comes from archers; infantry adds almost nothing.", "How strong a rally is depends almost only on its leader."], obsH: "🔎 What we saw", howH: "🔢 How we worked it out", do: ["Archer marches to the strongest rallies first; infantry and cavalry to the later ones.", "Mostly archers (about 1 : 25 : 74), but don't send zero of any troop type.", "Join with an Attack or Lethality hero in the first slot.", "Leaders: Petra and Amadeus are worth bringing; City Bonus on; joiner skills 2 Attack + 2 Lethality."], doH: "💡 Suggestions",
@@ -41,7 +41,7 @@ const T = {
     unkH: "🟡 Not known yet", unks: ["Joiner skills: does skill level really come first?", "How much 4 Chenko and 2 Chenko + 2 Amane really differ.", "Whether \"enemy Defense −\" bonuses work on the Bear.", "Whether Vivian's skill works in Bear Hunt (outside simulations say it sometimes doesn't).", "How much each of Zoe's two skills costs on its own."],
     numH: "🔢 For those who want the formula", num: "Your score ≈ K × c × Σ (w × n^0.58). K = the rally leader's strength (the whole rally shares it); c = your own troops: troop tier × (1 + Valora's Hunter Instinct) — two players with the same tier and Hunter Instinct level get exactly the same; w = troop weight (archer 1, cavalry 0.63, infantry 0.12); n = how many of that type you sent. Fitted on 107 marches in 8 rallies (11/06, troop counts from the rally troop page): about 8.5% error (20% without c).",
     more: "Officers: leader strength and where marches score most → 🐻 Bear analysis",
-    foot: "Source: our alliance's rally mails (1,123 + 5 from Trap 1), final leaderboards (8: Trap 2 ×6, Trap 1 ×2), rally troop pages and bonus pages, 10/25–11/10. Worked back from the numbers, not from the game." },
+    foot: "Source: our alliance's rally mails (1,123 + 5 from Trap 1), final leaderboards (9: Trap 2 ×7, Trap 1 ×2), rally troop pages and bonus pages, 10/25–11/12. Worked back from the numbers, not from the game." },
   zh: { title: "🐻 狩獵巨熊研究", intro: "", obs: ["同一支部隊進不同的團，分數可以差到約 3 倍。", "分數主要來自弓兵；步兵幾乎沒有分。", "一團強不強，幾乎只看隊長。"], obsH: "🔎 我們觀察到", howH: "🔢 怎麼算的", do: ["弓兵部隊先送最強的團，步兵、騎兵給後面的團。", "部隊以弓兵為主（約 步 1：騎 25：弓 74），但不要有哪個兵種派 0。", "加入時第一格帶攻擊力或殺傷力英雄。", "隊長：小佩拉和阿瑪迪斯值得帶；開城鎮增益；加入者技能湊 2 攻擊力＋2 殺傷力。"], doH: "💡 建議",
     badge: "🔬 我們的研究 · 更新 {d}",
     st: { ok: "✅ 確定", mid: "🟡 推測" },
@@ -65,7 +65,7 @@ const T = {
     unkH: "🟡 還不知道的", unks: ["加入者技能：是不是真的先比技能等級。", "4 琴科和 2 琴科＋2 雨音實際差多少。", "「敵方防禦力降低」的增益對熊有沒有效。", "薇薇安的技能在狩獵巨熊有沒有效（外部模擬說有時會失效）。", "佐伊兩個技能各自少了多少。"],
     numH: "🔢 給想看公式的人", num: "你的分數 ≈ K × c × Σ（w × n 的 0.58 次方）。K = 集結隊長的強度（全團共用）；c = 你自己的部隊：兵等 ×（1 + 維拉「狩獵本能」）——兵等和狩獵本能等級一樣的兩個人，分數完全一樣；w = 兵種權重（弓兵 1、騎兵 0.63、步兵 0.12）；n = 你那個兵種帶的數量。用 11/06 8 團、107 支部隊（兵數取自集結兵種頁）擬合：誤差約 8.5%（不算 c 時 20%）。",
     more: "幹部：隊長強度、部隊放哪裡最好 → 🐻 熊獵實測",
-    foot: "來源：我們聯盟的集結信件（1,123 筆 + 陷阱 1 5 封）、最終排行（8 份：陷阱 2 六場、陷阱 1 兩場）、集結兵種頁、加成頁，10/25–11/10。從數字反推，不是遊戲官方說明。" },
+    foot: "來源：我們聯盟的集結信件（1,123 筆 + 陷阱 1 5 封）、最終排行（9 份：陷阱 2 七場、陷阱 1 兩場）、集結兵種頁、加成頁，10/25–11/12。從數字反推，不是遊戲官方說明。" },
   pt: { title: "🐻 Estudo da Caça ao Urso", intro: "", obs: ["A mesma marcha pode pontuar cerca de 3× mais num rally do que em outro.", "A maior parte da pontuação vem dos arqueiros; a Infantaria quase não soma.", "A força de um rally depende quase só do líder."], obsH: "🔎 O que observamos", howH: "🔢 Como calculamos", do: ["Marchas de arqueiros primeiro para os rallies mais fortes; Infantaria e Cavalaria para os seguintes.", "Marcha quase só de arqueiros (cerca de 1 : 25 : 74), mas sem mandar zero de nenhum tipo de tropa.", "Entre com um herói de Ataque ou Letalidade no primeiro espaço.", "Líderes: vale levar Petra e Amadeus; Bônus da Cidade ligado; habilidades de participante 2 de Ataque + 2 de Letalidade."], doH: "💡 Sugestões",
     badge: "🔬 Nossa pesquisa · atualizado {d}",
     st: { ok: "✅ certo", mid: "🟡 provável" },
@@ -89,7 +89,7 @@ const T = {
     unkH: "🟡 Ainda não sabemos", unks: ["Habilidades de participante: o nível da habilidade vem mesmo primeiro?", "Quanto 4 Chenko e 2 Chenko + 2 Amane realmente diferem.", "Se bônus de \"Defesa Inimiga Baixa\" funcionam no Urso.", "Se a habilidade da Vivian funciona na Caça ao Urso (simulações externas dizem que às vezes não).", "Quanto cada uma das duas habilidades da Zoe custa sozinha."],
     numH: "🔢 Para quem quer a fórmula", num: "Sua pontuação ≈ K × c × Σ (w × n^0.58). K = a força do líder do rally (o rally inteiro divide); c = suas próprias tropas: nível da tropa × (1 + Instinto de Caçador da Valora) — dois jogadores com o mesmo nível de tropa e de Instinto de Caçador ganham exatamente o mesmo; w = peso da tropa (arquearia 1, cavalaria 0.63, infantaria 0.12); n = quantas tropas daquele tipo você mandou. Ajustado em 107 marchas em 8 rallies (11/06, número de tropas da página de tropas do rally): cerca de 8.5% de erro (20% sem c).",
     more: "Oficiais: força dos líderes e onde as marchas pontuam mais → 🐻 Análise do Urso",
-    foot: "Fonte: e-mails de rally da nossa aliança (1,123 + 5 da Armadilha 1), rankings finais (8: Armadilha 2 ×6, Armadilha 1 ×2), páginas de tropas do rally e páginas de bônus, 10/25–11/10. Calculado a partir dos números, não vem do jogo." },
+    foot: "Fonte: e-mails de rally da nossa aliança (1,123 + 5 da Armadilha 1), rankings finais (9: Armadilha 2 ×7, Armadilha 1 ×2), páginas de tropas do rally e páginas de bônus, 10/25–11/12. Calculado a partir dos números, não vem do jogo." },
   ar: { title: "🐻 دراسة صيد الدببة", intro: "", obs: ["الزحف نفسه قد يسجّل نحو 3× أكثر في حشد منه في حشد آخر.", "معظم النقاط تأتي من الرماة؛ المشاة لا تضيف شيئًا تقريبًا.", "قوة الحشد تعتمد تقريبًا على قائده فقط."], obsH: "🔎 ما لاحظناه", howH: "🔢 كيف حسبناها", do: ["زحوف الرماة أولًا إلى أقوى الحشود؛ والمشاة والفرسان إلى التالية.", "زحفك أغلبه رماة (نحو 1 : 25 : 74)، لكن دون إرسال صفر من أي نوع قوات.", "انضم ومعك بطل هجوم أو قوة فتك في الخانة الأولى.", "القادة: بيترا وأماديوس يستحقان الأخذ؛ فعّلوا مكافأة المدينة؛ مهارات المنضمّين 2 هجوم + 2 قوة فتك."], doH: "💡 اقتراحات",
     badge: "🔬 بحثنا · آخر تحديث {d}",
     st: { ok: "✅ مؤكد", mid: "🟡 مرجّح" },
@@ -113,7 +113,7 @@ const T = {
     unkH: "🟡 غير معروف بعد", unks: ["مهارات المنضمّين: هل مستوى المهارة يأتي أولًا حقًا؟", "كم يختلف فعلًا 4 تشينكو عن 2 تشينكو + 2 أماني.", "هل مكافآت \"خفض دفاع العدو\" تعمل على الدب.", "هل تعمل مهارة فيفيان في صيد الدببة (المحاكاة الخارجية تقول إنها لا تعمل أحيانًا).", "كم تكلف كل مهارة من مهارتَي زوي وحدها."],
     numH: "🔢 لمن يريد المعادلة", num: "نقاطك ≈ K × c × Σ (w × n^0.58). K = قوة قائد الحشد (يتشاركها الحشد كله)؛ c = قواتك أنت: مستوى القوات × (1 + «غريزة الصياد» عند فالورا) — لاعبان بنفس مستوى القوات ونفس مستوى «غريزة الصياد» يحصلان على نفس النتيجة تمامًا؛ w = وزن القوات (الرماة 1، الفرسان 0.63، المشاة 0.12)؛ n = عدد ما أرسلته من ذلك النوع. تمت المطابقة على 107 زحوف في 8 حشود (11/06، أعداد القوات من صفحة قوات الحشد): خطأ نحو 8.5% (20% بدون c).",
     more: "للضباط: قوة القادة وأين تحصل الزحوف على أكثر النقاط → 🐻 تحليل الدب",
-    foot: "المصدر: رسائل حشود تحالفنا (1,123 + 5 من فخ 1)، لوحات الصدارة النهائية (8: فخ 2 ×6، فخ 1 ×2)، صفحات قوات الحشد وصفحات المكافآت، 10/25–11/10. محسوبة من الأرقام، وليست من اللعبة." },
+    foot: "المصدر: رسائل حشود تحالفنا (1,123 + 5 من فخ 1)، لوحات الصدارة النهائية (9: فخ 2 ×7، فخ 1 ×2)، صفحات قوات الحشد وصفحات المكافآت، 10/25–11/12. محسوبة من الأرقام، وليست من اللعبة." },
   ko: { title: "🐻 자이언트 베어 사냥 연구", intro: "", obs: ["같은 부대라도 어느 집결에 들어가느냐에 따라 점수가 약 3배까지 차이 나.", "점수는 대부분 궁병에서 나오고, 보병은 거의 안 보태.", "집결이 얼마나 센지는 거의 대장에게 달렸어."], obsH: "🔎 우리가 관찰한 것", howH: "🔢 어떻게 계산했는지", do: ["궁병 부대는 가장 강한 집결에 먼저, 보병·기병은 뒤 집결로.", "부대는 거의 궁병으로 (약 1 : 25 : 74), 다만 어떤 병종도 0으로 보내지 않는 게 좋아.", "첫 칸에 공격력이나 파괴력 영웅을 넣고 참여해.", "대장: 리틀 페라와 아마데우스를 데려갈 만해; 도시 버프 켜기; 집결원 스킬은 공격력 2 + 파괴력 2."], doH: "💡 제안",
     badge: "🔬 우리 연구 · 업데이트 {d}",
     st: { ok: "✅ 확실", mid: "🟡 추정" },
@@ -137,7 +137,7 @@ const T = {
     unkH: "🟡 아직 모르는 것", unks: ["집결원 스킬: 정말 스킬 레벨이 먼저인지.", "첸코 4와 첸코 2 + 아마네 2가 실제로 얼마나 차이 나는지.", "\"적군 방어력 저하\" 버프가 곰에게 통하는지.", "비비안의 스킬이 자이언트 베어 사냥에서 효과가 있는지 (외부 시뮬레이션은 가끔 안 된다고 함).", "조이의 두 스킬이 각각 얼마나 손해인지."],
     numH: "🔢 공식이 궁금한 사람용", num: "내 점수 ≈ K × c × Σ (w × n^0.58). K = 집결 대장의 강함 (집결 전체가 공유); c = 내 병력: 병력 등급 × (1 + 베라의 사냥 본능) — 등급과 사냥 본능 레벨이 같은 두 사람은 완전히 같아; w = 병종 가중치 (궁병 1, 기병 0.63, 보병 0.12); n = 그 병종을 보낸 수. 집결 8개의 행군 107개로 맞춤 (11/06, 병력 수는 집결 병력 페이지): 오차 약 8.5% (c 없으면 20%).",
     more: "간부용: 대장 강함과 행군이 점수를 가장 많이 받는 곳 → 🐻 곰 사냥 분석",
-    foot: "출처: 우리 연맹 집결 메일 (1,123 + 함정 1에서 5), 최종 랭킹 (8개: 함정 2 ×6, 함정 1 ×2), 집결 병력 페이지, 버프 페이지, 10/25–11/10. 숫자로 역산한 것이고, 게임 공식 설명 아님." },
+    foot: "출처: 우리 연맹 집결 메일 (1,123 + 함정 1에서 5), 최종 랭킹 (9개: 함정 2 ×7, 함정 1 ×2), 집결 병력 페이지, 버프 페이지, 10/25–11/12. 숫자로 역산한 것이고, 게임 공식 설명 아님." },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
