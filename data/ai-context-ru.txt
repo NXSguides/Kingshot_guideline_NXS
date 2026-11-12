@@ -1715,6 +1715,7 @@ Occupant = Захватчик
 Protection Status = Статус защиты
 Outpost Bonus = Бонус аванпостов
 Incompatible buffs = Несовместимые бонусы
+First control reward for all members = Все участники альянса получат прекрасную награду за первый захват
 Ruins = Руины
 Register now = Зарегистрироваться
 Auto Registration = Авторегистрация

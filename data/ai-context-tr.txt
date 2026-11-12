@@ -1680,6 +1680,7 @@ Occupant = İşgalci
 Protection Status = Koruma Durumu
 Outpost Bonus = Karakol Bonusu
 Incompatible buffs = Bonuslar uyumsuz
+First control reward for all members = Tüm ittifak üyeleri mükemmel bir İlk Kontrol Ödülü alacak
 Ruins = Harabeler
 Register now = Şimdi Kaydol
 Auto Registration = Oto-kaydol
