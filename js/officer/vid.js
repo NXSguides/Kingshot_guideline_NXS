@@ -21,11 +21,6 @@ const V = {
       "Das tropas perdidas por Enfermaria cheia, cerca de 70% voltam aos poucos pelo Escritório de Alistamento.",
       "من القوات المفقودة بسبب امتلاء المستوصف، يمكن استعادة نحو 70% تدريجيًا من مكتب التجنيد.",
       "야전 병원이 꽉 차서 손실된 병력 중 약 70%는 징병소에서 천천히 되찾을 수 있어."),
-    I(`${SL} 2025-06|old`, 0, "When defending a building (Sanctuary, Outpost, King's Castle), lightly injured troops are sent home, so the garrison gets thinner with each attack — refill it between attacks.",
-      "防守建築（遺跡、據點、王城）時，輕傷的兵會被送回城，所以每被打一次駐防就變薄——兩次進攻之間要補兵。",
-      "Ao defender uma construção (Santuário, Posto Avançado, Castelo do Rei), as tropas levemente feridas voltam para casa, então a guarnição afina a cada ataque — reforce entre os ataques.",
-      "عند الدفاع عن مبنى (ملاذ، مستوطنة، قلعة الملك) تُعاد القوات المصابة إصابة طفيفة إلى المدينة، فتضعف الحامية مع كل هجوم — أعد التعزيز بين الهجمات.",
-      "건물(유적, 거점, 왕성)을 지킬 때는 경상 병력이 성으로 돌아가서, 공격받을 때마다 주둔이 얇아져 — 공격 사이에 병력을 채워 줘."),
   ],
   /* ⚔️ Rally & Garrison */
   rg: [
