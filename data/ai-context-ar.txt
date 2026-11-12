@@ -2548,6 +2548,7 @@ Firepower to Win = قوة نارية للنصر
 Commando = المغوار
 Inspiring Mobilization = تعبئة ملهمة
 Squad size limit = حد حجم الفرقة
+Horn of Valor = بوق الشجاعة
 Truegold Crucible = بوتقة الذهب الخالص
 Refine = تكرير
 Remaining today = المتبقي اليوم

@@ -2461,6 +2461,7 @@ Firepower to Win = Potencia de fuego ganadora
 Commando = Comando
 Inspiring Mobilization = Movilización inspiradora
 Squad size limit = límite del tamaño de escuadrón
+Horn of Valor = Cuerno de valentía
 Truegold Crucible = Crisol de Adamantina
 Refine = Refinar
 Remaining today = Restantes hoy

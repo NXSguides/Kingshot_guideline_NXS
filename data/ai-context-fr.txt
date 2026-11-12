@@ -2418,6 +2418,7 @@ Recruiter In Chief = Recruteuse en chef
 Firepower to Win = La puissance pour gagner
 Inspiring Mobilization = Mobilisation inspirante
 Squad size limit = limite de l’escouade
+Horn of Valor = Cor du courage
 Truegold Crucible = Creuset en or véritable
 Refine = Raffiner
 Remaining today = Restant du jour

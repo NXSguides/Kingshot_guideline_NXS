@@ -2568,6 +2568,7 @@ Firepower to Win = 화력 연계
 Commando = 돌격대
 Inspiring Mobilization = 소집령
 Squad size limit = 출정 부대 상한
+Horn of Valor = 돌격 신호
 Truegold Crucible = 순금 용광로
 Refine = 제련
 Remaining today = 오늘 남은 횟수

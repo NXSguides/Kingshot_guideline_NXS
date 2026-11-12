@@ -2409,6 +2409,7 @@ Firepower to Win = Feuerkraft zum Sieg
 Commando = Kommando
 Inspiring Mobilization = Ruf zu den Waffen
 Squad size limit = Schwadronen-Größenlimit
+Horn of Valor = Horn des Muts
 Truegold Crucible = Echtgold Kessel
 Refine = Veredeln
 Remaining today = Heute verbleiben

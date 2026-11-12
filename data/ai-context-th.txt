@@ -2479,6 +2479,7 @@ Firepower to Win = อำนาจการยิงสู่ชัยชนะ
 Commando = หน่วยจู่โจม
 Inspiring Mobilization = คำสั่งเรียกระดมกำลัง
 Squad size limit = ขีดจำกัดขนาดทีม
+Horn of Valor = แตรแห่งความกล้าหาญ
 Truegold Crucible = เบ้าหลอมทรูโกลด์
 Refine = ขัดเกลา
 Remaining today = คงเหลือวันนี้

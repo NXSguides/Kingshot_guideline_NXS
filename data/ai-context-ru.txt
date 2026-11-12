@@ -2487,6 +2487,7 @@ Firepower to Win = Победный огонь
 Commando = Командос
 Inspiring Mobilization = Вдохновляющая мобилизация
 Squad size limit = лимит численности отряда
+Horn of Valor = Рог доблести
 Truegold Crucible = Плавильная печь для аурума
 Refine = Обработать
 Remaining today = Осталось сегодня

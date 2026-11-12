@@ -2551,6 +2551,7 @@ Firepower to Win = 火力連
 Commando = 突擊隊
 Inspiring Mobilization = 徵召令
 Squad size limit = 出征容量
+Horn of Valor = 衝鋒號
 Truegold Crucible = 黃金熔爐
 Refine = 提煉
 Remaining today = 今天剩餘次數

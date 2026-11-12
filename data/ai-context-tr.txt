@@ -2429,6 +2429,7 @@ Firepower to Win = Zafer için Ateş Gücü
 Commando = Komando
 Inspiring Mobilization = İlham Veren Harekat
 Squad size limit = Ekip kapasitesi sınırı
+Horn of Valor = Yiğitlik Borusu
 Truegold Crucible = Hasaltın Potası
 Refine = Arıt
 Remaining today = Bugün kalan
