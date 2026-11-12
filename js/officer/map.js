@@ -1031,6 +1031,8 @@ window.KM_SHARED = {
   others: () => otList().map(([n, x, y]) => [n, x, y, otCol(n)]),
   othersHq: () => otHq().map(([n, x, y]) => [n, x, y, otCol(n)]),   // other alliances' HQs (15×15)
   obst: (x, y) => obstAt(x, y),                // 1 mountain · 2 lake · 0 free
+  outposts: () => B.filter(isOp).map((b) => ({ n: nm(b) + (b.lv ? " Lv." + b.lv : ""), x: b.x, y: b.y, sq: opSq(b), st: eff(b) })),   // 🌾 banner check (members.js): which Outposts our territory touches
+  noBuild: () => B.filter(PLANNABLE).map(opSq),   // no banners inside an Outpost / Fortress / Sanctuary zone
   zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
 };
 const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.refresh(); };

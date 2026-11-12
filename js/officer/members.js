@@ -293,6 +293,9 @@ function draw(boxId = "mm_map") {
     for (const [bx, by, tag] of pb) { const [cx, cy] = P(bx + .5, by + .5), built = own.has(bx + "," + by) || man.has(bx + "," + by), col = TAGC[tagKind(tag)] || "#0b3d91";
       s.push(`<g><polygon points="${poly(bx, by, 1)}" fill="${built ? "#0b3d91" : col}" stroke="${built ? "#8fd19e" : "#fff"}" stroke-width="${built ? 2.4 : 1.2}"/>`
         + (tag ? `<text x="${cx}" y="${cy - 9}" text-anchor="middle" class="mm-tg" style="fill:${built ? "#8fd19e" : "#fff"}">${esc(tag)}</text>` : "") + `<title>${esc(tag || t("banner"))} X:${bx} Y:${by}${built ? " ✅" : ""}</title></g>`); }
+    /* 🌾 banner check preview: ✖ red ring = the plan doesn't need it, orange numbered = suggested extra banner */
+    if (OPT) { for (const [bx, by] of OPT.waste) s.push(`<polygon points="${poly(bx - .4, by - .4, 1.8)}" fill="none" stroke="#ff5252" stroke-width="2.4"><title>${esc(ot("lgW"))} X:${bx} Y:${by}</title></polygon>`);
+      OPT.add.forEach(([bx, by, g], i) => { const [cx, cy] = P(bx + .5, by + .5); s.push(`<g><polygon points="${poly(bx - 3, by - 3, 7)}" fill="#ff980022" stroke="#ff9800" stroke-width="1" stroke-dasharray="4 3"/><polygon points="${poly(bx, by, 1)}" fill="#ff9800" stroke="#fff" stroke-width="1.2"/><text x="${cx}" y="${cy - 9}" text-anchor="middle" class="mm-tg" style="fill:#ffb74d">${i + 1}</text><title>${esc(ot("lgA"))} #${i + 1} X:${bx} Y:${by}${g ? " +" + g : ""}</title></g>`); }); }
     const gone = new Set((MV.st && MV.st.k) || []);
     for (const [bx, by, n] of pk) { const [cx, cy] = P(bx + .5, by + .5);
       s.push(`<text x="${cx}" y="${cy + 6}" text-anchor="middle" class="mm-kill" style="fill:${gone.has(bx + "," + by) ? "#8fd19e" : "#ff6b6b"}">${gone.has(bx + "," + by) ? "✓" : "✖"}<title>${esc(t("stKill"))} ${esc(n)} X:${bx} Y:${by}</title></text>`); }
@@ -346,6 +349,137 @@ function rsSummary() { const PL = MV && MV.plan; if (!PL || !RESN.length) return
   for (const [k] of got) by[k] = (by[k] || 0) + 1;
   const l = ["q", "i", "b", "w"].filter((k) => by[k]).map((k) => `${RS_ICON[k]} ${t("rs" + k)} ${by[k]}`).join(" · ");
   return `<div class="mm-rs">${esc(t("rsSum").replace("{n}", got.length).replace("{l}", l || "—"))}</div>`; }
+
+/* 🌾 Banner check (Sherry 2026-11-12: "no wasted banners, all coverage to Outposts, as many resources as possible — and show what a few
+   more banners would add"). Works on the moving plan only (HQ 15×15 + its banners 7×7); the new home (city spots, Bear Traps, HQ) and
+   the Outposts the plan's territory touches are never given up. 1) banners the plan could drop without losing a city tile, a trap tile,
+   a resource node, an Outpost or a link; 2) where extra banners add the most resource nodes (≥ 3 of 4 tiles), best first.
+   Runs in the browser on the plan that is open — nothing is sent anywhere. */
+const OT = {
+  en: { h: "🌾 Banner check", p: "Uses the plan's HQ and banners. City spots, Bear Traps and the Outposts the plan touches are kept as they are.", run: "🔍 Check banners", busy: "Working…", max: "Extra banners to try", now: "{b} banners · {r} resource nodes · {o} Outposts touched",
+    wH: "✂️ Banners the plan doesn't need ({n})", wP: "Taking these out loses no city spot, Bear Trap, resource node, Outpost or link.", wNone: "✅ No wasted banners.", wDo: "✂️ Take them out of the plan",
+    aH: "➕ Extra banners, best first", aP: "Each row adds one banner. Pick how many you want.", aNone: "No spot nearby adds a resource node.", cols: ["#", "X:Y", "+ nodes", "Total nodes", "Banners"], aDo: "➕ Add the first", aDo2: "to the plan", opt: "Options", optRow: "{k} more banners → {n} more nodes ({t} in all)",
+    oMiss: "⚠️ Outposts we hold that the plan's territory doesn't touch: {l}", cut: "⚠️ {n} plan banners aren't linked to the HQ: {l}", done: "Plan changed — not saved yet.", lgW: "not needed", lgA: "suggested" },
+  zh: { h: "🌾 旗幟檢查", p: "用計畫裡的總部和旗幟來算。城位、熊陷阱，以及計畫領地碰得到的據點都維持不動。", run: "🔍 檢查旗幟", busy: "計算中…", max: "要試幾面額外的旗", now: "{b} 面旗 · {r} 個資源點 · 碰到 {o} 個據點",
+    wH: "✂️ 計畫裡用不到的旗（{n}）", wP: "拿掉這些，不會少任何城位、熊陷阱、資源點、據點，也不會斷線。", wNone: "✅ 沒有浪費的旗。", wDo: "✂️ 從計畫拿掉",
+    aH: "➕ 額外的旗，效果好的排前面", aP: "每一列多一面旗，看你想加到第幾面。", aNone: "附近沒有能多拿資源點的位置。", cols: ["#", "X:Y", "＋資源點", "資源點合計", "旗子合計"], aDo: "➕ 把前", aDo2: "面加進計畫", opt: "選項", optRow: "多 {k} 面旗 → 多 {n} 個資源點（共 {t} 個）",
+    oMiss: "⚠️ 我們佔著、但計畫領地沒碰到的據點：{l}", cut: "⚠️ 計畫裡有 {n} 面旗沒連到總部：{l}", done: "計畫已修改，還沒儲存。", lgW: "用不到", lgA: "建議" },
+  pt: { h: "🌾 Checagem de estandartes", p: "Usa o QG e os estandartes do plano. Lugares das cidades, Armadilhas de Urso e os Postos Avançados que o plano toca ficam como estão.", run: "🔍 Checar estandartes", busy: "Calculando…", max: "Estandartes extras a testar", now: "{b} estandartes · {r} nós de recurso · {o} Postos Avançados tocados",
+    wH: "✂️ Estandartes de que o plano não precisa ({n})", wP: "Tirar estes não perde nenhum lugar de cidade, Armadilha, nó de recurso, Posto Avançado nem ligação.", wNone: "✅ Nenhum estandarte desperdiçado.", wDo: "✂️ Tirar do plano",
+    aH: "➕ Estandartes extras, os melhores primeiro", aP: "Cada linha soma um estandarte. Escolha quantos quer.", aNone: "Nenhum lugar por perto soma um nó de recurso.", cols: ["#", "X:Y", "+ nós", "Total de nós", "Estandartes"], aDo: "➕ Adicionar os primeiros", aDo2: "ao plano", opt: "Opções", optRow: "{k} estandartes a mais → {n} nós a mais ({t} no total)",
+    oMiss: "⚠️ Postos Avançados nossos que o território do plano não toca: {l}", cut: "⚠️ {n} estandartes do plano não estão ligados ao QG: {l}", done: "Plano alterado — ainda não salvo.", lgW: "não precisa", lgA: "sugerido" },
+  ar: { h: "🌾 فحص الرايات", p: "يعتمد على مقر الخطة وراياتها. أماكن المدن وفخاخ الدب والمستوطنات التي تلامسها الخطة تبقى كما هي.", run: "🔍 افحص الرايات", busy: "جارٍ الحساب…", max: "عدد الرايات الإضافية للتجربة", now: "{b} راية · {r} عقدة موارد · {o} مستوطنة ملامَسة",
+    wH: "✂️ رايات لا تحتاجها الخطة ({n})", wP: "إزالتها لا تُفقد أي مكان مدينة أو فخ دب أو عقدة موارد أو مستوطنة أو اتصال.", wNone: "✅ لا رايات مهدرة.", wDo: "✂️ أزلها من الخطة",
+    aH: "➕ رايات إضافية، الأفضل أولًا", aP: "كل سطر يضيف راية واحدة. اختر العدد الذي تريده.", aNone: "لا مكان قريب يضيف عقدة موارد.", cols: ["#", "X:Y", "+ عقد", "مجموع العقد", "الرايات"], aDo: "➕ أضف أول", aDo2: "إلى الخطة", opt: "خيارات", optRow: "{k} رايات إضافية ← {n} عقدة إضافية ({t} في المجموع)",
+    oMiss: "⚠️ مستوطنات نملكها ولا يلامسها إقليم الخطة: {l}", cut: "⚠️ {n} راية في الخطة غير متصلة بالمقر: {l}", done: "تغيّرت الخطة — لم تُحفظ بعد.", lgW: "غير لازمة", lgA: "مقترحة" },
+  ko: { h: "🌾 깃발 점검", p: "계획의 본부와 깃발로 계산해요. 성 자리, 곰 함정, 계획 영지가 닿는 거점은 그대로 둬요.", run: "🔍 깃발 점검", busy: "계산 중…", max: "시험할 추가 깃발 수", now: "깃발 {b}개 · 자원 {r}개 · 닿는 거점 {o}개",
+    wH: "✂️ 계획에 필요 없는 깃발 ({n})", wP: "이 깃발들을 빼도 성 자리, 곰 함정, 자원, 거점, 연결을 잃지 않아요.", wNone: "✅ 낭비되는 깃발이 없어요.", wDo: "✂️ 계획에서 빼기",
+    aH: "➕ 추가 깃발, 효과 좋은 순", aP: "한 줄에 깃발 하나씩 늘어나요. 몇 개까지 넣을지 고르세요.", aNone: "근처에 자원을 더 얻는 자리가 없어요.", cols: ["#", "X:Y", "+ 자원", "자원 합계", "깃발 합계"], aDo: "➕ 앞의", aDo2: "개를 계획에 추가", opt: "선택지", optRow: "깃발 {k}개 추가 → 자원 {n}개 추가 (총 {t}개)",
+    oMiss: "⚠️ 우리가 가진 거점 중 계획 영지가 닿지 않는 곳: {l}", cut: "⚠️ 계획 깃발 {n}개가 본부와 이어지지 않아요: {l}", done: "계획이 바뀌었어요 — 아직 저장 전.", lgW: "불필요", lgA: "제안" } };
+const ot = (k) => (OT[lang] || OT.en)[k] ?? OT.en[k];
+let OPT = null, optMax = 20;
+const OPT_N = 1400, oK = (x, y) => y * OPT_N + x;
+const bSq = ([x, y]) => [x - 3, y - 3, x + 3, y + 3], hSq = ([x, y]) => [x - 6, y - 6, x + 8, y + 8];
+const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => (p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 && y0 <= q1) || (p0 <= x1 && x0 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1);   // overlap or a shared edge
+function optCheck(maxAdd) {
+  const PL = MV.plan, KS = window.KM_SHARED; if (!PL || !(PL.hq || []).length) return null;
+  const oth = new Uint8Array(OPT_N * OPT_N), occ = new Uint8Array(OPT_N * OPT_N);
+  const fill = (g, [x0, y0, x1, y1], v) => { for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) g[oK(i, j)] = v; };
+  if (KS) { for (const [, x, y] of KS.others()) fill(oth, bSq([x, y]), 1); for (const [, x, y] of KS.othersHq()) fill(oth, hSq([x, y]), 1);
+    for (const sq of KS.noBuild()) fill(occ, sq, 1); }
+  for (const [, x, y] of PL.c || []) fill(occ, [x, y, x + 1, y + 1], 1);
+  for (const [x, y] of PL.bt || []) fill(occ, [x, y, x + 2, y + 2], 1);
+  for (const [x, y] of PL.hq) fill(occ, [x, y, x + 2, y + 2], 1);
+  for (const [, x, y] of RESN) fill(occ, [x, y, x + 1, y + 1], 1);
+  const ops = KS ? KS.outposts() : [], hqs = PL.hq.map(hSq);
+  /* state of a banner list: linked banners (chain from the HQ), territory, and what it holds */
+  const allR = hqs.concat((PL.b || []).map(bSq)), BX0 = Math.min(...allR.map((r) => r[0])) - 40, BY0 = Math.min(...allR.map((r) => r[1])) - 40, BX1 = Math.max(...allR.map((r) => r[2])) + 40, BY1 = Math.max(...allR.map((r) => r[3])) + 40;
+  const NEARN = []; RESN.forEach(([, x, y], i) => { if (x >= BX0 && x <= BX1 && y >= BY0 && y <= BY1) NEARN.push(i); });
+  const sT = new Uint8Array(OPT_N * OPT_N), sG = new Uint8Array(OPT_N * OPT_N);
+  const evalSet = (bl, fresh) => {
+    const sq = bl.map(bSq), link = new Uint8Array(bl.length), q = [];
+    sq.forEach((r, i) => { if (hqs.some((h) => sqTouch(h, r))) { link[i] = 1; q.push(i); } });
+    while (q.length) { const a = q.pop(); for (let i = 0; i < sq.length; i++) if (!link[i] && Math.abs(bl[i][0] - bl[a][0]) <= 7 && Math.abs(bl[i][1] - bl[a][1]) <= 7 && sqTouch(sq[a], sq[i])) { link[i] = 1; q.push(i); } }
+    const T = fresh ? new Uint8Array(OPT_N * OPT_N) : sT.fill(0), G = fresh ? new Uint8Array(OPT_N * OPT_N) : sG.fill(0), put = (r) => { const [x0, y0, x1, y1] = r; for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) { G[oK(i, j)] = 1; if (!oth[oK(i, j)]) T[oK(i, j)] = 1; } };
+    hqs.forEach(put); sq.forEach((r, i) => { if (link[i]) put(r); });
+    const cov = (x, y, w) => { let n = 0; for (let j = y; j < y + w; j++) for (let i = x; i < x + w; i++) n += T[oK(i, j)]; return n; };
+    let city = 0, trap = 0; for (const [, x, y] of PL.c || []) city += cov(x, y, 2); for (const [x, y] of PL.bt || []) trap += cov(x, y, 3);
+    const nodes = []; for (const i of NEARN) if (cov(RESN[i][1], RESN[i][2], 2) >= 3) nodes.push(i);
+    const rects = hqs.concat(sq.filter((r, i) => link[i])), op = ops.map((o) => rects.some((r) => sqTouch(o.sq, r)) ? 1 : 0);
+    return { T, G, link, city, trap, nodes, op, nl: link.reduce((a, b) => a + b, 0) };
+  };
+  let bl = (PL.b || []).map((b) => b.slice()), base = evalSet(bl);
+  const cut = bl.filter((b, i) => !base.link[i]);
+  /* 1) wasted: drop one at a time (weakest link first is not needed — any banner whose removal changes nothing) until none is left */
+  const waste = []; const same = (a, b) => a.city === b.city && a.trap === b.trap && a.nodes.length === b.nodes.length && a.op.join("") === b.op.join("");
+  for (let i = bl.length - 1; i >= 0; i--) { if (!base.link[i]) continue; const rest = bl.slice(0, i).concat(bl.slice(i + 1)), e = evalSet(rest);   // one pass is enough: what is needed now stays needed with fewer banners
+    if (same(e, base) && e.nl === base.nl - 1) { waste.push(bl[i]); bl = rest; base = { ...e, link: e.link }; } }
+  base = evalSet(bl, true);
+  /* 2) extra banners, greedy: the spot that completes the most nodes; when no single banner does, the best pair (a step toward a cluster) */
+  const T = base.T, G = base.G, mine = new Uint8Array(RESN.length); base.nodes.forEach((i) => mine[i] = 1);
+  const buck = new Map(); RESN.forEach(([, x, y], i) => { const k = (x >> 3) + "," + (y >> 3); (buck.get(k) || buck.set(k, []).get(k)).push(i); });
+  const near = (x0, y0, x1, y1) => { const out = []; for (let a = (x0 - 1) >> 3; a <= (x1 >> 3); a++) for (let b = (y0 - 1) >> 3; b <= (y1 >> 3); b++) { const l = buck.get(a + "," + b); if (l) for (const i of l) if (!mine[i]) out.push(i); } return out; };
+  const inS = (s, i, j) => i >= s[0] - 3 && i <= s[0] + 3 && j >= s[1] - 3 && j <= s[1] + 3;
+  const gain = (list) => { let x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1; for (const [x, y] of list) { x0 = Math.min(x0, x - 3); y0 = Math.min(y0, y - 3); x1 = Math.max(x1, x + 3); y1 = Math.max(y1, y + 3); }
+    let done = 0, part = 0; for (const n of near(x0, y0, x1, y1)) { const [, x, y] = RESN[n]; let c = 0, add = 0;
+      for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { if (T[oK(i, j)]) c++; else if (!oth[oK(i, j)] && list.some((s) => inS(s, i, j))) { c++; add++; } }
+      if (add) { if (c >= 3) done++; else part += add; } }
+    return done + part / 100; };
+  const free = (x, y) => x > 3 && y > 3 && x < OPT_N - 4 && y < OPT_N - 4 && !occ[oK(x, y)] && !oth[oK(x, y)] && !(KS && KS.obst(x, y));
+  const touchG = (x, y) => { for (let j = y - 4; j <= y + 4; j++) for (let i = x - 4; i <= x + 4; i++) if (!(Math.abs(i - x) === 4 && Math.abs(j - y) === 4) && G[oK(i, j)]) return true; return false; };
+  const used = new Set(bl.map(([x, y]) => x + "," + y)), add = [], tg = new Uint8Array(OPT_N * OPT_N);
+  const touch = (x, y) => { const k = oK(x, y); if (!tg[k]) tg[k] = touchG(x, y) ? 1 : 2; return tg[k] === 1; };
+  const ok = (x, y) => free(x, y) && !used.has(x + "," + y);
+  const place = (x, y) => { used.add(x + "," + y); tg.fill(0); for (let j = y - 3; j <= y + 3; j++) for (let i = x - 3; i <= x + 3; i++) { G[oK(i, j)] = 1; if (!oth[oK(i, j)]) T[oK(i, j)] = 1; }
+    let g = 0; for (const n of near(x - 3, y - 3, x + 3, y + 3)) { const [, nx, ny] = RESN[n]; let c = 0; for (let j = ny; j < ny + 2; j++) for (let i = nx; i < nx + 2; i++) c += T[oK(i, j)]; if (c >= 3) { mine[n] = 1; g++; } }
+    add.push([x, y, g]); };
+  while (add.length < maxAdd) {
+    /* only spots that reach a node we don't hold yet can matter: banner centres within 3–4 tiles of the node */
+    let best = null, bg = 0, pair = null, pg = 0; const seen = new Set();
+    for (const n of NEARN) { if (mine[n]) continue; const [, nx, ny] = RESN[n];
+      for (let y = ny - 3; y <= ny + 4; y++) for (let x = nx - 3; x <= nx + 4; x++) { const k = x + "," + y; if (seen.has(k)) continue; seen.add(k); if (!ok(x, y)) continue;
+        if (touch(x, y)) { const g = gain([[x, y]]); if (g > bg) { bg = g; best = [[x, y]]; } }
+        else if (add.length + 2 <= maxAdd) { const g1 = gain([[x, y]]); if (g1 < 1) continue;   // one linking banner in between
+          let c = null; for (let dy = -7; dy <= 7 && !c; dy++) for (let dx = -7; dx <= 7; dx++) { if ((!dx && !dy) || (Math.abs(dx) === 7 && Math.abs(dy) === 7)) continue; const cx = x + dx, cy = y + dy; if (ok(cx, cy) && touch(cx, cy)) { c = [cx, cy]; break; } }
+          if (c) { const g = gain([c, [x, y]]); if (g > pg) { pg = g; pair = [c, [x, y]]; } } } } }
+    if (bg < 1 && pg >= 1) { best = pair; bg = pg; }
+    else if (pair && pg / 2 > bg) { best = pair; bg = pg; }   // two banners that bring more per banner than the best single one
+    if (!best || bg < 1) break;
+    for (const [x, y] of best) place(x, y);
+  }
+  return { n0: (PL.b || []).length, waste, cut, add, nodes0: base.nodes.length, opT: base.op.reduce((a, b) => a + b, 0),
+    oMiss: ops.filter((o, i) => !base.op[i] && (o.st === "held" || o.st === "vuln" || o.st === "conflict")).map((o) => `${o.n} X:${o.x} Y:${o.y}`) };
+}
+function optCard() {
+  if (!(MV && MV.plan) || !RESN.length) return "";
+  const ed = MED(), o = OPT, xy = (b) => `X:${b[0]} Y:${b[1]}`;
+  let h = `<div class="card" id="mv_opt" style="margin-top:12px"><h3 style="margin:0 0 6px">${esc(ot("h"))}</h3><p class="muted" style="font-size:12.5px;margin:0 0 8px">${esc(ot("p"))}</p>
+    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px">${esc(ot("max"))} <input class="inp" id="mv_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="mv_orun">${esc(ot("run"))}</button></div>`;
+  if (o) { const keep = o.n0 - o.waste.length - o.cut.length;
+    h += `<div class="mm-rs" style="margin-top:10px">${esc(ot("now").replace("{b}", o.n0).replace("{r}", o.nodes0).replace("{o}", o.opT))}</div>`;
+    if (o.cut.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot("cut").replace("{n}", o.cut.length).replace("{l}", o.cut.map(xy).join(" · ")))}</div>`;
+    if (o.oMiss.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot("oMiss").replace("{l}", o.oMiss.join(" · ")))}</div>`;
+    h += o.waste.length ? `<h4 style="margin:12px 0 4px">${esc(ot("wH").replace("{n}", o.waste.length))}</h4><p class="muted" style="font-size:12.5px;margin:0 0 6px">${esc(ot("wP"))}</p><div>${o.waste.map((b) => `<span class="mm-chip">${b[2] ? `<b>${esc(b[2])}</b> ` : ""}${b[0]},${b[1]}</span>`).join(" ")}</div>${ed ? `<button type="button" class="btn small" id="mv_owdo" style="margin-top:6px">${esc(ot("wDo"))}</button>` : ""}`
+      : `<div class="mm-rs" style="margin-top:8px">${esc(ot("wNone"))}</div>`;
+    h += `<h4 style="margin:14px 0 4px">${esc(ot("aH"))}</h4>`;
+    if (!o.add.length) h += `<div class="muted" style="font-size:13px">${esc(ot("aNone"))}</div>`;
+    else { let cum = 0; const rows = o.add.map((b, i) => { cum += b[2]; return [i + 1, b[0] + "," + b[1], b[2], o.nodes0 + cum, keep + i + 1, cum]; });
+      const marks = rows.filter((r, i) => r[2] > 0 && (i === rows.length - 1 || [3, 5, 8, 12, 16, 20, 30, 40, 60, 80].includes(r[0])));
+      h += `<p class="muted" style="font-size:12.5px;margin:0 0 6px">${esc(ot("aP"))}</p><div><b>${esc(ot("opt"))}</b><ul style="margin:4px 0 8px;padding-inline-start:20px">${marks.map((r) => `<li>${esc(ot("optRow").replace("{k}", r[0]).replace("{n}", r[5]).replace("{t}", r[3]))}</li>`).join("")}</ul></div>
+        <div class="bp-tw"><table class="mm-ot"><thead><tr>${ot("cols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2] ? "+" + r[2] : "·"}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("")}</tbody></table></div>
+        ${ed ? `<div class="row" style="gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap"><span>${esc(ot("aDo"))}</span><input class="inp" id="mv_ok" type="number" min="1" max="${o.add.length}" value="${o.add.length}" style="width:64px"><span>${esc(ot("aDo2"))}</span><button type="button" class="btn small primary" id="mv_oado">OK</button></div>` : ""}`; }
+  }
+  return h + `</div>`;
+}
+function bindOpt() {
+  const r = $("mv_orun"); if (!r) return;
+  r.onclick = () => { optMax = Math.max(0, Math.min(80, +$("mv_omax").value || 0)); r.disabled = true; r.textContent = ot("busy");
+    setTimeout(() => { try { OPT = optCheck(optMax); } catch (e) { OPT = null; } render(); renderMove(); const c = $("mv_opt"); if (c) c.scrollIntoView({ block: "nearest" }); }, 30); };
+  if ($("mv_owdo")) $("mv_owdo").onclick = () => { if (!MED() || !OPT) return; const out = new Set(OPT.waste.map(([x, y]) => x + "," + y));
+    MV.plan.b = (MV.plan.b || []).filter(([x, y]) => !out.has(x + "," + y)); OPT = null; mvMsg = ot("done"); render(); renderMove(); mapSync(); };
+  if ($("mv_oado")) $("mv_oado").onclick = () => { if (!MED() || !OPT) return; const k = Math.max(1, Math.min(OPT.add.length, +$("mv_ok").value || 0));
+    MV.plan.b = (MV.plan.b || []).concat(OPT.add.slice(0, k).map(([x, y]) => [x, y])); OPT = null; mvMsg = ot("done"); render(); renderMove(); mapSync(); };
+}
 const VIEW = {};
 /* 🔍 zoom the map (Sherry 2026-11-05): － / ＋ buttons, Ctrl / ⌘ + mouse wheel, two-finger pinch on a phone; stays centred where you look */
 let ZOOM = (() => { try { return Math.min(3, Math.max(0.4, +localStorage.getItem("nxs-mm-zoom") || 1)); } catch (e) { return 1; } })();
@@ -879,6 +1013,7 @@ function renderMove() {
   const ed = MED(), dirty = mvSnap() !== MV_SAVED;
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
   el.innerHTML = `${mpCard()}${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
+    ${optCard()}
     ${adoptCard()}${moveTable()}
     ${ed && MV.plan ? `<div class="mm-add" style="margin-top:12px"><b>${esc(t("addT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("addNote"))}</span>
       <div class="row" style="gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center"><input class="inp" id="mv_an" list="mv_names" placeholder="${esc(t("name"))}" style="width:150px">
@@ -895,6 +1030,7 @@ function renderMove() {
       <span class="muted" style="font-size:12.5px">${esc(mvMsg)}</span></div>
       <div class="muted" style="font-size:12px;margin-top:4px">${esc(t("impNote"))}</div>` : ""}`;
   bindSteps(el); bindMp(el);
+  bindOpt();
   if ($("mm_left")) $("mm_left").onchange = (e) => { onlyLeft = e.target.checked; renderMove(); };
   el.querySelectorAll(".mm-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
   if ($("mv_exp")) $("mv_exp").onclick = exportCsv;
