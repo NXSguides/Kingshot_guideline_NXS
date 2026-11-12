@@ -92,6 +92,7 @@ function render() {
     <div class="ls-leg">${t("leg").map((x, i) => `<span><i class="ls-dot ${CLS[i]}"></i>${esc(x)}</span>`).join("")}</div>
     ${TYPES.map((ty) => `<div class="ls-row"><div class="ls-name"><b>${esc(t("types")[ty.k])}</b>${ty.mid ? `<span class="ls-mid">${esc(t("mid"))}</span>` : ""}</div>${ty.both ? side(ty, "a", 1) : side(ty, "a") + (ty.d ? side(ty, "d") : "")}</div>`).join("")}</div>
   <div class="card"><h3>${esc(t("oH"))}</h3><ul class="ls-ul">${t("o").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+  ${OFFICER.vidCard("ls", lang)}
   <details class="card"><summary><b>${esc(t("howH"))}</b></summary><p class="ls-small" style="margin:8px 0 0">${esc(t("how"))}</p></details>
   `;
 }

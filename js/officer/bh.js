@@ -192,6 +192,7 @@ function render() {
   </div>
   <div class="card"><h3>${esc(t("trendH"))}</h3>
     ${[["trap2", TREND], ["trap1", TREND1]].map(([k, TR]) => { const tmax = Math.max(...TREND1.map((x) => x[2])); return `<h4 style="margin:10px 0 4px">${esc(t(k))}</h4><div class="bh-join">${TR.map(([d, n, v], i) => `<div class="bh-jr bh-tr"><span>${d}</span><div class="bh-jb"><i class="s" style="width:${(v / tmax * 100).toFixed(1)}%"></i></div><b>${v.toFixed(2)}B</b><small class="muted">${esc(t("trendN").replace("{n}", n))}${i ? ` · ${v >= TR[i - 1][2] ? "+" : ""}${((v / TR[i - 1][2] - 1) * 100).toFixed(1)}%` : ""}</small></div>`).join("")}</div>`; }).join("")}</div>
+  ${OFFICER.vidCard("bh", lang)}
   <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="bh-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <details class="card"><summary><b>${esc(t("howH"))}</b></summary>
     <h4 style="margin:12px 0 4px">${esc(t("sqH"))}</h4><p class="bh-p">${esc(t("sqP"))}</p>

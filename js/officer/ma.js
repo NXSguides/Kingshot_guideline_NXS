@@ -135,6 +135,7 @@ function render() {
     <h4 class="ma-h4">${esc(t("skH"))}</h4><div style="overflow-x:auto"><table class="ma-t"><thead><tr>${[t("skCols")[0], t("skCols")[2]].map((c, i) => `<th${i ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${SK.map(([k, tot, per]) => `<tr><td>${esc(t("sks")[k])}</td><td class="n">${esc(per)}</td></tr>`).join("")}</tbody></table></div></div>
   <div class="card"><h3>${esc(t("getH"))}</h3><ul class="ma-ul">${t("get").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+  ${OFFICER.vidCard("ma", lang)}
   <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="ma-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <details class="card"><summary><b>${esc(t("howH"))}</b></summary><ul class="ma-ul" style="margin-top:8px">${t("how").map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
 </details>

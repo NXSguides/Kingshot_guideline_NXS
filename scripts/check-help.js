@@ -50,6 +50,8 @@ const FEATURES = [
   ["Viking report tab (🪓 research)", /🪓 VIKING REPORT tab/, /vv: \[\{ s: "#vv_title", k: "vv01" \}\]/],
   ["Rally & Garrison report (⚔️ research)", /⚔️ RALLY & GARRISON report/, /rg: \[\{ s: "#rg_title", k: "rg01" \}\]/],
   ["Masters report (🎓 research)", /🎓 MASTERS report/, /ma: \[\{ s: "#ma_title", k: "ma01" \}\]/],
+  ["Guide notes tab (📺 research)", /📺 GUIDE NOTES \(🔬 Research sub-tab/, /gn: \[\{ s: "#gn_title", k: "gn01" \}\]/],
+  ["📺 From guide videos cards on research pages", /📺 From guide videos card \(added 2026-11-12/, /Most research pages also have a 📺 From guide videos card/],
   ["Battle losses report (🩹 research)", /🩹 BATTLE LOSSES report/, /ls: \[\{ s: "#ls_title", k: "ls01" \}\]/],
   ["Terror rallies report (🦣 research)", /🦣 TERROR RALLIES report/, /tb: \[\{ s: "#tb_title", k: "tb01" \}\]/],
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],

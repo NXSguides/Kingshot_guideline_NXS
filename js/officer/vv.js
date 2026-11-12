@@ -217,6 +217,7 @@ function render() {
   <div class="card"><h3>${esc(t("tierH"))}</h3><p class="vv-p">${esc(t("tierP"))}</p>
     <div class="vv-tiers">${Object.entries(P).map(([k, v]) => `<div class="vv-tier"><span>${k}</span><div class="vv-tb"><i style="width:${(v / max * 100).toFixed(1)}%"></i></div><b>${v}</b></div>`).join("")}</div>
     <p class="vv-ex">${esc(t("tierEx"))}</p><div class="muted vv-small">${esc(t("tierIX"))}</div></div>
+  ${OFFICER.vidCard("vv", lang)}
   <div class="vv-two">
     <div class="card"><h3>${esc(t("noH"))}</h3><ul class="vv-ul">${t("nos").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
     <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="vv-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>

@@ -22,9 +22,9 @@ const T = {
     gearT: "⚙️ Stats & gear (both sides)", rule: "Strength = (1 + Attack)(1 + Lethality) × (1 + Defense)(1 + Health). +1 point is worth about 1 ÷ (100 + its current %) — so the LOWER stat gives more. Most leaders have Attack / Defense far above Lethality / Health.",
     ordT: "What to raise first", ordAD: ["Infantry Health", "Cavalry / archer Lethality", "Infantry Defense", "Cavalry / archer Attack", "Cavalry Health / Defense (no use)"], ordBear: ["Archer Lethality", "Archer Attack", "Cavalry", "Infantry"],
     ordADl: "⚔️🛡️ Attack & defense leaders", ordBearl: "🐻 Bear lead",
-    srcT: "Where Lethality + Health come from (first)", srcH: ["Source", "Gives", "Note"],
+    mulP: "Attack and Lethality multiply each other, and so do Defense and Health: raise whichever is lower first. For most players that is Lethality and Health — they are harder to raise.", srcT: "Where Lethality + Health come from", srcH: ["Source", "Gives", "Note"],
     src: [["Governor Charms", "That troop's Lethality + Health", "Lv2 12%, Lv3 16% each"], ["Hero Gear", "Helmet, boots = Lethality · Gloves, chest = Health", "Enhance first, then mastery"], ["Widget stats", "That hero's troop Lethality + Health", "First levels need 5, 10, 15 parts — the cheapest 1%"], ["Hero talent", "e.g. all troops Lethality, Health", "Max level and stars"], ["Pets", "Enemy Lethality / Health −", "Weakens the other side"]],
-    src2T: "Attack + Defense (second)", src2: ["Governor Gear", "Hero level & stars (+200% to +444%)", "Research", "Master"],
+    src2T: "Where Attack + Defense come from", src2: ["Governor Gear", "Hero level & stars (+200% to +444%)", "Research", "Master"],
     gearNote: "Hero Gear and Widget stats only count when that hero marches — build the 3 heroes you lead with.",
     whoT: "Who fits which side", whoA: ["Highest board strength (Governor Gear + Hero Gear + Master)", "Offensive-Widget heroes in hand: Amadeus, Petra, Marlin / Rosa"], whoD: ["Big garrison capacity", "Often in our garrisons — and the strongest there", "Defensive-Widget heroes: Jabel, Zoe / Eric, Jaeger"], whoB: "Both: go to the side your already-built Widgets belong to.",
     cards: "🃏 Every hero, rated for each role → Hero Cards", src0: "From our battle reports, Bear analysis, simulations and hero skills (2026-10-31)." },
@@ -44,9 +44,9 @@ const T = {
     gearT: "⚙️ 屬性和裝備（攻守通用）", rule: "戰鬥強度 = (1+攻擊力)(1+殺傷力) × (1+防禦力)(1+生命值)。某一項 +1 個百分點 ≈ 1 ÷ (100 + 目前%)——所以目前越低的那項越划算。大部分隊長的攻擊力、防禦力遠高於殺傷力、生命值。",
     ordT: "先練哪個", ordAD: ["步兵生命值", "騎、弓殺傷力", "步兵防禦力", "騎、弓攻擊力", "騎兵生命值、防禦力（沒用）"], ordBear: ["弓兵殺傷力", "弓兵攻擊力", "騎兵", "步兵"],
     ordADl: "⚔️🛡️ 進攻、防守隊長", ordBearl: "🐻 熊獵隊長",
-    srcT: "殺傷力、生命值從哪裡來（優先）", srcH: ["來源", "給什麼", "說明"],
+    mulP: "攻擊力和殺傷力是相乘的，防禦力和生命值也是：哪一項比較低就先補哪一項。大多數人是殺傷力和生命值比較低——因為它們比較難提升。", srcT: "殺傷力、生命值從哪裡來", srcH: ["來源", "給什麼", "說明"],
     src: [["領主寶石", "該兵種殺傷力＋生命值", "每顆 Lv2 12%、Lv3 16%"], ["英雄裝備", "頭盔、靴子＝殺傷力・手套、胸甲＝生命值", "先強化、再專精鍛造"], ["零件屬性", "該英雄兵種殺傷力＋生命值", "前幾級只要 5、10、15 個零件——每 1% 最便宜"], ["英雄天賦", "例：全體殺傷力、生命值", "滿級滿星"], ["寵物", "對方殺傷力、生命值 −", "讓對方變弱"]],
-    src2T: "攻擊力、防禦力（其次）", src2: ["領主裝備", "英雄等級和星級（+200%～+444%）", "研究", "大師"],
+    src2T: "攻擊力、防禦力從哪裡來", src2: ["領主裝備", "英雄等級和星級（+200%～+444%）", "研究", "大師"],
     gearNote: "英雄裝備和零件屬性只在那位英雄出戰時才算——練自己當隊長時會帶的 3 位。",
     whoT: "誰適合哪邊", whoA: ["排行榜強度最高（領主裝備＋英雄裝備＋大師）", "手上有集結派英雄：阿瑪迪斯、小佩拉、馬林／羅莎"], whoD: ["駐防容量大", "常在駐防裡，而且是最強的", "手上有守城派英雄：潔貝爾、佐伊／艾瑞克、耶格爾"], whoB: "兩邊都一樣：零件已經練了哪一派，就往那一邊走。",
     cards: "🃏 每位英雄在各角色的評分 → 英雄卡", src0: "來自我們的戰報、熊獵分析、模擬和英雄技能（2026-10-31）。" },
@@ -66,9 +66,9 @@ const T = {
     gearT: "⚙️ Atributos e equipamentos (os dois lados)", rule: "Força = (1 + Ataque)(1 + Letalidade) × (1 + Defesa)(1 + Vida). +1 ponto vale cerca de 1 ÷ (100 + o % atual) — o atributo MAIS BAIXO rende mais. A maioria dos líderes tem Ataque / Defesa bem acima de Letalidade / Vida.",
     ordT: "O que subir primeiro", ordAD: ["Vida da infantaria", "Letalidade da cavalaria / arquearia", "Defesa da infantaria", "Ataque da cavalaria / arquearia", "Vida / Defesa da cavalaria (inútil)"], ordBear: ["Letalidade da arquearia", "Ataque da arquearia", "Cavalaria", "Infantaria"],
     ordADl: "⚔️🛡️ Líderes de ataque e defesa", ordBearl: "🐻 Líder do Urso",
-    srcT: "De onde vêm Letalidade + Vida (primeiro)", srcH: ["Fonte", "Dá", "Nota"],
+    mulP: "Ataque e Letalidade se multiplicam, assim como Defesa e Vida: suba primeiro o que estiver mais baixo. Para a maioria são Letalidade e Vida — são mais difíceis de subir.", srcT: "De onde vêm Letalidade + Vida", srcH: ["Fonte", "Dá", "Nota"],
     src: [["Talismã do Governador", "Letalidade + Vida da tropa", "Nv2 12%, Nv3 16% cada"], ["Equip. de Herói", "Elmo, botas = Letalidade · Luvas, peitoral = Vida", "Aprimore primeiro, depois maestria"], ["Atributos da Ferramenta", "Letalidade + Vida da tropa do herói", "Primeiros níveis pedem 5, 10, 15 peças — o 1% mais barato"], ["Talento do herói", "ex.: Letalidade, Vida de todas as tropas", "Nível e estrelas máximos"], ["Mascotes", "Letalidade / Vida do inimigo −", "Enfraquece o outro lado"]],
-    src2T: "Ataque + Defesa (depois)", src2: ["Equipamento do Chefe", "Nível e estrelas do herói (+200% a +444%)", "Pesquisa", "Mestre"],
+    src2T: "De onde vêm Ataque + Defesa", src2: ["Equipamento do Chefe", "Nível e estrelas do herói (+200% a +444%)", "Pesquisa", "Mestre"],
     gearNote: "Equip. de Herói e atributos da Ferramenta só contam quando o herói marcha — evolua os 3 com que você lidera.",
     whoT: "Quem combina com cada lado", whoA: ["Maior força nos rankings (Equipamento do Chefe + Equip. de Herói + Mestre)", "Heróis de Ferramenta ofensiva: Amadeus, Petra, Peixe Marlin / Rosa"], whoD: ["Grande capacidade de guarnição", "Costuma estar nas guarnições — e ser o mais forte lá", "Heróis de Ferramenta defensiva: Jabel, Zoe / Eric, Jaeger"], whoB: "Os dois: vá para o lado das Ferramentas que você já evoluiu.",
     cards: "🃏 Cada herói avaliado por função → Cartas de Heróis", src0: "Dos nossos relatórios de batalha, análise do Urso, simulações e habilidades (31/10/2026)." },
@@ -88,9 +88,9 @@ const T = {
     gearT: "⚙️ الإحصاءات والعتاد (للجهتين)", rule: "القوة = (1 + هجوم)(1 + فتك) × (1 + دفاع)(1 + صحة). نقطة إضافية تساوي تقريبًا 1 ÷ (100 + النسبة الحالية) — فالإحصائية الأقل تعطي أكثر. معظم القادة لديهم هجوم / دفاع أعلى بكثير من الفتك / الصحة.",
     ordT: "ماذا تطوّر أولًا", ordAD: ["صحة المشاة", "فتك الفرسان / الرماة", "دفاع المشاة", "هجوم الفرسان / الرماة", "صحة / دفاع الفرسان (بلا فائدة)"], ordBear: ["فتك الرماة", "هجوم الرماة", "الفرسان", "المشاة"],
     ordADl: "⚔️🛡️ قادة الهجوم والدفاع", ordBearl: "🐻 قائد الدب",
-    srcT: "من أين يأتي الفتك + الصحة (أولًا)", srcH: ["المصدر", "يعطي", "ملاحظة"],
+    mulP: "الهجوم والفتك يتضاعفان معًا، وكذلك الدفاع والصحة: ارفع الأقل منهما أولًا. عند معظم اللاعبين هما الفتك والصحة — لأنهما أصعب في الرفع.", srcT: "من أين يأتي الفتك + الصحة", srcH: ["المصدر", "يعطي", "ملاحظة"],
     src: [["تميمة الحاكم", "فتك + صحة ذلك النوع", "المستوى 2 ‏12%، المستوى 3 ‏16% لكل تميمة"], ["عتاد البطل", "الخوذة والحذاء = فتك · القفازات والدرع = صحة", "التحسين أولًا ثم صقل التخصص"], ["إحصاءات الأجزاء", "فتك + صحة لقوات البطل", "المستويات الأولى تحتاج 5 و10 و15 جزءًا — أرخص 1%"], ["موهبة البطل", "مثل: فتك وصحة كل القوات", "أعلى مستوى ونجوم"], ["الحيوانات الأليفة", "فتك / صحة العدو −", "تُضعف الطرف الآخر"]],
-    src2T: "هجوم + دفاع (ثانيًا)", src2: ["عتاد الحاكم", "مستوى البطل ونجومه (+200% إلى +444%)", "البحث", "المتخصص"],
+    src2T: "من أين يأتي الهجوم + الدفاع", src2: ["عتاد الحاكم", "مستوى البطل ونجومه (+200% إلى +444%)", "البحث", "المتخصص"],
     gearNote: "عتاد البطل وإحصاءات الأجزاء تُحتسب فقط عندما يسير ذلك البطل — طوّر الأبطال الثلاثة الذين تقود بهم.",
     whoT: "من يناسب أي جهة", whoA: ["أعلى قوة في لوحات الترتيب (عتاد الحاكم + عتاد البطل + المتخصص)", "أبطال أجزاء هجومية: أماديوس وبيترا ومارلين / روزا"], whoD: ["سعة حامية كبيرة", "يكون غالبًا في حامياتنا — والأقوى فيها", "أبطال أجزاء دفاعية: جبل وزوي / إيريك وييجر"], whoB: "للجهتين: اذهب إلى جهة الأجزاء التي طوّرتها بالفعل.",
     cards: "🃏 تقييم كل بطل لكل دور ← بطاقات الأبطال", src0: "من تقارير معاركنا وتحليل الدب والمحاكاة ومهارات الأبطال (31/10/2026)." },
@@ -110,9 +110,9 @@ const T = {
     gearT: "⚙️ 능력치와 장비 (공격·방어 공통)", rule: "강도 = (1 + 공격력)(1 + 파괴력) × (1 + 방어력)(1 + HP). +1%p ≈ 1 ÷ (100 + 현재 %) — 낮은 능력치일수록 이득. 대부분 대장은 공격력·방어력이 파괴력·HP보다 훨씬 높아요.",
     ordT: "먼저 올릴 것", ordAD: ["보병 HP", "기병·궁병 파괴력", "보병 방어력", "기병·궁병 공격력", "기병 HP·방어력 (쓸모없음)"], ordBear: ["궁병 파괴력", "궁병 공격력", "기병", "보병"],
     ordADl: "⚔️🛡️ 공격·방어 대장", ordBearl: "🐻 곰 사냥 대장",
-    srcT: "파괴력 + HP는 어디서 (먼저)", srcH: ["출처", "주는 것", "참고"],
+    mulP: "공격력과 파괴력은 서로 곱해지고, 방어력과 HP도 마찬가지야: 더 낮은 쪽부터 올려. 대부분은 파괴력과 HP가 낮아 — 올리기가 더 어렵거든.", srcT: "파괴력 + HP는 어디서", srcH: ["출처", "주는 것", "참고"],
     src: [["영주 보석", "해당 병종 파괴력 + HP", "Lv2 12%, Lv3 16%씩"], ["영웅 장비", "투구·신발 = 파괴력 · 장갑·갑옷 = HP", "강화 먼저, 그다음 마스터리 제작"], ["부속품 능력치", "영웅 병종 파괴력 + HP", "초반 레벨은 5, 10, 15개 — 1%당 가장 저렴"], ["영웅 재능", "예: 전 병종 파괴력, HP", "만렙·만성"], ["펫", "상대 파괴력 / HP −", "상대를 약하게"]],
-    src2T: "공격력 + 방어력 (그다음)", src2: ["영주 장비", "영웅 레벨·성급 (+200%~+444%)", "연구", "거장"],
+    src2T: "공격력 + 방어력은 어디서", src2: ["영주 장비", "영웅 레벨·성급 (+200%~+444%)", "연구", "거장"],
     gearNote: "영웅 장비와 부속품 능력치는 그 영웅이 출전할 때만 계산돼요 — 대장으로 데려갈 3명만 키우세요.",
     whoT: "누가 어느 쪽에 맞나", whoA: ["순위표 강도 최고 (영주 장비 + 영웅 장비 + 거장)", "공격형 부속품 영웅: 아마데우스, 리틀 페라, 마린 / 로사"], whoD: ["방어 용량이 큼", "우리 방어에 자주 들어가고 그 안에서 가장 강함", "방어형 부속품 영웅: 제이벨, 조이 / 에릭, 예거"], whoB: "공통: 이미 키운 부속품이 속한 쪽으로 가세요.",
     cards: "🃏 역할별 영웅 평가 → 영웅 카드", src0: "우리 전투 보고서, 곰 사냥 분석, 시뮬레이션, 영웅 스킬 (2026-10-31)." },
@@ -448,12 +448,14 @@ function render() {
       <tbody>${["inf", "cav", "arc"].map((tr) => `<tr><th>${esc(L.trp[tr])}</th><td>${side("atk", tr)}</td><td>${side("def", tr)}</td></tr>`).join("")}</tbody></table></div></div>
     <p><a class="btn" href="#hr">${esc(HR().link)}</a></p>
     <div class="card"><h3>${esc(L.gearT)}</h3>
+      <p class="gr-vsv" style="margin:0 0 10px">⚖️ ${esc(L.mulP)}</p>
       <h4 class="gr-h4">${esc(L.ordT)}</h4><div class="gr-two"><div><b>${esc(L.ordADl)}</b>${ol(L.ordAD)}</div><div><b>${esc(L.ordBearl)}</b>${ol(L.ordBear)}</div></div>
       <h4 class="gr-h4">${esc(L.srcT)}</h4><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.srcH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${L.src.map(([a, b, c]) => `<tr><th>${esc(a)}</th><td>${esc(b)}</td><td class="muted">${esc(c)}</td></tr>`).join("")}</tbody></table></div>
       <h4 class="gr-h4">${esc(L.src2T)}</h4><div class="gr-tags">${L.src2.map((x) => `<span>${esc(x)}</span>`).join("")}</div></div>
     <div class="card"><h3>${esc(L.whoT)}</h3><div class="gr-two"><div class="gr-who"><b>${esc(L.cmpH[1])}</b>${ul(L.whoA)}</div><div class="gr-who"><b>${esc(L.cmpH[2])}</b>${ul(L.whoD)}</div></div>
-      <div class="gr-vsv" style="margin-top:8px">✅ ${esc(L.whoB)}</div></div>`;
+      <div class="gr-vsv" style="margin-top:8px">✅ ${esc(L.whoB)}</div></div>
+    ${OFFICER.vidCard("growth", lang)}`;
   renderHr();
 }
 /* 🦸 Heroes — its own research tab since 2026-11-05 (Sherry: "Growth got too long, some of it is off topic"): 🛡️ Garrison joiners,
@@ -477,6 +479,7 @@ function renderHr() {
       <div class="gr-tw"><table class="gr-cmp gr-gj"><thead><tr>${L.gjH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${GJ.map(([c, d]) => `<tr><td><div class="gr-chips">${c.map(([id, n]) => chip([id, "", ""]).replace('<span class="gr-pic">', `<span class="gr-pic">${n > 1 ? `<b class="gr-n">×${n}</b>` : ""}`)).join("")}</div></td><td class="gr-gjv">${d ? `−${d}%` : `✅ ${esc(L.gjBest)}`}</td></tr>`).join("")}</tbody></table></div></div>
     ${suHtml(L)}
+    ${OFFICER.vidCard("hr", lang)}
     <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>`;
   cmpWire();
 }

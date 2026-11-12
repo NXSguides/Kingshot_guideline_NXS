@@ -381,6 +381,7 @@
   #pg-ms .ms-dos { margin: 0; padding-inline-start: 1.3em; font-size: 14px; line-height: 1.55; } #pg-ms .ms-dos li { margin: 6px 0; }
   /* 🔬 every research report opens with the same card: 🔎 what we saw, then 💡 suggestions — findings and advice, not orders (Sherry 2026-11-11) */
   .pg .rs-do { border: 1px solid var(--accent); } .pg .rs-do h3 { margin: 0 0 6px; } .pg .rs-do .rs-h2 { margin-top: 16px; }
+  .pg .vid-src { color: var(--text-muted); font-size: 12px; } .pg .vid-p { font-size: 13px; margin: 0 0 8px; }
   .pg .rs-dol { margin: 0; padding-inline-start: 1.3em; font-size: 15px; line-height: 1.55; } .pg .rs-dol li { margin: 6px 0; } .pg .rs-dol li::marker { color: var(--accent); }
   #researchSub a[data-tab="bearplan"] { display: none !important; }   /* 🐻 one Bear page: its reports are the chips inside (OFFICER.bearChips) */
   #pg-bearplan .bp-lg { display: grid; gap: 8px; } #pg-bearplan .bp-lr { display: grid; grid-template-columns: minmax(84px, 30%) 1fr 44px; gap: 2px 10px; align-items: center; font-size: 14px; }
@@ -945,7 +946,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-tb .pg a[href^="#tb"], body.no-ls .pg a[href^="#ls"], body.no-ma .pg a[href^="#ma"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-tb .pg a[href^="#tb"], body.no-ls .pg a[href^="#ls"], body.no-gn .pg a[href^="#gn"], body.no-ma .pg a[href^="#ma"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -1291,6 +1292,7 @@
   <nav class="tabs subtabs" id="researchSub" hidden>
     <a href="#iv" data-tab="iv" hidden>💎 Investment</a>
     <a href="#ma" data-tab="ma" hidden>🎓 Masters</a>
+    <a href="#gn" data-tab="gn" hidden>📺 Guide notes</a>
     <a href="#growth" data-tab="growth" hidden>🧭 Growth</a>
     <a href="#hr" data-tab="hr" hidden>🦸 Heroes</a>
     <a href="#ms" data-tab="ms" hidden>🧳 Migrant Score</a>
@@ -1817,6 +1819,10 @@
   <div class="top"><div><h1 id="ls_title">🩹</h1><div class="muted" id="ls_intro"></div></div></div>
   <div id="ls_root"></div>
 </section>
+<section class="pg" id="pg-gn" hidden>
+  <div class="top"><div><h1 id="gn_title">📺</h1><div class="muted" id="gn_intro"></div></div></div>
+  <div id="gn_root"></div>
+</section>
 <section class="pg" id="pg-ma" hidden>
   <div class="top"><div><h1 id="ma_title">🎓</h1><div class="muted" id="ma_intro"></div></div></div>
   <div id="ma_root"></div>
@@ -1916,6 +1922,7 @@
 <script>window.NXS_MP = "Might" + "Pulse";</script>
 <script src="js/officer-data.js"></script>
 <script src="js/officer/core.js"></script>
+<script src="js/officer/vid.js"></script>
 <script src="js/officer/events.js"></script>
 <script src="js/officer/ranking.js"></script>
 <script src="js/ann-themes.js"></script>
@@ -1942,6 +1949,7 @@
 <script src="js/officer/rg.js"></script>
 <script src="js/officer/tb.js"></script>
 <script src="js/officer/ls.js"></script>
+<script src="js/officer/gn.js"></script>
 <script src="js/officer/ma.js"></script>
 <script src="js/officer/ms.js"></script>
 <script src="js/officer/bh.js"></script>
