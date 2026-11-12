@@ -357,23 +357,23 @@ function rsSummary() { const PL = MV && MV.plan; if (!PL || !RESN.length) return
    a resource node, an Outpost or a link; 2) where extra banners add the most resource nodes (≥ 3 of 4 tiles), best first.
    Runs in the browser on the plan that is open — nothing is sent anywhere. */
 const OT = {
-  en: { h: "🌾 Banner check", p: "Uses the plan's new HQ, the plan's banners and every banner standing on the 🗺️ Map now. City spots, Bear Traps and the Outposts we touch are kept as they are.", run: "🔍 Check banners", busy: "Working…", max: "Extra banners to try", now: "{b} banners ({p} in the plan + {s} standing) · {r} resource nodes · {o} Outposts touched",
+  en: { hN: "🌾 Banner check — the kingdom now", pN: "Uses our HQs and every banner standing on the map now. Members' cities, Bear Traps and the Outposts we touch are kept as they are.", nowN: "{b} banners · {r} resource nodes · {o} Outposts touched", wNH: "🏳️ Standing now, not needed ({n})", aDo2N: "to the 🚩 banner planner", cutN: "⚠️ {n} banners aren't linked to an HQ: {l}", oMissN: "⚠️ Outposts we hold that our territory doesn't touch: {l}", lgN: "On the map: red frame = not needed, orange number = suggested.", h: "🌾 Banner check", p: "Uses the plan's new HQ, the plan's banners and every banner standing on the 🗺️ Map now. City spots, Bear Traps and the Outposts we touch are kept as they are.", run: "🔍 Check banners", busy: "Working…", max: "Extra banners to try", now: "{b} banners ({p} in the plan + {s} standing) · {r} resource nodes · {o} Outposts touched",
     wH: "✂️ In the plan, not needed ({n})", wSH: "🏳️ Standing now, not needed after the move ({n})", wSP: "Take these down in game, then mark them 🗑️ demolished on the 🗺️ Map.", wP: "Taking these out loses no city spot, Bear Trap, resource node, Outpost or link.", wNone: "✅ No wasted banners.", wDo: "✂️ Take them out of the plan",
     aH: "➕ Extra banners, best first", aP: "Each row adds one banner. Pick how many you want.", aNone: "No spot nearby adds a resource node.", cols: ["#", "X:Y", "+ nodes", "Total nodes", "Banners"], aDo: "➕ Add the first", aDo2: "to the plan", opt: "Options", optRow: "{k} more banners → {n} more nodes ({t} in all)",
     oMiss: "⚠️ Outposts we hold that the plan's territory doesn't touch: {l}", cut: "⚠️ {n} plan banners aren't linked to the HQ: {l}", done: "Plan changed — not saved yet.", lgW: "not needed", lgA: "suggested" },
-  zh: { h: "🌾 旗幟檢查", p: "用計畫的新總部、計畫裡的旗，加上 🗺️ 地圖上現在已經蓋好的所有旗來算。城位、熊陷阱，以及我們碰得到的據點都維持不動。", run: "🔍 檢查旗幟", busy: "計算中…", max: "要試幾面額外的旗", now: "{b} 面旗（計畫 {p}＋已蓋好 {s}）· {r} 個資源點 · 碰到 {o} 個據點",
+  zh: { hN: "🌾 旗幟檢查 — 現在的王國", pN: "用我們現在的總部和地圖上已經蓋好的所有旗來算。成員的城、熊陷阱，以及我們碰得到的據點都維持不動。", nowN: "{b} 面旗 · {r} 個資源點 · 碰到 {o} 個據點", wNH: "🏳️ 現在用不到的旗（{n}）", aDo2N: "面加進 🚩 插旗規劃", cutN: "⚠️ 有 {n} 面旗沒連到總部：{l}", oMissN: "⚠️ 我們佔著、但領地沒碰到的據點：{l}", lgN: "地圖上：紅框＝用不到，橘色數字＝建議加的位置。", h: "🌾 旗幟檢查", p: "用計畫的新總部、計畫裡的旗，加上 🗺️ 地圖上現在已經蓋好的所有旗來算。城位、熊陷阱，以及我們碰得到的據點都維持不動。", run: "🔍 檢查旗幟", busy: "計算中…", max: "要試幾面額外的旗", now: "{b} 面旗（計畫 {p}＋已蓋好 {s}）· {r} 個資源點 · 碰到 {o} 個據點",
     wH: "✂️ 計畫裡、用不到的旗（{n}）", wSH: "🏳️ 已經蓋好、搬家後用不到的旗（{n}）", wSP: "這些要在遊戲裡拆，拆完到 🗺️ 地圖標成「🗑️ 已拆除」。", wP: "拿掉這些，不會少任何城位、熊陷阱、資源點、據點，也不會斷線。", wNone: "✅ 沒有浪費的旗。", wDo: "✂️ 從計畫拿掉",
     aH: "➕ 額外的旗，效果好的排前面", aP: "每一列多一面旗，看你想加到第幾面。", aNone: "附近沒有能多拿資源點的位置。", cols: ["#", "X:Y", "＋資源點", "資源點合計", "旗子合計"], aDo: "➕ 把前", aDo2: "面加進計畫", opt: "選項", optRow: "多 {k} 面旗 → 多 {n} 個資源點（共 {t} 個）",
     oMiss: "⚠️ 我們佔著、但計畫領地沒碰到的據點：{l}", cut: "⚠️ 計畫裡有 {n} 面旗沒連到總部：{l}", done: "計畫已修改，還沒儲存。", lgW: "用不到", lgA: "建議" },
-  pt: { h: "🌾 Checagem de estandartes", p: "Usa o QG novo do plano, os estandartes do plano e todos os que já estão de pé no 🗺️ Mapa. Lugares das cidades, Armadilhas de Urso e os Postos Avançados que tocamos ficam como estão.", run: "🔍 Checar estandartes", busy: "Calculando…", max: "Estandartes extras a testar", now: "{b} estandartes ({p} no plano + {s} de pé) · {r} nós de recurso · {o} Postos Avançados tocados",
+  pt: { hN: "🌾 Checagem de estandartes — o reino agora", pN: "Usa os nossos QGs e todos os estandartes de pé no mapa agora. As cidades dos membros, as Armadilhas de Urso e os Postos Avançados que tocamos ficam como estão.", nowN: "{b} estandartes · {r} nós de recurso · {o} Postos Avançados tocados", wNH: "🏳️ De pé agora, sem necessidade ({n})", aDo2N: "ao 🚩 planejador de estandartes", cutN: "⚠️ {n} estandartes não estão ligados a um QG: {l}", oMissN: "⚠️ Postos Avançados nossos que o território não toca: {l}", lgN: "No mapa: moldura vermelha = sem necessidade, número laranja = sugerido.", h: "🌾 Checagem de estandartes", p: "Usa o QG novo do plano, os estandartes do plano e todos os que já estão de pé no 🗺️ Mapa. Lugares das cidades, Armadilhas de Urso e os Postos Avançados que tocamos ficam como estão.", run: "🔍 Checar estandartes", busy: "Calculando…", max: "Estandartes extras a testar", now: "{b} estandartes ({p} no plano + {s} de pé) · {r} nós de recurso · {o} Postos Avançados tocados",
     wH: "✂️ No plano, sem necessidade ({n})", wSH: "🏳️ De pé agora, sem necessidade depois da mudança ({n})", wSP: "Derrube estes no jogo e marque como 🗑️ demolido no 🗺️ Mapa.", wP: "Tirar estes não perde nenhum lugar de cidade, Armadilha, nó de recurso, Posto Avançado nem ligação.", wNone: "✅ Nenhum estandarte desperdiçado.", wDo: "✂️ Tirar do plano",
     aH: "➕ Estandartes extras, os melhores primeiro", aP: "Cada linha soma um estandarte. Escolha quantos quer.", aNone: "Nenhum lugar por perto soma um nó de recurso.", cols: ["#", "X:Y", "+ nós", "Total de nós", "Estandartes"], aDo: "➕ Adicionar os primeiros", aDo2: "ao plano", opt: "Opções", optRow: "{k} estandartes a mais → {n} nós a mais ({t} no total)",
     oMiss: "⚠️ Postos Avançados nossos que o território do plano não toca: {l}", cut: "⚠️ {n} estandartes do plano não estão ligados ao QG: {l}", done: "Plano alterado — ainda não salvo.", lgW: "não precisa", lgA: "sugerido" },
-  ar: { h: "🌾 فحص الرايات", p: "يعتمد على المقر الجديد في الخطة ورايات الخطة وكل الرايات القائمة الآن على 🗺️ الخريطة. أماكن المدن وفخاخ الدب والمستوطنات التي نلامسها تبقى كما هي.", run: "🔍 افحص الرايات", busy: "جارٍ الحساب…", max: "عدد الرايات الإضافية للتجربة", now: "{b} راية ({p} في الخطة + {s} قائمة) · {r} عقدة موارد · {o} مستوطنة ملامَسة",
+  ar: { hN: "🌾 فحص الرايات — المملكة الآن", pN: "يعتمد على مقراتنا وكل الرايات القائمة على الخريطة الآن. مدن الأعضاء وفخاخ الدب والمستوطنات التي نلامسها تبقى كما هي.", nowN: "{b} راية · {r} عقدة موارد · {o} مستوطنة ملامَسة", wNH: "🏳️ قائمة الآن وغير لازمة ({n})", aDo2N: "إلى 🚩 مخطط الرايات", cutN: "⚠️ {n} راية غير متصلة بمقر: {l}", oMissN: "⚠️ مستوطنات نملكها ولا تلامسها أرضنا: {l}", lgN: "على الخريطة: إطار أحمر = غير لازمة، رقم برتقالي = مقترحة.", h: "🌾 فحص الرايات", p: "يعتمد على المقر الجديد في الخطة ورايات الخطة وكل الرايات القائمة الآن على 🗺️ الخريطة. أماكن المدن وفخاخ الدب والمستوطنات التي نلامسها تبقى كما هي.", run: "🔍 افحص الرايات", busy: "جارٍ الحساب…", max: "عدد الرايات الإضافية للتجربة", now: "{b} راية ({p} في الخطة + {s} قائمة) · {r} عقدة موارد · {o} مستوطنة ملامَسة",
     wH: "✂️ في الخطة وغير لازمة ({n})", wSH: "🏳️ قائمة الآن وغير لازمة بعد الانتقال ({n})", wSP: "أزلها في اللعبة ثم علّمها 🗑️ مُزالة على 🗺️ الخريطة.", wP: "إزالتها لا تُفقد أي مكان مدينة أو فخ دب أو عقدة موارد أو مستوطنة أو اتصال.", wNone: "✅ لا رايات مهدرة.", wDo: "✂️ أزلها من الخطة",
     aH: "➕ رايات إضافية، الأفضل أولًا", aP: "كل سطر يضيف راية واحدة. اختر العدد الذي تريده.", aNone: "لا مكان قريب يضيف عقدة موارد.", cols: ["#", "X:Y", "+ عقد", "مجموع العقد", "الرايات"], aDo: "➕ أضف أول", aDo2: "إلى الخطة", opt: "خيارات", optRow: "{k} رايات إضافية ← {n} عقدة إضافية ({t} في المجموع)",
     oMiss: "⚠️ مستوطنات نملكها ولا يلامسها إقليم الخطة: {l}", cut: "⚠️ {n} راية في الخطة غير متصلة بالمقر: {l}", done: "تغيّرت الخطة — لم تُحفظ بعد.", lgW: "غير لازمة", lgA: "مقترحة" },
-  ko: { h: "🌾 깃발 점검", p: "계획의 새 본부, 계획의 깃발, 그리고 지금 🗺️ 지도에 세워져 있는 모든 깃발로 계산해요. 성 자리, 곰 함정, 우리가 닿는 거점은 그대로 둬요.", run: "🔍 깃발 점검", busy: "계산 중…", max: "시험할 추가 깃발 수", now: "깃발 {b}개 (계획 {p} + 세워진 {s}) · 자원 {r}개 · 닿는 거점 {o}개",
+  ko: { hN: "🌾 깃발 점검 — 지금의 왕국", pN: "우리 본부와 지금 지도에 세워져 있는 모든 깃발로 계산해요. 멤버의 성, 곰 함정, 우리가 닿는 거점은 그대로 둬요.", nowN: "깃발 {b}개 · 자원 {r}개 · 닿는 거점 {o}개", wNH: "🏳️ 지금 세워져 있지만 필요 없는 깃발 ({n})", aDo2N: "개를 🚩 깃발 계획에 추가", cutN: "⚠️ 본부에 연결되지 않은 깃발 {n}개: {l}", oMissN: "⚠️ 우리가 가진 거점인데 영지가 닿지 않는 곳: {l}", lgN: "지도: 빨간 테두리 = 필요 없음, 주황 숫자 = 추천 위치.", h: "🌾 깃발 점검", p: "계획의 새 본부, 계획의 깃발, 그리고 지금 🗺️ 지도에 세워져 있는 모든 깃발로 계산해요. 성 자리, 곰 함정, 우리가 닿는 거점은 그대로 둬요.", run: "🔍 깃발 점검", busy: "계산 중…", max: "시험할 추가 깃발 수", now: "깃발 {b}개 (계획 {p} + 세워진 {s}) · 자원 {r}개 · 닿는 거점 {o}개",
     wH: "✂️ 계획에 있지만 필요 없는 깃발 ({n})", wSH: "🏳️ 지금 세워져 있지만 이사 후 필요 없는 깃발 ({n})", wSP: "게임에서 철거한 뒤 🗺️ 지도에서 🗑️ 철거됨으로 표시하세요.", wP: "이 깃발들을 빼도 성 자리, 곰 함정, 자원, 거점, 연결을 잃지 않아요.", wNone: "✅ 낭비되는 깃발이 없어요.", wDo: "✂️ 계획에서 빼기",
     aH: "➕ 추가 깃발, 효과 좋은 순", aP: "한 줄에 깃발 하나씩 늘어나요. 몇 개까지 넣을지 고르세요.", aNone: "근처에 자원을 더 얻는 자리가 없어요.", cols: ["#", "X:Y", "+ 자원", "자원 합계", "깃발 합계"], aDo: "➕ 앞의", aDo2: "개를 계획에 추가", opt: "선택지", optRow: "깃발 {k}개 추가 → 자원 {n}개 추가 (총 {t}개)",
     oMiss: "⚠️ 우리가 가진 거점 중 계획 영지가 닿지 않는 곳: {l}", cut: "⚠️ 계획 깃발 {n}개가 본부와 이어지지 않아요: {l}", done: "계획이 바뀌었어요 — 아직 저장 전.", lgW: "불필요", lgA: "제안" } };
@@ -382,8 +382,9 @@ let OPT = null, optMax = 20;
 const OPT_N = 1400, oK = (x, y) => y * OPT_N + x;
 const bSq = ([x, y]) => [x - 3, y - 3, x + 3, y + 3], hSq = ([x, y]) => [x - 6, y - 6, x + 8, y + 8];
 const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => (p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 && y0 <= q1) || (p0 <= x1 && x0 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1);   // overlap or a shared edge
-function optCheck(maxAdd) {
-  const PL = MV.plan, KS = window.KM_SHARED; if (!PL || !(PL.hq || []).length) return null;
+const curHq = () => ((G && G.hq) || []).map((h) => [h[0], h[1]]);   // our HQs as the 🗺️ Map has them now
+function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, standing banners, members' cities, Bear Traps) instead of the moving plan
+  const KS = window.KM_SHARED, PL = now ? (D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan; if (!PL || !(PL.hq || []).length) return null;
   const oth = new Uint8Array(OPT_N * OPT_N), occ = new Uint8Array(OPT_N * OPT_N);
   const fill = (g, [x0, y0, x1, y1], v) => { for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) g[oK(i, j)] = v; };
   if (KS) { for (const [, x, y] of KS.others()) fill(oth, bSq([x, y]), 1); for (const [, x, y] of KS.othersHq()) fill(oth, hSq([x, y]), 1);
@@ -416,6 +417,7 @@ function optCheck(maxAdd) {
   const waste = []; const same = (a, b) => a.city === b.city && a.trap === b.trap && a.nodes.length === b.nodes.length && a.op.join("") === b.op.join("");
   for (let i = bl.length - 1; i >= 0; i--) { if (!base.link[i]) continue; const rest = bl.slice(0, i).concat(bl.slice(i + 1)), e = evalSet(rest);   // one pass is enough: what is needed now stays needed with fewer banners
     if (same(e, base) && e.nl === base.nl - 1) { waste.push(bl[i]); bl = rest; base = { ...e, link: e.link }; } }
+  const city0 = base.city, cityAll = (PL.c || []).length * 4;
   base = evalSet(bl, true);
   /* 2) extra banners, greedy: the spot that completes the most nodes; when no single banner does, the best pair (a step toward a cluster) */
   const T = base.T, G = base.G, mine = new Uint8Array(RESN.length); base.nodes.forEach((i) => mine[i] = 1);
@@ -449,22 +451,22 @@ function optCheck(maxAdd) {
     if (!best || bg < 1) break;
     for (const [x, y] of best) place(x, y);
   }
-  return { n0: (PL.b || []).length + stand.length, nS: stand.length, waste, cut, add, nodes0: base.nodes.length, opT: base.op.reduce((a, b) => a + b, 0),
+  return { now: !!now, city0, cityAll, n0: (PL.b || []).length + stand.length, nS: stand.length, waste, cut, add, nodes0: base.nodes.length, opT: base.op.reduce((a, b) => a + b, 0),
     oMiss: ops.filter((o, i) => !base.op[i] && (o.st === "held" || o.st === "vuln" || o.st === "conflict")).map((o) => `${o.n} X:${o.x} Y:${o.y}`) };
 }
-function optCard() {
-  if (!(MV && MV.plan) || !RESN.length) return "";
-  const ed = MED(), o = OPT, xy = (b) => `X:${b[0]} Y:${b[1]}`;
-  let h = `<div class="card" id="mv_opt" style="margin-top:12px"><h3 style="margin:0 0 6px">${esc(ot("h"))}</h3><p class="muted" style="font-size:12.5px;margin:0 0 8px">${esc(ot("p"))}</p>
-    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px">${esc(ot("max"))} <input class="inp" id="mv_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="mv_orun">${esc(ot("run"))}</button></div>`;
+function optCard(now) {
+  if (now ? !(D && window.KM_SHARED) : !(MV && MV.plan)) return ""; if (!RESN.length) return "";
+  const ed = now ? OFFICER.can("map", "edit") : MED(), o = now ? OPTN : OPT, xy = (b) => `X:${b[0]} Y:${b[1]}`, P = now ? "kn" : "mv";
+  let h = `<div class="card" id="${P}_opt" style="margin-top:${now ? 14 : 12}px"><h3 style="margin:0 0 6px">${esc(ot(now ? "hN" : "h"))}</h3><p class="muted" style="font-size:12.5px;margin:0 0 8px">${esc(ot(now ? "pN" : "p"))}</p>
+    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px">${esc(ot("max"))} <input class="inp" id="${P}_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="${P}_orun">${esc(ot("run"))}</button></div>`;
   if (o) { const keep = o.n0 - o.waste.length - o.cut.length;
-    h += `<div class="mm-rs" style="margin-top:10px">${esc(ot("now").replace("{b}", o.n0).replace("{p}", o.n0 - o.nS).replace("{s}", o.nS).replace("{r}", o.nodes0).replace("{o}", o.opT))}</div>`;
+    h += `<div class="mm-rs" style="margin-top:10px">${esc(ot(now ? "nowN" : "now").replace("{b}", o.n0).replace("{p}", o.n0 - o.nS).replace("{s}", o.nS).replace("{r}", o.nodes0).replace("{o}", o.opT))}</div>`;
     const wP = o.waste.filter((b) => !b[3]), wS = o.waste.filter((b) => b[3]), chips = (l) => `<div>${l.map((b) => `<span class="mm-chip">${b[2] ? `<b>${esc(b[2])}</b> ` : ""}${b[0]},${b[1]}</span>`).join(" ")}</div>`;
-    if (o.cut.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot("cut").replace("{n}", o.cut.length).replace("{l}", o.cut.map(xy).join(" · ")))}</div>`;
-    if (o.oMiss.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot("oMiss").replace("{l}", o.oMiss.join(" · ")))}</div>`;
+    if (o.cut.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot(now ? "cutN" : "cut").replace("{n}", o.cut.length).replace("{l}", o.cut.map(xy).join(" · ")))}</div>`;
+    if (o.oMiss.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot(now ? "oMissN" : "oMiss").replace("{l}", o.oMiss.join(" · ")))}</div>`;
     h += o.waste.length ? `<p class="muted" style="font-size:12.5px;margin:10px 0 0">${esc(ot("wP"))}</p>`
       + (wP.length ? `<h4 style="margin:10px 0 4px">${esc(ot("wH").replace("{n}", wP.length))}</h4>${chips(wP)}${ed ? `<button type="button" class="btn small" id="mv_owdo" style="margin-top:6px">${esc(ot("wDo"))}</button>` : ""}` : "")
-      + (wS.length ? `<h4 style="margin:10px 0 4px">${esc(ot("wSH").replace("{n}", wS.length))}</h4>${chips(wS)}<p class="muted" style="font-size:12.5px;margin:4px 0 0">${esc(ot("wSP"))}</p>` : "")
+      + (wS.length ? `<h4 style="margin:10px 0 4px">${esc(ot(now ? "wNH" : "wSH").replace("{n}", wS.length))}</h4>${chips(wS)}<p class="muted" style="font-size:12.5px;margin:4px 0 0">${esc(ot("wSP"))}</p>` : "")
       : `<div class="mm-rs" style="margin-top:8px">${esc(ot("wNone"))}</div>`;
     h += `<h4 style="margin:14px 0 4px">${esc(ot("aH"))}</h4>`;
     if (!o.add.length) h += `<div class="muted" style="font-size:13px">${esc(ot("aNone"))}</div>`;
@@ -472,7 +474,8 @@ function optCard() {
       const marks = rows.filter((r, i) => r[2] > 0 && (i === rows.length - 1 || [3, 5, 8, 12, 16, 20, 30, 40, 60, 80].includes(r[0])));
       h += `<p class="muted" style="font-size:12.5px;margin:0 0 6px">${esc(ot("aP"))}</p><div><b>${esc(ot("opt"))}</b><ul style="margin:4px 0 8px;padding-inline-start:20px">${marks.map((r) => `<li>${esc(ot("optRow").replace("{k}", r[0]).replace("{n}", r[5]).replace("{t}", r[3]))}</li>`).join("")}</ul></div>
         <div class="bp-tw"><table class="mm-ot"><thead><tr>${ot("cols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2] ? "+" + r[2] : "·"}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("")}</tbody></table></div>
-        ${ed ? `<div class="row" style="gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap"><span>${esc(ot("aDo"))}</span><input class="inp" id="mv_ok" type="number" min="1" max="${o.add.length}" value="${o.add.length}" style="width:64px"><span>${esc(ot("aDo2"))}</span><button type="button" class="btn small primary" id="mv_oado">OK</button></div>` : ""}`; }
+        ${ed ? `<div class="row" style="gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap"><span>${esc(ot("aDo"))}</span><input class="inp" id="${P}_ok" type="number" min="1" max="${o.add.length}" value="${o.add.length}" style="width:64px"><span>${esc(ot(now ? "aDo2N" : "aDo2"))}</span><button type="button" class="btn small primary" id="${P}_oado">OK</button></div>` : ""}`;
+      if (now) h += `<p class="muted" style="font-size:12.5px;margin:8px 0 0">${esc(ot("lgN"))}</p>`; }
   }
   return h + `</div>`;
 }
@@ -484,6 +487,18 @@ function bindOpt() {
     MV.plan.b = (MV.plan.b || []).filter(([x, y]) => !out.has(x + "," + y)); OPT = null; mvMsg = ot("done"); render(); renderMove(); mapSync(); };
   if ($("mv_oado")) $("mv_oado").onclick = () => { if (!MED() || !OPT) return; const k = Math.max(1, Math.min(OPT.add.length, +$("mv_ok").value || 0));
     MV.plan.b = (MV.plan.b || []).concat(OPT.add.slice(0, k).map(([x, y]) => [x, y])); OPT = null; mvMsg = ot("done"); render(); renderMove(); mapSync(); };
+}
+/* 🌾 the same check on the whole 🗺️ Map, for the kingdom as it stands now (Sherry 2026-11-12): our HQs + every standing banner,
+   members' cities and Bear Traps where they are today; suggestions go into the 🚩 banner planner */
+let OPTN = null;
+function renderOptNow() {
+  const el = $("km_opt"); if (!el) return; el.innerHTML = optCard(true);
+  const KS = window.KM_SHARED; if (KS && KS.optDraw) KS.optDraw(OPTN);
+  const r = $("kn_orun"); if (!r) return;
+  r.onclick = () => { optMax = Math.max(0, Math.min(80, +$("kn_omax").value || 0)); r.disabled = true; r.textContent = ot("busy");
+    setTimeout(() => { try { OPTN = optCheck(optMax, true); } catch (e) { OPTN = null; } renderOptNow(); }, 30); };
+  if ($("kn_oado")) $("kn_oado").onclick = () => { if (!OFFICER.can("map", "edit") || !OPTN || !KS.addPlanned) return; const k = Math.max(1, Math.min(OPTN.add.length, +$("kn_ok").value || 0));
+    KS.addPlanned(OPTN.add.slice(0, k).map(([x, y]) => [x, y])); OPTN.add = OPTN.add.slice(k); renderOptNow(); };
 }
 const VIEW = {};
 /* 🔍 zoom the map (Sherry 2026-11-05): － / ＋ buttons, Ctrl / ⌘ + mouse wheel, two-finger pinch on a phone; stays centred where you look */
@@ -840,7 +855,7 @@ function lists() {
     + (notMap.length ? `<div class="mm-l"><b>${esc(t("notMap"))}</b> ${notMap.map((n) => `<span class="mm-chip">${esc(n)}</span>`).join(" ")}</div>` : "");
 }
 function render() {
-  const el = $("km_members"); if (!el || !D) return;
+  const el = $("km_members"); if (!el || !D) return; renderOptNow();
   const dirty = snap() !== SAVED, ed = ED();
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
   el.innerHTML = `<h3 style="margin:0 0 4px">${esc(t("t"))} <span class="muted" style="font-size:13px;font-weight:400">${D.m.length ? esc(t("count").replace("{n}", D.m.length)) : ""}</span></h3>

@@ -46,7 +46,7 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_otG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_otG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", (e) => { if (!mkFar(e, m)) select(m.dataset.id, false); });
@@ -1034,6 +1034,11 @@ window.KM_SHARED = {
   outposts: () => B.filter(isOp).map((b) => ({ n: nm(b) + (b.lv ? " Lv." + b.lv : ""), x: b.x, y: b.y, sq: opSq(b), st: eff(b) })),   // 🌾 banner check (members.js): which Outposts our territory touches
   noBuild: () => B.filter(PLANNABLE).map(opSq),   // no banners inside an Outpost / Fortress / Sanctuary zone
   zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
+  /* 🌾 banner check on this map (members.js): red frame = standing banner that isn't needed, orange number = suggested spot */
+  optDraw: (o) => { const g = $("km_optG"); if (!g) return; const sq = (x, y) => pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]]);
+    g.innerHTML = !o ? "" : o.waste.map(([x, y]) => `<polygon points="${sq(x, y)}" fill="rgba(230,50,50,.25)" stroke="#e03131" stroke-width=".6"/>`).join("")
+      + o.add.map(([x, y], i) => { const [X, Y] = P(x + .5, y + .5); return `<polygon points="${sq(x, y)}" fill="rgba(255,150,30,.3)" stroke="#ff8c1a" stroke-width=".5"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="2.8" font-weight="800" fill="#fff" stroke="#b35400" stroke-width=".5" paint-order="stroke">${i + 1}</text>`; }).join(""); },
+  addPlanned: (l) => { if (!ME()) return; PLAN.fl = PLAN.fl || []; const have = new Set(PLAN.fl.map(([x, y]) => x + "," + y)); for (const [x, y] of l) if (!have.has(x + "," + y)) PLAN.fl.push([x, y]); flagsChanged(); },
 };
 const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.refresh(); };
 function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }
