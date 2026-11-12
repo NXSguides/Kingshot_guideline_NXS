@@ -394,6 +394,23 @@
   .pg .rs-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
   .pg .rs-chips a { padding: 5px 12px; border-radius: 99px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); text-decoration: none; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
   .pg .rs-chips a.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  /* 🎓 Masters report */
+  #pg-ma .card h3 { margin: 0 0 8px; } #pg-ma .ma-small { font-size: 12.5px; line-height: 1.5; } #pg-ma .ma-h4 { margin: 16px 0 6px; }
+  #pg-ma .ma-t { border-collapse: collapse; font-size: 13.5px; min-width: 300px; } #pg-ma .ma-t th, #pg-ma .ma-t td { padding: 6px 10px; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: middle; }
+  #pg-ma .ma-t th { font-size: 12px; color: var(--text-muted); font-weight: 600; } #pg-ma .ma-t .n { text-align: end; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  #pg-ma .ma-av { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; background: var(--panel-2); flex: none; }
+  #pg-ma .ma-who { display: inline-flex; align-items: center; gap: 6px; margin-inline-end: 10px; white-space: nowrap; } #pg-ma .ma-late .ma-who { opacity: .6; } #pg-ma .ma-late .ma-who b { font-weight: 500; }
+  #pg-ma .ma-role { display: grid; grid-template-columns: minmax(120px, 190px) 1fr; gap: 4px 14px; align-items: center; padding: 8px 0; border-top: 1px solid var(--rule); } #pg-ma .ma-role:first-child { border-top: 0; }
+  @media (max-width: 560px) { #pg-ma .ma-role { grid-template-columns: 1fr; } }
+  #pg-ma .ma-steps { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; } #pg-ma .ma-step { display: inline-flex; align-items: center; gap: 6px; } #pg-ma .ma-step i { font-style: normal; font-size: 11.5px; color: var(--text-muted); }
+  #pg-ma .ma-step .ma-who { margin-inline-end: 0; }
+  #pg-ma .ma-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } @media (max-width: 700px) { #pg-ma .ma-grid { grid-template-columns: 1fr; } }
+  #pg-ma .ma-card { padding: 12px; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--rule); }
+  #pg-ma .ma-top { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; } #pg-ma .ma-pic { width: 76px; height: 76px; border-radius: 14px; object-fit: cover; flex: none; }
+  #pg-ma .ma-name { font-size: 17px; font-weight: 800; line-height: 1.25; } #pg-ma .ma-tag { display: inline-block; margin-top: 4px; font-size: 11.5px; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--rule); }
+  #pg-ma .ma-dl { margin: 0; display: grid; gap: 2px; font-size: 13.5px; line-height: 1.5; } #pg-ma .ma-dl dt { font-size: 11.5px; color: var(--text-muted); margin-top: 6px; } #pg-ma .ma-dl dd { margin: 0; }
+  #pg-ma .ma-use th { text-align: center; } #pg-ma .ma-use th div { font-size: 11.5px; margin-top: 2px; } #pg-ma .ma-use td:not(:first-child) { text-align: center; } #pg-ma .ma-use td.u0 { color: var(--text-muted); }
+  #pg-ma .ma-ul { margin: 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.55; } #pg-ma .ma-ul li { margin: 6px 0; }
   /* 🦣 Terror rallies report */
   #pg-tb { --tb-a: #8a5a2b; --tb-easy: #2f8a4f; --tb-win: #3a6fb0; --tb-hard: #c9862b; --tb-lose: #c4473a; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-tb { --tb-a: #d49a5e; --tb-easy: #5dbb72; --tb-win: #6a9be0; --tb-hard: #e8a04a; --tb-lose: #e0675a; } }
@@ -914,7 +931,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-tb .pg a[href^="#tb"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-tb .pg a[href^="#tb"], body.no-ma .pg a[href^="#ma"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -1259,6 +1276,7 @@
   <!-- 🔬 Research: one main tab, its reports as sub-tabs (each keeps its own 👥 permission and #link) -->
   <nav class="tabs subtabs" id="researchSub" hidden>
     <a href="#iv" data-tab="iv" hidden>💎 Investment</a>
+    <a href="#ma" data-tab="ma" hidden>🎓 Masters</a>
     <a href="#growth" data-tab="growth" hidden>🧭 Growth</a>
     <a href="#hr" data-tab="hr" hidden>🦸 Heroes</a>
     <a href="#ms" data-tab="ms" hidden>🧳 Migrant Score</a>
@@ -1780,6 +1798,10 @@
   <div class="top"><div><h1 id="tb_title">🦣</h1><div class="muted" id="tb_intro"></div></div></div>
   <div id="tb_root"></div>
 </section>
+<section class="pg" id="pg-ma" hidden>
+  <div class="top"><div><h1 id="ma_title">🎓</h1><div class="muted" id="ma_intro"></div></div></div>
+  <div id="ma_root"></div>
+</section>
 <section class="pg" id="pg-rg" hidden>
   <div class="top"><div><h1 id="rg_title">⚔️</h1><div class="muted" id="rg_intro"></div></div></div>
   <div id="rg_root"></div>
@@ -1900,6 +1922,7 @@
 <script src="js/officer/vv.js"></script>
 <script src="js/officer/rg.js"></script>
 <script src="js/officer/tb.js"></script>
+<script src="js/officer/ma.js"></script>
 <script src="js/officer/ms.js"></script>
 <script src="js/officer/bh.js"></script>
 <script src="js/officer/iv.js"></script>

@@ -49,6 +49,7 @@ const FEATURES = [
   ["Ranking: ④ 🔱 TAC plan draft (Teams A–D, 4 stages)", /"🔱 TAC plan draft \(all 4 stages\)" fills it/, /{ s: "#tbCard \[data-act=triDraft\]", k: "rk14t", e: 1 }/],
   ["Viking report tab (🪓 research)", /🪓 VIKING REPORT tab/, /vv: \[\{ s: "#vv_title", k: "vv01" \}\]/],
   ["Rally & Garrison report (⚔️ research)", /⚔️ RALLY & GARRISON report/, /rg: \[\{ s: "#rg_title", k: "rg01" \}\]/],
+  ["Masters report (🎓 research)", /🎓 MASTERS report/, /ma: \[\{ s: "#ma_title", k: "ma01" \}\]/],
   ["Terror rallies report (🦣 research)", /🦣 TERROR RALLIES report/, /tb: \[\{ s: "#tb_title", k: "tb01" \}\]/],
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
   ["Bear analysis tab (🐻 measured, ex Bear plan)", /🐻 BEAR ANALYSIS tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],

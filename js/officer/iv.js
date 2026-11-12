@@ -26,7 +26,7 @@ const gearGems = (i) => gearCoins(i) * 3.2 / (2 * gearPct(i));
 const charmGems = (i) => CHARM[i][0] * 500 * 3.2 / (2 * CHARM[i][1]);   // gems per +1% to one stat of one troop type
 // [key, low, high, kind] — gems per +1% (one troop type, one stat); kind colours the bar; past MAX the bar runs off the end (▶)
 const ROWS = [["c1", 889, 889, "cheap"], ["gg1", 513, 10165, "cheap"], ["res1", 15, 850, "cheap"], ["res4", 1700, 4100, "cheap"], ["en1", 2400, 6200, "cheap"],
-  ["mr", 4000, 40000, "mid"], ["ref", 5600, 20000, "mid"], ["mv", 8333, 83333, "mid"], ["res5", 6300, 15000, "mid"], ["hg1", 11100, 11100, "mid"], ["gg2", 12424, 44844, "mid"],
+  ["mr", 3200, 29600, "mid"], ["ref", 5600, 20000, "mid"], ["mv", 7400, 37000, "mid"], ["res5", 6300, 15000, "mid"], ["hg1", 11100, 11100, "mid"], ["gg2", 12424, 44844, "mid"],
   ["c25", 14700, 20000, "mid"], ["adv", 4700, 67000, "mid"], ["en2", 15500, 55000, "mid"], ["hg2", 22200, 55600, "dear"], ["res6", 26000, 62000, "dear"], ["c6", 40000, 701000, "dear"], ["gg3", 40157, 840727, "dear"]];
 const T = {
   en: { title: "💎 Investment", intro: "",
@@ -286,8 +286,9 @@ function allSteps() {
 const PETADV = [[20, 4700], [30, 9600], [40, 14200, 18100], [50, 23200], [60, 41600], [70, 50000], [80, 67000]];   // Lv70–80 worked out from the pattern, not tested
 // research by tier (gems per 1%, a range: cheapest → dearest node of that tier)
 const RES = [["I–III", 15, 850], ["IV", 1700, 4100], ["V", 6300, 15000], ["VI", 26000, 62000]];
-// Master advancement with Master Emblems: the k-th advancement — Roman ≈ 4,000·k, Valora ≈ 8,300·k gems per 1% (Roman gives Attack + Defense, Valora only Attack)
-const MAS = { r: (k) => 4000 * k, v: (k) => 8333 * k };
+// Master Relationship Advancement with Master Emblems, gems per 1% at the k-th advancement, the whole 10 levels of stats counted (claude/master-report-2026-11-12.md):
+// Roman 8k emblems for 8.1 units (Attack + Defense), Valora 5k for 4.05 (Attack only); the first one as given in the report
+const MAS = { r: (k) => k === 1 ? 3200 : 2963 * k, v: (k) => k === 1 ? 8300 : 3704 * k };
 // Hero Gear enhancement (XP; 100 XP part ≈ 250 Relic Coins) at enhancement level 20 / 40 / 60 / 80 / 100
 const ENH = [[20, 2400], [40, 6200], [60, 15500], [80, 32000], [100, 55000]];
 const enhGems = (e) => { if (e <= ENH[0][0]) return ENH[0][1]; for (let i = 1; i < ENH.length; i++) if (e <= ENH[i][0]) { const [a, ga] = ENH[i - 1], [b, gb] = ENH[i]; return ga + (gb - ga) * (e - a) / (b - a); } return ENH[ENH.length - 1][1]; };
