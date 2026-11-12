@@ -404,8 +404,12 @@ function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, s
     while (q.length) { const a = q.pop(); for (let i = 0; i < sq.length; i++) if (!link[i] && Math.abs(bl[i][0] - bl[a][0]) <= 7 && Math.abs(bl[i][1] - bl[a][1]) <= 7 && sqTouch(sq[a], sq[i])) { link[i] = 1; q.push(i); } }
     /* now: a banner standing in game is linked by definition — our list of standing banners has gaps (part of it is read off the territory picture),
        so instead of "reaches the HQ" we keep the groups as they are: nc = number of separate groups, lone = banners that touch nothing we know */
-    let nc = 0, lone = 0; if (now) { link.fill(1); const all = hqs.concat(sq), n = all.length, c = new Int32Array(n).fill(-1);
-      for (let i = 0; i < n; i++) { if (c[i] >= 0) continue; const st = [i]; c[i] = nc; let m = 1; while (st.length) { const a = st.pop(); for (let j = 0; j < n; j++) if (c[j] < 0 && Math.abs(all[j][0] - all[a][0]) <= 16 && Math.abs(all[j][1] - all[a][1]) <= 16 && sqTouch(all[a], all[j])) { c[j] = nc; m++; st.push(j); } } if (m === 1) lone++; nc++; } }
+    /* counted twice: exact (edge / corner contact) and loose (up to 2 tiles apart) — estimated positions are a tile or two off, so a real
+       chain can look broken in our list (2026-11-12: three banners of a live chain were called "not needed" because the list had a 1-tile gap further on) */
+    let nc = 0, lone = 0; if (now) { link.fill(1); const all = hqs.concat(sq), n = all.length;
+      const grp = (gap) => { const c = new Int32Array(n).fill(-1); let k = 0, l1 = 0;
+        for (let i = 0; i < n; i++) { if (c[i] >= 0) continue; const st = [i]; c[i] = k; let m = 1; while (st.length) { const a = st.pop(), A = all[a]; for (let j = 0; j < n; j++) { if (c[j] >= 0) continue; const B = all[j]; if (B[0] <= A[2] + 1 + gap && A[0] - 1 - gap <= B[2] && B[1] <= A[3] + 1 + gap && A[1] - 1 - gap <= B[3]) { c[j] = k; m++; st.push(j); } } } if (m === 1) l1++; k++; } return [k, l1]; };
+      const a = grp(0), b = grp(2); nc = a[0] * 1000 + b[0]; lone = a[1] * 1000 + b[1]; }
     const T = fresh ? new Uint8Array(OPT_N * OPT_N) : sT.fill(0), G = fresh ? new Uint8Array(OPT_N * OPT_N) : sG.fill(0), put = (r) => { const [x0, y0, x1, y1] = r; for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) { G[oK(i, j)] = 1; if (!oth[oK(i, j)]) T[oK(i, j)] = 1; } };
     hqs.forEach(put); sq.forEach((r, i) => { if (link[i]) put(r); });
     const cov = (x, y, w) => { let n = 0; for (let j = y; j < y + w; j++) for (let i = x; i < x + w; i++) n += T[oK(i, j)]; return n; };
