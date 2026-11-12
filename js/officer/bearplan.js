@@ -380,16 +380,17 @@ function render() {
     <div class="muted" style="font-size:12px">${esc(fill(t("foot"), v))}</div>${importBox()}`;
   bind();
 }
-/* 📥 patch: [{op:"set", path:"leaders.0", value}, {op:"report", id, obs, sug}, {op:"detailRow", row}, {op:"growthCol", match:"2", date, values:{name: n}}] */
+/* 📥 patch: [{op:"set", path:"leaders.0", value}, {op:"report", id, obs, sug}, {op:"detailRow", row}, {op:"growthCol", match:"2", date, values:{name: n}}, {op:"leaders", match:"Trap 1", value}] */
 function applyPatch(base, ops) {
-  const d = JSON.parse(JSON.stringify(base));
+  const d = JSON.parse(JSON.stringify(base)), lc = (v) => String(v).toLowerCase();   // names match whatever the capitals (Scervany = scervany)
   for (const o of ops) {
     if (o.op === "set") { const ks = String(o.path).split("."); let t = d; for (const k of ks.slice(0, -1)) t = t[k]; t[ks[ks.length - 1]] = o.value; }
     else if (o.op === "report") { const r = (d.reports || []).find((x) => x.id === o.id); if (r) { if (o.obs) r.obs = o.obs; if (o.sug) r.sug = o.sug; } }
-    else if (o.op === "detailRow" && d.detail) { const i = d.detail.rows.findIndex((x) => x[0] === o.row[0] && x[1] === o.row[1]); if (i >= 0) d.detail.rows[i] = o.row; else d.detail.rows.push(o.row); }
+    else if (o.op === "leaders") { d.leaders = d.leaders || []; const i = d.leaders.findIndex((x) => JSON.stringify(x.title || "").includes(o.match)); if (i >= 0) d.leaders[i] = o.value; else d.leaders.push(o.value); }   // one trap's leader card, found by its title
+    else if (o.op === "detailRow" && d.detail) { const i = d.detail.rows.findIndex((x) => lc(x[0]) === lc(o.row[0]) && x[1] === o.row[1]); if (i >= 0) d.detail.rows[i] = o.row; else d.detail.rows.push(o.row); }
     else if (o.op === "growthCol") { const g = [].concat(d.growth || []).find((x) => JSON.stringify(x.title || "").includes(o.match)); if (!g) continue;
       let c = g.dates.indexOf(o.date); if (c < 0) { g.dates.push(o.date); c = g.dates.length - 1; g.rows.forEach((x) => { while (x.length < c + 2) x.push(null); }); }
-      for (const [n, v] of Object.entries(o.values)) { let x = g.rows.find((y) => y[0] === n); if (!x) { x = [n]; while (x.length < c + 1) x.push(null); x.push(null); g.rows.push(x); } x[c + 1] = v; } }
+      for (const [n, v] of Object.entries(o.values)) { let x = g.rows.find((y) => lc(y[0]) === lc(n)); if (!x) { x = [n]; while (x.length < c + 1) x.push(null); x.push(null); g.rows.push(x); } x[c + 1] = v; } }
   }
   return d;
 }
