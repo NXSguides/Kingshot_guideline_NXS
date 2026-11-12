@@ -411,6 +411,21 @@
   #pg-ma .ma-dl { margin: 0; display: grid; gap: 2px; font-size: 13.5px; line-height: 1.5; } #pg-ma .ma-dl dt { font-size: 11.5px; color: var(--text-muted); margin-top: 6px; } #pg-ma .ma-dl dd { margin: 0; }
   #pg-ma .ma-use th { text-align: center; } #pg-ma .ma-use th div { font-size: 11.5px; margin-top: 2px; } #pg-ma .ma-use td:not(:first-child) { text-align: center; } #pg-ma .ma-use td.u0 { color: var(--text-muted); }
   #pg-ma .ma-ul { margin: 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.55; } #pg-ma .ma-ul li { margin: 6px 0; }
+  /* 🩹 Battle losses report */
+  #pg-ls { --ls-lost: #c4473a; --ls-inj: #c9862b; --ls-light: #2f8a4f; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-ls { --ls-lost: #e0675a; --ls-inj: #e8a04a; --ls-light: #5dbb72; } }
+  :root[data-theme="dark"] #pg-ls { --ls-lost: #e0675a; --ls-inj: #e8a04a; --ls-light: #5dbb72; }
+  #pg-ls .card h3 { margin: 0 0 8px; } #pg-ls .ls-small { font-size: 12.5px; line-height: 1.5; }
+  #pg-ls .ls-leg { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; margin-bottom: 6px; } #pg-ls .ls-leg span { display: inline-flex; align-items: center; gap: 5px; }
+  #pg-ls .ls-dot { width: 11px; height: 11px; border-radius: 3px; display: inline-block; } #pg-ls .lost { background: var(--ls-lost); } #pg-ls .inj { background: var(--ls-inj); } #pg-ls .light { background: var(--ls-light); }
+  #pg-ls .ls-row { padding: 10px 0; border-top: 1px solid var(--rule); } #pg-ls .ls-name { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 6px; font-size: 14.5px; }
+  #pg-ls .ls-mid { font-size: 11px; padding: 0 7px; border-radius: 99px; border: 1px dashed var(--rule); color: var(--text-muted); }
+  #pg-ls .ls-side { display: grid; grid-template-columns: 74px 1fr; gap: 2px 8px; align-items: center; margin: 4px 0; font-size: 12.5px; } #pg-ls .ls-who { color: var(--text-muted); }
+  #pg-ls .ls-bar { display: flex; height: 22px; border-radius: 6px; overflow: hidden; } #pg-ls .ls-seg { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 700; min-width: 34px; }
+  #pg-ls .ls-full { grid-column: 2; font-size: 12px; color: var(--ls-lost); } #pg-ls .ls-txt { font-size: 13px; }
+  #pg-ls .ls-in { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; } #pg-ls .ls-in label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); } #pg-ls .ls-in input { width: 140px; } #pg-ls .ls-in select { max-width: 100%; }
+  #pg-ls .ls-out { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } #pg-ls .ls-o { padding: 10px 8px; border-radius: 10px; color: #fff; text-align: center; } #pg-ls .ls-o b { display: block; font-size: 19px; font-variant-numeric: tabular-nums; } #pg-ls .ls-o span { font-size: 12px; }
+  #pg-ls .ls-ul { margin: 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.55; } #pg-ls .ls-ul li { margin: 6px 0; }
   /* 🦣 Terror rallies report */
   #pg-tb { --tb-a: #8a5a2b; --tb-easy: #2f8a4f; --tb-win: #3a6fb0; --tb-hard: #c9862b; --tb-lose: #c4473a; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-tb { --tb-a: #d49a5e; --tb-easy: #5dbb72; --tb-win: #6a9be0; --tb-hard: #e8a04a; --tb-lose: #e0675a; } }
@@ -931,7 +946,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-tb .pg a[href^="#tb"], body.no-ma .pg a[href^="#ma"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-tb .pg a[href^="#tb"], body.no-ls .pg a[href^="#ls"], body.no-ma .pg a[href^="#ma"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -1287,6 +1302,7 @@
     <span class="sub-sep" aria-hidden="true"></span>
     <a href="#rg" data-tab="rg" hidden>⚔️ Rally &amp; Garrison</a>
     <a href="#tb" data-tab="tb" hidden>🦣 Terror rallies</a>
+    <a href="#ls" data-tab="ls" hidden>🩹 Battle losses</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <a class="btn" id="gateDiscord" href="#" style="display:block;text-align:center;width:100%;box-sizing:border-box;padding:12px;background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700;text-decoration:none"></a>
@@ -1798,6 +1814,10 @@
   <div class="top"><div><h1 id="tb_title">🦣</h1><div class="muted" id="tb_intro"></div></div></div>
   <div id="tb_root"></div>
 </section>
+<section class="pg" id="pg-ls" hidden>
+  <div class="top"><div><h1 id="ls_title">🩹</h1><div class="muted" id="ls_intro"></div></div></div>
+  <div id="ls_root"></div>
+</section>
 <section class="pg" id="pg-ma" hidden>
   <div class="top"><div><h1 id="ma_title">🎓</h1><div class="muted" id="ma_intro"></div></div></div>
   <div id="ma_root"></div>
@@ -1922,6 +1942,7 @@
 <script src="js/officer/vv.js"></script>
 <script src="js/officer/rg.js"></script>
 <script src="js/officer/tb.js"></script>
+<script src="js/officer/ls.js"></script>
 <script src="js/officer/ma.js"></script>
 <script src="js/officer/ms.js"></script>
 <script src="js/officer/bh.js"></script>
