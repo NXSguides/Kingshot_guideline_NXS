@@ -108,11 +108,6 @@ const V = {
   ],
   /* 💎 Investment */
   iv: [
-    I(`${SL} · Falcon`, 0, "In events, promoting troops always scores more than training for the same time: T10 trained 1,960 points, T1→T10 promoted 1,870, T9→T10 475 (Hall of Heroes).",
-      "活動期間，同樣的時間晉升都比直接訓練分數高：T10 直接訓練 1,960 分、T1→T10 晉升 1,870、T9→T10 475（英雄殿堂）。",
-      "Em eventos, promover tropas sempre pontua mais que treinar no mesmo tempo: T10 treinada 1.960 pontos, T1→T10 promovida 1.870, T9→T10 475 (Hall dos Heróis).",
-      "في الفعاليات، ترقية القوات تعطي نقاطًا أكثر من التدريب في الوقت نفسه دائمًا: تدريب T10 مباشرة 1,960 نقطة، ترقية T1→T10 1,870، وT9→T10 475 (قاعة الأبطال).",
-      "이벤트 중엔 같은 시간이면 진급이 직접 훈련보다 점수가 항상 높아: T10 직접 훈련 1,960점, T1→T10 진급 1,870, T9→T10 475 (영웅의 전당)."),
     I(`${RN} 2025-10`, 0, "Charms Lv5+ and high Governor Gear now level up in 5 small steps with the same total materials — you can stop mid-way and finish on a scoring day.",
       "寶石 Lv5 以上、高階領主裝備改成每級分 5 小段升，總材料不變——可以停在中間，留到計分日再升完。",
       "Talismãs Nv5+ e Equipamento do Chefe alto agora sobem em 5 etapas com o mesmo material total — dá para parar no meio e terminar no dia de pontuação.",
