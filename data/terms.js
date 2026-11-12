@@ -399,7 +399,7 @@ const TERMS = [
    ["Cancel Auto Registration", "取消自動報名", "자동 신청 취소", "Automat. anmelden aufheben", "Annuler Inscription Auto.", "Cancelar a Inscrição Automática", "Oto-Kaydol'u İptal Et", "Batalkan Daftar Otomatis", "Отменить авторегистрацию", "ยกเลิกลงทะเบียนอัตโนมัติ", "إلغاء الاشتراك التلقائي", "Cancelar Inscripción Automática", "Ruins tab."],
    ["Fortress Battle", "—", "—", "Fortkampf", "—", "Batalha da Fortaleza", "—", "—", "—", "—", "معركة حصن", "batalla del fuerte", "Sanctuary Battle rules."],
    ["Rebel Cesares", "切薩雷【叛軍】", "체사레 [반군]", "Rebellen", "—", "Césares Rebeldes", "—", "Para Pemberontak", "—", "พวกกบฏ", "متمردي سيزاريس", "Rebeldes Cesares", "Sanctuary / Fortress garrison ('Controlled by Rebels' = Controlado por Rebeldes)."],
-   ["Sanctuary Teleport", "遺跡遷城", "유적 이전", "—", "—", "Teleporte para o Santuário", "—", "—", "—", "—", "الانتقال الفوري للمأوى", "teletransporte al santuario", "Alliance Tech; usable from 10 min before the battle phase."]
+   ["Sanctuary Teleport", "遺跡遷城", "유적 이전", "Heiligtum-Umsiedlung", "—", "Teleporte para o Santuário", "—", "—", "—", "—", "الانتقال الفوري للمأوى", "teletransporte al santuario", "Alliance Tech; usable from 10 min before the battle phase."]
   ]
  },
  {
