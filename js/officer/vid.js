@@ -16,16 +16,6 @@ const T = {
 const V = {
   /* 🩹 Battle losses */
   ls: [
-    I(`${SL} · ${RN}`, 1, "Normal attacks hit the front line first: infantry, then cavalry, then archers. Only cavalry's Ambusher (from T7, 20% chance) skips infantry and hits archers — so archers falling before infantry means the enemy's Ambusher.",
-      "一般攻擊先打對方最前排：先打步兵，步兵倒光才打騎兵，最後弓兵。只有騎兵的奇襲（T7 起，20%）會跳過步兵直接打弓兵——所以弓兵比步兵先倒，通常是對方奇襲。",
-      "Ataques normais acertam a linha de frente primeiro: infantaria, depois cavalaria, depois arqueiros. Só o Emboscador da cavalaria (a partir de T7, 20%) pula a infantaria e acerta arqueiros — arqueiros caindo antes da infantaria é Emboscador do inimigo.",
-      "الهجمات العادية تضرب الخط الأمامي أولًا: المشاة، ثم الفرسان، ثم الرماة. فقط المتربص لدى الفرسان (من T7، بنسبة 20%) يتخطى المشاة ويضرب الرماة — سقوط الرماة قبل المشاة يعني متربص العدو.",
-      "일반 공격은 맨 앞줄부터 쳐: 보병, 보병이 다 쓰러지면 기병, 마지막에 궁병. 기병의 기습(T7부터, 20%)만 보병을 건너뛰고 궁병을 쳐 — 궁병이 보병보다 먼저 쓰러지면 보통 상대 기습이야."),
-    I(`${RN} · ${SL}`, 1, "More troops help less and less: when you outnumber the enemy, twice the troops gives only about 40% more damage; when you are outnumbered, extra troops help almost fully. One big rally beats two small ones.",
-      "兵多的效果會遞減：兵比對方多時，兵數加倍，傷害只多約四成；兵比對方少時，加兵幾乎等比例變強。所以一大團比兩小團強。",
-      "Mais tropas ajudam cada vez menos: com mais tropas que o inimigo, o dobro dá só cerca de 40% mais dano; com menos, tropas extras ajudam quase por inteiro. Um rally grande vence dois pequenos.",
-      "كثرة القوات تفيد أقل فأقل: إذا كنت أكثر من العدو، فضعف القوات يعطي نحو 40% ضررًا إضافيًا فقط؛ وإذا كنت أقل، تفيد القوات الإضافية بالكامل تقريبًا. حشد كبير أفضل من حشدين صغيرين.",
-      "병력이 많을수록 효율이 줄어: 상대보다 많을 때 병력을 두 배로 해도 피해는 약 40%만 늘고, 상대보다 적을 때는 추가 병력이 거의 그대로 강해져. 그래서 큰 집결 하나가 작은 집결 둘보다 강해."),
     I(`${SL} 2025-08`, 0, "Of the troops lost to a full Infirmary, about 70% can be won back slowly at the Enlistment Office.",
       "野戰醫院滿了變成損失的兵，大約七成可以從徵兵處慢慢補回。",
       "Das tropas perdidas por Enfermaria cheia, cerca de 70% voltam aos poucos pelo Escritório de Alistamento.",
@@ -87,11 +77,6 @@ const V = {
   ],
   /* 🪓 Viking */
   vv: [
-    I("wetcat · " + RN, 1, "Infantry attack first each round. If our infantry clear the Vikings' front line, cavalry and archers hit nothing that turn — that's why they often show 0 kills.",
-      "同一回合步兵先出手。我方步兵先把維京前排打光，騎兵和弓兵這一下就打空——所以它們常常是 0 擊殺。",
-      "A infantaria ataca primeiro a cada rodada. Se ela limpa a linha de frente viking, cavalaria e arqueiros não acertam nada naquele turno — por isso aparecem com 0 abates.",
-      "المشاة يهاجمون أولًا كل جولة. إذا أبادوا خط الفايكنغ الأمامي، لا يصيب الفرسان والرماة شيئًا في ذلك الدور — لهذا يظهرون غالبًا بصفر قتلى.",
-      "매 라운드 보병이 먼저 공격해. 우리 보병이 바이킹 앞줄을 다 쓰러뜨리면 기병·궁병은 그 턴에 허공을 쳐 — 그래서 자주 0킬이야."),
     I(SL, 0, "Waves 7, 14 and 17 skip offline owners, so whoever reinforces them gets nothing that wave — for those waves, reinforce members who are online.",
       "城主離線時，第 7、14、17 波不會打他的城，增援他的人那波也沒分——這三波優先增援在線的人。",
       "As ondas 7, 14 e 17 pulam donos offline, então quem reforça essas cidades não ganha nada nessa onda — nelas, reforce quem está online.",
@@ -115,21 +100,11 @@ const V = {
       "O Urso conta como cerca de 5.000 de infantaria, então os primeiros milhares de cada tipo valem mais — por isso mandar zero de um tipo custa tanto.",
       "الدب يُحسب كنحو 5,000 جندي مشاة، لذلك الآلاف الأولى من كل نوع هي الأهم — ولهذا يكلف إرسال صفر من نوع واحد كثيرًا.",
       "곰은 보병 약 5,000명으로 계산돼서, 병종마다 처음 몇천 명이 가장 효과가 커 — 그래서 한 병종을 0으로 보내면 많이 손해야."),
-    I(SL, 1, "Around the best mix there's a wide area above 90%: 10/30/60 is about 99%, 10/10/80 about 90%. No need to be exact.",
-      "最佳比例附近一大片都有 90% 以上：10/30/60 約 99%、10/10/80 約 90%，不用追求精確。",
-      "Em volta da melhor mistura há uma área grande acima de 90%: 10/30/60 dá cerca de 99%, 10/10/80 cerca de 90%. Não precisa ser exato.",
-      "حول أفضل خليط منطقة واسعة فوق 90%: 10/30/60 نحو 99%، و10/10/80 نحو 90%. لا داعي للدقة.",
-      "최적 비율 근처는 넓게 90% 이상이야: 10/30/60은 약 99%, 10/10/80은 약 90%. 정확할 필요 없어."),
     I(`${RN} 2026-07`, 0, "A fully enhanced Trap Enhancement gives the whole alliance +25% Attack in Bear Hunt — worth checking before the hunt.",
       "陷阱強化滿級時，狩獵巨熊期間全聯盟攻擊 +25%——開打前值得確認。",
       "O Aprimoramento da Armadilha no máximo dá +25% de Ataque para toda a aliança na Caça ao Urso — vale conferir antes.",
       "تحسين الفخ في أقصى مستوى يعطي التحالف كله +25% هجوم في صيد الدببة — يستحق التحقق قبل الصيد.",
       "함정 강화가 만렙이면 자이언트 베어 사냥 동안 연맹 전체 공격력 +25% — 시작 전에 확인할 만해."),
-    I(`${SL} · WOSKing`, 1, "The 4 joiner skills are picked by skill level, not by what they do; at the same level, by join order. A wrong first hero can push a good skill out.",
-      "4 個加入者技能只看技能等級，不看是什麼技能；同等級看加入順序。第一位放錯英雄，可能把好技能擠掉。",
-      "As 4 habilidades de participante são escolhidas pelo nível, não pelo efeito; no mesmo nível, pela ordem de entrada. Um primeiro herói errado pode tirar uma habilidade boa.",
-      "مهارات المنضمّين الأربع تُختار حسب مستوى المهارة لا حسب تأثيرها؛ وعند التساوي حسب ترتيب الانضمام. بطل أول خاطئ قد يُخرج مهارة جيدة.",
-      "집결원 스킬 4칸은 스킬 내용이 아니라 스킬 레벨로 뽑혀; 같은 레벨이면 참여 순서. 첫 번째 영웅을 잘못 넣으면 좋은 스킬이 밀려날 수 있어."),
     I(`${RN} · ${SL} 2025-07`, 0, "Short on archers: 10/20/70 or 10/30/60 is still better than keeping troops home. In a strong rally with room, joiners can go up to 85–90% archers.",
       "弓兵不夠時，10/20/70 或 10/30/60 也比把兵留在家好。強團有空位時，加入者弓兵到 85–90% 也可以。",
       "Com poucos arqueiros, 10/20/70 ou 10/30/60 ainda é melhor que deixar tropas em casa. Num rally forte com vaga, participantes podem ir até 85–90% de arqueiros.",
@@ -138,11 +113,6 @@ const V = {
   ],
   /* 💎 Investment */
   iv: [
-    I(`${SL} 2026-02`, 0, "Attack and Lethality multiply each other, and so do Defense and Health: the same +20% helps more on whichever is lower.",
-      "攻擊和殺傷是相乘的，防禦和生命也是：同樣加 20%，加在比較低的那一項效果比較大。",
-      "Ataque e Letalidade se multiplicam, assim como Defesa e Vida: o mesmo +20% ajuda mais no que estiver mais baixo.",
-      "الهجوم وقوة الفتك يتضاعفان معًا، وكذلك الدفاع والصحة: نفس +20% يفيد أكثر في الأقل منهما.",
-      "공격과 파괴는 서로 곱해지고, 방어와 생명도 마찬가지야: 같은 +20%라도 더 낮은 쪽에 넣는 게 효과가 커."),
     I(`${SL} · Falcon`, 0, "In events, promoting troops always scores more than training for the same time: T10 trained 1,960 points, T1→T10 promoted 1,870, T9→T10 475 (Hall of Heroes).",
       "活動期間，同樣的時間晉升都比直接訓練分數高：T10 直接訓練 1,960 分、T1→T10 晉升 1,870、T9→T10 475（英雄殿堂）。",
       "Em eventos, promover tropas sempre pontua mais que treinar no mesmo tempo: T10 treinada 1.960 pontos, T1→T10 promovida 1.870, T9→T10 475 (Hall dos Heróis).",
@@ -357,7 +327,7 @@ const NOTE = { old: G("may be outdated", "可能已過時", "pode estar desatual
 const srcTx = (src, lang) => { const [a, k] = src.split("|"); return k ? `${a} (${tx(NOTE[k], lang)})` : a; };
 const li = (x, lang) => `<li>${esc(tx(x.t, lang))} <small class="vid-src">— ${esc(srcTx(x.src, lang))}${x.ok ? ` · ${esc((T[lang] || T.en).ok)}` : ""}</small></li>`;
 OFFICER.vidCard = (page, lang) => { const L = T[lang] || T.en, items = V[page] || []; if (!items.length) return "";
-  return `<div class="card vid"><h3>${esc(L.h)}</h3><p class="muted vid-p">${esc(L.p)}</p><ul class="rs-dol">${items.map((x) => li(x, lang)).join("")}</ul></div>`; };
+  return `<div class="card vid"><h3>${esc(L.h)}</h3><ul class="rs-dol">${items.map((x) => li(x, lang)).join("")}</ul></div>`; };
 OFFICER.vidNotes = (lang) => GN.map((g) => `<div class="card"><h3>${esc(tx(g.h, lang))}</h3><ul class="rs-dol">${g.items.map((x) => li(x, lang)).join("")}</ul></div>`).join("");
 OFFICER.vidIntro = (lang) => (T[lang] || T.en).p;
 })();

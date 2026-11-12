@@ -15,7 +15,7 @@ const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 function render() {
   const root = $("gn_root"); if (!root) return;
   root.innerHTML = `<div class="muted" style="font-size:12.5px;margin:2px 0 10px">${esc(t("badge"))}</div>
-  <div class="card rs-do"><p style="margin:0">${esc(t("lead"))}</p><p class="muted vid-p" style="margin:8px 0 0">${esc(OFFICER.vidIntro(lang))}</p></div>
+  <div class="card rs-do"><p style="margin:0">${esc(t("lead"))}</p></div>
   ${OFFICER.vidNotes(lang)}`;
 }
 function applyTexts() { if ($("gn_title")) { $("gn_title").textContent = t("title"); $("gn_intro").textContent = ""; } }
