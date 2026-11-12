@@ -826,6 +826,7 @@ function flagCalc() {
     // in-game rules 3–4: a banner's territory must border (share an edge with) territory that already reaches the HQ
     if (!conn) for (let x = fx - FR; x <= fx + FR && !conn; x++) for (const y of [fy - FR - 1, fy + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
     if (!conn) for (let y = fy - FR; y <= fy + FR && !conn; y++) for (const x of [fx - FR - 1, fx + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
+    if (!conn) for (const x of [fx - FR - 1, fx + FR + 1]) for (const y of [fy - FR - 1, fy + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;   // meeting at a corner is enough (seen in game, 2026-11-12)
     if (conn) fresh.forEach(([x, y]) => mine.add(x * FN + y));   // a cut-off banner is inactive: later banners can't lean on it
     out.push({ x: fx, y: fy, fresh, lost, conn, onOther: own(fx, fy) === 2, ob: obstAt(fx, fy), zone: ZNAME[zoneAt(fx, fy)] || "" });
   }
@@ -1032,7 +1033,8 @@ window.KM_SHARED = {
   othersHq: () => otHq().map(([n, x, y]) => [n, x, y, otCol(n)]),   // other alliances' HQs (15×15)
   obst: (x, y) => obstAt(x, y),                // 1 mountain · 2 lake · 0 free
   outposts: () => B.filter(isOp).map((b) => ({ n: nm(b) + (b.lv ? " Lv." + b.lv : ""), x: b.x, y: b.y, sq: opSq(b), st: eff(b) })),   // 🌾 banner check (members.js): which Outposts our territory touches
-  noBuild: () => B.filter(PLANNABLE).map(opSq),   // no banners inside an Outpost / Fortress / Sanctuary zone
+  noBuild: () => B.filter(PLANNABLE).map(opSq),
+  bigZones: () => B.filter((b) => b.kind === "fortress" || b.kind === "sanctuary").map((b) => ({ n: nm(b), x: b.x, y: b.y, sq: [b.x - 27, b.y - 27, b.x + 32, b.y + 32], st: "", big: 1 })),   // 60×60 no-build zone: a banner chain that reaches it is kept   // no banners inside an Outpost / Fortress / Sanctuary zone
   zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
   /* 🌾 banner check on this map (members.js): red frame = standing banner that isn't needed, orange number = suggested spot */
   optDraw: (o) => { const g = $("km_optG"); if (!g) return; const sq = (x, y) => pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]]);

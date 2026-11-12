@@ -357,23 +357,23 @@ function rsSummary() { const PL = MV && MV.plan; if (!PL || !RESN.length) return
    a resource node, an Outpost or a link; 2) where extra banners add the most resource nodes (≥ 3 of 4 tiles), best first.
    Runs in the browser on the plan that is open — nothing is sent anywhere. */
 const OT = {
-  en: { hN: "🌾 Banner check — the kingdom now", pN: "Uses our HQs and every banner standing on the map now. Members' cities, Bear Traps and the Outposts we touch are kept as they are.", nowN: "{b} banners · {r} resource nodes · {o} Outposts touched", wNH: "🏳️ Standing now, not needed ({n})", aDo2N: "to the 🚩 banner planner", cutN: "⚠️ {n} banners aren't linked to an HQ: {l}", oMissN: "⚠️ Outposts we hold that our territory doesn't touch: {l}", lgN: "On the map: red frame = not needed, orange number = suggested.", h: "🌾 Banner check", p: "Uses the plan's new HQ, the plan's banners and every banner standing on the 🗺️ Map now. City spots, Bear Traps and the Outposts we touch are kept as they are.", run: "🔍 Check banners", busy: "Working…", max: "Extra banners to try", now: "{b} banners ({p} in the plan + {s} standing) · {r} resource nodes · {o} Outposts touched",
+  en: { hN: "🌾 Banner check — the kingdom now", pN: "Uses our HQs and every banner standing on the map now. Members' cities, Bear Traps and the Outposts we touch are kept as they are, and so is every link between banners. Some banner positions are read off the territory picture, so check the result in game.", nowN: "{b} banners · {r} resource nodes · {o} Outposts touched", wNH: "🏳️ Standing now, not needed ({n})", aDo2N: "to the 🚩 banner planner", cutN: "⚠️ {n} banners aren't linked to an HQ: {l}", oMissN: "⚠️ Outposts we hold that our territory doesn't touch: {l}", lgN: "On the map: red frame = not needed, orange number = suggested.", h: "🌾 Banner check", p: "Uses the plan's new HQ, the plan's banners and every banner standing on the 🗺️ Map now. City spots, Bear Traps and the Outposts we touch are kept as they are.", run: "🔍 Check banners", busy: "Working…", max: "Extra banners to try", now: "{b} banners ({p} in the plan + {s} standing) · {r} resource nodes · {o} Outposts touched",
     wH: "✂️ In the plan, not needed ({n})", wSH: "🏳️ Standing now, not needed after the move ({n})", wSP: "Take these down in game, then mark them 🗑️ demolished on the 🗺️ Map.", wP: "Taking these out loses no city spot, Bear Trap, resource node, Outpost or link.", wNone: "✅ No wasted banners.", wDo: "✂️ Take them out of the plan",
     aH: "➕ Extra banners, best first", aP: "Each row adds one banner. Pick how many you want.", aNone: "No spot nearby adds a resource node.", cols: ["#", "X:Y", "+ nodes", "Total nodes", "Banners"], aDo: "➕ Add the first", aDo2: "to the plan", opt: "Options", optRow: "{k} more banners → {n} more nodes ({t} in all)",
     oMiss: "⚠️ Outposts we hold that the plan's territory doesn't touch: {l}", cut: "⚠️ {n} plan banners aren't linked to the HQ: {l}", done: "Plan changed — not saved yet.", lgW: "not needed", lgA: "suggested" },
-  zh: { hN: "🌾 旗幟檢查 — 現在的王國", pN: "用我們現在的總部和地圖上已經蓋好的所有旗來算。成員的城、熊陷阱，以及我們碰得到的據點都維持不動。", nowN: "{b} 面旗 · {r} 個資源點 · 碰到 {o} 個據點", wNH: "🏳️ 現在用不到的旗（{n}）", aDo2N: "面加進 🚩 插旗規劃", cutN: "⚠️ 有 {n} 面旗沒連到總部：{l}", oMissN: "⚠️ 我們佔著、但領地沒碰到的據點：{l}", lgN: "地圖上：紅框＝用不到，橘色數字＝建議加的位置。", h: "🌾 旗幟檢查", p: "用計畫的新總部、計畫裡的旗，加上 🗺️ 地圖上現在已經蓋好的所有旗來算。城位、熊陷阱，以及我們碰得到的據點都維持不動。", run: "🔍 檢查旗幟", busy: "計算中…", max: "要試幾面額外的旗", now: "{b} 面旗（計畫 {p}＋已蓋好 {s}）· {r} 個資源點 · 碰到 {o} 個據點",
+  zh: { hN: "🌾 旗幟檢查 — 現在的王國", pN: "用我們現在的總部和地圖上已經蓋好的所有旗來算。成員的城、熊陷阱，以及我們碰得到的據點都維持不動，旗跟旗之間的連接也不會斷。部分旗的位置是從領地圖估的，結果請對照遊戲。", nowN: "{b} 面旗 · {r} 個資源點 · 碰到 {o} 個據點", wNH: "🏳️ 現在用不到的旗（{n}）", aDo2N: "面加進 🚩 插旗規劃", cutN: "⚠️ 有 {n} 面旗沒連到總部：{l}", oMissN: "⚠️ 我們佔著、但領地沒碰到的據點：{l}", lgN: "地圖上：紅框＝用不到，橘色數字＝建議加的位置。", h: "🌾 旗幟檢查", p: "用計畫的新總部、計畫裡的旗，加上 🗺️ 地圖上現在已經蓋好的所有旗來算。城位、熊陷阱，以及我們碰得到的據點都維持不動。", run: "🔍 檢查旗幟", busy: "計算中…", max: "要試幾面額外的旗", now: "{b} 面旗（計畫 {p}＋已蓋好 {s}）· {r} 個資源點 · 碰到 {o} 個據點",
     wH: "✂️ 計畫裡、用不到的旗（{n}）", wSH: "🏳️ 已經蓋好、搬家後用不到的旗（{n}）", wSP: "這些要在遊戲裡拆，拆完到 🗺️ 地圖標成「🗑️ 已拆除」。", wP: "拿掉這些，不會少任何城位、熊陷阱、資源點、據點，也不會斷線。", wNone: "✅ 沒有浪費的旗。", wDo: "✂️ 從計畫拿掉",
     aH: "➕ 額外的旗，效果好的排前面", aP: "每一列多一面旗，看你想加到第幾面。", aNone: "附近沒有能多拿資源點的位置。", cols: ["#", "X:Y", "＋資源點", "資源點合計", "旗子合計"], aDo: "➕ 把前", aDo2: "面加進計畫", opt: "選項", optRow: "多 {k} 面旗 → 多 {n} 個資源點（共 {t} 個）",
     oMiss: "⚠️ 我們佔著、但計畫領地沒碰到的據點：{l}", cut: "⚠️ 計畫裡有 {n} 面旗沒連到總部：{l}", done: "計畫已修改，還沒儲存。", lgW: "用不到", lgA: "建議" },
-  pt: { hN: "🌾 Checagem de estandartes — o reino agora", pN: "Usa os nossos QGs e todos os estandartes de pé no mapa agora. As cidades dos membros, as Armadilhas de Urso e os Postos Avançados que tocamos ficam como estão.", nowN: "{b} estandartes · {r} nós de recurso · {o} Postos Avançados tocados", wNH: "🏳️ De pé agora, sem necessidade ({n})", aDo2N: "ao 🚩 planejador de estandartes", cutN: "⚠️ {n} estandartes não estão ligados a um QG: {l}", oMissN: "⚠️ Postos Avançados nossos que o território não toca: {l}", lgN: "No mapa: moldura vermelha = sem necessidade, número laranja = sugerido.", h: "🌾 Checagem de estandartes", p: "Usa o QG novo do plano, os estandartes do plano e todos os que já estão de pé no 🗺️ Mapa. Lugares das cidades, Armadilhas de Urso e os Postos Avançados que tocamos ficam como estão.", run: "🔍 Checar estandartes", busy: "Calculando…", max: "Estandartes extras a testar", now: "{b} estandartes ({p} no plano + {s} de pé) · {r} nós de recurso · {o} Postos Avançados tocados",
+  pt: { hN: "🌾 Checagem de estandartes — o reino agora", pN: "Usa os nossos QGs e todos os estandartes de pé no mapa agora. As cidades dos membros, as Armadilhas de Urso e os Postos Avançados que tocamos ficam como estão, assim como cada ligação entre estandartes. Algumas posições vêm da imagem do território, então confira o resultado no jogo.", nowN: "{b} estandartes · {r} nós de recurso · {o} Postos Avançados tocados", wNH: "🏳️ De pé agora, sem necessidade ({n})", aDo2N: "ao 🚩 planejador de estandartes", cutN: "⚠️ {n} estandartes não estão ligados a um QG: {l}", oMissN: "⚠️ Postos Avançados nossos que o território não toca: {l}", lgN: "No mapa: moldura vermelha = sem necessidade, número laranja = sugerido.", h: "🌾 Checagem de estandartes", p: "Usa o QG novo do plano, os estandartes do plano e todos os que já estão de pé no 🗺️ Mapa. Lugares das cidades, Armadilhas de Urso e os Postos Avançados que tocamos ficam como estão.", run: "🔍 Checar estandartes", busy: "Calculando…", max: "Estandartes extras a testar", now: "{b} estandartes ({p} no plano + {s} de pé) · {r} nós de recurso · {o} Postos Avançados tocados",
     wH: "✂️ No plano, sem necessidade ({n})", wSH: "🏳️ De pé agora, sem necessidade depois da mudança ({n})", wSP: "Derrube estes no jogo e marque como 🗑️ demolido no 🗺️ Mapa.", wP: "Tirar estes não perde nenhum lugar de cidade, Armadilha, nó de recurso, Posto Avançado nem ligação.", wNone: "✅ Nenhum estandarte desperdiçado.", wDo: "✂️ Tirar do plano",
     aH: "➕ Estandartes extras, os melhores primeiro", aP: "Cada linha soma um estandarte. Escolha quantos quer.", aNone: "Nenhum lugar por perto soma um nó de recurso.", cols: ["#", "X:Y", "+ nós", "Total de nós", "Estandartes"], aDo: "➕ Adicionar os primeiros", aDo2: "ao plano", opt: "Opções", optRow: "{k} estandartes a mais → {n} nós a mais ({t} no total)",
     oMiss: "⚠️ Postos Avançados nossos que o território do plano não toca: {l}", cut: "⚠️ {n} estandartes do plano não estão ligados ao QG: {l}", done: "Plano alterado — ainda não salvo.", lgW: "não precisa", lgA: "sugerido" },
-  ar: { hN: "🌾 فحص الرايات — المملكة الآن", pN: "يعتمد على مقراتنا وكل الرايات القائمة على الخريطة الآن. مدن الأعضاء وفخاخ الدب والمستوطنات التي نلامسها تبقى كما هي.", nowN: "{b} راية · {r} عقدة موارد · {o} مستوطنة ملامَسة", wNH: "🏳️ قائمة الآن وغير لازمة ({n})", aDo2N: "إلى 🚩 مخطط الرايات", cutN: "⚠️ {n} راية غير متصلة بمقر: {l}", oMissN: "⚠️ مستوطنات نملكها ولا تلامسها أرضنا: {l}", lgN: "على الخريطة: إطار أحمر = غير لازمة، رقم برتقالي = مقترحة.", h: "🌾 فحص الرايات", p: "يعتمد على المقر الجديد في الخطة ورايات الخطة وكل الرايات القائمة الآن على 🗺️ الخريطة. أماكن المدن وفخاخ الدب والمستوطنات التي نلامسها تبقى كما هي.", run: "🔍 افحص الرايات", busy: "جارٍ الحساب…", max: "عدد الرايات الإضافية للتجربة", now: "{b} راية ({p} في الخطة + {s} قائمة) · {r} عقدة موارد · {o} مستوطنة ملامَسة",
+  ar: { hN: "🌾 فحص الرايات — المملكة الآن", pN: "يعتمد على مقراتنا وكل الرايات القائمة على الخريطة الآن. مدن الأعضاء وفخاخ الدب والمستوطنات التي نلامسها تبقى كما هي، وكذلك كل اتصال بين الرايات. بعض مواقع الرايات مأخوذة من صورة الأراضي، فتحقق من النتيجة في اللعبة.", nowN: "{b} راية · {r} عقدة موارد · {o} مستوطنة ملامَسة", wNH: "🏳️ قائمة الآن وغير لازمة ({n})", aDo2N: "إلى 🚩 مخطط الرايات", cutN: "⚠️ {n} راية غير متصلة بمقر: {l}", oMissN: "⚠️ مستوطنات نملكها ولا تلامسها أرضنا: {l}", lgN: "على الخريطة: إطار أحمر = غير لازمة، رقم برتقالي = مقترحة.", h: "🌾 فحص الرايات", p: "يعتمد على المقر الجديد في الخطة ورايات الخطة وكل الرايات القائمة الآن على 🗺️ الخريطة. أماكن المدن وفخاخ الدب والمستوطنات التي نلامسها تبقى كما هي.", run: "🔍 افحص الرايات", busy: "جارٍ الحساب…", max: "عدد الرايات الإضافية للتجربة", now: "{b} راية ({p} في الخطة + {s} قائمة) · {r} عقدة موارد · {o} مستوطنة ملامَسة",
     wH: "✂️ في الخطة وغير لازمة ({n})", wSH: "🏳️ قائمة الآن وغير لازمة بعد الانتقال ({n})", wSP: "أزلها في اللعبة ثم علّمها 🗑️ مُزالة على 🗺️ الخريطة.", wP: "إزالتها لا تُفقد أي مكان مدينة أو فخ دب أو عقدة موارد أو مستوطنة أو اتصال.", wNone: "✅ لا رايات مهدرة.", wDo: "✂️ أزلها من الخطة",
     aH: "➕ رايات إضافية، الأفضل أولًا", aP: "كل سطر يضيف راية واحدة. اختر العدد الذي تريده.", aNone: "لا مكان قريب يضيف عقدة موارد.", cols: ["#", "X:Y", "+ عقد", "مجموع العقد", "الرايات"], aDo: "➕ أضف أول", aDo2: "إلى الخطة", opt: "خيارات", optRow: "{k} رايات إضافية ← {n} عقدة إضافية ({t} في المجموع)",
     oMiss: "⚠️ مستوطنات نملكها ولا يلامسها إقليم الخطة: {l}", cut: "⚠️ {n} راية في الخطة غير متصلة بالمقر: {l}", done: "تغيّرت الخطة — لم تُحفظ بعد.", lgW: "غير لازمة", lgA: "مقترحة" },
-  ko: { hN: "🌾 깃발 점검 — 지금의 왕국", pN: "우리 본부와 지금 지도에 세워져 있는 모든 깃발로 계산해요. 멤버의 성, 곰 함정, 우리가 닿는 거점은 그대로 둬요.", nowN: "깃발 {b}개 · 자원 {r}개 · 닿는 거점 {o}개", wNH: "🏳️ 지금 세워져 있지만 필요 없는 깃발 ({n})", aDo2N: "개를 🚩 깃발 계획에 추가", cutN: "⚠️ 본부에 연결되지 않은 깃발 {n}개: {l}", oMissN: "⚠️ 우리가 가진 거점인데 영지가 닿지 않는 곳: {l}", lgN: "지도: 빨간 테두리 = 필요 없음, 주황 숫자 = 추천 위치.", h: "🌾 깃발 점검", p: "계획의 새 본부, 계획의 깃발, 그리고 지금 🗺️ 지도에 세워져 있는 모든 깃발로 계산해요. 성 자리, 곰 함정, 우리가 닿는 거점은 그대로 둬요.", run: "🔍 깃발 점검", busy: "계산 중…", max: "시험할 추가 깃발 수", now: "깃발 {b}개 (계획 {p} + 세워진 {s}) · 자원 {r}개 · 닿는 거점 {o}개",
+  ko: { hN: "🌾 깃발 점검 — 지금의 왕국", pN: "우리 본부와 지금 지도에 세워져 있는 모든 깃발로 계산해요. 멤버의 성, 곰 함정, 우리가 닿는 거점은 그대로 두고, 깃발끼리의 연결도 끊지 않아요. 일부 깃발 위치는 영지 그림에서 읽은 것이라 결과는 게임에서 확인하세요.", nowN: "깃발 {b}개 · 자원 {r}개 · 닿는 거점 {o}개", wNH: "🏳️ 지금 세워져 있지만 필요 없는 깃발 ({n})", aDo2N: "개를 🚩 깃발 계획에 추가", cutN: "⚠️ 본부에 연결되지 않은 깃발 {n}개: {l}", oMissN: "⚠️ 우리가 가진 거점인데 영지가 닿지 않는 곳: {l}", lgN: "지도: 빨간 테두리 = 필요 없음, 주황 숫자 = 추천 위치.", h: "🌾 깃발 점검", p: "계획의 새 본부, 계획의 깃발, 그리고 지금 🗺️ 지도에 세워져 있는 모든 깃발로 계산해요. 성 자리, 곰 함정, 우리가 닿는 거점은 그대로 둬요.", run: "🔍 깃발 점검", busy: "계산 중…", max: "시험할 추가 깃발 수", now: "깃발 {b}개 (계획 {p} + 세워진 {s}) · 자원 {r}개 · 닿는 거점 {o}개",
     wH: "✂️ 계획에 있지만 필요 없는 깃발 ({n})", wSH: "🏳️ 지금 세워져 있지만 이사 후 필요 없는 깃발 ({n})", wSP: "게임에서 철거한 뒤 🗺️ 지도에서 🗑️ 철거됨으로 표시하세요.", wP: "이 깃발들을 빼도 성 자리, 곰 함정, 자원, 거점, 연결을 잃지 않아요.", wNone: "✅ 낭비되는 깃발이 없어요.", wDo: "✂️ 계획에서 빼기",
     aH: "➕ 추가 깃발, 효과 좋은 순", aP: "한 줄에 깃발 하나씩 늘어나요. 몇 개까지 넣을지 고르세요.", aNone: "근처에 자원을 더 얻는 자리가 없어요.", cols: ["#", "X:Y", "+ 자원", "자원 합계", "깃발 합계"], aDo: "➕ 앞의", aDo2: "개를 계획에 추가", opt: "선택지", optRow: "깃발 {k}개 추가 → 자원 {n}개 추가 (총 {t}개)",
     oMiss: "⚠️ 우리가 가진 거점 중 계획 영지가 닿지 않는 곳: {l}", cut: "⚠️ 계획 깃발 {n}개가 본부와 이어지지 않아요: {l}", done: "계획이 바뀌었어요 — 아직 저장 전.", lgW: "불필요", lgA: "제안" } };
@@ -381,7 +381,7 @@ const ot = (k) => (OT[lang] || OT.en)[k] ?? OT.en[k];
 let OPT = null, optMax = 20;
 const OPT_N = 1400, oK = (x, y) => y * OPT_N + x;
 const bSq = ([x, y]) => [x - 3, y - 3, x + 3, y + 3], hSq = ([x, y]) => [x - 6, y - 6, x + 8, y + 8];
-const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => (p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 && y0 <= q1) || (p0 <= x1 && x0 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1);   // overlap or a shared edge
+const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1;   // overlap, a shared edge or just a corner (Sherry 2026-11-12, seen in game: territories that meet only at a corner are linked)
 const curHq = () => ((G && G.hq) || []).map((h) => [h[0], h[1]]);   // our HQs as the 🗺️ Map has them now
 function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, standing banners, members' cities, Bear Traps) instead of the moving plan
   const KS = window.KM_SHARED, PL = now ? (D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan; if (!PL || !(PL.hq || []).length) return null;
@@ -393,7 +393,7 @@ function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, s
   for (const [x, y] of PL.bt || []) fill(occ, [x, y, x + 2, y + 2], 1);
   for (const [x, y] of PL.hq) fill(occ, [x, y, x + 2, y + 2], 1);
   for (const [, x, y] of RESN) fill(occ, [x, y, x + 1, y + 1], 1);
-  const ops = KS ? KS.outposts() : [], hqs = PL.hq.map(hSq);
+  const ops = (KS ? KS.outposts() : []).concat(now && KS && KS.bigZones ? KS.bigZones() : []), hqs = PL.hq.map(hSq);
   /* state of a banner list: linked banners (chain from the HQ), territory, and what it holds */
   const allR = hqs.concat((PL.b || []).map(bSq), (KS ? KS.banners() : []).map(bSq)), BX0 = Math.min(...allR.map((r) => r[0])) - 40, BY0 = Math.min(...allR.map((r) => r[1])) - 40, BX1 = Math.max(...allR.map((r) => r[2])) + 40, BY1 = Math.max(...allR.map((r) => r[3])) + 40;
   const NEARN = []; RESN.forEach(([, x, y], i) => { if (x >= BX0 && x <= BX1 && y >= BY0 && y <= BY1) NEARN.push(i); });
@@ -402,13 +402,17 @@ function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, s
     const sq = bl.map(bSq), link = new Uint8Array(bl.length), q = [];
     sq.forEach((r, i) => { if (hqs.some((h) => sqTouch(h, r))) { link[i] = 1; q.push(i); } });
     while (q.length) { const a = q.pop(); for (let i = 0; i < sq.length; i++) if (!link[i] && Math.abs(bl[i][0] - bl[a][0]) <= 7 && Math.abs(bl[i][1] - bl[a][1]) <= 7 && sqTouch(sq[a], sq[i])) { link[i] = 1; q.push(i); } }
+    /* now: a banner standing in game is linked by definition — our list of standing banners has gaps (part of it is read off the territory picture),
+       so instead of "reaches the HQ" we keep the groups as they are: nc = number of separate groups, lone = banners that touch nothing we know */
+    let nc = 0, lone = 0; if (now) { link.fill(1); const all = hqs.concat(sq), n = all.length, c = new Int32Array(n).fill(-1);
+      for (let i = 0; i < n; i++) { if (c[i] >= 0) continue; const st = [i]; c[i] = nc; let m = 1; while (st.length) { const a = st.pop(); for (let j = 0; j < n; j++) if (c[j] < 0 && Math.abs(all[j][0] - all[a][0]) <= 16 && Math.abs(all[j][1] - all[a][1]) <= 16 && sqTouch(all[a], all[j])) { c[j] = nc; m++; st.push(j); } } if (m === 1) lone++; nc++; } }
     const T = fresh ? new Uint8Array(OPT_N * OPT_N) : sT.fill(0), G = fresh ? new Uint8Array(OPT_N * OPT_N) : sG.fill(0), put = (r) => { const [x0, y0, x1, y1] = r; for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) { G[oK(i, j)] = 1; if (!oth[oK(i, j)]) T[oK(i, j)] = 1; } };
     hqs.forEach(put); sq.forEach((r, i) => { if (link[i]) put(r); });
     const cov = (x, y, w) => { let n = 0; for (let j = y; j < y + w; j++) for (let i = x; i < x + w; i++) n += T[oK(i, j)]; return n; };
     let city = 0, trap = 0; for (const [, x, y] of PL.c || []) city += cov(x, y, 2); for (const [x, y] of PL.bt || []) trap += cov(x, y, 3);
     const nodes = []; for (const i of NEARN) if (cov(RESN[i][1], RESN[i][2], 2) >= 3) nodes.push(i);
     const rects = hqs.concat(sq.filter((r, i) => link[i])), op = ops.map((o) => rects.some((r) => sqTouch(o.sq, r)) ? 1 : 0);
-    return { T, G, link, city, trap, nodes, op, nl: link.reduce((a, b) => a + b, 0) };
+    return { T, G, link, city, trap, nodes, op, nc, lone, nl: link.reduce((a, b) => a + b, 0) };
   };
   const pkeys = new Set((PL.b || []).map(([x, y]) => x + "," + y)), stand = (KS ? KS.banners() : []).filter(([x, y]) => !pkeys.has(x + "," + y)).map(([x, y]) => [x, y, "", 1]);   // [x, y, tag, 1 = standing now, not in the plan]
   let bl = (PL.b || []).map((b) => [b[0], b[1], b[2] || ""]).concat(stand), base = evalSet(bl);
@@ -416,7 +420,7 @@ function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, s
   /* 1) wasted: drop one at a time (weakest link first is not needed — any banner whose removal changes nothing) until none is left */
   const waste = []; const same = (a, b) => a.city === b.city && a.trap === b.trap && a.nodes.length === b.nodes.length && a.op.join("") === b.op.join("");
   for (let i = bl.length - 1; i >= 0; i--) { if (!base.link[i]) continue; const rest = bl.slice(0, i).concat(bl.slice(i + 1)), e = evalSet(rest);   // one pass is enough: what is needed now stays needed with fewer banners
-    if (same(e, base) && e.nl === base.nl - 1) { waste.push(bl[i]); bl = rest; base = { ...e, link: e.link }; } }
+    if (same(e, base) && (now ? e.nc === base.nc && e.lone === base.lone : e.nl === base.nl - 1)) { waste.push(bl[i]); bl = rest; base = { ...e, link: e.link }; } }
   const city0 = base.city, cityAll = (PL.c || []).length * 4;
   base = evalSet(bl, true);
   /* 2) extra banners, greedy: the spot that completes the most nodes; when no single banner does, the best pair (a step toward a cluster) */
@@ -430,29 +434,31 @@ function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, s
       if (add) { if (c >= 3) done++; else part += add; } }
     return done + part / 100; };
   const free = (x, y) => x > 3 && y > 3 && x < OPT_N - 4 && y < OPT_N - 4 && !occ[oK(x, y)] && !oth[oK(x, y)] && !(KS && KS.obst(x, y));
-  const touchG = (x, y) => { for (let j = y - 4; j <= y + 4; j++) for (let i = x - 4; i <= x + 4; i++) if (!(Math.abs(i - x) === 4 && Math.abs(j - y) === 4) && G[oK(i, j)]) return true; return false; };
+  const touchG = (x, y) => { for (let j = y - 4; j <= y + 4; j++) for (let i = x - 4; i <= x + 4; i++) if (G[oK(i, j)]) return true; return false; };   // a corner is enough
   const used = new Set(bl.map(([x, y]) => x + "," + y)), add = [], tg = new Uint8Array(OPT_N * OPT_N);
   const touch = (x, y) => { const k = oK(x, y); if (!tg[k]) tg[k] = touchG(x, y) ? 1 : 2; return tg[k] === 1; };
   const ok = (x, y) => free(x, y) && !used.has(x + "," + y);
   const place = (x, y) => { used.add(x + "," + y); tg.fill(0); for (let j = y - 3; j <= y + 3; j++) for (let i = x - 3; i <= x + 3; i++) { G[oK(i, j)] = 1; if (!oth[oK(i, j)]) T[oK(i, j)] = 1; }
     let g = 0; for (const n of near(x - 3, y - 3, x + 3, y + 3)) { const [, nx, ny] = RESN[n]; let c = 0; for (let j = ny; j < ny + 2; j++) for (let i = nx; i < nx + 2; i++) c += T[oK(i, j)]; if (c >= 3) { mine[n] = 1; g++; } }
     add.push([x, y, g]); };
+  const nearG = (n) => { const [, nx, ny] = RESN[n]; for (let j = Math.max(0, ny - 14); j <= Math.min(OPT_N - 1, ny + 15); j += 2) for (let i = Math.max(0, nx - 14); i <= Math.min(OPT_N - 1, nx + 15); i += 2) if (G[oK(i, j)]) return true; return false; };   // territory within two banners' reach (7×7 squares: every 2nd tile is enough)
+  const cand = new Set(NEARN.filter((n) => !mine[n] && nearG(n)));
   while (add.length < maxAdd) {
     /* only spots that reach a node we don't hold yet can matter: banner centres within 3–4 tiles of the node */
     let best = null, bg = 0, pair = null, pg = 0; const seen = new Set();
-    for (const n of NEARN) { if (mine[n]) continue; const [, nx, ny] = RESN[n];
+    for (const n of cand) { if (mine[n]) { cand.delete(n); continue; } const [, nx, ny] = RESN[n];
       for (let y = ny - 3; y <= ny + 4; y++) for (let x = nx - 3; x <= nx + 4; x++) { const k = x + "," + y; if (seen.has(k)) continue; seen.add(k); if (!ok(x, y)) continue;
         if (touch(x, y)) { const g = gain([[x, y]]); if (g > bg) { bg = g; best = [[x, y]]; } }
         else if (add.length + 2 <= maxAdd) { const g1 = gain([[x, y]]); if (g1 < 1) continue;   // one linking banner in between
-          let c = null; for (let dy = -7; dy <= 7 && !c; dy++) for (let dx = -7; dx <= 7; dx++) { if ((!dx && !dy) || (Math.abs(dx) === 7 && Math.abs(dy) === 7)) continue; const cx = x + dx, cy = y + dy; if (ok(cx, cy) && touch(cx, cy)) { c = [cx, cy]; break; } }
+          let c = null; for (let dy = -7; dy <= 7 && !c; dy++) for (let dx = -7; dx <= 7; dx++) { if (!dx && !dy) continue; const cx = x + dx, cy = y + dy; if (ok(cx, cy) && touch(cx, cy)) { c = [cx, cy]; break; } }
           if (c) { const g = gain([c, [x, y]]); if (g > pg) { pg = g; pair = [c, [x, y]]; } } } } }
     if (bg < 1 && pg >= 1) { best = pair; bg = pg; }
     else if (pair && pg / 2 > bg) { best = pair; bg = pg; }   // two banners that bring more per banner than the best single one
     if (!best || bg < 1) break;
-    for (const [x, y] of best) place(x, y);
+    for (const [x, y] of best) { place(x, y); for (const n of near(x - 20, y - 20, x + 20, y + 20)) cand.add(n); }
   }
-  return { now: !!now, city0, cityAll, n0: (PL.b || []).length + stand.length, nS: stand.length, waste, cut, add, nodes0: base.nodes.length, opT: base.op.reduce((a, b) => a + b, 0),
-    oMiss: ops.filter((o, i) => !base.op[i] && (o.st === "held" || o.st === "vuln" || o.st === "conflict")).map((o) => `${o.n} X:${o.x} Y:${o.y}`) };
+  return { now: !!now, city0, cityAll, n0: (PL.b || []).length + stand.length, nS: stand.length, waste, cut, add, nodes0: base.nodes.length, opT: base.op.reduce((a, b, i) => a + (ops[i].big ? 0 : b), 0),
+    oMiss: ops.filter((o, i) => !o.big && !base.op[i] && (o.st === "held" || o.st === "vuln" || o.st === "conflict")).map((o) => `${o.n} X:${o.x} Y:${o.y}`) };
 }
 function optCard(now) {
   if (now ? !(D && window.KM_SHARED) : !(MV && MV.plan)) return ""; if (!RESN.length) return "";
