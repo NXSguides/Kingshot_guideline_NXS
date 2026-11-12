@@ -12,8 +12,8 @@ const USE = { cassia: [2, 2, 2, 1, 0, 1], roman: [1, 1, 1, 0, 2, 1], valora: [1,
 const ROLES = [["lead", ["cassia"], ["roman"], ["pan"]], ["bear", ["valora"], ["cassia"], ["pan"]], ["join", ["valora"], ["roman"], ["cassia"]], ["arena", ["roman"], [], []], ["dev", ["pan"], ["valora"], []]];
 /* gems per 1% at the k-th Relationship Advancement: k, Roman, Valora / Pan, Cassia */
 const COST = [[1, 3200, 3900, 11100], [2, 5900, 7400, 11100], [3, 8900, 11100, 22200], [5, 14800, 18500, 44400], [10, 29600, 37000, 69200]];
-/* Cassia's skills in Master's Manuscripts: skill key, total to max, per 1% at Lv2, at Lv20 */
-const SK = [["commando", 150000, "267 → 5,000"], ["firepower", 100000, "167 → 3,333"], ["mobil", 150000, "800 → 15,000 / +5,000"], ["recruit", 13500, "—"]];
+/* Cassia's stat skills: skill key, Master's Manuscripts to max, gems per 1% at Lv2 → Lv20 */
+const SK = [["commando", 150000, "8,000 → 150,000"], ["firepower", 100000, "5,000 → 100,000"]];   // 1 Master's Manuscript ≈ 30 gems (Championship Shop: manuscript 15, General Master Emblem 1,500)
 const T = {
   en: { title: "🎓 Masters", badge: "🔬 Our research · updated {d}",
     names: { cassia: "Cassia", roman: "Roman", valora: "Valora", pan: "Pan" }, titles: { cassia: "Battle Master", roman: "Arena Champion", valora: "Bear Hunter", pan: "Palace Administrator" },
@@ -30,9 +30,9 @@ const T = {
     costH: "💎 Relationship Advancement: gems per 1%", costCols: ["Advancement", "Roman", "Valora / Pan", "Cassia"], nth: "#{n}",
     costNote: "1% of Lethality or Health is worth about 1.3 times 1% of Attack or Defense. Emblem counts are from the web.",
     getH: "🧭 Meeting them", get: ["You meet all four in the Realm Journey; each settles in at 1,000 Affinity.", "Order: Valora → Pan → Roman → Cassia.", "Valora settles in after about 25 stops. The later ones give +50, +100 or +200 per meeting, with many stops in between.", "Pan: about 8–9 days after you meet him. Cassia: 350 after about 55 stops."],
-    unkH: "🟡 Not known yet", unks: ["What does a Master's Manuscript cost in the shop?", "The skills of the other four masters?", "How long from meeting Roman to settling in?"],
-    howH: "🔢 How we worked it out", how: ["1% = +1% of one stat for one troop type; a stat for all troops counts as 3.", "Real effect is from our battle formula with a big account's stats; a smaller account gains a bit more.", "1 General Master Emblem ≈ 3,000 gems. Emblems to max: Roman 440, Valora / Pan 275, Cassia 1,820.", "Valora: one Bear Hunt every 2 days, about 15 a month; Weapon Obsession and Leader By Example Lv5 give 5 each per hunt."],
-    skH: "Cassia's skills in Master's Manuscripts", skCols: ["Skill", "Total to max", "Per 1%: Lv2 → Lv20"], sks: { commando: "Commando (Lethality + Health)", firepower: "Firepower to Win (Attack + Defense)", mobil: "Inspiring Mobilization (Rally capacity)", recruit: "Recruiter In Chief (free soldiers)" } },
+    unkH: "🟡 Not known yet", unks: ["The skills of the other four masters?", "How long from meeting Roman to settling in?"],
+    howH: "🔢 How we worked it out", how: ["1 Master's Manuscript ≈ 30 gems (Championship Shop: 15 for a manuscript, 1,500 for a General Master Emblem). Manuscripts to max: Commando 150,000, Firepower to Win 100,000, Inspiring Mobilization 150,000.", "1% = +1% of one stat for one troop type; a stat for all troops counts as 3.", "Real effect is from our battle formula with a big account's stats; a smaller account gains a bit more.", "1 General Master Emblem ≈ 3,000 gems. Emblems to max: Roman 440, Valora / Pan 275, Cassia 1,820.", "Valora: one Bear Hunt every 2 days, about 15 a month; Weapon Obsession and Leader By Example Lv5 give 5 each per hunt."],
+    skH: "Cassia's skills: gems per 1%", skCols: ["Skill", "Manuscripts to max", "Lv2 → Lv20"], sks: { commando: "Commando (Lethality + Health)", firepower: "Firepower to Win (Attack + Defense)", mobil: "Inspiring Mobilization (Rally capacity)", recruit: "Recruiter In Chief (free soldiers)" } },
   zh: { title: "🎓 大師", badge: "🔬 我們的研究 · 更新 {d}",
     names: { cassia: "卡斯蒂利亞", roman: "羅曼", valora: "維拉", pan: "潘" }, titles: { cassia: "戰術大師", roman: "競技之王", valora: "巨熊主宰", pan: "皇室總管" },
     doH: "💡 建議：誰先練哪位", cols: ["你主要是", "先", "再", "不急"],
@@ -48,9 +48,9 @@ const T = {
     costH: "💎 關係進階：每 1% 要多少鑽石", costCols: ["第幾次進階", "羅曼", "維拉／潘", "卡斯蒂利亞"], nth: "第 {n} 次",
     costNote: "殺傷力、生命值的 1% 比攻擊力、防禦力的 1% 值錢約 1.3 倍。徽記數量是網路資料。",
     getH: "🧭 遇到和進駐", get: ["四位都在荒野冒險裡遇到，好感度 1,000 進駐。", "順序：維拉 → 潘 → 羅曼 → 卡斯蒂利亞。", "維拉約 25 站就進駐。後面幾位每次遇到 +50、+100 或 +200，中間隔很多站。", "潘：遇到後約 8–9 天。卡斯蒂利亞：約 55 站拿到 350。"],
-    unkH: "🟡 還不知道的", unks: ["大師手稿在商店賣多少？", "其他四位大師的技能？", "羅曼從遇到到進駐要多久？"],
-    howH: "🔢 怎麼算的", how: ["1% ＝ 單一兵種單一屬性 +1%；全兵種的一項算 3 個。", "實際效果用我們的戰鬥公式和大帳號的屬性估；小帳號比例再大一點。", "1 個通用大師徽記 ≈ 3,000 鑽石。滿級徽記：羅曼 440、維拉／潘 275、卡斯蒂利亞 1,820。", "維拉：兩天一場熊獵，一個月約 15 場；武器專精、經驗傳承 Lv5 每場各 5 個。"],
-    skH: "卡斯蒂利亞的技能：大師手稿", skCols: ["技能", "滿級總量", "每 1%：Lv2 → Lv20"], sks: { commando: "突擊隊（殺傷力＋生命值）", firepower: "火力連（攻擊力＋防禦力）", mobil: "徵召令（集結容量）", recruit: "預備役（免費士兵）" } },
+    unkH: "🟡 還不知道的", unks: ["其他四位大師的技能？", "羅曼從遇到到進駐要多久？"],
+    howH: "🔢 怎麼算的", how: ["1 個大師手稿 ≈ 30 鑽石（爭霸賽商店：大師手稿 15、通用大師徽記 1,500）。滿級要的大師手稿：突擊隊 150,000、火力連 100,000、徵召令 150,000。", "1% ＝ 單一兵種單一屬性 +1%；全兵種的一項算 3 個。", "實際效果用我們的戰鬥公式和大帳號的屬性估；小帳號比例再大一點。", "1 個通用大師徽記 ≈ 3,000 鑽石。滿級徽記：羅曼 440、維拉／潘 275、卡斯蒂利亞 1,820。", "維拉：兩天一場熊獵，一個月約 15 場；武器專精、經驗傳承 Lv5 每場各 5 個。"],
+    skH: "卡斯蒂利亞的技能：每 1% 要多少鑽石", skCols: ["技能", "滿級要的大師手稿", "Lv2 → Lv20"], sks: { commando: "突擊隊（殺傷力＋生命值）", firepower: "火力連（攻擊力＋防禦力）", mobil: "徵召令（集結容量）", recruit: "預備役（免費士兵）" } },
   pt: { title: "🎓 Mestres", badge: "🔬 Nossa pesquisa · atualizado {d}",
     names: { cassia: "Cassia", roman: "Roman", valora: "Valora", pan: "Pan" }, titles: { cassia: "Mestre da Batalha", roman: "Campeão da Arena", valora: "Caça ao Urso", pan: "Administrador do Palácio" },
     doH: "💡 Sugestões: quem evoluir primeiro", cols: ["Você mais", "Primeiro", "Depois", "Sem pressa"],
@@ -66,9 +66,9 @@ const T = {
     costH: "💎 Avanço no Relacionamento: gemas por 1%", costCols: ["Avanço", "Roman", "Valora / Pan", "Cassia"], nth: "{n}º",
     costNote: "1% de Letalidade ou Vida vale cerca de 1,3 vez 1% de Ataque ou Defesa. As quantidades de emblemas são da web.",
     getH: "🧭 Como encontrá-los", get: ["Você encontra os quatro na Jornada do Reino; cada um chega com 1.000 de Afinidade.", "Ordem: Valora → Pan → Roman → Cassia.", "Valora chega depois de umas 25 estações. Os seguintes dão +50, +100 ou +200 por encontro, com muitas estações no meio.", "Pan: cerca de 8–9 dias depois de encontrá-lo. Cassia: 350 depois de umas 55 estações."],
-    unkH: "🟡 Ainda não sabemos", unks: ["Quanto custa um Manuscrito de Mestre na loja?", "As habilidades dos outros quatro mestres?", "Quanto tempo do encontro com o Roman até ele chegar?"],
-    howH: "🔢 Como calculamos", how: ["1% = +1% de um atributo para um tipo de tropa; um atributo de todas as tropas conta 3.", "O efeito real vem da nossa fórmula de batalha com os atributos de uma conta grande; uma conta menor ganha um pouco mais.", "1 Emblema de Mestre Geral ≈ 3.000 gemas. Emblemas até o máximo: Roman 440, Valora / Pan 275, Cassia 1.820.", "Valora: uma Caça ao Urso a cada 2 dias, cerca de 15 por mês; Obsessão por Armas e Líder por Exemplo Nv5 dão 5 cada por caça."],
-    skH: "Habilidades da Cassia em Manuscritos de Mestre", skCols: ["Habilidade", "Total até o máximo", "Por 1%: Nv2 → Nv20"], sks: { commando: "Comando (Letalidade + Vida)", firepower: "Poder de fogo para vencer (Ataque + Defesa)", mobil: "Inspirando Mobilização (capacidade do rally)", recruit: "Recrutador-chefe (soldados grátis)" } },
+    unkH: "🟡 Ainda não sabemos", unks: ["As habilidades dos outros quatro mestres?", "Quanto tempo do encontro com o Roman até ele chegar?"],
+    howH: "🔢 Como calculamos", how: ["1 Manuscrito de Mestre ≈ 30 gemas (Loja do Campeonato: 15 por manuscrito, 1.500 por Emblema de Mestre Geral). Manuscritos até o máximo: Comando 150.000, Poder de fogo para vencer 100.000, Inspirando Mobilização 150.000.", "1% = +1% de um atributo para um tipo de tropa; um atributo de todas as tropas conta 3.", "O efeito real vem da nossa fórmula de batalha com os atributos de uma conta grande; uma conta menor ganha um pouco mais.", "1 Emblema de Mestre Geral ≈ 3.000 gemas. Emblemas até o máximo: Roman 440, Valora / Pan 275, Cassia 1.820.", "Valora: uma Caça ao Urso a cada 2 dias, cerca de 15 por mês; Obsessão por Armas e Líder por Exemplo Nv5 dão 5 cada por caça."],
+    skH: "Habilidades da Cassia: gemas por 1%", skCols: ["Habilidade", "Manuscritos até o máximo", "Nv2 → Nv20"], sks: { commando: "Comando (Letalidade + Vida)", firepower: "Poder de fogo para vencer (Ataque + Defesa)", mobil: "Inspirando Mobilização (capacidade do rally)", recruit: "Recrutador-chefe (soldados grátis)" } },
   ar: { title: "🎓 المتخصصون", badge: "🔬 بحثنا · آخر تحديث {d}",
     names: { cassia: "كاسيا", roman: "رومان", valora: "فالورا", pan: "بان" }, titles: { cassia: "سيد المعارك", roman: "بطل الساحة", valora: "صيد الدببة", pan: "مدير القصر" },
     doH: "💡 اقتراحات: من تطوّر أولًا", cols: ["أنت غالبًا", "أولًا", "ثم", "لا عجلة"],
@@ -84,9 +84,9 @@ const T = {
     costH: "💎 تقدم العلاقة: الجواهر لكل 1%", costCols: ["التقدم", "رومان", "فالورا / بان", "كاسيا"], nth: "#{n}",
     costNote: "1% من قوة الفتك أو الصحة يساوي نحو 1.3 ضعف 1% من الهجوم أو الدفاع. أعداد الشعارات من الإنترنت.",
     getH: "🧭 لقاؤهم واستقرارهم", get: ["تلتقي بالأربعة في رحلة العالم؛ كل واحد يستقر عند 1,000 تقارب.", "الترتيب: فالورا ← بان ← رومان ← كاسيا.", "فالورا تستقر بعد نحو 25 محطة. البقية يعطون +50 أو +100 أو +200 في كل لقاء، وبينها محطات كثيرة.", "بان: نحو 8–9 أيام بعد لقائه. كاسيا: 350 بعد نحو 55 محطة."],
-    unkH: "🟡 غير معروف بعد", unks: ["كم سعر مخطوطة المتخصص في المتجر؟", "مهارات المتخصصين الأربعة الآخرين؟", "كم يستغرق رومان من اللقاء إلى الاستقرار؟"],
-    howH: "🔢 كيف حسبناها", how: ["1% = +1% لسمة واحدة لنوع قوات واحد؛ السمة لكل القوات تُحسب 3.", "الأثر الفعلي من معادلة المعركة عندنا بسمات حساب كبير؛ الحساب الأصغر يكسب أكثر قليلًا.", "شعار متخصص عام واحد ≈ 3,000 جوهرة. الشعارات حتى الحد الأقصى: رومان 440، فالورا / بان 275، كاسيا 1,820.", "فالورا: صيد دببة واحد كل يومين، نحو 15 شهريًا؛ هوس السلاح والقائد القدوة بالمستوى 5 يعطيان 5 لكل صيد."],
-    skH: "مهارات كاسيا بمخطوطات المتخصص", skCols: ["المهارة", "الإجمالي حتى الحد الأقصى", "لكل 1%: المستوى 2 ← 20"], sks: { commando: "المغوار (قوة الفتك + الصحة)", firepower: "قوة نارية للنصر (الهجوم + الدفاع)", mobil: "تعبئة ملهمة (سعة الحشد)", recruit: "كبير المجندين (جنود مجانيون)" } },
+    unkH: "🟡 غير معروف بعد", unks: ["مهارات المتخصصين الأربعة الآخرين؟", "كم يستغرق رومان من اللقاء إلى الاستقرار؟"],
+    howH: "🔢 كيف حسبناها", how: ["مخطوطة متخصص واحدة ≈ 30 جوهرة (متجر البطولة: 15 للمخطوطة، 1,500 لشعار متخصص عام). المخطوطات حتى الحد الأقصى: المغوار 150,000، قوة نارية للنصر 100,000، تعبئة ملهمة 150,000.", "1% = +1% لسمة واحدة لنوع قوات واحد؛ السمة لكل القوات تُحسب 3.", "الأثر الفعلي من معادلة المعركة عندنا بسمات حساب كبير؛ الحساب الأصغر يكسب أكثر قليلًا.", "شعار متخصص عام واحد ≈ 3,000 جوهرة. الشعارات حتى الحد الأقصى: رومان 440، فالورا / بان 275، كاسيا 1,820.", "فالورا: صيد دببة واحد كل يومين، نحو 15 شهريًا؛ هوس السلاح والقائد القدوة بالمستوى 5 يعطيان 5 لكل صيد."],
+    skH: "مهارات كاسيا: الجواهر لكل 1%", skCols: ["المهارة", "المخطوطات حتى الحد الأقصى", "المستوى 2 ← 20"], sks: { commando: "المغوار (قوة الفتك + الصحة)", firepower: "قوة نارية للنصر (الهجوم + الدفاع)", mobil: "تعبئة ملهمة (سعة الحشد)", recruit: "كبير المجندين (جنود مجانيون)" } },
   ko: { title: "🎓 거장", badge: "🔬 우리 연구 · 업데이트 {d}",
     names: { cassia: "카스티야", roman: "로만", valora: "베라", pan: "판" }, titles: { cassia: "전술 거장", roman: "경기의 왕", valora: "자이언트 베어 주석", pan: "황실 총지배인" },
     doH: "💡 제안: 누구를 먼저 키울까", cols: ["주로 하는 일", "먼저", "그다음", "천천히"],
@@ -102,9 +102,9 @@ const T = {
     costH: "💎 관계 진급: 1%당 다이아", costCols: ["진급", "로만", "베라 / 판", "카스티야"], nth: "{n}회",
     costNote: "파괴력, HP의 1%는 공격력, 방어력의 1%보다 약 1.3배 값져. 배지 수는 웹 자료야.",
     getH: "🧭 만나기와 입주", get: ["네 명 모두 황야 모험에서 만나고, 호감도 1,000에 입주해.", "순서: 베라 → 판 → 로만 → 카스티야.", "베라는 약 25역 만에 입주해. 그 뒤 거장들은 만날 때마다 +50, +100 또는 +200이고, 사이에 역이 많아.", "판: 만난 뒤 약 8–9일. 카스티야: 약 55역에 350."],
-    unkH: "🟡 아직 모르는 것", unks: ["거장의 원고는 상점에서 얼마야?", "다른 거장 네 명의 스킬은?", "로만은 만나서 입주까지 얼마나 걸려?"],
-    howH: "🔢 어떻게 계산했는지", how: ["1% = 한 병종의 한 속성 +1%; 전 병종 속성 하나는 3으로 계산.", "실제 효과는 우리 전투 공식에 큰 계정의 속성을 넣어 추정했어; 작은 계정은 조금 더 커.", "공용 거장 배지 1개 ≈ 3,000 다이아. 최대까지 배지: 로만 440, 베라 / 판 275, 카스티야 1,820.", "베라: 곰 사냥은 이틀에 한 번, 한 달 약 15번; 무기 마스터리와 경험 전승 Lv5는 사냥마다 5개씩."],
-    skH: "카스티야 스킬: 거장의 원고", skCols: ["스킬", "최대까지 합계", "1%당: Lv2 → Lv20"], sks: { commando: "돌격대 (파괴력 + HP)", firepower: "화력 연계 (공격력 + 방어력)", mobil: "소집령 (집결 수용량)", recruit: "예비역 (무료 병사)" } },
+    unkH: "🟡 아직 모르는 것", unks: ["다른 거장 네 명의 스킬은?", "로만은 만나서 입주까지 얼마나 걸려?"],
+    howH: "🔢 어떻게 계산했는지", how: ["거장의 원고 1개 ≈ 30 다이아(챔피언십 상점: 원고 15, 공용 거장 배지 1,500). 최대까지 원고: 돌격대 150,000, 화력 연계 100,000, 소집령 150,000.", "1% = 한 병종의 한 속성 +1%; 전 병종 속성 하나는 3으로 계산.", "실제 효과는 우리 전투 공식에 큰 계정의 속성을 넣어 추정했어; 작은 계정은 조금 더 커.", "공용 거장 배지 1개 ≈ 3,000 다이아. 최대까지 배지: 로만 440, 베라 / 판 275, 카스티야 1,820.", "베라: 곰 사냥은 이틀에 한 번, 한 달 약 15번; 무기 마스터리와 경험 전승 Lv5는 사냥마다 5개씩."],
+    skH: "카스티야 스킬: 1%당 다이아", skCols: ["스킬", "최대까지 거장의 원고", "Lv2 → Lv20"], sks: { commando: "돌격대 (파괴력 + HP)", firepower: "화력 연계 (공격력 + 방어력)", mobil: "소집령 (집결 수용량)", recruit: "예비역 (무료 병사)" } },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -131,12 +131,13 @@ function render() {
   <div class="card"><h3>${esc(t("costH"))}</h3>
     <div style="overflow-x:auto"><table class="ma-t"><thead><tr>${t("costCols").map((c, i) => `<th${i ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${COST.map(([k, ...v]) => `<tr><td>${esc(t("nth").replace("{n}", k))}</td>${v.map((g) => `<td class="n">${nf(g)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
-    <p class="muted ma-small" style="margin:8px 0 0">${esc(t("costNote"))}</p></div>
+    <p class="muted ma-small" style="margin:8px 0 0">${esc(t("costNote"))}</p>
+    <h4 class="ma-h4">${esc(t("skH"))}</h4><div style="overflow-x:auto"><table class="ma-t"><thead><tr>${[t("skCols")[0], t("skCols")[2]].map((c, i) => `<th${i ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
+    <tbody>${SK.map(([k, tot, per]) => `<tr><td>${esc(t("sks")[k])}</td><td class="n">${esc(per)}</td></tr>`).join("")}</tbody></table></div></div>
   <div class="card"><h3>${esc(t("getH"))}</h3><ul class="ma-ul">${t("get").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="ma-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <details class="card"><summary><b>${esc(t("howH"))}</b></summary><ul class="ma-ul" style="margin-top:8px">${t("how").map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
-    <h4 class="ma-h4">${esc(t("skH"))}</h4><div style="overflow-x:auto"><table class="ma-t"><thead><tr>${t("skCols").map((c, i) => `<th${i ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
-    <tbody>${SK.map(([k, tot, per]) => `<tr><td>${esc(t("sks")[k])}</td><td class="n">${nf(tot)}</td><td class="n">${esc(per)}</td></tr>`).join("")}</tbody></table></div></details>
+</details>
   `;
 }
 function init() { applyTexts(); render(); }
