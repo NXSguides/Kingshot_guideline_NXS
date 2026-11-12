@@ -1682,6 +1682,7 @@ Outpost Bonus = Bonus de l'Avant-poste
 Incompatible buffs = Bonus incompatibles
 First control reward for all members = Récompense de Premier Contrôle pour tous les membres
 Ruins = Ruines
+Register now = S'inscrire
 Auto Registration = Inscription Auto.
 Cancel Auto Registration = Annuler Inscription Auto.
 Fortress Battle = Bataille du Fort
