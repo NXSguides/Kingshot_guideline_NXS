@@ -33,7 +33,7 @@ const T = {
     sendH: "🚀 Sending troops", send: [["ok", "Strong rallies fill in 20 seconds to 2 minutes — be quick. Rallies opened later fill up in the last minute with troops coming back (Trap 1, last wave: 15–20 rallies at once, late ones went from 20–40% to full in the last minute)."], ["ok", "Opening more rallies doesn't waste troops: they use the troops that came back."], ["ok", "Archer marches into strong rallies; infantry / cavalry marches into the later rallies."]],
     kH: "👑 What makes a rally strong", kP: "Only the leader's side counts. Joiners' own stats and gear don't change the rally.",
     k: [["ok", "🏹", "The leader's archer Attack and Lethality"], ["ok", "🏙️", "The leader's City Bonus"], ["ok", "🦸", "Joiner skills (4 slots, higher skill level first)"], ["mid", "⚔️", "The leader's three heroes — they change the rally a lot (see below)"]],
-    jsH: "Joiner skills: mix Attack and Lethality", jsAtk: "Attack", jsLet: "Lethality", jsFoot: "Chenko's fist icon is Lethality. Skills of a different kind from the leader's heroes help more (Amadeus already adds Lethality).",
+    jsH: "Joiner skills: mix Attack and Lethality", jsAtk: "Attack", jsLet: "Lethality",
     luckH: "🎲 Luck", luck: ["Same troops = same score.", "One leader's rallies differ by 10–25%; compare leaders over 3–4 rallies."],
     trendH: "📈 Our alliance total", trendP: "Final leaderboard, each Trap:", trap2: "Trap 2", trap1: "Trap 1", trendN: "{n} players",
     valH: "🌟 Valora (Master)", valP: "Hunter Instinct adds to your own damage score:", valSkill: "Dance of the Hunt: rally capacity +30,000 per level. Savage Advantage: your own march capacity +3,000 per level.",
@@ -57,7 +57,7 @@ const T = {
     sendH: "🚀 派兵", send: [["ok", "強團 20 秒到 2 分鐘就滿，要搶。後開的團最後一分鐘會靠回流的兵補滿（陷阱 1 最後一波：同時 15–20 團，晚開的團最後一分鐘從 20–40% 補到滿）。"], ["ok", "多開團不浪費：用的是回流的兵。"], ["ok", "弓兵部隊進強團；步兵、騎兵部隊進後段的團。"]],
     kH: "👑 一團強在哪裡", kP: "只看隊長那邊。加入者自己的屬性、裝備不會改變整團。",
     k: [["ok", "🏹", "隊長的弓兵攻擊力、殺傷力"], ["ok", "🏙️", "隊長開的城鎮增益"], ["ok", "🦸", "加入者技能（4 格，技能等級高的優先）"], ["mid", "⚔️", "隊長帶的三位英雄——影響很大（見下面）"]],
-    jsH: "加入者技能：攻擊力、殺傷力混搭", jsAtk: "攻擊力", jsLet: "殺傷力", jsFoot: "琴科的拳頭圖示是殺傷力。跟隊長英雄不同類的技能比較有用（阿瑪迪斯本身已經加殺傷力）。",
+    jsH: "加入者技能：攻擊力、殺傷力混搭", jsAtk: "攻擊力", jsLet: "殺傷力",
     luckH: "🎲 運氣", luck: ["同樣的兵＝同樣的分數。", "同一個隊長每團差 10–25%，要看 3–4 團才比得出強弱。"],
     trendH: "📈 聯盟總傷害", trendP: "最終排行，兩個陷阱分開：", trap2: "陷阱 2", trap1: "陷阱 1", trendN: "{n} 人",
     valH: "🌟 維拉（大師）", valP: "「狩獵本能」加自己的傷害積分：", valSkill: "狩獵之舞：集結容量每級 +30,000。人數優勢：自己部隊容量每級 +3,000。",
@@ -81,7 +81,7 @@ const T = {
     sendH: "🚀 Enviando tropas", send: [["ok", "Rallies fortes enchem em 20 segundos a 2 minutos — seja rápido. Rallies abertos depois enchem no último minuto com as tropas que voltam (Armadilha 1, última onda: 15–20 rallies ao mesmo tempo; os atrasados foram de 20–40% a cheios no último minuto)."], ["ok", "Abrir mais rallies não desperdiça tropas: eles usam as tropas que voltaram."], ["ok", "Marchas de arqueiros nos rallies fortes; marchas de infantaria / cavalaria nos rallies abertos depois."]],
     kH: "👑 O que deixa um rally forte", kP: "Só o lado do líder conta. Os atributos e equipamentos dos participantes não mudam o rally.",
     k: [["ok", "🏹", "Ataque e Letalidade da Arquearia do líder"], ["ok", "🏙️", "Bônus da Cidade do líder"], ["ok", "🦸", "Habilidades de participante (4 vagas, nível maior primeiro)"], ["mid", "⚔️", "Os três heróis do líder — mudam muito o rally (veja abaixo)"]],
-    jsH: "Habilidades de participante: misture Ataque e Letalidade", jsAtk: "Ataque", jsLet: "Letalidade", jsFoot: "O ícone de punho do Chenko é Letalidade. Habilidades de tipo diferente dos heróis do líder ajudam mais (Amadeus já dá Letalidade).",
+    jsH: "Habilidades de participante: misture Ataque e Letalidade", jsAtk: "Ataque", jsLet: "Letalidade",
     luckH: "🎲 Sorte", luck: ["Mesmas tropas = mesma pontuação.", "Os rallies de um líder variam 10–25%; compare líderes em 3–4 rallies."],
     trendH: "📈 Total da nossa aliança", trendP: "Ranking final, por Armadilha:", trap2: "Armadilha 2", trap1: "Armadilha 1", trendN: "{n} jogadores",
     valH: "🌟 Valora (Mestre)", valP: "Instinto de Caçador soma na sua própria pontuação de dano:", valSkill: "Dança da Caçada: capacidade do rally +30,000 por nível. Vantagem Selvagem: capacidade da sua marcha +3,000 por nível.",
@@ -105,7 +105,7 @@ const T = {
     sendH: "🚀 إرسال القوات", send: [["ok", "الحشود القوية تمتلئ خلال 20 ثانية إلى دقيقتين — كن سريعًا. الحشود التي تُفتح لاحقًا تمتلئ في الدقيقة الأخيرة بالقوات العائدة (فخ 1، الموجة الأخيرة: 15–20 حشدًا في وقت واحد؛ المتأخرة انتقلت من 20–40% إلى ممتلئة في الدقيقة الأخيرة)."], ["ok", "فتح حشود أكثر لا يضيّع القوات: فهي تستخدم القوات العائدة."], ["ok", "زحوف الرماة إلى الحشود القوية؛ زحوف المشاة / الفرسان إلى الحشود اللاحقة."]],
     kH: "👑 ما الذي يجعل الحشد قويًا", kP: "جانب القائد فقط هو ما يُحتسب. إحصاءات المنضمّين وعتادهم لا تغيّر الحشد.",
     k: [["ok", "🏹", "هجوم وقوة فتك الرماة عند القائد"], ["ok", "🏙️", "مكافأة المدينة عند القائد"], ["ok", "🦸", "مهارات المنضمّين (4 خانات، المستوى الأعلى أولًا)"], ["mid", "⚔️", "أبطال القائد الثلاثة — يغيّرون الحشد كثيرًا (انظر أدناه)"]],
-    jsH: "مهارات المنضمّين: اخلط الهجوم وقوة الفتك", jsAtk: "هجوم", jsLet: "قوة فتك", jsFoot: "أيقونة القبضة عند تشينكو هي قوة الفتك. المهارات من نوع مختلف عن أبطال القائد تفيد أكثر (أماديوس يضيف قوة الفتك أصلًا).",
+    jsH: "مهارات المنضمّين: اخلط الهجوم وقوة الفتك", jsAtk: "هجوم", jsLet: "قوة فتك",
     luckH: "🎲 الحظ", luck: ["نفس القوات = نفس النقاط.", "حشود القائد الواحد تختلف 10–25%؛ قارن القادة على 3–4 حشود."],
     trendH: "📈 مجموع تحالفنا", trendP: "الترتيب النهائي، لكل فخ:", trap2: "فخ 2", trap1: "فخ 1", trendN: "{n} لاعب",
     valH: "🌟 فالورا (متخصص)", valP: "«غريزة الصياد» تزيد نقاط ضررك أنت:", valSkill: "رقصة الصيد: سعة الحشد +30,000 لكل مستوى. الأفضلية الوحشية: سعة زحفك +3,000 لكل مستوى.",
@@ -129,7 +129,7 @@ const T = {
     sendH: "🚀 병력 보내기", send: [["ok", "강한 집결은 20초~2분이면 꽉 차 — 빨리 들어가. 나중에 열린 집결은 마지막 1분에 돌아온 병력으로 채워져 (함정 1 마지막 웨이브: 동시에 집결 15–20개, 늦게 열린 집결이 마지막 1분에 20–40%에서 꽉 참)."], ["ok", "집결을 더 열어도 병력 낭비 아니야: 돌아온 병력을 쓰니까."], ["ok", "궁병 행군은 강한 집결로; 보병 / 기병 행군은 나중 집결로."]],
     kH: "👑 집결이 강해지는 이유", kP: "대장 쪽만 계산돼. 집결원 자신의 능력치와 장비는 집결을 바꾸지 않아.",
     k: [["ok", "🏹", "대장의 궁병 공격력·파괴력"], ["ok", "🏙️", "대장이 켠 도시 버프"], ["ok", "🦸", "집결원 스킬 (4칸, 스킬 레벨 높은 순)"], ["mid", "⚔️", "대장이 데려가는 영웅 3명 — 집결을 크게 바꿔 (아래 참고)"]],
-    jsH: "집결원 스킬: 공격력과 파괴력을 섞어", jsAtk: "공격력", jsLet: "파괴력", jsFoot: "첸코의 주먹 아이콘은 파괴력이야. 대장 영웅과 다른 종류의 스킬이 더 도움이 돼 (아마데우스가 이미 파괴력을 올려).",
+    jsH: "집결원 스킬: 공격력과 파괴력을 섞어", jsAtk: "공격력", jsLet: "파괴력",
     luckH: "🎲 운", luck: ["같은 병력 = 같은 점수.", "같은 대장도 집결마다 10–25% 달라. 대장 비교는 3–4번을 봐."],
     trendH: "📈 우리 연맹 합계", trendP: "최종 랭킹, 함정별:", trap2: "함정 2", trap1: "함정 1", trendN: "{n}명",
     valH: "🌟 베라 (거장)", valP: "「사냥 본능」은 내 피해 점수를 올려 줘:", valSkill: "사냥의 춤: 집결 수용량 레벨당 +30,000. 수적 우위: 내 행군 수용량 레벨당 +3,000.",
@@ -179,8 +179,7 @@ function render() {
     <ul class="bh-k">${t("k").map(([st, i, x]) => `<li><span>${i}</span><span>${esc(x)}</span></li>`).join("")}</ul>
     <div class="bh-js"><h4>${esc(t("jsH"))}</h4>
       <div class="bh-jsr"><span class="bh-jst">${esc(t("jsAtk"))}</span>${["amane", "margot", "luna"].map((h) => `<span class="bh-h">${pic(h)}<small>${esc(hn(h))}</small></span>`).join("")}</div>
-      <div class="bh-jsr"><span class="bh-jst let">${esc(t("jsLet"))}</span>${["chenko", "yeonwoo", "amadeus"].map((h) => `<span class="bh-h">${pic(h)}<small>${esc(hn(h))}</small></span>`).join("")}</div>
-      <div class="muted bh-small" style="margin-top:6px">${esc(t("jsFoot"))}</div></div></div>
+      <div class="bh-jsr"><span class="bh-jst let">${esc(t("jsLet"))}</span>${["chenko", "yeonwoo", "amadeus"].map((h) => `<span class="bh-h">${pic(h)}<small>${esc(hn(h))}</small></span>`).join("")}</div></div></div>
   <div class="card"><h3>${esc(t("lhH"))} ${tag("mid")}</h3><p class="bh-p">${esc(t("lhP"))}</p>
     <div class="bh-hs">${HSETS.map(([ids, m]) => `<div class="bh-hsr"><span class="bh-hsp">${ids.map(pic).join("")}</span><div class="bh-jb"><i class="s" style="width:${(m * 100).toFixed(0)}%"></i></div><b>${m.toFixed(2)}</b></div>`).join("")}</div>
     <ul class="bh-ul" style="margin-top:10px">${t("lh").map((x) => `<li>${esc(x)}</li>`).join("")}</ul><div class="muted bh-small">${esc(t("lhSrc"))}</div></div>
