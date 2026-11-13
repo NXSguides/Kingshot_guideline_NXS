@@ -861,6 +861,13 @@ function drawFlags() {
 /* 🌾 what the current plan does to our resource nodes (Sherry 2026-11-13): now = our HQs + every standing banner; after = the same without the
    📌 banners noted to come down and with the 🚩 planned banners. A node is ours with ≥ 3 of its 4 tiles in our territory (others' territory never counts). */
 let PD_A = null, PD_B = null, PD_X = null;
+/* what the n-th Alliance Banner costs [up to n, bread, wood, stone, iron] — kingshotguide.com/en/database/banner-requirements (read 2026-11-13); it matches our own
+   warehouse log: taking a banner down at 256–265 gave back 21,780 / 21,780 / 14,520 / 7,920 = 10% of that row. Past 285 we continue the last step. */
+const BCOST = [[10, 0, 0, 0, 0], [15, 5000, 5000, 0, 0], [20, 10000, 10000, 0, 0], [30, 15000, 15000, 0, 0], [40, 20000, 20000, 0, 0], [50, 22500, 22500, 0, 0], [60, 25000, 25000, 0, 0], [70, 27500, 27500, 0, 0], [80, 30000, 30000, 0, 0], [90, 32500, 32500, 0, 0], [100, 36000, 36000, 0, 0], [110, 40500, 40500, 0, 0], [120, 45000, 45000, 0, 0],
+  [130, 49500, 49500, 10000, 0], [135, 54000, 54000, 11000, 0], [140, 58500, 58500, 12000, 0], [145, 62500, 62500, 15000, 0], [150, 64600, 64600, 34000, 6800], [155, 66500, 66500, 38000, 19000], [160, 73500, 73500, 42000, 21000], [165, 80500, 80500, 46000, 23000], [170, 87500, 87500, 50000, 25000], [175, 94500, 94500, 54000, 27000],
+  [180, 101500, 101500, 58000, 29000], [185, 108500, 108500, 62000, 31000], [190, 115500, 115500, 66000, 33000], [195, 122500, 122500, 70000, 35000], [200, 129500, 129500, 74000, 37000], [205, 136500, 136500, 90200, 39000], [210, 143500, 143500, 90200, 49200], [225, 151800, 151800, 101200, 55200], [235, 168300, 168300, 112200, 61200],
+  [245, 184800, 184800, 123200, 67200], [255, 201300, 201300, 134200, 73200], [265, 217800, 217800, 145200, 79200], [275, 234300, 234300, 156200, 85200], [285, 250800, 250800, 167200, 91200]];
+const bannerCost = (n) => { for (const r of BCOST) if (n <= r[0]) return r.slice(1); const k = Math.ceil((n - 285) / 10); return [250800 + 16500 * k, 250800 + 16500 * k, 167200 + 11000 * k, 91200 + 6000 * k]; };
 function planDelta() {
   if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); drawRes(); }).catch(() => { resLoading = false; }); } return null; }
   if (!EXB) return null;
@@ -873,15 +880,23 @@ function planDelta() {
   for (const [x, y] of PLAN.fl || []) fill(PD_B, x - FR, y - FR, x + FR, y + FR);
   const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 };
   for (const [k, x, y] of RESD) { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (PD_X[t]) continue; ca += PD_A[t]; cb += PD_B[t]; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; }
-  return { a, b, nUp: (PLAN.fl || []).length, nDown: rm.size };
+  /* resources: banners come down first (10% back, at the row of the count just before), then the new ones go up */
+  let n = exList().length; const back = [0, 0, 0, 0], cost = [0, 0, 0, 0];
+  for (let i = 0; i < rm.size; i++) { bannerCost(n).forEach((v, j) => back[j] += v * .1); n--; }
+  for (let i = 0; i < (PLAN.fl || []).length; i++) { n++; bannerCost(n).forEach((v, j) => cost[j] += v); }
+  return { a, b, nUp: (PLAN.fl || []).length, nDown: rm.size, back, cost, n0: exList().length, n1: n };
 }
-const PD_T = { en: ["🌾 What this plan does to our resource nodes", "Now", "After", "Change", "per hour", "{u} to build, {d} to take down", "Total"], zh: ["🌾 這個規劃對資源點的影響", "現在", "規劃後", "增減", "每小時", "要蓋 {u} 面、要拆 {d} 面", "合計"],
-  pt: ["🌾 O que este plano faz com os nossos nós de recurso", "Agora", "Depois", "Diferença", "por hora", "{u} a construir, {d} a derrubar", "Total"], ar: ["🌾 أثر هذه الخطة على عقد مواردنا", "الآن", "بعدها", "الفرق", "في الساعة", "{u} للبناء، {d} للإزالة", "المجموع"], ko: ["🌾 이 계획이 우리 자원에 주는 영향", "지금", "계획 후", "증감", "시간당", "세울 깃발 {u}개, 철거할 깃발 {d}개", "합계"] };
+const PD_T = { en: ["🌾 What this plan does to our resource nodes", "Now", "After", "Change", "per hour", "{u} to build, {d} to take down", "Total", "Building costs", "Taking down gives back (10%)", "Net cost", "Pays for itself in about {d} days", "No more resource nodes: it never pays for itself in resources", "Banners: {a} → {b}", "No cost: the plan gives resources back"], zh: ["🌾 這個規劃對資源點的影響", "現在", "規劃後", "增減", "每小時", "要蓋 {u} 面、要拆 {d} 面", "合計", "蓋旗花費", "拆旗退回（10%）", "淨花費", "大約 {d} 天回本", "資源點沒有變多：光看資源不會回本", "旗數：{a} → {b}", "不用花費：這個規劃反而退回資源"],
+  pt: ["🌾 O que este plano faz com os nossos nós de recurso", "Agora", "Depois", "Diferença", "por hora", "{u} a construir, {d} a derrubar", "Total", "Custo de construir", "Derrubar devolve (10%)", "Custo líquido", "Paga-se em cerca de {d} dias", "Sem mais nós de recurso: não se paga em recursos", "Estandartes: {a} → {b}", "Sem custo: o plano devolve recursos"], ar: ["🌾 أثر هذه الخطة على عقد مواردنا", "الآن", "بعدها", "الفرق", "في الساعة", "{u} للبناء، {d} للإزالة", "المجموع", "تكلفة البناء", "الإزالة تعيد (10%)", "التكلفة الصافية", "تسترد تكلفتها في نحو {d} يومًا", "لا زيادة في عقد الموارد: لا تسترد تكلفتها بالموارد", "الرايات: {a} → {b}", "بلا تكلفة: الخطة تعيد موارد"], ko: ["🌾 이 계획이 우리 자원에 주는 영향", "지금", "계획 후", "증감", "시간당", "세울 깃발 {u}개, 철거할 깃발 {d}개", "합계", "건설 비용", "철거 시 환급 (10%)", "순비용", "약 {d}일이면 본전", "자원이 늘지 않아요: 자원만으로는 본전이 안 돼요", "깃발 수: {a} → {b}", "비용 없음: 이 계획은 자원을 돌려받아요"] };
 function planDeltaHtml() {
   const d = planDelta(); if (!d || (!d.nUp && !d.nDown)) return ""; const t = PD_T[lang] || PD_T.en, sg = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toLocaleString("en-US");
   const rows = RES_K.map(([k, ic], i) => [ic + " " + (RES_T[lang] || RES_T.en)[i + 1], d.a[k], d.b[k]]); rows.push([t[6], rows.reduce((x, r) => x + r[1], 0), rows.reduce((x, r) => x + r[2], 0)]);
   return `<div id="km_pd" class="km-pd"><b>${esc(t[0])}</b><div class="muted" style="font-size:12px;margin:2px 0 6px">${esc(t[5].replace("{u}", d.nUp).replace("{d}", d.nDown))}</div>
-    <div style="overflow-x:auto"><table><thead><tr><th></th><th>${esc(t[1])}</th><th>${esc(t[2])}</th><th>${esc(t[3])}</th><th>${esc(t[4])}</th></tr></thead><tbody>${rows.map((r, i) => { const df = r[2] - r[1]; return `<tr${i === rows.length - 1 ? ' class="tot"' : ""}><td>${esc(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df)}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df * 3600)}</td></tr>`; }).join("")}</tbody></table></div></div>`;
+    <div style="overflow-x:auto"><table><thead><tr><th></th><th>${esc(t[1])}</th><th>${esc(t[2])}</th><th>${esc(t[3])}</th><th>${esc(t[4])}</th></tr></thead><tbody>${rows.map((r, i) => { const df = r[2] - r[1]; return `<tr${i === rows.length - 1 ? ' class="tot"' : ""}><td>${esc(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df)}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df * 3600)}</td></tr>`; }).join("")}</tbody></table></div>
+    ${(() => { const K = (v) => { const a = Math.abs(v), sg0 = v < 0 ? "−" : ""; return sg0 + (a >= 1e6 ? (a / 1e6).toFixed(2) + "M" : a >= 1e3 ? Math.round(a / 1e3) + "K" : Math.round(a)); }, four = (l) => `🍞 ${K(l[0])} · 🪵 ${K(l[1])} · 🪨 ${K(l[2])} · ⛏️ ${K(l[3])}`;
+      const net = d.cost.map((v, i) => v - d.back[i]), tot = net.reduce((x, v) => x + v, 0), dn = rows[rows.length - 1][2] - rows[rows.length - 1][1];
+      return `<div class="muted" style="font-size:12.5px;margin-top:8px;line-height:1.6">${esc(t[12].replace("{a}", d.n0).replace("{b}", d.n1))}${d.nUp ? `<br>${esc(t[7])}: ${four(d.cost)}` : ""}${d.nDown ? `<br>${esc(t[8])}: ${four(d.back)}` : ""}<br>${esc(t[9])}: ${four(net)}</div>
+        <div style="margin-top:6px"><b>${esc(tot <= 0 ? t[13] : dn > 0 ? t[10].replace("{d}", (tot / (dn * 86400)).toFixed(1)) : t[11])}</b></div>`; })()}</div>`;
 }
 function renderFlags() {
   const el = $("km_flags"); if (!el) return;
