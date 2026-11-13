@@ -461,7 +461,11 @@ function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the 
     count();
     for (let i = 0; i < bl.length && moves.length < 40 && !sub; i++) { if (!base.link[i]) continue; const [ax, ay] = bl[i], ns = nodesAt(ax - 7, ay - 7, ax + 7, ay + 7), cands = [];
       const inA = (x, y) => Math.abs(x - ax) <= 3 && Math.abs(y - ay) <= 3;
-      for (let dy = -3; dy <= 3; dy++) for (let dx = -3; dx <= 3; dx++) { if (!dx && !dy) continue; const bx = ax + dx, by = ay + dy; if (!ok(bx, by)) continue;
+      /* every neighbour it touches now must still touch it after the move (and one within 2 tiles stays within 2) — counting groups alone let a move
+         through when our list showed another way round that isn't there in game (2026-11-13) */
+      const A0 = bSq(bl[i]), nb = hqs.concat(bl.filter((b, j) => j !== i).map(bSq)).filter((r) => r[0] <= A0[2] + 3 && A0[0] - 3 <= r[2] && r[1] <= A0[3] + 3 && A0[1] - 3 <= r[3]).map((r) => [r, sqTouch(A0, r)]);
+      const keeps = (bx, by) => { const B0 = [bx - 3, by - 3, bx + 3, by + 3]; return nb.every(([r, hard]) => hard ? sqTouch(B0, r) : (r[0] <= B0[2] + 3 && B0[0] - 3 <= r[2] && r[1] <= B0[3] + 3 && B0[1] - 3 <= r[3])); };
+      for (let dy = -3; dy <= 3; dy++) for (let dx = -3; dx <= 3; dx++) { if (!dx && !dy) continue; const bx = ax + dx, by = ay + dy; if (!ok(bx, by) || !keeps(bx, by)) continue;
         const inB = (x, y) => Math.abs(x - bx) <= 3 && Math.abs(y - by) <= 3; let bad = false;
         for (let y = ay - 3; y <= ay + 3 && !bad; y++) for (let x = ax - 3; x <= ax + 3; x++) { const k = oK(x, y); if (K[k] && C[k] === 1 && !inB(x, y)) { bad = true; break; } }
         if (bad) continue; let g = 0;
