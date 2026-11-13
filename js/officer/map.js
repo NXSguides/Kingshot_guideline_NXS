@@ -858,6 +858,31 @@ function drawFlags() {
       + `<polygon points="${tilePts(f.x, f.y)}" fill="#0b3d91" stroke="#fff" stroke-width=".25"/><text x="${X}" y="${Y - 1.6}" text-anchor="middle" font-family="Arial" font-size="2.6" font-weight="800" fill="#fff" stroke="#0b3d91" stroke-width=".5" paint-order="stroke">${i + 1}</text></g>`;
   }).join("");
 }
+/* 🌾 what the current plan does to our resource nodes (Sherry 2026-11-13): now = our HQs + every standing banner; after = the same without the
+   📌 banners noted to come down and with the 🚩 planned banners. A node is ours with ≥ 3 of its 4 tiles in our territory (others' territory never counts). */
+let PD_A = null, PD_B = null, PD_X = null;
+function planDelta() {
+  if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); drawRes(); }).catch(() => { resLoading = false; }); } return null; }
+  if (!EXB) return null;
+  if (!PD_A) { PD_A = new Uint8Array(FN * FN); PD_B = new Uint8Array(FN * FN); PD_X = new Uint8Array(FN * FN); }
+  const fill = (A, x0, y0, x1, y1) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) A.fill(1, y * FN + Math.max(0, x0), y * FN + Math.min(FN - 1, x1) + 1); };
+  PD_A.fill(0); PD_B.fill(0); PD_X.fill(0);
+  for (const [, x, y] of otList()) fill(PD_X, x - FR, y - FR, x + FR, y + FR); for (const [, x, y] of otHq()) fill(PD_X, x - 6, y - 6, x + 8, y + 8);
+  for (const [x, y] of G.hq || []) { fill(PD_A, x - 6, y - 6, x + 8, y + 8); fill(PD_B, x - 6, y - 6, x + 8, y + 8); }
+  const rm = rmSet(); for (const [x, y] of exList()) { fill(PD_A, x - FR, y - FR, x + FR, y + FR); if (!rm.has(x + "," + y)) fill(PD_B, x - FR, y - FR, x + FR, y + FR); }
+  for (const [x, y] of PLAN.fl || []) fill(PD_B, x - FR, y - FR, x + FR, y + FR);
+  const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 };
+  for (const [k, x, y] of RESD) { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (PD_X[t]) continue; ca += PD_A[t]; cb += PD_B[t]; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; }
+  return { a, b, nUp: (PLAN.fl || []).length, nDown: rm.size };
+}
+const PD_T = { en: ["🌾 What this plan does to our resource nodes", "Now", "After", "Change", "per hour", "{u} to build, {d} to take down", "Total"], zh: ["🌾 這個規劃對資源點的影響", "現在", "規劃後", "增減", "每小時", "要蓋 {u} 面、要拆 {d} 面", "合計"],
+  pt: ["🌾 O que este plano faz com os nossos nós de recurso", "Agora", "Depois", "Diferença", "por hora", "{u} a construir, {d} a derrubar", "Total"], ar: ["🌾 أثر هذه الخطة على عقد مواردنا", "الآن", "بعدها", "الفرق", "في الساعة", "{u} للبناء، {d} للإزالة", "المجموع"], ko: ["🌾 이 계획이 우리 자원에 주는 영향", "지금", "계획 후", "증감", "시간당", "세울 깃발 {u}개, 철거할 깃발 {d}개", "합계"] };
+function planDeltaHtml() {
+  const d = planDelta(); if (!d || (!d.nUp && !d.nDown)) return ""; const t = PD_T[lang] || PD_T.en, sg = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toLocaleString("en-US");
+  const rows = RES_K.map(([k, ic], i) => [ic + " " + (RES_T[lang] || RES_T.en)[i + 1], d.a[k], d.b[k]]); rows.push([t[6], rows.reduce((x, r) => x + r[1], 0), rows.reduce((x, r) => x + r[2], 0)]);
+  return `<div id="km_pd" class="km-pd"><b>${esc(t[0])}</b><div class="muted" style="font-size:12px;margin:2px 0 6px">${esc(t[5].replace("{u}", d.nUp).replace("{d}", d.nDown))}</div>
+    <div style="overflow-x:auto"><table><thead><tr><th></th><th>${esc(t[1])}</th><th>${esc(t[2])}</th><th>${esc(t[3])}</th><th>${esc(t[4])}</th></tr></thead><tbody>${rows.map((r, i) => { const df = r[2] - r[1]; return `<tr${i === rows.length - 1 ? ' class="tot"' : ""}><td>${esc(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df)}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df * 3600)}</td></tr>`; }).join("")}</tbody></table></div></div>`;
+}
 function renderFlags() {
   const el = $("km_flags"); if (!el) return;
   const fl = flagCalc(), ed = ME(), tot = fl.reduce((a, f) => a + f.fresh.length, 0);
@@ -867,6 +892,7 @@ function renderFlags() {
         <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>
         ${OTB ? `<div class="row" style="margin-top:6px;gap:6px;align-items:center"><span class="muted" style="font-size:12.5px">${esc(ft("putKind"))}</span><select class="btn${flagMode && otKind ? " primary" : ""}" id="fl_kind"><option value="">${esc(ft("ourPlan"))}</option>${Object.keys(OTB.a).map((n) => `<option value="${esc(n)}"${otKind === n ? " selected" : ""}>🏴 ${esc(n)}</option>`).join("")}${Object.keys(OTB.a).map((n) => `<option value="h:${esc(n)}"${otKind === "h:" + n ? " selected" : ""}>🏯 ${esc(n)} ${esc(ft("hqP"))}</option>`).join("")}${Object.keys(OTB.a).map((n) => `<option value="b:${esc(n)}"${otKind === "b:" + n ? " selected" : ""}>🏯 ${esc(n)} ${esc(ft("hqB"))}</option>`).join("")}</select></div>` : ""}
         ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px${otKind ? ";color:var(--accent,#ffb020);font-weight:700" : ""}">${esc(otKind ? ft("otHint").replace("🏴 {n}", /^[hb]:/.test(otKind) ? "🏯 " + otKind.slice(2) + " " + hqLbl(otKind[0] === "b" ? 2 : 1) : "🏴 " + otKind).replace("一面 🏯", "一個 🏯") : ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`)
+    + planDeltaHtml()
     + (() => { const rm = [...rmSet()]; return rm.length ? `<div id="km_rml" style="margin-top:10px"><b>${esc(ft("rmList").replace("{n}", rm.length))}</b><div class="muted" style="font-size:12px;margin:2px 0 6px">${esc(ft("rmHint"))}</div><div style="display:flex;flex-wrap:wrap;gap:6px">${rm.map((k) => `<button type="button" class="btn small" data-rmgo="${k}">X:${k.replace(",", " Y:")}</button>`).join("")}</div></div>` : ""; })()
     + (fl.length ? `<div class="km-fl-list">${fl.map((f, i) => `<div class="km-fl" data-i="${i}"><b>#${i + 1}</b>`
         + (ed ? `<label>X <input type="number" data-fx="${i}" value="${f.x}" min="0" max="1199" inputmode="numeric"></label><label>Y <input type="number" data-fy="${i}" value="${f.y}" min="0" max="1199" inputmode="numeric"></label>` : `<span class="co">X:${f.x} Y:${f.y}</span>`)
