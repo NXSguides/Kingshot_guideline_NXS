@@ -83,6 +83,7 @@ const FEATURES = [
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
+  ["Map: 🌾 resource node layers by kind", /🌾 RESOURCE NODE LAYERS \(2026-11-13/, /{ s: "#km_resl", k: "mp36" }/],
   ["Map: 🔄 big reshuffle of the banners", /🔄 BIG RESHUFFLE \(2026-11-13/, /{ s: "#kn_oresh", k: "mp35", e: 1 }/],
   ["Map: 🌾 banner check for the kingdom as it is now", /🌾 BANNER CHECK FOR THE KINGDOM NOW \(2026-11-12/, /{ s: "#kn_opt", k: "mp34", e: 1 }/],
   ["Hive: 🌾 banner check (wasted banners + best extra banners for resources)", /🌾 BANNER CHECK \(2026-11-12/, /{ s: "#mv_opt", k: "mv03", e: 1 }/],

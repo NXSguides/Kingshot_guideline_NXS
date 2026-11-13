@@ -46,7 +46,7 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_otG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", (e) => { if (!mkFar(e, m)) select(m.dataset.id, false); });
@@ -334,13 +334,25 @@ function renderList() {
   const rwb = $("km_cards").querySelector("[data-rwedit]"); if (rwb) rwb.onclick = rwEdit;
   const rws = $("km_cards").querySelector("[data-rwphase]"); if (rws) rws.onchange = () => { rwShow(+rws.value); renderList(); renderInfo(); renderPlan(); };
 }
+/* 🌾 resource nodes on the whole map, one switch per kind (Sherry 2026-11-13: "can I see the nodes, every kind"). Data = data/resources-2189.json (kind + lower corner, 2×2). */
+const RES_K = [["b", "🍞", "#e8c15a"], ["w", "🪵", "#7aa35a"], ["q", "🪨", "#c9d3d8"], ["i", "⛏️", "#8d6e63"]], RES_T = { en: ["Resource nodes", "Bread", "Wood", "Stone", "Iron"], zh: ["資源點", "麵包", "木材", "石材", "鐵礦"], pt: ["Nós de recurso", "Pão", "Madeira", "Pedra", "Ferro"], ar: ["عقد الموارد", "خبز", "خشب", "حجر", "حديد"], ko: ["자원", "빵", "목재", "석재", "철광"] };
+const resOn = new Set(); let RESD = null, resLoading = false;
+function drawRes() {
+  const g = $("km_resG"); if (!g) return; if (!resOn.size) { g.innerHTML = ""; return; }
+  if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; drawRes(); }).catch(() => { resLoading = false; }); } return; }
+  const col = Object.fromEntries(RES_K.map(([k, , c]) => [k, c])); let h = "";
+  for (const [k, x, y] of RESD) if (resOn.has(k)) h += `<polygon points="${pts([[x, y], [x + 2, y], [x + 2, y + 2], [x, y + 2]])}" fill="${col[k]}" stroke="#1b1b1b" stroke-width=".25"/>`;
+  g.innerHTML = h;
+}
 function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
   $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0 && !planOnly}">${esc(T("all"))}</button><button type="button" data-k="plan" aria-pressed="${planOnly}">${esc(pt("planOnly"))}</button><button type="button" data-k="terr" aria-pressed="${terrOn}" title="${esc(tt(1))}">${esc(tt(0))}</button>` +
-    items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("");
+    items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("") +
+    `<span class="km-resl" id="km_resl">${esc((RES_T[lang] || RES_T.en)[0])}</span>` + RES_K.map(([k, ic, c], i) => `<button type="button" data-k="res:${k}" aria-pressed="${resOn.has(k)}"><span class="sw" style="background:${c}"></span>${ic} ${esc((RES_T[lang] || RES_T.en)[i + 1])}</button>`).join("");
   if ($("km_terrNote")) { $("km_terrNote").hidden = !terrOn; $("km_terrNote").textContent = tt(1); }
   $("km_layers").querySelectorAll("button").forEach((btn) => btn.onclick = () => {
     const k = btn.dataset.k;
+    if (k.startsWith("res:")) { const r = k.slice(4); if (resOn.has(r)) resOn.delete(r); else resOn.add(r); renderLayers(); drawRes(); return; }
     if (k === "plan") { planOnly = !planOnly; renderLayers(); applyHidden(); return; }
     if (k === "terr") return setTerr(!terrOn);
     if (k === "*") { hidden.clear(); planOnly = false; }
