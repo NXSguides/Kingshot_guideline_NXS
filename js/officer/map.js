@@ -339,9 +339,12 @@ const RES_K = [["b", "🍞", "#e8c15a"], ["w", "🪵", "#7aa35a"], ["q", "🪨",
 const resOn = new Set(); let RESD = null, resLoading = false;
 function drawRes() {
   const g = $("km_resG"); if (!g) return; if (!resOn.size) { g.innerHTML = ""; return; }
-  if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; drawRes(); }).catch(() => { resLoading = false; }); } return; }
+  if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); }).catch(() => { resLoading = false; }); } return; }
   const col = Object.fromEntries(RES_K.map(([k, , c]) => [k, c])); let h = "";
-  for (const [k, x, y] of RESD) if (resOn.has(k)) h += `<polygon points="${pts([[x, y], [x + 2, y], [x + 2, y + 2], [x, y + 2]])}" fill="${col[k]}" stroke="#1b1b1b" stroke-width=".25"/>`;
+  const nx = nxSet();
+  RESD.forEach(([k, x, y], n) => { if (!resOn.has(k)) return; const ours = RES_OWN.has(n), off = ours && nx.has(x + "," + y), p4 = pts([[x, y], [x + 2, y], [x + 2, y + 2], [x, y + 2]]);
+    h += `<polygon points="${p4}" fill="${col[k]}"${off ? ' fill-opacity=".35"' : ""} stroke="${off ? "#ff5a4d" : ours ? "#fff" : "#1b1b1b"}" stroke-width="${ours ? ".55" : ".25"}"/>`;
+    if (off) { const [X, Y] = P(x + 1, y + 1); h += `<text x="${X}" y="${Y + .9}" text-anchor="middle" font-family="Arial" font-size="2.6" font-weight="800" fill="#ff5a4d" stroke="#fff" stroke-width=".35" paint-order="stroke">✕</text>`; } });
   g.innerHTML = h;
 }
 function renderLayers() {
@@ -628,7 +631,7 @@ async function savePlan() {
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
   for (const b of B) if (PLANNABLE(b) && !isOp(b) && raw(b) === "held" && !(PLAN.h || {})[pk(b)]) { PLAN.h = PLAN.h || {}; PLAN.h[pk(b)] = Date.parse(PLAN.at || "") || 0; }   // keep the old date, or saving would make last period's ones current again
-  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length || (PLAN.ex.rm || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), by: by || "?", at: new Date().toISOString() };
+  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length || (PLAN.ex.rm || []).length || (PLAN.ex.nx || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
@@ -736,6 +739,9 @@ const exList = (noMove) => { const e = PLAN.ex || {}, off = new Set(e.off || [])
   return out.concat(MemberMap.ticked().filter(([x, y]) => !have.has(x + "," + y) && !off.has(x + "," + y)).map(([x, y]) => [x, y, 1])); };
 /* 📌 standing banners an officer wants to take down later (Sherry 2026-11-13: "I can't do it in one go and I'm afraid I'll forget"): PLAN.ex.rm = ["x,y"], saved with the plan */
 const rmSet = () => new Set((PLAN.ex && PLAN.ex.rm) || []);
+/* 🌾 resource nodes an officer switched off: in our territory on paper, in fact another alliance's (overlap) — PLAN.ex.nx = ["x,y"] of the node, saved with the plan (Sherry 2026-11-14) */
+const nxSet = () => new Set((PLAN.ex && PLAN.ex.nx) || []);
+let RES_OWN = new Set();   // nodes inside our territory now (index into RESD), switched off or not
 const rmClean = () => { if (!PLAN.ex || !PLAN.ex.rm) return; const have = new Set(exList().map(([x, y]) => x + "," + y)); PLAN.ex.rm = PLAN.ex.rm.filter((k) => have.has(k)); if (!PLAN.ex.rm.length) delete PLAN.ex.rm; };   // a banner that is gone or moved is no longer on the list
 let OV = null;   // GRID with the officers' banner edits applied
 function rebuildOwn() {
@@ -862,7 +868,7 @@ function drawFlags() {
    📌 banners noted to come down and with the 🚩 planned banners. A node is ours with ≥ 3 of its 4 tiles in our territory (others' territory never counts). */
 let PD_A = null, PD_B = null, PD_X = null;
 function planDelta() {
-  if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); drawRes(); }).catch(() => { resLoading = false; }); } return null; }
+  if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); }).catch(() => { resLoading = false; }); } return null; }
   if (!EXB) return null;
   if (!PD_A) { PD_A = new Uint8Array(FN * FN); PD_B = new Uint8Array(FN * FN); PD_X = new Uint8Array(FN * FN); }
   const fill = (A, x0, y0, x1, y1) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) A.fill(1, y * FN + Math.max(0, x0), y * FN + Math.min(FN - 1, x1) + 1); };
@@ -871,15 +877,30 @@ function planDelta() {
   for (const [x, y] of G.hq || []) { fill(PD_A, x - 6, y - 6, x + 8, y + 8); fill(PD_B, x - 6, y - 6, x + 8, y + 8); }
   const rm = rmSet(); for (const [x, y] of exList()) { fill(PD_A, x - FR, y - FR, x + FR, y + FR); if (!rm.has(x + "," + y)) fill(PD_B, x - FR, y - FR, x + FR, y + FR); }
   for (const [x, y] of PLAN.fl || []) fill(PD_B, x - FR, y - FR, x + FR, y + FR);
-  const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 };
-  for (const [k, x, y] of RESD) { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (PD_X[t]) continue; ca += PD_A[t]; cb += PD_B[t]; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; }
+  const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 }, nx = nxSet(), own = new Set(), off = [];
+  RESD.forEach(([k, x, y], n) => { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (PD_X[t]) continue; ca += PD_A[t]; cb += PD_B[t]; }
+    if (ca >= 3) own.add(n); if (nx.has(x + "," + y)) { if (ca >= 3) off.push([k, x, y]); return; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; });
+  RES_OWN = own;
   const n0 = exList().length;
-  return { a, b, nUp: (PLAN.fl || []).length, nDown: rm.size, n0, n1: n0 - rm.size + (PLAN.fl || []).length };
+  return { a, b, off, nUp: (PLAN.fl || []).length, nDown: rm.size, n0, n1: n0 - rm.size + (PLAN.fl || []).length };
 }
 const PD_T = { en: ["🌾 What this plan does to our resource nodes", "Now", "After", "Change", "per hour", "{u} to build, {d} to take down", "Total", "Banners: {a} → {b}", "Resource nodes per banner: {a} → {b}", "Each extra banner brings {x} resource nodes.", "{k} fewer banners, {r} more resource nodes.", "Same number of banners, {r} more resource nodes.", "{r} fewer resource nodes.", "For scale: one banner on its own holds 1 node at most (only 25 spots in the whole kingdom give 2). More than 1 per banner means the new banner finishes nodes our territory already half covers."], zh: ["🌾 這個規劃對資源點的影響", "現在", "規劃後", "增減", "每小時", "要蓋 {u} 面、要拆 {d} 面", "合計", "旗數：{a} → {b}", "每面旗拿到的資源點：{a} → {b}", "這次每多一面旗，多拿 {x} 個資源點。", "少 {k} 面旗，多 {r} 個資源點。", "旗數不變，多 {r} 個資源點。", "資源點少 {r} 個。", "參考：一面旗單獨最多只能拿 1 個資源點（整個王國只有 25 個位置能一面拿 2 個）。每面超過 1 個，代表新旗補滿了我們領地原本只蓋到一半的資源點。"],
   pt: ["🌾 O que este plano faz com os nossos nós de recurso", "Agora", "Depois", "Diferença", "por hora", "{u} a construir, {d} a derrubar", "Total", "Estandartes: {a} → {b}", "Nós de recurso por estandarte: {a} → {b}", "Cada estandarte a mais traz {x} nós de recurso.", "{k} estandartes a menos, {r} nós de recurso a mais.", "Mesmo número de estandartes, {r} nós de recurso a mais.", "{r} nós de recurso a menos.", "Referência: um estandarte sozinho segura no máximo 1 nó (só 25 lugares no reino inteiro dão 2). Mais de 1 por estandarte significa que o novo completa nós que o nosso território já cobria pela metade."], ar: ["🌾 أثر هذه الخطة على عقد مواردنا", "الآن", "بعدها", "الفرق", "في الساعة", "{u} للبناء، {d} للإزالة", "المجموع", "الرايات: {a} → {b}", "عقد الموارد لكل راية: {a} → {b}", "كل راية إضافية تجلب {x} عقدة موارد.", "رايات أقل بـ{k} وعقد موارد أكثر بـ{r}.", "العدد نفسه من الرايات وعقد موارد أكثر بـ{r}.", "عقد موارد أقل بـ{r}.", "للمقارنة: الراية وحدها تمسك عقدة واحدة على الأكثر (25 موضعًا فقط في المملكة كلها تعطي 2). أكثر من 1 لكل راية يعني أن الراية الجديدة تُكمل عقدًا كانت أرضنا تغطي نصفها."], ko: ["🌾 이 계획이 우리 자원에 주는 영향", "지금", "계획 후", "증감", "시간당", "세울 깃발 {u}개, 철거할 깃발 {d}개", "합계", "깃발 수: {a} → {b}", "깃발 하나당 자원: {a} → {b}", "깃발 하나를 더 세울 때마다 자원 {x}개를 더 얻어요.", "깃발 {k}개 줄고 자원 {r}개 늘어요.", "깃발 수는 그대로, 자원 {r}개 늘어요.", "자원이 {r}개 줄어요.", "참고: 깃발 하나만으로는 자원을 최대 1개 잡아요 (왕국 전체에서 2개를 잡는 자리는 25곳뿐). 깃발당 1개를 넘으면 새 깃발이 우리 영지가 반만 덮던 자원을 채운다는 뜻이에요."] };
-function planDeltaHtml() {
-  const d = planDelta(); if (!d || (!d.nUp && !d.nDown)) return ""; const t = PD_T[lang] || PD_T.en, sg = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toLocaleString("en-US");
+const RN_T = { en: ["🌾 Our resource nodes now", "Nodes", "Per hour", "Total", "To check against the Alliance Warehouse in game. Turn on a resource layer above and tap one of our nodes on the map to switch it off when it is really another alliance's (overlap); tap again to switch it back on.", "Switched off ({n}) — tap to switch back on"],
+  zh: ["🌾 我們現在的資源點", "數量", "每小時", "合計", "可以跟遊戲裡聯盟倉庫的數字對照。打開上面的資源點圖層，在地圖上點我們的資源點，就能把其實是別的聯盟的（重疊）關掉；再點一次打開。", "已關掉（{n}）——點一下重新打開"],
+  pt: ["🌾 Os nossos nós de recurso agora", "Nós", "Por hora", "Total", "Para conferir com o Armazém da Aliança no jogo. Ligue uma camada de recursos acima e toque num nó nosso no mapa para desligá-lo quando na verdade é de outra aliança (sobreposição); toque de novo para religar.", "Desligados ({n}) — toque para religar"],
+  ar: ["🌾 عقد مواردنا الآن", "العقد", "في الساعة", "المجموع", "للمقارنة مع مستودع التحالف في اللعبة. فعّل طبقة موارد أعلاه واضغط على إحدى عقدنا على الخريطة لإيقافها إن كانت في الحقيقة لتحالف آخر (تداخل)؛ اضغط مرة أخرى لإعادتها.", "موقوفة ({n}) — اضغط لإعادتها"],
+  ko: ["🌾 지금 우리 자원", "개수", "시간당", "합계", "게임의 연맹 창고 숫자와 비교해 보세요. 위에서 자원 레이어를 켜고 지도에서 우리 자원을 누르면, 실제로는 다른 연맹 것(겹침)인 자원을 끌 수 있어요. 다시 누르면 켜져요.", "끈 자원 ({n}) — 누르면 다시 켜져요"] };
+function resNowHtml(d) {
+  if (!d) return ""; const t = RN_T[lang] || RN_T.en, nf = (n) => n.toLocaleString("en-US");
+  const rows = RES_K.map(([k, ic], i) => [ic + " " + (RES_T[lang] || RES_T.en)[i + 1], d.a[k]]); rows.push([t[3], rows.reduce((x, r) => x + r[1], 0)]);
+  return `<div id="km_rn" class="km-pd"><b>${esc(t[0])}</b><div style="overflow-x:auto;margin-top:6px"><table><thead><tr><th></th><th>${esc(t[1])}</th><th>${esc(t[2])}</th></tr></thead><tbody>${rows.map((r, i) => `<tr${i === rows.length - 1 ? ' class="tot"' : ""}><td>${esc(r[0])}</td><td>${r[1]}</td><td>${nf(r[1] * 3600)}</td></tr>`).join("")}</tbody></table></div>
+    <div class="muted" style="font-size:12px;margin-top:6px">${esc(t[4])}</div>
+    ${d.off.length ? `<div style="margin-top:8px"><b style="font-size:13px">${esc(t[5].replace("{n}", d.off.length))}</b><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${d.off.map(([k, x, y]) => `<button type="button" class="btn small" data-nxon="${x},${y}">${(RES_K.find((r) => r[0] === k) || [])[1] || ""} ${x},${y}</button>`).join("")}</div></div>` : ""}</div>`;
+}
+function nodeToggle(x, y) { const e = (PLAN.ex = PLAN.ex || { off: [], add: [] }), k = x + "," + y; e.nx = e.nx || []; const j = e.nx.indexOf(k); if (j >= 0) e.nx.splice(j, 1); else e.nx.push(k); if (!e.nx.length) delete e.nx; flagsChanged(); }
+function planDeltaHtml(d) {
+  if (!d || (!d.nUp && !d.nDown)) return ""; const t = PD_T[lang] || PD_T.en, sg = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toLocaleString("en-US");
   const rows = RES_K.map(([k, ic], i) => [ic + " " + (RES_T[lang] || RES_T.en)[i + 1], d.a[k], d.b[k]]); rows.push([t[6], rows.reduce((x, r) => x + r[1], 0), rows.reduce((x, r) => x + r[2], 0)]);
   return `<div id="km_pd" class="km-pd"><b>${esc(t[0])}</b><div class="muted" style="font-size:12px;margin:2px 0 6px">${esc(t[5].replace("{u}", d.nUp).replace("{d}", d.nDown))}</div>
     <div style="overflow-x:auto"><table><thead><tr><th></th><th>${esc(t[1])}</th><th>${esc(t[2])}</th><th>${esc(t[3])}</th><th>${esc(t[4])}</th></tr></thead><tbody>${rows.map((r, i) => { const df = r[2] - r[1]; return `<tr${i === rows.length - 1 ? ' class="tot"' : ""}><td>${esc(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df)}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df * 3600)}</td></tr>`; }).join("")}</tbody></table></div>
@@ -897,7 +918,7 @@ function renderFlags() {
         <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>
         ${OTB ? `<div class="row" style="margin-top:6px;gap:6px;align-items:center"><span class="muted" style="font-size:12.5px">${esc(ft("putKind"))}</span><select class="btn${flagMode && otKind ? " primary" : ""}" id="fl_kind"><option value="">${esc(ft("ourPlan"))}</option>${Object.keys(OTB.a).map((n) => `<option value="${esc(n)}"${otKind === n ? " selected" : ""}>🏴 ${esc(n)}</option>`).join("")}${Object.keys(OTB.a).map((n) => `<option value="h:${esc(n)}"${otKind === "h:" + n ? " selected" : ""}>🏯 ${esc(n)} ${esc(ft("hqP"))}</option>`).join("")}${Object.keys(OTB.a).map((n) => `<option value="b:${esc(n)}"${otKind === "b:" + n ? " selected" : ""}>🏯 ${esc(n)} ${esc(ft("hqB"))}</option>`).join("")}</select></div>` : ""}
         ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px${otKind ? ";color:var(--accent,#ffb020);font-weight:700" : ""}">${esc(otKind ? ft("otHint").replace("🏴 {n}", /^[hb]:/.test(otKind) ? "🏯 " + otKind.slice(2) + " " + hqLbl(otKind[0] === "b" ? 2 : 1) : "🏴 " + otKind).replace("一面 🏯", "一個 🏯") : ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`)
-    + planDeltaHtml()
+    + (() => { const d = planDelta(); return resNowHtml(d) + planDeltaHtml(d); })()
     + (() => { const rm = [...rmSet()]; return rm.length ? `<div id="km_rml" style="margin-top:10px"><b>${esc(ft("rmList").replace("{n}", rm.length))}</b><div class="muted" style="font-size:12px;margin:2px 0 6px">${esc(ft("rmHint"))}</div><div style="display:flex;flex-wrap:wrap;gap:6px">${rm.map((k) => `<button type="button" class="btn small" data-rmgo="${k}">X:${k.replace(",", " Y:")}</button>`).join("")}</div></div>` : ""; })()
     + (fl.length ? `<div class="km-fl-list">${fl.map((f, i) => `<div class="km-fl" data-i="${i}"><b>#${i + 1}</b>`
         + (ed ? `<label>X <input type="number" data-fx="${i}" value="${f.x}" min="0" max="1199" inputmode="numeric"></label><label>Y <input type="number" data-fy="${i}" value="${f.y}" min="0" max="1199" inputmode="numeric"></label>` : `<span class="co">X:${f.x} Y:${f.y}</span>`)
@@ -918,6 +939,7 @@ function renderFlags() {
     + `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("note").replace("{d}", TERR.date))}</div>`;
   if ($("fl_dl")) $("fl_dl").onclick = dlBanners;
   if ($("fl_dl2")) $("fl_dl2").onclick = dlOthers;
+  drawRes();   // ours / switched-off marks follow the territory
 }
 /* ⬇️ every banner as the map shows it now (file + officers' edits), in Kingshot Mapper CSV (type,X,Y,label,#color,seq):
    NXS = checked in game, NXS? = estimated from the territory picture, plan = 🚩 planned, not built yet */
@@ -1016,6 +1038,7 @@ function flagEvents() {
     if (b.id === "fl_ot") { otOn = !otOn; try { localStorage.setItem("km-otb", otOn ? "1" : "0"); } catch (err) {} drawOt(); renderFlags(); return; }
     if (b.id === "fl_ex") { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); return; }
     if (b.id === "fl_obst") { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); return; }
+    if (b.dataset.nxon) { if (ME()) { const [x, y] = b.dataset.nxon.split(",").map(Number); nodeToggle(x, y); } return; }
     if (b.dataset.rmgo) { const [x, y] = b.dataset.rmgo.split(",").map(Number); centerOn({ x, y }, true); selectFlagAt(x, y); return; }   // 📌 jump to a banner noted to come down
     if (b.dataset.fcp != null) { const f = PLAN.fl[+b.dataset.fcp]; try { navigator.clipboard.writeText(`X:${f[0]} Y:${f[1]}`).then(() => { b.textContent = T("copied"); setTimeout(() => b.textContent = T("copy"), 1500); }, () => {}); } catch (err) {} return; }
     if (!ME()) return;
@@ -1036,6 +1059,7 @@ function flagEvents() {
   $("km_svg").addEventListener("click", (e) => {
     const mk = e.target.closest(".mk"); if (mk && !mkFar(e, mk)) { FSEL = null; return; }
     const [tx, ty] = tileAt(e);
+    if (resOn.size && RESD && ME()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && RES_OWN.has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
     if (selectFlagAt(tx, ty)) return;   // tapped a banner → edit it
     if (flagMode && ME() && /^[hb]:/.test(otKind) && OTB && OTB.a[otKind.slice(2)] && tx >= 1 && ty >= 1 && tx < FN - 1 && ty < FN - 1) { const n = otKind.slice(2), t = otKind[0] === "b" ? 2 : 1; otEd().hq.push(t === 2 ? [n, tx - 1, ty - 1, 2] : [n, tx - 1, ty - 1]); FSEL = { k: "oh", n, x: tx - 1, y: ty - 1, t }; if (!otOn) otOn = true; flagsChanged(); return; }
     if (flagMode && ME() && otKind && OTB && OTB.a[otKind] && tx >= 0 && ty >= 0 && tx < FN && ty < FN) { otEd().add.push([otKind, tx, ty]); FSEL = { k: "o", n: otKind, x: tx, y: ty, c: 1 }; flagsChanged(); return; }
@@ -1086,6 +1110,7 @@ window.KM_SHARED = {
   noBuild: () => B.filter(PLANNABLE).map(opSq),
   bigZones: () => B.filter((b) => b.kind === "fortress" || b.kind === "sanctuary").map((b) => ({ n: nm(b), x: b.x, y: b.y, sq: [b.x - 27, b.y - 27, b.x + 32, b.y + 32], st: "", big: 1 })),   // 60×60 no-build zone: a banner chain that reaches it is kept   // no banners inside an Outpost / Fortress / Sanctuary zone
   zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
+  nodesOff: () => [...nxSet()],
   toRemove: () => [...rmSet()].map((k) => k.split(",").map(Number)),
   markRemove: (l) => { if (!ME()) return 0; const e = (PLAN.ex = PLAN.ex || { off: [], add: [] }); e.rm = e.rm || []; const have = new Set(exList().map(([x, y]) => x + "," + y)); let n = 0; for (const [x, y] of l) { const k = x + "," + y; if (have.has(k) && !e.rm.includes(k)) { e.rm.push(k); n++; } } flagsChanged(); return n; },
   /* 🌾 banner check on this map (members.js): red frame = standing banner that isn't needed, orange number = suggested spot */

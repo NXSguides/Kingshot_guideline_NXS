@@ -402,7 +402,8 @@ function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the 
   const ops = (KS ? KS.outposts() : []).concat(now && KS && KS.bigZones ? KS.bigZones() : []), hqs = PL.hq.map(hSq);
   /* state of a banner list: linked banners (chain from the HQ), territory, and what it holds */
   const allR = hqs.concat((PL.b || []).map(bSq), (KS ? KS.banners() : []).map(bSq)), BX0 = Math.min(...allR.map((r) => r[0])) - 40, BY0 = Math.min(...allR.map((r) => r[1])) - 40, BX1 = Math.max(...allR.map((r) => r[2])) + 40, BY1 = Math.max(...allR.map((r) => r[3])) + 40;
-  const NEARN = []; RESN.forEach(([, x, y], i) => { if (x >= BX0 && x <= BX1 && y >= BY0 && y <= BY1) NEARN.push(i); });
+  const offN = new Set(KS && KS.nodesOff ? KS.nodesOff() : []);   // 🌾 nodes switched off on the Map (really another alliance's): never ours, never a target
+  const NEARN = []; RESN.forEach(([, x, y], i) => { if (x >= BX0 && x <= BX1 && y >= BY0 && y <= BY1 && !offN.has(x + "," + y)) NEARN.push(i); });
   const sT = new Uint8Array(OPT_N * OPT_N), sG = new Uint8Array(OPT_N * OPT_N);
   const evalSet = (bl, fresh) => {
     const sq = bl.map(bSq), link = new Uint8Array(bl.length), q = [];
