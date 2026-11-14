@@ -1,5 +1,41 @@
 [
   {
+    "id": "26b802aeb8",
+    "author": "ELR",
+    "createdAt": "2026-11-14T17:19:29.426Z",
+    "images": [],
+    "links": [],
+    "title": {
+      "zh": "11/15 SS 軍團2",
+      "ko": "11/15 SS 군단 2",
+      "de": "11/15 SS Legion 2",
+      "fr": "11/15 SS Légion 2",
+      "pt": "11/15 SS Legião 2",
+      "tr": "11/15 SS 2. Lejyon",
+      "id": "11/15 SS Legiun 2",
+      "ru": "11/15 SS Легион 2",
+      "th": "11/15 SS กองทัพ 2",
+      "ar": "11/15 SS الكتيبة 2",
+      "es": "11/15 SS Legión 2",
+      "en": "11/15 SS Legion 2"
+    },
+    "content": {
+      "zh": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "ko": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "de": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "fr": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "pt": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "tr": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "id": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "ru": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "th": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "ar": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "es": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
+      "en": "[[img:figures/ann/20261114-171730-2.jpg]]\n[[table:data/ann/20261114-171730-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n"
+    },
+    "expiresAt": "2026-11-15T03:00:00.000Z"
+  },
+  {
     "id": "e55664cadc",
     "author": "Nia and Armada",
     "createdAt": "2026-11-09T00:13:08.340Z",
