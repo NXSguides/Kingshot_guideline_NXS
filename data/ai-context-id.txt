@@ -1378,6 +1378,12 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-14 by ELR] 11/15 SS Legiun 2
+(battle table: shown in the reader's language)
+
+
+(see guide #swordland-showdown)
+
 [2026-11-09 by Nia and Armada] 🚨 TG5 dibuka 9 November — JANGAN tingkatkan!
 Meningkatkan ke TG5 sebelum KvK berikutnya akan merusak matchmaking kita dan bisa mempertemukan kita dengan kerajaan yang jauh lebih kuat.
 Kita menginginkan matchmaking terbaik, bukan yang rumit dan terlalu sulit.

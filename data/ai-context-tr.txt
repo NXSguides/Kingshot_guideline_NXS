@@ -1378,6 +1378,12 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-14 by ELR] 11/15 SS 2. Lejyon
+(battle table: shown in the reader's language)
+
+
+(see guide #swordland-showdown)
+
 [2026-11-09 by Nia and Armada] 🚨 TG5 9 Kasım'da açılıyor — YÜKSELTME YAPMAYIN!
 Bir sonraki KvK'mızdan önce TG5'e yükseltme yapmak eşleştirmemize zarar verir ve bizi çok daha güçlü bir krallıkla karşı karşıya getirebilir.
 Gereksiz yere zor bir eşleşme değil, mümkün olan en iyi eşleşmeyi istiyoruz.
