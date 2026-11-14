@@ -144,6 +144,67 @@
     el.querySelectorAll(".bt-phase").forEach((p) => { p.hidden = !!me && !p.querySelector(".bt-card:not([hidden])"); });
     el.querySelectorAll(".bt-p").forEach((p) => p.classList.toggle("bt-me", !!me && p.textContent === me));
     const all = el.querySelector(".bt-all"); if (all) all.hidden = !me;
+    if (el._ssPaint) el._ssPaint(me);   // 🗺️ your name lit up on the map too
+  }
+
+  /* 🗺️ Swordland map with the names on it (Sherry 2026-11-15): when the announcement that carries a ⚔️ table also shows the Swordland map
+     (figures/SS_map.webp), the picture is redrawn with a box per building — its number and name, then who attacks / defends / joins in each phase —
+     tied to the building by a line. It stays a real picture (tap to zoom, save). Boxes: [x, y, width, line-to x, line-to y] on the 1448 × 1086 map;
+     the blue Safe Zone (left) is ours, so "near home" is the left Sanctum (3.1) and "near enemy" the right one (3.2). */
+  const SSM = { W: 1448, H: 1086, at: { bell: [40, 28, 330, 455, 150], s31: [15, 250, 252, 292, 430], s32: [1183, 628, 258, 1150, 640], stables: [1085, 874, 340, 1012, 945],
+    abbey: [18, 762, 282, 300, 662], merc: [852, 186, 272, 836, 242], hall: [335, 696, 268, 617, 790], shrine: [552, 536, 350, 726, 522] } };
+  const ssKey = (g, seen) => { const t = String(g.target || "").trim(), l = String(g.tl || "");
+    return t === "1" ? "stables" : t === "2" ? "bell" : t === "4" ? "abbey" : t === "5" ? "merc" : t === "6" ? "hall" : t === "7" ? "shrine" : t === "3" ? (/enemy/i.test(l) ? "s32" : /home/i.test(l) ? "s31" : seen.s31 ? "s32" : "s31") : ""; };
+  const SS_COL = { att: "#c0262d", def: "#1d4ed8", join: "#15803d" };
+  function ssBoxes(T, lang) {
+    const B = {}, st = listOf(T.stages), cols = T.cols || {}, show = T.show || {};
+    st.forEach((sn, si) => { const seen = {}; (T.groups || []).filter((g) => (g.sec || 0) === si).forEach((g) => { const k = ssKey(g, seen); if (!k || !SSM.at[k]) return; seen[k] = 1;
+      const roles = ["att", "def", "join"].filter((r) => show[r] !== false && (g[r] || []).length).map((r) => [r, tr(cols[r] || r, lang), (g[r] || []).map((x) => x && typeof x === "object" ? { t: tr(x.t, lang) } : String(x))]);
+      if (!roles.length) return; const t = String(g.target || "").trim();
+      B[k] = B[k] || { title: (/^[0-9]$/.test(t) ? CIRC[+t] + " " : "") + tr(g.tl, lang), parts: [] }; B[k].parts.push({ si, stage: tr(sn, lang), roles }); }); });
+    return B;
+  }
+  function ssDraw(cv, im, B, me, rtl) {
+    const g = cv.getContext("2d"), F = '"Segoe UI","Helvetica Neue",Arial,"Noto Sans","PingFang TC","Microsoft JhengHei","Noto Sans CJK TC","Malgun Gothic",sans-serif';
+    cv.width = SSM.W; cv.height = SSM.H; g.drawImage(im, 0, 0, SSM.W, SSM.H); g.textBaseline = "alphabetic";
+    const PAD = 10, LH = 25, font = (w, sz) => { g.font = `${w} ${sz}px ${F}`; };
+    for (const [k, b] of Object.entries(B)) {
+      let [x, y, w, ax, ay] = SSM.at[k]; const inner = w - PAD * 2, ops = [];   // ops: what to paint, laid out first so the height is known
+      font(800, 21); const tl = []; { let cur = ""; for (const wd of b.title.split(" ")) { const t = cur ? cur + " " + wd : wd; if (cur && g.measureText(t).width > inner) { tl.push(cur); cur = wd; } else cur = t; } if (cur) tl.push(cur); }
+      const headH = tl.length * 25 + 10; let cy = headH + 6;
+      b.parts.forEach((p, pi) => {
+        if (pi > 0 || p.si > 1) { cy += 3; ops.push(["stage", p.stage, cy + 17]); cy += 23; }   // a later phase of the same building (e.g. Stay behind) gets its own caption
+        for (const [r, label, items] of p.roles) {
+          font(800, 19); const lab = label + ":", lw = g.measureText(lab).width + 8, ind = lw > inner * .5 ? 14 : lw; let lx = lw > inner * .5 ? inner + 1 : lw, ly = cy + 19; ops.push(["lab", lab, 0, ly, SS_COL[r]]);
+          items.forEach((it, i) => { const tag = typeof it === "object", txt = (tag ? it.t : it) + (i < items.length - 1 ? "," : ""); font(tag ? "italic 700" : 700, 19); const tw = g.measureText(txt).width;
+            if (lx + tw > inner && lx > ind) { lx = ind; ly += LH; } ops.push(["nm", txt, lx, ly, tag, !tag && it === me]); lx += tw + 6; });
+          cy = ly + 8; }
+      });
+      const h = cy + 6; y = Math.max(4, Math.min(y, SSM.H - h - 4));
+      // the line to the building: from the box side that faces it
+      const cx = x + w / 2, cyy = y + h / 2, sx = ax < x ? x : ax > x + w ? x + w : Math.max(x + 12, Math.min(x + w - 12, ax)), sy = ay < y ? y : ay > y + h ? y + h : Math.max(y + 12, Math.min(y + h - 12, ay));
+      g.lineCap = "round"; g.strokeStyle = "#fff"; g.lineWidth = 7; g.beginPath(); g.moveTo(sx, sy); g.lineTo(ax, ay); g.stroke(); g.strokeStyle = "#c026d3"; g.lineWidth = 3.5; g.beginPath(); g.moveTo(sx, sy); g.lineTo(ax, ay); g.stroke();
+      g.fillStyle = "#c026d3"; g.beginPath(); g.arc(ax, ay, 6, 0, 7); g.fill(); g.strokeStyle = "#fff"; g.lineWidth = 2; g.stroke();
+      const rr = (X, Y, W2, H2, R) => { g.beginPath(); g.moveTo(X + R, Y); g.arcTo(X + W2, Y, X + W2, Y + H2, R); g.arcTo(X + W2, Y + H2, X, Y + H2, R); g.arcTo(X, Y + H2, X, Y, R); g.arcTo(X, Y, X + W2, Y, R); g.closePath(); };
+      g.shadowColor = "rgba(0,0,0,.45)"; g.shadowBlur = 10; g.shadowOffsetY = 3; rr(x, y, w, h, 12); g.fillStyle = "rgba(255,250,252,.96)"; g.fill(); g.shadowColor = "transparent"; g.shadowBlur = 0; g.shadowOffsetY = 0;
+      g.save(); rr(x, y, w, h, 12); g.clip(); g.fillStyle = "#3a0d47"; g.fillRect(x, y, w, headH); g.restore(); rr(x, y, w, h, 12); g.strokeStyle = "#c026d3"; g.lineWidth = 3; g.stroke();
+      const X0 = (dx, tw) => rtl ? x + w - PAD - dx - tw : x + PAD + dx;
+      font(800, 21); g.fillStyle = "#fff"; tl.forEach((t, i) => g.fillText(t, X0(0, g.measureText(t).width), y + 26 + i * 25));
+      for (const o of ops) {
+        if (o[0] === "stage") { font(800, 15); const tw = g.measureText(o[1]).width; g.fillStyle = "#7a5a86"; g.fillText(o[1], X0(0, tw), y + o[2]); g.fillRect(x + PAD, y + o[2] - 19, inner, 1.5); }
+        else if (o[0] === "lab") { font(800, 19); const tw = g.measureText(o[1]).width; g.fillStyle = o[4]; g.globalAlpha = .13; rr(X0(0, tw) - 4, y + o[3] - 18, tw + 8, 24, 6); g.fill(); g.globalAlpha = 1; g.fillText(o[1], X0(0, tw), y + o[3]); }
+        else { font(o[4] ? "italic 700" : 700, 19); const tw = g.measureText(o[1]).width, X = X0(o[2], tw); if (o[5]) { g.fillStyle = "#f59e0b"; rr(X - 3, y + o[3] - 18, tw + 6, 24, 6); g.fill(); } g.fillStyle = o[4] ? "#6b4a2a" : "#1c1420"; g.fillText(o[1], X, y + o[3]); }
+      }
+    }
+  }
+  function ssMap(el, T, lang) {
+    if (!T || T.ev === "tri" || !Array.isArray(T.groups)) return;
+    const host = el.closest(".ann-body, .ann-text, .doc, main") || document, img = host.querySelector('img[src*="SS_map."], img[data-ssbase]'); if (!img) return;
+    const base = img.dataset.ssbase || img.getAttribute("src"); img.dataset.ssbase = base; const B = ssBoxes(T, lang); if (!Object.keys(B).length) return;
+    const im = new Image(); let ready = null; im.src = base;
+    const paint = (me) => { ready = ready || (im.decode ? im.decode().catch(() => new Promise((ok) => { im.onload = ok; im.onerror = ok; })) : new Promise((ok) => { im.onload = ok; im.onerror = ok; }));
+      ready.then(() => { if (!im.naturalWidth || !img.isConnected) return; const cv = document.createElement("canvas"); try { ssDraw(cv, im, B, me || "", lang === "ar"); cv.toBlob((bl) => { if (!bl) return; const old = img.dataset.ssurl; const u = URL.createObjectURL(bl); img.dataset.ssurl = u; img.src = u; if (old) setTimeout(() => URL.revokeObjectURL(old), 3000); }, "image/jpeg", .9); } catch (e) {} }); };
+    el._ssPaint = paint; let me = ""; try { me = localStorage.getItem("nxs-bt-me") || ""; } catch (e) {} paint(el.querySelector(`.bt-who option[value="${(window.CSS && CSS.escape ? CSS.escape(me) : me)}"]`) ? me : "");
   }
   function fill(el) {
     if (el.dataset.done) return; el.dataset.done = "1";
@@ -152,6 +213,7 @@
     Promise.all([loadTerms(), getData(el.dataset.src)]).then(([, T]) => {
       el.innerHTML = T ? html(T, lang) : "";
       el.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+      ssMap(el, T, lang);
       const sel = el.querySelector(".bt-who select"); if (!sel) return;
       let me = ""; try { me = localStorage.getItem("nxs-bt-me") || ""; } catch (e) {}
       if (me && [...sel.options].some((o) => o.value === me)) { sel.value = me; only(el, me); }
