@@ -604,11 +604,14 @@ function renderPlan() {
 const gh = (method, path, body, token = OFFICER.token) => OFFICER.gh(method, path, body, token);   // shared (js/officer/core.js)
 const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 const b64u8 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+const AL_REN = { NBD: "NRD" };   // old tag → new tag (2026-11-15)
 async function loadPlan() {
   let d = null;
   if (OFFICER.token) { try { const f = await gh("GET", PLAN_PATH); d = f ? await OfficerData.open(JSON.parse(b64u8(f.content))) : null; } catch (e) {} }
   if (!d) { try { d = await OfficerData.fetchJson(PLAN_PATH); } catch (e) {} }
-  PLAN = d && d.o ? d : { o: {}, t: {} }; if (!PLAN.t) PLAN.t = {}; SAVED = snap();
+  PLAN = d && d.o ? d : { o: {}, t: {} }; if (!PLAN.t) PLAN.t = {};
+  if (PLAN.ot) for (const k of ["add", "hq"]) for (const r of PLAN.ot[k] || []) if (AL_REN[r[0]]) r[0] = AL_REN[r[0]]; if (PLAN.ot && PLAN.ot.off) PLAN.ot.off = PLAN.ot.off.map((k) => { const i = String(k).indexOf(":"), n = String(k).slice(0, i); return AL_REN[n] ? AL_REN[n] + String(k).slice(i) : k; });   // an alliance that renamed itself: saved corrections follow the new tag (written back at the next save)
+  SAVED = snap();
 }
 /* A link like officer-x7k2p9.html#map?held=666-138,486-138&target=327-666&by=Sparrow pre-marks Outposts
    (not saved yet — the officer checks the map and presses 💾 Save plan). Coordinates that are not Outposts are ignored. */
@@ -785,7 +788,7 @@ function rebuildOwn() {
 }
 /* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
 let OTB = null, otOn = (() => { try { return localStorage.getItem("km-otb2") === "1"; } catch (e) { return false; } })();
-async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=2").then((r) => r.json()); } catch (e) { OTB = null; } rebuildOwn(); drawOt(); renderFlags(); memRefresh(); }
+async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=3").then((r) => r.json()); } catch (e) { OTB = null; } rebuildOwn(); drawOt(); renderFlags(); memRefresh(); }
 /* officers' fixes (saved with the plan): PLAN.ot = { off: ["UNI:x,y" gone / moved away], add: [["UNI", x, y] built / corrected] } */
 const otCol = (n) => (OTB && OTB.a[n] && OTB.a[n].c) || "#999";
 const otList = () => { if (!OTB) return []; const o = PLAN.ot || {}, off = new Set(o.off || []), out = [];

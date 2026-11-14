@@ -20,7 +20,7 @@ const WATCH = "data/watch-x7k2p9.json";
 const WATCH_KINGDOMS = [2189];
 const ALLIANCES_PER_KINGDOM = 40;
 // Alliances we always read, even if they drop out of the top list (kingdom 2189). Tags are case-sensitive.
-const ALWAYS = { 2189: ["RED", "ESA", "NBD"] };
+const ALWAYS = { 2189: ["RED", "ESA", "NRD"] };
 const KEEP_POINTS = 60;        // days of power / kills history kept per member
 const GAP_MS = 1100;           // start at most ~55 requests per minute (limit is 60)
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

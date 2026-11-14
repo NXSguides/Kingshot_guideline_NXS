@@ -114,7 +114,7 @@ Don't miss it, rewards are good.
   "all-out": [
     { title: "All-Out rules", text: `All-Out Rules
 
-❌ No attacks on NAP 6 (NXS, NBD, RED, ESA, IDN, KGb) including their farms/acad
+❌ No attacks on NAP 6 (NXS, NRD, RED, ESA, IDN, KGb) including their farms/acad
 ❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
 ✅ You can attack resource gathering tiles (mills, quarry, mines)
 ✅ You can attack players outside of NAP.
@@ -128,7 +128,7 @@ NAP 6
 DO NOT attack the cities of these alliances or their farms/academies:
 
 NXS/nxs/nXs
-NBD/nBd/Nbd
+NRD/nRd/Nrd
 RED/ReD
 ESA/EsA/UNI
 IDN

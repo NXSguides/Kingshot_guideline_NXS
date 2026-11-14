@@ -69,7 +69,7 @@
 🤝 NAP 規則（互不侵犯條約）
 ❌ 不可攻擊或偵察 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟
 NXS/nxs/nXs
-NBD/nBd/Nbd
+NRD/nRd/Nrd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -97,7 +97,7 @@ KGb
 🤝 NAP 6
 ❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*全軍出擊期間可以攻擊採集點。
 NXS/nxs/nXs
-NBD/nBd/Nbd
+NRD/nRd/Nrd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -107,7 +107,7 @@ KGb
 🗺️ 各盟分配
 王國各處的遺跡和要塞，分配給 NAP 前 6 大聯盟。每週五會有爭奪戰，已經分配給別的聯盟的，絕對不要去搶，這是嚴重違反 NAP。
 NXS: 遺跡 1, 6 · 要塞 2
-NBD: 遺跡 10, 11 · 要塞 4
+NRD: 遺跡 10, 11 · 要塞 4
 RED: 遺跡 2, 3 · 要塞 3
 ESA: 遺跡 5, 12 · 要塞 1
 IDN: 遺跡 4
@@ -995,7 +995,7 @@ KvK 積分：每人 22,247,410
 🪖 全軍出擊規則
 ❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院
 NXS/nxs/nXs
-NBD/nBd/Nbd
+NRD/nRd/Nrd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -1372,7 +1372,7 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
 📅 This week card on the home page (short version, Sherry 2026-11-06): Now = full rows only for events with a guide, battle days (⚔️), repair days and days with something to do (📝); events that are just running sit on one "Also on:" line with their day (e.g. 🏆 Alliance Championship 5/7). Coming up = one line per day (tomorrow / in N days) with that day's events side by side; tap a guide's name to open it. 📝 = something to do today — Alliance Championship days 1–2 (Mon–Tue UTC): sign up & update your teams. The 📆 Calendar below no longer repeats today's list (it says today's events are in 📅 This week above); tap another day to see that day. ⚔️ only marks real battle days (Sanctuary Battle: day 4 = Friday; Tue–Thu are sign-up days).
 📚 Guide list — a small “Irregular” tag next to a guide name (Sherry 2026-11-11) = a one-off event with no fixed cycle (e.g. Wavebound Voyage, Fantasy Theater). 📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
-🔰 New here?: its own page — the 🔰 button right after 🏠 Home at the top (the home page: 📅 This week, ✅ daily checklist, 📆 calendar, then the 📢 Announcements board; the tab was called Recent Events before 2026-11-06) (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages in the game (tap ⇄ next to a message in the game); Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 6 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
+🔰 New here?: its own page — the 🔰 button right after 🏠 Home at the top (the home page: 📅 This week, ✅ daily checklist, 📆 calendar, then the 📢 Announcements board; the tab was called Recent Events before 2026-11-06) (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages in the game (tap ⇄ next to a message in the game); Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 6 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NRD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
 🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. (The home page has no NAP card any more — removed 2026-11-06; use the 🤝 button.)
 The language buttons at the top switch the whole site (12 languages).
 

@@ -67,7 +67,7 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 /* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
 let lang = OFFICER.lang;
 let newDays = store.newDays || 14;
-let rivals = store.rivals ?? "RED, ESA, NBD";
+let rivals = (store.rivals ?? "RED, ESA, NRD").replace(/\bNBD\b/g, "NRD");   // the alliance NBD renamed itself NRD (2026-11-15) — a saved list follows
 let farms = store.farms ?? "nxs, VZP";
 const tagList = (s) => String(s).split(/[,\s]+/).map((x) => x.trim()).filter(Boolean);
 const tagOf = (t) => t.replace(/ \(#\d+\)$/, "");
