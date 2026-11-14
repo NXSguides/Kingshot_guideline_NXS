@@ -135,7 +135,8 @@
     const key = "|" + me + "|", cards = [...el.querySelectorAll(".bt-card, .bt-shared")];
     const teams = new Set(cards.filter((c) => c.dataset.team != null && (c.dataset.n || "").includes(key)).map((c) => c.dataset.team));   // 🔱 your team, every stage
     const none = (c) => !/[^|]/.test(c.dataset.n || "");   // ⚔️ a building nobody is named in (Sherry 2026-11-15): it concerns everyone, so it stays whoever is picked
-    cards.forEach((c) => { c.hidden = !!me && !(c.dataset.team != null ? teams.has(c.dataset.team) : none(c) || (c.dataset.n || "").includes(key)); });
+    const named = new Set(cards.filter((c) => c.dataset.team != null && !none(c)).map((c) => c.dataset.team));   // 🔱 teams that have at least one name; a team with none concerns everyone too
+    cards.forEach((c) => { c.hidden = !!me && !(c.dataset.team != null ? teams.has(c.dataset.team) || !named.has(c.dataset.team) : none(c) || (c.dataset.n || "").includes(key)); });
     el.querySelectorAll(".bt-phase").forEach((p) => { p.hidden = !!me && !p.querySelector(".bt-card:not([hidden])"); });
     el.querySelectorAll(".bt-p").forEach((p) => p.classList.toggle("bt-me", !!me && p.textContent === me));
     const all = el.querySelector(".bt-all"); if (all) all.hidden = !me;
