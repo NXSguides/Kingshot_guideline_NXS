@@ -195,6 +195,7 @@ function renderInfo() {
   const spR = specialOf(b);
   if (spR) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">🎁 ${esc(rt("special"))}: <b>${esc(iName(spR[0]))} ×${spR[1] ?? "?"}</b></div>`);
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
+  if (PMODE) { const cp = $("km_cp"); while (cp.nextSibling) cp.nextSibling.remove(); }   // 🚩 Territory: only what the building is — its status, timer, priority and rewards are set on 🗺️ Map
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
     try { navigator.clipboard.writeText(`X:${b.x} Y:${b.y}`).then(done, () => {}); } catch (e) {}
