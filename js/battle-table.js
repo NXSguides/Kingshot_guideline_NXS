@@ -151,14 +151,17 @@
      (figures/SS_map.webp), the picture is redrawn with a box per building — its number and name, then who attacks / defends / joins in each phase —
      tied to the building by a line. It stays a real picture (tap to zoom, save). Boxes: [x, y, width, line-to x, line-to y] on the 1448 × 1086 map;
      the blue Safe Zone (left) is ours, so "near home" is the left Sanctum (3.1) and "near enemy" the right one (3.2). */
-  const SSM = { W: 1448, H: 1086, at: { bell: [40, 28, 330, 455, 150], s31: [15, 250, 252, 292, 430], s32: [1183, 628, 258, 1150, 640], stables: [1085, 874, 340, 1012, 945],
+  const SSM = { W: 1448, H: 1086, at: { bell: [48, 72, 322, 455, 150], s31: [15, 300, 252, 292, 430], s32: [1183, 628, 258, 1150, 640], stables: [1085, 868, 340, 1012, 945],
     abbey: [18, 762, 282, 300, 662], merc: [852, 186, 272, 836, 242], hall: [335, 696, 268, 617, 790], shrine: [552, 536, 350, 726, 522] } };
   const ssKey = (g, seen) => { const t = String(g.target || "").trim(), l = String(g.tl || "");
     return t === "1" ? "stables" : t === "2" ? "bell" : t === "4" ? "abbey" : t === "5" ? "merc" : t === "6" ? "hall" : t === "7" ? "shrine" : t === "3" ? (/enemy/i.test(l) ? "s32" : /home/i.test(l) ? "s31" : seen.s31 ? "s32" : "s31") : ""; };
   const SS_COL = { att: "#c0262d", def: "#1d4ed8", join: "#15803d" };
   function ssBoxes(T, lang) {
     const B = {}, st = listOf(T.stages), cols = T.cols || {}, show = T.show || {};
-    st.forEach((sn, si) => { const seen = {}; (T.groups || []).filter((g) => (g.sec || 0) === si).forEach((g) => { const k = ssKey(g, seen); if (!k || !SSM.at[k]) return; seen[k] = 1;
+    /* only the opening (first phase), and only buildings with people of their own (Sherry 2026-11-15, from the map the alliance already uses): a row that
+       says "Same as above" (the Abbeys) repeats names already on the map, and the later phases and "Stay behind" are read in the table below */
+    st.slice(0, 1).forEach((sn, si) => { const seen = {}; (T.groups || []).filter((g) => (g.sec || 0) === si).forEach((g) => { const k = ssKey(g, seen); if (!k || !SSM.at[k]) return; seen[k] = 1;
+      if (["att", "def", "join"].some((r) => (g[r] || []).some((x) => x && typeof x === "object" && String(x.t) === "Same as above"))) return;
       const roles = ["att", "def", "join"].filter((r) => show[r] !== false && (g[r] || []).length).map((r) => [r, tr(cols[r] || r, lang), (g[r] || []).map((x) => x && typeof x === "object" ? { t: tr(x.t, lang) } : String(x))]);
       if (!roles.length) return; const t = String(g.target || "").trim();
       B[k] = B[k] || { title: (/^[0-9]$/.test(t) ? CIRC[+t] + " " : "") + tr(g.tl, lang), parts: [] }; B[k].parts.push({ si, stage: tr(sn, lang), roles }); }); });
