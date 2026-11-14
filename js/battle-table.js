@@ -86,13 +86,17 @@
     const roles = ["att", "def", "join"].filter((k) => show[k]);
     return listOf(T.stages).map((sn, si) => {
       const rows = G.filter((g) => (g.sec || 0) === si); if (!rows.length) return "";
+      /* who a building concerns when 🙋 a name is picked (Sherry 2026-11-15): its own names; "Same as above" with no names of its own = the people of the
+         building above it; "All" = everyone */
+      const W = new Map(); { let pv = "||"; rows.forEach((g) => { const own = who(g), tags = [g.att, g.def, g.join].flat().filter((x) => x && typeof x === "object").map((x) => String(x.t));
+        const n = own === "||" && tags.includes("Same as above") ? pv : own; W.set(g, { n, all: tags.includes("All") ? ' data-all="1"' : "" }); if (n !== "||") pv = n; }); }
       const runs = []; rows.forEach((g) => { const n = show.note ? NORM(g.note) : "", last = runs[runs.length - 1];
         if (last && n && last.note === n) last.gs.push(g); else runs.push({ note: n, gs: [g] }); });
       const card = (g, withNote) => { const t = String(g.target || "").trim(), no = /^[0-9]$/.test(t) ? CIRC[+t] : t ? "#" + t : "";
         const rl = roles.filter((k) => (g[k] || []).length).map((k) => `<div class="bt-r"><span class="bt-rl">${ROLE[k]} ${esc(tr(cols[k] || k, lang))}</span><span class="bt-ps">${pills(g[k], lang)}</span></div>`).join("");
-        return `<div class="bt-card" data-n="${esc(who(g))}" style="--c:${esc(g.color || "#ccc")}"><div class="bt-ch">${no ? `<span class="bt-no">${esc(no)}</span>` : ""}<span>${esc(tr(g.tl, lang))}</span></div>${rl}${withNote && String(g.note || "").trim() ? `<div class="bt-n">${noteHtml(g.note, lang, names)}</div>` : ""}</div>`; };
+        return `<div class="bt-card" data-n="${esc(W.get(g).n)}"${W.get(g).all} style="--c:${esc(g.color || "#ccc")}"><div class="bt-ch">${no ? `<span class="bt-no">${esc(no)}</span>` : ""}<span>${esc(tr(g.tl, lang))}</span></div>${rl}${withNote && String(g.note || "").trim() ? `<div class="bt-n">${noteHtml(g.note, lang, names)}</div>` : ""}</div>`; };
       const body = runs.map((r) => r.gs.length > 1
-        ? `${r.gs.map((g) => card(g, false)).join("")}<div class="bt-shared" data-n="${esc(r.gs.map(who).join(""))}"><div class="bt-sh">📝 ${esc(r.gs.map((g) => { const t = String(g.target || "").trim(); return /^[0-9]$/.test(t) ? CIRC[+t] : t ? "#" + t : ""; }).filter((x, i, a) => a.indexOf(x) === i).join(" "))}</div>${noteHtml(r.gs[0].note, lang, names)}</div>`
+        ? `${r.gs.map((g) => card(g, false)).join("")}<div class="bt-shared" data-n="${esc(r.gs.map((g) => W.get(g).n).join(""))}"${r.gs.some((g) => W.get(g).all) ? ' data-all="1"' : ""}><div class="bt-sh">📝 ${esc(r.gs.map((g) => { const t = String(g.target || "").trim(); return /^[0-9]$/.test(t) ? CIRC[+t] : t ? "#" + t : ""; }).filter((x, i, a) => a.indexOf(x) === i).join(" "))}</div>${noteHtml(r.gs[0].note, lang, names)}</div>`
         : card(r.gs[0], true)).join("");
       return `<div class="bt-phase"><div class="bt-pht">${esc(tr(sn, lang))}</div><div class="bt-grid">${body}</div></div>`;
     }).join("");
@@ -136,7 +140,7 @@
     const teams = new Set(cards.filter((c) => c.dataset.team != null && (c.dataset.n || "").includes(key)).map((c) => c.dataset.team));   // 🔱 your team, every stage
     const none = (c) => !/[^|]/.test(c.dataset.n || "");   // ⚔️ a building nobody is named in (Sherry 2026-11-15): it concerns everyone, so it stays whoever is picked
     const named = new Set(cards.filter((c) => c.dataset.team != null && !none(c)).map((c) => c.dataset.team));   // 🔱 teams that have at least one name; a team with none concerns everyone too
-    cards.forEach((c) => { c.hidden = !!me && !(c.dataset.team != null ? teams.has(c.dataset.team) || !named.has(c.dataset.team) : none(c) || (c.dataset.n || "").includes(key)); });
+    cards.forEach((c) => { c.hidden = !!me && !(c.dataset.team != null ? teams.has(c.dataset.team) || !named.has(c.dataset.team) : none(c) || c.dataset.all === "1" || (c.dataset.n || "").includes(key)); });
     el.querySelectorAll(".bt-phase").forEach((p) => { p.hidden = !!me && !p.querySelector(".bt-card:not([hidden])"); });
     el.querySelectorAll(".bt-p").forEach((p) => p.classList.toggle("bt-me", !!me && p.textContent === me));
     const all = el.querySelector(".bt-all"); if (all) all.hidden = !me;
