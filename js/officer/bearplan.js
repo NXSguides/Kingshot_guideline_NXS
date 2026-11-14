@@ -104,7 +104,7 @@ function analysisHtml() {
     luck: () => luckHtml(),
     growth: () => [].concat(r.growth || []).filter((g) => (g.rows || []).length).map((g) => `<div class="card"><h3>${esc(at("gh"))} · ${esc(LL(g.title))}</h3>${growthT(g)}</div>`).join(""),
     detail: () => r.detail ? `<details class="card"><summary><b>${esc(at("det"))}</b></summary><div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:1100px;white-space:nowrap"><thead><tr>${LL(r.detail.cols).map((c, i) => `<th${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
-    <tbody>${r.detail.rows.map((x) => `<tr>${x.map((v, i) => `<td${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${i === 0 ? `<bdi>${esc(v)}</bdi>` : esc(v)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <tbody>${r.detail.rows.map((x) => `<tr>${x.map((v, i) => `<td${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${i === 0 ? `<bdi>${esc(v)}</bdi>` : esc(dtr(v, lang))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     ${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</details>` : "",
   };
   const data = r.data ? `<div class="muted" style="font-size:12.5px;margin:2px 0 8px">${esc(LL(r.data.txt))}</div>` : "";
@@ -380,6 +380,28 @@ function render() {
     <div class="muted" style="font-size:12px">${esc(fill(t("foot"), v))}</div>${importBox()}`;
   bind();
 }
+/* detail table: the hero and note cells were typed in Chinese — shown in the reader's language (hero names in en / pt / ar / ko; notes in English outside Chinese) */
+const DT_H = { "阿瑪迪斯": ["Amadeus", "Amadeus", "أماديوس", "아마데우스"], "小佩拉": ["Petra", "Petra", "بيترا", "리틀 페라"], "馬林": ["Marlin", "Peixe Marlin", "مارلين", "마린"], "佐伊": ["Zoe", "Zoe", "زوي", "조이"],
+  "奎恩": ["Quinn", "Quinn", "كوين", "퀸"], "潔貝爾": ["Jabel", "Jabel", "جبل", "제이벨"], "福斯特": ["Forrest", "Forrest", "فورست", "포스터"], "赫爾加": ["Helga", "Helga", "هيلجا", "헬가"], "雨音": ["Amane", "Amane", "أماني", "아마네"],
+  "妍羽": ["Yeonwoo", "Yeonwoo", "يونوو", "연우"], "琴科": ["Chenko", "Chenko", "تشينكو", "첸코"], "薇薇安": ["Vivian", "Vivian", "فيفيان", "비비안"] };
+const DT_P = [[/同一位成員在這團自己的傷害平均 /g, "one member's own damage here, average "], [/（(\d+) 團：/g, " ($1 rallies: "], [/（(\d+) 團）/g, " ($1 rallies)"], [/＝(\S+?) 團的 ([\d.]+)/g, " = $2 of $1's rally"], [/（預測 ([\d.]+)）/g, " (predicted $1)"],
+  [/單團排行實測：|單團排行：/g, "single-rally ranking: "], [/同一批成員在這團約是 (\S+?) 團的 ([\d.]+) 倍/g, "the same members scored about $2× of $1's rally"], [/（(\d+\/\d+) 是 ([\d.]+)）/g, " ($1: $2)"], [/(\d+\/\d+) 是 ([\d.]+)/g, "$1: $2"],
+  [/，只有一波/g, ", one wave only"], [/(\d+\/\d+) 換成/g, "$1: switched to "], [/(\d+\/\d+) 最強的團/g, "strongest rally on $1"], [/沒開增益（(\d+\/\d+) 有開 ([\d.]+)）/g, "City Bonus off ($1: on, $2)"], [/這次有開增益（(\d+\/\d+) ([\d.]+)）/g, "City Bonus on this time ($1: $2)"],
+  [/(\d+\/\d+) 沒開增益/g, "$1: City Bonus off"], [/沒開增益/g, "City Bonus off"], [/(\d+\/\d+) 起改(補位|非隊長)/g, "non-leader from $1"], [/信件實測 /g, "measured from mails "], [/倍率不確定/g, "multiplier uncertain"],
+  [/加入者 (\d) 攻 (\d) 殺/g, "joiners $1 Atk / $2 Leth"], [/無專屬/g, "no exclusive gear"], [/專屬/g, "exclusive gear"], [/卡牌/g, "Card"], [/艦隊/g, "Fleet"], [/眼/g, "Eye"], [/英雄全 Lv/g, "heroes all Lv"], [/全 Lv/g, "all Lv"],
+  [/只開攻擊/g, "Attack bonus only"], [/官職攻/g, "office Atk"], [/官職殺/g, "office Leth"], [/官職/g, "office"], [/容量只有 /g, "capacity only "], [/寵物/g, "pet"], [/敵防/g, "enemy Def"], [/防 \+/g, "Def +"], [/屬性頁沒拍/g, "stats page not captured"],
+  [/新正式隊長/g, "new official leader"], [/新隊長/g, "new leader"], [/新開團/g, "opened for the first time"], [/^新$/g, "new"], [/英雄沒成形/g, "heroes not built yet"], [/沒帶?/g, "no "], [/第一次看到/g, "first time seen"],
+  [/預測整團 /g, "predicted rally strength "], [/預測約 (\S+?) 的 ([\d.]+)/g, "predicted about $2 of $1's"], [/騎、弓帶採集／生產英雄/g, "cavalry and archer slots hold gathering / production heroes"], [/技能/g, "skills"], [/(\d) 位非戰鬥英雄/g, "$1 non-combat heroes"],
+  [/紅髮弓兵/g, "red-haired archer"], [/鬍子步兵/g, "bearded infantry"], [/黑髮弓兵/g, "black-haired archer"], [/金辮步兵/g, "blond-braid infantry"], [/紫髮騎兵/g, "purple-haired cavalry"], [/橘色獠牙弓兵/g, "orange tusked archer"], [/英雄 Lv/g, "heroes Lv"], [/組$/g, " set"],
+  [/／/g, " / "], [/；/g, "; "], [/、/g, ", "], [/（/g, " ("], [/）/g, ")"], [/，/g, ", "], [/：/g, ": "]];
+function dtr(v, lang) {
+  if (v && typeof v === "object") return v[lang] || v.en || "";
+  let s = String(v == null ? "" : v); if (lang === "zh" || !/[㐀-鿿]/.test(s)) return s;
+  const hi = { en: 0, pt: 1, ar: 2, ko: 3 }[lang] ?? 0;
+  s = s.split(/；/).map((seg) => { let x = seg.trim(); for (const [h, n] of Object.entries(DT_H)) x = x.split(h).join(n[hi]); for (const [a, b] of DT_P) x = x.replace(a, b); return x; }).join("; ");
+  return s.replace(/\s{2,}/g, " ").replace(/ \)/g, ")").trim();
+}
+
 /* 📥 patch: [{op:"set", path:"leaders.0", value}, {op:"report", id, obs, sug}, {op:"detailRow", row}, {op:"growthCol", match:"2", date, values:{name: n}}, {op:"leaders", match:"Trap 1", value}, {op:"replaceText", pairs:[[from, to]]}] */
 function applyPatch(base, ops) {
   const d = JSON.parse(JSON.stringify(base)), lc = (v) => String(v).toLowerCase();   // names match whatever the capitals (Scervany = scervany)
