@@ -46,8 +46,9 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_zoneG" style="pointer-events:none"></g><g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_acG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
-  $("km_svg").innerHTML = s.join("");
+  s.push(`<g id="km_zoneG" style="pointer-events:none"></g><g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_acG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_hdlG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  $("km_svg").innerHTML = s.join("") + `<g id="km_topG" style="pointer-events:none"></g>`;   // km_topG = labels that must never be covered (drawn last)
+  { const svg = $("km_svg"), top = $("km_topG"); svg.querySelectorAll(".mk").forEach((m) => { if (/^h\d/.test(m.dataset.id || "")) svg.insertBefore(m, top); }); }   // our HQ shield and its name sit above the banners (Sherry 2026-11-14: they were covered)
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", (e) => { if (!mkFar(e, m)) select(m.dataset.id, false); });
     m.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(m.dataset.id, false); } });
@@ -998,15 +999,16 @@ function drawOwn() {
   let h = "", n1 = 0, n2 = 0;
   for (const [x0, y0, x1, y1] of fr) for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) { let run = -1, who = 0;
     for (let x = Math.max(0, x0); x <= Math.min(FN - 1, x1) + 1; x++) { const t = y * FN + x, w = x <= Math.min(FN - 1, x1) && CV_M[t] && !CV_F[t] && (OWN_B[t] === 1 || OWN_B[t] === 2) ? OWN_B[t] : 0;
-      if (w !== who) { if (who) { h += `<polygon points="${pts([[run, y], [x, y], [x, y + 1], [run, y + 1]])}" fill="${who === 1 ? "#1565ff" : "#12a150"}" fill-opacity="${who === 1 ? ".5" : ".78"}"/>`; if (who === 1) n1 += x - run; else n2 += x - run; } run = x; who = w; }
+      if (w !== who) { if (who) { h += `<polygon points="${pts([[run, y], [x, y], [x, y + 1], [run, y + 1]])}" fill="${who === 1 ? "#1565ff" : "#12a150"}" fill-opacity=".9"/>`; if (who === 1) n1 += x - run; else n2 += x - run; } run = x; who = w; }
       if (w) CV_F[t] = 1; } }   // CV_F doubles as "already drawn"
   g.innerHTML = h; OWN_B.contested = [n1, n2];
 }
 const FW = { hq: 3, b: 1, fl: 1, bt: 3, btp: 3, c: 2 };   // tiles each Academy thing stands on
 function farmBlocked() { const f = PLAN.farm || {}, out = []; for (const k of FK) (f[k] || []).forEach((it, i) => { const r = blockOf(it[0], it[1], FW[k]); if (r) out.push({ k, i, x: it[0], y: it[1], r }); }); return out; }
 function drawFarm() {
-  drawOwn(); if (!SHOWP()) { const g0 = $("km_farmG"); if (g0) g0.innerHTML = ""; return; }
-  const g = $("km_farmG"); if (!g) return; const f = PLAN.farm; if (!f || !farmAny()) { g.innerHTML = ""; return; }
+  const clr = () => { for (const id of ["km_farmG", "km_hdlG", "km_topG"]) if ($(id)) $(id).innerHTML = ""; };
+  drawOwn(); if (!SHOWP()) { clr(); return; }
+  const g = $("km_farmG"); if (!g) return; const f = PLAN.farm; if (!f || !farmAny()) { clr(); return; }
   const rm = new Set(f.rm || []), sq = (x0, y0, x1, y1) => pts([[x0, y0], [x1 + 1, y0], [x1 + 1, y1 + 1], [x0, y1 + 1]]), sel = (k, i) => FARM_SEL && FARM_SEL.k === k && FARM_SEL.i === i ? ' stroke="#ffe24a" stroke-width="1"' : "";
   const txt = (x, y, t, sz, col) => { const [X, Y] = P(x, y); return `<text x="${X}" y="${Y + sz * .35}" text-anchor="middle" font-family="Arial" font-size="${sz}" font-weight="800" fill="${col || "#fff"}" stroke="#123" stroke-width=".4" paint-order="stroke">${esc(t)}</text>`; };
   let h = "";
@@ -1019,6 +1021,16 @@ function drawFarm() {
   for (const k of ["hq", "b", "fl"]) for (const [x, y] of f[k] || []) { const v = farmLv(k, x, y); if (v) h += txt(x + (k === "hq" ? 1.5 : .5), y + (k === "hq" ? 4.5 : 2.2), v === 1 ? "⬆" : "⬇", 2.6, "#ffe24a"); }
   for (const [k, L] of [["e", exOn ? exList() : []], ["p", PLAN.fl || []]]) for (const [x, y] of L) { const v = farmLv(k, x, y); if (v) h += txt(x + .5, y + 2.2, v === 1 ? "⬆" : "⬇", 2.6, "#ffe24a"); }
   for (const b of farmBlocked()) { const w = FW[b.k]; h += `<polygon points="${sq(b.x, b.y, b.x + w - 1, b.y + w - 1)}" fill="rgba(255,40,40,.55)" stroke="#ff2d2d" stroke-width=".9"/>` + txt(b.x + w / 2, b.y + w / 2, "✕", 3.4, "#fff"); }   // on a mountain / lake / resource node: can't be built
+  /* layers, bottom to top: both alliances' territory → the overlapped tiles in the keeper's colour (hides what lies under) → the middle of every item of
+     the alliance being planned (so it can still be seen and tapped where it lost the tile) → all labels */
+  const TX = /<text[^>]*>[^<]*<\/text>/g, mid = (x0, y0, x1, y1, c) => `<polygon points="${sq(x0, y0, x1, y1)}" fill="${c}" stroke="#fff" stroke-width=".35"/>`; let hd = "";
+  if (PMODE && PWHO === "f") { for (const [x, y] of f.hq || []) hd += mid(x, y, x + 2, y + 2, "#1f7a3a"); for (const k of ["b", "fl"]) for (const [x, y] of f[k] || []) hd += mid(x, y, x, y, "#1f7a3a");
+    for (const [x, y] of f.bt || []) hd += mid(x, y, x + 2, y + 2, "#8d5a2b"); for (const [x, y] of f.btp || []) hd += mid(x, y, x + 2, y + 2, "#b98a5a"); for (const [x, y] of f.c || []) hd += mid(x, y, x + 1, y + 1, "#d6f5dc"); }
+  else if (PMODE && exOn) { const fr = (f.hq || []).map(([x, y]) => [x - 6, y - 6, x + 8, y + 8]).concat((f.b || []).concat(f.fl || []).map(([x, y]) => [x - FR, y - FR, x + FR, y + FR]));
+    for (const [x, y, c] of exList()) if (fr.some((r) => x >= r[0] && x <= r[2] && y >= r[1] && y <= r[3])) hd += mid(x, y, x, y, c ? "#0b3d91" : "#2a6fd6"); }
+  if ($("km_hdlG")) $("km_hdlG").innerHTML = hd;
+  if ($("km_topG")) $("km_topG").innerHTML = (h.match(TX) || []).join("");
+  h = h.replace(TX, "");
   g.innerHTML = h;
 }
 function renderFarm() {
@@ -1069,7 +1081,7 @@ const TL_T = { en: ["Tapping the map places:", "— nothing (just look / select)
   ko: ["지도를 누르면 놓는 것:", "— 없음 (보기 / 선택만)", "NXS가 세울 깃발", "지도에서 칸을 누르거나 좌표를 입력하고 추가를 누르세요.", "🌾 자원", "추가", "다른 연맹"] };
 const tl = (i) => (TL_T[lang] || TL_T.en)[i];
 let PWHO = (() => { try { const v = localStorage.getItem("kp-who"); return v === "f" || v === "o" ? v : "m"; } catch (e) { return "m"; } })();   // m = NXS · f = nxs · o = other alliances (corrections only)
-function setWho(w) { if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }
+function setWho(w) { if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }   // renderFlags → drawFarm: the handles follow the alliance picked
 const WHO_T = { en: ["Planning / looking at:", "What to place:"], zh: ["現在規劃／查看：", "要放什麼："], pt: ["Planejando / vendo:", "O que colocar:"], ar: ["التخطيط / العرض لـ:", "ماذا تضع:"], ko: ["계획 / 보기 대상:", "놓을 것:"] };
 const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: c.off, nUp: n("fl"), nDown: n("rm"), n0: n("b"), n1: n("b") - n("rm") + n("fl") }; };
 function renderTools() {
