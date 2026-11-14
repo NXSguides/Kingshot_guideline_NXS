@@ -969,7 +969,7 @@ function farmHit(tx, ty, wide) {
   if (exact || !wide) return exact;
   /* not placing anything: the whole square counts, nearest one wins — a 3×3 building is only a few pixels on a phone (2026-11-14: "I can't tap the HQ any more") */
   let best = null, bd = 1e9; const near = (l, k, x0, x1, cx) => (l || []).forEach(([x, y], i) => { if (tx >= x - x0 && tx <= x + x1 && ty >= y - x0 && ty <= y + x1) { const d = Math.hypot(tx - (x + cx), ty - (y + cx)); if (d < bd) { bd = d; best = { k, i }; } } });
-  near(f.fl, "fl", FR, FR, .5); near(f.b, "b", FR, FR, .5); near(f.hq, "hq", 6, 8, 1.5);
+  near(f.fl, "fl", 2, 2, .5); near(f.b, "b", 2, 2, .5); near(f.hq, "hq", 2, 4, 1.5); near(f.bt, "bt", 1, 3, 1.5); near(f.btp, "btp", 1, 3, 1.5); near(f.c, "c", 1, 2, 1);   // only the middle counts (2 tiles of slack for a finger; Sherry 2026-11-14: the whole square grabbed the wrong thing)
   return best;
 }
 function farmTap(tx, ty) {
