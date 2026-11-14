@@ -102,3 +102,15 @@ content: |
   ❌ No TG5 upgrade on November 9
   ⏳ Save upgrades, resources and speedups for KvK Prep
   🛡️ Ready to dominate the next KvK! 🚀
+---
+author: "ELR"
+lang: en
+title: "11/15 SS Legion 2"
+images: []
+expires: "2026-11-15T03:00:00.000Z"
+content: |
+  [[img:figures/ann/20261114-165513-2.jpg]]
+  [[table:data/ann/20261114-165512-1.json]]
+  [[img:figures/SS_map.webp]]
+
+  [[link:swordland-showdown]]
