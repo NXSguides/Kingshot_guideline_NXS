@@ -743,16 +743,17 @@ function renderBlocks(guide, s) {
 function renderLangRow() {
   const row = document.getElementById("langRow");
   row.innerHTML = "";
-  const cur = LANGS.find((l) => l.code === currentLang);
-  const btn = document.createElement("button");
-  btn.className = "lang-btn";
-  btn.textContent = "🌐 " + (cur ? cur.label : currentLang);
-  btn.title = "Change language";
-  btn.onclick = () => {
-    langChosen = false;
-    popupShown = false;
-    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* ignore */ }
-    renderAll();
+  /* 🌐 the language is chosen once on the first screen; after that it is switched right here, in place (Sherry 2026-11-15) — the same guide,
+     the same announcement and about the same spot on the page stay in front of the reader, instead of going back to the language screen. */
+  const btn = document.createElement("select");
+  btn.className = "lang-btn lang-sel"; btn.id = "langSel"; btn.title = "Language"; btn.setAttribute("aria-label", "Language");
+  btn.innerHTML = LANGS.map((l) => `<option value="${l.code}"${l.code === currentLang ? " selected" : ""}>🌐 ${escapeHtml(l.label)}</option>`).join("");
+  btn.onchange = () => {
+    const to = btn.value; if (!to || to === currentLang) return;
+    const max = () => Math.max(1, document.documentElement.scrollHeight - window.innerHeight), ratio = window.scrollY / max();
+    const back = () => window.scrollTo(0, Math.round(ratio * max()));
+    const go = () => { currentLang = to; persistPrefs(); renderAll(); requestAnimationFrame(back); setTimeout(back, 250); setTimeout(back, 900); };
+    if (typeof loadContentLang === "function" && !CONTENT_LOADED[to]) loadContentLang(to).then(go, go); else go();
   };
   row.appendChild(btn);
 
@@ -1059,7 +1060,7 @@ function renderAnnTicker() {
 
   const toPlain = (text) => text
     .replace(/\{=(\w+)\}/g, (m, k) => fmtLimit(k) || m)
-    .replace(/\[\[(?:link|img|video):[^\]]*\]\]/g, "")   // pictures / videos / links aren't shown in the ticker
+    .replace(/\[\[(?:link|img|video|table):[^\]]*\]\]/g, "")   // pictures / videos / links / battle tables aren't shown in the ticker
     .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .replace(/\s*\n+\s*/g, " ")

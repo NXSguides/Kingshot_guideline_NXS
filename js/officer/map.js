@@ -1034,6 +1034,10 @@ function drawFarm() {
   if ($("km_hdlG")) $("km_hdlG").innerHTML = hd;
   if ($("km_topG")) $("km_topG").innerHTML = (h.match(TX) || []).join("");
   h = h.replace(TX, "");
+  // the same yellow ring NXS banners get when tapped (Sherry 2026-11-15: an nxs item showed no sign of being selected)
+  { const ring = $("km_sel"), it = FARM_SEL && (f[FARM_SEL.k] || [])[FARM_SEL.i];
+    if (it && ring) { const w = FW[FARM_SEL.k] || 1, [X, Y] = P(it[0] + w / 2, it[1] + w / 2); ring.innerHTML = `<circle class="sel-ring" data-f="1" style="transform-origin:${X}px ${Y}px" cx="${X}" cy="${Y}" r="${w > 1 ? 8 : 6}"/>`; }
+    else if (ring && ring.querySelector("[data-f]")) ring.innerHTML = ""; }
   g.innerHTML = h;
 }
 function renderFarm() {
@@ -1286,8 +1290,8 @@ function flagEvents() {
     if (PMODE && resOn.size && RESD && PE()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && (PWHO === "f" ? RES_OWNF : RES_OWN).has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
     if (farmKind && PE() && farmTap(tx, ty)) return;   // 🌾 farm: select what is there, or place the chosen thing
     { const hit = pickAt(tx, ty, e); if (hit) { FSEL = null; FARM_SEL = null; hit[2]();   // the nearest thing to the finger, whichever alliance it belongs to
-        if (hit[3] === "c") { $("km_sel").innerHTML = ""; const [w, n, x, y] = CITY_SEL; $("km_info").innerHTML = `<div class="km-fl-sel"><div><b>${esc(n)}</b> <span class="muted">${esc(w)}</span><span class="xy">X:${x} Y:${y}</span></div></div>`; drawFarm(); renderFarm(); return; }
-        if (hit[3] === "f") { $("km_sel").innerHTML = ""; renderInfo(); if (PMODE) setWho("f"); drawFarm(); renderFarm(); }
+        if (hit[3] === "c") { const [w, n, x, y] = CITY_SEL; { const [X, Y] = P(x + 1, y + 1); $("km_sel").innerHTML = `<circle class="sel-ring" style="transform-origin:${X}px ${Y}px" cx="${X}" cy="${Y}" r="6"/>`; } $("km_info").innerHTML = `<div class="km-fl-sel"><div><b>${esc(n)}</b> <span class="muted">${esc(w)}</span><span class="xy">X:${x} Y:${y}</span></div></div>`; drawFarm(); renderFarm(); return; }
+        if (hit[3] === "f") { renderInfo(); if (PMODE) setWho("f"); drawFarm(); renderFarm(); }
         else { flagInfo(); if (PMODE && (FSEL.k === "p" || FSEL.k === "e")) setWho("m"); drawFarm(); renderFarm(); }
         return; } }
     if (flagMode && PE() && /^[hb]:/.test(otKind) && OTB && OTB.a[otKind.slice(2)] && tx >= 1 && ty >= 1 && tx < FN - 1 && ty < FN - 1) { const n = otKind.slice(2), t = otKind[0] === "b" ? 2 : 1; otEd().hq.push(t === 2 ? [n, tx - 1, ty - 1, 2] : [n, tx - 1, ty - 1]); FSEL = { k: "oh", n, x: tx - 1, y: ty - 1, t }; if (!otOn) otOn = true; flagsChanged(); return; }
