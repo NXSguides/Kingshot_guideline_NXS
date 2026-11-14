@@ -1107,84 +1107,84 @@ const GUIDES = {
     sections: {
       en: { title: "NAP Rules", blocks: [
         { type: "h", text: "🤝 NAP RULES (NON-AGGRESSION PACT)" },
-        { type: "nap", text: "❌ No attacking or scouting NAP 6 cities — this includes their protected academy/farm alliances with the approved tags", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ No attacking or scouting NAP 6 cities — this includes their protected academy/farm alliances with the approved tags", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Check nodes before gathering. If a node is occupied or shows a ⚔️ sword icon, don't send troops. If two players collide, the second one recalls.","🪖 During {allOut} (exception): you may attack resource gathering nodes ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Outposts can be fought over — but no city burning, no hitting resource nodes, and no blocking access to an outpost zone.","🏛️ {sanctuary}s and Fortresses are shared or rotated among NAP 6."] },
         { type: "sub", text: "⚠️ VIOLATIONS" },
         { type: "list", items: ["1st: a warning from leadership.","2nd (another violation after a warning): kicked from the alliance.","3rd: blacklisted from all NAP-protected alliances."] },
       ]},
       zh: { title: "NAP 規則", blocks: [
         { type: "h", text: "🤝 NAP 規則（互不侵犯條約）" },
-        { type: "nap", text: "❌ 不可攻擊或偵察 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ 不可攻擊或偵察 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊資源採集點（{mill}, {sawmill}, {quarry}, {ironMine}）。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 6 共享或輪流使用。"] },
         { type: "sub", text: "⚠️ 違規處理" },
         { type: "list", items: ["第 1 次：幹部警告。","第 2 次（警告後再犯）：踢出聯盟。","第 3 次：列入所有受 NAP 保護聯盟的黑名單。"] },
       ]},
       ko: { title: "NAP 규칙", blocks: [
         { type: "h", text: "🤝 NAP 규칙 (불가침 조약)" },
-        { type: "nap", text: "❌ NAP 6 도시 공격·정찰 금지 — 승인된 태그를 쓰는 보호 대상 아카데미/농장 연맹도 포함", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ NAP 6 도시 공격·정찰 금지 — 승인된 태그를 쓰는 보호 대상 아카데미/농장 연맹도 포함", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 채집 전에 자원지를 확인하세요. 누가 점령 중이거나 ⚔️ 칼 아이콘이 보이면 부대를 보내지 마세요. 두 사람이 겹치면 나중에 온 사람이 철수합니다.","🪖 {allOut} 기간 (예외): 자원 채집지({mill}, {sawmill}, {quarry}, {ironMine})는 공격할 수 있습니다.","🏳️ 거점은 쟁탈할 수 있지만, 도시 불태우기, 자원지 공격, 거점 구역 통로 막기는 금지입니다.","🏛️ {sanctuary}과 요새는 NAP 6이 함께 쓰거나 돌아가며 씁니다."] },
         { type: "sub", text: "⚠️ 위반 시" },
         { type: "list", items: ["1회: 운영진 경고.","2회 (경고 후 또 위반): 연맹에서 추방.","3회: NAP 보호 연맹 전체 블랙리스트."] },
       ]},
       de: { title: "NAP-Regeln", blocks: [
         { type: "h", text: "🤝 NAP-REGELN (NICHTANGRIFFSPAKT)" },
-        { type: "nap", text: "❌ Kein Angriff und kein Ausspähen von Städten der NAP 6 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ Kein Angriff und kein Ausspähen von Städten der NAP 6 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.","🪖 Während {allOut} (Ausnahme): Ressourcenfelder ({mill}, {sawmill}, {quarry}, {ironMine}) dürfen angegriffen werden.","🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.","🏛️ Heiligtümer und Festungen werden unter den NAP 6 geteilt oder abwechselnd genutzt."] },
         { type: "sub", text: "⚠️ VERSTÖSSE" },
         { type: "list", items: ["1.: Verwarnung durch die Leitung.","2. (erneuter Verstoß nach Verwarnung): Rauswurf aus der Allianz.","3.: Schwarze Liste bei allen NAP-geschützten Allianzen."] },
       ]},
       fr: { title: "Règles du NAP", blocks: [
         { type: "h", text: "🤝 RÈGLES DU NAP (PACTE DE NON-AGRESSION)" },
-        { type: "nap", text: "❌ Interdit d'attaquer ou d'espionner les villes des NAP 6 — y compris leurs alliances académie/ferme protégées avec les tags approuvés", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ Interdit d'attaquer ou d'espionner les villes des NAP 6 — y compris leurs alliances académie/ferme protégées avec les tags approuvés", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Vérifiez les points avant de récolter. Si un point est occupé ou affiche une icône ⚔️ épée, n'envoyez pas de troupes. En cas de collision, le second joueur rappelle ses troupes.","🪖 Pendant {allOut} (exception) : vous pouvez attaquer les points de récolte ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Les avant-postes peuvent être disputés — mais pas de ville brûlée, pas d'attaque sur les points de ressources, et pas de blocage de l'accès à une zone d'avant-poste.","🏛️ Les {sanctuary}s et les Forteresses sont partagés ou attribués à tour de rôle entre les NAP 6."] },
         { type: "sub", text: "⚠️ SANCTIONS" },
         { type: "list", items: ["1re : avertissement de la direction.","2e (nouvelle infraction après avertissement) : exclusion de l'alliance.","3e : liste noire de toutes les alliances protégées par le NAP."] },
       ]},
       pt: { title: "Regras do NAP", blocks: [
         { type: "h", text: "🤝 REGRAS DO NAP (PACTO DE NÃO AGRESSÃO)" },
-        { type: "nap", text: "❌ Proibido atacar ou espionar cidades do NAP 6 — inclui as alianças academia/fazenda protegidas com as tags aprovadas", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ Proibido atacar ou espionar cidades do NAP 6 — inclui as alianças academia/fazenda protegidas com as tags aprovadas", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Verifique os pontos antes de coletar. Se estiver ocupado ou mostrar o ícone ⚔️ de espada, não envie tropas. Se houver colisão, o segundo jogador recua.","🪖 Durante o {allOut} (exceção): pode atacar pontos de coleta de recursos ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Postos Avançados podem ser disputados — mas sem queimar cidades, sem atacar pontos de recursos e sem bloquear o acesso a uma zona de Posto Avançado.","🏛️ {sanctuary}s e Fortalezas são compartilhados ou revezados entre o NAP 6."] },
         { type: "sub", text: "⚠️ PUNIÇÕES" },
         { type: "list", items: ["1ª: aviso da liderança.","2ª (nova violação após aviso): expulso da aliança.","3ª: lista negra em todas as alianças protegidas pelo NAP."] },
       ]},
       tr: { title: "NAP Kuralları", blocks: [
         { type: "h", text: "🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)" },
-        { type: "nap", text: "❌ NAP 6 şehirlerine saldırmak veya gözetlemek yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ NAP 6 şehirlerine saldırmak veya gözetlemek yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.","🪖 {allOut} sırasında (istisna): kaynak toplama noktalarına ({mill}, {sawmill}, {quarry}, {ironMine}) saldırabilirsiniz.","🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.","🏛️ {sanctuary}lar ve Kaleler NAP 6 arasında paylaşılır veya sırayla kullanılır."] },
         { type: "sub", text: "⚠️ İHLALLER" },
         { type: "list", items: ["1.: yönetimden uyarı.","2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.","3.: NAP korumasındaki tüm ittifaklarda kara liste."] },
       ]},
       id: { title: "Aturan NAP", blocks: [
         { type: "h", text: "🤝 ATURAN NAP (PAKTA NON-AGRESI)" },
-        { type: "nap", text: "❌ Dilarang menyerang atau mengintai kota NAP 6 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ Dilarang menyerang atau mengintai kota NAP 6 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.","🪖 Selama {allOut} (pengecualian): boleh menyerang titik pengumpulan sumber daya ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.","🏛️ {sanctuary} dan Benteng dibagi atau digilir di antara NAP 6."] },
         { type: "sub", text: "⚠️ PELANGGARAN" },
         { type: "list", items: ["Ke-1: peringatan dari pimpinan.","Ke-2 (melanggar lagi setelah diperingatkan): dikeluarkan dari aliansi.","Ke-3: masuk daftar hitam semua aliansi yang dilindungi NAP."] },
       ]},
       ru: { title: "Правила NAP", blocks: [
         { type: "h", text: "🤝 ПРАВИЛА NAP (ПАКТ О НЕНАПАДЕНИИ)" },
-        { type: "nap", text: "❌ Нельзя атаковать и разведывать города NAP 6 — включая их защищённые альянсы-академии/фермы с одобренными тегами", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ Нельзя атаковать и разведывать города NAP 6 — включая их защищённые альянсы-академии/фермы с одобренными тегами", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Перед сбором проверяйте точку. Если она занята или на ней значок ⚔️ меча, не отправляйте войска. При столкновении второй игрок отзывает отряд.","🪖 Во время «{allOut}» (исключение): можно атаковать точки сбора ресурсов ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ За аванпосты можно сражаться — но нельзя сжигать города, бить точки ресурсов и перекрывать доступ к зоне аванпоста.","🏛️ Святилища и крепости делятся или передаются по очереди между NAP 6."] },
         { type: "sub", text: "⚠️ НАРУШЕНИЯ" },
         { type: "list", items: ["1-е: предупреждение от руководства.","2-е (повторное нарушение после предупреждения): исключение из альянса.","3-е: чёрный список во всех альянсах под защитой NAP."] },
       ]},
       th: { title: "กฎ NAP", blocks: [
         { type: "h", text: "🤝 กฎ NAP (สนธิสัญญาไม่รุกราน)" },
-        { type: "nap", text: "❌ ห้ามโจมตีหรือสอดแนมเมืองของ NAP 6 — รวมถึงพันธมิตรอาคาเดมี/ฟาร์มที่ได้รับการคุ้มครองและใช้แท็กที่อนุมัติ", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ ห้ามโจมตีหรือสอดแนมเมืองของ NAP 6 — รวมถึงพันธมิตรอาคาเดมี/ฟาร์มที่ได้รับการคุ้มครองและใช้แท็กที่อนุมัติ", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 ตรวจจุดทรัพยากรก่อนเก็บ ถ้ามีคนอยู่หรือมีไอคอน ⚔️ ดาบ อย่าส่งทหาร ถ้าชนกัน คนที่มาทีหลังต้องถอนกลับ","🪖 ระหว่าง {allOut} (ข้อยกเว้น): โจมตีจุดเก็บทรัพยากร ({mill}, {sawmill}, {quarry}, {ironMine}) ได้","🏳️ ด่านหน้าแย่งชิงกันได้ — แต่ห้ามเผาเมือง ห้ามตีจุดทรัพยากร และห้ามขวางทางเข้าพื้นที่ด่านหน้า","🏛️ {sanctuary}และป้อมปราการใช้ร่วมกันหรือผลัดกันใช้ระหว่าง NAP 6"] },
         { type: "sub", text: "⚠️ การละเมิด" },
         { type: "list", items: ["ครั้งที่ 1: ผู้นำตักเตือน","ครั้งที่ 2 (ละเมิดอีกหลังถูกเตือน): ถูกเตะออกจากพันธมิตร","ครั้งที่ 3: ขึ้นบัญชีดำของทุกพันธมิตรที่อยู่ใต้ NAP"] },
       ]},
       ar: { title: "قواعد NAP", blocks: [
         { type: "h", text: "🤝 قواعد NAP (اتفاقية عدم الاعتداء)" },
-        { type: "nap", text: "❌ ممنوع مهاجمة مدن NAP 6 أو التجسس عليها — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ ممنوع مهاجمة مدن NAP 6 أو التجسس عليها — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 افحص النقطة قبل الجمع. إذا كانت مشغولة أو عليها أيقونة ⚔️ السيف فلا ترسل قوات. وإذا حدث تصادم، يسحب اللاعب الثاني قواته.","🪖 خلال {allOut} (استثناء): يمكنك مهاجمة نقاط جمع الموارد ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ يمكن التنافس على المستوطنات — لكن دون حرق المدن، ودون ضرب نقاط الموارد، ودون سد الطريق إلى منطقة المستوطنة.","🏛️ {sanctuary} والحصون مشتركة أو بالتناوب بين NAP 6."] },
         { type: "sub", text: "⚠️ المخالفات" },
         { type: "list", items: ["الأولى: تحذير من القيادة.","الثانية (مخالفة جديدة بعد التحذير): الطرد من التحالف.","الثالثة: القائمة السوداء في كل التحالفات المحمية بـ NAP."] },
       ]},
       es: { title: "Reglas del NAP", blocks: [
         { type: "h", text: "🤝 REGLAS DEL NAP (PACTO DE NO AGRESIÓN)" },
-        { type: "nap", text: "❌ Prohibido atacar o espiar ciudades del NAP 6 — incluye sus alianzas academia/granja protegidas con las etiquetas aprobadas", tags: ["NXS/nxs/nXs","NRD/nRd/Nrd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ Prohibido atacar o espiar ciudades del NAP 6 — incluye sus alianzas academia/granja protegidas con las etiquetas aprobadas", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): puedes atacar puntos de recolección ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Los Puestos de Avanzada se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de Puesto de Avanzada.","🏛️ Los {sanctuary}s y los Fuertes se comparten o se rotan entre el NAP 6."] },
         { type: "sub", text: "⚠️ SANCIONES" },
         { type: "list", items: ["1.ª: advertencia de los líderes.","2.ª (otra infracción tras la advertencia): expulsión de la alianza.","3.ª: lista negra en todas las alianzas protegidas por el NAP."] },
@@ -1204,7 +1204,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Stay active. Tell leadership if you'll be away.", "2. Respect NAP 6. If a NAP member attacks you, report it to R4/R5. Do not hit back.", "3. Follow event rules. Check alliance chat, private messages, our website and Discord for updates.", "4. Work with leadership, help other members and play as a team.", "5. Keep World Chat friendly. Avoid drama that could hurt the alliance."]},
         {"type": "h", "id": "first-day", "text": "✅ YOUR FIRST DAY"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ Do NOT attack these alliances or their farms & academies. *During {allOut}, gathering nodes can be attacked.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ Do NOT attack these alliances or their farms & academies. *During {allOut}, gathering nodes can be attacked.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ Breaking it: 1st a warning · 2nd kicked from the alliance · 3rd blacklisted by all NAP alliances."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Who holds which"},
@@ -1236,7 +1236,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. 保持活躍。要離開一陣子先告訴幹部。", "2. 遵守 NAP 6。被 NAP 成員攻擊時回報 R4/R5，不要反擊。", "3. 遵守活動規則。留意聯盟聊天、私訊、我們的網站和 Discord 的更新。", "4. 配合幹部、幫助盟友，大家一起團隊合作。", "5. 世界頻道保持友善，不要製造可能傷害聯盟的紛爭。"]},
         {"type": "h", "id": "first-day", "text": "✅ 第一天要知道的事"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*{allOut}期間可以攻擊採集點。", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*{allOut}期間可以攻擊採集點。", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ 違規：第 1 次警告 · 第 2 次踢出聯盟 · 第 3 次列入所有 NAP 聯盟的黑名單。"},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ 各盟分配"},
@@ -1268,7 +1268,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. 꾸준히 접속하세요. 자리를 비우면 운영진에게 알려 주세요.", "2. NAP 6을 지키세요. NAP 멤버에게 공격받으면 R4/R5에게 알리고, 반격하지 마세요.", "3. 이벤트 규칙을 지키세요. 연맹 채팅, 개인 메시지, 우리 웹사이트와 Discord를 확인하세요.", "4. 운영진과 협력하고, 연맹원을 돕고, 한 팀으로 함께해요.", "5. 월드 채팅에서는 예의를 지키세요. 연맹에 해가 될 다툼은 피하세요."]},
         {"type": "h", "id": "first-day", "text": "✅ 첫날 알아야 할 것"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ 이 연맹들과 그 농장·아카데미는 공격하지 마세요. *{allOut} 기간에는 채집지를 공격할 수 있어요.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ 이 연맹들과 그 농장·아카데미는 공격하지 마세요. *{allOut} 기간에는 채집지를 공격할 수 있어요.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ 위반: 1회 경고 · 2회 연맹에서 추방 · 3회 모든 NAP 연맹 블랙리스트."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ 연맹별 배정"},
@@ -1300,7 +1300,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Bleib aktiv. Sag der Leitung Bescheid, wenn du weg bist.", "2. Respektiere die NAP 6. Wirst du von einem NAP-Mitglied angegriffen, melde es R4/R5. Schlag nicht zurück.", "3. Halte dich an die Event-Regeln. Schau in Allianz-Chat, Privatnachrichten, auf unsere Webseite und in Discord.", "4. Arbeite mit der Leitung, hilf anderen Mitgliedern und spiel im Team.", "5. Bleib im Welt-Chat freundlich. Vermeide Streit, der der Allianz schadet."]},
         {"type": "h", "id": "first-day", "text": "✅ DEIN ERSTER TAG"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ Greif diese Allianzen und ihre Farmen & Akademien NICHT an. *Während {allOut} dürfen Sammelfelder angegriffen werden.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ Greif diese Allianzen und ihre Farmen & Akademien NICHT an. *Während {allOut} dürfen Sammelfelder angegriffen werden.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ Verstöße: 1. Verwarnung · 2. Rauswurf aus der Allianz · 3. Schwarze Liste bei allen NAP-Allianzen."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Wer hält was"},
@@ -1332,7 +1332,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Reste actif. Préviens la direction si tu t'absentes.", "2. Respecte le NAP 6. Si un membre du NAP t'attaque, signale-le aux R4/R5. Ne riposte pas.", "3. Suis les règles des événements. Regarde le chat d'alliance, les messages privés, notre site et Discord.", "4. Coopère avec la direction, aide les autres membres et joue en équipe.", "5. Reste correct dans le chat mondial. Évite les histoires qui nuisent à l'alliance."]},
         {"type": "h", "id": "first-day", "text": "✅ TON PREMIER JOUR"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ N'attaque PAS ces alliances ni leurs fermes & académies. *Pendant {allOut}, les points de récolte peuvent être attaqués.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ N'attaque PAS ces alliances ni leurs fermes & académies. *Pendant {allOut}, les points de récolte peuvent être attaqués.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ Infractions : 1re avertissement · 2e exclusion de l'alliance · 3e liste noire de toutes les alliances du NAP."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Qui tient quoi"},
@@ -1364,7 +1364,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Fique ativo. Avise a liderança se for ficar fora.", "2. Respeite o NAP 6. Se um membro do NAP te atacar, avise R4/R5. Não revide.", "3. Siga as regras dos eventos. Veja o chat da aliança, as mensagens privadas, o nosso site e o Discord.", "4. Coopere com a liderança, ajude os outros membros e jogue em equipe.", "5. Seja educado no chat mundial. Evite tretas que possam prejudicar a aliança."]},
         {"type": "h", "id": "first-day", "text": "✅ SEU PRIMEIRO DIA"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ NÃO ataque estas alianças nem suas fazendas e academias. *Durante o {allOut}, os pontos de coleta podem ser atacados.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ NÃO ataque estas alianças nem suas fazendas e academias. *Durante o {allOut}, os pontos de coleta podem ser atacados.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ Punições: 1ª aviso · 2ª expulso da aliança · 3ª lista negra em todas as alianças do NAP."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Quem fica com qual"},
@@ -1396,7 +1396,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Aktif ol. Uzak kalacaksan yönetime haber ver.", "2. NAP 6'ya uy. Bir NAP üyesi sana saldırırsa R4/R5'e bildir. Karşılık verme.", "3. Etkinlik kurallarına uy. İttifak sohbetini, özel mesajları, web sitemizi ve Discord'u takip et.", "4. Yönetimle iş birliği yap, diğer üyelere yardım et ve takım olarak oyna.", "5. Dünya sohbetinde kibar ol. İttifaka zarar verecek tartışmalardan uzak dur."]},
         {"type": "h", "id": "first-day", "text": "✅ İLK GÜNÜN"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ Bu ittifaklara ve onların çiftlik ve akademilerine saldırma. *{allOut} sırasında toplama noktalarına saldırılabilir.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ Bu ittifaklara ve onların çiftlik ve akademilerine saldırma. *{allOut} sırasında toplama noktalarına saldırılabilir.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ İhlal: 1. uyarı · 2. ittifaktan atılma · 3. tüm NAP ittifaklarında kara liste."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Hangisi kimin"},
@@ -1428,7 +1428,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Tetap aktif. Beri tahu pimpinan kalau kamu akan pergi.", "2. Hormati NAP 6. Kalau diserang anggota NAP, laporkan ke R4/R5. Jangan membalas.", "3. Ikuti aturan event. Cek chat aliansi, pesan pribadi, situs kami, dan Discord.", "4. Bekerja sama dengan pimpinan, bantu anggota lain, dan main sebagai tim.", "5. Jaga World Chat tetap sopan. Hindari drama yang bisa merugikan aliansi."]},
         {"type": "h", "id": "first-day", "text": "✅ HARI PERTAMAMU"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ JANGAN serang aliansi ini atau farm & akademi mereka. *Selama {allOut}, titik pengumpulan boleh diserang.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ JANGAN serang aliansi ini atau farm & akademi mereka. *Selama {allOut}, titik pengumpulan boleh diserang.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ Pelanggaran: ke-1 peringatan · ke-2 dikeluarkan dari aliansi · ke-3 daftar hitam semua aliansi NAP."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Siapa memegang yang mana"},
@@ -1460,7 +1460,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Будь активным. Предупреди руководство, если уходишь.", "2. Соблюдай NAP 6. Если тебя атаковал участник NAP, сообщи R4/R5. Не отвечай атакой.", "3. Соблюдай правила событий. Следи за чатом альянса, личными сообщениями, нашим сайтом и Discord.", "4. Работай с руководством, помогай другим и играй командой.", "5. Будь вежлив в мировом чате. Не устраивай ссор, которые вредят альянсу."]},
         {"type": "h", "id": "first-day", "text": "✅ ТВОЙ ПЕРВЫЙ ДЕНЬ"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ НЕ атакуй эти альянсы и их фермы и академии. *Во время «{allOut}» можно атаковать точки сбора.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ НЕ атакуй эти альянсы и их фермы и академии. *Во время «{allOut}» можно атаковать точки сбора.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ Нарушения: 1-е предупреждение · 2-е исключение из альянса · 3-е чёрный список всех альянсов NAP."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Кому что принадлежит"},
@@ -1492,7 +1492,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. ออนไลน์สม่ำเสมอ ถ้าจะหายไปให้บอกผู้นำ", "2. เคารพ NAP 6 ถ้าโดนสมาชิก NAP โจมตี ให้แจ้ง R4/R5 อย่าตอบโต้", "3. ทำตามกฎกิจกรรม ดูแชทพันธมิตร ข้อความส่วนตัว เว็บของเรา และ Discord", "4. ร่วมมือกับผู้นำ ช่วยเพื่อนสมาชิก และเล่นเป็นทีม", "5. สุภาพในแชทโลก อย่าก่อเรื่องที่ทำให้พันธมิตรเสียหาย"]},
         {"type": "h", "id": "first-day", "text": "✅ วันแรกของคุณ"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ ห้ามโจมตีพันธมิตรเหล่านี้ รวมถึงฟาร์มและอาคาเดมีของพวกเขา *ระหว่าง {allOut} โจมตีจุดเก็บทรัพยากรได้", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ ห้ามโจมตีพันธมิตรเหล่านี้ รวมถึงฟาร์มและอาคาเดมีของพวกเขา *ระหว่าง {allOut} โจมตีจุดเก็บทรัพยากรได้", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ ละเมิด: ครั้งที่ 1 ตักเตือน · ครั้งที่ 2 เตะออก · ครั้งที่ 3 ขึ้นบัญชีดำของทุกพันธมิตร NAP"},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ ใครได้อันไหน"},
@@ -1524,7 +1524,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. كن نشيطًا. أخبر القيادة إذا كنت ستغيب.", "2. احترم NAP 6. إذا هاجمك عضو من NAP فأبلغ R4/R5. لا ترد الهجوم.", "3. اتبع قواعد الفعاليات. تابع دردشة التحالف والرسائل الخاصة وموقعنا وDiscord.", "4. تعاون مع القيادة، وساعد الأعضاء، والعب كفريق.", "5. حافظ على الاحترام في الدردشة العالمية. تجنّب المشاكل التي تضر التحالف."]},
         {"type": "h", "id": "first-day", "text": "✅ يومك الأول"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ لا تهاجم هذه التحالفات ولا مزارعها وأكاديمياتها. *خلال {allOut} يمكن مهاجمة نقاط الجمع.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ لا تهاجم هذه التحالفات ولا مزارعها وأكاديمياتها. *خلال {allOut} يمكن مهاجمة نقاط الجمع.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ المخالفات: الأولى تحذير · الثانية الطرد من التحالف · الثالثة القائمة السوداء في كل تحالفات NAP."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ من يملك ماذا"},
@@ -1556,7 +1556,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. Mantente activo. Avisa a los líderes si vas a estar fuera.", "2. Respeta el NAP 6. Si un miembro del NAP te ataca, avisa a R4/R5. No respondas.", "3. Sigue las reglas de los eventos. Revisa el chat de la alianza, los mensajes privados, nuestra web y Discord.", "4. Coopera con los líderes, ayuda a los demás y juega en equipo.", "5. Sé respetuoso en el chat mundial. Evita los dramas que dañen a la alianza."]},
         {"type": "h", "id": "first-day", "text": "✅ TU PRIMER DÍA"},
         {"type": "sub", "text": "🤝 NAP 6"},
-        {"type": "nap", "text": "❌ NO ataques a estas alianzas ni a sus granjas y academias. *Durante {allOut} se pueden atacar los puntos de recolección.", "tags": ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
+        {"type": "nap", "text": "❌ NO ataques a estas alianzas ni a sus granjas y academias. *Durante {allOut} se pueden atacar los puntos de recolección.", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"]},
         {"type": "p", "text": "⚠️ Sanciones: 1.ª advertencia · 2.ª expulsión de la alianza · 3.ª lista negra en todas las alianzas del NAP."},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ Quién tiene cuál"},
@@ -9531,7 +9531,7 @@ const GUIDES = {
     sections: {
       en: { title: "All Out", blocks: [
         { type: "h", text: "🪖 All-Out Rules" },
-        { type: "nap", text: "❌ No attacks on NAP 6 including their farms/academies", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ No attacks on NAP 6 including their farms/academies", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "Read the NAP rules ›" },
         { type: "list", items: [
                     "❌ No attacks on castles or alliance buildings (HQs, outposts, banners)",
@@ -9565,7 +9565,7 @@ const GUIDES = {
       ]},
       zh: { title: "全軍出擊", blocks: [
         { type: "h", text: "🪖 全軍出擊規則" },
-        { type: "nap", text: "❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "看 NAP 規則 ›" },
         { type: "list", items: [
                     "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）",
@@ -9599,7 +9599,7 @@ const GUIDES = {
       ]},
       ko: { title: "전군 출격", blocks: [
         { type: "h", text: "🪖 전군 출격 규칙" },
-        { type: "nap", text: "❌ NAP 6 멤버 공격 금지, 농장/아카데미 포함", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ NAP 6 멤버 공격 금지, 농장/아카데미 포함", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "NAP 규칙 보기 ›" },
         { type: "list", items: [
                     "❌ 성이나 연맹 건물(본부, 전초기지, 깃발) 공격 금지",
@@ -9633,7 +9633,7 @@ const GUIDES = {
       ]},
       de: { title: "Aufs Ganze", blocks: [
         { type: "h", text: "🪖 All-Out-Regeln" },
-        { type: "nap", text: "❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "NAP-Regeln lesen ›" },
         { type: "list", items: [
                     "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)",
@@ -9667,7 +9667,7 @@ const GUIDES = {
       ]},
       fr: { title: "Tous dehors", blocks: [
         { type: "h", text: "🪖 Règles de Tous dehors" },
-        { type: "nap", text: "❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "Lire les règles du NAP ›" },
         { type: "list", items: [
                     "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)",
@@ -9701,7 +9701,7 @@ const GUIDES = {
       ]},
       pt: { title: "Vai com Tudo", blocks: [
         { type: "h", text: "🪖 Regras do Vai com Tudo" },
-        { type: "nap", text: "❌ Nenhum ataque ao NAP 6, incluindo suas fazendas/academias", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ Nenhum ataque ao NAP 6, incluindo suas fazendas/academias", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "Ler as regras do NAP ›" },
         { type: "list", items: [
                     "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras)",
@@ -9735,7 +9735,7 @@ const GUIDES = {
       ]},
       es: { title: "Ataque Total", blocks: [
         { type: "h", text: "🪖 Reglas de Ataque Total" },
-        { type: "nap", text: "❌ No atacar a miembros del NAP 6, incluidas sus granjas/academias", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ No atacar a miembros del NAP 6, incluidas sus granjas/academias", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "Leer las reglas del NAP ›" },
         { type: "list", items: [
                     "❌ No atacar castillos ni edificios de alianza (cuarteles generales, puestos avanzados, estandartes)",
@@ -9769,7 +9769,7 @@ const GUIDES = {
       ]},
       tr: { title: "Topyekün", blocks: [
         { type: "h", text: "🪖 Topyekün Kuralları" },
-        { type: "nap", text: "❌ NAP 6 üyelerine, çiftlikleri/akademileri dahil saldırı yok", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ NAP 6 üyelerine, çiftlikleri/akademileri dahil saldırı yok", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "NAP kurallarını oku ›" },
         { type: "list", items: [
                     "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok",
@@ -9803,7 +9803,7 @@ const GUIDES = {
       ]},
       id: { title: "Serangan Penuh", blocks: [
         { type: "h", text: "🪖 Aturan Serangan Penuh" },
-        { type: "nap", text: "❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "Baca aturan NAP ›" },
         { type: "list", items: [
                     "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)",
@@ -9837,7 +9837,7 @@ const GUIDES = {
       ]},
       ru: { title: "Полный вперед", blocks: [
         { type: "h", text: "🪖 Правила события «Полный вперед»" },
-        { type: "nap", text: "❌ Не атаковать членов NAP 6, включая их фермы/академии", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ Не атаковать членов NAP 6, включая их фермы/академии", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "Правила NAP ›" },
         { type: "list", items: [
                     "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна)",
@@ -9871,7 +9871,7 @@ const GUIDES = {
       ]},
       th: { title: "ลุยเลย", blocks: [
         { type: "h", text: "🪖 กฎกิจกรรมลุยเลย" },
-        { type: "nap", text: "❌ ห้ามโจมตีสมาชิก NAP 6 รวมถึงฟาร์ม/อาคาเดมีของพวกเขา", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ ห้ามโจมตีสมาชิก NAP 6 รวมถึงฟาร์ม/อาคาเดมีของพวกเขา", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "อ่านกฎ NAP ›" },
         { type: "list", items: [
                     "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง)",
@@ -9905,7 +9905,7 @@ const GUIDES = {
       ]},
       ar: { title: "جميع القوات تهاجم", blocks: [
         { type: "h", text: "🪖 قواعد فعالية جميع القوات تهاجم" },
-        { type: "nap", text: "❌ ممنوع مهاجمة أعضاء NAP 6، بما في ذلك مزارعهم/أكاديمياتهم", tags: ["NXS/nxs/nXs", "NRD/nRd/Nrd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "nap", text: "❌ ممنوع مهاجمة أعضاء NAP 6، بما في ذلك مزارعهم/أكاديمياتهم", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
         { type: "goto", to: "nap-rules", text: "اقرأ قواعد NAP ›" },
         { type: "list", items: [
                     "❌ ممنوع مهاجمة القلاع أو مباني التحالف (المقرات، المخافر الأمامية، الرايات)",

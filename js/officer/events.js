@@ -128,7 +128,7 @@ NAP 6
 DO NOT attack the cities of these alliances or their farms/academies:
 
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN

@@ -69,7 +69,7 @@
 🤝 NAP 規則（互不侵犯條約）
 ❌ 不可攻擊或偵察 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -97,7 +97,7 @@ KGb
 🤝 NAP 6
 ❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*全軍出擊期間可以攻擊採集點。
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -995,7 +995,7 @@ KvK 積分：每人 22,247,410
 🪖 全軍出擊規則
 ❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN

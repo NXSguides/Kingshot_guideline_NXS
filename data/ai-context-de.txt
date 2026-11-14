@@ -69,7 +69,7 @@ Die folgende Liste basiert auf der Seite oben. Wenn ein Ereignis auftaucht, such
 🤝 NAP-REGELN (NICHTANGRIFFSPAKT)
 ❌ Kein Angriff und kein Ausspähen von Städten der NAP 6 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -97,7 +97,7 @@ Tippe im Spiel auf das ⇄-Symbol neben einer Nachricht, um sie in deine Sprache
 🤝 NAP 6
 ❌ Greif diese Allianzen und ihre Farmen & Akademien NICHT an. *Während Aufs Ganze dürfen Sammelfelder angegriffen werden.
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -998,7 +998,7 @@ Bauhilfe (Grauer Wolf, +15 %) und Doppeltes Tempo (+20 %) halten nur 5 Minuten. 
 🪖 All-Out-Regeln
 ❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN

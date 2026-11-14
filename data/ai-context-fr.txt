@@ -69,7 +69,7 @@ La liste ci-dessous est compilée à partir du site ci-dessus. Quand un événem
 🤝 RÈGLES DU NAP (PACTE DE NON-AGRESSION)
 ❌ Interdit d'attaquer ou d'espionner les villes des NAP 6 — y compris leurs alliances académie/ferme protégées avec les tags approuvés
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -97,7 +97,7 @@ Dans le jeu, touche l'icône ⇄ à côté d'un message pour le traduire dans ta
 🤝 NAP 6
 ❌ N'attaque PAS ces alliances ni leurs fermes & académies. *Pendant Tous dehors, les points de récolte peuvent être attaqués.
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -997,7 +997,7 @@ Aide à la Construction (Loup Gris, +15 %) et Bouchées Doubles (+20 %) ne duren
 🪖 Règles de Tous dehors
 ❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN

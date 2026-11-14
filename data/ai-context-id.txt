@@ -69,7 +69,7 @@ Daftar di bawah disusun dari situs di atas. Saat peristiwa muncul, cari berdasar
 🤝 ATURAN NAP (PAKTA NON-AGRESI)
 ❌ Dilarang menyerang atau mengintai kota NAP 6 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -97,7 +97,7 @@ Di game, ketuk ikon ⇄ di samping pesan untuk menerjemahkannya ke bahasamu.
 🤝 NAP 6
 ❌ JANGAN serang aliansi ini atau farm & akademi mereka. *Selama Serangan Penuh, titik pengumpulan boleh diserang.
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -996,7 +996,7 @@ Construction Aide (Gray Wolf, +15%) dan Double Time (+20%) hanya bertahan 5 meni
 🪖 Aturan Serangan Penuh
 ❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN

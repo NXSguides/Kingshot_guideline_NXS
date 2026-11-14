@@ -69,7 +69,7 @@ A lista abaixo foi organizada a partir do site acima. Quando um evento aparecer,
 🤝 REGRAS DO NAP (PACTO DE NÃO AGRESSÃO)
 ❌ Proibido atacar ou espionar cidades do NAP 6 — inclui as alianças academia/fazenda protegidas com as tags aprovadas
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -97,7 +97,7 @@ No jogo, toque no ícone ⇄ ao lado da mensagem para traduzi-la para o seu idio
 🤝 NAP 6
 ❌ NÃO ataque estas alianças nem suas fazendas e academias. *Durante o Vai com Tudo, os pontos de coleta podem ser atacados.
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -996,7 +996,7 @@ Auxiliar de construção (Lobo Cinza, +15%) e Horário Dobrado (+20%) duram só 
 🪖 Regras do Vai com Tudo
 ❌ Nenhum ataque ao NAP 6, incluindo suas fazendas/academias
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN

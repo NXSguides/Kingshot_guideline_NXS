@@ -71,7 +71,7 @@
 🤝 NAP 규칙 (불가침 조약)
 ❌ NAP 6 도시 공격·정찰 금지 — 승인된 태그를 쓰는 보호 대상 아카데미/농장 연맹도 포함
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -99,7 +99,7 @@ NXS에 오신 걸 환영해요! 이 페이지를 한 번 읽어 주세요. 첫�
 🤝 NAP 6
 ❌ 이 연맹들과 그 농장·아카데미는 공격하지 마세요. *전군 출격 기간에는 채집지를 공격할 수 있어요.
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
@@ -1022,7 +1022,7 @@ KvK 점수: 1인당 22,247,410
 🪖 전군 출격 규칙
 ❌ NAP 6 멤버 공격 금지, 농장/아카데미 포함
 NXS/nxs/nXs
-NRD/nRd/Nrd
+NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
