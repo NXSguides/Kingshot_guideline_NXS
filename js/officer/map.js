@@ -46,7 +46,7 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_acG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_zoneG" style="pointer-events:none"></g><g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_acG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", (e) => { if (!mkFar(e, m)) select(m.dataset.id, false); });
@@ -829,7 +829,7 @@ let obstOn = (() => { try { return localStorage.getItem("km-obst") === "1"; } ca
 /* 🚫 no-build zones (same for every kingdom): a square around each building — Fortress / Sanctuary 60 tiles, Outpost 15 tiles —
    and the ring around the King's Castle. Buildings are anchored at their X, Y and take 6×6 (Fortress, Sanctuary) or 3×3 (Outpost) tiles. */
 function buildZones() {
-  ZONE = new Uint16Array(FN * FN); ZNAME = [""];
+  ZONE = new Uint16Array(FN * FN); ZNAME = [""]; ZRECT = [[586, 586, 613, 613, null]];
   const mark = (x1, y1, x2, y2, name) => { ZNAME.push(name); const n = ZNAME.length - 1;
     for (let x = Math.max(0, x1); x <= Math.min(FN - 1, x2); x++) for (let y = Math.max(0, y1); y <= Math.min(FN - 1, y2); y++) if (!ZONE[y * FN + x]) ZONE[y * FN + x] = n; };
   mark(586, 586, 613, 613, castleName());
@@ -838,8 +838,15 @@ function buildZones() {
     const sz = b.kind === "outpost" ? 3 : 6, fz = b.kind === "outpost" ? 15 : 60;
     const x1 = Math.round(b.x + sz / 2 - fz / 2), r1 = Math.round((FN - b.y - sz) + sz / 2 - fz / 2);   // rows run the other way: row = 1199 − Y
     mark(x1, FN - 1 - (r1 + fz - 1), x1 + fz - 1, FN - 1 - r1, nm(b));
+    ZRECT.push([x1, FN - 1 - (r1 + fz - 1), x1 + fz - 1, FN - 1 - r1, [b.x, b.y, sz]]);
   }
 }
+/* 🚩 Territory: the ground each Outpost / Fortress / Sanctuary takes — the building itself (3×3 or 6×6, solid) and the square around it where
+   no banner can stand (15×15 or 60×60, dashed); the King's Castle ring too. Not drawn on 🗺️ Map. */
+let ZRECT = [];
+function drawZones() { const g = $("km_zoneG"); if (!g) return; if (!PMODE) { g.innerHTML = ""; return; }
+  const sq = (x0, y0, x1, y1) => pts([[x0, y0], [x1 + 1, y0], [x1 + 1, y1 + 1], [x0, y1 + 1]]);
+  g.innerHTML = ZRECT.map(([x0, y0, x1, y1, b]) => `<polygon points="${sq(x0, y0, x1, y1)}" fill="rgba(255,176,32,.10)" stroke="#ffb020" stroke-width=".6" stroke-dasharray="2 1.4"/>` + (b ? `<polygon points="${sq(b[0], b[1], b[0] + b[2] - 1, b[1] + b[2] - 1)}" fill="rgba(60,30,10,.55)" stroke="#fff" stroke-width=".4"/>` : "")).join(""); }
 let NODE_T = null;   // tiles under a resource node (2×2 each) — nothing can be built there (Sherry 2026-11-14)
 const nodeAt = (x, y) => { if (!RESD) return false; if (!NODE_T) { NODE_T = new Set(); for (const [, nx, ny] of RESD) for (let j = ny; j < ny + 2; j++) for (let i = nx; i < nx + 2; i++) NODE_T.add(j * FN + i); } return NODE_T.has(y * FN + x); };
 /* why a building can't stand there: w×w tiles from (x, y) — "mt" mountain, "lake", "node" resource node, "" fine */
@@ -863,7 +870,7 @@ function loadGrid() {
   const im = new Image();
   im.onload = () => { try { const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
     const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); OBST = new Uint8Array(FN * FN);
-    for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); rebuildOwn(); drawObst(); drawFlags(); renderFlags(); memRefresh(); };
+    for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); drawZones(); rebuildOwn(); drawObst(); drawFlags(); renderFlags(); memRefresh(); };
   im.src = "data/territory-2189-grid.png?v=20";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : OV ? OV[y * FN + x] : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
@@ -1271,7 +1278,7 @@ function setMode(p) {
   if (slot && blk && blk.parentNode !== slot) { const l = box.scrollLeft, t = box.scrollTop; slot.appendChild(blk); box.scrollLeft = l; box.scrollTop = t; }
   if (PMODE === p) return; PMODE = p; if (!ready) return;
   if (!p && flagMode) flagMode = false; FSEL = null; FARM_SEL = null; if ($("km_sel")) $("km_sel").innerHTML = ""; renderInfo();
-  renderLayers(); drawEx(); drawFlags(); drawRes(); drawAc(); renderFlags(); renderPlan(); memRefresh(); if (!p && KM_SHARED.optDraw) KM_SHARED.optDraw({});
+  renderLayers(); drawEx(); drawFlags(); drawRes(); drawAc(); drawZones(); renderFlags(); renderPlan(); memRefresh(); if (!p && KM_SHARED.optDraw) KM_SHARED.optDraw({});
 }
 function onShow() {
   if (ready && importFromLink()) { drawPlan(); applyHidden(); applyTexts(); }   // link opened while the page was already open
