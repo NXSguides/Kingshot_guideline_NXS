@@ -44,8 +44,18 @@ function formatHeroes(heroes) {
 }
 
 let pendingJump = "";
+/* 🔗 a link straight to one announcement (Sherry 2026-11-15): …/#a/<key>. No language in it, so each reader keeps their own; the board opens on that
+   announcement, scrolled into view, and does not auto-switch away until the reader moves on. */
+let pendingAnn = "", annLinkHold = false;
+const annKey = (a) => { const n = new Date(a.createdAt).getTime(); return isNaN(n) ? "" : n.toString(36); };
+function openPendingAnn() {
+  if (!pendingAnn || !langChosen || !announcements.length) return;
+  const i = announcements.findIndex((a) => annKey(a) === pendingAnn); pendingAnn = "";
+  if (i < 0) return; annLinkHold = true; goToAnnouncements(i);
+}
 function readHash() {
   const hash = (location.hash || "").replace(/^#\/?/, "");
+  { const m = hash.match(/^a\/([0-9a-z]+)$/); if (m) { pendingAnn = m[1]; return; } }
   const [lang, guide, jump] = hash.split("/");
   pendingJump = jump || "";
   if (lang) { currentLang = pickLang(lang); langChosen = true; }
@@ -104,7 +114,7 @@ function restorePrefs() {
   // A shared link with a hash (e.g. #/ko/swordland-showdown) still opens that page.
   readHash();
   // The home-screen app remembers the last language chosen in it.
-  if (!langChosen && isInstalledApp()) {
+  if (!langChosen && (isInstalledApp() || pendingAnn)) {   // a 🔗 link to one announcement: a reader who already chose a language here skips the picker
     const saved = safeGet(STORAGE_KEYS.lang);
     if (saved && LANGS.some((l) => l.code === saved)) {
       currentLang = saved;
@@ -883,6 +893,7 @@ async function loadAnnouncements() {
   }
   dropExpired();
   renderAll();
+  openPendingAnn();
 }
 /* auto-delete time set on the officer Post page: hidden right on time (the hourly clean-up then removes it from the files) */
 function dropExpired() {
@@ -909,7 +920,7 @@ function annBodyHtml(a) {
   return `
           <div class="ann-meta">
             <span>${escapeHtml(a.author)}</span>
-            <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}${announcements.length > 1 ? ` <button type="button" class="ann-pin${annPinned ? " on" : ""}" onclick="annPinToggle()">${escapeHtml(t(annPinned ? ANN_AUTO : ANN_STAY))}</button>` : ""}</span>
+            <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}${announcements.length > 1 ? ` <button type="button" class="ann-pin${annPinned ? " on" : ""}" onclick="annPinToggle()">${escapeHtml(t(annPinned ? ANN_AUTO : ANN_STAY))}</button>` : ""}${annKey(a) ? ` <button type="button" class="ann-pin ann-link" onclick="annCopyLink(this,'${annKey(a)}')">${escapeHtml(t(ANN_LINK))}</button>` : ""}</span>
           </div>
           ${a.style && typeof annThemeHtml === "function"   /* 📜 scroll / theme look (js/ann-themes.js): the paper grows with the text */
             ? annThemeHtml(a.style, a.title ? escapeHtml(annLabel(a)) : "", `<div class="ann-text" dir="auto">${body.replace(/\n[ \t]*\n\s*/g, "<span class=\"sc2-gap\"></span>")}</div>${imgs}`)
@@ -918,6 +929,7 @@ function annBodyHtml(a) {
           ${imgs}`}`;
 }
 function selectAnnouncement(i) {
+  if (i !== currentAnnIndex) annLinkHold = false;   // the reader moved on from the linked announcement: auto-switch may run again
   // the board is on the page: swap just the announcement (re-drawing the whole page made it jump to the top)
   const board = document.querySelector(".ann-board"), bodyEl = board && board.querySelector(".ann-body");
   if (bodyEl && announcements[i]) {
@@ -949,6 +961,13 @@ window.selectAnnouncement = selectAnnouncement;
    Only the time it is actually on screen counts (at least half of it visible); any tap, swipe, wheel or mouse move on it starts the 8 s again. */
 const ANN_IDLE = 7000;
 /* ⏸ Stay here (Sherry 2026-11-01: "it jumps away while I'm reading"): no auto-switch until ▶ is pressed; remembered on this device. Swipes and tabs still work. */
+const ANN_LINK = { en: "🔗 Copy link", zh: "🔗 複製連結", ko: "🔗 링크 복사", de: "🔗 Link kopieren", fr: "🔗 Copier le lien", pt: "🔗 Copiar link", tr: "🔗 Bağlantıyı kopyala", id: "🔗 Salin tautan", ru: "🔗 Копировать ссылку", th: "🔗 คัดลอกลิงก์", ar: "🔗 نسخ الرابط", es: "🔗 Copiar enlace" };
+function annCopyLink(btn, key) {
+  const url = location.origin + location.pathname + "#a/" + key, done = () => { const o = btn.textContent; btn.textContent = "✅"; setTimeout(() => { btn.textContent = o; }, 1500); };
+  const fall = () => { const ta = document.createElement("textarea"); ta.value = url; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); done(); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fall); else fall();
+}
+window.annCopyLink = annCopyLink;
 const ANN_STAY = { en: "⏸ Stay here", zh: "⏸ 停在這則", ko: "⏸ 여기 고정", de: "⏸ Hier bleiben", fr: "⏸ Rester ici", pt: "⏸ Ficar aqui", tr: "⏸ Burada kal", id: "⏸ Tetap di sini", ru: "⏸ Остаться здесь", th: "⏸ อยู่ที่นี่", ar: "⏸ ابقَ هنا", es: "⏸ Quedarse aquí" };
 const ANN_AUTO = { en: "▶ Auto-switch", zh: "▶ 自動切換", ko: "▶ 자동 넘김", de: "▶ Automatisch wechseln", fr: "▶ Défilement auto", pt: "▶ Troca automática", tr: "▶ Otomatik geçiş", id: "▶ Ganti otomatis", ru: "▶ Автопрокрутка", th: "▶ เลื่อนอัตโนมัติ", ar: "▶ تبديل تلقائي", es: "▶ Cambio automático" };
 let annPinned = safeGet("nxs-ann-pin") === "1";
@@ -1025,7 +1044,7 @@ setInterval(() => {
   if (!board || announcements.length < 2) return;
   if (annIdx !== currentAnnIndex) { annIdx = currentAnnIndex; annShown = 0; }
   const r = board.getBoundingClientRect(), seen = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
-  if (annHold || annPinned) return;
+  if (annHold || annPinned || annLinkHold) return;
   if (document.visibilityState !== "visible" || seen < Math.min(r.height, innerHeight) / 2) { annShown = 0; return; }   // off screen: start over when it comes back
   annShown += dt;
   if (annShown < ANN_IDLE) return;
@@ -1599,6 +1618,7 @@ function renderAll() {
   renderAllNow();
 }
 function renderAllNow() {
+  if (pendingAnn && langChosen && announcements.length) setTimeout(openPendingAnn, 0);   // 🔗 the language was just picked → go to the linked announcement
   document.getElementById("siteTitle").textContent = SITE_TITLE;
   document.getElementById("footerNote").textContent = t(UI.footerNote);
   document.title = `${SITE_TITLE} · ${t(GUIDES[currentGuide].name)}`;
@@ -1666,6 +1686,7 @@ window.addEventListener("hashchange", () => {
   readHash();
   persistPrefs();
   renderAll();
+  openPendingAnn();
 });
 
 /* ---- 點圖片放大（公告圖片、指南圖片） ----------------------------- */

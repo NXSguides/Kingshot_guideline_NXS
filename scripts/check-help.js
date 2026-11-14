@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Site: 🔗 link straight to one announcement", /🔗 Copy link" next to its date/, /🔗 Copy link gives a link that opens straight on this announcement/],
   ["Territory: members, Bear Traps and the Hive plan on the map", /MEMBERS ON THE TERRITORY MAP \(2026-11-14\)/, /🏠 shows members' cities, Bear Traps and the Hive plan/],
   ["Territory: banner check / reshuffle / node switch-off for nxs too", /SAME TOOLS FOR nxs \(2026-11-14\)/, /work for whichever alliance is picked/],
   ["Territory: one tool row + per-banner layers only (no alliance-wide order)", /NO ALLIANCE-WIDE BUILD ORDER/, /pl03: "🧰 One tool row above the map/],
