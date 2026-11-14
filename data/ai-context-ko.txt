@@ -1404,12 +1404,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-14 by ELR] 11/15 SS 군단 2
-(battle table: shown in the reader's language)
-
-
-(see guide #swordland-showdown)
-
 [2026-11-09 by Nia and Armada] 🚨 11월 9일 TG5 오픈 — 절대로 업그레이드하지 마세요!
 다음 KvK 전까지 TG5로 업그레이드하면 매칭에 불이익을 받아 훨씬 강력한 왕국과 매칭될 수 있습니다.
 우리는 불필요하게 힘든 상대가 아닌 최선의 매칭을 원합니다.

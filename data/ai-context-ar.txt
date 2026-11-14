@@ -1377,12 +1377,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-14 by ELR] 11/15 SS الكتيبة 2
-(battle table: shown in the reader's language)
-
-
-(see guide #swordland-showdown)
-
 [2026-11-09 by Nia and Armada] 🚨 يفتح TG5 في 9 نوفمبر — لا تقم بالترقية!
 إن الترقية إلى TG5 قبل فعالية KvK القادمة تؤذي البحث عن الخصم وقد تضعنا ضد مملكة أقوى بكثير.
 نحن نريد أفضل مواجهة ممكنة، وليس مواجهة صعبة دون داعٍ.

@@ -1379,12 +1379,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-14 by ELR] 11/15 SS Légion 2
-(battle table: shown in the reader's language)
-
-
-(see guide #swordland-showdown)
-
 [2026-11-09 by Nia and Armada] 🚨 Ouverture de TG5 le 9 novembre — NE PAS améliorer !
 Améliorer vers TG5 avant notre prochain KvK nuit à notre matchmaking et peut nous opposer à un royaume bien plus puissant.
 Nous voulons le meilleur matchmaking possible, pas un combat inutilement difficile.

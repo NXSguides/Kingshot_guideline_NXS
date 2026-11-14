@@ -1377,12 +1377,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-14 by ELR] 11/15 SS 軍團2
-(battle table: shown in the reader's language)
-
-
-(see guide #swordland-showdown)
-
 [2026-11-09 by Nia and Armada] 🚨 TG5即將於11月9日開啟——千萬不要升級！
 在下一次 KvK 開始前升級至 TG5 會損害我們的配對機制，並可能讓我們對上實力強大許多的王國。
 我們希望能拿到最佳的配對對手，而不是無謂地拉高難度。
