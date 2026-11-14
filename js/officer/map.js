@@ -1084,6 +1084,8 @@ let PWHO = (() => { try { const v = localStorage.getItem("kp-who"); return v ===
 function setWho(w) { if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }   // renderFlags → drawFarm: the handles follow the alliance picked
 const WHO_T = { en: ["Planning / looking at:", "What to place:"], zh: ["現在規劃／查看：", "要放什麼："], pt: ["Planejando / vendo:", "O que colocar:"], ar: ["التخطيط / العرض لـ:", "ماذا تضع:"], ko: ["계획 / 보기 대상:", "놓을 것:"] };
 const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: c.off, nUp: n("fl"), nDown: n("rm"), n0: n("b"), n1: n("b") - n("rm") + n("fl") }; };
+const MC_T = { en: "🏠 Members & Bear Traps", zh: "🏠 成員的城和熊陷阱", pt: "🏠 Membros e Armadilhas", ar: "🏠 الأعضاء وفخاخ الدب", ko: "🏠 연맹원과 곰 덫" };
+const MC_H = { en: "Hive plan", zh: "蜂巢規劃", pt: "plano da Colmeia", ar: "خطة الخلية", ko: "하이브 계획" };
 function renderTools() {
   const el = $("kp_tools"); if (!el) return; const ed = PE();
   const cur = farmKind ? "f:" + farmKind : flagMode ? (otKind ? "o:" + otKind : "p") : "", typed = cur === "p" || cur.startsWith("f:"), wt = WHO_T[lang] || WHO_T.en;
@@ -1094,10 +1096,11 @@ function renderTools() {
     + (ed ? `<div class="row km-fl-add" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center"><b style="font-size:13px">${esc(wt[1])}</b><select class="btn${cur ? " primary" : ""}" id="kp_put" style="height:36px;max-width:100%">${opt("", tl(1))}${opts}</select>`
       + (typed ? `<label>X <input id="kp_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="kp_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn primary" id="kp_add">➕ ${esc(tl(5))}</button>` : "") + `</div>`
       + (cur ? `<div class="muted" style="font-size:12px;margin-top:4px;color:var(--accent,#ffb020);font-weight:700">${esc(tl(3))}</div>` : "") : "")
-    + `<div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center">${tg("fl_obst", obstOn, ft("obst"))}${tg("fl_ex", exOn, ft("ex"))}${tg("fl_ot", otOn, ft("ot"))}${otOn && OTB ? `<span class="muted" style="font-size:12px">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`;
+    + `<div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center">${tg("fl_obst", obstOn, ft("obst"))}${tg("fl_ex", exOn, ft("ex"))}${tg("fl_ot", otOn, ft("ot"))}${tg("fl_mc", mcOn, MC_T[lang] || MC_T.en)}${otOn && OTB ? `<span class="muted" style="font-size:12px">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`;
   el.querySelectorAll("[data-who]").forEach((b) => b.onclick = () => setWho(b.dataset.who));
   // each alliance's own cards: only the one being planned / looked at
   { const sh = (id, on) => { const e = $(id); if (e) e.hidden = !on; }; sh("km_flags", PWHO === "m"); sh("km_opt", PWHO !== "o"); sh("km_farm", PWHO === "f"); sh("kp_roster", PWHO === "f"); sh("kp_resCard", PWHO !== "o"); }
+  $("fl_mc").onclick = () => { mcOn = !mcOn; try { localStorage.setItem("kp-mc", mcOn ? "1" : "0"); } catch (err) {} drawAc(); renderTools(); };
   $("fl_obst").onclick = () => { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); };
   $("fl_ex").onclick = () => { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); };
   $("fl_ot").onclick = () => { otOn = !otOn; try { localStorage.setItem("km-otb2", otOn ? "1" : "0"); } catch (err) {} rebuildOwn(); drawOt(); drawFlags(); renderFlags(); memRefresh(); };
@@ -1215,6 +1218,7 @@ function flagInfo() {
 /* What a tap selects (Sherry 2026-11-14 "I can't select the banner I want"): every selectable thing is a candidate — NXS planned and standing banners,
    other alliances' banners / HQs, nxs's things — and the NEAREST to the finger wins, not a fixed order. Distance is in tiles to the banner tile or to
    the building's footprint; the reach is about a fingertip (14 px) but never under 2 or over 5 tiles. Same distance → the alliance being planned. */
+let CITY_SEL = null;
 function pickAt(tx, ty, e) {
   const m = $("km_svg").getScreenCTM(), reach = Math.max(2, Math.min(5, Math.ceil(14 / ((m ? m.a : 1) * KX))));
   const d1 = (x, y) => Math.max(Math.abs(x - tx), Math.abs(y - ty)), db = (x, y, w) => Math.max(tx < x ? x - tx : tx > x + w - 1 ? tx - x - w + 1 : 0, ty < y ? y - ty : ty > y + w - 1 ? ty - y - w + 1 : 0);
@@ -1224,6 +1228,9 @@ function pickAt(tx, ty, e) {
   if (otOn) { for (const h of otHq()) C.push([db(h[1], h[2], 3), 2, () => { FSEL = { k: "oh", n: h[0], x: h[1], y: h[2], t: h[3] || 1 }; }, "o"]);
     for (const o of otList()) C.push([d1(o[1], o[2]), 2.1, () => { FSEL = { k: "o", n: o[0], x: o[1], y: o[2], c: o[3] }; }, "o"]); }
   if (!flagMode && SHOWP() && PLAN.farm) for (const k of FK) (PLAN.farm[k] || []).forEach(([x, y], i) => C.push([FW[k] > 1 ? db(x, y, FW[k]) : d1(x, y), fw ? 0 : 1, () => { FARM_SEL = { k, i }; }, "f"]));
+  if (PMODE && mcOn && !flagMode) { for (const [n, x, y] of mcList()) C.push([db(x, y, 2), 3, () => { CITY_SEL = ["NXS", "🏠 " + n, x, y]; }, "c"]); const hp = hvPlan(), ht = MC_H[lang] || MC_H.en;
+    btList().forEach(([x, y], i) => C.push([db(x, y, 3), 3, () => { CITY_SEL = ["NXS", "🐻 " + (i + 1), x, y]; }, "c"]));
+    if (hp) { for (const [n, x, y] of hp.c) C.push([db(x, y, 2), 3.2, () => { CITY_SEL = ["NXS · " + ht, "🏠 " + (n || "—"), x, y]; }, "c"]); hp.bt.forEach(([x, y], i) => C.push([db(x, y, 3), 3.2, () => { CITY_SEL = ["NXS · " + ht, "🐻 " + (i + 1), x, y]; }, "c"])); hp.hq.forEach(([x, y]) => C.push([db(x, y, 3), 3.2, () => { CITY_SEL = ["NXS · " + ht, "🏯 HQ", x, y]; }, "c"])); } for (const [n, x, y] of acList()) C.push([db(x, y, 2), 3.1, () => { CITY_SEL = [fTag(), "🏠 " + n, x, y]; }, "c"]); }
   return C.filter((c) => c[0] <= reach).sort((p, q) => p[0] - q[0] || p[1] - q[1])[0] || null;
 }
 function tileAt(e) {
@@ -1274,6 +1281,7 @@ function flagEvents() {
     if (PMODE && resOn.size && RESD && PE()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && (PWHO === "f" ? RES_OWNF : RES_OWN).has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
     if (farmKind && PE() && farmTap(tx, ty)) return;   // 🌾 farm: select what is there, or place the chosen thing
     { const hit = pickAt(tx, ty, e); if (hit) { FSEL = null; FARM_SEL = null; hit[2]();   // the nearest thing to the finger, whichever alliance it belongs to
+        if (hit[3] === "c") { $("km_sel").innerHTML = ""; const [w, n, x, y] = CITY_SEL; $("km_info").innerHTML = `<div class="km-fl-sel"><div><b>${esc(n)}</b> <span class="muted">${esc(w)}</span><span class="xy">X:${x} Y:${y}</span></div></div>`; drawFarm(); renderFarm(); return; }
         if (hit[3] === "f") { $("km_sel").innerHTML = ""; renderInfo(); if (PMODE) setWho("f"); drawFarm(); renderFarm(); }
         else { flagInfo(); if (PMODE && (FSEL.k === "p" || FSEL.k === "e")) setWho("m"); drawFarm(); renderFarm(); }
         return; } }
@@ -1309,8 +1317,17 @@ const AC_T = { en: ["🏫 nxs roster (reference)", "members", "updated", "Name",
 const act = (i) => (AC_T[lang] || AC_T.en)[i];
 let acOn = (() => { try { return localStorage.getItem("kp-ac") === "1"; } catch (e) { return false; } })();
 async function acLoad() { if (acTried || !OFFICER.can("plan", "view")) return; acTried = true; try { AC = await OfficerData.fetchJson(AC_PATH); } catch (e) { AC = null; } renderAc(); drawAc(); }
-function drawAc() { const g = $("km_acG"); if (!g) return; if (!PMODE || !acOn || !AC) { g.innerHTML = ""; return; }
-  g.innerHTML = (AC.members || []).filter((m) => m.x != null && m.y != null).map((m) => `<polygon points="${pts([[m.x, m.y], [m.x + 2, m.y], [m.x + 2, m.y + 2], [m.x, m.y + 2]])}" fill="#7CFC98" stroke="#0b3d1c" stroke-width=".3"/>`).join(""); }
+/* 🏠 members' cities on the 🚩 Territory map: NXS from the 🐝 member positions (white), nxs from its roster (light green). One switch for both. */
+let mcOn = (() => { try { return localStorage.getItem("kp-mc") !== "0"; } catch (e) { return true; } })();
+const mcList = () => (window.MemberMap && MemberMap.cities ? MemberMap.cities() : []).filter((m) => m[1] != null && m[2] != null);
+const acList = () => (AC && AC.members ? AC.members : []).filter((m) => m.x != null && m.y != null).map((m) => [m.name, m.x, m.y]);
+const MMf = (k) => (window.MemberMap && MemberMap[k] ? MemberMap[k]() : null);
+const btList = () => MMf("traps") || [], hvPlan = () => MMf("hivePlan");   // NXS Bear Traps now · the 🐝 Hive move plan (planned city spots with names, planned Bear Traps, planned HQ)
+function drawAc() { const g = $("km_acG"); if (!g) return; if (!PMODE || !mcOn) { g.innerHTML = ""; return; }
+  const sq = (x, y, w, f, st, dash) => `<polygon points="${pts([[x, y], [x + w, y], [x + w, y + w], [x, y + w]])}" fill="${f}" stroke="${st}" stroke-width="${dash ? ".45" : ".3"}"${dash ? ' stroke-dasharray="1 .7"' : ""}/>`, hp = hvPlan();
+  g.innerHTML = mcList().map(([, x, y]) => sq(x, y, 2, "#ffffff", "#1b4fa8")).join("") + btList().map(([x, y]) => sq(x, y, 3, "#8d5a2b", "#fff")).join("")
+    + (hp ? hp.c.map(([, x, y]) => sq(x, y, 2, "rgba(255,226,74,.28)", "#ffe24a", 1)).join("") + hp.bt.map(([x, y]) => sq(x, y, 3, "rgba(141,90,43,.3)", "#ffcf8a", 1)).join("") + hp.hq.map(([x, y]) => sq(x, y, 3, "rgba(43,108,196,.3)", "#9cc4ff", 1)).join("") : "")
+    + acList().map(([, x, y]) => sq(x, y, 2, "#7CFC98", "#0b3d1c")).join(""); }
 function renderAc() {
   const el = $("kp_roster"); if (!el) return; if (!OFFICER.can("plan", "view")) { el.innerHTML = ""; return; }
   if (!AC || !(AC.members || []).length) { el.innerHTML = acTried ? `<details class="card" style="margin-top:14px"><summary style="cursor:pointer;font-weight:700">${esc(act(0))}</summary><div class="muted" style="margin-top:8px">${esc(act(8))}</div></details>` : ""; return; }
@@ -1318,11 +1335,9 @@ function renderAc() {
   const th = (k, i, r) => `<th${r ? ' style="text-align:right"' : ""}><button type="button" class="linkish" data-acs="${k}" style="background:none;border:0;color:inherit;font:inherit;font-weight:700;cursor:pointer;padding:0">${esc(act(i))}${acSort === k ? " ▾" : ""}</button></th>`;
   el.innerHTML = `<details class="card" id="kp_ac" style="margin-top:14px"${el.querySelector("details[open]") ? " open" : ""}><summary style="cursor:pointer;font-weight:700">${esc(act(0))} · ${ms.length} ${esc(act(1))}</summary>
     <div class="muted" style="font-size:12.5px;margin:6px 0">${esc(act(2))} ${esc(String(AC.updated || "").slice(0, 10))}</div>
-    <label style="display:inline-flex;gap:8px;align-items:center;margin:0 0 8px;font-size:13px"><input type="checkbox" id="kp_acOn"${acOn ? " checked" : ""}>${esc(act(9))}</label>
     <div style="overflow-x:auto"><table class="km-act" style="border-collapse:collapse;white-space:nowrap;font-size:13px;width:100%"><thead><tr>${th("name", 3)}<th>${esc(act(4))}</th>${th("power", 5, 1)}${th("tc", 6, 1)}<th>${esc(act(7))}</th></tr></thead><tbody>${ms.map((m) => `<tr><td>${esc(m.name || "")}</td><td>${esc(m.rank || "")}</td><td style="text-align:right">${num(m.power)}</td><td style="text-align:right">${m.tc == null ? "—" : m.tc}</td><td>${m.x != null && m.y != null ? `<button type="button" class="btn small" data-acgo="${m.x},${m.y}">X:${m.x} Y:${m.y}</button>` : "—"}</td></tr>`).join("")}</tbody></table></div></details>`;
   el.querySelectorAll("[data-acs]").forEach((b) => b.onclick = () => { acSort = b.dataset.acs; renderAc(); });
-  el.querySelectorAll("[data-acgo]").forEach((b) => b.onclick = () => { const [x, y] = b.dataset.acgo.split(",").map(Number); if (!acOn) { acOn = true; try { localStorage.setItem("kp-ac", "1"); } catch (e) {} renderAc(); } drawAc(); centerOn({ x, y }, true); });
-  if ($("kp_acOn")) $("kp_acOn").onchange = () => { acOn = $("kp_acOn").checked; try { localStorage.setItem("kp-ac", acOn ? "1" : "0"); } catch (e) {} drawAc(); };
+  el.querySelectorAll("[data-acgo]").forEach((b) => b.onclick = () => { const [x, y] = b.dataset.acgo.split(",").map(Number); if (!mcOn) { mcOn = true; try { localStorage.setItem("kp-mc", "1"); } catch (e) {} renderTools(); } drawAc(); centerOn({ x, y }, true); });
 }
 function renderPub() {
   if ($("kp_title")) { $("kp_title").textContent = kpt(0); $("kp_intro").textContent = kpt(1); }
@@ -1337,7 +1352,7 @@ function setMode(p) {
   { const tb = $("kp_tools"), card = blk && blk.querySelector(".km-card"); if (tb && card) { if (p) blk.insertBefore(tb, card); else $("kp_slot").parentNode.insertBefore(tb, $("kp_slot")); } }   // the tool row sits right on top of the map (under the layer chips)
   if (PMODE === p) return; PMODE = p; if (!ready) return;
   if (!p) { flagMode = false; farmKind = ""; otKind = ""; $("km_svg").classList.remove("flag-mode"); } FSEL = null; FARM_SEL = null; if ($("km_sel")) $("km_sel").innerHTML = ""; renderInfo();
-  renderLayers(); drawEx(); drawFlags(); drawRes(); drawAc(); drawZones(); renderFlags(); renderPlan(); memRefresh(); if (!p && KM_SHARED.optDraw) KM_SHARED.optDraw({});
+  renderLayers(); drawEx(); drawFlags(); drawRes(); drawAc(); drawZones();   // drawAc: members, Bear Traps, the Hive plan renderFlags(); renderPlan(); memRefresh(); if (!p && KM_SHARED.optDraw) KM_SHARED.optDraw({});
 }
 function onShow() {
   if (ready && importFromLink()) { drawPlan(); applyHidden(); applyTexts(); }   // link opened while the page was already open
@@ -1355,6 +1370,7 @@ async function init() {
 }
 /* 👥 the member map (js/officer/members.js) draws the same banners and obstacles as this map, with the officers' edits */
 window.KM_SHARED = {
+  cityDraw: () => drawAc(),
   whoName: () => (PMODE && PWHO === "f" ? fTag() : "NXS"),
   ctx: "m", who: () => (PMODE && PWHO === "f" ? "f" : "m"),   // 🌾 banner check for nxs: who = the alliance picked on 🚩 Territory; ctx = "f" only while that check runs
   farmPL: () => { const f = PLAN.farm || {}; return { hq: (f.hq || []).map(([x, y]) => [x, y]), c: (f.c || []).map(([x, y]) => [0, x, y]), bt: (f.bt || []).map(([x, y]) => [x, y]), b: [] }; },

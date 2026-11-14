@@ -1028,7 +1028,7 @@ function lists() {
     + (notMap.length ? `<div class="mm-l"><b>${esc(t("notMap"))}</b> ${notMap.map((n) => `<span class="mm-chip">${esc(n)}</span>`).join(" ")}</div>` : "");
 }
 function render() {
-  const el = $("km_members"); if (!el || !D) return; renderOptNow();
+  const el = $("km_members"); if (!el || !D) return; renderOptNow(); if (window.KM_SHARED && KM_SHARED.cityDraw) KM_SHARED.cityDraw();   // 🚩 Territory draws the members / Bear Traps / Hive plan too
   const dirty = snap() !== SAVED, ed = ED();
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
   el.innerHTML = `<h3 style="margin:0 0 4px">${esc(t("t"))} <span class="muted" style="font-size:13px;font-weight:400">${D.m.length ? esc(t("count").replace("{n}", D.m.length)) : ""}</span></h3>
@@ -1319,6 +1319,7 @@ function autoKick() { if (!OFFICER.token || !(posDirty() || mvDirty())) return; 
   renderMove = function () { const x = m0.apply(this, arguments); if (!autoBusy) autoKick(); return x; }; }
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && autoT) autoSave(); });
 window.addEventListener("pagehide", () => { if (autoT) autoSave(); });
-window.MemberMap = { init, setLang, refresh, importPlan, ticked, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
+window.MemberMap = { cities: () => (D && D.m ? D.m.map((m) => [m[0], m[1], m[2]]) : []), traps: () => (D && D.bt ? D.bt.map((b) => [b[0], b[1]]) : []),
+  hivePlan: () => (MV && MV.plan ? { c: (MV.plan.c || []).map((c) => [c[0] || "", c[1], c[2]]), bt: (MV.plan.bt || []).map((b) => [b[0], b[1]]), hq: (MV.plan.hq || []).map((h) => [h[0], h[1]]) } : null), init, setLang, refresh, importPlan, ticked, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
 OFFICER_PAGES.move = { init: initMove, onShow: () => { if (D && MV) renderMove(); }, applyTexts: () => {}, setLang };
 })();
