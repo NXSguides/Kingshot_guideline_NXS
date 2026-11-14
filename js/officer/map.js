@@ -347,8 +347,8 @@ function drawRes() {
   const g = $("km_resG"); if (!g) return; if (!resOn.size || !PMODE) { g.innerHTML = ""; return; }
   if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); }).catch(() => { resLoading = false; }); } return; }
   const col = Object.fromEntries(RES_K.map(([k, , c]) => [k, c])); let h = "";
-  const nx = nxSet();
-  RESD.forEach(([k, x, y], n) => { if (!resOn.has(k)) return; const ours = RES_OWN.has(n), off = ours && nx.has(x + "," + y), p4 = pts([[x, y], [x + 2, y], [x + 2, y + 2], [x, y + 2]]);
+  const fw = PWHO === "f", nx = nxSet(fw ? "f" : "m"), OWNS = fw ? RES_OWNF : RES_OWN;   // white frame / ✕ follow the alliance being looked at
+  RESD.forEach(([k, x, y], n) => { if (!resOn.has(k)) return; const ours = OWNS.has(n), off = ours && nx.has(x + "," + y), p4 = pts([[x, y], [x + 2, y], [x + 2, y + 2], [x, y + 2]]);
     h += `<polygon points="${p4}" fill="${col[k]}"${off ? ' fill-opacity=".35"' : ""} stroke="${off ? "#ff5a4d" : ours ? "#fff" : "#1b1b1b"}" stroke-width="${ours ? ".55" : ".25"}"/>`;
     if (off) { const [X, Y] = P(x + 1, y + 1); h += `<text x="${X}" y="${Y + .9}" text-anchor="middle" font-family="Arial" font-size="2.6" font-weight="800" fill="#ff5a4d" stroke="#fff" stroke-width=".35" paint-order="stroke">✕</text>`; } });
   g.innerHTML = h;
@@ -746,7 +746,8 @@ const exList = (noMove) => { const e = PLAN.ex || {}, off = new Set(e.off || [])
 /* 📌 standing banners an officer wants to take down later (Sherry 2026-11-13: "I can't do it in one go and I'm afraid I'll forget"): PLAN.ex.rm = ["x,y"], saved with the plan */
 const rmSet = () => new Set((PLAN.ex && PLAN.ex.rm) || []);
 /* 🌾 resource nodes an officer switched off: in our territory on paper, in fact another alliance's (overlap) — PLAN.ex.nx = ["x,y"] of the node, saved with the plan (Sherry 2026-11-14) */
-const nxSet = () => new Set((PLAN.ex && PLAN.ex.nx) || []);
+const nxSet = (w) => new Set(w === "f" ? ((PLAN.farm || {}).nx || []) : ((PLAN.ex && PLAN.ex.nx) || []));   // nodes switched off: NXS's list, or nxs's with "f"
+let RES_OWNF = new Set();   // the same for nxs
 let RES_OWN = new Set();   // nodes inside our territory now (index into RESD), switched off or not
 const rmClean = () => { if (!PLAN.ex || !PLAN.ex.rm) return; const have = new Set(exList().map(([x, y]) => x + "," + y)); PLAN.ex.rm = PLAN.ex.rm.filter((k) => have.has(k)); if (!PLAN.ex.rm.length) delete PLAN.ex.rm; };   // a banner that is gone or moved is no longer on the list
 let OV = null;   // GRID with the officers' banner edits applied
@@ -931,7 +932,7 @@ function resNowHtml(d, plain) {
     ${plain ? "" : `<div class="muted" style="font-size:12px;margin-top:6px">${esc(t[4])}</div>`}
     ${d.off.length ? `<div style="margin-top:8px"><b style="font-size:13px">${esc(t[5].replace("{n}", d.off.length))}</b><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${d.off.map(([k, x, y]) => `<button type="button" class="btn small" data-nxon="${x},${y}">${(RES_K.find((r) => r[0] === k) || [])[1] || ""} ${x},${y}</button>`).join("")}</div></div>` : ""}</div>`;
 }
-function nodeToggle(x, y) { const e = (PLAN.ex = PLAN.ex || { off: [], add: [] }), k = x + "," + y; e.nx = e.nx || []; const j = e.nx.indexOf(k); if (j >= 0) e.nx.splice(j, 1); else e.nx.push(k); if (!e.nx.length) delete e.nx; flagsChanged(); }
+function nodeToggle(x, y) { const e = PMODE && PWHO === "f" ? farm() : (PLAN.ex = PLAN.ex || { off: [], add: [] }), k = x + "," + y; e.nx = e.nx || []; const j = e.nx.indexOf(k); if (j >= 0) e.nx.splice(j, 1); else e.nx.push(k); if (!e.nx.length) delete e.nx; flagsChanged(); }
 function planDeltaHtml(d) {
   if (!d || (!d.nUp && !d.nDown)) return ""; const t = PD_T[lang] || PD_T.en, sg = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toLocaleString("en-US");
   const rows = RES_K.map(([k, ic], i) => [ic + " " + (RES_T[lang] || RES_T.en)[i + 1], d.a[k], d.b[k]]); rows.push([t[6], rows.reduce((x, r) => x + r[1], 0), rows.reduce((x, r) => x + r[2], 0)]);
@@ -979,9 +980,12 @@ function farmTap(tx, ty) {
 }
 function farmCalc() {
   if (!OWN_A) ownBuild(); const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 };
-  if (RESD) for (const [k, x, y] of RESD) { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (OWN_A[t] === 2) ca++; if (OWN_B[t] === 2) cb++; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; }
+  const nx = nxSet("f"), own = new Set(), off = [];
+  if (RESD) RESD.forEach(([k, x, y], n) => { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (OWN_A[t] === 2) ca++; if (OWN_B[t] === 2) cb++; }
+    if (ca >= 3) own.add(n); if (nx.has(x + "," + y)) { if (ca >= 3) off.push([k, x, y]); return; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; });
+  RES_OWNF = own;
   const inT = (A, [x, y]) => { for (let j = y; j <= y + 2; j++) for (let i = x; i <= x + 2; i++) if (A[j * FN + i] !== 2) return false; return true; };
-  const f = PLAN.farm || {}; return { a, b, bt: (f.bt || []).map((p) => inT(OWN_A, p)), btp: (f.btp || []).map((p) => inT(OWN_B, p)) };
+  const f = PLAN.farm || {}; return { a, b, off, bt: (f.bt || []).map((p) => inT(OWN_A, p)), btp: (f.btp || []).map((p) => inT(OWN_B, p)) };
 }
 /* tiles both alliances cover after the plans, coloured by who gets them (first come, first served): strong blue = NXS, strong green = the branch */
 function drawOwn() {
@@ -1065,9 +1069,9 @@ const TL_T = { en: ["Tapping the map places:", "— nothing (just look / select)
   ko: ["지도를 누르면 놓는 것:", "— 없음 (보기 / 선택만)", "NXS가 세울 깃발", "지도에서 칸을 누르거나 좌표를 입력하고 추가를 누르세요.", "🌾 자원", "추가", "다른 연맹"] };
 const tl = (i) => (TL_T[lang] || TL_T.en)[i];
 let PWHO = (() => { try { const v = localStorage.getItem("kp-who"); return v === "f" || v === "o" ? v : "m"; } catch (e) { return "m"; } })();   // m = NXS · f = nxs · o = other alliances (corrections only)
-function setWho(w) { if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); }
+function setWho(w) { if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }
 const WHO_T = { en: ["Planning / looking at:", "What to place:"], zh: ["現在規劃／查看：", "要放什麼："], pt: ["Planejando / vendo:", "O que colocar:"], ar: ["التخطيط / العرض لـ:", "ماذا تضع:"], ko: ["계획 / 보기 대상:", "놓을 것:"] };
-const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: [], nUp: n("fl"), nDown: n("rm"), n0: n("b"), n1: n("b") - n("rm") + n("fl") }; };
+const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: c.off, nUp: n("fl"), nDown: n("rm"), n0: n("b"), n1: n("b") - n("rm") + n("fl") }; };
 function renderTools() {
   const el = $("kp_tools"); if (!el) return; const ed = PE();
   const cur = farmKind ? "f:" + farmKind : flagMode ? (otKind ? "o:" + otKind : "p") : "", typed = cur === "p" || cur.startsWith("f:"), wt = WHO_T[lang] || WHO_T.en;
@@ -1081,7 +1085,7 @@ function renderTools() {
     + `<div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center">${tg("fl_obst", obstOn, ft("obst"))}${tg("fl_ex", exOn, ft("ex"))}${tg("fl_ot", otOn, ft("ot"))}${otOn && OTB ? `<span class="muted" style="font-size:12px">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`;
   el.querySelectorAll("[data-who]").forEach((b) => b.onclick = () => setWho(b.dataset.who));
   // each alliance's own cards: only the one being planned / looked at
-  { const sh = (id, on) => { const e = $(id); if (e) e.hidden = !on; }; sh("km_flags", PWHO === "m"); sh("km_opt", PWHO === "m"); sh("km_farm", PWHO === "f"); sh("kp_roster", PWHO === "f"); sh("kp_resCard", PWHO !== "o"); }
+  { const sh = (id, on) => { const e = $(id); if (e) e.hidden = !on; }; sh("km_flags", PWHO === "m"); sh("km_opt", PWHO !== "o"); sh("km_farm", PWHO === "f"); sh("kp_roster", PWHO === "f"); sh("kp_resCard", PWHO !== "o"); }
   $("fl_obst").onclick = () => { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); };
   $("fl_ex").onclick = () => { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); };
   $("fl_ot").onclick = () => { otOn = !otOn; try { localStorage.setItem("km-otb2", otOn ? "1" : "0"); } catch (err) {} rebuildOwn(); drawOt(); drawFlags(); renderFlags(); memRefresh(); };
@@ -1114,7 +1118,7 @@ function renderFlags() {
     + (EXB ? `<button type="button" class="btn small" id="fl_dl" style="margin-top:6px">${esc(ft("dl"))}</button>` : "")
     + (OTB ? ` <button type="button" class="btn small" id="fl_dl2" style="margin-top:6px">${esc(ft("dl2"))}</button>` : "")
     ;
-  if ($("kp_res")) { const fw = PWHO === "f", d = fw ? farmDelta() : planDelta(); if ($("kp_resT")) $("kp_resT").textContent = tl(4) + " · " + (fw ? fTag() : "NXS"); $("kp_res").innerHTML = resNowHtml(d, fw) + planDeltaHtml(d); $("kp_res").querySelectorAll("[data-nxon]").forEach((b) => b.onclick = () => { if (!PE()) return; const [x, y] = b.dataset.nxon.split(",").map(Number); nodeToggle(x, y); }); }
+  if ($("kp_res")) { const fw = PWHO === "f", d = fw ? farmDelta() : planDelta(); if ($("kp_resT")) $("kp_resT").textContent = tl(4) + " · " + (fw ? fTag() : "NXS"); $("kp_res").innerHTML = resNowHtml(d) + planDeltaHtml(d); $("kp_res").querySelectorAll("[data-nxon]").forEach((b) => b.onclick = () => { if (!PE()) return; const [x, y] = b.dataset.nxon.split(",").map(Number); nodeToggle(x, y); }); }
   renderTools();
   if ($("fl_dl")) $("fl_dl").onclick = dlBanners;
   if ($("fl_dl2")) $("fl_dl2").onclick = dlOthers;
@@ -1241,7 +1245,7 @@ function flagEvents() {
   $("km_svg").addEventListener("click", (e) => {
     const mk = e.target.closest(".mk"); if (mk && !mkFar(e, mk)) { FSEL = null; return; }
     const [tx, ty] = tileAt(e);
-    if (PMODE && resOn.size && RESD && PE()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && RES_OWN.has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
+    if (PMODE && resOn.size && RESD && PE()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && (PWHO === "f" ? RES_OWNF : RES_OWN).has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
     if (farmKind && PE() && farmTap(tx, ty)) return;   // 🌾 farm: select what is there, or place the chosen thing
     if (selectFlagAt(tx, ty)) { if (PMODE && FSEL && (FSEL.k === "p" || FSEL.k === "e")) setWho("m"); return; }   // tapped a banner → edit it
     if (!flagMode && SHOWP() && farmHit(tx, ty, true)) { FARM_SEL = farmHit(tx, ty, true); if (PMODE) setWho("f"); drawFarm(); renderFarm(); const c = $("fm_sel"); if (c) c.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
@@ -1323,7 +1327,10 @@ async function init() {
 }
 /* 👥 the member map (js/officer/members.js) draws the same banners and obstacles as this map, with the officers' edits */
 window.KM_SHARED = {
-  banners: () => exList(true),                  // [x, y, 1 = checked in game / 0 = estimated] (without 🚚 Move ticks)
+  whoName: () => (PMODE && PWHO === "f" ? fTag() : "NXS"),
+  ctx: "m", who: () => (PMODE && PWHO === "f" ? "f" : "m"),   // 🌾 banner check for nxs: who = the alliance picked on 🚩 Territory; ctx = "f" only while that check runs
+  farmPL: () => { const f = PLAN.farm || {}; return { hq: (f.hq || []).map(([x, y]) => [x, y]), c: (f.c || []).map(([x, y]) => [0, x, y]), bt: (f.bt || []).map(([x, y]) => [x, y]), b: [] }; },
+  banners: () => KM_SHARED.ctx === "f" ? ((PLAN.farm || {}).b || []).map(([x, y]) => [x, y, 1]) : exList(true),                  // [x, y, 1 = checked in game / 0 = estimated] (without 🚚 Move ticks)
   moveChanged: () => { rebuildOwn(); drawEx(); drawFlags(); renderFlags(); },
   /* 🚚 Move's HQ step ticked: our HQ is the plan's new HQ (G.hq[0] already changed by members.js) — move the marker + territory */
   hqMoved: () => { const h = G && G.hq && G.hq[0], b = BY.h0; if (!h || !b) return;
@@ -1332,22 +1339,22 @@ window.KM_SHARED = {
       let w = m.parentNode; if (!(w.getAttribute && w.getAttribute("class") === "hqmv")) { w = document.createElementNS("http://www.w3.org/2000/svg", "g"); w.setAttribute("class", "hqmv"); m.parentNode.insertBefore(w, m); w.appendChild(m); }
       const a = P(+m.dataset.x0, +m.dataset.y0), c = P(h[0], h[1]); w.setAttribute("transform", `translate(${(c[0] - a[0]).toFixed(1)},${(c[1] - a[1]).toFixed(1)})`); }
     b.x = h[0]; b.y = h[1]; rebuildOwn(); drawEx(); renderList(); },   // 🚚 Move steps ticked / unticked a banner
-  planned: () => (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
-  others: () => (otOn ? otList().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(((PLAN.farm || {}).b || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),
-  othersHq: () => (otOn ? otHq().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(((PLAN.farm || {}).hq || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),   // other alliances' HQs (15×15)
+  planned: () => KM_SHARED.ctx === "f" ? (PLAN.farm || {}).fl || [] : (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
+  others: () => (otOn ? otList().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(KM_SHARED.ctx === "f" ? exList().concat(PLAN.fl || []).map(([x, y]) => ["NXS", x, y, "#2b6cc4"]) : ((PLAN.farm || {}).b || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),
+  othersHq: () => (otOn ? otHq().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(KM_SHARED.ctx === "f" ? (G.hq || []).map(([x, y]) => ["NXS", x, y, "#2b6cc4"]) : ((PLAN.farm || {}).hq || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),   // other alliances' HQs (15×15)
   obst: (x, y) => obstAt(x, y),                // 1 mountain · 2 lake · 0 free
   outposts: () => B.filter(isOp).map((b) => ({ n: nm(b) + (b.lv ? " Lv." + b.lv : ""), x: b.x, y: b.y, sq: opSq(b), st: eff(b) })),   // 🌾 banner check (members.js): which Outposts our territory touches
   noBuild: () => B.filter(PLANNABLE).map(opSq),
   bigZones: () => B.filter((b) => b.kind === "fortress" || b.kind === "sanctuary").map((b) => ({ n: nm(b), x: b.x, y: b.y, sq: [b.x - 27, b.y - 27, b.x + 32, b.y + 32], st: "", big: 1 })),   // 60×60 no-build zone: a banner chain that reaches it is kept   // no banners inside an Outpost / Fortress / Sanctuary zone
   zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
-  nodesOff: () => [...nxSet()],
-  toRemove: () => [...rmSet()].map((k) => k.split(",").map(Number)),
-  markRemove: (l) => { if (!PE()) return 0; const e = (PLAN.ex = PLAN.ex || { off: [], add: [] }); e.rm = e.rm || []; const have = new Set(exList().map(([x, y]) => x + "," + y)); let n = 0; for (const [x, y] of l) { const k = x + "," + y; if (have.has(k) && !e.rm.includes(k)) { e.rm.push(k); n++; } } flagsChanged(); return n; },
+  nodesOff: () => [...nxSet(KM_SHARED.ctx)],
+  toRemove: () => (KM_SHARED.ctx === "f" ? (PLAN.farm || {}).rm || [] : [...rmSet()]).map((k) => k.split(",").map(Number)),
+  markRemove: (l) => { if (!PE()) return 0; if (KM_SHARED.who() === "f") { const f = farm(), have = new Set(f.b.map(([x, y]) => x + "," + y)); let n = 0; for (const [x, y] of l) { const k = x + "," + y; if (have.has(k) && !f.rm.includes(k)) { f.rm.push(k); n++; } } flagsChanged(); return n; } const e = (PLAN.ex = PLAN.ex || { off: [], add: [] }); e.rm = e.rm || []; const have = new Set(exList().map(([x, y]) => x + "," + y)); let n = 0; for (const [x, y] of l) { const k = x + "," + y; if (have.has(k) && !e.rm.includes(k)) { e.rm.push(k); n++; } } flagsChanged(); return n; },
   /* 🌾 banner check on this map (members.js): red frame = standing banner that isn't needed, orange number = suggested spot */
   optDraw: (o) => { const g = $("km_optG"); if (!g) return; if (!PMODE) { g.innerHTML = ""; return; } const sq = (x, y) => pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]]);
     g.innerHTML = !o ? "" : (o.overlap || []).map(([x, y]) => `<polygon points="${sq(x, y)}" fill="none" stroke="#e8e8e8" stroke-width=".55" stroke-dasharray="1 1"/>`).join("") + (o.swaps || []).map((w) => `<polygon points="${sq(w.from[0], w.from[1])}" fill="rgba(255,210,40,.25)" stroke="#ffd22e" stroke-width=".6" stroke-dasharray="1.2 .8"/>`).join("") + (o.lines || []).map((l) => l.b.map(([x, y]) => `<polygon points="${sq(x, y)}" fill="rgba(170,90,255,.28)" stroke="#a45cff" stroke-width=".6"/>`).join("")).join("") + (o.moves || []).map(([ax, ay, bx, by]) => { const [X0, Y0] = P(ax + .5, ay + .5), [X1, Y1] = P(bx + .5, by + .5); return `<polygon points="${sq(bx, by)}" fill="rgba(60,160,255,.25)" stroke="#3aa0ff" stroke-width=".5"/><line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y1}" stroke="#3aa0ff" stroke-width=".7"/><circle cx="${X1}" cy="${Y1}" r=".9" fill="#3aa0ff"/>`; }).join("") + o.waste.map(([x, y]) => `<polygon points="${sq(x, y)}" fill="rgba(230,50,50,.25)" stroke="#e03131" stroke-width=".6"/>`).join("")
       + o.add.map(([x, y, , , , , no], i) => { const [X, Y] = P(x + .5, y + .5); if (no) i = no - 1; return `<polygon points="${sq(x, y)}" fill="rgba(255,150,30,.3)" stroke="#ff8c1a" stroke-width=".5"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="2.8" font-weight="800" fill="#fff" stroke="#b35400" stroke-width=".5" paint-order="stroke">${i + 1}</text>`; }).join(""); },
-  addPlanned: (l) => { if (!PE()) return; PLAN.fl = PLAN.fl || []; const have = new Set(PLAN.fl.map(([x, y]) => x + "," + y)); for (const [x, y] of l) if (!have.has(x + "," + y)) PLAN.fl.push([x, y]); flagsChanged(); },
+  addPlanned: (l) => { if (!PE()) return; if (KM_SHARED.who() === "f") { const f = farm(), have = new Set(f.fl.map(([x, y]) => x + "," + y)); for (const [x, y] of l) if (!have.has(x + "," + y)) f.fl.push([x, y]); flagsChanged(); return; } PLAN.fl = PLAN.fl || []; const have = new Set(PLAN.fl.map(([x, y]) => x + "," + y)); for (const [x, y] of l) if (!have.has(x + "," + y)) PLAN.fl.push([x, y]); flagsChanged(); },
 };
 const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.refresh(); };
 function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }

@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Territory: banner check / reshuffle / node switch-off for nxs too", /SAME TOOLS FOR nxs \(2026-11-14\)/, /work for whichever alliance is picked/],
   ["Territory: one tool row + per-banner layers only (no alliance-wide order)", /NO ALLIANCE-WIDE BUILD ORDER/, /pl03: "🧰 One tool row above the map/],
   ["Territory: its own page (banner planning off the Map) + 📡 publish switch", /TERRITORY PAGE \(2026-11-14/, /pl01: "🚩 Territory: all banner planning lives here/],
   ["Territory: 🏫 Academy roster (reference)", /ACADEMY ROSTER \(2026-11-14/, /pl02: "🏫 Academy roster \(reference\)/],

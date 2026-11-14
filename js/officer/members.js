@@ -390,7 +390,7 @@ const bSq = ([x, y]) => [x - 3, y - 3, x + 3, y + 3], hSq = ([x, y]) => [x - 6, 
 const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1;   // overlap, a shared edge or just a corner (Sherry 2026-11-12, seen in game: territories that meet only at a corner are linked)
 const curHq = () => ((G && G.hq) || []).map((h) => [h[0], h[1]]);   // our HQs as the 🗺️ Map has them now
 function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the same layout without one far line, only the extra banners are worked out   // now = the kingdom as it stands (our HQs, standing banners, members' cities, Bear Traps) instead of the moving plan
-  const KS = window.KM_SHARED, PL = now ? (D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan; if (!PL || !(PL.hq || []).length) return null;
+  const KS = window.KM_SHARED, PL = now ? (KS && KS.ctx === "f" ? KS.farmPL() : D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan; if (!PL || !(PL.hq || []).length) return null;
   const oth = new Uint8Array(OPT_N * OPT_N), occ = new Uint8Array(OPT_N * OPT_N);
   const fill = (g, [x0, y0, x1, y1], v) => { for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) g[oK(i, j)] = v; };
   if (KS) { for (const [, x, y] of KS.others()) fill(oth, bSq([x, y]), 1); for (const [, x, y] of KS.othersHq()) fill(oth, hSq([x, y]), 1);
@@ -566,9 +566,9 @@ function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the 
     oMiss: ops.filter((o, i) => !o.big && !base.op[i] && (o.st === "held" || o.st === "vuln" || o.st === "conflict")).map((o) => `${o.n} X:${o.x} Y:${o.y}`) };
 }
 function optCard(now) {
-  if (now ? !(D && window.KM_SHARED) : !(MV && MV.plan)) return ""; if (!RESN.length) return "";
+  if (now ? !(window.KM_SHARED && (D || (KM_SHARED.who && KM_SHARED.who() === "f"))) : !(MV && MV.plan)) return ""; if (!RESN.length) return "";
   const ed = now ? OFFICER.can("plan", "edit") : MED(), o = now ? OPTN : OPT, xy = (b) => `X:${b[0]} Y:${b[1]}`, P = now ? "kn" : "mv";
-  let h = `<div class="card" id="${P}_opt" style="margin-top:${now ? 14 : 12}px"><h3 style="margin:0 0 6px">${esc(ot(now ? "hN" : "h"))}</h3><p class="muted" style="font-size:12.5px;margin:0 0 8px">${esc(ot(now ? "pN" : "p"))}</p>
+  let h = `<div class="card" id="${P}_opt" style="margin-top:${now ? 14 : 12}px"><h3 style="margin:0 0 6px">${esc(ot(now ? "hN" : "h"))}${now && window.KM_SHARED.whoName ? " · " + esc(KM_SHARED.whoName()) : ""}</h3><p class="muted" style="font-size:12.5px;margin:0 0 8px">${esc(ot(now ? "pN" : "p"))}</p>
     <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(ot("max"))} <input class="inp" id="${P}_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="${P}_orun">${esc(ot("run"))}</button>${now ? `<button type="button" class="btn" id="kn_oresh">${esc(ot("rsBtn"))}</button>` : ""}</div>
     <label style="font-size:13px;display:flex;align-items:center;gap:6px;margin-top:8px"><input type="checkbox" id="${P}_obal"${optBal ? " checked" : ""}> ${esc(ot("bal"))}</label>
     <label style="font-size:13px;display:flex;align-items:center;gap:6px;margin-top:8px"><input type="checkbox" id="${P}_ostr"${optStrict ? " checked" : ""}> ${esc(ot("str"))}</label>
@@ -654,11 +654,13 @@ function reshCard() {
     ${ed && newN ? `<div class="row" style="gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap"><span>${esc(ot("rsDo"))}</span><input class="inp" id="kn_rk" type="number" min="${o.skel + 1}" max="${last.n}" value="${Math.min(last.n, Math.max(o.nAll, o.skel + 1))}" style="width:76px;height:36px;box-sizing:border-box"><span>${esc(ot("rsDo2"))}</span><button type="button" class="btn small primary" id="kn_rdo" style="height:36px">OK</button></div>` : ""}
     <p class="muted" style="font-size:12.5px;margin:8px 0 0">${esc(ot("rsLg"))}</p></div>`;
 }
+/* the kingdom-now check runs for the alliance picked on 🚩 Territory: NXS, or nxs (its own HQ, banners, cities, Bear Traps; NXS then counts as another alliance) */
+function optNowRun(sub) { const KS = window.KM_SHARED; if (KS) KS.ctx = KS.who ? KS.who() : "m"; try { return optCheck(optMax, true, sub); } finally { if (KS) KS.ctx = "m"; } }
 function renderOptNow() {
   const el = $("km_opt"); if (!el) return; el.innerHTML = optCard(true) + reshCard();
   const KS = window.KM_SHARED; if (KS && KS.optDraw) KS.optDraw(OPTR ? { waste: OPTR.down, add: OPTR.add.map((a, i) => OPTR.addStay[i] ? null : [a[0], a[1], 0, 0, 0, 0, i + 1]).filter(Boolean) } : OPTN);
   const rb = $("kn_oresh"); if (rb) rb.onclick = () => { optMax = Math.max(0, Math.min(80, +$("kn_omax").value || 0)); optBal = !!($("kn_obal") || {}).checked; optFar = Math.max(0, +($("kn_ofar") || {}).value || 0); optPri = ($("kn_opri") || {}).value || ""; optStrict = !!($("kn_ostr") || {}).checked; rb.disabled = true; rb.textContent = ot("busy");
-    setTimeout(() => { try { OPTR = optCheck(optMax, true, { resh: true }); OPTN = null; } catch (e) { OPTR = null; } renderOptNow(); const c = $("kn_resh"); if (c) c.scrollIntoView({ block: "start" }); }, 30); };
+    setTimeout(() => { try { OPTR = optNowRun({ resh: true }); OPTN = null; } catch (e) { OPTR = null; } renderOptNow(); const c = $("kn_resh"); if (c) c.scrollIntoView({ block: "start" }); }, 30); };
   if ($("kn_owrm")) $("kn_owrm").onclick = () => { if (!OPTN || !KS.markRemove) return; const n = KS.markRemove(OPTN.waste.filter((b) => b[2] !== "🚩").map(([x, y]) => [x, y])); $("kn_owrm").textContent = ot("rmDone").replace("{n}", n); };
   if ($("kn_rrm")) $("kn_rrm").onclick = () => { if (!OPTR || !KS.markRemove) return; const n = KS.markRemove(OPTR.down.filter((b) => b[2] !== "🚩").map(([x, y]) => [x, y])); $("kn_rrm").textContent = ot("rmDone").replace("{n}", n); };
   optSkipBind("kn_resh", () => OPTR, () => rb && rb.click());
@@ -666,7 +668,7 @@ function renderOptNow() {
     KS.addPlanned(OPTR.add.slice(0, k).filter((a, i) => !OPTR.addStay[i]).map(([x, y]) => [x, y])); $("kn_rdo").textContent = "✓"; };
   const r = $("kn_orun"); if (!r) return;
   r.onclick = () => { optMax = Math.max(0, Math.min(80, +$("kn_omax").value || 0)); optBal = !!($("kn_obal") || {}).checked; optFar = Math.max(0, +($("kn_ofar") || {}).value || 0); optPri = ($("kn_opri") || {}).value || ""; optStrict = !!($("kn_ostr") || {}).checked; r.disabled = true; r.textContent = ot("busy");
-    setTimeout(() => { try { OPTN = optCheck(optMax, true); OPTR = null; } catch (e) { OPTN = null; } renderOptNow(); }, 30); };
+    setTimeout(() => { try { OPTN = optNowRun(); OPTR = null; } catch (e) { OPTN = null; } renderOptNow(); }, 30); };
   optSkipBind("kn_opt", () => OPTN, () => r.click());
   if ($("kn_oado")) $("kn_oado").onclick = () => { if (!OFFICER.can("plan", "edit") || !OPTN || !KS.addPlanned) return; const k = Math.max(1, Math.min(OPTN.add.length, +$("kn_ok").value || 0));
     KS.addPlanned(OPTN.add.slice(0, k).map(([x, y]) => [x, y])); OPTN.add = OPTN.add.slice(k); renderOptNow(); };
@@ -1317,6 +1319,6 @@ function autoKick() { if (!OFFICER.token || !(posDirty() || mvDirty())) return; 
   renderMove = function () { const x = m0.apply(this, arguments); if (!autoBusy) autoKick(); return x; }; }
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && autoT) autoSave(); });
 window.addEventListener("pagehide", () => { if (autoT) autoSave(); });
-window.MemberMap = { init, setLang, refresh, importPlan, ticked };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
+window.MemberMap = { init, setLang, refresh, importPlan, ticked, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
 OFFICER_PAGES.move = { init: initMove, onShow: () => { if (D && MV) renderMove(); }, applyTexts: () => {}, setLang };
 })();
