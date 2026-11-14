@@ -4251,7 +4251,7 @@ const GUIDES = {
       },
 
       en: {
-        title: "Schwertland-Showdown",
+        title: "Swordland Showdown",
         blocks: [
           { type: "h", text: "WHEN" },
           { type: "p", text: "Every 2 weeks — a 60-minute Alliance vs Alliance battlefield event." },
@@ -5344,7 +5344,7 @@ const GUIDES = {
       },
 
       id: {
-        title: "Schwertland-Showdown",
+        title: "Swordland Showdown",
         blocks: [
           { type: "h", text: "KAPAN" },
           { type: "p", text: "Setiap 2 minggu — event medan perang aliansi lawan aliansi selama 60 menit." },
