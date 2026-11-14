@@ -410,7 +410,8 @@ function applyPatch(base, ops) {
     else if (o.op === "report") { const r = (d.reports || []).find((x) => x.id === o.id); if (r) { if (o.obs) r.obs = o.obs; if (o.sug) r.sug = o.sug; } }
     else if (o.op === "leaders") { d.leaders = d.leaders || []; const i = d.leaders.findIndex((x) => JSON.stringify(x.title || "").includes(o.match)); if (i >= 0) d.leaders[i] = o.value; else d.leaders.push(o.value); }   // one trap's leader card, found by its title
     else if (o.op === "detailRow" && d.detail) { const i = d.detail.rows.findIndex((x) => lc(x[0]) === lc(o.row[0]) && x[1] === o.row[1]); if (i >= 0) d.detail.rows[i] = o.row; else d.detail.rows.push(o.row); }
-    else if (o.op === "growthCol") { const g = [].concat(d.growth || []).find((x) => JSON.stringify(x.title || "").includes(o.match)); if (!g) continue;
+    else if (o.op === "growthCol") { let g = [].concat(d.growth || []).find((x) => JSON.stringify(x.title || "").includes(o.match));
+      if (!g) { if (!o.title) continue; g = { title: o.title, dates: [], rows: [] }; d.growth = [].concat(d.growth || [], [g]); }   // no table for this trap yet → make it (2026-11-15: the Trap 1 column of 11/13 was silently dropped because the table did not exist)
       let c = g.dates.indexOf(o.date); if (c < 0) { g.dates.push(o.date); c = g.dates.length - 1; g.rows.forEach((x) => { while (x.length < c + 2) x.push(null); }); }
       for (const [n, v] of Object.entries(o.values)) { let x = g.rows.find((y) => lc(y[0]) === lc(n)); if (!x) { x = [n]; while (x.length < c + 1) x.push(null); x.push(null); g.rows.push(x); } x[c + 1] = v; } }
   }
