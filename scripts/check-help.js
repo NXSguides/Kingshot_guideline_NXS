@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Territory: one tool row + per-banner layers only (no alliance-wide order)", /NO ALLIANCE-WIDE BUILD ORDER/, /pl03: "🧰 One tool row above the map/],
   ["Territory: its own page (banner planning off the Map) + 📡 publish switch", /TERRITORY PAGE \(2026-11-14/, /pl01: "🚩 Territory: all banner planning lives here/],
   ["Territory: 🏫 Academy roster (reference)", /ACADEMY ROSTER \(2026-11-14/, /pl02: "🏫 Academy roster \(reference\)/],
   ["Events: 👤 Only remind (to-do sent by the server to chosen officers only)", /"👤 Only remind" \(只提醒/, /👤 Only remind: tick officers/],
@@ -86,8 +87,8 @@ const FEATURES = [
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
   ["Map: 🏫 Academy (second alliance on the map), first come first served", /🏫 ACADEMY \(2026-11-14/, /{ s: "#km_farm", k: "mp40", e: 1 }/],
-  ["Map: 🌾 our resource nodes now, switching a node off", /🌾 OUR RESOURCE NODES NOW \+ SWITCHING A NODE OFF \(2026-11-14/, /{ s: "#km_flags", k: "mp39", e: 1 }/],
-  ["Map: 🌾 what the plan does to our resource nodes", /🌾 PLAN EFFECT ON RESOURCE NODES \(2026-11-13/, /{ s: "#km_flags", k: "mp38", e: 1 }/],
+  ["Map: 🌾 our resource nodes now, switching a node off", /🌾 OUR RESOURCE NODES NOW \+ SWITCHING A NODE OFF \(2026-11-14/, /{ s: "#kp_res", k: "mp39", e: 1 }/],
+  ["Map: 🌾 what the plan does to our resource nodes", /🌾 PLAN EFFECT ON RESOURCE NODES \(2026-11-13/, /{ s: "#kp_res", k: "mp38", e: 1 }/],
   ["Map: 📌 banners noted to take down", /📌 BANNERS TO TAKE DOWN \(2026-11-13/, /{ s: "#km_flags", k: "mp37", e: 1 }/],
   ["Map: 🌾 resource node layers by kind", /🌾 RESOURCE NODE LAYERS \(2026-11-13/, /{ s: "#km_resl", k: "mp36" }/],
   ["Map: 🔄 big reshuffle of the banners", /🔄 BIG RESHUFFLE \(2026-11-13/, /{ s: "#kn_oresh", k: "mp35", e: 1 }/],
