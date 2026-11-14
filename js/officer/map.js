@@ -46,7 +46,7 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_zoneG" style="pointer-events:none"></g><g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_acG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_zoneG" style="pointer-events:none"></g><g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_acG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", (e) => { if (!mkFar(e, m)) select(m.dataset.id, false); });
@@ -998,7 +998,7 @@ function drawOwn() {
   let h = "", n1 = 0, n2 = 0;
   for (const [x0, y0, x1, y1] of fr) for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) { let run = -1, who = 0;
     for (let x = Math.max(0, x0); x <= Math.min(FN - 1, x1) + 1; x++) { const t = y * FN + x, w = x <= Math.min(FN - 1, x1) && CV_M[t] && !CV_F[t] && (OWN_B[t] === 1 || OWN_B[t] === 2) ? OWN_B[t] : 0;
-      if (w !== who) { if (who) { h += `<polygon points="${pts([[run, y], [x, y], [x, y + 1], [run, y + 1]])}" fill="${who === 1 ? "#1565ff" : "#12a150"}" fill-opacity=".85"/>`; if (who === 1) n1 += x - run; else n2 += x - run; } run = x; who = w; }
+      if (w !== who) { if (who) { h += `<polygon points="${pts([[run, y], [x, y], [x, y + 1], [run, y + 1]])}" fill="${who === 1 ? "#1565ff" : "#12a150"}" fill-opacity="${who === 1 ? ".5" : ".78"}"/>`; if (who === 1) n1 += x - run; else n2 += x - run; } run = x; who = w; }
       if (w) CV_F[t] = 1; } }   // CV_F doubles as "already drawn"
   g.innerHTML = h; OWN_B.contested = [n1, n2];
 }
@@ -1247,7 +1247,8 @@ function flagEvents() {
     const [tx, ty] = tileAt(e);
     if (PMODE && resOn.size && RESD && PE()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && (PWHO === "f" ? RES_OWNF : RES_OWN).has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
     if (farmKind && PE() && farmTap(tx, ty)) return;   // 🌾 farm: select what is there, or place the chosen thing
-    if (selectFlagAt(tx, ty)) { if (PMODE && FSEL && (FSEL.k === "p" || FSEL.k === "e")) setWho("m"); return; }   // tapped a banner → edit it
+    if (PMODE && PWHO === "f" && !flagMode && farmHit(tx, ty, true)) { FARM_SEL = farmHit(tx, ty, true); FSEL = null; $("km_sel").innerHTML = ""; renderInfo(); drawFarm(); renderFarm(); return; }   // looking at nxs: its things are picked first, even under an NXS banner
+    if (selectFlagAt(tx, ty)) { if (PMODE && FSEL && (FSEL.k === "p" || FSEL.k === "e")) { FARM_SEL = null; setWho("m"); drawFarm(); renderFarm(); } return; }   // tapped a banner → edit it
     if (!flagMode && SHOWP() && farmHit(tx, ty, true)) { FARM_SEL = farmHit(tx, ty, true); if (PMODE) setWho("f"); drawFarm(); renderFarm(); const c = $("fm_sel"); if (c) c.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
     if (flagMode && PE() && /^[hb]:/.test(otKind) && OTB && OTB.a[otKind.slice(2)] && tx >= 1 && ty >= 1 && tx < FN - 1 && ty < FN - 1) { const n = otKind.slice(2), t = otKind[0] === "b" ? 2 : 1; otEd().hq.push(t === 2 ? [n, tx - 1, ty - 1, 2] : [n, tx - 1, ty - 1]); FSEL = { k: "oh", n, x: tx - 1, y: ty - 1, t }; if (!otOn) otOn = true; flagsChanged(); return; }
     if (flagMode && PE() && otKind && OTB && OTB.a[otKind] && tx >= 0 && ty >= 0 && tx < FN && ty < FN) { otEd().add.push([otKind, tx, ty]); FSEL = { k: "o", n: otKind, x: tx, y: ty, c: 1 }; flagsChanged(); return; }
