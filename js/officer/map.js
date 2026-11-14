@@ -1212,6 +1212,20 @@ function flagInfo() {
   if ($("fs_gone")) $("fs_gone").onclick = () => { dropEx(x, y); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
 }
 /* screen tap → map tile */
+/* What a tap selects (Sherry 2026-11-14 "I can't select the banner I want"): every selectable thing is a candidate — NXS planned and standing banners,
+   other alliances' banners / HQs, nxs's things — and the NEAREST to the finger wins, not a fixed order. Distance is in tiles to the banner tile or to
+   the building's footprint; the reach is about a fingertip (14 px) but never under 2 or over 5 tiles. Same distance → the alliance being planned. */
+function pickAt(tx, ty, e) {
+  const m = $("km_svg").getScreenCTM(), reach = Math.max(2, Math.min(5, Math.ceil(14 / ((m ? m.a : 1) * KX))));
+  const d1 = (x, y) => Math.max(Math.abs(x - tx), Math.abs(y - ty)), db = (x, y, w) => Math.max(tx < x ? x - tx : tx > x + w - 1 ? tx - x - w + 1 : 0, ty < y ? y - ty : ty > y + w - 1 ? ty - y - w + 1 : 0);
+  const fw = PMODE && PWHO === "f", C = [];
+  if (SHOWP()) (PLAN.fl || []).forEach(([x, y], i) => C.push([d1(x, y), fw ? 1 : 0, () => { FSEL = { k: "p", i }; }, "m"]));
+  if (exOn) for (const [x, y, c] of exList()) C.push([d1(x, y), fw ? 1.1 : .1, () => { FSEL = { k: "e", x, y, c }; }, "m"]);
+  if (otOn) { for (const h of otHq()) C.push([db(h[1], h[2], 3), 2, () => { FSEL = { k: "oh", n: h[0], x: h[1], y: h[2], t: h[3] || 1 }; }, "o"]);
+    for (const o of otList()) C.push([d1(o[1], o[2]), 2.1, () => { FSEL = { k: "o", n: o[0], x: o[1], y: o[2], c: o[3] }; }, "o"]); }
+  if (!flagMode && SHOWP() && PLAN.farm) for (const k of FK) (PLAN.farm[k] || []).forEach(([x, y], i) => C.push([FW[k] > 1 ? db(x, y, FW[k]) : d1(x, y), fw ? 0 : 1, () => { FARM_SEL = { k, i }; }, "f"]));
+  return C.filter((c) => c[0] <= reach).sort((p, q) => p[0] - q[0] || p[1] - q[1])[0] || null;
+}
 function tileAt(e) {
   const m = $("km_svg").getScreenCTM(); if (!m) return [-1, -1];
   const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(m.inverse());
@@ -1259,9 +1273,10 @@ function flagEvents() {
     const [tx, ty] = tileAt(e);
     if (PMODE && resOn.size && RESD && PE()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && (PWHO === "f" ? RES_OWNF : RES_OWN).has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
     if (farmKind && PE() && farmTap(tx, ty)) return;   // 🌾 farm: select what is there, or place the chosen thing
-    if (PMODE && PWHO === "f" && !flagMode && farmHit(tx, ty, true)) { FARM_SEL = farmHit(tx, ty, true); FSEL = null; $("km_sel").innerHTML = ""; renderInfo(); drawFarm(); renderFarm(); return; }   // looking at nxs: its things are picked first, even under an NXS banner
-    if (selectFlagAt(tx, ty)) { if (PMODE && FSEL && (FSEL.k === "p" || FSEL.k === "e")) { FARM_SEL = null; setWho("m"); drawFarm(); renderFarm(); } return; }   // tapped a banner → edit it
-    if (!flagMode && SHOWP() && farmHit(tx, ty, true)) { FARM_SEL = farmHit(tx, ty, true); if (PMODE) setWho("f"); drawFarm(); renderFarm(); const c = $("fm_sel"); if (c) c.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
+    { const hit = pickAt(tx, ty, e); if (hit) { FSEL = null; FARM_SEL = null; hit[2]();   // the nearest thing to the finger, whichever alliance it belongs to
+        if (hit[3] === "f") { $("km_sel").innerHTML = ""; renderInfo(); if (PMODE) setWho("f"); drawFarm(); renderFarm(); }
+        else { flagInfo(); if (PMODE && (FSEL.k === "p" || FSEL.k === "e")) setWho("m"); drawFarm(); renderFarm(); }
+        return; } }
     if (flagMode && PE() && /^[hb]:/.test(otKind) && OTB && OTB.a[otKind.slice(2)] && tx >= 1 && ty >= 1 && tx < FN - 1 && ty < FN - 1) { const n = otKind.slice(2), t = otKind[0] === "b" ? 2 : 1; otEd().hq.push(t === 2 ? [n, tx - 1, ty - 1, 2] : [n, tx - 1, ty - 1]); FSEL = { k: "oh", n, x: tx - 1, y: ty - 1, t }; if (!otOn) otOn = true; flagsChanged(); return; }
     if (flagMode && PE() && otKind && OTB && OTB.a[otKind] && tx >= 0 && ty >= 0 && tx < FN && ty < FN) { otEd().add.push([otKind, tx, ty]); FSEL = { k: "o", n: otKind, x: tx, y: ty, c: 1 }; flagsChanged(); return; }
     if (flagMode && PE()) { addFlag(tx, ty); FSEL = { k: "p", i: PLAN.fl.length - 1 }; flagInfo(); }
