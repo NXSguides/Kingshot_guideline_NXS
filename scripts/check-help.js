@@ -19,6 +19,8 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Territory: its own page (banner planning off the Map) + 📡 publish switch", /TERRITORY PAGE \(2026-11-14/, /pl01: "🚩 Territory: all banner planning lives here/],
+  ["Territory: 🏫 Academy roster (reference)", /ACADEMY ROSTER \(2026-11-14/, /pl02: "🏫 Academy roster \(reference\)/],
   ["Events: 👤 Only remind (to-do sent by the server to chosen officers only)", /"👤 Only remind" \(只提醒/, /👤 Only remind: tick officers/],
   ["Heroes: ⚖️ compare two heroes", /⚖️ Compare two heroes \(🦸 Heroes tab, card after/, /⚖️ Compare two heroes: pick a troop slot/],
   ["Heroes: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(🦸 Heroes tab, card after/, /🎯 Second uses: a joiner only uses/],

@@ -46,7 +46,7 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_acG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", (e) => { if (!mkFar(e, m)) select(m.dataset.id, false); });
@@ -141,12 +141,17 @@ function select(id, fromList) {
   applyHidden(); renderInfo();
   document.querySelectorAll("#pg-map .chip").forEach((c) => c.classList.toggle("on", c.dataset.id === id));
   if (fromList) {
-    const top = document.querySelector("#pg-map .km-card").getBoundingClientRect().top;
+    const top = document.querySelector("#km_block .km-card").getBoundingClientRect().top;
     if (top < 0 || top > innerHeight * .5) window.scrollTo({ top: scrollY + top - 12, behavior: "smooth" });
   }
   centerOn(b, true);
 }
-const ME = () => OFFICER.can("map", "edit");   // read-only officers can look at the plan but not change it
+const ME = () => OFFICER.can("map", "edit");
+/* 🚩 Territory tab (2026-11-14): the same map block is moved between the two pages. 🗺️ Map = look only (no planned banners, no Academy, no resource layers,
+   unless the plan is published with PLAN.pub); 🚩 Territory = all banner planning. PE = may change the banner plan (only on the 🚩 page). */
+let PMODE = false;
+const PE = () => PMODE && OFFICER.can("plan", "edit");
+const SHOWP = () => PMODE || !!(PLAN && PLAN.pub);   // read-only officers can look at the plan but not change it
 function renderInfo() {
   const b = SEL && BY[SEL];
   if (!b) { $("km_info").innerHTML = `<span class="muted">${esc(T("pick"))}</span>`; return; }
@@ -338,7 +343,7 @@ function renderList() {
 const RES_K = [["b", "🍞", "#e8c15a"], ["w", "🪵", "#7aa35a"], ["q", "🪨", "#c9d3d8"], ["i", "⛏️", "#8d6e63"]], RES_T = { en: ["Resource nodes", "Bread", "Wood", "Stone", "Iron"], zh: ["資源點", "麵包", "木材", "石材", "鐵礦"], pt: ["Nós de recurso", "Pão", "Madeira", "Pedra", "Ferro"], ar: ["عقد الموارد", "خبز", "خشب", "حجر", "حديد"], ko: ["자원", "빵", "목재", "석재", "철광"] };
 const resOn = new Set(); let RESD = null, resLoading = false;
 function drawRes() {
-  const g = $("km_resG"); if (!g) return; if (!resOn.size) { g.innerHTML = ""; return; }
+  const g = $("km_resG"); if (!g) return; if (!resOn.size || !PMODE) { g.innerHTML = ""; return; }
   if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); }).catch(() => { resLoading = false; }); } return; }
   const col = Object.fromEntries(RES_K.map(([k, , c]) => [k, c])); let h = "";
   const nx = nxSet();
@@ -351,7 +356,7 @@ function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
   $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0 && !planOnly}">${esc(T("all"))}</button><button type="button" data-k="plan" aria-pressed="${planOnly}">${esc(pt("planOnly"))}</button>` +
     items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("") +
-    `<span class="km-resl" id="km_resl">${esc((RES_T[lang] || RES_T.en)[0])}</span>` + RES_K.map(([k, ic, c], i) => `<button type="button" data-k="res:${k}" aria-pressed="${resOn.has(k)}"><span class="sw" style="background:${c}"></span>${ic} ${esc((RES_T[lang] || RES_T.en)[i + 1])}</button>`).join("");
+    (!PMODE ? "" : `<span class="km-resl" id="km_resl">${esc((RES_T[lang] || RES_T.en)[0])}</span>` + RES_K.map(([k, ic, c], i) => `<button type="button" data-k="res:${k}" aria-pressed="${resOn.has(k)}"><span class="sw" style="background:${c}"></span>${ic} ${esc((RES_T[lang] || RES_T.en)[i + 1])}</button>`).join(""));
   if ($("km_terrNote")) { $("km_terrNote").hidden = !terrOn; $("km_terrNote").textContent = tt(1); }
   $("km_layers").querySelectorAll("button").forEach((btn) => btn.onclick = () => {
     const k = btn.dataset.k;
@@ -407,7 +412,7 @@ function isConflict(b) {
 const st = (b) => { const e = eff(b); return e === "held" && isConflict(b) ? "conflict" : e; };
 const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
   return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
-const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null, ot: PLAN.ot || null, farm: PLAN.farm || null });
+const snap = () => JSON.stringify({ pub: PLAN.pub ? 1 : 0, o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null, ot: PLAN.ot || null, farm: PLAN.farm || null });
 /* ⭐ Sanctuary / Fortress priority: PLAN.sp["x,y"] = { p: 1…, r: "rewards", n: "note" } */
 const SP = (b) => (PLAN.sp && PLAN.sp[pk(b)]) || {};
 const PRIOABLE = (b) => b && (b.kind === "sanctuary" || b.kind === "fortress");
@@ -498,7 +503,7 @@ let lastSig = "";
 const sig = () => B.filter((b) => isOp(b) && PLAN.t[pk(b)]).map((b) => st(b)).join();
 setInterval(() => {
   if (!G || !$("km_plan")) return;
-  const a = document.activeElement, typing = a && a.tagName === "INPUT" && a.closest("#pg-map");
+  const a = document.activeElement, typing = a && a.tagName === "INPUT" && a.closest("#pg-map, #pg-plan");
   if (sig() !== lastSig && !typing) { lastSig = sig(); refreshPlan(); return; }
   document.querySelectorAll("#pg-map [data-sw]").forEach((e) => e.textContent = left(+e.dataset.sw - Date.now()));
 }, 60000);
@@ -582,7 +587,7 @@ function renderPlan() {
       <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>` : ""}`;
   // 💾 the same Save right under the map, so a change made on the map isn't forgotten
   const sb = $("km_saveBar");
-  if (sb) { const show = ME() && (dirty() || planMsg);
+  if (sb) { const show = (ME() || (PMODE && OFFICER.can("plan", "edit"))) && (dirty() || planMsg);
     sb.hidden = !show;
     if (show) { sb.innerHTML = `${dirty() ? `<button class="btn primary" id="pl_save2" type="button">${esc(pt("save"))}</button>` : ""}<span class="muted" style="font-size:12.5px">${esc(planMsg || pt("unsaved"))}</span>`;
       if ($("pl_save2")) $("pl_save2").onclick = savePlan; } }
@@ -626,12 +631,12 @@ function importFromLink() {
   return n;
 }
 async function savePlan() {
-  if (!ME()) return;
+  if (!ME() && !(PMODE && OFFICER.can("plan", "edit"))) return;
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
   for (const b of B) if (PLANNABLE(b) && !isOp(b) && raw(b) === "held" && !(PLAN.h || {})[pk(b)]) { PLAN.h = PLAN.h || {}; PLAN.h[pk(b)] = Date.parse(PLAN.at || "") || 0; }   // keep the old date, or saving would make last period's ones current again
-  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length || (PLAN.ex.rm || []).length || (PLAN.ex.nx || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), ...(farmAny() ? { farm: PLAN.farm } : {}), by: by || "?", at: new Date().toISOString() };
+  const next = { ...(PLAN.pub ? { pub: 1 } : {}), o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length || (PLAN.ex.rm || []).length || (PLAN.ex.nx || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), ...(farmAny() ? { farm: PLAN.farm } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
@@ -816,7 +821,7 @@ function drawEx() {
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
   const hq = exOn ? (G.hq || []).map(([x, y]) => `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="rgba(30,120,255,.42)" stroke="#9fd0ff" stroke-width=".5"/>`).join("") : "";
   g.innerHTML = hq + (exOn && EXB ? exList().map(([x, y, c]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(30,120,255,.42)" stroke="#9fd0ff" stroke-width=".35"/><polygon points="${tilePts(x, y)}" fill="${c ? "#0b3d91" : "#2a6fd6"}" stroke="#fff" stroke-width=".35"/>`).join("") : "")
-    + (() => { const rm = rmSet(); if (!rm.size) return ""; return exList().filter(([x, y]) => rm.has(x + "," + y)).map(([x, y]) => { const [X, Y] = P(x + .5, y + .5); return `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(230,50,50,.18)" stroke="#ff5a4d" stroke-width=".7" stroke-dasharray="1.6 1"/><text x="${X}" y="${Y + 1.4}" text-anchor="middle" font-family="Arial" font-size="4" font-weight="800" fill="#ff5a4d" stroke="#fff" stroke-width=".5" paint-order="stroke">✕</text>`; }).join(""); })();
+    + (() => { const rm = rmSet(); if (!rm.size || !SHOWP()) return ""; return exList().filter(([x, y]) => rm.has(x + "," + y)).map(([x, y]) => { const [X, Y] = P(x + .5, y + .5); return `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(230,50,50,.18)" stroke="#ff5a4d" stroke-width=".7" stroke-dasharray="1.6 1"/><text x="${X}" y="${Y + 1.4}" text-anchor="middle" font-family="Arial" font-size="4" font-weight="800" fill="#ff5a4d" stroke="#fff" stroke-width=".5" paint-order="stroke">✕</text>`; }).join(""); })();
 }
 let GRID = null, OBST = null, ZONE = null, ZNAME = [], flagMode = false;
 let obstOn = (() => { try { return localStorage.getItem("km-obst") === "1"; } catch (e) { return false; } })();
@@ -883,7 +888,7 @@ function flagCalc() {
 }
 const tilePts = (x, y) => pts([[x, y], [x + 1, y], [x + 1, y + 1], [x, y + 1]]);
 function drawFlags() {
-  const g = $("km_flagG"); if (!g) return;
+  const g = $("km_flagG"); if (!g) return; if (!SHOWP()) { g.innerHTML = ""; return; }
   g.innerHTML = flagCalc().map((f, i) => {
     const [X, Y] = P(f.x + .5, f.y + .5);
     return `<g>${f.fresh.map(([x, y]) => `<polygon points="${tilePts(x, y)}" fill="rgba(60,150,255,.55)"/>`).join("")}${f.lost.map(([x, y]) => `<polygon points="${tilePts(x, y)}" fill="rgba(230,50,50,.6)"/>`).join("")}`
@@ -972,7 +977,7 @@ function farmCalc() {
 }
 /* tiles both alliances cover after the plans, coloured by who gets them (first come, first served): strong blue = NXS, strong green = the branch */
 function drawOwn() {
-  const g = $("km_ownG"); if (!g) return; const f = PLAN.farm || {}; if (!farmAny() || !OWN_B) { g.innerHTML = ""; return; }
+  const g = $("km_ownG"); if (!g) return; const f = PLAN.farm || {}; if (!farmAny() || !OWN_B || !SHOWP()) { g.innerHTML = ""; return; }
   if (!CV_M) { CV_M = new Uint8Array(FN * FN); CV_F = new Uint8Array(FN * FN); } CV_M.fill(0); CV_F.fill(0);
   const fill = (A, x0, y0, x1, y1) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) A.fill(1, y * FN + Math.max(0, x0), y * FN + Math.min(FN - 1, x1) + 1); };
   const rm = rmSet(), frm = new Set(f.rm || []), fr = [];
@@ -988,7 +993,7 @@ function drawOwn() {
 const FW = { hq: 3, b: 1, fl: 1, bt: 3, btp: 3, c: 2 };   // tiles each Academy thing stands on
 function farmBlocked() { const f = PLAN.farm || {}, out = []; for (const k of FK) (f[k] || []).forEach((it, i) => { const r = blockOf(it[0], it[1], FW[k]); if (r) out.push({ k, i, x: it[0], y: it[1], r }); }); return out; }
 function drawFarm() {
-  drawOwn();
+  drawOwn(); if (!SHOWP()) { const g0 = $("km_farmG"); if (g0) g0.innerHTML = ""; return; }
   const g = $("km_farmG"); if (!g) return; const f = PLAN.farm; if (!f || !farmAny()) { g.innerHTML = ""; return; }
   const rm = new Set(f.rm || []), sq = (x0, y0, x1, y1) => pts([[x0, y0], [x1 + 1, y0], [x1 + 1, y1 + 1], [x0, y1 + 1]]), sel = (k, i) => FARM_SEL && FARM_SEL.k === k && FARM_SEL.i === i ? ' stroke="#ffe24a" stroke-width="1"' : "";
   const txt = (x, y, t, sz, col) => { const [X, Y] = P(x, y); return `<text x="${X}" y="${Y + sz * .35}" text-anchor="middle" font-family="Arial" font-size="${sz}" font-weight="800" fill="${col || "#fff"}" stroke="#123" stroke-width=".4" paint-order="stroke">${esc(t)}</text>`; };
@@ -1005,7 +1010,7 @@ function drawFarm() {
   g.innerHTML = h;
 }
 function renderFarm() {
-  const el = $("km_farm"); if (!el) return; const ed = ME(), f = PLAN.farm || {}, any = farmAny(); if (!ed && !any) { el.innerHTML = ""; return; }
+  const el = $("km_farm"); if (!el) return; const ed = PE(), f = PLAN.farm || {}, any = farmAny(); if (!ed && !any) { el.innerHTML = ""; return; }
   const n = (k) => (f[k] || []).length, sg = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toLocaleString("en-US");
   let h = `<div class="card km-flags" style="margin-top:14px"><h3 style="margin-bottom:2px">${esc(fmt("h"))} · ${esc(fTag())}</h3><div class="muted" style="font-size:12.5px">${esc(fmt("p"))}</div>`;
   if (ed) h += `<div class="row" style="margin-top:10px;gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(fmt("tag"))} <input class="inp" id="fm_tag" maxlength="12" value="${esc(fTag())}" style="width:110px;height:36px;box-sizing:border-box"></label>
@@ -1034,15 +1039,15 @@ function renderFarm() {
 function bindFarm() {
   const el = $("km_farm"); if (!el) return;
   if ($("fm_tag")) $("fm_tag").onchange = () => { const v = $("fm_tag").value.trim(); farm().tag = v; if (!v || v === "nxs") delete PLAN.farm.tag; flagsChanged(); };
-  for (const [id, key] of [["fm_on", "now"], ["fm_op", "plan"]]) if ($(id)) $(id).onchange = () => { if (!ME()) return; const f = farm(); f.ord = f.ord || {}; if ($(id).value === "f") f.ord[key] = "f"; else delete f.ord[key]; if (!Object.keys(f.ord).length) delete f.ord; flagsChanged(); };
+  for (const [id, key] of [["fm_on", "now"], ["fm_op", "plan"]]) if ($(id)) $(id).onchange = () => { if (!PE()) return; const f = farm(); f.ord = f.ord || {}; if ($(id).value === "f") f.ord[key] = "f"; else delete f.ord[key]; if (!Object.keys(f.ord).length) delete f.ord; flagsChanged(); };
   if ($("fm_kind")) $("fm_kind").onchange = () => { farmKind = $("fm_kind").value; if (farmKind && flagMode) { flagMode = false; renderFlags(); } $("km_svg").classList.toggle("flag-mode", !!farmKind); renderFarm(); };
   const xy = (a, b) => { const x = Math.round(+($(a) || {}).value), y = Math.round(+($(b) || {}).value); return ($(a) || {}).value !== "" && ($(b) || {}).value !== "" && x >= 0 && y >= 0 && x < FN && y < FN ? [x, y] : null; };
-  if ($("fm_add")) { const go = () => { if (!ME() || !farmKind) return; const p = xy("fm_x", "fm_y"); if (!p) return; const f = farm(), L = fList(farmKind); if (f[L].some(([x, y]) => x === p[0] && y === p[1])) { FARM_SEL = { k: L, i: f[L].findIndex(([x, y]) => x === p[0] && y === p[1]) }; } else { f[L].push(fMake(farmKind, p[0], p[1])); FARM_SEL = { k: L, i: f[L].length - 1 }; } centerOn({ x: p[0], y: p[1] }, true); flagsChanged(); const nx = $("fm_x"); if (nx) nx.focus(); };
+  if ($("fm_add")) { const go = () => { if (!PE() || !farmKind) return; const p = xy("fm_x", "fm_y"); if (!p) return; const f = farm(), L = fList(farmKind); if (f[L].some(([x, y]) => x === p[0] && y === p[1])) { FARM_SEL = { k: L, i: f[L].findIndex(([x, y]) => x === p[0] && y === p[1]) }; } else { f[L].push(fMake(farmKind, p[0], p[1])); FARM_SEL = { k: L, i: f[L].length - 1 }; } centerOn({ x: p[0], y: p[1] }, true); flagsChanged(); const nx = $("fm_x"); if (nx) nx.focus(); };
     $("fm_add").onclick = go; for (const id of ["fm_x", "fm_y"]) $(id).onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); if (id === "fm_x") $("fm_y").focus(); else go(); } }; }
-  if ($("fm_fix")) $("fm_fix").onclick = () => { if (!ME() || !FARM_SEL) return; const p = xy("fm_sx", "fm_sy"), f = farm(), it = f[FARM_SEL.k][FARM_SEL.i]; if (!p || !it) return; if (FARM_SEL.k === "b") { const j = f.rm.indexOf(it[0] + "," + it[1]); if (j >= 0) f.rm[j] = p[0] + "," + p[1]; } f[FARM_SEL.k][FARM_SEL.i] = it[2] ? [p[0], p[1], it[2]] : p; centerOn({ x: p[0], y: p[1] }, true); flagsChanged(); };
-  el.querySelectorAll("[data-flv]").forEach((b) => b.onclick = () => { if (!ME() || !FARM_SEL) return; const f = farm(), it = f[FARM_SEL.k][FARM_SEL.i]; if (!it) return; const key = FARM_SEL.k + ":" + it[0] + "," + it[1], v = +b.dataset.flv; f.lv = f.lv || {}; if (v) f.lv[key] = v; else delete f.lv[key]; if (!Object.keys(f.lv).length) delete f.lv; flagsChanged(); });
+  if ($("fm_fix")) $("fm_fix").onclick = () => { if (!PE() || !FARM_SEL) return; const p = xy("fm_sx", "fm_sy"), f = farm(), it = f[FARM_SEL.k][FARM_SEL.i]; if (!p || !it) return; if (FARM_SEL.k === "b") { const j = f.rm.indexOf(it[0] + "," + it[1]); if (j >= 0) f.rm[j] = p[0] + "," + p[1]; } f[FARM_SEL.k][FARM_SEL.i] = it[2] ? [p[0], p[1], it[2]] : p; centerOn({ x: p[0], y: p[1] }, true); flagsChanged(); };
+  el.querySelectorAll("[data-flv]").forEach((b) => b.onclick = () => { if (!PE() || !FARM_SEL) return; const f = farm(), it = f[FARM_SEL.k][FARM_SEL.i]; if (!it) return; const key = FARM_SEL.k + ":" + it[0] + "," + it[1], v = +b.dataset.flv; f.lv = f.lv || {}; if (v) f.lv[key] = v; else delete f.lv[key]; if (!Object.keys(f.lv).length) delete f.lv; flagsChanged(); });
   el.querySelectorAll("[data-fgo]").forEach((b) => b.onclick = () => { const [k, i] = b.dataset.fgo.split(","), it = (PLAN.farm[k] || [])[+i]; if (!it) return; FARM_SEL = { k, i: +i }; centerOn({ x: it[0], y: it[1] }, true); drawFarm(); renderFarm(); });
-  el.querySelectorAll("[data-fa]").forEach((b) => b.onclick = () => { if (!ME() || !FARM_SEL) return; const f = farm(), k = FARM_SEL.k, i = FARM_SEL.i, it = f[k][i]; if (!it) return; const a = b.dataset.fa, key = it[0] + "," + it[1];
+  el.querySelectorAll("[data-fa]").forEach((b) => b.onclick = () => { if (!PE() || !FARM_SEL) return; const f = farm(), k = FARM_SEL.k, i = FARM_SEL.i, it = f[k][i]; if (!it) return; const a = b.dataset.fa, key = it[0] + "," + it[1];
     if (a === "rm") { const j = f.rm.indexOf(key); if (j >= 0) f.rm.splice(j, 1); else f.rm.push(key); }
     else if (a === "built") { f.fl.splice(i, 1); f.b.push(it); FARM_SEL = { k: "b", i: f.b.length - 1 }; }
     else if (a === "moved") { f.btp.splice(i, 1); f.bt.push(it); FARM_SEL = { k: "bt", i: f.bt.length - 1 }; }
@@ -1051,7 +1056,7 @@ function bindFarm() {
 }
 function renderFlags() {
   const el = $("km_flags"); if (!el) return;
-  const fl = flagCalc(), ed = ME(), tot = fl.reduce((a, f) => a + f.fresh.length, 0);
+  const fl = flagCalc(), ed = PE(), tot = fl.reduce((a, f) => a + f.fresh.length, 0);
   el.innerHTML = `<h3 style="margin-bottom:2px">${esc(ft("t"))}</h3><div class="muted" style="font-size:12.5px">${esc(ft("hint"))}</div>`
     + (GRID ? "" : `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("loading"))}</div>`)
     + (ed ? `<div class="row km-fl-add" style="margin-top:10px"><button type="button" class="btn${flagMode ? " primary" : ""}" id="fl_mode">${esc(ft(flagMode ? "on" : "off"))}</button>
@@ -1108,12 +1113,12 @@ function saveCsv(rows, name) {
   a.download = `${name}-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
 }
-function flagsChanged() { planMsg = ""; rmClean(); rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); memRefresh(); }
+function flagsChanged() { planMsg = ""; renderPub(); rmClean(); rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); memRefresh(); }
 /* 🎯 tapped banner (planned or standing): shown in the info box under the map, where it can be moved, marked built / demolished or removed */
 let FSEL = null;
 const near = (list, x, y) => { let best = -1, bd = 3; list.forEach(([a, b], i) => { const d = Math.max(Math.abs(a - x), Math.abs(b - y)); if (d < bd) { bd = d; best = i; } }); return best; };
 function selectFlagAt(x, y) {
-  let i = near(PLAN.fl || [], x, y);
+  let i = SHOWP() ? near(PLAN.fl || [], x, y) : -1;
   if (i >= 0) { FSEL = { k: "p", i }; flagInfo(); return true; }
   const ex = exOn ? exList() : []; i = near(ex, x, y);
   if (i >= 0) { FSEL = { k: "e", x: ex[i][0], y: ex[i][1], c: ex[i][2] }; flagInfo(); return true; }
@@ -1123,7 +1128,7 @@ function selectFlagAt(x, y) {
   return false;
 }
 function flagInfo() {
-  const el = $("km_info"), ed = ME(); if (!el || !FSEL) return;
+  const el = $("km_info"), ed = PE(); if (!el || !FSEL) return;
   let x, y, head, sub = "";
   if (FSEL.k === "p") { const f = (PLAN.fl || [])[FSEL.i]; if (!f) { FSEL = null; renderInfo(); return; } [x, y] = f; head = ft("selP").replace("{n}", FSEL.i + 1); }
   else if (FSEL.k === "oh") { x = FSEL.x; y = FSEL.y; head = "🏯 " + FSEL.n + " " + hqLbl(FSEL.t); }
@@ -1165,13 +1170,13 @@ function tileAt(e) {
 }
 /* 🚩 tap mode on: a building icon is drawn much bigger than the building, so a tap on the icon but away from the building itself places a banner instead of opening the building */
 function mkFar(e, mk) {
-  if (!flagMode || !ME()) return false;
+  if (!flagMode || !PE()) return false;
   const b = BY[mk.dataset.id]; if (!b) return false;
   const [tx, ty] = tileAt(e), r = b.kind === "castle" ? 6 : b.kind === "fortress" ? 3 : 2;
   return Math.max(Math.abs(tx - b.x), Math.abs(ty - b.y)) > r;
 }
 function addFlag(x, y) {
-  if (!ME() || !(x >= 0 && x < FN && y >= 0 && y < FN)) return;
+  if (!PE() || !(x >= 0 && x < FN && y >= 0 && y < FN)) return;
   PLAN.fl = PLAN.fl || []; PLAN.fl.push([x, y]); flagsChanged();
 }
 function flagEvents() {
@@ -1181,17 +1186,17 @@ function flagEvents() {
     if (b.id === "fl_ot") { otOn = !otOn; try { localStorage.setItem("km-otb2", otOn ? "1" : "0"); } catch (err) {} rebuildOwn(); drawOt(); drawFlags(); renderFlags(); memRefresh(); return; }
     if (b.id === "fl_ex") { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); return; }
     if (b.id === "fl_obst") { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); return; }
-    if (b.dataset.nxon) { if (ME()) { const [x, y] = b.dataset.nxon.split(",").map(Number); nodeToggle(x, y); } return; }
+    if (b.dataset.nxon) { if (PE()) { const [x, y] = b.dataset.nxon.split(",").map(Number); nodeToggle(x, y); } return; }
     if (b.dataset.rmgo) { const [x, y] = b.dataset.rmgo.split(",").map(Number); centerOn({ x, y }, true); selectFlagAt(x, y); return; }   // 📌 jump to a banner noted to come down
     if (b.dataset.fcp != null) { const f = PLAN.fl[+b.dataset.fcp]; try { navigator.clipboard.writeText(`X:${f[0]} Y:${f[1]}`).then(() => { b.textContent = T("copied"); setTimeout(() => b.textContent = T("copy"), 1500); }, () => {}); } catch (err) {} return; }
-    if (!ME()) return;
+    if (!PE()) return;
     if (b.id === "fl_mode") { flagMode = !flagMode; if (flagMode) farmKind = ""; $("km_svg").classList.toggle("flag-mode", flagMode); renderFlags(); return; }
     if (b.id === "fl_add") { const x = parseInt($("fl_x").value, 10), y = parseInt($("fl_y").value, 10); if (x >= 0 && y >= 0) addFlag(x, y); return; }
     if (b.dataset.fdel != null) { PLAN.fl.splice(+b.dataset.fdel, 1); flagsChanged(); return; }
     if (b.dataset.fup != null) { const i = +b.dataset.fup; [PLAN.fl[i - 1], PLAN.fl[i]] = [PLAN.fl[i], PLAN.fl[i - 1]]; flagsChanged(); }
   });
   el.addEventListener("change", (e) => {
-    if (!ME()) return;
+    if (!PE()) return;
     if (e.target.id === "fl_conv") { const n = e.target.value; if (!n) return; (PLAN.fl || []).forEach(([x, y]) => otEd().add.push([n, x, y])); PLAN.fl = []; FSEL = null; if (!otOn) { otOn = true; try { localStorage.setItem("km-otb2", "1"); } catch (err) {} } flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; return; }
     if (e.target.id === "fl_kind") { otKind = e.target.value; if (otKind) { flagMode = true; $("km_svg").classList.add("flag-mode"); if (!otOn) { otOn = true; try { localStorage.setItem("km-otb2", "1"); } catch (err) {} drawOt(); } } renderFlags(); return; }
     const t = e.target, i = t.dataset.fx ?? t.dataset.fy; if (i == null) return;
@@ -1202,26 +1207,71 @@ function flagEvents() {
   $("km_svg").addEventListener("click", (e) => {
     const mk = e.target.closest(".mk"); if (mk && !mkFar(e, mk)) { FSEL = null; return; }
     const [tx, ty] = tileAt(e);
-    if (resOn.size && RESD && ME()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && RES_OWN.has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
-    if (farmKind && ME() && farmTap(tx, ty)) return;   // 🌾 farm: select what is there, or place the chosen thing
+    if (PMODE && resOn.size && RESD && PE()) { const n = RESD.findIndex(([k, x, y], i) => resOn.has(k) && RES_OWN.has(i) && tx >= x && tx <= x + 1 && ty >= y && ty <= y + 1); if (n >= 0) { nodeToggle(RESD[n][1], RESD[n][2]); return; } }   // 🌾 a node of ours, its layer on → switch it off / on
+    if (farmKind && PE() && farmTap(tx, ty)) return;   // 🌾 farm: select what is there, or place the chosen thing
     if (selectFlagAt(tx, ty)) return;   // tapped a banner → edit it
-    if (!flagMode && farmHit(tx, ty, true)) { FARM_SEL = farmHit(tx, ty, true); drawFarm(); renderFarm(); const c = $("fm_sel"); if (c) c.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
-    if (flagMode && ME() && /^[hb]:/.test(otKind) && OTB && OTB.a[otKind.slice(2)] && tx >= 1 && ty >= 1 && tx < FN - 1 && ty < FN - 1) { const n = otKind.slice(2), t = otKind[0] === "b" ? 2 : 1; otEd().hq.push(t === 2 ? [n, tx - 1, ty - 1, 2] : [n, tx - 1, ty - 1]); FSEL = { k: "oh", n, x: tx - 1, y: ty - 1, t }; if (!otOn) otOn = true; flagsChanged(); return; }
-    if (flagMode && ME() && otKind && OTB && OTB.a[otKind] && tx >= 0 && ty >= 0 && tx < FN && ty < FN) { otEd().add.push([otKind, tx, ty]); FSEL = { k: "o", n: otKind, x: tx, y: ty, c: 1 }; flagsChanged(); return; }
-    if (flagMode && ME()) { addFlag(tx, ty); FSEL = { k: "p", i: PLAN.fl.length - 1 }; flagInfo(); }
+    if (!flagMode && SHOWP() && farmHit(tx, ty, true)) { FARM_SEL = farmHit(tx, ty, true); drawFarm(); renderFarm(); const c = $("fm_sel"); if (c) c.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
+    if (flagMode && PE() && /^[hb]:/.test(otKind) && OTB && OTB.a[otKind.slice(2)] && tx >= 1 && ty >= 1 && tx < FN - 1 && ty < FN - 1) { const n = otKind.slice(2), t = otKind[0] === "b" ? 2 : 1; otEd().hq.push(t === 2 ? [n, tx - 1, ty - 1, 2] : [n, tx - 1, ty - 1]); FSEL = { k: "oh", n, x: tx - 1, y: ty - 1, t }; if (!otOn) otOn = true; flagsChanged(); return; }
+    if (flagMode && PE() && otKind && OTB && OTB.a[otKind] && tx >= 0 && ty >= 0 && tx < FN && ty < FN) { otEd().add.push([otKind, tx, ty]); FSEL = { k: "o", n: otKind, x: tx, y: ty, c: 1 }; flagsChanged(); return; }
+    if (flagMode && PE()) { addFlag(tx, ty); FSEL = { k: "p", i: PLAN.fl.length - 1 }; flagInfo(); }
   });
 }
 function applyTexts() {
-  renderMp(); renderFlags();
+  renderMp(); renderFlags(); renderPub(); renderAc();
   if (!G) return;
   renderPlan();
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
   $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
   if ($("km_castleLbl")) $("km_castleLbl").textContent = castleName();
-  document.querySelectorAll("#pg-map .km-hqLbl").forEach((e) => e.textContent = "[NXS] " + hqName({ n: +e.dataset.n }));
+  document.querySelectorAll("#km_block .km-hqLbl").forEach((e) => e.textContent = "[NXS] " + hqName({ n: +e.dataset.n }));
   renderLayers(); renderList(); renderInfo();
 }
 let first = true, ready = false;   // ready = the saved plan has loaded (a link imported before that would be overwritten)
+const KP_T = { en: ["🚩 Territory", "Banner planning for NXS and the Academy: plan, take down, check, reshuffle, resource nodes. The 🗺️ Map page only shows this plan when it is published below.", "📡 Show this plan on the 🗺️ Map page", "Off: the 🗺️ Map shows only what stands now. On: planned banners, banners to take down and the Academy also show there (look only). Saved with the plan."],
+  zh: ["🚩 領地規劃", "主盟和學院的旗幟規劃都在這裡：規劃、想拆、檢查、大洗牌、資源點。只有在下面開啟公開時，🗺️ 地圖頁才會顯示這份規劃。", "📡 把這份規劃顯示在 🗺️ 地圖頁", "關：🗺️ 地圖只顯示現在已經有的。開：規劃的旗、想拆的旗和學院也會顯示在地圖頁（只能看）。和規劃一起儲存。"],
+  pt: ["🚩 Território", "Planejamento de estandartes da NXS e da Academia: planejar, derrubar, verificar, reorganizar, nós de recurso. A página 🗺️ Mapa só mostra este plano quando ele é publicado abaixo.", "📡 Mostrar este plano na página 🗺️ Mapa", "Desligado: o 🗺️ Mapa mostra só o que existe agora. Ligado: os estandartes planejados, os que vão ser derrubados e a Academia também aparecem lá (só para ver). Salvo com o plano."],
+  ar: ["🚩 الأراضي", "تخطيط لافتات NXS والأكاديمية: التخطيط، الإزالة، الفحص، إعادة الترتيب، عقد الموارد. صفحة 🗺️ الخريطة تعرض هذه الخطة فقط عند نشرها بالأسفل.", "📡 عرض هذه الخطة في صفحة 🗺️ الخريطة", "إيقاف: 🗺️ الخريطة تعرض الموجود الآن فقط. تشغيل: اللافتات المخططة والمراد إزالتها والأكاديمية تظهر هناك أيضاً (للعرض فقط). يُحفظ مع الخطة."],
+  ko: ["🚩 영지 계획", "NXS와 아카데미의 깃발 계획: 계획, 철거, 점검, 재배치, 자원. 아래에서 공개했을 때만 🗺️ 지도 페이지에 이 계획이 보여요.", "📡 이 계획을 🗺️ 지도 페이지에 표시", "끔: 🗺️ 지도는 지금 있는 것만 보여요. 켬: 계획한 깃발, 철거할 깃발, 아카데미도 지도에 보여요(보기 전용). 계획과 함께 저장돼요."] };
+const kpt = (i) => (KP_T[lang] || KP_T.en)[i];
+/* 🏫 Academy roster — reference only (data/academy-x7k2p9.json, encrypted; written by scripts/update-roster.js). Never mixed with the NXS roster. */
+const AC_PATH = "data/academy-x7k2p9.json"; let AC = null, acTried = false, acSort = "power";
+const AC_T = { en: ["🏫 Academy roster (reference)", "members", "updated", "Name", "Rank", "Power", "TC", "City", "No Academy roster yet — it is fetched with the daily roster update.", "📍 Show their cities on the map"],
+  zh: ["🏫 學院名單（參考）", "人", "更新", "名字", "階級", "戰力", "主城", "城位", "還沒有學院名單——會跟每天的名冊更新一起抓。", "📍 在地圖上顯示他們的城"],
+  pt: ["🏫 Lista da Academia (referência)", "membros", "atualizado", "Nome", "Posto", "Poder", "CC", "Cidade", "Ainda não há lista da Academia — ela vem com a atualização diária da lista.", "📍 Mostrar as cidades deles no mapa"],
+  ar: ["🏫 قائمة الأكاديمية (للمرجع)", "عضواً", "تحديث", "الاسم", "الرتبة", "القوة", "المركز", "المدينة", "لا توجد قائمة للأكاديمية بعد — تُجلب مع التحديث اليومي للقائمة.", "📍 عرض مدنهم على الخريطة"],
+  ko: ["🏫 아카데미 명단 (참고)", "명", "업데이트", "이름", "등급", "전투력", "본부", "도시", "아직 아카데미 명단이 없어요 — 매일 명단 업데이트와 함께 가져와요.", "📍 지도에 도시 표시"] };
+const act = (i) => (AC_T[lang] || AC_T.en)[i];
+let acOn = (() => { try { return localStorage.getItem("kp-ac") === "1"; } catch (e) { return false; } })();
+async function acLoad() { if (acTried || !OFFICER.can("plan", "view")) return; acTried = true; try { AC = await OfficerData.fetchJson(AC_PATH); } catch (e) { AC = null; } renderAc(); drawAc(); }
+function drawAc() { const g = $("km_acG"); if (!g) return; if (!PMODE || !acOn || !AC) { g.innerHTML = ""; return; }
+  g.innerHTML = (AC.members || []).filter((m) => m.x != null && m.y != null).map((m) => `<polygon points="${pts([[m.x, m.y], [m.x + 2, m.y], [m.x + 2, m.y + 2], [m.x, m.y + 2]])}" fill="#7CFC98" stroke="#0b3d1c" stroke-width=".3"/>`).join(""); }
+function renderAc() {
+  const el = $("kp_roster"); if (!el) return; if (!OFFICER.can("plan", "view")) { el.innerHTML = ""; return; }
+  if (!AC || !(AC.members || []).length) { el.innerHTML = acTried ? `<details class="card" style="margin-top:14px"><summary style="cursor:pointer;font-weight:700">${esc(act(0))}</summary><div class="muted" style="margin-top:8px">${esc(act(8))}</div></details>` : ""; return; }
+  const num = (v) => v == null ? "—" : Number(v).toLocaleString("en-US"), ms = [...AC.members].sort((a, b) => acSort === "name" ? String(a.name).localeCompare(String(b.name)) : (b[acSort] || 0) - (a[acSort] || 0));
+  const th = (k, i, r) => `<th${r ? ' style="text-align:right"' : ""}><button type="button" class="linkish" data-acs="${k}" style="background:none;border:0;color:inherit;font:inherit;font-weight:700;cursor:pointer;padding:0">${esc(act(i))}${acSort === k ? " ▾" : ""}</button></th>`;
+  el.innerHTML = `<details class="card" id="kp_ac" style="margin-top:14px"${el.querySelector("details[open]") ? " open" : ""}><summary style="cursor:pointer;font-weight:700">${esc(act(0))} · ${ms.length} ${esc(act(1))}</summary>
+    <div class="muted" style="font-size:12.5px;margin:6px 0">${esc(act(2))} ${esc(String(AC.updated || "").slice(0, 10))}</div>
+    <label style="display:inline-flex;gap:8px;align-items:center;margin:0 0 8px;font-size:13px"><input type="checkbox" id="kp_acOn"${acOn ? " checked" : ""}>${esc(act(9))}</label>
+    <div style="overflow-x:auto"><table class="km-act" style="border-collapse:collapse;white-space:nowrap;font-size:13px;width:100%"><thead><tr>${th("name", 3)}<th>${esc(act(4))}</th>${th("power", 5, 1)}${th("tc", 6, 1)}<th>${esc(act(7))}</th></tr></thead><tbody>${ms.map((m) => `<tr><td>${esc(m.name || "")}</td><td>${esc(m.rank || "")}</td><td style="text-align:right">${num(m.power)}</td><td style="text-align:right">${m.tc == null ? "—" : m.tc}</td><td>${m.x != null && m.y != null ? `<button type="button" class="btn small" data-acgo="${m.x},${m.y}">X:${m.x} Y:${m.y}</button>` : "—"}</td></tr>`).join("")}</tbody></table></div></details>`;
+  el.querySelectorAll("[data-acs]").forEach((b) => b.onclick = () => { acSort = b.dataset.acs; renderAc(); });
+  el.querySelectorAll("[data-acgo]").forEach((b) => b.onclick = () => { const [x, y] = b.dataset.acgo.split(",").map(Number); if (!acOn) { acOn = true; try { localStorage.setItem("kp-ac", "1"); } catch (e) {} renderAc(); } drawAc(); centerOn({ x, y }, true); });
+  if ($("kp_acOn")) $("kp_acOn").onchange = () => { acOn = $("kp_acOn").checked; try { localStorage.setItem("kp-ac", acOn ? "1" : "0"); } catch (e) {} drawAc(); };
+}
+function renderPub() {
+  if ($("kp_title")) { $("kp_title").textContent = kpt(0); $("kp_intro").textContent = kpt(1); }
+  const el = $("kp_pub"); if (!el || !PLAN) return; const ed = OFFICER.can("plan", "edit");
+  el.innerHTML = `<label class="km-pd" style="display:flex;gap:10px;align-items:flex-start;margin:0 0 10px;cursor:pointer"><input type="checkbox" id="kp_pubC" style="width:20px;height:20px;flex:none;margin-top:2px"${PLAN.pub ? " checked" : ""}${ed ? "" : " disabled"}><span><b>${esc(kpt(2))}</b><br><span class="muted" style="font-size:12.5px">${esc(kpt(3))}</span></span></label>`;
+  if ($("kp_pubC")) $("kp_pubC").onchange = () => { if (!ed) return; if ($("kp_pubC").checked) PLAN.pub = 1; else delete PLAN.pub; flagsChanged(); };
+}
+/* move the map block to the page being shown and redraw for that page */
+function setMode(p) {
+  const slot = $(p ? "kp_slot" : "km_slot"), blk = $("km_block"), box = $("km_box");
+  if (slot && blk && blk.parentNode !== slot) { const l = box.scrollLeft, t = box.scrollTop; slot.appendChild(blk); box.scrollLeft = l; box.scrollTop = t; }
+  if (PMODE === p) return; PMODE = p; if (!ready) return;
+  if (!p && flagMode) flagMode = false; FSEL = null; FARM_SEL = null; if ($("km_sel")) $("km_sel").innerHTML = ""; renderInfo();
+  renderLayers(); drawEx(); drawFlags(); drawRes(); drawAc(); renderFlags(); renderPlan(); memRefresh(); if (!p && KM_SHARED.optDraw) KM_SHARED.optDraw({});
+}
 function onShow() {
   if (ready && importFromLink()) { drawPlan(); applyHidden(); applyTexts(); }   // link opened while the page was already open
   if (!first || !ready) return; first = false;
@@ -1257,14 +1307,16 @@ window.KM_SHARED = {
   zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
   nodesOff: () => [...nxSet()],
   toRemove: () => [...rmSet()].map((k) => k.split(",").map(Number)),
-  markRemove: (l) => { if (!ME()) return 0; const e = (PLAN.ex = PLAN.ex || { off: [], add: [] }); e.rm = e.rm || []; const have = new Set(exList().map(([x, y]) => x + "," + y)); let n = 0; for (const [x, y] of l) { const k = x + "," + y; if (have.has(k) && !e.rm.includes(k)) { e.rm.push(k); n++; } } flagsChanged(); return n; },
+  markRemove: (l) => { if (!PE()) return 0; const e = (PLAN.ex = PLAN.ex || { off: [], add: [] }); e.rm = e.rm || []; const have = new Set(exList().map(([x, y]) => x + "," + y)); let n = 0; for (const [x, y] of l) { const k = x + "," + y; if (have.has(k) && !e.rm.includes(k)) { e.rm.push(k); n++; } } flagsChanged(); return n; },
   /* 🌾 banner check on this map (members.js): red frame = standing banner that isn't needed, orange number = suggested spot */
-  optDraw: (o) => { const g = $("km_optG"); if (!g) return; const sq = (x, y) => pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]]);
+  optDraw: (o) => { const g = $("km_optG"); if (!g) return; if (!PMODE) { g.innerHTML = ""; return; } const sq = (x, y) => pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]]);
     g.innerHTML = !o ? "" : (o.overlap || []).map(([x, y]) => `<polygon points="${sq(x, y)}" fill="none" stroke="#e8e8e8" stroke-width=".55" stroke-dasharray="1 1"/>`).join("") + (o.swaps || []).map((w) => `<polygon points="${sq(w.from[0], w.from[1])}" fill="rgba(255,210,40,.25)" stroke="#ffd22e" stroke-width=".6" stroke-dasharray="1.2 .8"/>`).join("") + (o.lines || []).map((l) => l.b.map(([x, y]) => `<polygon points="${sq(x, y)}" fill="rgba(170,90,255,.28)" stroke="#a45cff" stroke-width=".6"/>`).join("")).join("") + (o.moves || []).map(([ax, ay, bx, by]) => { const [X0, Y0] = P(ax + .5, ay + .5), [X1, Y1] = P(bx + .5, by + .5); return `<polygon points="${sq(bx, by)}" fill="rgba(60,160,255,.25)" stroke="#3aa0ff" stroke-width=".5"/><line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y1}" stroke="#3aa0ff" stroke-width=".7"/><circle cx="${X1}" cy="${Y1}" r=".9" fill="#3aa0ff"/>`; }).join("") + o.waste.map(([x, y]) => `<polygon points="${sq(x, y)}" fill="rgba(230,50,50,.25)" stroke="#e03131" stroke-width=".6"/>`).join("")
       + o.add.map(([x, y, , , , , no], i) => { const [X, Y] = P(x + .5, y + .5); if (no) i = no - 1; return `<polygon points="${sq(x, y)}" fill="rgba(255,150,30,.3)" stroke="#ff8c1a" stroke-width=".5"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="2.8" font-weight="800" fill="#fff" stroke="#b35400" stroke-width=".5" paint-order="stroke">${i + 1}</text>`; }).join(""); },
-  addPlanned: (l) => { if (!ME()) return; PLAN.fl = PLAN.fl || []; const have = new Set(PLAN.fl.map(([x, y]) => x + "," + y)); for (const [x, y] of l) if (!have.has(x + "," + y)) PLAN.fl.push([x, y]); flagsChanged(); },
+  addPlanned: (l) => { if (!PE()) return; PLAN.fl = PLAN.fl || []; const have = new Set(PLAN.fl.map(([x, y]) => x + "," + y)); for (const [x, y] of l) if (!have.has(x + "," + y)) PLAN.fl.push([x, y]); flagsChanged(); },
 };
 const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.refresh(); };
 function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }
-OFFICER_PAGES.map = { init, onShow, applyTexts, setLang };
+let initP = null; const init1 = () => initP || (initP = init());
+OFFICER_PAGES.map = { init: init1, onShow: () => { setMode(false); onShow(); }, applyTexts, setLang };
+OFFICER_PAGES.plan = { init: init1, onShow: () => { setMode(true); onShow(); acLoad(); }, applyTexts, setLang: () => {} };
 })();

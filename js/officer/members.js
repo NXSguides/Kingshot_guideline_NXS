@@ -567,7 +567,7 @@ function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the 
 }
 function optCard(now) {
   if (now ? !(D && window.KM_SHARED) : !(MV && MV.plan)) return ""; if (!RESN.length) return "";
-  const ed = now ? OFFICER.can("map", "edit") : MED(), o = now ? OPTN : OPT, xy = (b) => `X:${b[0]} Y:${b[1]}`, P = now ? "kn" : "mv";
+  const ed = now ? OFFICER.can("plan", "edit") : MED(), o = now ? OPTN : OPT, xy = (b) => `X:${b[0]} Y:${b[1]}`, P = now ? "kn" : "mv";
   let h = `<div class="card" id="${P}_opt" style="margin-top:${now ? 14 : 12}px"><h3 style="margin:0 0 6px">${esc(ot(now ? "hN" : "h"))}</h3><p class="muted" style="font-size:12.5px;margin:0 0 8px">${esc(ot(now ? "pN" : "p"))}</p>
     <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(ot("max"))} <input class="inp" id="${P}_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="${P}_orun">${esc(ot("run"))}</button>${now ? `<button type="button" class="btn" id="kn_oresh">${esc(ot("rsBtn"))}</button>` : ""}</div>
     <label style="font-size:13px;display:flex;align-items:center;gap:6px;margin-top:8px"><input type="checkbox" id="${P}_obal"${optBal ? " checked" : ""}> ${esc(ot("bal"))}</label>
@@ -635,7 +635,7 @@ let OPTN = null, OPTR = null;
 /* 🔄 the big reshuffle (Sherry 2026-11-13): keep only what holds cities, Bear Traps, Outposts and their links; lay every other banner out again
    for the most resource nodes in the ratio we use, close to home. A plan to adjust by hand (✕ a node, run again), not something to apply blindly. */
 function reshCard() {
-  const o = OPTR; if (!o) return ""; const ed = OFFICER.can("map", "edit"), IC = { b: "🍞", w: "🪵", q: "🪨", i: "⛏️" };
+  const o = OPTR; if (!o) return ""; const ed = OFFICER.can("plan", "edit"), IC = { b: "🍞", w: "🪵", q: "🪨", i: "⛏️" };
   const ty = (t) => { const tot = Math.max(1, t.b + t.w + t.q + t.i), pc = (k) => Math.round(t[k] / tot * 100); return `🍞 ${t.b} (${pc("b")}%) · 🪵 ${t.w} (${pc("w")}%) · 🪨 ${t.q} (${pc("q")}%) · ⛏️ ${t.i} (${pc("i")}%)`; };
   let cum = o.nodesSk; const rows = o.add.map((a, i) => { cum += a[2]; return { i, n: o.skel + i + 1, x: a[0], y: a[1], g: a[2], t: a[3] || "", d: a[4], cum, stay: o.addStay[i] }; });
   const same = rows.find((r) => r.cum >= o.nodesNow), atNow = rows.filter((r) => r.n <= o.nAll).pop(), last = rows[rows.length - 1];
@@ -662,13 +662,13 @@ function renderOptNow() {
   if ($("kn_owrm")) $("kn_owrm").onclick = () => { if (!OPTN || !KS.markRemove) return; const n = KS.markRemove(OPTN.waste.filter((b) => b[2] !== "🚩").map(([x, y]) => [x, y])); $("kn_owrm").textContent = ot("rmDone").replace("{n}", n); };
   if ($("kn_rrm")) $("kn_rrm").onclick = () => { if (!OPTR || !KS.markRemove) return; const n = KS.markRemove(OPTR.down.filter((b) => b[2] !== "🚩").map(([x, y]) => [x, y])); $("kn_rrm").textContent = ot("rmDone").replace("{n}", n); };
   optSkipBind("kn_resh", () => OPTR, () => rb && rb.click());
-  if ($("kn_rdo")) $("kn_rdo").onclick = () => { if (!OFFICER.can("map", "edit") || !OPTR || !KS.addPlanned) return; const k = Math.max(0, (+$("kn_rk").value || 0) - OPTR.skel);
+  if ($("kn_rdo")) $("kn_rdo").onclick = () => { if (!OFFICER.can("plan", "edit") || !OPTR || !KS.addPlanned) return; const k = Math.max(0, (+$("kn_rk").value || 0) - OPTR.skel);
     KS.addPlanned(OPTR.add.slice(0, k).filter((a, i) => !OPTR.addStay[i]).map(([x, y]) => [x, y])); $("kn_rdo").textContent = "✓"; };
   const r = $("kn_orun"); if (!r) return;
   r.onclick = () => { optMax = Math.max(0, Math.min(80, +$("kn_omax").value || 0)); optBal = !!($("kn_obal") || {}).checked; optFar = Math.max(0, +($("kn_ofar") || {}).value || 0); optPri = ($("kn_opri") || {}).value || ""; optStrict = !!($("kn_ostr") || {}).checked; r.disabled = true; r.textContent = ot("busy");
     setTimeout(() => { try { OPTN = optCheck(optMax, true); OPTR = null; } catch (e) { OPTN = null; } renderOptNow(); }, 30); };
   optSkipBind("kn_opt", () => OPTN, () => r.click());
-  if ($("kn_oado")) $("kn_oado").onclick = () => { if (!OFFICER.can("map", "edit") || !OPTN || !KS.addPlanned) return; const k = Math.max(1, Math.min(OPTN.add.length, +$("kn_ok").value || 0));
+  if ($("kn_oado")) $("kn_oado").onclick = () => { if (!OFFICER.can("plan", "edit") || !OPTN || !KS.addPlanned) return; const k = Math.max(1, Math.min(OPTN.add.length, +$("kn_ok").value || 0));
     KS.addPlanned(OPTN.add.slice(0, k).map(([x, y]) => [x, y])); OPTN.add = OPTN.add.slice(k); renderOptNow(); };
 }
 const VIEW = {};

@@ -13,6 +13,7 @@ const KEY = process.env.MIGHTPULSE_API_KEY;
 const BASE = "https://api.mightpulse.com/v1";
 const KID = 2189, TAG = "NXS";
 const OUT = "data/roster-x7k2p9.json";
+const ACADEMY = "nxs", ACADEMY_OUT = "data/academy-x7k2p9.json";   // tags are case-sensitive: "nxs" is the Academy, "NXS" is us
 const WATCH = "data/watch-x7k2p9.json";
 // Other alliances to keep a member list of: the top alliances (by power) of these kingdoms.
 // Add the KvK enemy kingdom number here, e.g. [2189, 2190]. Each alliance costs 1 request per day.
@@ -122,6 +123,20 @@ function findRows(o, depth = 0) {
     alliance: { kid: KID, tag: TAG, name: al.name || "", power: al.power ?? null, count: members.length },
     members: out,
   });
+  /* ---------- 🏫 the Academy (our second alliance, "nxs") — reference list for the 🚩 Territory tab; kept apart from the NXS roster ---------- */
+  try {
+    const fa = await get(`/alliances/${KID}/${ACADEMY}?include=info,roster`);
+    if (fa.status === 200 && fa.body?.members) {
+      const fm = fa.body.members, fp = await getMany(fm.map((m) => `/players/${m.governor_id}?include=base`), "Academy");
+      const fal = fa.body.alliance || {};
+      writeData(ACADEMY_OUT, { updated: new Date().toISOString(), alliance: { kid: KID, tag: ACADEMY, name: fal.name || "", power: fal.power ?? null, count: fm.length },
+        members: fm.map((m, i) => { const pl = (fp[i].status === 200 && fp[i].body && fp[i].body.player) || {};
+          return { id: m.governor_id, name: pl.nick_name || m.nick_name, power: pl.power ?? m.power ?? null, tc: pl.town_center_level ?? m.town_center_level ?? null,
+            rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""), lastActive: pl.last_active_at ?? m.last_active_at ?? null, x: pl.x ?? null, y: pl.y ?? null }; }) });
+      console.log(`✅ Academy file: ${fm.length} members`);
+    } else console.log(`⚠️ Could not read the Academy roster: HTTP ${fa.status}`);
+  } catch (e) { if (e.code === "NOKEY") throw e; console.log("⚠️ Academy roster failed"); }
+
   ages.sort((x, y) => x - y);
   const oldest = ages.length ? Math.round(ages[ages.length - 1] / 60) : "?";
   console.log(`✅ Roster file: ${out.length} members · ${withMystic} with Mystic Trial · ${failed} failed · oldest player data ${oldest} min`);
