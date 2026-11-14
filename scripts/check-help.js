@@ -83,7 +83,7 @@ const FEATURES = [
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
-  ["Map: 🌾 farm alliance (second alliance on the map)", /🌾 FARM ALLIANCE \(2026-11-14/, /{ s: "#km_farm", k: "mp40", e: 1 }/],
+  ["Map: 🏕️ branch alliance (second alliance on the map), first come first served", /🏕️ BRANCH ALLIANCE \(2026-11-14/, /{ s: "#km_farm", k: "mp40", e: 1 }/],
   ["Map: 🌾 our resource nodes now, switching a node off", /🌾 OUR RESOURCE NODES NOW \+ SWITCHING A NODE OFF \(2026-11-14/, /{ s: "#km_flags", k: "mp39", e: 1 }/],
   ["Map: 🌾 what the plan does to our resource nodes", /🌾 PLAN EFFECT ON RESOURCE NODES \(2026-11-13/, /{ s: "#km_flags", k: "mp38", e: 1 }/],
   ["Map: 📌 banners noted to take down", /📌 BANNERS TO TAKE DOWN \(2026-11-13/, /{ s: "#km_flags", k: "mp37", e: 1 }/],

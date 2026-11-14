@@ -35,7 +35,7 @@ function drawMap() {
   s.push(`<polygon points="${pts([[200, 200], [1000, 200], [1000, 1000], [200, 1000]])}" fill="#628c3b" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
   s.push(`<polygon points="${pts([[320, 320], [880, 320], [880, 880], [320, 880]])}" fill="#6f9a45" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
   /* 🛰️ territory picture: the in-game map stitched from officers' screenshots (2026-10-15), lined up on the 4 Fortresses */
-  s.push(`<image id="km_terr" href="${TERR.src}" xlink:href="${TERR.src}" width="4000" height="2850" preserveAspectRatio="none" transform="matrix(${TERR.m})" opacity=".95"${terrOn ? "" : ' style="display:none"'}/>`);
+  if (terrOn) s.push(`<image id="km_terr" href="${TERR.src}" xlink:href="${TERR.src}" width="4000" height="2850" preserveAspectRatio="none" transform="matrix(${TERR.m})" opacity=".95"${terrOn ? "" : ' style="display:none"'}/>`);
   for (const b of B) {
     const [X, Y] = P(b.x, b.y);
     const g = `<g class="mk" style="transform-origin:${X}px ${Y}px" data-id="${b.id}" data-t="${b.kind === "outpost" ? b.t : b.kind === "hq" ? "hq" : "ruins"}" tabindex="0" role="button" aria-label="${esc(b.name)} X${b.x} Y${b.y}">`;
@@ -46,7 +46,7 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_resG" style="pointer-events:none"></g><g id="km_otG" style="pointer-events:none"></g><g id="km_farmG" style="pointer-events:none"></g><g id="km_ownG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_optG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", (e) => { if (!mkFar(e, m)) select(m.dataset.id, false); });
@@ -61,7 +61,7 @@ const TT = { zh: ["🛰️ 領地圖", "領地圖：幹部截圖拼成，同色�
   ko: ["🛰️ 영토", "영토: 간부 스크린샷을 이어 붙임, 같은 색 = 같은 연맹 ({d})."],
   ar: ["🛰️ الأراضي", "الأراضي: مجمّعة من لقطات الضباط؛ اللون نفسه = التحالف نفسه ({d})."] };
 const tt = (i) => (TT[lang] || TT.en)[i].replace("{d}", TERR.date);
-let terrOn = (() => { try { return localStorage.getItem("km-terr") !== "0"; } catch (e) { return true; } })();
+let terrOn = false;   // the territory picture is retired (Sherry 2026-11-14: it is old and other alliances aren't kept up to date) — territory now comes from the banners on the map only
 function setTerr(on) {
   terrOn = on; try { localStorage.setItem("km-terr", on ? "1" : "0"); } catch (e) {}
   const im = $("km_terr"); if (im) im.style.display = on ? "" : "none";
@@ -349,7 +349,7 @@ function drawRes() {
 }
 function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
-  $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0 && !planOnly}">${esc(T("all"))}</button><button type="button" data-k="plan" aria-pressed="${planOnly}">${esc(pt("planOnly"))}</button><button type="button" data-k="terr" aria-pressed="${terrOn}" title="${esc(tt(1))}">${esc(tt(0))}</button>` +
+  $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0 && !planOnly}">${esc(T("all"))}</button><button type="button" data-k="plan" aria-pressed="${planOnly}">${esc(pt("planOnly"))}</button>` +
     items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("") +
     `<span class="km-resl" id="km_resl">${esc((RES_T[lang] || RES_T.en)[0])}</span>` + RES_K.map(([k, ic, c], i) => `<button type="button" data-k="res:${k}" aria-pressed="${resOn.has(k)}"><span class="sw" style="background:${c}"></span>${ic} ${esc((RES_T[lang] || RES_T.en)[i + 1])}</button>`).join("");
   if ($("km_terrNote")) { $("km_terrNote").hidden = !terrOn; $("km_terrNote").textContent = tt(1); }
@@ -698,32 +698,32 @@ function renderMp() {
    alliance already holds stay theirs; the banners are counted in list order. Saved with the plan (PLAN.fl = [[x, y], …]). */
 const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格（旗子在正中間），領地要跟現有、連到總部的領地接壤，可以一面接一面延伸。先蓋的優先：別人已經佔的格子不會算給我們，所以照清單順序計算。地圖上藍格 = 這面旗子新增的領地，紅格 = 已經是別人的。",
     on: "🚩 點地圖放旗：開", off: "🚩 點地圖放旗：關", tapHint: "放大地圖後點一格就會放一面旗子；之後可以在下面改座標。", add: "＋ 加入",
-    row: "+{n} 格", lost: "{n} 格是別人的", notConn: "⚠️ 沒接到我們的領地（失效旗幟：沒有領地加成，也不能讓後面的旗子接上）", onOther: "❌ 旗子位置是別人的領地", total: "共 {f} 面旗 · 新增 {n} 格",
+    row: "+{n} 格", lost: "{n} 格已經是分部／別的聯盟的（先蓋的先得）", notConn: "⚠️ 沒接到我們的領地（失效旗幟：沒有領地加成，也不能讓後面的旗子接上）", onOther: "❌ 旗子位置在分部／別的聯盟的領地內", total: "共 {f} 面旗 · 新增 {n} 格",
     empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", ot: "🏴 其他聯盟", putKind: "點地圖放的是：", cont: "🏁 有爭奪權（領地碰到這個據點）：", contNone: "🏁 目前沒有聯盟的領地碰到這個據點，沒人有爭奪權。", hqP: "【平原】總部", hqB: "【荒野】總部", conv: "上面全部 {n} 面改成：", conv1: "改成：", otHint: "現在點地圖空的地方，就會放一面 🏴 {n}（點到已經有的旗子＝選它來改）。改完記得按 💾 儲存規劃。", ourPlan: "🚩 我們的規劃旗", ex: "🏳️ 現有旗子", exNote: "🏳️ 現有旗子 {n} 面（深藍 = 在遊戲裡確認過的 {c} 面，淺藍 = 從領地圖推算，可能差幾格）。", dl: "⬇️ 下載旗子座標（CSV）", dl2: "⬇️ 下載其他聯盟旗子（CSV）", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
     note: "領地資料來自 {d} 的截圖，可能差 1～2 格，別人的領地之後也會變；實際插旗前請在遊戲裡確認。", loading: "讀取領地資料中…",
     selP: "🚩 規劃旗 #{n}", rmMark: "📌 想拆", rmUn: "↩️ 不拆了", rmTag: "📌 想拆", rmList: "📌 想拆的旗（{n}）", rmHint: "還沒拆、先記著的旗。旗幟檢查會當成它們已經不在。", selE: "🏳️ 聯盟旗幟", conf: "遊戲裡確認過", est: "推算位置", built: "✅ 已蓋好", gone: "🗑️ 已拆除", fix: "修正座標", editNote: "改完要按「💾 儲存規劃」才會存起來。", tapSel: "點地圖上的旗子可以修改或刪除。" },
   ko: { t: "🚩 깃발 계획", hint: "연맹 깃발 하나는 7×7칸을 차지해요(깃발이 한가운데). 영지는 본부까지 이어진 기존 연맹 영지와 맞닿아야 하고, 깃발을 하나씩 이어서 넓힐 수 있어요. 먼저 세운 쪽이 우선: 다른 연맹이 이미 가진 칸은 우리 것이 되지 않으니 목록 순서대로 계산해요. 지도에서 파란 칸 = 이 깃발로 새로 생기는 영지, 빨간 칸 = 이미 다른 연맹 것.",
     on: "🚩 지도를 눌러 배치: 켜짐", off: "🚩 지도를 눌러 배치: 꺼짐", tapHint: "지도를 확대한 뒤 칸을 누르면 깃발이 놓여요. 좌표는 아래에서 고칠 수 있어요.", add: "+ 추가",
-    row: "+{n}칸", lost: "{n}칸은 다른 연맹 것", notConn: "⚠️ 우리 영지와 이어지지 않음 (무효 깃발: 영지 보너스 없음, 뒤의 깃발도 이걸로 이어질 수 없음)", onOther: "❌ 깃발 자리가 다른 연맹 영지", total: "깃발 {f}개 · +{n}칸",
+    row: "+{n}칸", lost: "{n}칸은 이미 지부 / 다른 연맹 것 (먼저 세운 쪽이 가짐)", notConn: "⚠️ 우리 영지와 이어지지 않음 (무효 깃발: 영지 보너스 없음, 뒤의 깃발도 이걸로 이어질 수 없음)", onOther: "❌ 깃발 자리가 지부 / 다른 연맹 영지 안", total: "깃발 {f}개 · +{n}칸",
     empty: "아직 계획한 깃발이 없어요.", obst: "⛰️ 장애물 / 금지 구역", ot: "🏴 다른 연맹", putKind: "지도에 놓을 것:", cont: "🏁 쟁탈 가능 (영지가 이 거점에 닿음):", contNone: "🏁 이 거점에 닿은 연맹 영지가 없어 쟁탈 가능한 연맹이 없어요.", hqP: "[평원] 본부", hqB: "[황야] 본부", conv: "위의 {n}개 모두 바꾸기:", conv1: "바꾸기:", otHint: "이제 지도의 빈 곳을 누르면 🏴 {n} 깃발이 놓여요 (있는 깃발을 누르면 그 깃발을 선택). 끝나면 💾 계획 저장.", ourPlan: "🚩 우리 계획 깃발", ex: "🏳️ 우리 깃발", exNote: "🏳️ 세워진 깃발 {n}개 (진한 파랑 = 게임에서 확인한 {c}개, 연한 파랑 = 영지 그림에서 추정, 몇 칸 차이 날 수 있음).", dl: "⬇️ 깃발 좌표 다운로드 (CSV)", dl2: "⬇️ 다른 연맹 깃발 다운로드 (CSV)", onMt: "❌ 깃발 자리가 산", onLake: "❌ 깃발 자리가 호수", inZone: "❌ 금지 구역 안 ({n})", del: "삭제", up: "위로", save: "다른 간부도 보려면 위의 「💾 계획 저장」을 눌러 주세요.",
     note: "영지 정보는 {d} 스크린샷 기준이라 1~2칸 차이 날 수 있고, 다른 연맹 영지도 바뀌어요. 실제로 세우기 전에 게임에서 확인하세요.", loading: "영지 정보 불러오는 중…",
     selP: "🚩 계획한 깃발 #{n}", rmMark: "📌 철거 예정", rmUn: "↩️ 철거 안 함", rmTag: "📌 철거 예정", rmList: "📌 철거할 깃발 ({n})", rmHint: "아직 철거하지 않고 적어 둔 깃발이에요. 깃발 점검은 이미 없는 것으로 계산해요.", selE: "🏳️ 연맹 깃발", conf: "게임에서 확인", est: "추정 위치", built: "✅ 세웠어요", gone: "🗑️ 철거됨", fix: "좌표 고치기", editNote: "바꾼 뒤 「💾 계획 저장」을 눌러야 저장돼요.", tapSel: "깃발을 누르면 고치거나 삭제할 수 있어요." },
   pt: { t: "🚩 Plano de Estandartes", hint: "Cada Estandarte da Aliança ocupa 7×7 casas (o estandarte no meio). O território precisa encostar no Território já ligado ao QG, então os estandartes vão em corrente, um depois do outro. Quem constrói primeiro fica com a casa: casas que outra aliança já tem continuam dela, por isso a lista conta na ordem. No mapa, azul = território novo desse estandarte, vermelho = já é de outra aliança.",
     on: "🚩 Tocar no mapa para pôr: LIGADO", off: "🚩 Tocar no mapa para pôr: DESLIGADO", tapHint: "Amplie o mapa e toque numa casa para pôr um estandarte; ajuste as coordenadas abaixo.", add: "+ Adicionar",
-    row: "+{n} casas", lost: "{n} casas são de outra aliança", notConn: "⚠️ Não está ligado ao nosso território (inativo: sem bônus de território, e os próximos não se ligam por ele)", onOther: "❌ A casa do estandarte é de outra aliança", total: "{f} estandartes · +{n} casas",
+    row: "+{n} casas", lost: "{n} casas já são da filial / de outra aliança (quem constrói primeiro fica)", notConn: "⚠️ Não está ligado ao nosso território (inativo: sem bônus de território, e os próximos não se ligam por ele)", onOther: "❌ A casa do estandarte está em terra da filial / de outra aliança", total: "{f} estandartes · +{n} casas",
     empty: "Nenhum estandarte planejado ainda.", obst: "⛰️ Obstáculos / Área Proibida", ot: "🏴 Outras alianças", putKind: "Tocar no mapa coloca:", cont: "🏁 Podem disputar (território encosta neste Posto):", contNone: "🏁 Nenhum território encosta neste Posto; ninguém pode disputá-lo.", hqP: "QG das [Planícies]", hqB: "QG da [Terra Maligna]", conv: "Mudar todos os {n} acima para:", conv1: "Mudar para:", otHint: "Agora toque num lugar vazio do mapa para colocar um 🏴 {n} (tocar num estandarte existente o seleciona). Depois toque em 💾 Salvar plano.", ourPlan: "🚩 Nosso estandarte planejado", ex: "🏳️ Nossos estandartes", exNote: "🏳️ {n} estandartes de pé (escuro = conferido no jogo: {c}, claro = estimado pela imagem do território, pode errar umas casas).", dl: "⬇️ Baixar coordenadas dos estandartes (CSV)", dl2: "⬇️ Baixar estandartes de outras alianças (CSV)", onMt: "❌ A casa do estandarte é montanha", onLake: "❌ A casa do estandarte é lago", inZone: "❌ Numa Área Proibida ({n})", del: "Remover", up: "Subir", save: "Toque em 💾 Salvar plano acima para os outros oficiais verem.",
     note: "Território lido de capturas de {d}; pode errar 1–2 casas e as outras alianças mudam — confira no jogo antes de construir.", loading: "Carregando o território…",
     selP: "🚩 Estandarte planejado #{n}", rmMark: "📌 Quero derrubar", rmUn: "↩️ Não derrubar", rmTag: "📌 a derrubar", rmList: "📌 Estandartes a derrubar ({n})", rmHint: "Ainda de pé, anotados para derrubar. A checagem de estandartes conta como se já não existissem.", selE: "🏳️ Estandarte da Aliança", conf: "conferido no jogo", est: "posição estimada", built: "✅ Construído", gone: "🗑️ Demolido", fix: "Corrigir coordenadas", editNote: "Depois de mudar, toque em 💾 Salvar plano.", tapSel: "Toque num estandarte para editar ou remover." },
   ar: { t: "🚩 خطة اللافتات", hint: "كل لافتة تحالف تأخذ 7×7 مربعات (اللافتة في الوسط). يجب أن يلامس إقليمها إقليمًا متصلًا بالمقر، فتمتد اللافتات واحدة بعد الأخرى. من يبني أولًا يملك: المربعات التي يملكها تحالف آخر تبقى له، لذلك تُحسب القائمة بالترتيب. على الخريطة: الأزرق = إقليم جديد من هذه اللافتة، الأحمر = لتحالف آخر.",
     on: "🚩 الضغط على الخريطة للوضع: يعمل", off: "🚩 الضغط على الخريطة للوضع: متوقف", tapHint: "كبّر الخريطة واضغط على مربع لوضع لافتة؛ عدّل الإحداثيات بالأسفل.", add: "+ إضافة",
-    row: "+{n} مربع", lost: "{n} مربع لتحالف آخر", notConn: "⚠️ غير متصلة بإقليمنا (غير فعالة: لا مكافأة إقليم، ولا تتصل بها اللافتات التالية)", onOther: "❌ مربع اللافتة لتحالف آخر", total: "{f} لافتة · +{n} مربع",
+    row: "+{n} مربع", lost: "{n} مربع صار للفرع / لتحالف آخر (الأسبق بناءً يملك)", notConn: "⚠️ غير متصلة بإقليمنا (غير فعالة: لا مكافأة إقليم، ولا تتصل بها اللافتات التالية)", onOther: "❌ مربع اللافتة داخل أرض الفرع / تحالف آخر", total: "{f} لافتة · +{n} مربع",
     empty: "لا توجد لافتات مخططة بعد.", obst: "⛰️ عوائق / المنطقة المحظورة", ot: "🏴 تحالفات أخرى", putKind: "الضغط على الخريطة يضع:", cont: "🏁 يمكنهم المنافسة (إقليمهم يلامس هذه المستوطنة):", contNone: "🏁 لا يوجد إقليم يلامس هذه المستوطنة؛ لا أحد يمكنه المنافسة عليها.", hqP: "مقر [السهول]", hqB: "مقر [أرض الشر]", conv: "تحويل كل الـ {n} أعلاه إلى:", conv1: "تحويل إلى:", otHint: "اضغط الآن على مكان فارغ في الخريطة لوضع 🏴 {n} (الضغط على لافتة موجودة يحددها). ثم اضغط 💾 حفظ الخطة.", ourPlan: "🚩 لافتتنا المخططة", ex: "🏳️ لافتاتنا", exNote: "🏳️ {n} لافتة قائمة (الداكن = تم التحقق في اللعبة: {c}، الفاتح = تقدير من صورة الإقليم وقد يخطئ ببضعة مربعات).", dl: "⬇️ تنزيل إحداثيات اللافتات (CSV)", dl2: "⬇️ تنزيل لافتات التحالفات الأخرى (CSV)", onMt: "❌ مربع اللافتة جبل", onLake: "❌ مربع اللافتة بحيرة", inZone: "❌ داخل المنطقة المحظورة ({n})", del: "حذف", up: "للأعلى", save: "اضغط 💾 حفظ الخطة بالأعلى ليراها الضباط الآخرون.",
     note: "الإقليم مأخوذ من لقطات {d}؛ قد يخطئ بمربع أو اثنين والتحالفات الأخرى تتغير — تحقق في اللعبة قبل البناء.", loading: "جارٍ تحميل الإقليم…",
     selP: "🚩 لافتة مخططة #{n}", rmMark: "📌 أريد إزالتها", rmUn: "↩️ لا تُزال", rmTag: "📌 للإزالة", rmList: "📌 رايات للإزالة ({n})", rmHint: "ما زالت قائمة ومسجَّلة للإزالة. فحص الرايات يحسبها كأنها غير موجودة.", selE: "🏳️ لافتة التحالف", conf: "تم التحقق في اللعبة", est: "موقع تقديري", built: "✅ تم البناء", gone: "🗑️ أُزيلت", fix: "تصحيح الإحداثيات", editNote: "بعد التغيير اضغط 💾 حفظ الخطة.", tapSel: "اضغط على لافتة لتعديلها أو حذفها." },
 
   en: { t: "🚩 Banner plan", hint: "Each Alliance Banner claims 7×7 tiles (banner in the middle); its territory must border territory already linked to the HQ, so banners chain one after another. Built first = owned: tiles another alliance already holds stay theirs, so the list is counted in order. On the map, blue tiles = new territory from that banner, red = already someone else's.",
     on: "🚩 Tap map to place: ON", off: "🚩 Tap map to place: OFF", tapHint: "Zoom in and tap a tile to drop a banner; fine-tune the coordinates below.", add: "+ Add",
-    row: "+{n} tiles", lost: "{n} tiles are someone else's", notConn: "⚠️ Not connected to our territory (inactive: no Territory Bonus, and later banners can't connect through it)", onOther: "❌ Banner tile is another alliance's", total: "{f} banners · +{n} tiles",
+    row: "+{n} tiles", lost: "{n} tiles already belong to the branch / another alliance (first built keeps them)", notConn: "⚠️ Not connected to our territory (inactive: no Territory Bonus, and later banners can't connect through it)", onOther: "❌ Banner tile is inside the branch's / another alliance's territory", total: "{f} banners · +{n} tiles",
     empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", ot: "🏴 Other alliances", putKind: "Tapping the map places:", cont: "🏁 Can contest (territory touches this Outpost):", contNone: "🏁 No alliance territory touches this Outpost, so nobody can contest it.", hqP: "[Plains] HQ", hqB: "[Badland] HQ", conv: "Change all {n} above to:", conv1: "Change to:", otHint: "Now tap an empty spot on the map to place a 🏴 {n} (tapping an existing banner selects it). Then press 💾 Save plan.", ourPlan: "🚩 Our planned banner", ex: "🏳️ Our banners", exNote: "🏳️ {n} banners standing (dark = checked in game: {c}, light = estimated from the territory picture, can be a few tiles off).", dl: "⬇️ Download banner coordinates (CSV)", dl2: "⬇️ Download other alliances' banners (CSV)", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
     note: "Territory read from screenshots taken {d}; it can be 1–2 tiles off and other alliances move — check in game before building.", loading: "Loading territory data…",
     selP: "🚩 Planned banner #{n}", rmMark: "📌 To take down", rmUn: "↩️ Keep it", rmTag: "📌 to take down", rmList: "📌 Banners to take down ({n})", rmHint: "Still standing, noted to come down. The banner check counts them as already gone.", selE: "🏳️ Alliance Banner", conf: "checked in game", est: "estimated position", built: "✅ Built", gone: "🗑️ Demolished", fix: "Fix coordinates", editNote: "Press 💾 Save plan to keep the change.", tapSel: "Tap a banner on the map to edit or remove it." } };
@@ -744,17 +744,32 @@ const nxSet = () => new Set((PLAN.ex && PLAN.ex.nx) || []);
 let RES_OWN = new Set();   // nodes inside our territory now (index into RESD), switched off or not
 const rmClean = () => { if (!PLAN.ex || !PLAN.ex.rm) return; const have = new Set(exList().map(([x, y]) => x + "," + y)); PLAN.ex.rm = PLAN.ex.rm.filter((k) => have.has(k)); if (!PLAN.ex.rm.length) delete PLAN.ex.rm; };   // a banner that is gone or moved is no longer on the list
 let OV = null;   // GRID with the officers' banner edits applied
+/* Who owns each tile (Sherry 2026-11-14): in game the first banner keeps its whole square; a later banner that overlaps it gets only the tiles
+   still free. So tiles are handed out in order: what stands now (PLAN.farm.ord.now says whose standing land came first, NXS or the branch),
+   then the planned banners (ord.plan says who builds first), each list in its own order. OWN_A = now, OWN_B = after both plans:
+   0 nobody · 1 NXS · 2 the branch · 3 another alliance (only while that layer is switched on). */
+let OWN_A = null, OWN_B = null;
+function ownBuild() {
+  if (!OWN_A) { OWN_A = new Uint8Array(FN * FN); OWN_B = new Uint8Array(FN * FN); } OWN_A.fill(0); OWN_B.fill(0);
+  const f = PLAN.farm || {}, ord = f.ord || {}, rm = rmSet(), frm = new Set(f.rm || []);
+  const claim = (O, x0, y0, x1, y1, who) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) for (let t = y * FN + Math.max(0, x0), e = y * FN + Math.min(FN - 1, x1); t <= e; t++) if (!O[t]) O[t] = who; };
+  const sq = (O, x, y, who) => claim(O, x - FR, y - FR, x + FR, y + FR, who), hq = (O, x, y, who) => claim(O, x - 6, y - 6, x + 8, y + 8, who);
+  if (otOn) for (const O of [OWN_A, OWN_B]) { for (const [, x, y] of otList()) sq(O, x, y, 3); for (const [, x, y] of otHq()) hq(O, x, y, 3); }
+  const mainNow = (O, after) => { for (const [x, y] of G.hq || []) hq(O, x, y, 1); for (const [x, y] of exList()) if (!after || !rm.has(x + "," + y)) sq(O, x, y, 1); };
+  const brNow = (O, after) => { for (const [x, y] of f.hq || []) hq(O, x, y, 2); for (const [x, y] of f.b || []) if (!after || !frm.has(x + "," + y)) sq(O, x, y, 2); };
+  for (const O of [OWN_A, OWN_B]) for (const fn of ord.now === "f" ? [brNow, mainNow] : [mainNow, brNow]) fn(O, O === OWN_B);
+  const mainPl = () => { for (const [x, y] of PLAN.fl || []) sq(OWN_B, x, y, 1); }, brPl = () => { for (const [x, y] of f.fl || []) sq(OWN_B, x, y, 2); };
+  for (const fn of ord.plan === "f" ? [brPl, mainPl] : [mainPl, brPl]) fn();
+}
+/* OV = what the 🚩 planner reads: 0 free · 1 ours · 2 not ours (the branch, or another alliance while its layer is on). When the branch builds first,
+   its planned banners are already "not ours" for our planned ones. */
 function rebuildOwn() {
-  if (!GRID) { OV = null; return; }
-  OV = GRID.slice(); const e = PLAN.ex || {}, keep = exList();
-  const sq = (x, y, f) => { for (let i = x - FR; i <= x + FR; i++) for (let j = y - FR; j <= y + FR; j++) if (i >= 0 && j >= 0 && i < FN && j < FN) f(j * FN + i); };
-  for (const k of e.off || []) { const [x, y] = k.split(",").map(Number); sq(x, y, (t) => { if (OV[t] === 1 && !(ZONE && ZONE[t])) OV[t] = 0; }); }
-  for (const [x, y] of keep) sq(x, y, (t) => { if (OV[t] !== 2) OV[t] = 1; });
-  for (const [x, y] of G.hq || []) for (let i = x - 6; i <= x + 8; i++) for (let j = y - 6; j <= y + 8; j++) OV[j * FN + i] = 1;
+  ownBuild(); OV = new Uint8Array(FN * FN); for (let t = 0; t < FN * FN; t++) { const o = OWN_A[t]; OV[t] = o === 1 ? 1 : o ? 2 : 0; }
+  const f = PLAN.farm || {}; if ((f.ord || {}).plan === "f") for (const [x, y] of f.fl || []) for (let j = Math.max(0, y - FR); j <= Math.min(FN - 1, y + FR); j++) for (let i = Math.max(0, x - FR); i <= Math.min(FN - 1, x + FR); i++) if (!OV[j * FN + i]) OV[j * FN + i] = 2;
 }
 /* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
-let OTB = null, otOn = (() => { try { return localStorage.getItem("km-otb") === "1"; } catch (e) { return false; } })();
-async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=2").then((r) => r.json()); } catch (e) { OTB = null; } drawOt(); renderFlags(); memRefresh(); }
+let OTB = null, otOn = (() => { try { return localStorage.getItem("km-otb2") === "1"; } catch (e) { return false; } })();
+async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=2").then((r) => r.json()); } catch (e) { OTB = null; } rebuildOwn(); drawOt(); renderFlags(); memRefresh(); }
 /* officers' fixes (saved with the plan): PLAN.ot = { off: ["UNI:x,y" gone / moved away], add: [["UNI", x, y] built / corrected] } */
 const otCol = (n) => (OTB && OTB.a[n] && OTB.a[n].c) || "#999";
 const otList = () => { if (!OTB) return []; const o = PLAN.ot || {}, off = new Set(o.off || []), out = [];
@@ -866,20 +881,12 @@ function drawFlags() {
 }
 /* 🌾 what the current plan does to our resource nodes (Sherry 2026-11-13): now = our HQs + every standing banner; after = the same without the
    📌 banners noted to come down and with the 🚩 planned banners. A node is ours with ≥ 3 of its 4 tiles in our territory (others' territory never counts). */
-let PD_A = null, PD_B = null, PD_X = null;
 function planDelta() {
   if (!RESD) { if (!resLoading) { resLoading = true; fetch("data/resources-2189.json?v=2").then((r) => r.json()).then((j) => { RESD = j.r || []; renderFlags(); }).catch(() => { resLoading = false; }); } return null; }
   if (!EXB) return null;
-  if (!PD_A) { PD_A = new Uint8Array(FN * FN); PD_B = new Uint8Array(FN * FN); PD_X = new Uint8Array(FN * FN); }
-  const fill = (A, x0, y0, x1, y1) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) A.fill(1, y * FN + Math.max(0, x0), y * FN + Math.min(FN - 1, x1) + 1); };
-  PD_A.fill(0); PD_B.fill(0); PD_X.fill(0);
-  for (const [, x, y] of otList()) fill(PD_X, x - FR, y - FR, x + FR, y + FR); for (const [, x, y] of otHq()) fill(PD_X, x - 6, y - 6, x + 8, y + 8);
-  { const f = PLAN.farm || {}; for (const [x, y] of f.b || []) fill(PD_X, x - FR, y - FR, x + FR, y + FR); for (const [x, y] of f.hq || []) fill(PD_X, x - 6, y - 6, x + 8, y + 8); }   // the farm alliance's land is not NXS land
-  for (const [x, y] of G.hq || []) { fill(PD_A, x - 6, y - 6, x + 8, y + 8); fill(PD_B, x - 6, y - 6, x + 8, y + 8); }
-  const rm = rmSet(); for (const [x, y] of exList()) { fill(PD_A, x - FR, y - FR, x + FR, y + FR); if (!rm.has(x + "," + y)) fill(PD_B, x - FR, y - FR, x + FR, y + FR); }
-  for (const [x, y] of PLAN.fl || []) fill(PD_B, x - FR, y - FR, x + FR, y + FR);
+  if (!OWN_A) ownBuild(); const rm = rmSet();
   const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 }, nx = nxSet(), own = new Set(), off = [];
-  RESD.forEach(([k, x, y], n) => { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (PD_X[t]) continue; ca += PD_A[t]; cb += PD_B[t]; }
+  RESD.forEach(([k, x, y], n) => { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (OWN_A[t] === 1) ca++; if (OWN_B[t] === 1) cb++; }
     if (ca >= 3) own.add(n); if (nx.has(x + "," + y)) { if (ca >= 3) off.push([k, x, y]); return; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; });
   RES_OWN = own;
   const n0 = exList().length;
@@ -915,17 +922,18 @@ function planDeltaHtml(d) {
    Its land is never NXS land and the other way round. */
 const FK = ["hq", "b", "fl", "bt", "btp", "c"], FK_ICON = { hq: "🏯", b: "🏳️", fl: "🚩", bt: "🐻", btp: "🐻", c: "🏠" };
 const farm = () => (PLAN.farm = PLAN.farm || {}, FK.forEach((k) => { PLAN.farm[k] = PLAN.farm[k] || []; }), PLAN.farm.rm = PLAN.farm.rm || [], PLAN.farm);
-const farmAny = () => { const f = PLAN.farm; return !!f && (FK.some((k) => (f[k] || []).length) || !!f.tag); };
+const farmAny = () => { const f = PLAN.farm; return !!f && (FK.some((k) => (f[k] || []).length) || !!f.tag || !!f.ord); };
 const FKU = ["hq", "hqb", "b", "fl", "bt", "btp", "c"], fList = (k) => (k === "hqb" ? "hq" : k), fMake = (k, x, y) => (k === "hqb" ? [x, y, 2] : [x, y]);   // the farm has a Plains HQ and a Badland HQ, like NXS
 const fk = (k) => (k === "hq" ? "🏯 " + ft("hqP") : k === "hqb" ? "🏯 " + ft("hqB") : fmt("k")[k]);   // HQ names = the game's own (same as NXS)
 const fName = (k, it) => fk(k === "hq" && it && it[2] === 2 ? "hqb" : k);
-let farmKind = "", FARM_SEL = null, FM_A = null, FM_B = null, FM_X = null;
+const fTag = () => (PLAN.farm && PLAN.farm.tag) || "nxs";   // the branch's name: "nxs" unless an officer types another
+let farmKind = "", FARM_SEL = null, CV_M = null, CV_F = null;
 const FM_T = {
-  en: { h: "🌾 Farm alliance", p: "Our second alliance on the same map: its HQ, banners, Bear Traps and city spots, and its own plan. Its land never counts as NXS land.", tag: "Name", put: "Tapping the map places:", off: "— nothing —", k: { hq: "🏯 Plains HQ", hqb: "🏯 Badland HQ", b: "🏳️ Banner (standing)", fl: "🚩 Banner to build", bt: "🐻 Bear Trap (now)", btp: "🐻 Bear Trap (planned)", c: "🏠 City spot" }, hint: "Tap the map to place it, or type its coordinates below. Tapping something of the farm selects it.", typ: "Or type:", add: "➕ Add", fix: "Fix", cnt: "HQ {hq} · banners {b} (to take down {rm}) · to build {fl} · Bear Traps {bt} · planned {btp} · city spots {c}", del: "Remove", rm: "📌 To take down", rmU: "↩️ Keep it", built: "✅ Built", moved: "✅ Moved here", in: "inside the farm's territory", out: "not inside the farm's territory", after: "after the plan", res: "🌾 The farm's resource nodes", cols: ["Now", "After", "Change", "per hour"], tot: "Total", lg: "On the map (green): frame = banner, dashed = to build, red ✕ = to take down, 🐻 = Bear Trap (dashed = planned), small square = city spot.", none: "Nothing placed yet." },
-  zh: { h: "🌾 農場聯盟", p: "同一張地圖上的第二個聯盟：它的總部、旗、熊陷阱、城位，以及它自己的規劃。農場的領地不會算成 NXS 的。", tag: "名稱", put: "點地圖放的是：", off: "— 不放 —", k: { hq: "🏯 平原總部", hqb: "🏯 荒野總部", b: "🏳️ 旗（已蓋好）", fl: "🚩 要蓋的旗", bt: "🐻 熊陷阱（現在）", btp: "🐻 熊陷阱（規劃）", c: "🏠 城位" }, hint: "點地圖就會放上去，或在下面直接輸入座標。點到農場已有的東西會選取它。", typ: "或輸入座標：", add: "➕ 加入", fix: "修正", cnt: "總部 {hq} · 旗 {b}（想拆 {rm}）· 要蓋 {fl} · 熊陷阱 {bt} · 規劃 {btp} · 城位 {c}", del: "移除", rm: "📌 想拆", rmU: "↩️ 不拆了", built: "✅ 已蓋好", moved: "✅ 已搬到這裡", in: "在農場領地內", out: "不在農場領地內", after: "規劃後", res: "🌾 農場的資源點", cols: ["現在", "規劃後", "增減", "每小時"], tot: "合計", lg: "地圖上（綠色）：框＝旗，虛線＝要蓋，紅 ✕＝想拆，🐻＝熊陷阱（虛線＝規劃），小方塊＝城位。", none: "還沒放任何東西。" },
-  pt: { h: "🌾 Aliança fazenda", p: "A nossa segunda aliança no mesmo mapa: QG, estandartes, Armadilhas de Urso e lugares de cidade, com plano próprio. A terra dela nunca conta como terra da NXS.", tag: "Nome", put: "Tocar no mapa coloca:", off: "— nada —", k: { hq: "🏯 QG das Planícies", hqb: "🏯 QG das Terras Áridas", b: "🏳️ Estandarte (de pé)", fl: "🚩 Estandarte a construir", bt: "🐻 Armadilha de Urso (agora)", btp: "🐻 Armadilha de Urso (planejada)", c: "🏠 Lugar de cidade" }, hint: "Toque no mapa para colocar, ou digite as coordenadas abaixo. Tocar em algo da fazenda seleciona.", typ: "Ou digite:", add: "➕ Adicionar", fix: "Corrigir", cnt: "QG {hq} · estandartes {b} (a derrubar {rm}) · a construir {fl} · Armadilhas {bt} · planejadas {btp} · cidades {c}", del: "Remover", rm: "📌 Quero derrubar", rmU: "↩️ Não derrubar", built: "✅ Construído", moved: "✅ Movida para cá", in: "dentro do território da fazenda", out: "fora do território da fazenda", after: "depois do plano", res: "🌾 Nós de recurso da fazenda", cols: ["Agora", "Depois", "Diferença", "por hora"], tot: "Total", lg: "No mapa (verde): moldura = estandarte, tracejado = a construir, ✕ vermelho = a derrubar, 🐻 = Armadilha de Urso (tracejado = planejada), quadradinho = lugar de cidade.", none: "Nada colocado ainda." },
-  ar: { h: "🌾 تحالف المزرعة", p: "تحالفنا الثاني على الخريطة نفسها: مقره وراياته وفخاخ الدب وأماكن المدن، مع خطته الخاصة. أرضه لا تُحسب أبدًا أرضًا لـNXS.", tag: "الاسم", put: "الضغط على الخريطة يضع:", off: "— لا شيء —", k: { hq: "🏯 مقر السهول", hqb: "🏯 مقر الأراضي القاحلة", b: "🏳️ راية (قائمة)", fl: "🚩 راية للبناء", bt: "🐻 فخ الدب (الآن)", btp: "🐻 فخ الدب (مخطط)", c: "🏠 مكان مدينة" }, hint: "اضغط على الخريطة لوضعه أو اكتب إحداثياته أدناه. الضغط على شيء للمزرعة يحدده.", typ: "أو اكتب:", add: "➕ إضافة", fix: "تصحيح", cnt: "المقر {hq} · الرايات {b} (للإزالة {rm}) · للبناء {fl} · فخاخ الدب {bt} · مخططة {btp} · أماكن المدن {c}", del: "إزالة", rm: "📌 أريد إزالتها", rmU: "↩️ لا تُزال", built: "✅ بُنيت", moved: "✅ نُقل إلى هنا", in: "داخل أرض المزرعة", out: "خارج أرض المزرعة", after: "بعد الخطة", res: "🌾 عقد موارد المزرعة", cols: ["الآن", "بعدها", "الفرق", "في الساعة"], tot: "المجموع", lg: "على الخريطة (أخضر): إطار = راية، متقطع = للبناء، ✕ أحمر = للإزالة، 🐻 = فخ الدب (متقطع = مخطط)، مربع صغير = مكان مدينة.", none: "لم يوضع شيء بعد." },
-  ko: { h: "🌾 농장 연맹", p: "같은 지도 위의 두 번째 연맹: 본부, 깃발, 곰 함정, 성 자리와 자체 계획이에요. 농장 영지는 NXS 영지로 세지 않아요.", tag: "이름", put: "지도에 놓을 것:", off: "— 없음 —", k: { hq: "🏯 평원 본부", hqb: "🏯 황무지 본부", b: "🏳️ 깃발 (세워짐)", fl: "🚩 세울 깃발", bt: "🐻 곰 함정 (현재)", btp: "🐻 곰 함정 (계획)", c: "🏠 성 자리" }, hint: "지도를 누르거나 아래에 좌표를 입력하세요. 농장 것을 누르면 선택돼요.", typ: "또는 입력:", add: "➕ 추가", fix: "수정", cnt: "본부 {hq} · 깃발 {b} (철거 예정 {rm}) · 세울 깃발 {fl} · 곰 함정 {bt} · 계획 {btp} · 성 자리 {c}", del: "삭제", rm: "📌 철거 예정", rmU: "↩️ 철거 안 함", built: "✅ 세움", moved: "✅ 여기로 옮김", in: "농장 영지 안", out: "농장 영지 밖", after: "계획 후", res: "🌾 농장의 자원", cols: ["지금", "계획 후", "증감", "시간당"], tot: "합계", lg: "지도 (초록): 테두리 = 깃발, 점선 = 세울 깃발, 빨간 ✕ = 철거 예정, 🐻 = 곰 함정 (점선 = 계획), 작은 네모 = 성 자리.", none: "아직 놓은 것이 없어요." } };
+  en: { ordH: "Overlap — first built keeps the tile", ordNow: "Land standing now that overlaps belongs to", ordPlan: "Planned banners are built first by", m: "NXS", f: "the branch", ovl: "Overlap after the plans: {a} tiles go to NXS (strong blue), {b} to the branch (strong green).", h: "🏕️ Branch alliance", p: "Our branch — a second alliance of ours on the same map: its HQ, banners, Bear Traps and city spots, and its own plan. Its land never counts as NXS land.", tag: "Name", put: "Tapping the map places:", off: "— nothing —", k: { hq: "🏯 Plains HQ", hqb: "🏯 Badland HQ", b: "🏳️ Banner (standing)", fl: "🚩 Banner to build", bt: "🐻 Bear Trap (now)", btp: "🐻 Bear Trap (planned)", c: "🏠 City spot" }, hint: "Tap the map to place it, or type its coordinates below. Tapping something of the branch selects it.", typ: "Or type:", add: "➕ Add", fix: "Fix", cnt: "HQ {hq} · banners {b} (to take down {rm}) · to build {fl} · Bear Traps {bt} · planned {btp} · city spots {c}", del: "Remove", rm: "📌 To take down", rmU: "↩️ Keep it", built: "✅ Built", moved: "✅ Moved here", in: "inside the branch's territory", out: "not inside the branch's territory", after: "after the plan", res: "🌾 The branch's resource nodes", cols: ["Now", "After", "Change", "per hour"], tot: "Total", lg: "On the map (green): frame = banner, dashed = to build, red ✕ = to take down, 🐻 = Bear Trap (dashed = planned), small square = city spot.", none: "Nothing placed yet." },
+  zh: { ordH: "重疊的格子——先蓋的先得", ordNow: "現在已經重疊的領地算", ordPlan: "規劃的旗誰先蓋", m: "主盟（NXS）", f: "分部", ovl: "規劃後重疊的格子：{a} 格算主盟（深藍）、{b} 格算分部（深綠）。", h: "🏕️ 分部聯盟", p: "我們的分部——同一張地圖上的第二個聯盟：它的總部、旗、熊陷阱、城位，以及它自己的規劃。分部的領地不會算成 NXS 的。", tag: "名稱", put: "點地圖放的是：", off: "— 不放 —", k: { hq: "🏯 平原總部", hqb: "🏯 荒野總部", b: "🏳️ 旗（已蓋好）", fl: "🚩 要蓋的旗", bt: "🐻 熊陷阱（現在）", btp: "🐻 熊陷阱（規劃）", c: "🏠 城位" }, hint: "點地圖就會放上去，或在下面直接輸入座標。點到分部已有的東西會選取它。", typ: "或輸入座標：", add: "➕ 加入", fix: "修正", cnt: "總部 {hq} · 旗 {b}（想拆 {rm}）· 要蓋 {fl} · 熊陷阱 {bt} · 規劃 {btp} · 城位 {c}", del: "移除", rm: "📌 想拆", rmU: "↩️ 不拆了", built: "✅ 已蓋好", moved: "✅ 已搬到這裡", in: "在分部領地內", out: "不在分部領地內", after: "規劃後", res: "🌾 分部的資源點", cols: ["現在", "規劃後", "增減", "每小時"], tot: "合計", lg: "地圖上（綠色）：框＝旗，虛線＝要蓋，紅 ✕＝想拆，🐻＝熊陷阱（虛線＝規劃），小方塊＝城位。", none: "還沒放任何東西。" },
+  pt: { ordH: "Sobreposição — quem constrói primeiro fica com a casa", ordNow: "A terra de pé agora que se sobrepõe é de", ordPlan: "Os estandartes planejados são construídos primeiro por", m: "NXS", f: "a filial", ovl: "Sobreposição depois dos planos: {a} casas ficam com a NXS (azul forte), {b} com a filial (verde forte).", h: "🏕️ Aliança filial", p: "A nossa filial — uma segunda aliança nossa no mesmo mapa: QG, estandartes, Armadilhas de Urso e lugares de cidade, com plano próprio. A terra dela nunca conta como terra da NXS.", tag: "Nome", put: "Tocar no mapa coloca:", off: "— nada —", k: { hq: "🏯 QG das Planícies", hqb: "🏯 QG das Terras Áridas", b: "🏳️ Estandarte (de pé)", fl: "🚩 Estandarte a construir", bt: "🐻 Armadilha de Urso (agora)", btp: "🐻 Armadilha de Urso (planejada)", c: "🏠 Lugar de cidade" }, hint: "Toque no mapa para colocar, ou digite as coordenadas abaixo. Tocar em algo da filial seleciona.", typ: "Ou digite:", add: "➕ Adicionar", fix: "Corrigir", cnt: "QG {hq} · estandartes {b} (a derrubar {rm}) · a construir {fl} · Armadilhas {bt} · planejadas {btp} · cidades {c}", del: "Remover", rm: "📌 Quero derrubar", rmU: "↩️ Não derrubar", built: "✅ Construído", moved: "✅ Movida para cá", in: "dentro do território da filial", out: "fora do território da filial", after: "depois do plano", res: "🌾 Nós de recurso da filial", cols: ["Agora", "Depois", "Diferença", "por hora"], tot: "Total", lg: "No mapa (verde): moldura = estandarte, tracejado = a construir, ✕ vermelho = a derrubar, 🐻 = Armadilha de Urso (tracejado = planejada), quadradinho = lugar de cidade.", none: "Nada colocado ainda." },
+  ar: { ordH: "التداخل — الأسبق بناءً يملك المربع", ordNow: "الأرض القائمة الآن المتداخلة تُحسب لـ", ordPlan: "الرايات المخططة يبنيها أولًا", m: "NXS", f: "الفرع", ovl: "التداخل بعد الخطط: {a} مربعًا لـNXS (أزرق قوي)، {b} للفرع (أخضر قوي).", h: "🏕️ تحالف الفرع", p: "فرعنا — تحالف ثانٍ لنا على الخريطة نفسها: مقره وراياته وفخاخ الدب وأماكن المدن، مع خطته الخاصة. أرضه لا تُحسب أبدًا أرضًا لـNXS.", tag: "الاسم", put: "الضغط على الخريطة يضع:", off: "— لا شيء —", k: { hq: "🏯 مقر السهول", hqb: "🏯 مقر الأراضي القاحلة", b: "🏳️ راية (قائمة)", fl: "🚩 راية للبناء", bt: "🐻 فخ الدب (الآن)", btp: "🐻 فخ الدب (مخطط)", c: "🏠 مكان مدينة" }, hint: "اضغط على الخريطة لوضعه أو اكتب إحداثياته أدناه. الضغط على شيء للفرع يحدده.", typ: "أو اكتب:", add: "➕ إضافة", fix: "تصحيح", cnt: "المقر {hq} · الرايات {b} (للإزالة {rm}) · للبناء {fl} · فخاخ الدب {bt} · مخططة {btp} · أماكن المدن {c}", del: "إزالة", rm: "📌 أريد إزالتها", rmU: "↩️ لا تُزال", built: "✅ بُنيت", moved: "✅ نُقل إلى هنا", in: "داخل أرض الفرع", out: "خارج أرض الفرع", after: "بعد الخطة", res: "🌾 عقد موارد الفرع", cols: ["الآن", "بعدها", "الفرق", "في الساعة"], tot: "المجموع", lg: "على الخريطة (أخضر): إطار = راية، متقطع = للبناء، ✕ أحمر = للإزالة، 🐻 = فخ الدب (متقطع = مخطط)، مربع صغير = مكان مدينة.", none: "لم يوضع شيء بعد." },
+  ko: { ordH: "겹치는 칸 — 먼저 세운 쪽이 가져요", ordNow: "지금 겹쳐 있는 영지는", ordPlan: "계획한 깃발을 먼저 세우는 쪽", m: "NXS", f: "지부", ovl: "계획 후 겹치는 칸: NXS {a}칸 (진한 파랑), 지부 {b}칸 (진한 초록).", h: "🏕️ 지부 연맹", p: "우리 지부 — 같은 지도 위의 두 번째 연맹: 본부, 깃발, 곰 함정, 성 자리와 자체 계획이에요. 지부 영지는 NXS 영지로 세지 않아요.", tag: "이름", put: "지도에 놓을 것:", off: "— 없음 —", k: { hq: "🏯 평원 본부", hqb: "🏯 황무지 본부", b: "🏳️ 깃발 (세워짐)", fl: "🚩 세울 깃발", bt: "🐻 곰 함정 (현재)", btp: "🐻 곰 함정 (계획)", c: "🏠 성 자리" }, hint: "지도를 누르거나 아래에 좌표를 입력하세요. 지부 것을 누르면 선택돼요.", typ: "또는 입력:", add: "➕ 추가", fix: "수정", cnt: "본부 {hq} · 깃발 {b} (철거 예정 {rm}) · 세울 깃발 {fl} · 곰 함정 {bt} · 계획 {btp} · 성 자리 {c}", del: "삭제", rm: "📌 철거 예정", rmU: "↩️ 철거 안 함", built: "✅ 세움", moved: "✅ 여기로 옮김", in: "지부 영지 안", out: "지부 영지 밖", after: "계획 후", res: "🌾 지부의 자원", cols: ["지금", "계획 후", "증감", "시간당"], tot: "합계", lg: "지도 (초록): 테두리 = 깃발, 점선 = 세울 깃발, 빨간 ✕ = 철거 예정, 🐻 = 곰 함정 (점선 = 계획), 작은 네모 = 성 자리.", none: "아직 놓은 것이 없어요." } };
 const fmt = (k) => (FM_T[lang] || FM_T.en)[k];
 /* what a tile hits: HQ building 3×3 and Bear Trap 3×3 from their lower corner, city 2×2, banner = its centre tile ±1 */
 function farmHit(tx, ty) {
@@ -939,25 +947,34 @@ function farmTap(tx, ty) {
   const L = fList(k), pos = L === "hq" || k === "bt" || k === "btp" ? fMake(k, tx - 1, ty - 1) : [tx, ty];   // 3×3 things: the tapped tile is their middle
   f[L].push(pos); FARM_SEL = { k: L, i: f[L].length - 1 }; flagsChanged(); return true;
 }
-function farmTerr(A, after) { const f = PLAN.farm || {}, rm = new Set(f.rm || []), fill = (x0, y0, x1, y1) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) A.fill(1, y * FN + Math.max(0, x0), y * FN + Math.min(FN - 1, x1) + 1); };
-  for (const [x, y] of f.hq || []) fill(x - 6, y - 6, x + 8, y + 8); for (const [x, y] of f.b || []) if (!after || !rm.has(x + "," + y)) fill(x - FR, y - FR, x + FR, y + FR); if (after) for (const [x, y] of f.fl || []) fill(x - FR, y - FR, x + FR, y + FR); }
 function farmCalc() {
-  if (!FM_A) { FM_A = new Uint8Array(FN * FN); FM_B = new Uint8Array(FN * FN); FM_X = new Uint8Array(FN * FN); }
-  FM_A.fill(0); FM_B.fill(0); FM_X.fill(0); farmTerr(FM_A, false); farmTerr(FM_B, true);
-  const fill = (x0, y0, x1, y1) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) FM_X.fill(1, y * FN + Math.max(0, x0), y * FN + Math.min(FN - 1, x1) + 1); };
-  for (const [, x, y] of otList()) fill(x - FR, y - FR, x + FR, y + FR); for (const [, x, y] of otHq()) fill(x - 6, y - 6, x + 8, y + 8);
-  for (const [x, y] of G.hq || []) fill(x - 6, y - 6, x + 8, y + 8); if (EXB) for (const [x, y] of exList()) fill(x - FR, y - FR, x + FR, y + FR);   // NXS land is not the farm's
-  const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 };
-  if (RESD) for (const [k, x, y] of RESD) { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (FM_X[t]) continue; ca += FM_A[t]; cb += FM_B[t]; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; }
-  const inT = (A, [x, y]) => { for (let j = y; j <= y + 2; j++) for (let i = x; i <= x + 2; i++) if (!A[j * FN + i]) return false; return true; };
-  const f = PLAN.farm || {}; return { a, b, bt: (f.bt || []).map((p) => inT(FM_A, p)), btp: (f.btp || []).map((p) => inT(FM_B, p)) };
+  if (!OWN_A) ownBuild(); const a = { b: 0, w: 0, q: 0, i: 0 }, b = { b: 0, w: 0, q: 0, i: 0 };
+  if (RESD) for (const [k, x, y] of RESD) { let ca = 0, cb = 0; for (let j = y; j < y + 2; j++) for (let i = x; i < x + 2; i++) { const t = j * FN + i; if (OWN_A[t] === 2) ca++; if (OWN_B[t] === 2) cb++; } if (ca >= 3) a[k]++; if (cb >= 3) b[k]++; }
+  const inT = (A, [x, y]) => { for (let j = y; j <= y + 2; j++) for (let i = x; i <= x + 2; i++) if (A[j * FN + i] !== 2) return false; return true; };
+  const f = PLAN.farm || {}; return { a, b, bt: (f.bt || []).map((p) => inT(OWN_A, p)), btp: (f.btp || []).map((p) => inT(OWN_B, p)) };
+}
+/* tiles both alliances cover after the plans, coloured by who gets them (first come, first served): strong blue = NXS, strong green = the branch */
+function drawOwn() {
+  const g = $("km_ownG"); if (!g) return; const f = PLAN.farm || {}; if (!farmAny() || !OWN_B) { g.innerHTML = ""; return; }
+  if (!CV_M) { CV_M = new Uint8Array(FN * FN); CV_F = new Uint8Array(FN * FN); } CV_M.fill(0); CV_F.fill(0);
+  const fill = (A, x0, y0, x1, y1) => { for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) A.fill(1, y * FN + Math.max(0, x0), y * FN + Math.min(FN - 1, x1) + 1); };
+  const rm = rmSet(), frm = new Set(f.rm || []), fr = [];
+  for (const [x, y] of G.hq || []) fill(CV_M, x - 6, y - 6, x + 8, y + 8); for (const [x, y] of exList()) if (!rm.has(x + "," + y)) fill(CV_M, x - FR, y - FR, x + FR, y + FR); for (const [x, y] of PLAN.fl || []) fill(CV_M, x - FR, y - FR, x + FR, y + FR);
+  for (const [x, y] of f.hq || []) fr.push([x - 6, y - 6, x + 8, y + 8]); for (const [x, y] of f.b || []) if (!frm.has(x + "," + y)) fr.push([x - FR, y - FR, x + FR, y + FR]); for (const [x, y] of f.fl || []) fr.push([x - FR, y - FR, x + FR, y + FR]);
+  let h = "", n1 = 0, n2 = 0;
+  for (const [x0, y0, x1, y1] of fr) for (let y = Math.max(0, y0); y <= Math.min(FN - 1, y1); y++) { let run = -1, who = 0;
+    for (let x = Math.max(0, x0); x <= Math.min(FN - 1, x1) + 1; x++) { const t = y * FN + x, w = x <= Math.min(FN - 1, x1) && CV_M[t] && !CV_F[t] && (OWN_B[t] === 1 || OWN_B[t] === 2) ? OWN_B[t] : 0;
+      if (w !== who) { if (who) { h += `<polygon points="${pts([[run, y], [x, y], [x, y + 1], [run, y + 1]])}" fill="${who === 1 ? "#1565ff" : "#12a150"}" fill-opacity=".85"/>`; if (who === 1) n1 += x - run; else n2 += x - run; } run = x; who = w; }
+      if (w) CV_F[t] = 1; } }   // CV_F doubles as "already drawn"
+  g.innerHTML = h; OWN_B.contested = [n1, n2];
 }
 function drawFarm() {
+  drawOwn();
   const g = $("km_farmG"); if (!g) return; const f = PLAN.farm; if (!f || !farmAny()) { g.innerHTML = ""; return; }
   const rm = new Set(f.rm || []), sq = (x0, y0, x1, y1) => pts([[x0, y0], [x1 + 1, y0], [x1 + 1, y1 + 1], [x0, y1 + 1]]), sel = (k, i) => FARM_SEL && FARM_SEL.k === k && FARM_SEL.i === i ? ' stroke="#ffe24a" stroke-width="1"' : "";
   const txt = (x, y, t, sz, col) => { const [X, Y] = P(x, y); return `<text x="${X}" y="${Y + sz * .35}" text-anchor="middle" font-family="Arial" font-size="${sz}" font-weight="800" fill="${col || "#fff"}" stroke="#123" stroke-width=".4" paint-order="stroke">${esc(t)}</text>`; };
   let h = "";
-  (f.hq || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x - 6, y - 6, x + 8, y + 8)}" fill="rgba(60,190,90,.35)" stroke="#9be7a8" stroke-width=".5"/><polygon points="${sq(x, y, x + 2, y + 2)}" fill="#1f7a3a" stroke="#fff" stroke-width=".4"${sel("hq", i)}/>` + txt(x + 1.5, y + 1.5, "🌾" + (f.tag || "") + " " + hqLbl(f.hq[i][2] === 2 ? 2 : 1), 3.2); });
+  (f.hq || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x - 6, y - 6, x + 8, y + 8)}" fill="rgba(60,190,90,.35)" stroke="#9be7a8" stroke-width=".5"/><polygon points="${sq(x, y, x + 2, y + 2)}" fill="#1f7a3a" stroke="#fff" stroke-width=".4"${sel("hq", i)}/>` + txt(x + 1.5, y + 1.5, "🏕️" + fTag() + " " + hqLbl(f.hq[i][2] === 2 ? 2 : 1), 3.2); });
   (f.b || []).forEach(([x, y], i) => { const off = rm.has(x + "," + y); h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="${off ? "rgba(230,50,50,.18)" : "rgba(60,190,90,.38)"}" stroke="${off ? "#ff5a4d" : "#9be7a8"}" stroke-width="${off ? ".7" : ".35"}"${off ? ' stroke-dasharray="1.6 1"' : ""}/><polygon points="${tilePts(x, y)}" fill="#1f7a3a" stroke="#fff" stroke-width=".3"${sel("b", i)}/>` + (off ? txt(x + .5, y + .5, "✕", 4, "#ff5a4d") : ""); });
   (f.fl || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="rgba(60,190,90,.15)" stroke="#3fae5a" stroke-width=".6" stroke-dasharray="1.4 .9"${sel("fl", i)}/>` + txt(x + .5, y + .5, String(i + 1), 3, "#d9ffe0"); });
   (f.bt || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x, y, x + 2, y + 2)}" fill="#8d5a2b" stroke="#fff" stroke-width=".4"${sel("bt", i)}/>` + txt(x + 1.5, y + 1.5, "🐻", 3); });
@@ -968,8 +985,8 @@ function drawFarm() {
 function renderFarm() {
   const el = $("km_farm"); if (!el) return; const ed = ME(), f = PLAN.farm || {}, any = farmAny(); if (!ed && !any) { el.innerHTML = ""; return; }
   const n = (k) => (f[k] || []).length, sg = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toLocaleString("en-US");
-  let h = `<div class="card km-flags" style="margin-top:14px"><h3 style="margin-bottom:2px">${esc(fmt("h"))}${f.tag ? " · " + esc(f.tag) : ""}</h3><div class="muted" style="font-size:12.5px">${esc(fmt("p"))}</div>`;
-  if (ed) h += `<div class="row" style="margin-top:10px;gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(fmt("tag"))} <input class="inp" id="fm_tag" maxlength="12" value="${esc(f.tag || "")}" style="width:110px;height:36px;box-sizing:border-box"></label>
+  let h = `<div class="card km-flags" style="margin-top:14px"><h3 style="margin-bottom:2px">${esc(fmt("h"))} · ${esc(fTag())}</h3><div class="muted" style="font-size:12.5px">${esc(fmt("p"))}</div>`;
+  if (ed) h += `<div class="row" style="margin-top:10px;gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(fmt("tag"))} <input class="inp" id="fm_tag" maxlength="12" value="${esc(fTag())}" style="width:110px;height:36px;box-sizing:border-box"></label>
       <label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(fmt("put"))} <select class="btn${farmKind ? " primary" : ""}" id="fm_kind" style="height:36px"><option value="">${esc(fmt("off"))}</option>${FKU.map((k) => `<option value="${k}"${farmKind === k ? " selected" : ""}>${esc(fk(k))}</option>`).join("")}</select></label></div>
       ${farmKind ? `<div class="muted" style="font-size:12px;margin-top:4px;color:var(--accent,#ffb020);font-weight:700">${esc(fmt("hint"))}</div>
       <div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center"><span style="font-size:13px">${esc(fmt("typ"))}</span><span>X</span><input class="inp" id="fm_x" type="number" inputmode="numeric" min="0" max="1199" style="width:76px;height:36px;box-sizing:border-box"><span>Y</span><input class="inp" id="fm_y" type="number" inputmode="numeric" min="0" max="1199" style="width:76px;height:36px;box-sizing:border-box"><button type="button" class="btn small primary" id="fm_add" style="height:36px">${esc(fmt("add"))}</button></div>` : ""}`;
@@ -980,6 +997,9 @@ function renderFarm() {
       ${ed ? `<div class="row" style="gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px"><span>X</span><input class="inp" id="fm_sx" type="number" inputmode="numeric" value="${x}" style="width:76px;height:36px;box-sizing:border-box"><span>Y</span><input class="inp" id="fm_sy" type="number" inputmode="numeric" value="${y}" style="width:76px;height:36px;box-sizing:border-box"><button type="button" class="btn small" id="fm_fix" style="height:36px">${esc(fmt("fix"))}</button></div>` : ""}
       ${ed ? `<div class="row" style="gap:6px;flex-wrap:wrap;margin-top:6px">${k === "b" ? `<button type="button" class="btn small" data-fa="rm">${esc(fmt(off ? "rmU" : "rm"))}</button>` : ""}${k === "fl" ? `<button type="button" class="btn small" data-fa="built">${esc(fmt("built"))}</button>` : ""}${k === "btp" ? `<button type="button" class="btn small" data-fa="moved">${esc(fmt("moved"))}</button>` : ""}<button type="button" class="btn small" data-fa="del">${esc(fmt("del"))}</button></div>` : ""}</div>`; }
   h += `<div class="muted" style="font-size:12.5px;margin-top:8px">${esc(fmt("cnt").replace("{hq}", n("hq")).replace("{b}", n("b")).replace("{rm}", (f.rm || []).length).replace("{fl}", n("fl")).replace("{bt}", n("bt")).replace("{btp}", n("btp")).replace("{c}", n("c")))}</div>`;
+  { const ord = f.ord || {}, sel = (id, v) => `<select class="btn" id="${id}" style="height:34px"><option value="m"${v !== "f" ? " selected" : ""}>${esc(fmt("m"))}</option><option value="f"${v === "f" ? " selected" : ""}>${esc(fmt("f"))} (${esc(fTag())})</option></select>`, cn = (OWN_B && OWN_B.contested) || [0, 0];
+    h += `<div class="km-pd"><b>${esc(fmt("ordH"))}</b>${ed ? `<div class="row" style="gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px;font-size:13px"><span>${esc(fmt("ordNow"))}</span>${sel("fm_on", ord.now)}</div><div class="row" style="gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px;font-size:13px"><span>${esc(fmt("ordPlan"))}</span>${sel("fm_op", ord.plan)}</div>` : ""}
+      <div class="muted" style="font-size:12.5px;margin-top:6px">${esc(fmt("ovl").replace("{a}", cn[0]).replace("{b}", cn[1]))}</div></div>`; }
   const trap = (l, ok, k) => l.map(([x, y], i) => `<span class="mm-chip" style="display:inline-block;margin:2px 4px 2px 0">${FK_ICON[k]} ${x},${y} · ${ok[i] ? "✓ " + esc(fmt("in")) : "✗ " + esc(fmt("out"))}</span>`).join("");
   if (n("bt") || n("btp")) h += `<div style="margin-top:6px;font-size:12.5px">${n("bt") ? `<div>${esc(fmt("k").bt)}: ${trap(f.bt, c.bt, "bt")}</div>` : ""}${n("btp") ? `<div>${esc(fmt("k").btp)} (${esc(fmt("after"))}): ${trap(f.btp, c.btp, "btp")}</div>` : ""}</div>`;
   if (RESD) { const rows = RES_K.map(([k, ic], i) => [ic + " " + (RES_T[lang] || RES_T.en)[i + 1], c.a[k], c.b[k]]); rows.push([fmt("tot"), rows.reduce((x, r) => x + r[1], 0), rows.reduce((x, r) => x + r[2], 0)]); const cs = fmt("cols");
@@ -988,7 +1008,8 @@ function renderFarm() {
 }
 function bindFarm() {
   const el = $("km_farm"); if (!el) return;
-  if ($("fm_tag")) $("fm_tag").onchange = () => { farm().tag = $("fm_tag").value.trim(); if (!PLAN.farm.tag) delete PLAN.farm.tag; flagsChanged(); };
+  if ($("fm_tag")) $("fm_tag").onchange = () => { const v = $("fm_tag").value.trim(); farm().tag = v; if (!v || v === "nxs") delete PLAN.farm.tag; flagsChanged(); };
+  for (const [id, key] of [["fm_on", "now"], ["fm_op", "plan"]]) if ($(id)) $(id).onchange = () => { if (!ME()) return; const f = farm(); f.ord = f.ord || {}; if ($(id).value === "f") f.ord[key] = "f"; else delete f.ord[key]; if (!Object.keys(f.ord).length) delete f.ord; flagsChanged(); };
   if ($("fm_kind")) $("fm_kind").onchange = () => { farmKind = $("fm_kind").value; if (farmKind && flagMode) { flagMode = false; renderFlags(); } $("km_svg").classList.toggle("flag-mode", !!farmKind); renderFarm(); };
   const xy = (a, b) => { const x = Math.round(+($(a) || {}).value), y = Math.round(+($(b) || {}).value); return ($(a) || {}).value !== "" && ($(b) || {}).value !== "" && x >= 0 && y >= 0 && x < FN && y < FN ? [x, y] : null; };
   if ($("fm_add")) { const go = () => { if (!ME() || !farmKind) return; const p = xy("fm_x", "fm_y"); if (!p) return; const f = farm(), L = fList(farmKind); if (f[L].some(([x, y]) => x === p[0] && y === p[1])) { FARM_SEL = { k: L, i: f[L].findIndex(([x, y]) => x === p[0] && y === p[1]) }; } else { f[L].push(fMake(farmKind, p[0], p[1])); FARM_SEL = { k: L, i: f[L].length - 1 }; } centerOn({ x: p[0], y: p[1] }, true); flagsChanged(); const nx = $("fm_x"); if (nx) nx.focus(); };
@@ -1028,7 +1049,7 @@ function renderFlags() {
     + (EXB ? `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("exNote").replace("{n}", exList().length).replace("{c}", exList().filter((b) => b[2]).length))} ${esc(ft("tapSel"))}</div>` : "")
     + (EXB ? `<button type="button" class="btn small" id="fl_dl" style="margin-top:6px">${esc(ft("dl"))}</button>` : "")
     + (OTB ? ` <button type="button" class="btn small" id="fl_dl2" style="margin-top:6px">${esc(ft("dl2"))}</button>` : "")
-    + `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("note").replace("{d}", TERR.date))}</div>`;
+    ;
   if ($("fl_dl")) $("fl_dl").onclick = dlBanners;
   if ($("fl_dl2")) $("fl_dl2").onclick = dlOthers;
   drawRes();   // ours / switched-off marks follow the territory
@@ -1102,7 +1123,7 @@ function flagInfo() {
   if ($("fs_ohdel")) $("fs_ohdel").onclick = () => { const o = otEd(), j = o.hq.findIndex(([m, a, b]) => m === FSEL.n && a === x && b === y); if (j >= 0) o.hq.splice(j, 1); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
   if ($("fs_al") && FSEL.k === "oh") $("fs_al").onchange = () => { const n = $("fs_al").value, h = otHq().find(([m, a, b]) => m === FSEL.n && a === x && b === y); if (h) h[0] = n; FSEL = { ...FSEL, n }; flagsChanged(); };
   else if ($("fs_al")) $("fs_al").onchange = () => { const n = $("fs_al").value; otDrop(FSEL.n, x, y); otEd().add.push([n, x, y]); FSEL = { ...FSEL, n, c: 1 }; flagsChanged(); };
-  if ($("fs_conv")) $("fs_conv").onchange = () => { const n = $("fs_conv").value; if (!n) return; PLAN.fl.splice(FSEL.i, 1); otEd().add.push([n, x, y]); FSEL = { k: "o", n, x, y, c: 1 }; if (!otOn) { otOn = true; try { localStorage.setItem("km-otb", "1"); } catch (err) {} } flagsChanged(); };
+  if ($("fs_conv")) $("fs_conv").onchange = () => { const n = $("fs_conv").value; if (!n) return; PLAN.fl.splice(FSEL.i, 1); otEd().add.push([n, x, y]); FSEL = { k: "o", n, x, y, c: 1 }; if (!otOn) { otOn = true; try { localStorage.setItem("km-otb2", "1"); } catch (err) {} } flagsChanged(); };
   if ($("fs_rm")) $("fs_rm").onclick = () => { const e = ex(), k = x + "," + y; e.rm = e.rm || []; const j = e.rm.indexOf(k); if (j >= 0) e.rm.splice(j, 1); else e.rm.push(k); flagsChanged(); flagInfo(); };
   if ($("fs_gone")) $("fs_gone").onclick = () => { dropEx(x, y); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
 }
@@ -1128,7 +1149,7 @@ function flagEvents() {
   const el = $("km_flags");
   el.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
-    if (b.id === "fl_ot") { otOn = !otOn; try { localStorage.setItem("km-otb", otOn ? "1" : "0"); } catch (err) {} drawOt(); renderFlags(); return; }
+    if (b.id === "fl_ot") { otOn = !otOn; try { localStorage.setItem("km-otb2", otOn ? "1" : "0"); } catch (err) {} rebuildOwn(); drawOt(); drawFlags(); renderFlags(); memRefresh(); return; }
     if (b.id === "fl_ex") { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); return; }
     if (b.id === "fl_obst") { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); return; }
     if (b.dataset.nxon) { if (ME()) { const [x, y] = b.dataset.nxon.split(",").map(Number); nodeToggle(x, y); } return; }
@@ -1142,8 +1163,8 @@ function flagEvents() {
   });
   el.addEventListener("change", (e) => {
     if (!ME()) return;
-    if (e.target.id === "fl_conv") { const n = e.target.value; if (!n) return; (PLAN.fl || []).forEach(([x, y]) => otEd().add.push([n, x, y])); PLAN.fl = []; FSEL = null; if (!otOn) { otOn = true; try { localStorage.setItem("km-otb", "1"); } catch (err) {} } flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; return; }
-    if (e.target.id === "fl_kind") { otKind = e.target.value; if (otKind) { flagMode = true; $("km_svg").classList.add("flag-mode"); if (!otOn) { otOn = true; try { localStorage.setItem("km-otb", "1"); } catch (err) {} drawOt(); } } renderFlags(); return; }
+    if (e.target.id === "fl_conv") { const n = e.target.value; if (!n) return; (PLAN.fl || []).forEach(([x, y]) => otEd().add.push([n, x, y])); PLAN.fl = []; FSEL = null; if (!otOn) { otOn = true; try { localStorage.setItem("km-otb2", "1"); } catch (err) {} } flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; return; }
+    if (e.target.id === "fl_kind") { otKind = e.target.value; if (otKind) { flagMode = true; $("km_svg").classList.add("flag-mode"); if (!otOn) { otOn = true; try { localStorage.setItem("km-otb2", "1"); } catch (err) {} drawOt(); } } renderFlags(); return; }
     const t = e.target, i = t.dataset.fx ?? t.dataset.fy; if (i == null) return;
     const v = parseInt(t.value, 10); if (!(v >= 0 && v < FN)) { renderFlags(); return; }
     PLAN.fl[+i][t.dataset.fx != null ? 0 : 1] = v; flagsChanged();
@@ -1198,8 +1219,8 @@ window.KM_SHARED = {
       const a = P(+m.dataset.x0, +m.dataset.y0), c = P(h[0], h[1]); w.setAttribute("transform", `translate(${(c[0] - a[0]).toFixed(1)},${(c[1] - a[1]).toFixed(1)})`); }
     b.x = h[0]; b.y = h[1]; rebuildOwn(); drawEx(); renderList(); },   // 🚚 Move steps ticked / unticked a banner
   planned: () => (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
-  others: () => otList().map(([n, x, y]) => [n, x, y, otCol(n)]).concat(((PLAN.farm || {}).b || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),
-  othersHq: () => otHq().map(([n, x, y]) => [n, x, y, otCol(n)]).concat(((PLAN.farm || {}).hq || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),   // other alliances' HQs (15×15)
+  others: () => (otOn ? otList().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(((PLAN.farm || {}).b || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),
+  othersHq: () => (otOn ? otHq().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(((PLAN.farm || {}).hq || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),   // other alliances' HQs (15×15)
   obst: (x, y) => obstAt(x, y),                // 1 mountain · 2 lake · 0 free
   outposts: () => B.filter(isOp).map((b) => ({ n: nm(b) + (b.lv ? " Lv." + b.lv : ""), x: b.x, y: b.y, sq: opSq(b), st: eff(b) })),   // 🌾 banner check (members.js): which Outposts our territory touches
   noBuild: () => B.filter(PLANNABLE).map(opSq),
