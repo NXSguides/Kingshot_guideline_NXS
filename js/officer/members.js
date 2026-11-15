@@ -70,6 +70,7 @@ for (const [l, o] of Object.entries({
   ko: { rsb: "빵", rsq: "석재", rsi: "철", rsw: "목재", rsSum: "🌾 계획 영지 안의 자원: {n}개 ({l}) — 4칸 중 3칸 이상(75%)이 영지 안이어야 우리 것이에요.", rsYes: "우리 것", rsNo: "아님", rsCov: "계획 영지 안 {c}/4칸", pngB: "🖼️ 이미지로 저장 (PNG)", pngWait: "이미지 만드는 중…", pubOn: "🌐 공개 페이지 보이기", pubOff: "🙈 공개 페이지 숨기기", pubT: "📍 공개 페이지 “내 자리는 어디?”: {s}", pubYes: "공개 중", pubNo: "숨김", pubN: "연맹원이 거기서 새 자리를 확인해요. 열기 / 숨기기는 모두에게 반영되기까지 몇 분 걸려요.", pubSaving: "저장 중…", swapB: "⇄ BT1 / BT2 바꾸기", swapOk: "계획의 곰 함정 1과 2를 바꿨어요.", expB: "📤 CSV 내보내기 (Kingshot Mapper)", expN: "연맹원이 배치된 계획을 Kingshot Mapper CSV로 — 다음 이사 때 ksmapper.pages.dev에서 열거나 여기서 다시 불러오세요.", tipFree: "빈 자리", tipBt: "곰 함정", btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
 })) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"bt3": "🐻 BT3", "btNote3": "Tick BT1 / BT2 / BT3 for each member (more than one is fine). BT3 = the Bear Trap shared with nxs (their BT1): BT3 people stay here and go over for it.", "btNoteF": "nxs's Bear Traps: BT1 = the one shared with us (our BT3), BT2 = their own. These marks are nxs's, kept apart from NXS's.", "fNote": "nxs (2189 nxs): positions come from the daily nxs roster (look only); this hive plan, its spots and BT marks are nxs's own, apart from NXS's. Import their layout (cities y ≥ 705) with 📥 below.", "fNoRoster": "The nxs roster isn't here yet (it comes with the daily roster update)."}, "zh": {"bt3": "🐻 BT3", "btNote3": "每個人勾 BT1／BT2／BT3（可以多選）。BT3 = 跟 nxs 共用的熊陷阱（她們的 BT1）：勾 BT3 的人平常住這邊，時間到再過去打。", "btNoteF": "nxs 的熊陷阱：BT1 = 跟我們共用的那個（我們的 BT3），BT2 = 她們自己的。這裡的勾選是 nxs 的，跟 NXS 分開。", "fNote": "nxs（2189 nxs）：目前位置來自每天抓的 nxs 名冊（只能看）；這份蜂巢計畫、位置和 BT 勾選都是 nxs 自己的，跟 NXS 分開。用下面的 📥 匯入她們的布局（y ≥ 705 的城）。", "fNoRoster": "nxs 名冊還沒進來（每天名冊更新時一起抓）。"}, "pt": {"bt3": "🐻 BT3", "btNote3": "Marque BT1 / BT2 / BT3 para cada membro (pode marcar mais de um). BT3 = a Armadilha dividida com a nxs (o BT1 delas): quem tem BT3 mora aqui e vai lá na hora.", "btNoteF": "Armadilhas da nxs: BT1 = a dividida conosco (nosso BT3), BT2 = a delas. Estas marcas são da nxs, separadas das da NXS.", "fNote": "nxs (2189 nxs): as posições vêm do roster diário da nxs (só ver); este plano de colmeia, os lugares e as marcas BT são da nxs, separados da NXS. Importe o layout delas (cidades y ≥ 705) com 📥 abaixo.", "fNoRoster": "O roster da nxs ainda não chegou (vem com a atualização diária)."}, "ar": {"bt3": "🐻 BT3", "btNote3": "ضع علامة BT1 / BT2 / BT3 لكل عضو (يمكن أكثر من واحدة). BT3 = مصيدة الدب المشتركة مع nxs (BT1 الخاصة بهم): أصحاب BT3 يسكنون هنا ويذهبون إليها في وقتها.", "btNoteF": "مصائد nxs: BT1 = المشتركة معنا (BT3 عندنا)، BT2 = الخاصة بهم. هذه العلامات لـ nxs، منفصلة عن NXS.", "fNote": "nxs (2189 nxs): المواقع من قائمة nxs اليومية (للعرض فقط)؛ خطة الخلية هذه وأماكنها وعلامات BT خاصة بـ nxs ومنفصلة عن NXS. استورد مخططهم (المدن y ≥ 705) بزر 📥 أدناه.", "fNoRoster": "قائمة nxs لم تصل بعد (تأتي مع التحديث اليومي)."}, "ko": {"bt3": "🐻 BT3", "btNote3": "연맹원마다 BT1 / BT2 / BT3 체크 (여러 개 가능). BT3 = nxs와 같이 쓰는 곰 함정(그쪽 BT1): BT3인 사람은 여기 살다가 시간에 맞춰 가요.", "btNoteF": "nxs 곰 함정: BT1 = 우리와 같이 쓰는 것(우리 BT3), BT2 = 그쪽 것. 여기 체크는 nxs 것이고 NXS와 따로예요.", "fNote": "nxs (2189 nxs): 위치는 매일 받는 nxs 명단에서 와요(보기만). 이 하이브 계획, 자리, BT 체크는 nxs 것이라 NXS와 따로예요. 아래 📥로 그쪽 배치(y ≥ 705 도시)를 불러오세요.", "fNoRoster": "nxs 명단이 아직 없어요(매일 명단 업데이트 때 같이 와요)."}})) Object.assign(T[l], o);   // 🐝 nxs plan + BT3 (2026-11-15)
+for (const [l, o] of Object.entries({"en": {"impKept": "{n} names kept on their spots from the old plan.", "impLost": "{n} people had a spot that isn't in the new layout — they're back in “not placed yet”: {l}."}, "zh": {"impKept": "舊計畫裡 {n} 個人留在原本的位置。", "impLost": "{n} 個人原本的位置不在新布局裡，回到「還沒分配」：{l}。"}, "pt": {"impKept": "{n} nomes ficaram nos lugares do plano antigo.", "impLost": "{n} pessoas tinham um lugar que não está no novo layout — voltaram para “ainda sem lugar”: {l}."}, "ar": {"impKept": "بقي {n} اسمًا في أماكنهم من الخطة القديمة.", "impLost": "{n} أشخاص كان مكانهم غير موجود في المخطط الجديد — عادوا إلى «بلا مكان بعد»: {l}."}, "ko": {"impKept": "예전 계획에서 {n}명이 원래 자리에 남았어요.", "impLost": "{n}명의 자리가 새 배치에 없어서 “아직 자리 없음”으로 돌아갔어요: {l}."}})) Object.assign(T[l], o);   // 📥 keep placed names on a new layout
 /* ↕️ sort the moving table (and the "Not placed yet" names) by TC / TG, Power or name — Nia 2026-11-05: sort by TG high → low while placing people */
 let MSORT = (() => { try { return JSON.parse(localStorage.getItem("nxs-mv-sort")) || { k: "", d: -1 }; } catch (e) { return { k: "", d: -1 }; } })();
 const msortKeep = () => { try { localStorage.setItem("nxs-mv-sort", JSON.stringify(MSORT)); } catch (e) {} };
@@ -885,11 +886,24 @@ function csvPlan(text) {
   const k = rows.filter((r) => r.t === "banner" && KILL.test(r.n)).map((r) => [r.x, r.y, r.n.replace(KILL, "").trim()]);
   return { c: cities.filter(ours).map((r) => r.s != null ? [r.n, r.x, r.y, r.s] : [r.n, r.x, r.y]), bt, hq: pick("hq"), b, k };
 }
+/* 📥 a new layout keeps who was already placed (Sherry 2026-11-15: "原本勾好的人不要被取代掉"): a name stays on its spot when that X Y is still
+   a city spot in the new file (and the file doesn't put a name there itself); ✅ moved ticks stay; ticked banners stay when still in the plan.
+   Names whose spot is gone go back to "not placed yet" and are listed in the message. */
+function keepOld(np) {
+  const old = MV.plan, st0 = MV.st || {}, r = { kept: 0, lost: [] }; if (!old) return r;
+  const used = new Set(np.c.map(([n]) => norm(n)).filter(Boolean)), at = {};
+  for (const [n, x, y] of old.c || []) if (n) at[x + "," + y] = n;
+  for (const row of np.c) { const n = at[row[1] + "," + row[2]]; if (!row[0] && n && !used.has(norm(n))) { row[0] = n; used.add(norm(n)); r.kept++; } }
+  for (const [n] of old.c || []) if (n && !used.has(norm(n))) r.lost.push(n);
+  const nb = new Set((np.b || []).map(([x, y]) => x + "," + y)); MV.st = { b: (st0.b || []).filter((k) => nb.has(k)) };
+  return r;
+}
+const keptMsg = (r) => (r.kept ? " " + t("impKept").replace("{n}", r.kept) : "") + (r.lost.length ? " " + t("impLost").replace("{n}", r.lost.length).replace("{l}", r.lost.join(", ")) : "");
 function importPlan(text, file) {
   let j; try { j = JSON.parse(text); } catch (e) {
     const p = csvPlan(text); if (!p) { mvMsg = t("impBad"); return renderMove(); }
-    MV.plan = { ...p, at: new Date().toISOString(), file: String(file || "").slice(0, 80) }; MV.done = MV.done || []; MV.st = {};
-    mvMsg = t("impOk").replace("{c}", p.c.length).replace("{n}", p.c.filter(([n]) => n).length).replace("{b}", p.bt.length).replace("{f}", p.b.length) + " " + t("unsaved");
+    const kr = keepOld(p); MV.plan = { ...p, at: new Date().toISOString(), file: String(file || "").slice(0, 80) }; MV.done = MV.done || [];
+    mvMsg = t("impOk").replace("{c}", p.c.length).replace("{n}", p.c.filter(([n]) => n).length).replace("{b}", p.bt.length).replace("{f}", p.b.length) + keptMsg(kr) + " " + t("unsaved");
     render(); return renderMove(); }
   const objs = j && Array.isArray(j.objects) ? j.objects : null; if (!objs) { mvMsg = t("impBad"); return renderMove(); }
   const count = {}; for (const o of objs) if (o.t === "city") count[o.a] = (count[o.a] || 0) + 1;
@@ -898,10 +912,11 @@ function importPlan(text, file) {
   const pick = (k) => mine.filter((o) => o.t === k).map((o) => [+o.x, +o.y]);
   const c = mine.filter((o) => o.t === "city").map((o) => [String(o.n || "").trim(), +o.x, +o.y]);
   if (!c.length) { mvMsg = t("impBad"); return renderMove(); }
-  MV.plan = { c, bt: pick("trap"), hq: pick("hq"), b: pick("banner"), at: new Date().toISOString(), file: String(file || "").slice(0, 80) };
+  const np = { c, bt: pick("trap"), hq: pick("hq"), b: pick("banner") }, kr = keepOld(np);
+  MV.plan = { ...np, at: new Date().toISOString(), file: String(file || "").slice(0, 80) };
   MV.done = MV.done || [];
-  mvMsg = t("impOk").replace("{c}", c.length).replace("{n}", c.filter(([n]) => n).length).replace("{b}", MV.plan.bt.length).replace("{f}", MV.plan.b.length) + " " + t("unsaved");
-  MV.st = {}; render(); renderMove();
+  mvMsg = t("impOk").replace("{c}", c.length).replace("{n}", c.filter(([n]) => n).length).replace("{b}", MV.plan.bt.length).replace("{f}", MV.plan.b.length) + keptMsg(kr) + " " + t("unsaved");
+  render(); renderMove();
 }
 /* 🚚 one row per member: where they are, where the plan puts them, moved ✓ (only officers with Map edit can tick) */
 /* 🖼️ the moving plan as a sharp PNG (Nia 2026-11-05: "save your map as a HQ image"): drawn like Kingshot Mapper — every planned city
