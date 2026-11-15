@@ -1,6 +1,6 @@
 [
   {
-    "id": "69b6dd73e4",
+    "id": "9a6726b712",
     "author": "ELR",
     "createdAt": "2026-11-15T05:16:51.343Z",
     "images": [],
@@ -20,18 +20,18 @@
       "en": "11/15 SS Legion 1"
     },
     "content": {
-      "zh": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "ko": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "de": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "fr": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "pt": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "tr": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "id": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "ru": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "th": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "ar": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "es": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n",
-      "en": "[[img:figures/ann/20261115-051435-2.jpg]]\n[[table:data/ann/20261115-051435-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n"
+      "zh": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "ko": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "de": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "fr": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "pt": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "tr": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "id": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "ru": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "th": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "ar": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "es": "[[img:figures/ann/20261115-052110-2.jpg]]\n\n[[table:data/ann/20261115-052110-1.json]]\n\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "en": "[[img:figures/ann/20261115-052110-2.jpg]]\n[[table:data/ann/20261115-052110-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n"
     },
     "expiresAt": "2026-11-15T23:00:00.000Z"
   },
