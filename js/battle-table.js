@@ -152,8 +152,11 @@
      tied to the building by a line. It stays a real picture (tap to zoom, save). Boxes: [x, y, width, line-to x, line-to y] on the 1448 × 1086 map;
      the blue Safe Zone (left) is ours, so "near home" is the left Sanctum (3.1) and "near enemy" the right one (3.2). */
   const SSM = { W: 1448, H: 1086, at: { bell: [48, 72, 322, 455, 150], s31: [15, 300, 252, 292, 430], s32: [1183, 628, 258, 1150, 640], stables: [1085, 868, 340, 1012, 945],
-    abbey: [18, 762, 282, 300, 662], merc: [852, 186, 272, 836, 242], hall: [335, 696, 268, 617, 790], shrine: [552, 536, 350, 726, 522] } };
+    abbey: [18, 762, 282, 300, 662], merc: [852, 186, 272, 836, 242], hall: [335, 696, 268, 617, 790], shrine: [552, 536, 350, 726, 522],
+    // the four Abbeys one by one (table "4-1" … "4-4" = map 4.1 … 4.4); a plain "4" still uses the shared abbey box
+    a41: [18, 700, 262, 300, 625], a42: [18, 905, 262, 505, 935], a43: [1196, 300, 248, 1135, 440], a44: [1130, 18, 300, 940, 110] } };
   const ssKey = (g, seen) => { const t = String(g.target || "").trim(), l = String(g.tl || "");
+    const a4 = /^4\s*[-.]\s*([1-4])$/.exec(t); if (a4) return "a4" + a4[1];
     return t === "1" ? "stables" : t === "2" ? "bell" : t === "4" ? "abbey" : t === "5" ? "merc" : t === "6" ? "hall" : t === "7" ? "shrine" : t === "3" ? (/enemy/i.test(l) ? "s32" : /home/i.test(l) ? "s31" : seen.s31 ? "s32" : "s31") : ""; };
   const SS_COL = { att: "#c0262d", def: "#1d4ed8", join: "#15803d" };
   function ssBoxes(T, lang) {
@@ -164,7 +167,7 @@
       if (["att", "def", "join"].some((r) => (g[r] || []).some((x) => x && typeof x === "object" && String(x.t) === "Same as above"))) return;
       const roles = ["att", "def", "join"].filter((r) => show[r] !== false && (g[r] || []).length).map((r) => [r, tr(cols[r] || r, lang), (g[r] || []).map((x) => x && typeof x === "object" ? { t: tr(x.t, lang) } : String(x))]);
       if (!roles.length) return; const t = String(g.target || "").trim();
-      B[k] = B[k] || { title: (/^[0-9]$/.test(t) ? CIRC[+t] + " " : "") + tr(g.tl, lang), parts: [] }; B[k].parts.push({ si, stage: tr(sn, lang), roles }); }); });
+      B[k] = B[k] || { title: (/^[0-9]$/.test(t) ? CIRC[+t] + " " : /^a4/.test(k) && !new RegExp("4\\s*[-.]\\s*" + k[2]).test(g.tl || "") ? "4." + k[2] + " " : "") + tr(g.tl, lang), parts: [] }; B[k].parts.push({ si, stage: tr(sn, lang), roles }); }); });
     return B;
   }
   function ssDraw(cv, im, B, me, rtl) {
