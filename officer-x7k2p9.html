@@ -1219,11 +1219,15 @@
   /* 🐻 BT1 / BT2 in the moving table (same colours as 📊 Roster) */
   .mm-pub { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 12px 0 0; } .mm-pub.on { border-color: #2e7d32; background: color-mix(in srgb, #2e7d32 12%, var(--panel)); }
   .mm-btc { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
-  .mm-btg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mm-btg { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; }
   @media (max-width: 480px) { .mm-btg { grid-template-columns: 1fr; } }
   .mm-btl { border-radius: 8px; padding: 6px 8px; font-size: 13.5px; }
   .mm-btl.b1 { background: color-mix(in srgb, #3b82f6 16%, var(--panel)); }
   .mm-btl.b2 { background: color-mix(in srgb, #f59e0b 18%, var(--panel)); }
+  .mm-btl.b3 { background: color-mix(in srgb, #16a34a 18%, var(--panel)); }
+  .mm-t input.mm-bt.b3 { accent-color: #16a34a; }
+  .mm-t tr.bt-3 td { background: color-mix(in srgb, #16a34a 14%, transparent); }
+  .km-members .mm-asl .btn.bt-3 { border-color: #16a34a; background: color-mix(in srgb, #16a34a 18%, var(--panel)); }
   .mm-t td.mm-btk { white-space: nowrap; }
   .mm-t th .mm-sort { all: unset; cursor: pointer; font-weight: 700; white-space: nowrap; } .mm-t th .mm-sort.on { color: var(--accent); } .mm-t th .mm-sort:focus-visible { outline: 2px solid var(--accent); }
   .mm-t input.mm-bt { width: 18px; height: 18px; margin: 0 2px; cursor: pointer; vertical-align: middle; }

@@ -488,14 +488,14 @@ function forgetOldPw() { try { const s = officerStore(); if (s.pw) { delete s.pw
 forgetOldPw();
 applyShared();
 /* 🐻 BT1 / BT2 marks (Nia, 2026-11-05): which Bear Trap each member is in — ONE list on the Worker, shown on 📊 Roster and 🐝 Hive.
-   OFFICER.BT.map[id] = "1" | "2" | "12". A change anywhere fires "nxs-bt" so the other tab redraws. */
+   OFFICER.BT.map[id] = digits "1" "2" "3" (any mix); OFFICER.BTF = the same for nxs. A change anywhere fires "nxs-bt" so the other tab redraws. */
 OFFICER.tcText = (lv) => lv == null || lv === "" ? "?" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) : String(lv);   // MightPulse level 35 = TG1, 40 = TG2 …
-OFFICER.BT = (() => {
-  const LSK = "nxs-bt-v1";
+/* 🐻 BT marks for nxs (2189 nxs, Sherry 2026-11-15): the same kind of list, kept apart on the Worker (w: "f"); their BT1 is our BT3 */
+const mkBT = (LSK, w) => {
   let map = {}; try { map = JSON.parse(localStorage.getItem(LSK)) || {}; } catch (e) { map = {}; }
   const keep = () => { try { localStorage.setItem(LSK, JSON.stringify(map)); } catch (e) {} };
   const fire = () => { try { window.dispatchEvent(new CustomEvent("nxs-bt")); } catch (e) {} };
-  const call = async (op, extra) => { const r = await fetch(AUTH_API + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...extra }), cache: "no-store" });
+  const call = async (op, extra) => { const r = await fetch(AUTH_API + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...(w ? { w } : {}), ...extra }), cache: "no-store" });
     const j = await r.json().catch(() => ({})); if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} } return j; };
   const api = {
     get map() { return map; },
@@ -509,4 +509,6 @@ OFFICER.BT = (() => {
     },
   };
   return api;
-})();
+};
+OFFICER.BT = mkBT("nxs-bt-v1", "");      // NXS: "1" | "2" | "3" and any mix (BT3 = the Bear Trap shared with nxs — their BT1; 2026-11-15)
+OFFICER.BTF = mkBT("nxs-btf-v1", "f");   // nxs: "1" | "2" | "12"

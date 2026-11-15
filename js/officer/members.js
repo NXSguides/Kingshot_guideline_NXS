@@ -69,6 +69,7 @@ for (const [l, o] of Object.entries({
   ar: { rsb: "خبز", rsq: "حجر", rsi: "حديد", rsw: "خشب", rsSum: "🌾 الموارد داخل إقليم الخطة: {n} ({l}) — تُحسب العقدة إذا كان ≥ 75% (3 من 4 مربعات) في إقليمنا.", rsYes: "لنا", rsNo: "ليست لنا", rsCov: "{c}/4 مربعات داخل إقليم الخطة", pngB: "🖼️ حفظ كصورة (PNG)", pngWait: "جارٍ إنشاء الصورة…", pubOn: "🌐 إظهار الصفحة العامة", pubOff: "🙈 إخفاء الصفحة العامة", pubT: "📍 الصفحة العامة «أين مكاني؟»: {s}", pubYes: "ظاهرة", pubNo: "مخفية", pubN: "يرى الأعضاء مكانهم الجديد هناك. يحتاج الإظهار / الإخفاء بضع دقائق ليصل للجميع.", pubSaving: "جارٍ الحفظ…", swapB: "⇄ تبديل BT1 / BT2", swapOk: "تم تبديل فخ الدب 1 و2 في الخطة.", expB: "📤 تصدير CSV (Kingshot Mapper)", expN: "الخطة مع الأعضاء في أماكنهم، كملف CSV لـ Kingshot Mapper — افتحه في ksmapper.pages.dev للانتقال القادم أو حمّله هنا مجددًا.", tipFree: "مكان فارغ", tipBt: "فخ الدب", btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
   ko: { rsb: "빵", rsq: "석재", rsi: "철", rsw: "목재", rsSum: "🌾 계획 영지 안의 자원: {n}개 ({l}) — 4칸 중 3칸 이상(75%)이 영지 안이어야 우리 것이에요.", rsYes: "우리 것", rsNo: "아님", rsCov: "계획 영지 안 {c}/4칸", pngB: "🖼️ 이미지로 저장 (PNG)", pngWait: "이미지 만드는 중…", pubOn: "🌐 공개 페이지 보이기", pubOff: "🙈 공개 페이지 숨기기", pubT: "📍 공개 페이지 “내 자리는 어디?”: {s}", pubYes: "공개 중", pubNo: "숨김", pubN: "연맹원이 거기서 새 자리를 확인해요. 열기 / 숨기기는 모두에게 반영되기까지 몇 분 걸려요.", pubSaving: "저장 중…", swapB: "⇄ BT1 / BT2 바꾸기", swapOk: "계획의 곰 함정 1과 2를 바꿨어요.", expB: "📤 CSV 내보내기 (Kingshot Mapper)", expN: "연맹원이 배치된 계획을 Kingshot Mapper CSV로 — 다음 이사 때 ksmapper.pages.dev에서 열거나 여기서 다시 불러오세요.", tipFree: "빈 자리", tipBt: "곰 함정", btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
 })) Object.assign(T[l], o);
+for (const [l, o] of Object.entries({"en": {"bt3": "🐻 BT3", "btNote3": "Tick BT1 / BT2 / BT3 for each member (more than one is fine). BT3 = the Bear Trap shared with nxs (their BT1): BT3 people stay here and go over for it.", "btNoteF": "nxs's Bear Traps: BT1 = the one shared with us (our BT3), BT2 = their own. These marks are nxs's, kept apart from NXS's.", "fNote": "nxs (2189 nxs): positions come from the daily nxs roster (look only); this hive plan, its spots and BT marks are nxs's own, apart from NXS's. Import their layout (cities y ≥ 705) with 📥 below.", "fNoRoster": "The nxs roster isn't here yet (it comes with the daily roster update)."}, "zh": {"bt3": "🐻 BT3", "btNote3": "每個人勾 BT1／BT2／BT3（可以多選）。BT3 = 跟 nxs 共用的熊陷阱（她們的 BT1）：勾 BT3 的人平常住這邊，時間到再過去打。", "btNoteF": "nxs 的熊陷阱：BT1 = 跟我們共用的那個（我們的 BT3），BT2 = 她們自己的。這裡的勾選是 nxs 的，跟 NXS 分開。", "fNote": "nxs（2189 nxs）：目前位置來自每天抓的 nxs 名冊（只能看）；這份蜂巢計畫、位置和 BT 勾選都是 nxs 自己的，跟 NXS 分開。用下面的 📥 匯入她們的布局（y ≥ 705 的城）。", "fNoRoster": "nxs 名冊還沒進來（每天名冊更新時一起抓）。"}, "pt": {"bt3": "🐻 BT3", "btNote3": "Marque BT1 / BT2 / BT3 para cada membro (pode marcar mais de um). BT3 = a Armadilha dividida com a nxs (o BT1 delas): quem tem BT3 mora aqui e vai lá na hora.", "btNoteF": "Armadilhas da nxs: BT1 = a dividida conosco (nosso BT3), BT2 = a delas. Estas marcas são da nxs, separadas das da NXS.", "fNote": "nxs (2189 nxs): as posições vêm do roster diário da nxs (só ver); este plano de colmeia, os lugares e as marcas BT são da nxs, separados da NXS. Importe o layout delas (cidades y ≥ 705) com 📥 abaixo.", "fNoRoster": "O roster da nxs ainda não chegou (vem com a atualização diária)."}, "ar": {"bt3": "🐻 BT3", "btNote3": "ضع علامة BT1 / BT2 / BT3 لكل عضو (يمكن أكثر من واحدة). BT3 = مصيدة الدب المشتركة مع nxs (BT1 الخاصة بهم): أصحاب BT3 يسكنون هنا ويذهبون إليها في وقتها.", "btNoteF": "مصائد nxs: BT1 = المشتركة معنا (BT3 عندنا)، BT2 = الخاصة بهم. هذه العلامات لـ nxs، منفصلة عن NXS.", "fNote": "nxs (2189 nxs): المواقع من قائمة nxs اليومية (للعرض فقط)؛ خطة الخلية هذه وأماكنها وعلامات BT خاصة بـ nxs ومنفصلة عن NXS. استورد مخططهم (المدن y ≥ 705) بزر 📥 أدناه.", "fNoRoster": "قائمة nxs لم تصل بعد (تأتي مع التحديث اليومي)."}, "ko": {"bt3": "🐻 BT3", "btNote3": "연맹원마다 BT1 / BT2 / BT3 체크 (여러 개 가능). BT3 = nxs와 같이 쓰는 곰 함정(그쪽 BT1): BT3인 사람은 여기 살다가 시간에 맞춰 가요.", "btNoteF": "nxs 곰 함정: BT1 = 우리와 같이 쓰는 것(우리 BT3), BT2 = 그쪽 것. 여기 체크는 nxs 것이고 NXS와 따로예요.", "fNote": "nxs (2189 nxs): 위치는 매일 받는 nxs 명단에서 와요(보기만). 이 하이브 계획, 자리, BT 체크는 nxs 것이라 NXS와 따로예요. 아래 📥로 그쪽 배치(y ≥ 705 도시)를 불러오세요.", "fNoRoster": "nxs 명단이 아직 없어요(매일 명단 업데이트 때 같이 와요)."}})) Object.assign(T[l], o);   // 🐝 nxs plan + BT3 (2026-11-15)
 /* ↕️ sort the moving table (and the "Not placed yet" names) by TC / TG, Power or name — Nia 2026-11-05: sort by TG high → low while placing people */
 let MSORT = (() => { try { return JSON.parse(localStorage.getItem("nxs-mv-sort")) || { k: "", d: -1 }; } catch (e) { return { k: "", d: -1 }; } })();
 const msortKeep = () => { try { localStorage.setItem("nxs-mv-sort", JSON.stringify(MSORT)); } catch (e) {} };
@@ -80,13 +81,21 @@ function mcmp(a, b, ma, mb) {   // a, b = names; ma, mb = roster members (or nul
   if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;   // unknown always last
   return MSORT.d < 0 ? y - x || (+(mb && mb.power) || 0) - (+(ma && ma.power) || 0) : x - y || (+(ma && ma.power) || 0) - (+(mb && mb.power) || 0);
 }
-const BTC = { "1": "#3b82f6", "2": "#f59e0b", "12": "#a855f7" };   // BT1 blue · BT2 orange · both purple (same as 📊 Roster)
+const BTC = { "1": "#3b82f6", "2": "#f59e0b", "3": "#16a34a", "12": "#a855f7" };   // BT3 green; any two or more = purple
+const btK = (v) => !v ? "" : v.length > 1 ? "12" : v;   // a mark → its colour key / class   // BT1 blue · BT2 orange · both purple (same as 📊 Roster)
 let NOWAT = null;   // the city sitting on the tapped planned spot (index in D.m)
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
-const MV_PATH = "data/move-plan-x7k2p9.json";
+let MV_PATH = "data/move-plan-x7k2p9.json";
 let MV = { plan: null, done: [], st: {} }, MV_SAVED = "", mvMsg = "";
+/* 🐝 NXS / nxs (Sherry 2026-11-15): nxs (2189 nxs) gets its own hive plan, planned the same way as ours. "nxs" swaps the whole state:
+   positions = the daily nxs roster (read only), its own plan file, its own 🐻 BT1 / BT2 marks (their BT1 = our BT3). The 🗺️ / 🚩 maps keep reading NXS. */
+const MV_PATH_M = "data/move-plan-x7k2p9.json", MV_PATH_F = "data/move-plan-nxs-x7k2p9.json";
+const SPLIT_Y = 704;   // NXS / nxs border in a shared layout
+let WHO = "m"; const SLOT = { m: null, f: null };
+const BTX = () => (WHO === "f" ? OFFICER.BTF : OFFICER.BT);
+const BTK = () => (WHO === "f" ? ["1", "2"] : ["1", "2", "3"]);   // the Bear Trap boxes: NXS has BT3 (the trap shared with nxs)
 const MED = () => OFFICER.can("move", "edit");
 const mvSnap = () => JSON.stringify({ plan: MV.plan, done: MV.done, st: MV.st || {} });
 
@@ -181,10 +190,11 @@ async function mpApply() {
     await save((by || "MightPulse").replace(/( · 📍)+$/, "") + " · 📍"); mpMsg = msg === t("saved") ? t("mpUsed").replace("{n}", n) : msg; renderMove();
 }
 /* 🚩 banners ticked by hand in 🧭 Move steps count as standing on 🗺️ Map too (and Map's own ✅ Built shows here by itself) */
-function ticked() { const set = new Set(((MV && MV.st) || {}).b || []); return ((MV && MV.plan && MV.plan.b) || []).filter(([x, y]) => set.has(x + "," + y)).map(([x, y]) => [x, y]); }
-const mapSync = () => { try { hqFollow(); } catch (e) {} try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
+const NX = () => (WHO === "m" || !SLOT.m ? { D, MV } : SLOT.m);   // NXS's own data even while 🐝 shows nxs
+function ticked() { const MV = NX().MV; const set = new Set(((MV && MV.st) || {}).b || []); return ((MV && MV.plan && MV.plan.b) || []).filter(([x, y]) => set.has(x + "," + y)).map(([x, y]) => [x, y]); }
+const mapSync = () => { if (WHO === "f") return; try { hqFollow(); } catch (e) {} try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
 const t = (k) => (T[lang] || T.en)[k] || T.en[k];
-const ED = () => OFFICER.can("map", "edit");
+const ED = () => WHO === "m" && OFFICER.can("map", "edit");   // nxs positions come from their roster: look only
 const norm = (s) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 const snap = () => JSON.stringify({ m: D.m, bt: D.bt });
 const BT0 = [[401, 676], [401, 660]];   // BT1, BT2
@@ -238,12 +248,17 @@ const tagKind = (tag) => !tag ? "" : /^S1-/i.test(tag) ? "S1" : /^S2-/i.test(tag
 function ownSet() { const KS = window.KM_SHARED; return new Set((KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1])).map(([x, y]) => x + "," + y)); }
 /* where we are now = our Alliance HQ (from 🗺️ Map); without it, the median X and Y of the members' cities */
 let JUMP = {};
-function blockMid() { const h = G && G.hq && G.hq[0]; if (h) return [h[0] + 1, h[1] + 1];
+const hqNow = () => WHO === "f" ? ((window.KM_SHARED && KM_SHARED.farmPL && KM_SHARED.farmPL().hq) || []) : ((G && G.hq) || []);
+function blockMid() { const h = hqNow()[0]; if (h) return [h[0] + 1, h[1] + 1];
   const c = (D && D.m) || [], med = (a) => { const b = a.slice().sort((p, q) => p - q); return b.length ? b[b.length >> 1] : 0; };
   if (c.length) return [med(c.map((r) => r[1])), med(c.map((r) => r[2]))];
   const t0 = (D && D.bt && D.bt[0]) || [400, 660]; return [t0[0], t0[1]]; }
 const far = ([, x, y], mx, my) => Math.abs(x - mx) > 60 || Math.abs(y - my) > 60;
 function draw(boxId = "mm_map") {
+  const KSx = window.KM_SHARED, ctx0 = KSx ? KSx.ctx : "m"; if (KSx) KSx.ctx = WHO;   // nxs: their banners / planned banners; ours show as another alliance
+  try { drawIn(boxId); } finally { if (KSx) KSx.ctx = ctx0; }
+}
+function drawIn(boxId) {
   const box = $(boxId); if (!box) return;
   const PL = MV && MV.plan ? MV.plan : null, cities = D.m, traps = D.bt;
   const pc = PL ? PL.c || [] : [], pb = PL ? PL.b || [] : [], ph = PL ? PL.hq || [] : [], pt = PL ? PL.bt || [] : [], pk = PL ? PL.k || [] : [];
@@ -277,12 +292,12 @@ function draw(boxId = "mm_map") {
   if (KS) for (const [bx, by] of KS.planned()) if (inB(bx, by))
     s.push(`<polygon points="${poly(bx, by, 1)}" fill="none" stroke="#ffde4a" stroke-width="1.6" stroke-dasharray="3 2"><title>🚩 X:${bx} Y:${by}</title></polygon>`);
   const here = {}; cities.forEach(([n, x, y]) => here[norm(n)] = [x, y]);
-  const bIdx = rosterIndex(), btOf = (n) => { const m = n && bIdx[norm(n)]; return m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; };   // 🐻 planned spots coloured by BT1 / BT2
+  const bIdx = rosterIndex(), btOf = (n) => { const m = n && bIdx[norm(n)]; return m ? String(BTX().map[String(m.id)] || "") : ""; };   // 🐻 planned spots coloured by BT1 / BT2
   const doneSet = new Set((MV.done || []).map(norm));
   if (PL) {
     /* 🧭 planned city spots: dashed outline + the member's name; green once that member is there (or ticked) */
     pc.forEach(([n, x, y], pi) => { const [cx, cy] = P(x + 1, y + 1), h = n && here[norm(n)], ok = n && ((h && h[0] === x && h[1] === y) || doneSet.has(norm(n))), on = SPOT === pi;
-      s.push(`<g class="mm-ps${MED() ? " ed" : ""}" data-p="${pi}"><polygon points="${poly(x, y, 2)}" fill="${ok ? "#8fd19e" : on ? "#ffde4a66" : btOf(n) ? BTC[btOf(n)] + "88" : "#ffffff22"}" stroke="${on ? "#ffde4a" : btOf(n) ? BTC[btOf(n)] : "#ffffffcc"}" stroke-width="${on ? 3 : 1}" stroke-dasharray="${ok || on ? "" : "3 2"}"/>`
+      s.push(`<g class="mm-ps${MED() ? " ed" : ""}" data-p="${pi}"><polygon points="${poly(x, y, 2)}" fill="${ok ? "#8fd19e" : on ? "#ffde4a66" : btOf(n) ? BTC[btK(btOf(n))] + "88" : "#ffffff22"}" stroke="${on ? "#ffde4a" : btOf(n) ? BTC[btK(btOf(n))] : "#ffffffcc"}" stroke-width="${on ? 3 : 1}" stroke-dasharray="${ok || on ? "" : "3 2"}"/>`
         + (n && !ok ? `<text x="${cx}" y="${cy + 3}" text-anchor="middle" class="mm-pn">${esc(n.length > 10 ? n.slice(0, 9) + "…" : n)}</text>` : "") + `<title>🧭 ${esc(n || "—")} X:${x} Y:${y}</title></g>`); });
     /* new HQ: 3×3 + its 15×15 territory, dashed until it stands there */
     for (const [hx, hy] of ph) { const [cx, cy] = P(hx + 1.5, hy + 1.5);
@@ -301,7 +316,7 @@ function draw(boxId = "mm_map") {
     for (const [bx, by, n] of pk) { const [cx, cy] = P(bx + .5, by + .5);
       s.push(`<text x="${cx}" y="${cy + 6}" text-anchor="middle" class="mm-kill" style="fill:${gone.has(bx + "," + by) ? "#8fd19e" : "#ff6b6b"}">${gone.has(bx + "," + by) ? "✓" : "✖"}<title>${esc(t("stKill"))} ${esc(n)} X:${bx} Y:${by}</title></text>`); }
   }
-  for (const [i, [hx, hy]] of (G && G.hq ? G.hq.slice(0, 1) : []).entries()) if (hx >= x1 && hx <= x2 && hy >= y1 && hy <= y2) {
+  for (const [i, [hx, hy]] of hqNow().slice(0, 1).entries()) if (hx >= x1 && hx <= x2 && hy >= y1 && hy <= y2) {
     const [cx, cy] = P(hx + 1.5, hy + 1.5);
     s.push(`<g class="mm-b" data-k="hq${i}"><polygon points="${poly(hx, hy, 3)}" fill="#2b6cc4" stroke="#fff" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl">HQ</text></g>`);
   }
@@ -747,14 +762,15 @@ function select(i, scroll) {
 }
 /* 🧭 "Not placed yet" names, grouped by 🐻 BT1 / BT2 (Sherry, 2026-11-05) — the same marks as the moving table and 📊 Roster */
 function asGroups(left) {
-  const idx = rosterIndex(), g = { "1": [], "2": [], "12": [], "": [] };
-  for (const q of left) { const m = idx[norm(q)], v = m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; (g[v] || g[""]).push(q); }
+  const idx = rosterIndex(), g = { "": [] };
+  for (const q of left) { const m = idx[norm(q)], v = m ? String(BTX().map[String(m.id)] || "") : ""; (g[v] = g[v] || []).push(q); }
   for (const k in g) g[k].sort((a, b) => mcmp(a, b, idx[norm(a)], idx[norm(b)]) || a.localeCompare(b));   // same order as the ↕️ moving table
   const tcOf = (q) => { const m = idx[norm(q)]; return m && m.tc != null && m.tc !== "" ? OFFICER.tcText(m.tc) : ""; };
-  const chip = (q, v) => `<button type="button" class="btn small${v ? " bt-" + v : ""}" data-as="${esc(q)}"><bdi>${esc(q)}</bdi>${tcOf(q) ? ` <small class="muted">${esc(tcOf(q))}</small>` : ""}</button>`;
-  const sec = (v, title) => g[v].length ? `<div class="mm-asg"><b>${esc(title)} (${g[v].length})</b></div>${g[v].map((q) => chip(q, v)).join("")}` : "";
-  if (!g["1"].length && !g["2"].length && !g["12"].length) return g[""].map((q) => chip(q, "")).join("");   // nobody marked yet: one list as before
-  return sec("1", t("bt1")) + sec("2", t("bt2")) + sec("12", t("bt1") + " + " + t("bt2")) + sec("", t("btNo"));
+  const chip = (q, v) => `<button type="button" class="btn small${v ? " bt-" + btK(v) : ""}" data-as="${esc(q)}"><bdi>${esc(q)}</bdi>${tcOf(q) ? ` <small class="muted">${esc(tcOf(q))}</small>` : ""}</button>`;
+  const sec = (v, title) => (g[v] || []).length ? `<div class="mm-asg"><b>${esc(title)} (${g[v].length})</b></div>${g[v].map((q) => chip(q, v)).join("")}` : "";
+  const marks = Object.keys(g).filter((v) => v).sort((a, b) => a.length - b.length || a.localeCompare(b));
+  if (!marks.some((v) => g[v].length)) return g[""].map((q) => chip(q, "")).join("");   // nobody marked yet: one list as before
+  return marks.map((v) => sec(v, v.split("").map((k) => t("bt" + k)).join(" + "))).join("") + sec("", t("btNo"));
 }
 function info(k) {
   const el = $("mm_info"); if (!el) return;
@@ -842,6 +858,15 @@ function csvPlan(text) {
       if (m && m[1] && !/^label$/i.test(m[1])) rows.push({ t: "city", x: +m[2], y: +m[3], n: m[1].replace(/[,;\t]+$/, "").trim(), c: "", s: null }); }
   }
   const cities = rows.filter((r) => r.t === "city"); if (!cities.length) return null;
+  /* NXS + nxs in one layout (same colour, Sherry 2026-11-15): the line is Y 704 — Y ≤ 704 is NXS, 705 and up nxs; a Bear Trap labelled "nxs" is
+     nxs's BT1 (our BT3, it sits on the line) */
+  if (cities.some((r) => r.n === "NXS") && cities.some((r) => r.n === "nxs")) {
+    const side = (r) => (r.t === "beartrap" && r.n === "nxs") ? "f" : r.y <= SPLIT_Y ? "m" : "f", mine = (r) => side(r) === WHO;
+    const num = (r) => r.n === "nxs" ? 0 : +((r.n.match(/\d+/) || [9])[0]);
+    return { c: cities.filter(mine).map((r) => r.s != null ? ["", r.x, r.y, r.s] : ["", r.x, r.y]),
+      bt: rows.filter((r) => r.t === "beartrap" && mine(r)).sort((p, q) => num(p) - num(q)).map((r) => [r.x, r.y]),
+      hq: rows.filter((r) => r.t === "hq" && mine(r)).map((r) => [r.x, r.y]), b: rows.filter((r) => r.t === "banner" && mine(r)).map((r) => [r.x, r.y]), k: [] };
+  }
   const lab = {}; cities.forEach((r) => { if (r.n) lab[norm(r.n)] = (lab[norm(r.n)] || 0) + 1; });
   cities.forEach((r) => { if (r.n && lab[norm(r.n)] > 2) r.n = ""; });   // the same label on many cities ("NXS") is the alliance tag, not a member → an empty spot
   const known = new Set(((D && D.m) || []).map(([n]) => norm(n))), by = {};
@@ -892,14 +917,14 @@ function planSvg() {
   const P = (x, y) => [(x - y - dMin) * K, top + (sMax - (x + y)) * K], W = (dMax - dMin) * K, H = top + (sMax - sMin) * K;
   const poly = (x, y, n) => [[x, y], [x + n, y], [x + n, y + n], [x, y + n]].map(([a, b]) => P(a, b).map((v) => v.toFixed(1)).join(",")).join(" ");
   const c = (x, y, n) => P(x + n / 2, y + n / 2), o = [];
-  const btOf = (n) => { const m = n && idx[norm(n)]; return m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; };
-  const FILL = { "": "#d6c49a", "1": "#4f7fb8", "2": "#d08a2e", "12": "#7a5fae" };   // 🎨 parchment (Sherry 2026-11-05), same as the public map
+  const btOf = (n) => { const m = n && idx[norm(n)]; return m ? String(BTX().map[String(m.id)] || "") : ""; };
+  const FILL = { "": "#d6c49a", "1": "#4f7fb8", "2": "#d08a2e", "3": "#4c9a5e", "12": "#7a5fae" };   // 🎨 parchment (Sherry 2026-11-05), same as the public map
   { const T = planTerr(P0), [xa, xb] = [Math.min(...pts.map((p) => p[0])), Math.max(...pts.map((p) => p[0]))], [ya, yb] = [Math.min(...pts.map((p) => p[1])), Math.max(...pts.map((p) => p[1]))];
     for (const [k, rx, ry] of RESN) { if (rx < xa || rx > xb - 2 || ry < ya || ry > yb - 2) continue; const ok = rsCov(T, rx, ry) >= 3, [cx, cy] = c(rx, ry, 2);
       o.push(`<polygon points="${poly(rx, ry, 2)}" fill="${RS_COL[k]}" fill-opacity="${ok ? 1 : .5}" stroke="${ok ? "#2e7d32" : "#8a6a2a"}" stroke-width="${ok ? 2.4 : 1}" stroke-dasharray="${ok ? "" : "3 2"}"/><text x="${cx}" y="${cy + 4}" class="c">${RS_ICON[k]}</text>`); } }
   for (const [x, y] of P0.b || []) o.push(`<polygon points="${poly(x, y, 1)}" fill="#a68e5f" stroke="#8a6a2a" stroke-width="1"/>`);
   for (const [n, x, y] of P0.c) { const [cx, cy] = c(x, y, 2), nm = n || "", b = btOf(nm);
-    o.push(`<polygon points="${poly(x, y, 2)}" fill="${nm ? FILL[b] || FILL[""] : "#e9dfc4"}" stroke="#8a6a2a" stroke-width="1"/><text x="${cx}" y="${cy}" class="n${nm && b ? " w" : ""}">${esc(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="c${nm && b ? " w" : ""}">${x},${y}</text>`); }
+    o.push(`<polygon points="${poly(x, y, 2)}" fill="${nm ? FILL[btK(b)] || FILL[""] : "#e9dfc4"}" stroke="#8a6a2a" stroke-width="1"/><text x="${cx}" y="${cy}" class="n${nm && b ? " w" : ""}">${esc(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="c${nm && b ? " w" : ""}">${x},${y}</text>`); }
   (P0.bt || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#a84c1a" stroke="#fff6e6" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">Bear Trap ${i + 1}</text><text x="${cx}" y="${cy + 17}" class="c w">${x},${y}</text>`); });
   for (const [x, y] of P0.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#6b4a8a" stroke="#fff6e6" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">HQ</text><text x="${cx}" y="${cy + 17}" class="c w">${x},${y}</text>`); }
   const title = `NXS · Hive plan · ${new Date().toISOString().slice(0, 10)}  ·  BT1 = blue · BT2 = orange`;
@@ -985,14 +1010,14 @@ function moveTable() {
     .sort((p, q) => MSORT.k ? mcmp(p.name, q.name, p.m, q.m) || p.name.localeCompare(q.name) : (p.ok - q.ok) || (!p.b - !q.b) || p.name.localeCompare(q.name));
   const withT = rows.filter((r) => r.b), nDone = withT.filter((r) => r.ok).length, free = MV.plan.c.filter(([n]) => !n).length;
   const xy = (p) => p ? `X:${p[1]} Y:${p[2]}` : "—";
-  const bed = OFFICER.can("move", "edit") || OFFICER.can("ranking", "edit"), BT = OFFICER.BT;
+  const bed = OFFICER.can("move", "edit") || OFFICER.can("ranking", "edit"), BT = BTX();
   const btv = (r) => r.m ? String(BT.map[String(r.m.id)] || "") : "";
   const btBox = (r, k) => r.m ? `<input type="checkbox" class="mm-bt b${k}" data-bt="${k}" data-bid="${esc(String(r.m.id))}" aria-label="BT${k}"${BT.has(r.m.id, k) ? " checked" : ""}${bed ? "" : " disabled"}>` : "";
   const btList = (k) => { const L = rows.filter((r) => r.m && BT.has(r.m.id, k)).sort((p, q) => (+q.m.power || 0) - (+p.m.power || 0));
     return `<div class="mm-btl b${k}"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(t("bt" + k))} (${L.length})</b><button type="button" class="btn small" data-btcopy="${k}">${esc(t("btCopy"))}</button></div>
       <div style="margin-top:4px;line-height:1.5;word-break:break-word">${L.length ? L.map((r) => `<bdi>${esc(r.name)}</bdi>`).join(" · ") : `<span class="muted"><bdi>${esc(t("btNone"))}</bdi></span>`}</div></div>`; };
   const nBoth = rows.filter((r) => btv(r) === "12").length, noSpot = rows.filter((r) => !r.b && r.m);
-  const btCard = `<div class="mm-btc"><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("btNote"))}</div><div class="mm-btg">${btList("1")}${btList("2")}</div>
+  const btCard = `<div class="mm-btc"><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t(WHO === "f" ? "btNoteF" : "btNote3"))}</div><div class="mm-btg">${BTK().map(btList).join("")}</div>
     ${nBoth ? `<div class="muted" style="font-size:12.5px;margin-top:4px">⚠️ ${esc(t("btBoth").replace("{n}", nBoth))}</div>` : ""}
     ${noSpot.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px"><b>${esc(t("noSpot").replace("{n}", noSpot.length))}</b> ${noSpot.map((r) => `<bdi>${esc(r.name)}</bdi>`).join(" · ")}</div>` : ""}</div>`;
   return `<div class="mm-mv"><h4 style="margin:14px 0 4px">${esc(t("mvT"))} <span class="muted" style="font-weight:400;font-size:13px">${esc(t("mvProg").replace("{d}", nDone).replace("{n}", withT.length))}${MV.plan.at ? " · " + esc(t("planBy").replace("{d}", String(MV.plan.at).slice(0, 10))) : ""}</span></h4>
@@ -1000,8 +1025,8 @@ function moveTable() {
     ${free ? `<div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("free").replace("{n}", free))}</div>` : ""}
     <label class="row" style="gap:6px;font-size:13px;margin:6px 0"><input type="checkbox" id="mm_left"${onlyLeft ? " checked" : ""}> ${esc(t("mvLeft"))}</label>
     ${btCard}
-    <div class="mm-tw"><table class="mm-t"><thead><tr><th>${sortTh("name", t("colN"))}</th><th>${sortTh("tc", t("colTc"))}</th><th>${sortTh("pw", t("colPw"))}</th><th>${esc(t("colBt"))}</th><th>${esc(t("colNow"))}</th><th>${esc(t("colNew"))}</th><th>${esc(t("colDone"))}</th></tr></thead><tbody>
-    ${rows.filter((r) => !onlyLeft || !r.ok).map((r) => `<tr class="${r.ok ? "ok" : ""}${btv(r) ? " bt-" + btv(r) : ""}"><td><bdi>${esc(r.name)}</bdi></td><td>${r.m ? esc(OFFICER.tcText(r.m.tc)) : "—"}</td><td>${r.m && r.m.power ? fmtPw(+r.m.power) : "—"}</td><td class="mm-btk">${btBox(r, "1")}${btBox(r, "2")}</td><td>${xy(r.a)}</td><td>${r.b ? `<button class="btn small mm-cp" data-c="X:${r.b[1]} Y:${r.b[2]}">${xy(r.b)}</button>` : `<span class="muted">${esc(t("noPlace"))}</span>`}</td>
+    <div class="mm-tw"><table class="mm-t"><thead><tr><th>${sortTh("name", t("colN"))}</th><th>${sortTh("tc", t("colTc"))}</th><th>${sortTh("pw", t("colPw"))}</th><th>${esc(BTK().map((k) => "BT" + k).join(" · "))}</th><th>${esc(t("colNow"))}</th><th>${esc(t("colNew"))}</th><th>${esc(t("colDone"))}</th></tr></thead><tbody>
+    ${rows.filter((r) => !onlyLeft || !r.ok).map((r) => `<tr class="${r.ok ? "ok" : ""}${btv(r) ? " bt-" + btK(btv(r)) : ""}"><td><bdi>${esc(r.name)}</bdi></td><td>${r.m ? esc(OFFICER.tcText(r.m.tc)) : "—"}</td><td>${r.m && r.m.power ? fmtPw(+r.m.power) : "—"}</td><td class="mm-btk">${BTK().map((k) => btBox(r, k)).join("")}</td><td>${xy(r.a)}</td><td>${r.b ? `<button class="btn small mm-cp" data-c="X:${r.b[1]} Y:${r.b[2]}">${xy(r.b)}</button>` : `<span class="muted">${esc(t("noPlace"))}</span>`}</td>
       <td>${r.there ? `<span title="${esc(t("auto"))}">✅</span>` : r.b ? `<input type="checkbox" data-done="${esc(r.k)}"${r.ok ? " checked" : ""}${ed ? "" : " disabled"}>` : ""}</td></tr>`).join("")}
     </tbody></table></div></div>`;
 }
@@ -1028,10 +1053,10 @@ function lists() {
     + (notMap.length ? `<div class="mm-l"><b>${esc(t("notMap"))}</b> ${notMap.map((n) => `<span class="mm-chip">${esc(n)}</span>`).join(" ")}</div>` : "");
 }
 function render() {
-  const el = $("km_members"); if (!el || !D) return; renderOptNow(); if (window.KM_SHARED && KM_SHARED.cityDraw) KM_SHARED.cityDraw();   // 🚩 Territory draws the members / Bear Traps / Hive plan too
+  const el = $("km_members"); if (!el || !D) return; if (WHO === "m") { renderOptNow(); if (window.KM_SHARED && KM_SHARED.cityDraw) KM_SHARED.cityDraw(); }   // 🚩 Territory draws the members / Bear Traps / Hive plan too
   const dirty = snap() !== SAVED, ed = ED();
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
-  el.innerHTML = `<h3 style="margin:0 0 4px">${esc(t("t"))} <span class="muted" style="font-size:13px;font-weight:400">${D.m.length ? esc(t("count").replace("{n}", D.m.length)) : ""}</span></h3>
+  el.innerHTML = `${whoBar()}<h3 style="margin:0 0 4px">${esc(t("t"))} <span class="muted" style="font-size:13px;font-weight:400">${D.m.length ? esc(t("count").replace("{n}", D.m.length)) : ""}</span></h3>
     <div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(t("note"))}${D.at ? " · " + esc(t("last").replace("{d}", String(D.at).slice(0, 10)).replace("{b}", D.by || "?")) : ""}</div>
     ${D.m.length ? `<input class="inp" id="mm_find" list="mm_names" placeholder="${esc(t("find"))}" style="max-width:260px;margin-bottom:6px"><datalist id="mm_names">${D.m.map(([n]) => `<option value="${esc(n)}">`).join("")}</datalist>` : `<div class="muted">${esc(t(ed ? "noneEd" : "none"))}</div>`}
     <div class="mm-info" id="mm_info"></div>
@@ -1046,7 +1071,7 @@ function render() {
       <div id="mm_pbox" ${pasteOpen || !D.m.length ? "" : "hidden"} style="margin-top:8px"><div class="muted" style="font-size:12.5px">${esc(t("pasteNote"))}</div>
       <textarea class="inp" id="mm_paste" rows="8" style="width:100%;box-sizing:border-box;font-family:ui-monospace,monospace;margin-top:4px"></textarea>
       <div class="row" style="gap:8px;margin-top:6px"><button class="btn primary" id="mm_apply">${esc(t("apply"))}</button>${D.m.length ? `<button class="btn" id="mm_repl">${esc(t("replace"))}</button>` : ""}<button class="btn" id="mm_pcan">${esc(t("cancel"))}</button></div></div>` : ""}`;
-  draw(); info();
+  draw(); info(); bindWho(el);
   if ($("mm_find")) $("mm_find").oninput = (e) => { const q = norm(e.target.value); if (!q) return; const i = D.m.findIndex(([n]) => norm(n) === q); const j = i >= 0 ? i : D.m.findIndex(([n]) => norm(n).startsWith(q)); if (j >= 0) select(j, true); };
   if ($("mm_rn")) $("mm_rn").onclick = () => applyRenames();
   el.querySelectorAll(".mm-chip[data-n]").forEach((c) => c.onclick = () => { const i = D.m.findIndex(([n]) => n === c.dataset.n); if (i >= 0) select(i, true); });
@@ -1077,8 +1102,8 @@ async function init(map) {
   if (!window.KM_SHARED) { try { banners = ((await fetch("data/banners-2189.json?v=20").then((r) => r.json())).b || []).map(([x, y]) => [x, y]); } catch (e) {} }
   await load(); render();
   if (OFFICER.can("move", "view") && !MV.plan) { try { await loadMove(); mapSync(); } catch (e) {} }
-  if (OFFICER.can("move", "view")) OFFICER.BT.load();
-  try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); }); } catch (e) {}
+  if (OFFICER.can("move", "view")) BTX().load();
+  try { const r0 = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { if (WHO === "m") roster = r; else if (SLOT.m) SLOT.m.roster = r; render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); }); if (WHO === "m") roster = r0; else if (SLOT.m) SLOT.m.roster = r0; } catch (e) {}
   const again = () => { render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); };
   OfficerData.fetchJsonFast("data/watch-x7k2p9.json", (w) => { WATCH = w; again(); }).then((w) => { if (w) { WATCH = w; again(); } }).catch(() => {});
   OfficerData.fetchJsonFast("data/records-x7k2p9.json", (r) => { RECS = r; again(); }).then((r) => { if (r) { RECS = r; again(); } }).catch(() => {});
@@ -1177,7 +1202,7 @@ function btSide(c) {
   if (pt.length < 2) return out;
   for (const [n, x, y] of c) { const m = n && idx[norm(n)]; if (!m) continue;
     const k = Math.hypot(x + 1 - (pt[0][0] + 1.5), y + 1 - (pt[0][1] + 1.5)) <= Math.hypot(x + 1 - (pt[1][0] + 1.5), y + 1 - (pt[1][1] + 1.5)) ? "1" : "2", o = k === "1" ? "2" : "1";
-    const h1 = OFFICER.BT.has(m.id, k), h2 = OFFICER.BT.has(m.id, o);
+    const h1 = BTX().has(m.id, k), h2 = BTX().has(m.id, o); if (BTX().has(m.id, "3")) continue;   // BT3 people go to nxs for it — the spot doesn't change their marks
     if (h1 && h2) continue; if (h1 && !h2) continue;
     out.push({ id: String(m.id), n, k, o, had: h2 ? o : "" }); }
   return out;
@@ -1189,7 +1214,7 @@ async function adoptGo() {
   if (!window.confirm(t("adQ").replace("{n}", a.ch.length).replace("{l}", l).replace("{lost}", a.lost.length ? t("adLost").replace("{l}", a.lost.join(", ")) : "") + bl)) return;
   MV.plan.c = a.next; SPOT = null; NOWAT = null;
   mvMsg = t("adDone").replace("{n}", a.ch.length) + " " + t("unsaved"); render(); renderMove();
-  let ok = 0; for (const b of bt) { if (await OFFICER.BT.set(b.id, b.k, true)) ok++; if (b.had) await OFFICER.BT.set(b.id, b.o, false); }
+  let ok = 0; for (const b of bt) { if (await BTX().set(b.id, b.k, true)) ok++; if (b.had) await BTX().set(b.id, b.o, false); }
   if (bt.length) { mvMsg = t("adDone").replace("{n}", a.ch.length) + " · " + t("adBtDone").replace("{n}", ok) + " " + t("unsaved"); render(); renderMove(); }
 }
 /* 🏠 our HQ follows the move (Sherry, 2026-11-11): once the plan's HQ step is ticked, the plan's new HQ is our HQ on
@@ -1205,8 +1230,9 @@ function renderMove() {
   const el = $("mv_root"); if (!el || !D) return;
   const ed = MED(), dirty = mvSnap() !== MV_SAVED;
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
-  el.innerHTML = `${mpCard()}${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
-    ${optCard()}
+  const F = WHO === "f";
+  el.innerHTML = `${F ? `<div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(t("fNote"))}</div>` + (MV.plan ? "" : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`) : `${mpCard()}${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
+    ${optCard()}`}
     ${adoptCard()}${moveTable()}
     ${ed && MV.plan ? `<div class="mm-add" style="margin-top:12px"><b>${esc(t("addT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("addNote"))}</span>
       <div class="row" style="gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center"><input class="inp" id="mv_an" list="mv_names" placeholder="${esc(t("name"))}" style="width:150px">
@@ -1214,7 +1240,7 @@ function renderMove() {
       X <input class="inp" id="mv_ax" type="number" style="width:80px"> Y <input class="inp" id="mv_ay" type="number" style="width:80px">
       <button class="btn small primary" id="mv_aok">${esc(t("addOk"))}</button><button class="btn small" id="mv_adel">${esc(t("addDel"))}</button></div>
       ${MV.plan.c.some(([n]) => !n) ? `<details style="margin-top:6px"><summary class="muted" style="font-size:12.5px;cursor:pointer">${esc(t("freeList"))}</summary><div style="margin-top:4px">${MV.plan.c.filter(([n]) => !n).map(([, x, y]) => `<button class="btn small mv-slot" data-x="${x}" data-y="${y}">X:${x} Y:${y}</button>`).join(" ")}</div></details>` : ""}</div>` : ""}
-    ${PUB != null ? `<div class="mm-pub${PUB ? " on" : ""}" id="mv_pub"><b>${esc(t("pubT").replace("{s}", t(PUB ? "pubYes" : "pubNo")))}</b>${MED() && OFFICER.token ? ` <button type="button" class="btn small${PUB ? "" : " primary"}" id="mv_pubB"${pubBusy ? " disabled" : ""}>${esc(pubBusy ? t("pubSaving") : t(PUB ? "pubOff" : "pubOn"))}</button>` : ""}<div class="muted" style="font-size:12px;margin-top:2px">${esc(t("pubN"))}</div></div>` : ""}
+    ${PUB != null && !F ? `<div class="mm-pub${PUB ? " on" : ""}" id="mv_pub"><b>${esc(t("pubT").replace("{s}", t(PUB ? "pubYes" : "pubNo")))}</b>${MED() && OFFICER.token ? ` <button type="button" class="btn small${PUB ? "" : " primary"}" id="mv_pubB"${pubBusy ? " disabled" : ""}>${esc(pubBusy ? t("pubSaving") : t(PUB ? "pubOff" : "pubOn"))}</button>` : ""}<div class="muted" style="font-size:12px;margin-top:2px">${esc(t("pubN"))}</div></div>` : ""}
     ${MV.plan ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center"><button type="button" class="btn" id="mv_exp">${esc(t("expB"))}</button><button type="button" class="btn" id="mv_png">${esc(t("pngB"))}</button>${MED() && (MV.plan.bt || []).length === 2 ? `<button type="button" class="btn" id="mv_swap">${esc(t("swapB"))}</button>` : ""}<span class="muted" style="font-size:12px">${esc(t("expN"))}</span></div>` : ""}
     ${ed ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center">
       <label class="btn" for="mv_file">${esc(t("imp"))}</label><input type="file" id="mv_file" accept=".json,.csv,.txt,application/json,text/csv,text/plain" hidden>
@@ -1237,8 +1263,8 @@ function renderMove() {
   el.querySelectorAll("[data-msort]").forEach((x) => x.onclick = () => { const k = x.dataset.msort;
     if (MSORT.k !== k) MSORT = { k, d: k === "name" ? 1 : -1 }; else if ((k === "name" ? 1 : -1) === MSORT.d) MSORT.d = -MSORT.d; else MSORT = { k: "", d: -1 };   // tap: ▼ → ▲ → off
     msortKeep(); renderMove(); info(); });
-  el.querySelectorAll("input.mm-bt[data-bt]").forEach((c) => c.onchange = () => { OFFICER.BT.set(c.dataset.bid, c.dataset.bt, c.checked); });
-  el.querySelectorAll("[data-btcopy]").forEach((x) => x.onclick = async () => { const k = x.dataset.btcopy, ms = ((roster && roster.members) || []).filter((m) => OFFICER.BT.has(m.id, k)).sort((p, q) => (+q.power || 0) - (+p.power || 0));
+  el.querySelectorAll("input.mm-bt[data-bt]").forEach((c) => c.onchange = () => { BTX().set(c.dataset.bid, c.dataset.bt, c.checked); });
+  el.querySelectorAll("[data-btcopy]").forEach((x) => x.onclick = async () => { const k = x.dataset.btcopy, ms = ((roster && roster.members) || []).filter((m) => BTX().has(m.id, k)).sort((p, q) => (+q.power || 0) - (+p.power || 0));
     const text = `${t("bt" + k)} (${ms.length})\n` + ms.map((m) => m.name).join("\n");
     try { await navigator.clipboard.writeText(text); } catch (e) { const ta = document.createElement("textarea"); ta.value = text; el.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
     x.textContent = t("btCopied"); setTimeout(() => { x.textContent = t("btCopy"); }, 1500); });
@@ -1284,6 +1310,29 @@ async function loadMove() {
   MV = d && d.plan ? { plan: d.plan, done: d.done || [], st: d.st || {}, by: d.by, at: d.at } : { plan: null, done: [], st: {} };
   MV_SAVED = mvSnap();
 }
+/* 🐝 NXS / nxs switch (top of 👥 positions) */
+function whoBar() { return `<div class="row mm-who" style="gap:6px;margin-bottom:8px"><button type="button" class="btn small${WHO === "m" ? " primary" : ""}" data-hw="m">NXS</button><button type="button" class="btn small${WHO === "f" ? " primary" : ""}" data-hw="f">nxs</button></div>`; }
+function bindWho(el) { el.querySelectorAll("[data-hw]").forEach((b) => b.onclick = () => setWho(b.dataset.hw)); }
+const keepSlot = () => ({ D, SAVED, MV, MV_SAVED, roster, mvMsg, msg, MV_PATH });
+function useSlot(o) { ({ D, SAVED, MV, MV_SAVED, roster, mvMsg, msg, MV_PATH } = o); SEL = null; SPOT = null; NOWAT = null; }
+async function loadF() {
+  let r = null; try { r = await OfficerData.fetchJson("data/academy-x7k2p9.json"); } catch (e) {}
+  roster = r && Array.isArray(r.members) ? r : { members: [] };
+  const KS = window.KM_SHARED, f = KS && KS.farmPL ? KS.farmPL() : { bt: [] };
+  D = { m: roster.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: (f.bt || []).map((b) => b.slice(0, 2)) }; SAVED = snap();
+  msg = roster.members.length ? "" : t("fNoRoster");
+  MV_PATH = MV_PATH_F; await loadMove(); mvMsg = "";
+  if (OFFICER.can("move", "view")) OFFICER.BTF.load();
+}
+let whoBusy = false;
+async function setWho(w) {
+  if (w === WHO || whoBusy || !D) return; whoBusy = true;
+  try { await autoSave(); } catch (e) {}   // an unsaved change goes to its own plan first
+  SLOT[WHO] = keepSlot(); WHO = w; try { localStorage.setItem("nxs-hive-who", w); } catch (e) {}
+  if (SLOT[w]) useSlot(SLOT[w]); else { SEL = null; SPOT = null; NOWAT = null; mvMsg = ""; msg = ""; if (w === "f") { $("km_members").innerHTML = whoBar() + `<div class="muted">…</div>`; await loadF(); } }
+  whoBusy = false; if ($("hp_root")) $("hp_root").hidden = w === "f";
+  render(); renderMove();
+}
 /* the 🚚 tab: needs the map tab's data (positions, banners, obstacles), so that one starts first (hidden) */
 async function initMove() {
   const el = $("mv_root"); if (!el) return;
@@ -1292,6 +1341,7 @@ async function initMove() {
   if (OFFICER.ensure) await OFFICER.ensure("map");
   for (let i = 0; i < 50 && !D; i++) await new Promise((r) => setTimeout(r, 100));
   await loadMove(); render(); renderMove(); mapSync();
+  try { if (localStorage.getItem("nxs-hive-who") === "f") await setWho("f"); } catch (e) {}
   pubLoad().then(() => renderMove());
   if (window.HivePlanner) HivePlanner.init();   // 📐 auto plan from a Mapper layout
 }
@@ -1319,7 +1369,7 @@ function autoKick() { if (!OFFICER.token || !(posDirty() || mvDirty())) return; 
   renderMove = function () { const x = m0.apply(this, arguments); if (!autoBusy) autoKick(); return x; }; }
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && autoT) autoSave(); });
 window.addEventListener("pagehide", () => { if (autoT) autoSave(); });
-window.MemberMap = { cities: () => (D && D.m ? D.m.map((m) => [m[0], m[1], m[2]]) : []), traps: () => (D && D.bt ? D.bt.map((b) => [b[0], b[1]]) : []),
-  hivePlan: () => (MV && MV.plan ? { c: (MV.plan.c || []).map((c) => [c[0] || "", c[1], c[2]]), bt: (MV.plan.bt || []).map((b) => [b[0], b[1]]), hq: (MV.plan.hq || []).map((h) => [h[0], h[1]]) } : null), init, setLang, refresh, importPlan, ticked, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
+window.MemberMap = { cities: () => { const { D } = NX(); return D && D.m ? D.m.map((m) => [m[0], m[1], m[2]]) : []; }, traps: () => { const { D } = NX(); return D && D.bt ? D.bt.map((b) => [b[0], b[1]]) : []; },
+  hivePlan: () => { const { MV } = NX(); return MV && MV.plan ? { c: (MV.plan.c || []).map((c) => [c[0] || "", c[1], c[2]]), bt: (MV.plan.bt || []).map((b) => [b[0], b[1]]), hq: (MV.plan.hq || []).map((h) => [h[0], h[1]]) } : null; }, init, setLang, refresh, importPlan, ticked, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
 OFFICER_PAGES.move = { init: initMove, onShow: () => { if (D && MV) renderMove(); }, applyTexts: () => {}, setLang };
 })();
