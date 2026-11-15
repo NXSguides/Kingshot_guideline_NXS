@@ -41,6 +41,7 @@ content: |
   [[link:swordland-showdown]]
 ---
 author: "ΔRMΔDΔ"
+created: "2026-11-15T18:09:09.588Z"
 lang: en
 title: "Governor Charm Cap Raised lvl 12+"
 images: []
@@ -83,8 +84,8 @@ content: |
 
   This highlights that reaching level 22 is a long-term goal, and the costs escalate steeply in the final levels.
 
+  💡 Strategic Takeaways
 
-  ****### 💡 Strategic Takeaways
 
   Understanding the numbers allows for more efficient planning. Here are some key strategic points to consider:
 
