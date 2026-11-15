@@ -1379,54 +1379,53 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-15 by ΔRMΔDΔ] Plafond du Talisman du Gouverneur augmenté Niv. 12+
-Le 30/11/2026, 
+[2026-11-15 by ΔRMΔDΔ] Plafond de niveau du Talisman du Gouverneur augmenté (Niv. 12+)
+Le 30.11.2026,
 
-L'augmentation du niveau max du Talisman du Gouverneur de 11 à 22 est une mise à jour majeure de la progression dans *Kingshot*, augmentant considérablement la puissance potentielle de vos troupes grâce aux stats de Létalité et de Santé. Atteindre le nouveau niveau maximum de 22 offre un bonus substantiel de +99,00 % à la Létalité et à la Santé par talisman.
+L'augmentation du plafond de niveau du Talisman du Gouverneur de 11 à 22 est une mise à jour de progression majeure dans *Kingshot*, augmentant considérablement la puissance potentielle de vos troupes grâce aux stats de Létalité et de Santé. Atteindre le nouveau niveau maximum de 22 offre un bonus substantiel de +99,00 % en Létalité et en Santé par talisman.
 
-Voici une analyse détaillée de ce que signifie cette extension de niveau, des coûts impliqués et de la façon de planifier vos améliorations efficacement.
+Voici un récapitulatif de ce que signifie cette extension de niveau, des coûts impliqués et de la façon de planifier efficacement vos améliorations.
 
 
-### 📈 Stats clés & condition de déverrouillage
+### 📈 Stats clés & Conditions de déverrouillage
 
-Le détail le plus crucial est que, bien que le plafond soit désormais fixé à 22, le système de Talisman du Gouverneur ne devient accessible que lorsque vous avez amélioré votre Centre au niveau 25. Avant cela, vous pouvez commencer à accumuler les matériaux nécessaires lors des différents évènements.
+Le détail le plus important est que bien que le plafond soit désormais fixé à 22, le système du Talisman du Gouverneur n'est disponible qu'une fois votre Centre amélioré au Niveau 25. Avant cela, vous pouvez commencer à accumuler les matériaux nécessaires lors des différents évènements.
 
-*   Niveau maximum : 22
-*   Condition de déverrouillage : Centre au niveau 25
-*   Bonus de stat max (niveau 22) : +99,00 % de Létalité et +99,00 % de Santé par talisman
+*   Niveau Maximum : 22
+*   Condition de déverrouillage : Centre au Niveau 25
+*   Bonus de Stat Max (Niveau 22) : +99,00 % de Létalité et +99,00 % de Santé par talisman
 *   Nombre total de talismans : 54 (18 par type de troupe : Infanterie, Archer, Cavalerie)
 
 
-### 💰 Coût d'amélioration & progression des stats (niveaux 12–22)
+### 💰 Coût d'amélioration & Progression des stats (Niveaux 12 à 22)
 
-Le passage du niveau 12 à 22 représente un investissement important. Chaque niveau nécessite deux matériaux : Guide de Talisman et Plans de Talisman. Les coûts et les gains de stats ne sont pas linéaires ; vous trouverez le détail complet pour cette tranche de niveaux dans le tableau ci-dessous.
-
-
-
-*Source des données : bases de données Kingshot Guide & Kingshot World.*
+Le passage du niveau 12 au niveau 22 représente un investissement conséquent. Chaque niveau nécessite deux matériaux : des Guides de Talisman et des Plans de Talisman. Les coûts et les gains de stats ne sont pas linéaires ; vous pouvez consulter la répartition complète pour cette tranche de niveaux dans le tableau ci-dessous.
 
 
-### 📊 Coût total en matériaux (niveaux 1–22)
 
-Pour maximiser entièrement un seul talisman du niveau 1 au niveau 22, la quantité totale de matériaux requise est considérable :
-*   Total de Guide de Talisman : 10 880
+*Source des données : Bases de données Kingshot Guide & Kingshot World.*
+
+
+### 📊 Coût total en matériaux (Niveaux 1 à 22)
+
+Pour maximiser entièrement un seul talisman du niveau 1 au niveau 22, la quantité totale de matériaux requise est très importante :
+*   Total de Guides de Talisman : 10 880
 *   Total de Plans de Talisman : 19 200
 
-Cela souligne qu'atteindre le niveau 22 est un objectif à long terme, et que les coûts augmentent fortement dans les derniers niveaux.
+Cela montre bien qu'atteindre le niveau 22 est un objectif à long terme, et que les coûts augmentent de manière très raide dans les derniers niveaux.
 
-
-****### 💡 Conseils stratégiques
+💡 Conseils stratégiques
 
 Comprendre ces chiffres permet une planification plus efficace. Voici quelques points stratégiques clés à prendre en compte :
 
-*   Les premiers niveaux offrent un meilleur retour sur investissement : Les niveaux inférieurs (en particulier jusqu'au niveau 10 ou 11) sont nettement moins chers par rapport aux stats qu'ils fournissent. Pour les joueurs qui cherchent des gains de puissance efficaces, montez tous les talismans à un niveau de base (comme 5 ou 10) est une stratégie très rentable avant de pousser les talismans individuels au maximum.
+*   Les premiers niveaux offrent un meilleur retour sur investissement : Les niveaux inférieurs (en particulier jusqu'au niveau 10 ou 11) sont nettement moins chers par rapport aux stats qu'ils fournissent. Pour les joueurs qui cherchent des gains de puissance efficaces, monter tous les talismans à un niveau de base (comme 5 ou 10) est une stratégie très rentable avant de pousser des talismans individuels au maximum.
 *   Priorisez la Létalité et la Santé : Les talismans sont un investissement de premier ordre car ils augmentent la Létalité et la Santé, qui ont généralement plus d'impact dans la formule de dégâts que les stats d'Attaque et de Défense fournies par l'Équipement Chef.
-*   Attention aux sources de matériaux : Les Guides de Talisman et les Plans de Talisman s'obtiennent principalement lors d'évènements tels que l'Éternité à Portée, le Magasin Glaive, le Rif d'Alliances et le Haut Gouverneur. Planifiez votre participation à ces évènements pour maintenir votre progression d'amélioration.
-*   Synchronisez les améliorations avec les évènements : Pour une efficacité maximale, coordonnez vos améliorations de talisman avec des évènements à points comme « Haut Gouverneur » ou « Royaume au Pouvoir ». De cette façon, vous pourrez gagner de précieuses récompenses secondaires pour des matériaux que vous alliez dépenser de toute façon.
+*   Pensez aux sources de matériaux : Les Guides de Talisman et les Plans de Talisman s'obtiennent principalement lors d'évènements comme l'Éternité à Portée, le Magasin du Glaive, le Rif d'Alliances et le Haut Gouverneur. Planifiez votre participation à ces évènements pour soutenir la progression de vos améliorations.
+*   Synchronisez vos améliorations avec les évènements : Pour une efficacité maximale, planifiez l'amélioration de vos talismans pour qu'elle coïncide avec des évènements à points tels que « Haut Gouverneur » ou « Royaume au Pouvoir ». De cette façon, vous pourrez gagner de précieuses récompenses secondaires pour des matériaux que vous alliez dépenser de toute façon.
 
-En résumé, l'augmentation du niveau max à 22 offre une voie claire vers un puissant bonus de +99 % de Létalité et de Santé par talisman. Cependant, il s'agit d'une entreprise à long terme et très gourmande en ressources, qui nécessite une planification stratégique, une priorité accordée aux premiers niveaux à fort retour sur investissement et une collecte régulière de matériaux lors des évènements.
+En résumé, l'augmentation du plafond de niveau à 22 offre une voie claire vers un puissant bonus de +99 % en Létalité et Santé par talisman. Cependant, il s'agit d'une entreprise à long terme et gourmande en ressources, qui nécessite une planification stratégique, une priorité accordée aux premiers niveaux à fort retour sur investissement et une collecte régulière de matériaux lors des évènements.
 
-Si vous souhaitez approfondir un sujet spécifique, comme la priorité optimale des talismans par type de troupe ou un guide détaillé sur l'obtention de matériaux, n'hésitez pas à demander !
+Si vous souhaitez approfondir un domaine particulier, comme la priorité optimale des talismans par type de troupe ou un guide détaillé sur l'obtention des matériaux, n'hésitez pas à demander.
 
 [2026-11-15 by ELR] 11/15 SS Légion 1
 (battle table: shown in the reader's language)

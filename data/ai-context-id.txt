@@ -1378,27 +1378,27 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-15 by ΔRMΔDΔ] Batas Level Charm Gubernur Ditingkatkan Lv. 12+
-Pada 30.11.2026, 
+[2026-11-15 by ΔRMΔDΔ] Batas Level Charm Gubernur Ditingkatkan Ke Lv 12+
+Pada 30.11.2026,
 
-Peningkatan batas level Charm Gubernur dari 11 ke 22 adalah pembaruan progres besar di *Kingshot*, yang meningkatkan potensi kekuatan pasukan Anda secara signifikan melalui stat Lethality dan Health. Mencapai level maksimum baru 22 memberikan bonus substansial +99,00% untuk Lethality dan Health per bagian charm.
+Peningkatan batas level Charm Gubernur dari 11 ke 22 adalah pembaruan progres utama di *Kingshot*, yang meningkatkan potensi kekuatan pasukan Anda secara signifikan melalui statistik Lethality dan Health. Mencapai level maksimum baru yaitu level 22 memberikan bonus besar sebesar +99,00% untuk Lethality dan Health per bagian charm.
 
-Berikut adalah rincian tentang arti peningkatan batas level ini, biaya yang dibutuhkan, dan cara merencanakan peningkatan Anda secara efektif.
+Berikut adalah rincian tentang arti dari peningkatan batas level ini, biaya yang dibutuhkan, dan cara merencanakan peningkatan Anda secara efektif.
 
 
-### 📈 Stat Kunci & Syarat Pembukaan
+### 📈 Statistik Utama & Syarat Pembukaan
 
-Hal paling krusial adalah meskipun batasnya sekarang 22, sistem Charm Gubernur itu sendiri baru terbuka setelah Anda meningkatkan Tungku ke Level 25. Sebelum ini, Anda dapat mulai mengumpulkan bahan-bahan yang diperlukan dari berbagai event.
+Hal yang paling krusial adalah meskipun batasnya sekarang level 22, sistem Charm Gubernur sendiri belum tersedia sampai Anda meningkatkan Tungku ke Level 25. Sebelum itu, Anda dapat mulai mengumpulkan bahan-bahan yang diperlukan dari berbagai event.
 
 *   Level Maksimum: 22
 *   Syarat Pembukaan: Tungku Level 25
 *   Bonus Stat Maks (Level 22): +99,00% Lethality dan +99,00% Health per charm
-*   Total Charm: 54 (18 per tipe pasukan: Infanteri, Pemanah, Kavaleri)
+*   Total Charm: 54 (18 per jenis pasukan: Infanteri, Pemanah, Kavaleri)
 
 
-### 💰 Biaya Peningkatan & Progresi Stat (Level 12–22)
+### 💰 Biaya Peningkatan & Progres Stat (Level 12–22)
 
-Perjalanan dari level 12 ke 22 membutuhkan investasi yang signifikan. Setiap level membutuhkan dua bahan: Panduan Charm dan Desain Charm. Biaya dan peningkatan stat tidak bersifat linear; Anda dapat melihat rincian lengkap untuk rentang level baru ini pada tabel di bawah.
+Perjalanan dari level 12 ke 22 adalah investasi yang signifikan. Setiap level membutuhkan dua bahan: Panduan Charm dan Desain Charm. Biaya dan peningkatan stat tidak bersifat linear; Anda dapat melihat rincian lengkap untuk rentang level ini pada tabel di bawah.
 
 
 
@@ -1407,25 +1407,24 @@ Perjalanan dari level 12 ke 22 membutuhkan investasi yang signifikan. Setiap lev
 
 ### 📊 Total Biaya Bahan (Level 1–22)
 
-Untuk memaksimalkan satu charm secara penuh dari level 1 ke 22, total bahan yang dibutuhkan sangat besar:
+Untuk memaksimalkan satu charm sepenuhnya dari level 1 ke 22, total bahan yang dibutuhkan sangat besar:
 *   Total Panduan Charm: 10.880
 *   Total Desain Charm: 19.200
 
-Ini menunjukkan bahwa mencapai level 22 adalah tujuan jangka panjang, dan biayanya meningkat tajam di level-level terakhir.
+Ini menunjukkan bahwa mencapai level 22 adalah tujuan jangka panjang, dan biayanya meningkat drastis di level-level terakhir.
 
+💡 Poin Stratejik Utama
 
-****### 💡 Poin Strategis
+Memahami angka-angka ini memungkinkan perencanaan yang lebih efisien. Berikut adalah beberapa poin strategi utama yang perlu dipertimbangkan:
 
-Memahami angka-angka ini memungkinkan perencanaan yang lebih efisien. Berikut adalah beberapa poin strategis penting yang perlu dipertimbangkan:
+*   Level Awal Memberikan ROI Lebih Baik: Level yang lebih rendah (terutama hingga level 10 atau 11) jauh lebih murah relatif terhadap stat yang diberikan. Bagi pemain yang mencari peningkatan kekuatan yang efisien, menaikkan semua charm ke level dasar (seperti level 5 atau 10) adalah strategi yang sangat bernilai sebelum memaksimalkan charm individu.
+*   Prioritaskan Lethality dan Health: Charm adalah investasi tingkat atas karena meningkatkan Lethality dan Health, yang secara umum lebih berdampak dalam rumus damage daripada statistik Attack dan Defense yang diberikan oleh Gear Gubernur.
+*   Perhatikan Sumber Bahan: Panduan Charm dan Desain Charm utamanya diperoleh melalui event seperti Eternity's Reach, Toko Swordland, Brawl Aliansi, dan Gubernur Terkuat. Rencanakan partisipasi Anda dalam event-event ini untuk menjaga kelancaran progres peningkatan Anda.
+*   Atur Waktu Peningkatan untuk Event: Untuk efisiensi maksimum, atur waktu peningkatan charm Anda agar bersamaan dengan event pencetak poin seperti "Gubernur Terkuat" atau "Kerajaan Kekuatan." Dengan cara ini, Anda bisa mendapatkan hadiah sekunder yang berharga dari bahan yang memang akan Anda habiskan.
 
-*   Level Awal Menawarkan ROI Lebih Baik: Level bawah (terutama hingga level 10 atau 11) jauh lebih murah relatif terhadap stat yang berikan. Bagi pemain yang mencari peningkatan kekuatan secara efisien, menaikkan semua charm ke level dasar (seperti 5 atau 10) adalah strategi yang sangat berharga sebelum memaksimalkan charm individu.
-*   Prioritaskan Lethality dan Health: Charm adalah investasi tingkat atas karena meningkatkan Lethality dan Health, yang secara umum lebih berdampak dalam formula kerusakan daripada stat Attack dan Defense yang diberikan oleh Gear Gubernur.
-*   Perhatikan Sumber Bahan: Panduan Charm dan Desain Charm utamanya diperoleh melalui event seperti Eternity's Reach, Toko Swordland, Brawl Aliansi, dan Gubernur Terkuat. Rencanakan partisipasi Anda dalam event-event ini untuk menjaga progresi peningkatan Anda.
-*   Atur Waktu Peningkatan untuk Event: Untuk efisiensi maksimal, atur waktu peningkatan charm Anda agar bersamaan dengan event pencetak poin seperti "Gubernur Terkuat" atau "Kerajaan Kekuatan". Dengan cara ini, Anda bisa mendapatkan hadiah sekunder yang berharga dari bahan yang memang akan Anda habiskan.
+Singkatnya, peningkatan batas level ke 22 menawarkan jalur yang jelas menuju bonus +99% Lethality dan Health yang kuat per charm. Namun, ini adalah upaya jangka panjang yang membutuhkan banyak sumber daya, perencanaan strategis, memprioritaskan level awal dengan ROI tinggi, dan pengumpulan bahan secara konsisten dari event.
 
-Singkatnya, perluasan batas level ke 22 menawarkan jalur yang jelas menuju bonus +99% Lethality dan Health yang kuat per charm. Namun, ini adalah upaya jangka panjang yang memakan banyak sumber daya, membutuhkan perencanaan strategis, memprioritaskan level awal bernilai tinggi, dan pengumpulan bahan yang konsisten dari event.
-
-Jika Anda ingin pembahasan lebih mendalam tentang area tertentu, seperti prioritas charm optimal berdasarkan tipe pasukan atau panduan detail tentang pengumpulan bahan, jangan ragu untuk bertanya.
+Jika Anda ingin pembahasan lebih mendalam tentang area tertentu, seperti prioritas charm optimal berdasarkan jenis pasukan atau panduan mendalam tentang pencarian bahan, jangan ragu untuk bertanya.
 
 [2026-11-15 by ELR] 11/15 SS Legiun 1
 (battle table: shown in the reader's language)
