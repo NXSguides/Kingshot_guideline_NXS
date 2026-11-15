@@ -39,6 +39,7 @@ const BT_ROWS = [
   ["Sanctum — near home", "聖所 — 靠近我方", "성소 - 아군지 근처", "Heiligtum — bei uns", "Sanctuaire — côté maison", "Santuário — perto de casa", "Tapınak — bize yakın", "Sanctum — dekat markas", "Святилище — у нас", "วิหารศักดิ์สิทธิ์ — ฝั่งเรา", "المزار — قرب قاعدتنا", "Santuario — cerca de casa"],
   ["Abbeys (4 total)", "修道院（共 4 座）", "수도원 (총 4곳)", "Abteien (4 insgesamt)", "Abbayes (4 au total)", "Abadias (4 no total)", "Manastırlar (toplam 4)", "Biara (total 4)", "Монастыри (всего 4)", "อาราม (ทั้งหมด 4 แห่ง)", "الأديرة (4 إجمالًا)", "Abadías (4 en total)"],
   ["Abbeys", "修道院", "수도원", "Abteien", "Abbayes", "Abadias", "Manastırlar", "Biara", "Монастыри", "อาราม", "الأديرة", "Abadías"],
+  ["Abbey {0}", "修道院 {0}", "수도원 {0}", "Abtei {0}", "Abbaye {0}", "Abadia {0}", "Manastır {0}", "Biara {0}", "Монастырь {0}", "อาราม {0}", "الدير {0}", "Abadía {0}"],
   ["Abbey", "修道院", "수도원", "Abtei", "Abbaye", "Abadia", "Manastır", "Biara", "Монастырь", "อาราม", "الدير", "Abadía"],
   ["Mercenary Camp", "傭兵駐地", "용병 주둔지", "Söldnerlager", "Camp de Mercenaires", "Acampamento Mercenário", "Paralı Asker Kampı", "Kamp Tentara Bayaran", "Лагерь наемников", "ค่ายทหารรับจ้าง", "معسكر المرتزقة", "Campamento de Mercenarios"],
   ["Hall of Reformation", "教化大廳", "교화의 홀", "Reformationshalle", "Salle des Réformes", "Salão da Reforma", "Devrim Salonu", "Aula Reformasi", "Зал искупления", "หอปฏิรูป", "قاعة الإصلاح", "Salón de la Reforma"],
