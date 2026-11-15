@@ -95,5 +95,3 @@ content: |
   *   **Time Upgrades for Events:** For maximum efficiency, time your charm upgrades to coincide with point-scoring events like "Hall of Governors" or "Kingdom of Power." This way, you can earn valuable secondary rewards for materials you were going to spend anyway.
 
   In summary, the level cap expansion to 22 offers a clear path to a powerful **+99% Lethality and Health** bonus per charm. However, it is a resource-intensive, long-term endeavor that requires strategic planning, prioritizing high-ROI early levels, and consistent material collection from events.
-
-  If you'd like a deeper dive into a specific area, such as optimal charm priority by troop type or a detailed guide on material farming, feel free to ask.
