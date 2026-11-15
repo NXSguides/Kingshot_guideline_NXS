@@ -1377,7 +1377,7 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-14 by ELR] 11/15 SS กองทัพ 2
+[2026-11-15 by ELR] 11/15 SS กองทัพ 1
 (battle table: shown in the reader's language)
 
 
