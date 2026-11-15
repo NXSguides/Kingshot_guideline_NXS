@@ -494,26 +494,6 @@ function ssCard() {
     <div class="muted" style="font-size:12px;margin-top:10px">⚠️ ${esc(t("ssCav"))}</div>`;
 }
 
-/* 🔍 One alliance (Sherry 2026-11-15, back from the Swordland mode taken out on 11-04): any kingdom + alliance tag → its whole member list
-   ranked by Strength (Governor gear + Hero gear + Masters from that kingdom's top 100 boards; ≈ from Power otherwise) and Power. Same
-   look-up as before (Worker sspull, 4 MightPulse calls, 10 min cache); the last 12 look-ups stay on this device (💾). */
-const AT = {"en": {"t": "🔍 One alliance", "p": "Type a kingdom and an alliance tag: its whole member list, ranked. Strength = Governor Gear + Hero Gear + Masters from that kingdom's top 100 boards; ≈ = estimated from Power (not in all three top 100s).", "rk": "Rank", "tc": "TC"},
- "zh": {"t": "🔍 查單一聯盟", "p": "輸入王國和聯盟縮寫：整個聯盟的成員排名。強度 = 該王國前 100 名排行榜上的領主裝備 + 英雄裝備 + 大師；≈ = 不在三個榜的前 100 名，用總戰力估的。", "rk": "階級", "tc": "主城"},
- "pt": {"t": "🔍 Uma aliança", "p": "Digite um reino e a tag de uma aliança: a lista inteira de membros, em ranking. Força = Equip. do Chefe + Equip. do Herói + Mestres dos rankings top 100 daquele reino; ≈ = estimado pelo Poder (fora dos três top 100).", "rk": "Cargo", "tc": "CC"},
- "ar": {"t": "🔍 تحالف واحد", "p": "اكتب مملكة ورمز تحالف: قائمة أعضائه كاملة مرتبة. القوة = عتاد الحاكم + عتاد البطل + المعلّمون من لوحات أفضل 100 في تلك المملكة؛ ≈ = مقدّرة من القوة الكلية (خارج أفضل 100 في اللوحات الثلاث).", "rk": "الرتبة", "tc": "المركز"},
- "ko": {"t": "🔍 연맹 하나", "p": "왕국과 연맹 태그를 입력: 그 연맹 전체 순위. 강도 = 그 왕국 상위 100 랭킹의 영주 장비 + 영웅 장비 + 마스터; ≈ = 세 랭킹 상위 100 밖이라 전투력으로 추정.", "rk": "등급", "tc": "도시"}};
-const at = (k) => (AT[lang] || AT.en)[k];
-function alCard() {
-  const S = PLAN.ss, L = theirList();
-  const tbl = !SSD ? "" : `<div class="muted" style="font-size:12.5px;margin:6px 0">${esc(fill(t("ssGot"), { tag: SSD.tag, name: SSD.name, kid: SSD.kid, n: SSD.members.length, t: new Date(SSD.fetched).toLocaleString([], { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }) }))}</div>
-    <div class="ak-tw ak-list" style="max-height:520px"><table class="ak-t"><thead><tr><th>#</th><th>${esc(t("nm"))}</th><th>${esc(at("rk"))}</th><th>${esc(at("tc"))}</th><th>${esc(t("colS"))}</th><th>${esc(t("pw"))}</th></tr></thead><tbody>
-    ${L.map((x, i) => `<tr><td>${i + 1}</td><td><bdi>${esc(x.name)}</bdi></td><td class="muted">${esc(x.rank || "")}</td><td>${x.tc != null ? esc(OFFICER.tcText ? OFFICER.tcText(x.tc) : x.tc) : ""}</td><td>${x.S ? (x.est ? "≈" : "") + x.S.toFixed(1) : "—"}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div>`;
-  return `<h3 style="margin:0 0 4px">${esc(at("t"))}</h3><div class="muted" style="font-size:12.5px">${esc(at("p"))}</div>
-    <div class="ak-box"><div class="ak-f"><span>${esc(t("ssKid"))}</span><input class="inp" type="number" id="ss_kid" value="${esc(S.kid)}" placeholder="2186"></div>
-      <div class="ak-f"><span>${esc(t("ssTag"))}</span><input class="inp" id="ss_tag" value="${esc(S.tag)}" maxlength="8" placeholder="ABC"> <button class="btn small" id="ss_go"${ssBusy ? " disabled" : ""}>${esc(t(ssBusy ? "ssBusy" : "ssGo"))}</button></div>
-      ${ssMsg ? `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">${esc(ssMsg)}</div>` : ""}${savedBox()}</div>${tbl}`;
-}
-
 /* ---------- ⚖️ Super compare (Sherry 2026-11-04: battle judging was too much to fill in live — just a rough "how much stronger is he") ----------
    Two players, side by side: strength S (gear + hero equip + master) and each board, Town Center, VIP (Scout), Amadeus / Helga stars (their own record). */
 const VT = {
@@ -597,7 +577,7 @@ function render() {
   PLAN.mode = "home";   // the 🏰 / ⚔️ KvK switch was taken out too (2026-11-04): one list, 🎯 intel and 🔭 Scout always shown
   /* each card on its own: one card failing on odd data must not blank the whole tab (2026-11-05) */
   const safe = (f) => { try { return f(); } catch (e) { console.warn("[compare]", e); return `<div class="muted">⚠️ ${esc(String((e && e.message) || e)).slice(0, 160)}</div>`; } };
-  root.innerHTML = `<div class="card" id="ak_vs">${safe(vsHtml)}</div><div class="card" id="ak_board">${safe(boardsCard)}</div><div class="card" id="ak_al">${safe(alCard)}</div>${window.KvkIntel ? `<div class="card" id="ak_intel">${safe(() => KvkIntel.html(SNAP))}</div>` : ""}`;   // 🎯 opponent intel (js/officer/intel.js)
+  root.innerHTML = `<div class="card" id="ak_vs">${safe(vsHtml)}</div><div class="card" id="ak_board">${safe(boardsCard)}</div><div class="card" id="ak_al">${safe(ssCard)}</div>${window.KvkIntel ? `<div class="card" id="ak_intel">${safe(() => KvkIntel.html(SNAP))}</div>` : ""}`;   // 🎯 opponent intel (js/officer/intel.js)
   const sc = $("pg-scout"); if (sc) sc.hidden = false;   // 🔭 Scout (other kingdoms), always under the cards
   safe(bind); safe(vsBind);
   if (window.KvkIntel) safe(() => KvkIntel.bind(render));
@@ -698,6 +678,7 @@ async function init() {
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { $("ak_root").innerHTML = `<div class="card muted">🔒</div>`; return; }
   $("ak_root").innerHTML = `<div class="card muted">⏳</div>`;
   try { await loadSnap(); } catch (e) { console.warn("[compare] load", e); }
+  try { await ssLoad(); } catch (e) { console.warn("[compare] ss", e); }   // 🗡️ card: shared 📊 Ranking plans + our roster
   try { render(); } catch (e) { console.warn("[compare]", e); $("ak_root").innerHTML = `<div class="card muted">⚠️ ${esc(String((e && e.message) || e)).slice(0, 160)}</div>`; }
   if (OFFICER.ensure) OFFICER.ensure("scout");   // 🔭 Scout lives in this tab now (its own module, js/officer/scout.js)
 }
