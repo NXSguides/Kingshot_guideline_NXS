@@ -1378,27 +1378,27 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-15 by ΔRMΔDΔ] Vali Tılsımı Seviye Sınırı 12+ Seviyeye Yükseltildi
-30.11.2026 Tarihinde,
+[2026-11-15 by ΔRMΔDΔ] Vali Tılsımı Seviye Sınırı Yükseltildi Sv. 12+
+30.11.2026 tarihinde, 
 
-Vali Tılsımı seviye sınırının 11'den 22'ye yükseltilmesi, *Kingshot* oyununda birliklerinizin potansiyel gücünü Öldürücülük ve Sağlık nitelikleri aracılığıyla önemli ölçüde artıran büyük bir ilerleme güncellemesidir. Yeni maksimum seviye olan 22'ye ulaşmak, tılsım parçası başına Öldürücülük ve Sağlık değerlerinde +%99,00 tutarında büyük bir bonus sağlar.
+Vali Tılsımı seviye sınırının 11'den 22'ye yükseltilmesi, *Kingshot*'ta birliklerinizin potansiyel gücünü Öldürücülük ve Sağlık nitelikleri aracılığıyla önemli ölçüde artıran büyük bir ilerleme güncellemesidir. Yeni maksimum seviye olan 22'ye ulaşmak, tılsım parçası başına Öldürücülük ve Sağlık niteliklerine devasa bir +%99,00 bonus sağlar.
 
-İşte bu seviye sınırı genişlemesinin ne anlama geldiği, gerekli maliyetler ve yükseltmelerinizi nasıl etkili bir şekilde planlayacağınıza dair ayrıntılı bir inceleme.
+İşte bu seviye sınırı genişlemesinin ne anlama geldiğinin, maliyetlerin ve yükseltmelerinizi nasıl etkili bir şekilde planlayacağınızın detayları.
 
 
-### 📈 Temel Nitelikler ve Kilit Açma Gereksinimi
+### 📈 Temel Nitelikler ve Açılma Gereksinimi
 
-En kritik detay, seviye sınırı artık 22 olsa da Vali Tılsımı sisteminin Şehir Merkezi Seviye 25'e ulaşılana kadar açılmamasıdır. Bu seviyeye ulaşmadan önce, çeşitli etkinliklerden gerekli malzemeleri biriktirmeye başlayabilirsiniz.
+En önemli detay, seviye sınırı artık 22 olsa da Vali Tılsımı sisteminin kendisinin Şehir Merkezi Seviye 25'e yükseltilene kadar kullanılamamasıdır. Bu seviyeye ulaşmadan önce, çeşitli etkinliklerden gerekli malzemeleri biriktirmeye başlayabilirsiniz.
 
 *   Maksimum Seviye: 22
-*   Kilit Açma Gereksinimi: Şehir Merkezi Seviye 25
-*   Maks. Nitelik Bonusu (Seviye 22): Tılsım başına +%99,00 Öldürücülük ve +%99,00 Sağlık
-*   Toplam Tılsım Sayısı: 54 (Birlik türü başına 18: Piyade, Okçu, Süvari)
+*   Açılma Gereksinimi: Şehir Merkezi Seviye 25
+*   Maks Nitelik Bonusu (Seviye 22): Tılsım başına +%99,00 Öldürücülük ve +%99,00 Sağlık
+*   Toplam Tılsım: 54 (Birlik türü başına 18: Piyade, Okçu, Süvari)
 
 
 ### 💰 Yükseltme Maliyeti ve Nitelik İlerlemesi (Seviye 12–22)
 
-12. seviyeden 22. seviyeye uzanan yolculuk ciddi bir yatırımdır. Her seviye için iki malzeme gereklidir: Tılsım Kılavuzu ve Tılsım Tasarımı. Maliyetler ve nitelik kazanımları doğrusal değildir; bu genişletilmiş seviye aralığı için tüm ayrıntıları aşağıdaki tabloda görebilirsiniz.
+12. seviyeden 22. seviyeye olan yolculuk büyük bir yatırımdır. Her seviye iki malzeme gerektirir: Tılsım Kılavuzu ve Tılsım Tasarımı. Maliyetler ve nitelik kazanımları doğrusal değildir; bu genişletilmiş seviye aralığı için tüm detayları aşağıdaki tabloda görebilirsiniz.
 
 
 
@@ -1407,24 +1407,23 @@ En kritik detay, seviye sınırı artık 22 olsa da Vali Tılsımı sisteminin �
 
 ### 📊 Toplam Malzeme Maliyeti (Seviye 1–22)
 
-Tek bir tılsımı 1. seviyeden 22. seviyeye kadar tamamen maksimuma çıkarmak için gereken toplam malzeme oldukça yüksektir:
+Tek bir tılsımı 1. seviyeden 22. seviyeye tamamen son seviyeye getirmek için gereken toplam malzeme miktarı oldukça fazladır:
 *   Toplam Tılsım Kılavuzu: 10.880
 *   Toplam Tılsım Tasarımı: 19.200
 
-Bu tablo, 22. seviyeye ulaşmanın uzun vadeli bir hedef olduğunu ve maliyetlerin son seviyelerde dik bir şekilde arttığını göstermektedir.
+Bu durum, 22. seviyeye ulaşmanın uzun vadeli bir hedef olduğunu ve maliyetlerin son seviyelerde dik bir şekilde arttığını göstermektedir.
 
 💡 Stratejik İpuçları
 
-Rakamları anlamak daha verimli bir planlama yapmanızı sağlar. Dikkate alınması gereken bazı temel stratejik noktalar şunlardır:
 
-*   İlk Seviyeler Daha Yüksek Yatırım Getirisi Sağlar: Düşük seviyeler (özellikle 10 veya 11. seviyeye kadar), sağladıkları niteliklere kıyasla önemli ölçüde daha ucuzdur. Verimli güç kazanımı arayan oyuncular için, tekil tılsımları maksimuma zorlamadan önce tüm tılsımları temel bir seviyeye (5 veya 10 gibi) getirmek çok değerli bir stratejidir.
-*   Öldürücülük ve Sağlığa Öncelik Verin: Tılsımlar Öldürücülük ve Sağlık değerlerini artırdığı için üst düzey bir yatırımdır. Bu nitelikler, hasar formülünde Şef Donanımı tarafından sağlanan Saldırı ve Savunma niteliklerine kıyasla genellikle daha etkilidir.
-*   Malzeme Kaynaklarını Takip Edin: Tılsım Kılavuzu ve Tılsım Tasarımı temel olarak Sonsuzluğun Erişimi, Kılıçdiyarı Mağazası, İttifak Kavgası ve En Güçlü Vali gibi etkinliklerden kazanılır. Yükseltme ilerlemenizi sürdürmek için bu etkinliklere katılımınızı planlayın.
-*   Yükseltmeleri Etkinlik Zamanlarına Denk Getirin: Maksimum verimlilik için tılsım yükseltmelerinizi "En Güçlü Vali" veya "En Güçlü Krallık" gibi puan kazandıran etkinliklerle aynı zamana denk getirin. Bu sayede, zaten harcayacağınız malzemeler için değerli ikincil ödüller kazanabilirsiniz.
+Rakamları anlamak daha verimli bir planlama yapmanızı sağlar. Dikkate almanız gereken bazı temel stratejik noktalar şunlardır:
 
-Özetle, seviye sınırının 22'ye yükseltilmesi, tılsım başına +%99 Öldürücülük ve Sağlık gibi güçlü bir bonusa ulaşmak için net bir yol sunar. Ancak bu, stratejik planlama, yüksek getirili ilk seviyelere öncelik verme ve etkinliklerden tutarlı malzeme toplamayı gerektiren, kaynak yoğun ve uzun vadeli bir çabadır.
+*   Erken Seviyeler Daha İyi Yatırım Getirisi Sunar: Düşük seviyeler (özellikle 10 veya 11'e kadar olanlar), sağladıkları niteliklere kıyasla önemli ölçüde daha ucuzdur. Etkili güç kazanımları arayan oyuncular için, tek tek tılsımları maksimuma zorlamadan önce tüm tılsımları temel bir seviyeye (5 veya 10 gibi) getirmek yüksek değerli bir stratejidir.
+*   Öldürücülük ve Sağlığa Öncelik Verin: Tılsımlar üst düzey bir yatırımdır çünkü Şef Donanımı tarafından sağlanan Saldırı ve Savunma niteliklerine kıyasla hasar formülünde genellikle daha etkili olan Öldürücülük ve Sağlığı artırırlar.
+*   Malzeme Kaynaklarına Dikkat Edin: Tılsım Kılavuzu ve Tılsım Tasarımı öncelikle Sonsuzluğun Erişimi ve İttifak Kavgası gibi etkinliklerden kazanılır. Yükseltme ilerlemenizi sürdürmek için bu etkinliklere katılımınızı planlayın.
+*   Yükseltmeleri Etkinliklere Göre Zamanlayın: Maksimum verimlilik için tılsım yükseltmelerinizi "En Güçlü Krallık" gibi puan kazandıran etkinliklerle aynı zamana denk getirin. Bu sayede, zaten harcayacağınız malzemeler karşılığında değerli ikincil ödüller kazanabilirsiniz.
 
-Birlik türüne göre en uygun tılsım önceliği veya malzeme toplama konusunda ayrıntılı bir rehber gibi belirli bir alanda daha derinlemesine bilgi almak isterseniz, sormaktan çekinmeyin.
+Özetle, seviye sınırının 22'ye çıkarılması, tılsım başına güçlü bir +%99 Öldürücülük ve Sağlık bonusuna giden net bir yol sunar. Bununla birlikte, stratejik planlama, yüksek getirili erken seviyelere öncelik verme ve etkinliklerden sürekli malzeme toplamayı gerektiren kaynak yoğun, uzun vadeli bir çabadır.
 
 [2026-11-15 by ELR] 11/15 SS 1. Lejyon
 (battle table: shown in the reader's language)

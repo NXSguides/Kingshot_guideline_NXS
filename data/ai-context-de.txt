@@ -1380,53 +1380,52 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-15 by ΔRMΔDΔ] Gouverneur Talisman Stufenobergrenze erhöht (Lvl 12+)
-Am 30.11.2026,
+[2026-11-15 by ΔRMΔDΔ] Gouverneur Talisman-Obergrenze erhöht Stufe 12+
+Am 30.11.2026, 
 
-Die Erweiterung der Level-Obergrenze für den Gouverneur Talisman von 11 auf 22 ist ein großes Fortschritts-Update in *Kingshot*, das das potenzielle Machtpotenzial deiner Truppen durch die Werte Tödlichkeit und Gesundheit erheblich steigert. Das Erreichen der neuen Maximalstufe 22 bietet einen beträchtlichen Bonus von +99,00% auf Tödlichkeit und Gesundheit pro Talisman-Teil.
+Die Erweiterung der Level-Obergrenze für Gouverneur Talismane von 11 auf 22 ist ein großes Fortschritts-Update in *Kingshot*, das die potenzielle Stärke deiner Truppen durch die Werte Tödlichkeit und Gesundheit erheblich steigert. Das Erreichen der neuen Maximalstufe 22 bietet einen gewaltigen Bonus von +99,00% auf Tödlichkeit und Gesundheit pro Talisman.
 
-Hier ist eine Übersicht darüber, was diese Stufenerweiterung bedeutet, welche Kosten entstehen und wie du deine Upgrades effektiv planen kannst.
+Hier ist eine Übersicht darüber, was diese Obergrenzen-Erweiterung bedeutet, welche Kosten entstehen und wie du deine Aufwertungen effektiv planen kannst.
 
 
-### 📈 Wichtigste Werte & Freischaltanforderung
+### 📈 Wichtige Werte & Freischaltanforderung
 
-Das wichtigste Detail ist, dass die Obergrenze zwar nun bei 22 liegt, das Gouverneur Talisman-System selbst jedoch erst verfügbar wird, wenn du dein Stadtzentrum auf Level 25 aufgewertet hast. Davor kannst du bereits beginnen, die notwendigen Materialien aus verschiedenen Events zu horten.
+Das wichtigste Detail ist, dass das Gouverneur-Talisman-System selbst erst verfügbar wird, wenn du dein Stadtzentrum auf Stufe 25 aufgewertet hast, obwohl die Obergrenze jetzt bei 22 liegt. Vorher kannst du bereits beginnen, die notwendigen Materialien aus verschiedenen Events zu sammeln.
 
 *   Maximales Level: 22
 *   Freischaltanforderung: Stadtzentrum Level 25
-*   Max. Stat-Bonus (Level 22): +99,00% Tödlichkeit und +99,00% Gesundheit pro Talisman
-*   Gesamtanzahl Talismane: 54 (18 pro Truppentyp: Infanterie, Bogenschütze, Kavallerie)
+*   Max. Wert-Bonus (Level 22): +99,00% Tödlichkeit und +99,00% Gesundheit pro Talisman
+*   Talismane insgesamt: 54 (18 pro Truppentyp: Infanterie, Bogenschütze, Kavallerie)
 
 
-### 💰 Upgrade-Kosten & Wertefortschritt (Level 12–22)
+### 💰 Aufwertungskosten & Wertefortschritt (Stufen 12–22)
 
-Der Weg von Level 12 auf 22 ist eine erhebliche Investition. Jedes Level erfordert zwei Materialien: Talismanleitfaden und Talismanpläne. Die Kosten und Wertesteigerungen verlaufen nicht linear; die vollständige Aufschlüsselung für diesen erweiterten Levelbereich findest du in der Tabelle unten.
+Der Weg von Stufe 12 auf 22 ist eine erhebliche Investition. Jede Stufe erfordert zwei Materialien: Talismanleitfaden und Talismanpläne. Die Kosten und Wertesteigerungen verlaufen nicht linear; die vollständige Übersicht für diesen erweiterten Levelbereich findest du in der folgenden Tabelle.
 
 
 
 *Datenquelle: Kingshot Guide & Kingshot World Datenbanken.*
 
 
-### 📊 Gesamte Materialkosten (Level 1–22)
+### 📊 Gesamte Materialkosten (Stufen 1–22)
 
-Um einen einzelnen Talisman von Level 1 bis 22 vollständig zu maximieren, ist der Gesamtmaterialbedarf beträchtlich:
-*   Gesamte Talismanleitfaden: 10.880
-*   Gesamte Talismanpläne: 19.200
+Um einen einzelnen Talisman von Stufe 1 auf 22 vollständig zu maximieren, ist der Gesamtmaterialbedarf beträchtlich:
+*   Talismanleitfaden insgesamt: 10.880
+*   Talismanpläne insgesamt: 19.200
 
-Dies macht deutlich, dass das Erreichen von Level 22 ein langfristiges Ziel ist und die Kosten in den letzten Levels steil ansteigen.
+Dies verdeutlicht, dass das Erreichen von Stufe 22 ein langfristiges Ziel ist und die Kosten in den letzten Stufen steil ansteigen.
 
 💡 Strategische Erkenntnisse
 
-Das Verständnis der Zahlen ermöglicht eine effizientere Planung. Hier sind einige wichtige strategische Punkte, die du berücksichtigen solltest:
 
-*   Frühe Level bieten einen besseren ROI: Die niedrigeren Level (insbesondere bis 10 oder 11) sind im Verhältnis zu den Werten, die sie bieten, deutlich günstiger. Für Spieler, die nach effizienten Machtgewinnen suchen, ist das Bringen aller Talismane auf ein Basislevel (wie 5 oder 10) eine sehr wertvolle Strategie, bevor einzelne Talismane auf das Maximum gebracht werden.
-*   Priorisiere Tödlichkeit und Gesundheit: Talismane sind eine erstklassige Investition, da sie Tödlichkeit und Gesundheit erhöhen, die in der Schadensformel im Allgemeinen einflussreicher sind als die Werte für Angriff und Verteidigung, die von der Gouverneur-Ausrüstung bereitgestellt werden.
-*   Beachte die Materialquellen: Talismanleitfaden und Talismanpläne werden hauptsächlich durch Events wie Weiten der Ewigkeit, Schwertland, Allianz-Gemenge und Stärkster Gouverneur verdient. Plane deine Teilnahme an diesen Events, um deinen Upgrade-Fortschritt aufrechtzuerhalten.
-*   Timing der Upgrades für Events: Für maximale Effizienz solltest du deine Talisman-Upgrades so timen, dass sie mit Punkte-Events wie „Stärkster Gouverneur“ oder „Königreich der Macht“ zusammenfallen. Auf diese Weise kannst du wertvolle sekundäre Belohnungen für Materialien verdienen, die du ohnehin ausgeben wolltest.
+Das Verständnis der Zahlen ermöglicht eine effizientere Planung. Hier sind einige wichtige strategische Punkte, die berücksichtigt werden sollten:
 
-Zusammenfassend bietet die Erweiterung der Level-Obergrenze auf 22 einen klaren Weg zu einem mächtigen Bonus von +99% Tödlichkeit und Gesundheit pro Talisman. Es handelt sich jedoch um ein ressourcenintensives, langfristiges Unterfangen, das eine strategische Planung, die Priorisierung von frühen Levels mit hohem ROI und eine konsequente Materialsammlung aus Events erfordert.
+*   Frühe Stufen bieten besseren ROI: Die niedrigeren Stufen (insbesondere bis 10 oder 11) sind im Verhältnis zu den Werten, die sie bieten, deutlich günstiger. Für Spieler, die nach effizientem Machtgewinn suchen, ist das Bringen aller Talismane auf ein Basislevel (wie 5 oder 10) eine hochwertige Strategie, bevor einzelne Talismane ausgemaxed werden.
+*   Setze Prioritäten bei Tödlichkeit und Gesundheit: Talismane sind eine erstklassige Investition, da sie Tödlichkeit und Gesundheit erhöhen, die in der Schadensformel im Allgemeinen einflussreicher sind als die Werte Angriff und Verteidigung, die von der Gouverneur-Ausrüstung bereitgestellt werden.
+*   Beachte die Materialquellen: Talismanleitfaden und Talismanpläne werden hauptsächlich durch Events wie Weiten der Ewigkeit und Allianz-Gemenge verdient. Plane deine Teilnahme an diesen Events, um deinen Aufwertungsfortschritt aufrechtzuerhalten.
+*   Nutze Events für Aufwertungen: Für maximale Effizienz solltest du deine Talisman-Aufwertungen so planen, dass sie mit Punkte-Events wie „Königreich der Macht“ zusammenfallen. Auf diese Weise kannst du wertvolle sekundäre Belohnungen für Materialien verdienen, die du ohnehin ausgeben wolltest.
 
-Wenn du tiefer in einen bestimmten Bereich eintauchen möchtest, z. B. die optimale Talisman-Priorität nach Truppentyp oder einen detaillierten Leitfaden zum Farmen von Materialien, kannst du gerne fragen.
+Zusammenfassend bietet die Erweiterung der Level-Obergrenze auf 22 einen klaren Weg zu einem mächtigen Bonus von +99% Tödlichkeit und Gesundheit pro Talisman. Es handelt sich jedoch um ein ressourcenintensives, langfristiges Unterfangen, das strategische Planung, die Priorisierung von Stufen mit hohem ROI und das konsequente Sammeln von Materialien bei Events erfordert.
 
 [2026-11-15 by ELR] 11/15 SS Legion 1
 (battle table: shown in the reader's language)
