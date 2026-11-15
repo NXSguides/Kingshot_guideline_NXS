@@ -216,7 +216,22 @@ function keyPointsHtml() {
   return `<div class="key-points"><div class="kp-title">${escapeHtml(t(HIGHLIGHT_TITLE))}</div><ul>${lines.map((x) => `<li>${rich(x)}</li>`).join("")}</ul></div>`;
 }
 function rich(str) {
-  return localTimes(richRaw(str), currentLang);
+  return localTimes(discordTimes(richRaw(str), currentLang), currentLang);
+}
+/* Discord time codes pasted from Discord (<t:1795996800:F>) → that moment in the reader's own language and time zone, like Discord shows it
+   (t / T time, d / D date, f / F date + time, R "in 3 days"); the UTC moment is in the tooltip */
+function discordTimes(html, lang) {
+  return html.replace(/&lt;t:(-?\d{1,12})(?::([tTdDfFR]))?&gt;/g, (m, n, st) => {
+    const d = new Date(+n * 1000); if (isNaN(d)) return m;
+    const loc = HTML_LANG[lang] || lang || "en", s = st || "f";
+    let out = "";
+    try {
+      if (s === "R") { const sec = (d - Date.now()) / 1000, U = [["year", 31536000], ["month", 2592000], ["week", 604800], ["day", 86400], ["hour", 3600], ["minute", 60], ["second", 1]], u = U.find(([, v]) => Math.abs(sec) >= v) || U[6];
+        out = new Intl.RelativeTimeFormat(loc, { numeric: "auto" }).format(Math.round(sec / u[1]), u[0]); }
+      else out = d.toLocaleString(loc, { t: { timeStyle: "short" }, T: { timeStyle: "medium" }, d: { dateStyle: "short" }, D: { dateStyle: "long" }, f: { dateStyle: "long", timeStyle: "short" }, F: { dateStyle: "full", timeStyle: "short" } }[s]);
+    } catch (e) { out = d.toUTCString(); }
+    return `<span class="dts" title="${escapeHtml(d.toISOString().slice(0, 16) + "Z")}">${escapeHtml(out)}</span>`;
+  });
 }
 function richRaw(str) {
   return escapeHtml(withLimits(str))
@@ -1060,6 +1075,7 @@ function renderAnnTicker() {
 
   const toPlain = (text) => text
     .replace(/\{=(\w+)\}/g, (m, k) => fmtLimit(k) || m)
+    .replace(/<t:-?\d{1,12}(?::[tTdDfFR])?>/g, (m) => { const el = document.createElement("span"); el.innerHTML = discordTimes(escapeHtml(m), currentLang); return el.textContent; })
     .replace(/\[\[(?:link|img|video|table):[^\]]*\]\]/g, "")   // pictures / videos / links / battle tables aren't shown in the ticker
     .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
     .replace(/\*\*(.+?)\*\*/g, "$1")
