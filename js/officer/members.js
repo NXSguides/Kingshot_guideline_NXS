@@ -71,6 +71,7 @@ for (const [l, o] of Object.entries({
 })) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"bt3": "🐻 BT3", "btNote3": "Tick BT1 / BT2 / BT3 for each member (more than one is fine). BT3 = the Bear Trap shared with nxs (their BT1): BT3 people stay here and go over for it.", "btNoteF": "nxs's Bear Traps: BT1 = the one shared with us (our BT3), BT2 = their own. These marks are nxs's, kept apart from NXS's.", "fNote": "nxs (2189 nxs): positions come from the daily nxs roster (look only); this hive plan, its spots and BT marks are nxs's own, apart from NXS's. Import their layout (cities y ≥ 705) with 📥 below.", "fNoRoster": "The nxs roster isn't here yet (it comes with the daily roster update)."}, "zh": {"bt3": "🐻 BT3", "btNote3": "每個人勾 BT1／BT2／BT3（可以多選）。BT3 = 跟 nxs 共用的熊陷阱（她們的 BT1）：勾 BT3 的人平常住這邊，時間到再過去打。", "btNoteF": "nxs 的熊陷阱：BT1 = 跟我們共用的那個（我們的 BT3），BT2 = 她們自己的。這裡的勾選是 nxs 的，跟 NXS 分開。", "fNote": "nxs（2189 nxs）：目前位置來自每天抓的 nxs 名冊（只能看）；這份蜂巢計畫、位置和 BT 勾選都是 nxs 自己的，跟 NXS 分開。用下面的 📥 匯入她們的布局（y ≥ 705 的城）。", "fNoRoster": "nxs 名冊還沒進來（每天名冊更新時一起抓）。"}, "pt": {"bt3": "🐻 BT3", "btNote3": "Marque BT1 / BT2 / BT3 para cada membro (pode marcar mais de um). BT3 = a Armadilha dividida com a nxs (o BT1 delas): quem tem BT3 mora aqui e vai lá na hora.", "btNoteF": "Armadilhas da nxs: BT1 = a dividida conosco (nosso BT3), BT2 = a delas. Estas marcas são da nxs, separadas das da NXS.", "fNote": "nxs (2189 nxs): as posições vêm do roster diário da nxs (só ver); este plano de colmeia, os lugares e as marcas BT são da nxs, separados da NXS. Importe o layout delas (cidades y ≥ 705) com 📥 abaixo.", "fNoRoster": "O roster da nxs ainda não chegou (vem com a atualização diária)."}, "ar": {"bt3": "🐻 BT3", "btNote3": "ضع علامة BT1 / BT2 / BT3 لكل عضو (يمكن أكثر من واحدة). BT3 = مصيدة الدب المشتركة مع nxs (BT1 الخاصة بهم): أصحاب BT3 يسكنون هنا ويذهبون إليها في وقتها.", "btNoteF": "مصائد nxs: BT1 = المشتركة معنا (BT3 عندنا)، BT2 = الخاصة بهم. هذه العلامات لـ nxs، منفصلة عن NXS.", "fNote": "nxs (2189 nxs): المواقع من قائمة nxs اليومية (للعرض فقط)؛ خطة الخلية هذه وأماكنها وعلامات BT خاصة بـ nxs ومنفصلة عن NXS. استورد مخططهم (المدن y ≥ 705) بزر 📥 أدناه.", "fNoRoster": "قائمة nxs لم تصل بعد (تأتي مع التحديث اليومي)."}, "ko": {"bt3": "🐻 BT3", "btNote3": "연맹원마다 BT1 / BT2 / BT3 체크 (여러 개 가능). BT3 = nxs와 같이 쓰는 곰 함정(그쪽 BT1): BT3인 사람은 여기 살다가 시간에 맞춰 가요.", "btNoteF": "nxs 곰 함정: BT1 = 우리와 같이 쓰는 것(우리 BT3), BT2 = 그쪽 것. 여기 체크는 nxs 것이고 NXS와 따로예요.", "fNote": "nxs (2189 nxs): 위치는 매일 받는 nxs 명단에서 와요(보기만). 이 하이브 계획, 자리, BT 체크는 nxs 것이라 NXS와 따로예요. 아래 📥로 그쪽 배치(y ≥ 705 도시)를 불러오세요.", "fNoRoster": "nxs 명단이 아직 없어요(매일 명단 업데이트 때 같이 와요)."}})) Object.assign(T[l], o);   // 🐝 nxs plan + BT3 (2026-11-15)
 for (const [l, o] of Object.entries({"en": {"impKept": "{n} names kept on their spots from the old plan.", "impLost": "{n} people had a spot that isn't in the new layout — they're back in “not placed yet”: {l}."}, "zh": {"impKept": "舊計畫裡 {n} 個人留在原本的位置。", "impLost": "{n} 個人原本的位置不在新布局裡，回到「還沒分配」：{l}。"}, "pt": {"impKept": "{n} nomes ficaram nos lugares do plano antigo.", "impLost": "{n} pessoas tinham um lugar que não está no novo layout — voltaram para “ainda sem lugar”: {l}."}, "ar": {"impKept": "بقي {n} اسمًا في أماكنهم من الخطة القديمة.", "impLost": "{n} أشخاص كان مكانهم غير موجود في المخطط الجديد — عادوا إلى «بلا مكان بعد»: {l}."}, "ko": {"impKept": "예전 계획에서 {n}명이 원래 자리에 남았어요.", "impLost": "{n}명의 자리가 새 배치에 없어서 “아직 자리 없음”으로 돌아갔어요: {l}."}})) Object.assign(T[l], o);   // 📥 keep placed names on a new layout
+for (const [l, o] of Object.entries({"en": {"mpHowF": "Press “Update Map” for 2189 on MightPulse first (it only knows new spots after that), then 📍: nxs's positions are used here right away — nothing to save. The daily roster also brings them once a day.", "mpMovedF": "{n} nxs members have a new position."}, "zh": {"mpHowF": "先在 MightPulse 按 2189 的「Update Map」（按過它才知道新位置），再按 📍：nxs 的位置會立刻用在這裡，不用儲存。每天的名冊更新也會帶一次。", "mpMovedF": "{n} 個 nxs 成員位置有變。"}, "pt": {"mpHowF": "Primeiro aperte “Update Map” do 2189 no MightPulse (só depois ele sabe as posições novas), depois 📍: as posições da nxs são usadas aqui na hora — nada para salvar. O roster diário também traz uma vez por dia.", "mpMovedF": "{n} membros da nxs têm posição nova."}, "ar": {"mpHowF": "اضغط أولًا «Update Map» لـ 2189 في MightPulse (لا يعرف المواقع الجديدة إلا بعدها)، ثم 📍: تُستخدم مواقع nxs هنا فورًا — لا حاجة للحفظ. القائمة اليومية تجلبها أيضًا مرة في اليوم.", "mpMovedF": "{n} من أعضاء nxs لديهم موقع جديد."}, "ko": {"mpHowF": "먼저 MightPulse에서 2189의 “Update Map”을 누르고(그 뒤에야 새 위치를 알아요) 📍를 누르세요: nxs 위치가 바로 여기 반영돼요 — 저장할 것 없음. 매일 명단 업데이트 때도 하루 한 번 받아와요.", "mpMovedF": "nxs 연맹원 {n}명 위치가 바뀌었어요."}})) Object.assign(T[l], o);   // 📍 nxs positions
 /* ↕️ sort the moving table (and the "Not placed yet" names) by TC / TG, Power or name — Nia 2026-11-05: sort by TG high → low while placing people */
 let MSORT = (() => { try { return JSON.parse(localStorage.getItem("nxs-mv-sort")) || { k: "", d: -1 }; } catch (e) { return { k: "", d: -1 }; } })();
 const msortKeep = () => { try { localStorage.setItem("nxs-mv-sort", JSON.stringify(MSORT)); } catch (e) {} };
@@ -112,9 +113,9 @@ const fmtT = (iso) => { const d = new Date(iso); if (isNaN(d)) return ""; const 
 /* 📍 positions only (Sherry 2026-11-11): the Worker looks every member up in a few batch calls; newer than the roster → used instead */
 const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev";
 let POS = null, posBusy = false;
-async function posFetch(refresh) {
+async function posFetch(refresh, w) {
   let tk = ""; try { tk = localStorage.getItem("nxs-discord-v1") || ""; } catch (e) {} if (!tk) return null;
-  try { const r = await fetch(AI_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ positions: 1, token: tk, refresh: refresh ? 1 : 0 }) });
+  try { const r = await fetch(AI_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ positions: 1, token: tk, refresh: refresh ? 1 : 0, ...(w ? { w } : {}) }) });
     const j = await r.json(); if (j && j.token) { try { localStorage.setItem("nxs-discord-v1", j.token); } catch (e) {} }
     return j && j.live && j.live.rows ? j.live : null; } catch (e) { return null; }
 }
@@ -1246,7 +1247,7 @@ function renderMove() {
   const ed = MED(), dirty = mvSnap() !== MV_SAVED;
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
   const F = WHO === "f";
-  el.innerHTML = `${F ? `<div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(t("fNote"))}</div>` + (MV.plan ? "" : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`) : `${mpCard()}${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
+  el.innerHTML = `${F ? `<div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(t("fNote"))}</div>` + mpCardF() + (MV.plan ? "" : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`) : `${mpCard()}${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
     ${optCard()}`}
     ${adoptCard()}${moveTable()}
     ${ed && MV.plan ? `<div class="mm-add" style="margin-top:12px"><b>${esc(t("addT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("addNote"))}</span>
@@ -1263,7 +1264,7 @@ function renderMove() {
       ${dirty ? `<input class="inp" id="mv_byn" value="${esc(by)}" placeholder="${esc(t("by"))}" style="width:130px"><button class="btn primary" id="mv_save">${esc(t("save"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(mvMsg)}</span></div>
       <div class="muted" style="font-size:12px;margin-top:4px">${esc(t("impNote"))}</div>` : ""}`;
-  bindSteps(el); bindMp(el);
+  bindSteps(el); if (F) bindMpF(el); else bindMp(el);
   bindOpt();
   if ($("mm_left")) $("mm_left").onchange = (e) => { onlyLeft = e.target.checked; renderMove(); };
   el.querySelectorAll(".mm-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
@@ -1325,6 +1326,31 @@ async function loadMove() {
   MV = d && d.plan ? { plan: d.plan, done: d.done || [], st: d.st || {}, by: d.by, at: d.at } : { plan: null, done: [], st: {} };
   MV_SAVED = mvSnap();
 }
+/* 📍 nxs positions (Sherry 2026-11-15: "the same button as NXS"): the same look-up for nxs's roster; their positions aren't a saved
+   file, so newer X Y are used right away (nothing to ✅ / save). Without a press: the last look-up if it is newer than the daily roster. */
+let POSF = null, posfBusy = false, posfMsg = "";
+function fPosUse(live) {
+  if (!live || !live.rows || !roster || !roster.members) return 0;
+  if (roster.updated && Date.parse(live.fetched) <= Date.parse(roster.updated)) return 0;
+  let n = 0; for (const m of roster.members) { const r = live.rows[String(m.id)]; if (r && r.x != null && r.y != null && (+m.x !== +r.x || +m.y !== +r.y)) { m.x = r.x; m.y = r.y; n++; } }
+  D.m = roster.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]); SAVED = snap(); return n;
+}
+function mpCardF() {
+  const at = POSF && roster && (!roster.updated || Date.parse(POSF.fetched) > Date.parse(roster.updated)) ? POSF.fetched : roster && roster.updated;
+  return `<div class="mm-add" id="mp_card" style="margin-bottom:12px"><b>${esc(t("mpT"))}</b>
+    <div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("mpHowF"))}</div>
+    <div class="row" style="gap:6px;flex-wrap:wrap;align-items:center"><a class="btn small" href="https://mightpulse.com/map?kid=2189" target="_blank" rel="noopener">${esc(t("mpMap"))}</a>
+    <button type="button" class="btn small primary" id="mp_posf"${posfBusy ? " disabled" : ""}>${esc(posfBusy ? t("mpBusy") : t("mpBtn"))}</button>
+    ${at ? `<span class="muted" style="font-size:12.5px">${esc(t("mpGot").replace("{t}", fmtT(at)).replace("{n}", (D && D.m.length) || 0))}</span>` : ""}</div>
+    ${posfMsg ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(posfMsg)}</div>` : ""}</div>`;
+}
+function bindMpF(el) {
+  const b = el.querySelector("#mp_posf"); if (!b) return;
+  b.onclick = async () => { posfBusy = true; posfMsg = ""; renderMove();
+    const live = await posFetch(true, "f"); posfBusy = false;
+    if (live) { POSF = live; const n = fPosUse(live); posfMsg = t("mpMovedF").replace("{n}", n); } else posfMsg = t("mpErr");
+    render(); renderMove(); };
+}
 /* 🐝 NXS / nxs switch (top of 👥 positions) */
 function whoBar() { return `<div class="row mm-who" style="gap:6px;margin-bottom:8px"><button type="button" class="btn small${WHO === "m" ? " primary" : ""}" data-hw="m">NXS</button><button type="button" class="btn small${WHO === "f" ? " primary" : ""}" data-hw="f">nxs</button></div>`; }
 function bindWho(el) { el.querySelectorAll("[data-hw]").forEach((b) => b.onclick = () => setWho(b.dataset.hw)); }
@@ -1336,6 +1362,7 @@ async function loadF() {
   const KS = window.KM_SHARED, f = KS && KS.farmPL ? KS.farmPL() : { bt: [] };
   D = { m: roster.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: (f.bt || []).map((b) => b.slice(0, 2)) }; SAVED = snap();
   msg = roster.members.length ? "" : t("fNoRoster");
+  try { const l = await posFetch(false, "f"); if (l) { POSF = l; fPosUse(l); } } catch (e) {}   // the last 📍 look-up, if newer than the daily roster
   MV_PATH = MV_PATH_F; await loadMove(); mvMsg = "";
   if (OFFICER.can("move", "view")) OFFICER.BTF.load();
 }
