@@ -1378,6 +1378,55 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-15 by ΔRMΔDΔ] Limite do Amuleto do Governador Aumentado Nv. 12+
+Em 30.11.2026, 
+
+A expansão do limite de nível do Amuleto do Governador de 11 para 22 é uma grande atualização de progressão em *Kingshot*, aumentando significativamente o poder potencial das suas tropas por meio dos atributos de Letalidade e Vida. Alcançar o novo nível máximo 22 concede um bônus substancial de +99,00% em Letalidade e Vida por peça de amuleto.
+
+Confira abaixo os detalhes sobre o que essa expansão significa, os custos envolvidos e como planejar seus aprimoramentos de forma eficaz.
+
+
+### 📈 Estatísticas Principais e Requisito de Desbloqueio
+
+O detalhe mais crucial é que, embora o limite agora seja 22, o sistema de Amuleto do Governador só fica disponível após aprimorar o seu Centro da Cidade para o Nível 25. Antes disso, você já pode começar a estocar os materiais necessários em diversos eventos.
+
+*   Nível Máximo: 22
+*   Requisito de Desbloqueio: Centro da Cidade Nível 25
+*   Bônus Máximo de Atributos (Nível 22): +99,00% de Letalidade e +99,00% de Vida por talismã
+*   Total de Talismãs: 54 (18 por tipo de tropa: Infantaria, Arquearia, Cavalaria)
+
+
+### 💰 Custo de Aprimoramento e Progressão de Atributos (Níveis 12–22)
+
+A jornada do nível 12 ao 22 exige um investimento significativo. Cada nível requer dois materiais: Guia de Acessórios e Design do Talismã. Os custos e os ganhos de atributos não são lineares; você pode conferir a tabela completa dessa faixa expandida de níveis logo abaixo.
+
+
+
+*Fonte dos dados: bancos de dados Kingshot Guide e Kingshot World.*
+
+
+### 📊 Custo Total de Materiais (Níveis 1–22)
+
+Para maximizar totalmente um único talismã do nível 1 ao 22, a quantidade total de materiais necessários é bem expressiva:
+*   Total de Guias de Acessórios: 10.880
+*   Total de Designs do Talismã: 19.200
+
+Isso reforça que alcançar o nível 22 é um objetivo de longo prazo, com custos que se elevam drasticamente nos níveis finais.
+
+
+****### 💡 Dicas Estratégicas
+
+Compreender os números permite um planejamento muito mais eficiente. Veja alguns pontos estratégicos fundamentais a considerar:
+
+*   Níveis Iniciais Oferecem Melhor Retorno (ROI): Os níveis mais baixos (especialmente até o 10 ou 11) são significativamente mais baratos em relação aos atributos concedidos. Para jogadores que buscam ganhos de poder eficientes, elevar todos os talismãs a um nível base (como 5 ou 10) é uma estratégia de alto valor antes de focar em maximizar peças individuais.
+*   Priorize Letalidade e Vida: Os talismãs são um investimento de primeira linha porque aumentam a Letalidade e a Vida, atributos que geralmente têm mais impacto na fórmula de dano do que o Ataque e a Defesa fornecidos pelo Equipamento do Chefe.
+*   Fique Atento às Fontes de Materiais: Guia de Acessórios e Design do Talismã são obtidos principalmente em eventos como Alcance da Eternidade, Loja da Terra das Espadas, Briga da Aliança e O Governador mais Forte. Planeje sua participação nesses eventos para manter o ritmo de aprimoramento.
+*   Programe Aprimoramentos para Eventos: Para máxima eficiência, sincronize seus aprimoramentos de talismãs com eventos de pontuação, como "O Governador mais Forte" ou "Reino de Poder". Dessa forma, você garante recompensas secundárias valiosas ao gastar recursos que já usaria normalmente.
+
+Em resumo, a expansão do limite de nível para 22 oferece um caminho claro para um poderoso bônus de +99% de Letalidade e Vida por talismã. No entanto, trata-se de um projeto de longo prazo e intensivo em recursos, que exige planejamento estratégico, priorização dos níveis iniciais com melhor custo-benefício e coleta constante de materiais nos eventos.
+
+Se você quiser se aprofundar em uma área específica, como a ordem de prioridade ideal de talismãs por tipo de tropa ou um guia detalhado sobre como obter materiais, fique à vontade para perguntar!
+
 [2026-11-15 by ELR] 11/15 SS Legião 1
 (battle table: shown in the reader's language)
 
