@@ -60,18 +60,6 @@ content: |
 ---
 author: "ELR"
 lang: en
-title: "11/15 SS Legion 2"
-images: []
-expires: "2026-11-15T03:00:00.000Z"
-content: |
-  [[img:figures/ann/20261114-171730-2.jpg]]
-  [[table:data/ann/20261114-171730-1.json]]
-  [[img:figures/SS_map.webp]]
-
-  [[link:swordland-showdown]]
----
-author: "ELR"
-lang: en
 title: "11/15 SS Legion 1"
 images: []
 expires: "2026-11-15T23:00:00.000Z"
