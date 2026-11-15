@@ -150,9 +150,8 @@ function plansHtml() {
   const pl = planList();
   const rows = pl.map(([id, p]) => { const n = (p.picked || []).length, k = (p.subs || []).length, ev = events.filter((e) => e.plan === id).sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0];
     return `<tr><td><b><bdi>${esc(p.name || id)}</bdi></b> <span class="muted">${n - k}${k ? " +" + k + " " + esc(t("sub2")) : ""}</span></td><td style="text-align:end">${ev ? `<button type="button" class="btn small at-open" data-id="${esc(ev.id)}">${esc(ev.date || "")}${ev.reg ? (() => { const r = regOf(ev); return ` · ✅ ${r.y}${r.s ? " + 🟡 " + r.s : ""}${r.w ? " · ⏳ " + r.w : ""}`; })() : ""} ›</button>` : canEdit() ? `<button type="button" class="btn small at-make" data-plan="${esc(id)}">${esc(t("makeList"))}</button>` : ""}</td></tr>`; }).join("");
-  // a plan deleted on the Ranking tab stays here if a list was made from it (that list is kept as it was); otherwise it just disappears
-  const gone = new Map(); for (const e of events) if (e.plan && !plans[e.plan]) { const g = gone.get(e.plan); if (!g || (e.date || "") > (g.date || "")) gone.set(e.plan, e); }
-  const goneRows = [...gone.values()].map((ev) => `<tr><td><b><bdi>${esc(slot(ev).name || sheetOf(ev))}</bdi></b> <span class="muted">${esc(t("planDeleted"))}</span></td><td style="text-align:end"><button type="button" class="btn small at-open" data-id="${esc(ev.id)}">${esc(ev.date || "")} ›</button></td></tr>`).join("");
+  // a plan deleted on the Ranking tab just disappears from this card (Sherry 2026-11-15); the lists made from it stay in their event table below
+  const goneRows = "";
   return `<div class="card"><h3 style="margin:0 0 4px">${esc(t("planSec"))}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("planNote"))}</div>${pl.length || goneRows ? `<table class="at-sum"><tbody>${rows}${goneRows}</tbody></table>` : `<div class="muted">${esc(t("noPlans"))}</div>`}</div>`;
 }
 function wirePlans() {
