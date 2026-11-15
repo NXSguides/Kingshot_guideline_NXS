@@ -1434,6 +1434,7 @@ async function papi(op, extra = {}) {
   if (!r.ok || j.error) { const c = j.error || ""; throw new Error(c === "ed_no" || c === "gone" ? c : c === "view_only" ? "view" : (r.status === 401 || r.status === 403) ? "auth" : "net"); }
   return j;
 }
+let planWant = "";
 let plans = {}, planStamp = 0, planId = store.planId || "", planBaseSnap = null, planBaseV = 0, planDirty = false, planBusy = false, planTimer = null, planErr = "", planOkAt = 0, planApplying = false, planTries = 0;
 const planWho = () => (OFFICER.user && OFFICER.user.name) || "?";
 async function planFetch(force) {
@@ -1537,7 +1538,7 @@ function planRenderBar() {
   $("planNew").textContent = pl("newP"); $("planRen").textContent = pl("ren"); $("planDel").textContent = pl("del");
   const ids = Object.keys(plans).sort((a, b) => (plans[a].name || "").localeCompare(plans[b].name || ""));
   $("planSel").innerHTML = `<option value="">${esc(pl("local"))}</option>` + ids.map((id) => `<option value="${esc(id)}">🔄 ${esc(planLabel(plans[id]))}</option>`).join("");
-  if (planId && !plans[planId] && !planBusy) planId = "";
+  if (planId && !plans[planId] && !planBusy && planStamp) planId = "";   // (not before the plans have arrived: a refresh must come back to the same plan)
   $("planSel").value = planId; histShow();
   const p = planId && plans[planId], can = !!p && planCanEdit(p);
   $("planRen").hidden = $("planDel").hidden = !can;
@@ -1632,6 +1633,7 @@ async function planPoll() {
   if (!loggedIn() || document.visibilityState !== "visible" || ROOT.hidden || planBusy) return;
   try {
     if (!(await planFetch())) return;
+    if (planWant && !planId && plans[planWant]) { const w = planWant; planSwitch(w); return; }   // 🔄 a refresh comes back to the plan it was on (Sherry 2026-11-15)
     if (planId && plans[planId]) planRebase(plans[planId]);
     if (data) renderList();   // 🟡 safe list may have changed too
     planRenderBar();
@@ -1646,7 +1648,7 @@ function localApply() {
 }
 function planSwitch(id) {
   if (!planId && localShown) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
-  planId = id; store.planId = id; planDirty = false; planBaseSnap = null; planBaseV = 0; planErr = ""; planOkAt = 0; planTries = 0;
+  planWant = ""; planId = id; store.planId = id; planDirty = false; planBaseSnap = null; planBaseV = 0; planErr = ""; planOkAt = 0; planTries = 0;
   if (id && plans[id]) { localShown = false; planApply(plans[id]); }
   else localApply();
   planApplying = true; save(); planApplying = false; histReset(); planRenderBar();
@@ -1655,7 +1657,9 @@ async function plansInit() {
   if (!loggedIn()) { if (planId || !localShown) { planId = ""; localApply(); } planRenderBar(); return; }
   $("planStatus").textContent = pl("loading");
   try { await planFlushPending(); await planFetch(true); } catch (e) {}
+  if (!planStamp) { await new Promise((r) => setTimeout(r, 1500)); try { await planFetch(true); } catch (e) {} }   // the first try can come too early after a refresh (sign-in still starting)
   if (planId && plans[planId]) { localShown = false; planApply(plans[planId]); }
+  else if (planId && !planStamp) { planWant = planId; planId = ""; localApply(); }   // plans didn't load: show this device for now, open the plan as soon as they come
   else if (planId || !localShown) { planId = ""; localApply(); }   // the shared plan isn't there: show the device list, never the plan's leftovers
   planRenderBar();
   setInterval(planPoll, 10000);
