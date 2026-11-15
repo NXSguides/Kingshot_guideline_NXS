@@ -786,6 +786,10 @@
   #pg-ranking .pl-save.warn { border-color: #d39b16; background: color-mix(in srgb, #f2b632 22%, var(--panel)); font-weight: 600; }
   /* ✅ registration replies on ticked names (one tap cycles ⏳ → ✅ → ❌), 🟡 safe player */
   #pg-ranking .rk-rb { border: 1px solid var(--rule); background: var(--panel); border-radius: 6px; padding: 0 4px; margin-inline-end: 4px; font-size: 13px; line-height: 22px; min-height: 24px; cursor: pointer; vertical-align: middle; }
+  #pg-ranking td.name { max-width: none; overflow: visible; white-space: nowrap; }
+  #pg-ranking td.name .nm { display: inline-block; max-width: min(11em, calc(100vw - 280px)); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; }
+  #pg-ranking .rk-miss { display: inline-block; margin-inline-start: 4px; padding: 0 5px; border-radius: 6px; font-size: 11.5px; font-weight: 800; line-height: 18px; vertical-align: middle; border: 1px solid currentColor; color: var(--muted); }
+  #pg-ranking .rk-miss.m2 { color: #e8892b; } #pg-ranking .rk-miss.m3 { color: #fff; background: #c0392b; border-color: #c0392b; }
   #pg-ranking .rk-rb.sf { opacity: .3; filter: grayscale(1); margin-inline: 4px 0; }
   #pg-ranking .rk-rb.sf.on { opacity: 1; filter: none; }
   #pg-ranking tr.member.r-n td.name .nm { text-decoration: line-through; opacity: .6; }
