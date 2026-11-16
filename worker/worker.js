@@ -440,7 +440,7 @@ NEWER TOOLS (officers)
 [attend] - 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
 [attend] - 📋 Attendance: misses are counted over ALL event sheets together (Swordland, Tri-Alliance…; Sherry, 2026-11-01): a 2nd miss anywhere = orange, 3rd = red, even on different lists; a sheet's summary adds "(N across all events)" when the total is higher than that sheet's own count; the Discord copy's (2nd)/(3rd) count all events too.
 [events] - 📅 Events → ✏️ edit an event → each action item has "👤 Only remind" (只提醒, Sherry 2026-11-04 — e.g. the Alliance Championship 22:30 UTC troop-update reminder for Armada only): tick officers and ONLY they get that to-do's reminder, sent by the Worker itself (at the item's exact time, or 12:00 UTC on its day if it has none) to every phone where they turned notifications on while logged in with Discord (💬 Board or the ⏰ panel) — no Events tab visit or 🛠️ switch needed on their phone; nobody else gets it, whatever their 🔔. Untouched = everyone by 🔔 as before. The list is refreshed whenever an officer who may edit Events opens the Events tab; a warning lists chosen people with no phone with notifications on. The notification title starts with 👤.
-[perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
+[perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID). 🏰 Alliance column (2026-11-16): NXS + nxs (default, both) / NXS / nxs for each non-admin officer — on the pages split by alliance (🚩 Territory, 🐝 Hive) an officer set to one alliance opens on it and has no NXS | nxs switch, and cannot change the other alliance's Bear Trap marks; admins always have both. The NXS | nxs pick is shared: switching on 🚩 Territory also switches 🐝 Hive and the other way round.
 
 LITTLE SPARROW (🐦 on the officer page)
 - The first time an officer opens the officer page on a device (after the greeting, and only if they have not already changed tab or scrolled; unanswered it goes away after 15 seconds — since 2026-11-16 it no longer asks on every visit) and whenever they tap the sparrow, it asks "Want a quick tour of the officer page?": 👀 Yes = the page's own controls top to bottom (← main site, language, light/dark, 🔗 copy link, ↻ refresh, your Discord name (tap to change how it shows; Log out), the tabs you have, the 🐦 button next to every feature, Ask AI), then "🎓 How do I use…" leads on to the tab tours; "No thanks" = the list of tab tours in the chat.
@@ -1617,7 +1617,8 @@ async function permsRoute(stub, user, body, token, role) {
     const perms = {};
     for (const [k, v] of Object.entries(u.perms || {}).slice(0, 30)) if (/^[a-z]{1,12}$/.test(k) && PERM_LEVELS.includes(v)) perms[k] = v;
     const notify = cleanNotify(u.notify);   // 🔔 events whose officer to-dos this person is reminded of
-    users[id] = { name: String(u.name || "").slice(0, 40), ...(u.admin || ADMIN_IDS.includes(id) ? { admin: true } : {}), perms, ...(notify ? { notify } : {}) };
+    const isAdm = u.admin || ADMIN_IDS.includes(id), side = !isAdm && (u.side === "m" || u.side === "f") ? u.side : null;   // 🏰 NXS / nxs (none = both; admins always both)
+    users[id] = { name: String(u.name || "").slice(0, 40), ...(isAdm ? { admin: true } : {}), perms, ...(notify ? { notify } : {}), ...(side ? { side } : {}) };
   }
   if (!users[PERMS_OWNER]) users[PERMS_OWNER] = { name: "Sparrow", admin: true, perms: {} };   // nobody can lock the owner out
   const seedOut = Object.keys(SEED_VIEWERS).filter((id) => !users[id]);   // seeded people the admin removed stay removed
@@ -1659,6 +1660,7 @@ async function plansRoute(env, stub, user, body, token, perms) {
      bt[id] = digits "1" "2" "3" (rk:bt, NXS) or "1" "2" (rk:btf, nxs — body.w "f"). Read: Roster / Attendance / Hive viewers. Change: Roster or Hive editors. */
   if (op === "btget" || op === "bt") {
     if (!(mayView || seeTab("move"))) return json({ error: "no_access" }, 403);
+    if (!admin && u && u.side && (body.w === "f" ? "f" : "m") !== u.side && op === "bt") return json({ error: "other_alliance" }, 403);   // 🏰 an officer of one alliance does not change the other's Bear Trap marks
     const btKey = body.w === "f" ? "rk:btf" : "rk:bt", btOk = body.w === "f" ? ["1", "2"] : ["1", "2", "3"];   // nxs (2189 nxs) kept apart; NXS has BT3 = the trap shared with nxs (2026-11-15)
     if (op === "btget") return json({ ok: true, token, bt: (await stub.kvGet(btKey)) || {} });
     if (!(mayEdit || canEdit(perms, user.id, "move"))) return json({ error: "view_only" }, 403);

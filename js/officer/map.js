@@ -1090,18 +1090,20 @@ const TL_T = { en: ["Tapping the map places:", "— nothing (just look / select)
   ko: ["지도를 누르면 놓는 것:", "— 없음 (보기 / 선택만)", "NXS가 세울 깃발", "지도에서 칸을 누르거나 좌표를 입력하고 추가를 누르세요.", "🌾 자원", "추가", "다른 연맹"] };
 const tl = (i) => (TL_T[lang] || TL_T.en)[i];
 let PWHO = (() => { try { const v = localStorage.getItem("kp-who"); return v === "f" || v === "o" ? v : "m"; } catch (e) { return "m"; } })();   // m = NXS · f = nxs · o = other alliances (corrections only)
-function setWho(w) { if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }   // renderFlags → drawFarm: the handles follow the alliance picked
+const sideOf = () => (OFFICER.side ? OFFICER.side() : "");   // 🏰 an officer set to one alliance on 👥 stays on it
+function setWho(w) { const sd = sideOf(); if (sd && w !== "o" && w !== sd) return; if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); if (w !== "o") localStorage.setItem("nxs-hive-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }   // renderFlags → drawFarm: the handles follow the alliance picked
 const WHO_T = { en: ["Planning / looking at:", "What to place:"], zh: ["現在規劃／查看：", "要放什麼："], pt: ["Planejando / vendo:", "O que colocar:"], ar: ["التخطيط / العرض لـ:", "ماذا تضع:"], ko: ["계획 / 보기 대상:", "놓을 것:"] };
 const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: c.off, nUp: n("fl"), nDown: n("rm"), n0: n("b"), n1: n("b") - n("rm") + n("fl") }; };
 const MC_T = { en: "🏠 Members & Bear Traps", zh: "🏠 成員的城和熊陷阱", pt: "🏠 Membros e Armadilhas", ar: "🏠 الأعضاء وفخاخ الدب", ko: "🏠 연맹원과 곰 덫" };
 const MC_H = { en: "Hive plan", zh: "蜂巢規劃", pt: "plano da Colmeia", ar: "خطة الخلية", ko: "하이브 계획" };
 function renderTools() {
-  const el = $("kp_tools"); if (!el) return; const ed = PE();
+  const el = $("kp_tools"); if (!el) return; const ed = PE(), sd = sideOf();
+  if (sd && PWHO !== "o" && PWHO !== sd) setWho(sd);
   const cur = farmKind ? "f:" + farmKind : flagMode ? (otKind ? "o:" + otKind : "p") : "", typed = cur === "p" || cur.startsWith("f:"), wt = WHO_T[lang] || WHO_T.en;
   const opt = (v, t) => `<option value="${esc(v)}"${cur === v ? " selected" : ""}>${esc(t)}</option>`, al = OTB ? Object.keys(OTB.a) : [];
   const tg = (id, on, t) => `<button type="button" class="btn tg${on ? " primary" : ""}" id="${id}">${esc(t)}</button>`, wb = (w, t) => `<button type="button" class="btn${PWHO === w ? " primary" : ""}" data-who="${w}" style="min-width:64px;font-weight:800">${esc(t)}</button>`;
   const opts = PWHO === "m" ? opt("p", "🚩 " + fk("fl").replace(/^\S+\s*/, "")) : PWHO === "f" ? FKU.map((k) => opt("f:" + k, fk(k))).join("") : al.map((n) => opt("o:" + n, "🏴 " + n)).join("") + al.map((n) => opt("o:h:" + n, "🏯 " + n + " " + ft("hqP"))).join("") + al.map((n) => opt("o:b:" + n, "🏯 " + n + " " + ft("hqB"))).join("");
-  el.innerHTML = `<div class="row km-fl-add" style="gap:6px;flex-wrap:wrap;align-items:center"><b style="font-size:13px">${esc(wt[0])}</b>${wb("m", "NXS")}${wb("f", fTag())}${ed && al.length ? wb("o", "🏴 " + tl(6)) : ""}</div>`
+  el.innerHTML = `<div class="row km-fl-add" style="gap:6px;flex-wrap:wrap;align-items:center"><b style="font-size:13px">${esc(wt[0])}</b>${sd === "f" ? "" : wb("m", "NXS")}${sd === "m" ? "" : wb("f", fTag())}${ed && al.length ? wb("o", "🏴 " + tl(6)) : ""}</div>`
     + (ed ? `<div class="row km-fl-add" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center"><b style="font-size:13px">${esc(wt[1])}</b><select class="btn${cur ? " primary" : ""}" id="kp_put" style="height:36px;max-width:100%">${opt("", tl(1))}${opts}</select>`
       + (typed ? `<label>X <input id="kp_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="kp_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn primary" id="kp_add">➕ ${esc(tl(5))}</button>` : "") + `</div>`
       + (cur ? `<div class="muted" style="font-size:12px;margin-top:4px;color:var(--accent,#ffb020);font-weight:700">${esc(tl(3))}</div>` : "") : "")
@@ -1413,5 +1415,5 @@ const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.
 function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }
 let initP = null; const init1 = () => initP || (initP = init());
 OFFICER_PAGES.map = { init: init1, onShow: () => { setMode(false); onShow(); }, applyTexts, setLang };
-OFFICER_PAGES.plan = { init: init1, onShow: () => { setMode(true); onShow(); acLoad(); }, applyTexts, setLang: () => {} };
+OFFICER_PAGES.plan = { init: init1, onShow: () => { try { const w = sideOf() || localStorage.getItem("kp-who"); if ((w === "m" || w === "f") && PWHO !== "o" && w !== PWHO) setWho(w); } catch (e) {} setMode(true); onShow(); acLoad(); }, applyTexts, setLang: () => {} };
 })();

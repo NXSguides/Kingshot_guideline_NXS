@@ -1352,7 +1352,8 @@ function bindMpF(el) {
     render(); renderMove(); };
 }
 /* 🐝 NXS / nxs switch (top of 👥 positions) */
-function whoBar() { return `<div class="row mm-who" style="gap:6px;margin-bottom:8px"><button type="button" class="btn small${WHO === "m" ? " primary" : ""}" data-hw="m">NXS</button><button type="button" class="btn small${WHO === "f" ? " primary" : ""}" data-hw="f">nxs</button></div>`; }
+const sideOf = () => (OFFICER.side ? OFFICER.side() : "");   // 🏰 an officer set to one alliance on 👥 sees that alliance only (no switch)
+function whoBar() { if (sideOf()) return ""; return `<div class="row mm-who" style="gap:6px;margin-bottom:8px"><button type="button" class="btn small${WHO === "m" ? " primary" : ""}" data-hw="m">NXS</button><button type="button" class="btn small${WHO === "f" ? " primary" : ""}" data-hw="f">nxs</button></div>`; }
 function bindWho(el) { el.querySelectorAll("[data-hw]").forEach((b) => b.onclick = () => setWho(b.dataset.hw)); }
 const keepSlot = () => ({ D, SAVED, MV, MV_SAVED, roster, mvMsg, msg, MV_PATH });
 function useSlot(o) { ({ D, SAVED, MV, MV_SAVED, roster, mvMsg, msg, MV_PATH } = o); SEL = null; SPOT = null; NOWAT = null; }
@@ -1368,9 +1369,10 @@ async function loadF() {
 }
 let whoBusy = false;
 async function setWho(w) {
+  const sd = sideOf(); if (sd && w !== sd) return;
   if (w === WHO || whoBusy || !D) return; whoBusy = true;
   try { await autoSave(); } catch (e) {}   // an unsaved change goes to its own plan first
-  SLOT[WHO] = keepSlot(); WHO = w; try { localStorage.setItem("nxs-hive-who", w); } catch (e) {}
+  SLOT[WHO] = keepSlot(); WHO = w; try { localStorage.setItem("nxs-hive-who", w); if (localStorage.getItem("kp-who") !== "o") localStorage.setItem("kp-who", w); } catch (e) {}   // 🚩 Territory opens on the same alliance
   if (SLOT[w]) useSlot(SLOT[w]); else { SEL = null; SPOT = null; NOWAT = null; mvMsg = ""; msg = ""; if (w === "f") { $("km_members").innerHTML = whoBar() + `<div class="muted">…</div>`; await loadF(); } }
   whoBusy = false; if ($("hp_root")) $("hp_root").hidden = w === "f"; OPTN = null; OPTR = null;
   render(); renderMove();
@@ -1383,7 +1385,7 @@ async function initMove() {
   if (OFFICER.ensure) await OFFICER.ensure("map");
   for (let i = 0; i < 50 && !D; i++) await new Promise((r) => setTimeout(r, 100));
   await loadMove(); render(); renderMove(); mapSync();
-  try { if (localStorage.getItem("nxs-hive-who") === "f") await setWho("f"); } catch (e) {}
+  try { if ((sideOf() || localStorage.getItem("nxs-hive-who")) === "f") await setWho("f"); } catch (e) {}
   pubLoad().then(() => renderMove());
   if (window.HivePlanner) HivePlanner.init();   // 📐 auto plan from a Mapper layout
 }
@@ -1413,5 +1415,7 @@ document.addEventListener("visibilitychange", () => { if (document.visibilitySta
 window.addEventListener("pagehide", () => { if (autoT) autoSave(); });
 window.MemberMap = { cities: () => { const { D } = NX(); return D && D.m ? D.m.map((m) => [m[0], m[1], m[2]]) : []; }, traps: () => { const { D } = NX(); return D && D.bt ? D.bt.map((b) => [b[0], b[1]]) : []; },
   hivePlan: () => { const { MV } = NX(); return MV && MV.plan ? { c: (MV.plan.c || []).map((c) => [c[0] || "", c[1], c[2]]), bt: (MV.plan.bt || []).map((b) => [b[0], b[1]]), hq: (MV.plan.hq || []).map((h) => [h[0], h[1]]) } : null; }, init, setLang, refresh, importPlan, ticked, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
-OFFICER_PAGES.move = { init: initMove, onShow: () => { if (D && MV) renderMove(); }, applyTexts: () => {}, setLang };
+const whoSync = () => { try { const w = sideOf() || localStorage.getItem("nxs-hive-who"); if ((w === "m" || w === "f") && w !== WHO) return setWho(w); } catch (e) {} };   // follows 👥 (one alliance only) and the last pick on 🚩 Territory
+window.addEventListener("nxs-perms", () => { if (D) whoSync(); });
+OFFICER_PAGES.move = { init: initMove, onShow: () => { if (D && MV) { renderMove(); whoSync(); } }, applyTexts: () => {}, setLang };
 })();

@@ -597,6 +597,7 @@
       pm04: "👁️ Preview as shows the whole page with that officer's rights — Exit preview at the top brings you back. Make admin / Remove admin and Remove are here too.",
       pm05: "+ Add officer: a name and the 18-digit Discord ID. A new officer starts with Events, Board and Map 👁️ only. Reset to defaults goes back to the built-in admins.",
       pm06: "More (site owner): forget the password on this device, redo the setup, 🔐 the officer data encryption key.", msgs: "💌 Message from THAT Sparrow", pick: "Which tab do you want me to show you?", onlyView: "(you can look, not edit)", ro: "You can look here but not change anything.",
+      pm07: "🏰 Alliance: NXS + nxs (both), NXS or nxs. An officer set to one alliance opens 🚩 Territory and 🐝 Hive on that alliance, without the NXS | nxs switch. Admins always have both.",
       events: "📅 Events", board: "💬 Board", map: "🗺️ Map", plan: "🚩 Territory", ranking: "📊 Roster", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watchlist", scout: "🔭 Scout", move: "🐝 Hive", hunt: "🎯 Blacklist", attack: "⚖️ Compare", tr: "🧳 Transfer", growth: "🧭 Growth", hr: "🦸 Heroes", bearplan: "🐻 Bear analysis", vv: "🪓 Viking report", rg: "⚔️ Rally & Garrison", tb: "🦣 Terror rallies", ls: "🩹 Battle losses", ma: "🎓 Masters", gn: "📺 Guide notes", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", research: "🔬 Research", views: "📈 Views", perms: "👥 Officers",
       },
     zh: {
@@ -793,6 +794,7 @@
       pm04: "👁️ 以某人身分預覽會用那位幹部的權限顯示整個頁面——最上面的離開預覽會帶你回來。設為管理員／移除管理員和移除也在這裡。",
       pm05: "+ 新增幹部：一個名字和 18 位數的 Discord ID。新幹部一開始只有活動、討論板和地圖的 👁️。重設為預設值會回到內建的管理員。",
       pm06: "更多（網站擁有者）：忘記這台裝置上的密碼、重做設定、🔐 幹部資料的加密金鑰。", msgs: "💌 那個麻雀的留言", pick: "想看哪個分頁？", onlyView: "（你只能看，不能改）", ro: "這裡你只能看，不能改。",
+      pm07: "🏰 聯盟：NXS + nxs（兩邊）、NXS 或 nxs。設成其中一邊的幹部，🚩 領地規劃和 🐝 蜂巢會直接開在那個聯盟，沒有 NXS｜nxs 切換。管理員固定兩邊都有。",
       events: "📅 活動", board: "💬 留言板", map: "🗺️ 地圖", plan: "🚩 領地規劃", ranking: "📊 名冊", attend: "📋 出席", post: "📢 公告", watch: "🕵️ 觀察名單", scout: "🔭 偵查", move: "🐝 蜂巢", hunt: "🎯 黑名單", attack: "⚖️ 比一比", tr: "🧳 移民名單", growth: "🧭 發展方向", hr: "🦸 英雄", bearplan: "🐻 熊獵實測", vv: "🪓 維京研究", rg: "⚔️ 集結與駐防", tb: "🦣 巨獸集結", ls: "🩹 戰鬥與損兵", ma: "🎓 大師", gn: "📺 攻略補充", ms: "🧳 遷城分數", bh: "🐻 狩獵巨熊研究", iv: "💎 投資效率", research: "🔬 研究報告", views: "📈 瀏覽", perms: "👥 幹部",
       },
     pt: {
@@ -989,6 +991,7 @@
       pm04: "👁️ Pré-visualizar como mostra a página inteira com os direitos daquele oficial — Sair da pré-visualização no topo traz você de volta. Tornar admin / Remover admin e Remover também ficam aqui.",
       pm05: "+ Adicionar oficial: um nome e o ID do Discord de 18 dígitos. Um oficial novo começa só com Eventos, Quadro e Mapa em 👁️. Restaurar padrões volta para os admins embutidos.",
       pm06: "Mais (dono do site): esquecer a senha neste dispositivo, refazer a configuração, 🔐 a chave de criptografia dos dados dos oficiais.", msgs: "💌 Mensagem dAQUELA Sparrow", pick: "Qual aba você quer que eu mostre?", onlyView: "(você pode ver, não editar)", ro: "Aqui você pode ver, mas não mudar nada.",
+      pm07: "🏰 Aliança: NXS + nxs (as duas), NXS ou nxs. Um oficial de uma só aliança abre 🚩 Território e 🐝 Colmeia nessa aliança, sem o botão NXS | nxs. Admins sempre têm as duas.",
       events: "📅 Eventos", board: "💬 Quadro", map: "🗺️ Mapa", plan: "🚩 Território", ranking: "📊 Lista de membros", attend: "📋 Presença", post: "📢 Postar", watch: "🕵️ Lista de vigilância", scout: "🔭 Espiar", move: "🐝 Colmeia", hunt: "🎯 Lista negra", attack: "⚖️ Comparar", tr: "🧳 Transferência", growth: "🧭 Crescimento", hr: "🦸 Heróis", bearplan: "🐻 Análise do Urso", vv: "🪓 Estudo Viking", rg: "⚔️ Rally e Guarnição", tb: "🦣 Rallies de Terror", ls: "🩹 Perdas em batalha", ma: "🎓 Mestres", gn: "📺 Notas de guias", ms: "🧳 Pontuação de Migração", bh: "🐻 Estudo da Caça ao Urso", iv: "💎 Eficiência de Investimento", research: "🔬 Pesquisas", views: "📈 Visitas", perms: "👥 Oficiais",
       },
     ar: {
@@ -1185,6 +1188,7 @@
       pm04: "👁️ معاينة كـ يعرض الصفحة كلها بحقوق ذلك الضابط — إنهاء المعاينة في الأعلى يعيدك. تعيين كمشرف / إزالة المشرف وإزالة موجودة هنا أيضاً.",
       pm05: "+ إضافة ضابط: اسم ومعرّف Discord المكوّن من 18 رقماً. الضابط الجديد يبدأ بالأحداث واللوحة والخريطة 👁️ فقط. إعادة التعيين إلى الافتراضي يعود إلى المشرفين المدمجين.",
       pm06: "المزيد (مالك الموقع): نسيان كلمة المرور على هذا الجهاز، إعادة الإعداد، 🔐 مفتاح تشفير بيانات الضباط.", msgs: "💌 رسالة من Sparrow تلك", pick: "أي تبويب تريد أن أريك إياه؟", onlyView: "(يمكنك المشاهدة فقط، لا التعديل)", ro: "هنا يمكنك المشاهدة فقط دون تغيير أي شيء.",
+      pm07: "🏰 التحالف: NXS + nxs (كلاهما) أو NXS أو nxs. الضابط المحدَّد لتحالف واحد تفتح له 🚩 الأراضي و🐝 الخلية على ذلك التحالف بدون زر NXS | nxs. المشرفون لديهم الاثنان دائماً.",
       events: "📅 الأحداث", board: "💬 اللوحة", map: "🗺️ الخريطة", plan: "🚩 الأراضي", ranking: "📊 قائمة الأعضاء", attend: "📋 الحضور", post: "📢 نشر", watch: "🕵️ قائمة المراقبة", scout: "🔭 استطلاع", move: "🐝 الخلية", hunt: "🎯 القائمة السوداء", attack: "⚖️ المقارنة", tr: "🧳 قائمة النقل", growth: "🧭 التطوير", hr: "🦸 الأبطال", bearplan: "🐻 تحليل الدب", vv: "🪓 دراسة الفايكنغ", rg: "⚔️ الحشد والحامية", tb: "🦣 حشود الوحوش العملاقة", ls: "🩹 خسائر المعارك", ma: "🎓 المتخصصون", gn: "📺 ملاحظات الأدلة", ms: "🧳 نقاط الهجرة", bh: "🐻 دراسة صيد الدببة", iv: "💎 كفاءة الاستثمار", research: "🔬 تقارير البحث", views: "📈 الزيارات", perms: "👥 الضباط",
       },
     ko: {
@@ -1381,6 +1385,7 @@
       pm04: "👁️ 이 간부로 미리보기는 그 간부의 권한으로 페이지 전체를 보여줘. 맨 위의 미리보기 종료로 돌아와. 관리자 지정 / 관리자 해제와 제거도 여기 있어.",
       pm05: "+ 간부 추가야. 이름과 18자리 Discord ID. 새 간부는 이벤트, 게시판, 지도 👁️만으로 시작해. 기본값으로 재설정은 내장 관리자로 되돌려.",
       pm06: "더 보기(사이트 소유자)야. 이 기기의 비밀번호 잊기, 설정 다시 하기, 🔐 간부 데이터 암호화 키.", msgs: "💌 그 Sparrow의 메시지", pick: "어느 탭을 보여줄까요?", onlyView: "(보기만 가능, 수정 불가)", ro: "여기는 보기만 할 수 있고 바꿀 수는 없어요.",
+      pm07: "🏰 연맹이야. NXS + nxs(둘 다), NXS, nxs 중 하나. 한 연맹으로 정해진 간부는 🚩 영지 계획과 🐝 하이브가 그 연맹으로 바로 열리고 NXS | nxs 전환이 없어. 관리자는 항상 둘 다야.",
       events: "📅 이벤트", board: "💬 게시판", map: "🗺️ 지도", plan: "🚩 영지 계획", ranking: "📊 명단", attend: "📋 출석", post: "📢 공지", watch: "🕵️ 감시 목록", scout: "🔭 정찰", move: "🐝 하이브", hunt: "🎯 블랙리스트", attack: "⚖️ 비교", tr: "🧳 이민 명단", growth: "🧭 육성", hr: "🦸 영웅", bearplan: "🐻 곰 사냥 분석", vv: "🪓 바이킹 연구", rg: "⚔️ 집결과 방어", tb: "🦣 괴수 집결", ls: "🩹 전투와 손실", ma: "🎓 거장", gn: "📺 공략 보충", ms: "🧳 이주 점수", bh: "🐻 자이언트 베어 사냥 연구", iv: "💎 투자 효율", research: "🔬 연구 보고서", views: "📈 조회", perms: "👥 간부",
       },
   };
@@ -1466,7 +1471,7 @@
       { s: "#tr_look", k: "tr04", e: 1 }, { s: "#tr_box", k: "tr05" }, { s: "#tr_pass", k: "tr06" }, { s: "#tr_copy", k: "tr07" }, { s: "#tr_rfall", k: "tr08", e: 1 }, { s: "#tr_bulk", k: "tr09", e: 1 }],
     hunt: [{ s: "#hn_root .hn-st", k: "hn01" }, { s: "#hn_root .hn-t tbody tr", k: "hn02" }, { s: "#hn_id", k: "hn03", e: 1 }, { s: "#hn_reload", k: "hn04" }, { s: "#hn_root .hn-fo", k: "hn05" }, { s: "#hn_root [data-se]", k: "hn06", e: 1 }],
     views: [{ s: "#vw_days", k: "vw01" }, { s: "#vw_daily", k: "vw02" }, { s: "#pg-views .vw-grid", k: "vw03" }],
-    perms: [{ s: "#pm_mReply", k: "pm01" }, { s: "#pm_tbl table", k: "pm02" }, { s: "#pm_tbl .pm-nt", k: "pm03" }, { s: "#pm_tbl [data-pv]", k: "pm04" }, { s: "#pm_addBtn", k: "pm05" }, { s: "#po_owner > summary", k: "pm06", pre: () => { const d = Q("#po_owner"); if (d) d.open = true; } }],
+    perms: [{ s: "#pm_mReply", k: "pm01" }, { s: "#pm_tbl table", k: "pm02" }, { s: "#pm_tbl .pm-side", k: "pm07" }, { s: "#pm_tbl .pm-nt", k: "pm03" }, { s: "#pm_tbl [data-pv]", k: "pm04" }, { s: "#pm_addBtn", k: "pm05" }, { s: "#po_owner > summary", k: "pm06", pre: () => { const d = Q("#po_owner"); if (d) d.open = true; } }],
   };
   /* put the page back the way it was after a tour opened things */
   const OEXIT = {

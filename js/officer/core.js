@@ -198,6 +198,14 @@ OFFICER.me = () => OFFICER.user || (OFFICER.pw ? (() => { const n = (officerStor
 OFFICER.authBody = () => { let tok = null; try { tok = localStorage.getItem(DISCORD_LS); } catch (e) {} return tok ? { token: tok } : OFFICER.pw ? { pw: OFFICER.pw, pwName: OFFICER.me().name } : {}; };
 OFFICER.isRealAdmin = () => !!OFFICER.user && (OFFICER.ADMINS.includes(OFFICER.user.id) || OFFICER.ADMIN_IDS.includes(OFFICER.user.id));
 OFFICER.isAdmin = () => OFFICER.isRealAdmin() && !OFFICER.previewAs;   // 👁️ while previewing, the page looks exactly like theirs (no 👥, no admin tools)
+/* 🏰 which alliance a non-admin officer belongs to (👥 table, users[id].side: "m" = NXS · "f" = nxs · none = both). On the pages that are split by
+   alliance (🚩 Territory, 🐝 Hive) the page opens on that alliance and the NXS | nxs switch is gone. Admins always have both. (Sherry 2026-11-16) */
+OFFICER.side = () => {
+  const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
+  if (!uid || OFFICER.ADMINS.includes(uid) || OFFICER.ADMIN_IDS.includes(uid)) return "";
+  const u = OFFICER.perms && OFFICER.perms.users && OFFICER.perms.users[uid];
+  return u && !u.admin && (u.side === "m" || u.side === "f") ? u.side : "";
+};
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
   if (tab === "perms") return OFFICER.isAdmin();
