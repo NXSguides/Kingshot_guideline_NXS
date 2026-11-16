@@ -78,6 +78,7 @@ const FEATURES = [
   // [name, AI (worker OFFICER_HELP or scripts/build-ai-context.js), Little Sparrow (js/sparrow.js)]
   ["Post: formatting toolbar", /Word-like toolbar/, /po02b:/],
   ["Post: looks / scroll themes", /"Look" \(樣式\)/, /po05:/],
+  ["Post: ⏰ publish later (scheduled)", /"Publish at" \(發布時間/, /{ s: "#pubAt", k: "po06b" }/],
   ["Post: auto-delete", /Auto-delete/, /Auto-delete/],
   ["Events: announcement draft", /Announcement draft/, /Announcement draft/],
   ["Events: one-event game post", /Game post/, /Game post/],

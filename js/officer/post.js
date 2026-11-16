@@ -162,6 +162,7 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 window.addEventListener("nxs-officer-pw", (e) => { store.pw = e.detail; });   // saved by the shared password card
 /* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
 let ui = OFFICER.lang;
+for (const [l, o] of Object.entries({"en": {"fAt": "Publish at", "fAtNote": "(leave empty = publish now)", "atClear": "✕ Now", "atWhen": "Goes out about {t} (your time) — on the site within ~10–20 minutes after.", "schedTitle": "Scheduled", "schedNote": "Waiting for their time. Kept encrypted — not on the site and not readable in the public files until they go out.", "schedAt": "⏰ {t}", "schedEdit": "Edit", "schedNow": "🚀 Publish now", "schedDel": "Cancel", "schedOk": "Scheduled — it goes out by itself at that time.", "schedSaved": "Scheduled announcement updated.", "schedPast": "The publish time is in the past — pick a later time or clear it to publish now.", "schedExp": "The auto-delete time is before the publish time.", "schedNeedKey": "Scheduling needs the officer data key (turn on encryption at the bottom of this page).", "schedNoEdit": "This one is already published — clear “Publish at” to save the edit.", "confirmSched": "Schedule this announcement for {t}?", "confirmSchedDel": "Cancel this scheduled announcement? It is deleted.", "confirmSchedNow": "Publish this one right now?", "schedEditing": "⏰ scheduled"}, "zh": {"fAt": "發布時間", "fAtNote": "（留空 = 馬上發）", "atClear": "✕ 馬上發", "atWhen": "大約 {t}（你的時間）發出——之後 10–20 分鐘內上線。", "schedTitle": "排程中", "schedNote": "還在等時間的公告。加密保存——發出前不會出現在網站，公開檔案裡也讀不到。", "schedAt": "⏰ {t}", "schedEdit": "編輯", "schedNow": "🚀 立刻發", "schedDel": "取消", "schedOk": "已排程——時間到會自己發出去。", "schedSaved": "排程中的公告已更新。", "schedPast": "發布時間已經過了——選晚一點的時間，或清掉改成馬上發。", "schedExp": "自動刪除的時間比發布時間還早。", "schedNeedKey": "預約發布需要幹部資料金鑰（在本頁最下面開啟加密）。", "schedNoEdit": "這則已經發布了——把「發布時間」清掉再儲存修改。", "confirmSched": "要預約在 {t} 發布這則公告嗎？", "confirmSchedDel": "要取消這則排程中的公告嗎？會直接刪除。", "confirmSchedNow": "要現在就發布這則嗎？", "schedEditing": "⏰ 排程中"}, "pt": {"fAt": "Publicar em", "fAtNote": "(vazio = publicar agora)", "atClear": "✕ Agora", "atWhen": "Sai por volta de {t} (seu horário) — no site em ~10–20 minutos depois.", "schedTitle": "Agendados", "schedNote": "Esperando a hora. Ficam criptografados — fora do site e ilegíveis nos arquivos públicos até saírem.", "schedAt": "⏰ {t}", "schedEdit": "Editar", "schedNow": "🚀 Publicar agora", "schedDel": "Cancelar", "schedOk": "Agendado — sai sozinho nessa hora.", "schedSaved": "Anúncio agendado atualizado.", "schedPast": "A hora de publicação já passou — escolha uma hora depois ou limpe para publicar agora.", "schedExp": "A exclusão automática é antes da hora de publicação.", "schedNeedKey": "Agendar precisa da chave de dados dos oficiais (ative a criptografia no fim desta página).", "schedNoEdit": "Este já foi publicado — limpe “Publicar em” para salvar a edição.", "confirmSched": "Agendar este anúncio para {t}?", "confirmSchedDel": "Cancelar este anúncio agendado? Ele é apagado.", "confirmSchedNow": "Publicar este agora mesmo?", "schedEditing": "⏰ agendado"}, "ar": {"fAt": "وقت النشر", "fAtNote": "(فارغ = انشر الآن)", "atClear": "✕ الآن", "atWhen": "يُنشر نحو {t} (بتوقيتك) — يظهر في الموقع خلال 10–20 دقيقة بعده.", "schedTitle": "المجدولة", "schedNote": "بانتظار وقتها. تُحفظ مشفّرة — لا تظهر في الموقع ولا تُقرأ في الملفات العامة حتى تُنشر.", "schedAt": "⏰ {t}", "schedEdit": "تعديل", "schedNow": "🚀 انشر الآن", "schedDel": "إلغاء", "schedOk": "تمت الجدولة — يُنشر تلقائيًا في ذلك الوقت.", "schedSaved": "تم تحديث الإعلان المجدول.", "schedPast": "وقت النشر قد مضى — اختر وقتًا لاحقًا أو امسحه للنشر الآن.", "schedExp": "وقت الحذف التلقائي قبل وقت النشر.", "schedNeedKey": "الجدولة تحتاج مفتاح بيانات الضباط (فعّل التشفير أسفل هذه الصفحة).", "schedNoEdit": "هذا الإعلان منشور بالفعل — امسح «وقت النشر» لحفظ التعديل.", "confirmSched": "جدولة هذا الإعلان في {t}؟", "confirmSchedDel": "إلغاء هذا الإعلان المجدول؟ سيُحذف.", "confirmSchedNow": "نشر هذا الإعلان الآن؟", "schedEditing": "⏰ مجدول"}, "ko": {"fAt": "게시 시간", "fAtNote": "(비우면 = 바로 게시)", "atClear": "✕ 바로", "atWhen": "{t}쯤(내 시간) 게시 — 그 뒤 10–20분 안에 사이트에 올라가요.", "schedTitle": "예약됨", "schedNote": "시간을 기다리는 공지. 암호화해서 보관 — 게시 전에는 사이트에도 없고 공개 파일에서도 읽을 수 없어요.", "schedAt": "⏰ {t}", "schedEdit": "수정", "schedNow": "🚀 지금 게시", "schedDel": "취소", "schedOk": "예약됨 — 그 시간에 알아서 게시돼요.", "schedSaved": "예약된 공지를 수정했어요.", "schedPast": "게시 시간이 이미 지났어요 — 더 늦은 시간을 고르거나 비워서 바로 게시하세요.", "schedExp": "자동 삭제 시간이 게시 시간보다 빨라요.", "schedNeedKey": "예약에는 간부 데이터 키가 필요해요(이 페이지 맨 아래에서 암호화를 켜세요).", "schedNoEdit": "이미 게시된 공지예요 — “게시 시간”을 비우고 수정 내용을 저장하세요.", "confirmSched": "이 공지를 {t}에 예약할까요?", "confirmSchedDel": "이 예약 공지를 취소할까요? 삭제돼요.", "confirmSchedNow": "이 공지를 지금 바로 게시할까요?", "schedEditing": "⏰ 예약됨"}})) Object.assign(T[l], o);   // ⏰ scheduled announcements
 const tr = (k) => T[ui][k] ?? T.en[k] ?? k;
 const esc = OFFICER.util.esc;
 let TOKEN = null;
@@ -273,6 +274,57 @@ function setExp(iso) {   // editing: show the saved time
   const d = new Date(iso); $("expSel").value = "pick"; $("expDate").value = d.toISOString().slice(0, 10); $("expHour").value = String(d.getUTCHours()); showExp();
 }
 ["expSel", "expDate", "expHour"].forEach((id) => $(id).addEventListener("change", showExp));
+/* ---- ⏰ publish later (Sherry 2026-11-16) ----
+   A scheduled announcement waits in data/ann-scheduled-x7k2p9.json, ENCRYPTED with the officer data key ({ items: [{ id, at, block, title, author }] }),
+   so nothing is on the site or readable in the public repo before its time. The translate job (every 10 minutes) moves the due ones into
+   the source file (scripts/translate-announcements.js releaseDue) — from then on they are normal announcements. Pictures are uploaded when
+   it is scheduled (they need to be in the repo; nothing links to them until it goes out). */
+const SCHED_PATH = "data/ann-scheduled-x7k2p9.json";
+let SCHED = [], editingSched = null;   // editingSched = id of the scheduled item now in the Write form
+const atFmt = (iso) => new Date(iso).toLocaleString([], { month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit" });
+function atValue() { const v = $("pubAt").value; if (!v) return ""; const d = new Date(v); return isNaN(d) ? "" : d.toISOString(); }
+function setAt(iso) { const d = iso ? new Date(iso) : null; $("pubAt").value = d && !isNaN(d) ? new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16) : ""; showAt(); }
+function showAt() { const v = atValue(); $("pubAtWhen").textContent = v ? tr("atWhen").replace("{t}", atFmt(v)) : ""; $("pubAtClear").hidden = !v;
+  if (typeof showEditing === "function") showEditing(); }
+async function schedRead() {
+  const f = await gh("GET", SCHED_PATH); if (!f) return { sha: undefined, items: [] };
+  let obj = null; try { obj = await OfficerData.open(JSON.parse(b64ToUtf8(f.content))); } catch (e) { throw new Error(e.message === "locked" ? "nokey" : "net"); }
+  return { sha: f.sha, items: obj && Array.isArray(obj.items) ? obj.items : [] };
+}
+async function schedWrite(change, message) {
+  if (!OfficerData.ready()) throw new Error("nokey");
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const cur = await schedRead(), next = change(cur.items);
+    try { await gh("PUT", SCHED_PATH, { message, content: utf8ToB64(JSON.stringify(await OfficerData.seal({ items: next })) + "\n"), sha: cur.sha, branch: BRANCH }); SCHED = next; return; }
+    catch (e) { if (e.message !== "busy" || attempt) throw e; }
+  }
+}
+function renderSched() {
+  const L = [...SCHED].sort((a, b) => Date.parse(a.at) - Date.parse(b.at));
+  $("po_schedCard").hidden = !L.length;
+  $("po_sched").innerHTML = L.map((x) => `<div class="ann"><div><b dir="auto">${esc(x.title || "—")}</b> <span class="muted">${esc(x.author || "")} · ${esc(tr("schedAt").replace("{t}", atFmt(x.at)))}</span></div>
+    <div class="acts"><button class="btn" data-sed="${esc(x.id)}">${esc(tr("schedEdit"))}</button><button class="btn" data-snow="${esc(x.id)}">${esc(tr("schedNow"))}</button><button class="btn danger" data-sdel="${esc(x.id)}">${esc(tr("schedDel"))}</button></div></div>`).join("");
+}
+async function loadSched() {
+  try { SCHED = OfficerData.ready() ? (await schedRead()).items : []; } catch (e) { SCHED = []; }
+  renderSched();
+}
+const schedErr = (e) => e.message === "nokey" ? tr("schedNeedKey") : errText(e);
+/* a scheduled item goes into the source file now (🚀, or its time was cleared while editing) */
+async function schedRelease(x) {
+  const block = String(x.block).replace(/^created: .*\n/m, "");
+  await editSource((md) => md.replace(/\r/g, "").trimEnd().replace(/\n?---$/, "") + "\n---\n" + block + "\n", `New announcement: ${x.title || ""}`.slice(0, 120));
+  await schedWrite((items) => items.filter((y) => y.id !== x.id), "Scheduled announcement published");
+}
+function schedToForm(x) {
+  let d = {}; try { d = jsyaml.load(x.block) || {}; } catch (e) {}
+  let body = String(d.content || "").replace(/\s+$/, ""), g = "";
+  const m = body.match(/\n*\[\[link:([\w-]+)\]\]$/); if (m && GUIDES[m[1]]) { g = m[1]; body = body.slice(0, m.index); }
+  editing = null; editingSched = x.id;
+  $("author").value = d.author || ""; $("srcLang").value = d.lang || "en"; $("annTitle").value = d.title || ""; $("body").value = body; $("guide").value = g;
+  setExp(d.expires); setStyle(d.style); setAt(x.at); renderPreview();
+  $("annTitle").scrollIntoView({ behavior: "smooth", block: "center" });
+}
 function fullBody() {
   const g = $("guide").value;
   return $("body").value.trimEnd() + (g ? `\n\n[[link:${g}]]` : "");
@@ -610,6 +662,7 @@ $("editAllGo").onclick = () => {
   const d = cur.d; let body = String(d.content || "").replace(/\s+$/, ""), g = "";
   const m = body.match(/\n*\[\[link:([\w-]+)\]\]$/);
   if (m && GUIDES[m[1]]) { g = m[1]; body = body.slice(0, m.index); }
+  editingSched = null; setAt("");
   editing = { block: cur.block, created: d.created || (pubById[cur.id] && pubById[cur.id].createdAt) || "", title: d.title || "", author: d.author || "" };
   $("author").value = d.author || ""; $("srcLang").value = d.lang || "en";
   $("annTitle").value = d.title || ""; $("body").value = body; $("guide").value = g; setExp(d.expires); setStyle(d.style);
@@ -618,12 +671,14 @@ $("editAllGo").onclick = () => {
   $("annTitle").scrollIntoView({ behavior: "smooth", block: "center" });
 };
 function showEditing() {
-  $("editBanner").hidden = !editing;
+  const sx = editingSched && SCHED.find((x) => x.id === editingSched);
+  $("editBanner").hidden = !editing && !sx;
   if (editing) $("editBannerTitle").textContent = editing.title;
-  $("publishBtn").textContent = tr(editing ? "saveEdit" : "publish");
+  else if (sx) $("editBannerTitle").textContent = tr("schedEditing") + " · " + (sx.title || "");
+  $("publishBtn").textContent = editing || sx ? tr("saveEdit") : atValue() ? "⏰ " + tr("schedTitle") : tr("publish");
 }
 $("cancelEdit").onclick = () => {
-  editing = null; $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); demoKeep = null; $("fmtDemoNote").hidden = true;
+  editing = null; editingSched = null; setAt(""); $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); demoKeep = null; $("fmtDemoNote").hidden = true;
   $("author").value = store.author || ""; $("srcLang").value = store.lang || "en";
   showEditing(); renderPreview();
 };
@@ -742,7 +797,7 @@ function applyTexts() {
     const v = tr(el.dataset.t);
     el.textContent = v;
   });
-  fillExp(); fillStyles(); fillFmt();
+  fillExp(); fillStyles(); fillFmt(); showAt(); renderSched();
   $("setupSteps").innerHTML = tr("setupSteps").map((s) => `<li>${esc(s)}</li>`).join("");
   const g = $("guide").value;
   $("guide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden)
@@ -751,7 +806,7 @@ function applyTexts() {
   if (typeof showEditing === "function") showEditing();
   if (cur) fillEditLang();
 }
-function showApp() { $("setupCard").hidden = true; $("po_app").hidden = false; renderPreview(); loadList(); takeCarriedImage(); }
+function showApp() { $("setupCard").hidden = true; $("po_app").hidden = false; renderPreview(); loadList(); loadSched(); takeCarriedImage(); }
 
 async function tryUnlock(pw, silent, retried) {
   try { TOKEN = await decryptToken(keyBlob, pw); }
@@ -781,7 +836,21 @@ function setLang(l) { ui = l; store.ui = ui; save(); applyTexts(); if (!$("po_ap
 ["annTitle", "body", "guide", "srcLang"].forEach((id) => $(id).addEventListener("input", renderPreview));
 $("srcLang").onchange = () => { if (!editing) { store.lang = $("srcLang").value; save(); } renderPreview(); };
 $("author").onchange = () => { if (!editing) { store.author = $("author").value.trim(); save(); } };
-$("reloadBtn").onclick = loadList;
+$("reloadBtn").onclick = () => { loadList(); loadSched(); };
+$("pubAt").addEventListener("change", showAt); $("pubAt").addEventListener("input", showAt);
+$("pubAtClear").onclick = () => setAt("");
+$("po_sched").onclick = async (e) => {
+  const ed = e.target.closest("[data-sed]"), nw = e.target.closest("[data-snow]"), dl = e.target.closest("[data-sdel]");
+  const x = SCHED.find((y) => y.id === ((ed || nw || dl || {}).dataset || {})[ed ? "sed" : nw ? "snow" : "sdel"]); if (!x) return;
+  if (ed) return schedToForm(x);
+  if (!(await askYesNo(tr(nw ? "confirmSchedNow" : "confirmSchedDel")))) return;
+  showMsg("schedMsg", "info", tr("publishing"));
+  try {
+    if (nw) await schedRelease(x); else await schedWrite((items) => items.filter((y) => y.id !== x.id), "Scheduled announcement cancelled");
+    if (editingSched === x.id) $("cancelEdit").onclick();
+    showMsg("schedMsg", "ok", nw ? tr("pubOk") : ""); renderSched(); if (nw) loadList();
+  } catch (err) { showMsg("schedMsg", "err", schedErr(err)); }
+};
 $("po_list").onclick = (e) => {
   const b = e.target.closest("[data-del]"); if (b) return deleteBlock(Number(b.dataset.del));
   const ed = e.target.closest("[data-edit]"); if (ed) openEdit(Number(ed.dataset.edit));
@@ -793,7 +862,12 @@ $("publishBtn").onclick = async () => {
   if (isDemo()) { showMsg("pubMsg", "err", tr("demoPub")); return; }   // 🐦 the example is not an announcement
   const expires = expValue();
   if ($("expSel").value !== "never" && (!expires || Date.parse(expires) <= Date.now())) { showMsg("pubMsg", "err", tr("expPast")); return; }
-  if (!(await askYesNo(tr(editing ? "confirmEdit" : "confirmPub")))) return;
+  const at = atValue();   // ⏰ publish later
+  if (at && editing) { showMsg("pubMsg", "err", tr("schedNoEdit")); return; }
+  if (at && Date.parse(at) <= Date.now()) { showMsg("pubMsg", "err", tr("schedPast")); return; }
+  if (at && expires && Date.parse(expires) <= Date.parse(at)) { showMsg("pubMsg", "err", tr("schedExp")); return; }
+  if (at && !OfficerData.ready()) { showMsg("pubMsg", "err", tr("schedNeedKey")); return; }
+  if (!(await askYesNo(at ? tr("confirmSched").replace("{t}", atFmt(at)) : tr(editing ? "confirmEdit" : "confirmPub")))) return;
   if (!editing) { store.author = author; save(); }
   const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("publishing"));
   try {
@@ -809,7 +883,14 @@ $("publishBtn").onclick = async () => {
     // 2) add the announcement
     const block = makeBlock({ author, lang: $("srcLang").value, title, body: fullBody(), created: editing ? editing.created : "", expires, style: styleValue() });
     jsyaml.load(block); // safety check: must be valid before it reaches the site
-    if (editing) {
+    if (at) {           // ⏰ wait (encrypted) until its time; an edited scheduled one keeps its id
+      const id = editingSched || Date.now().toString(36), was = !!editingSched;
+      await schedWrite((items) => [...items.filter((y) => y.id !== id), { id, at, block, title, author }], was ? "Scheduled announcement edited" : "Announcement scheduled");
+      editingSched = null; showMsg("pubMsg", "ok", tr(was ? "schedSaved" : "schedOk"));
+    } else if (editingSched) {   // its time was cleared: publish it now
+      await schedRelease({ id: editingSched, block, title });
+      editingSched = null; showMsg("pubMsg", "ok", tr("pubOk"));
+    } else if (editing) {
       // replace the old block in place, so it keeps its spot in the list
       const old = editing.block;
       await editSource((md) => {
@@ -823,10 +904,10 @@ $("publishBtn").onclick = async () => {
       await editSource((md) => md.replace(/\r/g, "").trimEnd().replace(/\n?---$/, "") + "\n---\n" + block + "\n", `New announcement: ${title}`.slice(0, 120));
       showMsg("pubMsg", "ok", tr("pubOk"));
     }
-    $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); demoKeep = null; $("fmtDemoNote").hidden = true;
+    $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); setAt(""); renderSched(); demoKeep = null; $("fmtDemoNote").hidden = true;
     Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {};
     renderPreview(); loadList();
-  } catch (e) { showMsg("pubMsg", "err", e.message === "gone" ? tr("gone") : e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }
+  } catch (e) { showMsg("pubMsg", "err", e.message === "nokey" ? tr("schedNeedKey") : e.message === "gone" ? tr("gone") : e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }
   btn.disabled = false;
 };
 

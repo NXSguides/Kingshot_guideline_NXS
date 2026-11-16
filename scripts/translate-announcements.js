@@ -131,7 +131,28 @@ ${glossaryText}`;
   return translations;
 }
 
+/* ⏰ scheduled announcements (Sherry 2026-11-16): the 📢 Post tab keeps them in an ENCRYPTED file (nothing public before their time);
+   this job (every 10 minutes) moves the ones whose time has come to the end of the source file — from there on they are normal announcements. */
+const SCHED = path.join(__dirname, "../data/ann-scheduled-x7k2p9.json");
+function releaseDue() {
+  if (!fs.existsSync(SCHED)) return;
+  try {
+    const { readData, writeData } = require("./officer-data.js");
+    const d = readData(SCHED), items = d && Array.isArray(d.items) ? d.items : [], now = Date.now();
+    const due = items.filter((x) => x && x.block && Date.parse(x.at) <= now).sort((a, b) => Date.parse(a.at) - Date.parse(b.at));
+    if (!due.length) return;
+    let md = fs.readFileSync(SOURCE, "utf8").replace(/\r/g, "").trimEnd().replace(/\n?---$/, "");
+    for (const x of due) {
+      const block = String(x.block).replace(/^created: .*\n/m, "").replace(/^(author: .*)$/m, `$1\ncreated: ${JSON.stringify(new Date(x.at).toISOString())}`);
+      md += "\n---\n" + block.trim() + "\n";
+    }
+    fs.writeFileSync(SOURCE, md);
+    writeData(SCHED, { items: items.filter((x) => !due.includes(x)) });
+    console.log(`預約公告到時間發布：${due.length} 則`);
+  } catch (e) { console.log(`::warning title=scheduled::${e.code === "NOKEY" ? "DATA_KEY secret missing — scheduled announcements stay waiting" : e.message}`); }
+}
 async function main() {
+  releaseDue();
   let rawEntries = parseEntries(fs.readFileSync(SOURCE, "utf8"));
   // auto-delete: announcements whose "expires" time has passed are removed from the source file too
   const isGone = (e) => e.expires && !isNaN(Date.parse(e.expires)) && Date.parse(e.expires) <= Date.now();

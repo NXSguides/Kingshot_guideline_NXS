@@ -4,9 +4,10 @@ on:
     paths: ["data/announcements-source.md", "data/announcements-fixes.json"]
     branches: [main]
   workflow_dispatch:
-  # every hour: removes announcements whose auto-delete time has passed (no translating unless something is new)
+  # every 10 minutes: publishes ⏰ scheduled announcements whose time has come and removes the ones whose auto-delete time
+  # has passed (no translating unless something is new)
   schedule:
-    - cron: "17 * * * *"
+    - cron: "7,17,27,37,47,57 * * * *"
 
 concurrency:
   group: translate-announcements
@@ -30,8 +31,9 @@ jobs:
           for i in 1 2 3 4 5; do
             node scripts/translate-announcements.js
             git add data/announcements.json data/announcements-cache.json data/announcements-source.md data/announcements-fixes.json
+            if [ -f data/ann-scheduled-x7k2p9.json ]; then git add data/ann-scheduled-x7k2p9.json; fi
             git diff --cached --quiet && exit 0
-            git commit -m "自動翻譯新公告／刪除到期公告"
+            git commit -m "自動翻譯新公告／發布預約公告／刪除到期公告"
             git push origin HEAD:main && exit 0
             sleep $((i * 5))
             git fetch origin main && git reset --hard origin/main
@@ -39,3 +41,4 @@ jobs:
           exit 1
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
