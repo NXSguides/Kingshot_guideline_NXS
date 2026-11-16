@@ -111,8 +111,9 @@ function analysisHtml() {
   if (Array.isArray(r.reports) && r.reports.length) {   // 🐻 one Bear page, several short reports: 🔎 what we saw → 💡 suggestions → the numbers behind it (Sherry 2026-11-11)
     const cur = ((location.hash || "").match(/[?&]r=(\w+)/) || [])[1], rep = r.reports.find((x) => x.id === cur) || r.reports[0];
     const li = (arr) => (arr || []).map((x) => `<li>${esc(x)}</li>`).join("");
+    const obs = rep.id === "leaders" ? [] : (LL(rep.obs) || []);   // 👑 Leaders: no "what we saw" block (Sherry 2026-11-16) — suggestions, then the leader cards
     return `${OFFICER.bearChips(rep.id, lang)}${data}
-  <div class="card rs-do">${(LL(rep.obs) || []).length ? `<h3>${esc(at("obsH"))}</h3><ul class="rs-dol">${li(LL(rep.obs))}</ul>` : ""}${(LL(rep.sug) || []).length ? `<h3${(LL(rep.obs) || []).length ? ' class="rs-h2"' : ""}>${esc(at("sugH"))}</h3><ul class="rs-dol">${li(LL(rep.sug))}</ul>` : ""}</div>
+  <div class="card rs-do">${obs.length ? `<h3>${esc(at("obsH"))}</h3><ul class="rs-dol">${li(obs)}</ul>` : ""}${(LL(rep.sug) || []).length ? `<h3${obs.length ? ' class="rs-h2"' : ""}>${esc(at("sugH"))}</h3><ul class="rs-dol">${li(LL(rep.sug))}</ul>` : ""}</div>
   ${(rep.show || []).map((k) => (B[k] ? B[k]() : "")).join("\n  ")}`;
   }
   return `${OFFICER.bearChips("leaders", lang)}<div class="card bp-rv">${r.data ? `<div class="muted" style="font-size:12.5px">${esc(LL(r.data.txt))}</div>` : ""}
