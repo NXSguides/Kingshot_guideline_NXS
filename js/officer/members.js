@@ -256,6 +256,22 @@ function blockMid() { const h = hqNow()[0]; if (h) return [h[0] + 1, h[1] + 1];
   if (c.length) return [med(c.map((r) => r[1])), med(c.map((r) => r[2]))];
   const t0 = (D && D.bt && D.bt[0]) || [400, 660]; return [t0[0], t0[1]]; }
 const far = ([, x, y], mx, my) => Math.abs(x - mx) > 60 || Math.abs(y - my) > 60;
+/* 🏰 the other alliance, faint, behind ours (Sherry 2026-11-16: NXS and nxs are planned apart but share a border at Y 704 and one Bear Trap).
+   Its plan when it has one, otherwise where its cities are now. Looking only — nothing of it can be tapped or changed from here. */
+let BGF = null;   // nxs, read once for the NXS view (the nxs view has NXS in SLOT.m already)
+async function bgLoad() {
+  if (BGF || !OFFICER.can("move", "view")) return;
+  let r = null, p = null; try { r = await OfficerData.fetchJson("data/academy-x7k2p9.json"); } catch (e) {} try { p = await OfficerData.fetchJson(MV_PATH_F); } catch (e) {}
+  const KS = window.KM_SHARED, f = KS && KS.farmPL ? KS.farmPL() : { bt: [] };
+  BGF = { D: { m: ((r && r.members) || []).filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: (f.bt || []).map((b) => b.slice(0, 2)) }, MV: { plan: p && p.plan ? p.plan : null } };
+  if (WHO === "m" && D) { draw(); if ($("mv_map")) draw("mv_map"); }
+}
+function otherLayer() {
+  const o = WHO === "m" ? "f" : "m", d = SLOT[o] || (o === "f" ? BGF : null); if (!d || !d.D) return null;
+  const PL = d.MV && d.MV.plan, xy = (a) => a.map((v) => [v[v.length > 2 && typeof v[0] !== "number" ? 1 : 0], v[v.length > 2 && typeof v[0] !== "number" ? 2 : 1]]);
+  return PL ? { n: o === "f" ? "nxs" : "NXS", c: xy(PL.c || []), b: xy(PL.b || []), hq: xy(PL.hq || []), bt: xy(PL.bt || []) }
+    : { n: o === "f" ? "nxs" : "NXS", c: xy(d.D.m || []), b: [], hq: [], bt: xy(d.D.bt || []) };
+}
 function draw(boxId = "mm_map") {
   const KSx = window.KM_SHARED, ctx0 = KSx ? KSx.ctx : "m"; if (KSx) KSx.ctx = WHO;   // nxs: their banners / planned banners; ours show as another alliance
   try { drawIn(boxId); } finally { if (KSx) KSx.ctx = ctx0; }
@@ -283,6 +299,16 @@ function drawIn(boxId) {
   { const T = planTerr(PL);
     RESN.forEach(([k, rx, ry], ri) => { if (!inB(rx, ry)) return; const c = PL ? rsCov(T, rx, ry) : 0, ok = c >= 3, [cx, cy] = P(rx + 1, ry + 1);
       s.push(`<g class="mm-r" data-r="${ri}"><polygon points="${poly(rx, ry, 2)}" fill="${RS_COL[k] || "#ccc"}" fill-opacity="${ok || !PL ? 1 : .55}" stroke="${ok ? "#2e7d32" : "#ffffffaa"}" stroke-width="${ok ? 2.4 : 1}" stroke-dasharray="${ok || !PL ? "" : "3 2"}"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font-size:11px;pointer-events:none">${RS_ICON[k] || ""}</text></g>`); }); }
+  /* 🏰 NXS ↔ nxs: the border (cities on Y 704 and above it are NXS) and the other alliance's layout, faint */
+  { const OL = otherLayer(), yb = SPLIT_Y + 2;
+    if (OL) { const g = [], sq = (x, y, n, extra) => `<polygon points="${poly(x, y, n)}" fill="#ffffff" fill-opacity=".16" stroke="#ffffff" stroke-opacity=".55" stroke-width="1" stroke-dasharray="2 2"${extra || ""}/>`;
+      for (const [x, y] of OL.c) if (inB(x, y)) g.push(sq(x, y, 2));
+      for (const [x, y] of OL.b) if (inB(x, y)) g.push(sq(x, y, 1));
+      for (const [x, y] of OL.hq) if (inB(x, y)) { const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.n} HQ</text>`); }
+      OL.bt.forEach(([x, y], i) => { if (!inB(x, y)) return; const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.n} BT${i + 1}</text>`); });
+      if (g.length) s.push(`<g class="mm-oa" style="pointer-events:none"><title>${OL.n}</title>${g.join("")}</g>`);
+      if (yb > y1 && yb < y2) { const a = P(x1, yb), b = P(x2, yb), [lx, ly] = P(x1 + 1.5, yb);
+        s.push(`<g class="mm-oa" style="pointer-events:none"><line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="#ffde4a" stroke-opacity=".8" stroke-width="1.6" stroke-dasharray="8 5"/><text x="${lx.toFixed(1)}" y="${(ly - 5).toFixed(1)}" class="mm-bl" style="fill:#ffde4a;opacity:.9">NXS ┄ Y ${SPLIT_Y} ┄ nxs</text></g>`); } } }
   /* 🏴 other alliances: their 7×7 territory shaded, the banner on top */
   const oth = KS ? KS.others().filter(([, bx, by]) => bx >= x1 - 3 && bx <= x2 + 3 && by >= y1 - 3 && by <= y2 + 3) : [];
   for (const [, bx, by, col] of oth) s.push(`<polygon points="${poly(bx - 3, by - 3, 7)}" fill="${esc(col)}" fill-opacity=".18" stroke="none"/>`);
@@ -1384,7 +1410,7 @@ async function initMove() {
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<div class="muted">${esc(t("locked"))}</div>`; return; }
   if (OFFICER.ensure) await OFFICER.ensure("map");
   for (let i = 0; i < 50 && !D; i++) await new Promise((r) => setTimeout(r, 100));
-  await loadMove(); render(); renderMove(); mapSync();
+  await loadMove(); render(); renderMove(); mapSync(); bgLoad();
   try { if ((sideOf() || localStorage.getItem("nxs-hive-who")) === "f") await setWho("f"); } catch (e) {}
   pubLoad().then(() => renderMove());
   if (window.HivePlanner) HivePlanner.init();   // 📐 auto plan from a Mapper layout
