@@ -1427,15 +1427,6 @@ Das Verständnis der Zahlen ermöglicht eine effizientere Planung. Hier sind ein
 
 Zusammenfassend bietet die Erweiterung der Level-Obergrenze auf 22 einen klaren Weg zu einem mächtigen Bonus von +99% Tödlichkeit und Gesundheit pro Talisman. Es handelt sich jedoch um ein ressourcenintensives, langfristiges Unterfangen, das strategische Planung, die Priorisierung von Stufen mit hohem ROI und das konsequente Sammeln von Materialien bei Events erfordert.
 
-[2026-11-15 by ELR] 11/15 SS Legion 1
-(battle table: shown in the reader's language)
-
-
-
-
-
-(see guide #swordland-showdown)
-
 [2026-10-19 by ΔRMΔDΔ] Schwertland-Showdown Nicht-Erscheinen
 ⚠️ Wichtiges Regel-Update: Nicht-Erscheinen beim Schwertland-Showdown
 

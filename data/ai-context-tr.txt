@@ -1425,15 +1425,6 @@ Rakamları anlamak daha verimli bir planlama yapmanızı sağlar. Dikkate alman�
 
 Özetle, seviye sınırının 22'ye çıkarılması, tılsım başına güçlü bir +%99 Öldürücülük ve Sağlık bonusuna giden net bir yol sunar. Bununla birlikte, stratejik planlama, yüksek getirili erken seviyelere öncelik verme ve etkinliklerden sürekli malzeme toplamayı gerektiren kaynak yoğun, uzun vadeli bir çabadır.
 
-[2026-11-15 by ELR] 11/15 SS 1. Lejyon
-(battle table: shown in the reader's language)
-
-
-
-
-
-(see guide #swordland-showdown)
-
 [2026-10-19 by ΔRMΔDΔ] Kılıçdiyarı Hesaplaşması Katılımsızlıkları
 ⚠️ Önemli Kural Güncellemesi: Kılıçdiyarı Hesaplaşması Katılımsızlıkları
 

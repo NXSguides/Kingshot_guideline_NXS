@@ -1451,15 +1451,6 @@ Language (12 languages): chosen once on the first screen when the site opens. Af
 
 요약하자면, 22레벨 상한 확장은 보석 1개당 파괴력 및 HP +99%라는 강력한 보상으로 통하는 길을 열어줍니다. 그러나 많은 자원이 소모되는 장기 과제인 만큼, 높은 가성비의 초반 구간을 먼저 공략하고 이벤트를 통해 꾸준히 재료를 수집하는 전략적인 접근이 필요합니다.
 
-[2026-11-15 by ELR] 11/15 SS 군단 1
-(battle table: shown in the reader's language)
-
-
-
-
-
-(see guide #swordland-showdown)
-
 [2026-10-19 by ΔRMΔDΔ] 성검 쟁탈 미참석 관련 안내
 ⚠️ 중요 규칙 업데이트: 성검 쟁탈 미참석 관련
 

@@ -1424,15 +1424,6 @@ Language (12 languages): chosen once on the first screen when the site opens. Af
 
 總結來說，等級上限擴充至 22 級為獲得每件寶石 +99% 殺傷力與生命值 的強大加成提供了清晰的路徑。然而，這是一項耗費資源的長期工程，需要合理策略規劃、優先考慮高報酬率的前期等級，並持續從活動中收集材料。
 
-[2026-11-15 by ELR] 11/15 SS 軍團1
-(battle table: shown in the reader's language)
-
-
-
-
-
-(see guide #swordland-showdown)
-
 [2026-10-19 by ΔRMΔDΔ] 聖劍爭奪未出席處理公告
 ⚠️ 重要規則更新：聖劍爭奪缺席問題
 
