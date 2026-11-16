@@ -2878,9 +2878,14 @@
     if (sessionStorage.getItem("nxs-sparrow-greeted")) { await play("idle", { squash: false }); return; }
     try { sessionStorage.setItem("nxs-sparrow-greeted", "1"); } catch (e) {}
     const c = play("hi"); say(esc(t("oGreet").replace("{name}", u.name || "")), { foot: false }); await c;
+    const h0 = location.hash, y0 = window.scrollY;
     await play("idle", { squash: false }); await wait(5000); hush();
-    // …then, like the main site: "Want a quick tour of this tab?" (👀 Yes = quick tour · No thanks = the tab list in the chat)
+    // …then "Want a quick tour of the officer pages?" — only the FIRST time on this device, and not once the officer is already
+    // working (changed tab or scrolled): it used to pop up over the page every visit (Sherry 2026-11-16). Tapping the sparrow still offers the tour.
+    if (ls.get("nxs-sparrow-otour") || location.hash !== h0 || Math.abs(window.scrollY - y0) > 40) { ls.set("nxs-sparrow-otour", "1"); return; }
+    ls.set("nxs-sparrow-otour", "1");
     await officerAsk();
+    clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (state === "menu" && !busy && !tour) hush(); }, 15000);   // unanswered → goes away by itself
   }
   async function playMessage(m, preview) {
     busy = true; if (!preview) markRead(m);   // shown once → never again by itself (💌 in the sparrow's menu replays it)
