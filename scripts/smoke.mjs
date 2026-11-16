@@ -8,6 +8,7 @@ import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { execFileSync } from "node:child_process";
 execFileSync(process.execPath, ["scripts/check-help.js"], { stdio: "inherit" });   // 🐦🤖 Little Sparrow and the AI must match (throws → test fails)
+execFileSync(process.execPath, ["scripts/check-lang.js"], { stdio: "inherit" });   // 🔤 every guide text in its own language, no Chinese in the English officer texts (throws → test fails)
 
 const ROOT = process.cwd();
 const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webmanifest": "application/manifest+json", ".ico": "image/x-icon" };

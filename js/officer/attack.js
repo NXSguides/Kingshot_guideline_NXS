@@ -446,14 +446,14 @@ function ssCard() {
   const W = new Set(wk ? S.watch[wk] || [] : []), hot = (x) => best && x.S && x.S >= best.S * 0.95;
   const marked = them.filter((x) => W.has(x.id)), sugg = them.filter(hot).slice(0, 10);
   /* 🔍 their whole alliance: search, tick who plays */
-  const q = norm(rosterQ), shown = themAll.filter((x) => !q || norm(x.name).includes(q) || norm(x.rank).includes(q));
+  const q = norm(rosterQ), hit = (x) => !q || norm(x.name).includes(q) || norm(x.rank).includes(q), shown = themAll;   // every row is drawn, non-matches only hidden — so clearing the search brings everyone back (2026-11-16 fix)
   const roster = !SSD ? "" : `<div class="ak-box" id="ss_roster"><b>${esc(fill(t("rsT"), { tag: SSD.tag }))}</b><div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("rsNote"))}</div>
     <div class="ak-inbar"><input class="inp ak-rq" type="search" id="ss_rq" value="${esc(rosterQ)}" placeholder="${esc(t("rsFind"))}" autocomplete="off">
       <b class="ak-cnt">${esc(fill(t("rsSel"), { n: pickT.size, t: themAll.length }))}</b>
       <button class="btn small" data-pall="1">${esc(t("inAll"))}</button><button class="btn small" data-pnone="1">${esc(t("inNone"))}</button>
       <span class="ak-top"><button class="btn small" data-ptop="1">${esc(t("inTop"))}</button><input class="inp" type="number" id="ss_topN" value="${+S.topN || 20}" min="1" max="200"></span></div>
     ${pickT.size ? `<div class="ak-chips">${themAll.filter((x) => pickT.has(x.id)).map((x) => `<span class="ak-chip"><bdi>${esc(x.name)}</bdi><b data-pk="${esc(x.id)}">×</b></span>`).join("")}</div>` : `<div class="muted" style="font-size:12.5px">${esc(t("rsNone"))}</div>`}
-    <div class="ak-tw ak-list ak-rlist"><table class="ak-t"><tbody>${shown.map((x) => `<tr class="ak-tap${pickT.has(x.id) ? " ak-pk" : ""}" data-pr="${esc(x.id)}"><td class="ak-in"><input type="checkbox" data-pk="${esc(x.id)}"${pickT.has(x.id) ? " checked" : ""}></td>
+    <div class="ak-tw ak-list ak-rlist"><table class="ak-t"><tbody>${shown.map((x) => `<tr class="ak-tap${pickT.has(x.id) ? " ak-pk" : ""}" data-pr="${esc(x.id)}"${hit(x) ? "" : " hidden"}><td class="ak-in"><input type="checkbox" data-pk="${esc(x.id)}"${pickT.has(x.id) ? " checked" : ""}></td>
       <td><bdi>${esc(x.name)}</bdi>${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("") || `<tr><td class="muted">—</td></tr>`}</tbody></table></div></div>`;
   /* 📊 one ranking: our ticked list + their picked players, strongest first */
   const mixed = [...us.map((x) => ({ ...x, us: 1 })), ...them].sort((a, b) => (b.S || 0) - (a.S || 0) || (b.power || 0) - (a.power || 0));
