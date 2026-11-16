@@ -3,7 +3,7 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v903";
+const CACHE = "nxs-v904";
 const INBOX = "nxs-inbox", INBOX_KEY = "./__inbox";   // reminders that arrived, for the red badge + the "🔔 missed" card
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
@@ -69,7 +69,10 @@ function cacheFirst(e, req) {
 /* Data files: network first, saved copy after 3 s or when offline */
 function networkFirst(e, req, timeoutMs) {
   // pages are cached under their own address ("?x=…" ignored); index.html doubles as "./"
-  const key = req.mode === "navigate" ? new Request(new URL(req.url).pathname.replace(/\/$/, "/index.html")) : req;
+  // data files asked for with "?t=<now>" are saved under the plain address: one copy, always the newest
+  // (before, every visit left one more copy and the slow-network fallback picked the OLDEST one)
+  const key = req.mode === "navigate" ? new Request(new URL(req.url).pathname.replace(/\/$/, "/index.html"))
+    : /[?&]t=\d+$/.test(req.url) ? new Request(req.url.replace(/[?&]t=\d+$/, "")) : req;
   const fromNet = fetch(req, { cache: "no-cache" }).then((res) => save(key, res));
   e.waitUntil(fromNet.catch(() => {}));
   const fallback = () => caches.match(key, { ignoreSearch: true });

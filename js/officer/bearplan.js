@@ -175,7 +175,7 @@ const T = {
     sc1: ["People on the leaderboard", "Total damage", "Average per person", "One wave"],
     b1lh: "BT1 leaders by archer strength", b1lp: "Archer (1 + attack)(1 + lethality) from each rally's bonus page. ★ = on the BT1 leader list. Dashed lines: BT2's two strongest, for scale. BT1 had no rally mails, so these are stats, not measured K.",
     b1xh: "Where BT1 loses damage", b1dh: "What could help BT1",
-    foot: "Data: {src}", none: "No data yet. An admin adds it once with 📥 Update data below.", locked: "🔒 Log in first.",
+    foot: "Data: {src}", none: "No data yet. An admin adds it once with 📥 Update data below.", locked: "🔒 Log in first.", loading: "⏳ Loading…", loadErr: "⚠️ The latest Bear Hunt report did not load.", retry: "Try again",
     impT: "📥 Update data (admins)", impNote: "Paste a plan JSON or a hunt review JSON (from the analysis chat) — the page tells them apart. It is encrypted in this browser and saved for officers only.", impSave: "Encrypt & save",
     impOk: "✅ Saved — everyone with this tab sees it in a minute.", impBad: "⚠️ That isn't the plan JSON (needs now, order and rows).", impErr: "⚠️ Not saved: ", noTok: "⚠️ Saving needs the officer GitHub key (admin login)." },
   zh: { title: "🐻 熊獵實測", intro: "",
@@ -205,7 +205,7 @@ const T = {
     sc1: ["上榜人數", "總分", "平均每人", "一波"],
     b1lh: "BT1 隊長弓兵強度", b1lp: "弓兵 (1+攻擊力)(1+殺傷力)，取自各團集結加成頁。★ = BT1 隊長名單上的人。虛線是 BT2 最強的兩位，當作比例尺。BT1 沒有集結信件，所以這是屬性，不是實測的 K。",
     b1xh: "BT1 的損失在哪裡", b1dh: "BT1 可以改善的方向",
-    foot: "資料：{src}", none: "還沒有資料。管理員在下面的 📥 更新資料 加一次就好。", locked: "🔒 請先登入。",
+    foot: "資料：{src}", none: "還沒有資料。管理員在下面的 📥 更新資料 加一次就好。", locked: "🔒 請先登入。", loading: "⏳ 讀取中…", loadErr: "⚠️ 最新的熊獵報告沒有讀到。", retry: "再試一次",
     impT: "📥 更新資料（管理員）", impNote: "貼上排團草稿或熊獵復盤的 JSON（分析聊天給的）——頁面會自己分辨。會在這個瀏覽器加密，只有幹部看得到。", impSave: "加密並儲存",
     impOk: "✅ 已儲存——有這個分頁的人大約一分鐘後就看得到。", impBad: "⚠️ 這不是規劃的 JSON（需要 now、order、rows）。", impErr: "⚠️ 沒有存到：", noTok: "⚠️ 儲存需要幹部的 GitHub 金鑰（管理員登入）。" },
   pt: { title: "🐻 Análise do Urso", intro: "",
@@ -235,7 +235,7 @@ const T = {
     sc1: ["Pessoas no ranking", "Dano total", "Média por pessoa", "Uma onda"],
     b1lh: "Líderes da BT1 pela força da Arquearia", b1lp: "Arquearia (1 + ataque)(1 + letalidade) da página de bônus de cada rally. ★ = na lista de líderes da BT1. Linhas tracejadas: os dois mais fortes da BT2, como escala. A BT1 não teve relatórios de rally, então isto são atributos, não K medido.",
     b1xh: "Onde a BT1 perde dano", b1dh: "O que poderia ajudar a BT1",
-    foot: "Dados: {src}", none: "Ainda sem dados. Um admin adiciona uma vez com 📥 Atualizar dados abaixo.", locked: "🔒 Faça login primeiro.",
+    foot: "Dados: {src}", none: "Ainda sem dados. Um admin adiciona uma vez com 📥 Atualizar dados abaixo.", locked: "🔒 Faça login primeiro.", loading: "⏳ Carregando…", loadErr: "⚠️ O relatório mais recente da Caça ao Urso não carregou.", retry: "Tentar de novo",
     impT: "📥 Atualizar dados (admins)", impNote: "Cole um JSON de plano ou um JSON de revisão de caçada (do chat de análise) — a página reconhece qual é. Ele é criptografado neste navegador e salvo só para oficiais.", impSave: "Criptografar e salvar",
     impOk: "✅ Salvo — todos com esta aba veem em um minuto.", impBad: "⚠️ Isso não é o JSON do plano (precisa de now, order e rows).", impErr: "⚠️ Não salvo: ", noTok: "⚠️ Para salvar, precisa da chave do GitHub dos oficiais (login de admin)." },
   ar: { title: "🐻 تحليل الدب", intro: "",
@@ -265,7 +265,7 @@ const T = {
     sc1: ["الأشخاص في لوحة الصدارة", "إجمالي الضرر", "المتوسط لكل شخص", "موجة واحدة"],
     b1lh: "قادة BT1 حسب قوة الرماة", b1lp: "الرماة (1 + الهجوم)(1 + الفتك) من صفحة مكافآت كل حشد. ★ = في قائمة قادة BT1. الخطوط المتقطعة: أقوى اثنين في BT2، للمقارنة. لم تكن لـ BT1 رسائل حشد، لذلك هذه إحصائيات وليست K مقاسًا.",
     b1xh: "أين يخسر BT1 الضرر", b1dh: "ما الذي قد يساعد BT1",
-    foot: "البيانات: {src}", none: "لا توجد بيانات بعد. يضيفها مشرف مرة واحدة عبر 📥 تحديث البيانات في الأسفل.", locked: "🔒 سجّل الدخول أولًا.",
+    foot: "البيانات: {src}", none: "لا توجد بيانات بعد. يضيفها مشرف مرة واحدة عبر 📥 تحديث البيانات في الأسفل.", locked: "🔒 سجّل الدخول أولًا.", loading: "⏳ جارٍ التحميل…", loadErr: "⚠️ لم يُحمَّل أحدث تقرير لصيد الدب.", retry: "حاول مجددًا",
     impT: "📥 تحديث البيانات (المشرفون)", impNote: "الصق JSON الخطة أو JSON مراجعة الصيد (من محادثة التحليل) — الصفحة تميّز بينهما. يُشفَّر في هذا المتصفح ويُحفظ للضباط فقط.", impSave: "تشفير وحفظ",
     impOk: "✅ تم الحفظ — كل من لديه هذا التبويب يراه خلال دقيقة.", impBad: "⚠️ هذا ليس JSON الخطة (يحتاج now وorder وrows).", impErr: "⚠️ لم يُحفظ: ", noTok: "⚠️ الحفظ يحتاج مفتاح GitHub الخاص بالضباط (دخول المشرف)." },
   ko: { title: "🐻 곰 분석", intro: "",
@@ -295,11 +295,12 @@ const T = {
     sc1: ["랭킹 인원", "총 피해", "1인 평균", "1웨이브"],
     b1lh: "궁병 강도별 BT1 대장", b1lp: "궁병 (1 + 공격력)(1 + 파괴력), 각 집결 버프 화면 기준. ★ = BT1 대장 명단에 있는 사람. 점선: BT2에서 가장 강한 두 명, 비교 기준. BT1은 집결 메일이 없어서, 이것은 능력치이지 실측 K가 아닙니다.",
     b1xh: "BT1이 피해를 잃는 곳", b1dh: "BT1에 도움이 될 것",
-    foot: "데이터: {src}", none: "아직 데이터가 없습니다. 관리자가 아래 📥 데이터 업데이트에서 한 번 추가하면 됩니다.", locked: "🔒 먼저 로그인하세요.",
+    foot: "데이터: {src}", none: "아직 데이터가 없습니다. 관리자가 아래 📥 데이터 업데이트에서 한 번 추가하면 됩니다.", locked: "🔒 먼저 로그인하세요.", loading: "⏳ 불러오는 중…", loadErr: "⚠️ 최신 곰 사냥 보고서를 불러오지 못했어요.", retry: "다시 시도",
     impT: "📥 데이터 업데이트 (관리자)", impNote: "계획 JSON 또는 사냥 리뷰 JSON (분석 채팅에서 받은 것)을 붙여 넣으세요 — 페이지가 알아서 구분합니다. 이 브라우저에서 암호화되고 간부만 볼 수 있게 저장됩니다.", impSave: "암호화 후 저장",
     impOk: "✅ 저장됨 — 이 탭이 있는 사람은 1분 안에 볼 수 있습니다.", impBad: "⚠️ 계획 JSON이 아닙니다 (now, order, rows가 필요).", impErr: "⚠️ 저장 안 됨: ", noTok: "⚠️ 저장하려면 간부 GitHub 키가 필요합니다 (관리자 로그인)." },
 };
 let lang = OFFICER.lang || "en", D = null, N = null, msg = "";
+let ST = "load";   // "load" | "ok" | "err" — the old 10/31 rally draft must never stand in for a review that has not arrived (2026-11-16: it showed up when the review file was slow / failed)
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const fill = (s, v) => Object.entries(v || {}).reduce((x, [a, b]) => x.split("{" + a + "}").join(b), s);
 const tier = (k) => t({ main: "tMain", second: "tSecond", weak: "tWeak" }[k] || "tWeak");
@@ -354,6 +355,8 @@ function importBox() {
 function render() {
   const root = $("bp_root"); if (!root) return;
   $("bp_title").textContent = t("title"); $("bp_intro").textContent = t("intro");
+  if (!RV && ST !== "ok") { root.innerHTML = ST === "err" ? `<div class="card"><div>${esc(t("loadErr"))}</div><button class="btn small" id="bp_retry" style="margin-top:8px">${esc(t("retry"))}</button></div>` : `<div class="card muted">${esc(t("loading"))}</div>`;
+    const rb = $("bp_retry"); if (rb) rb.onclick = load; return; }
   if (RV && RV.analysis) { root.innerHTML = `${analysisHtml()}${importBox()}`; bind(); return; }   // the old rally-plan draft is no longer shown
   if (!D) { root.innerHTML = RV ? `${reviewHtml()}${importBox()}` : `<div class="card muted">${esc(t("none"))}</div>${importBox()}`; bind(); return; }
   const TO = D.turnout || [75, 94, 110]; if (N == null) N = TO[1];
@@ -440,14 +443,21 @@ function bind() {
     } catch (e) { m.textContent = t("impErr") + (e && e.message || e); sv.disabled = false; }
   };
 }
-async function init() {
-  render();
-  if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { $("bp_root").innerHTML = `<div class="card muted">${esc(t("locked"))}</div>`; return; }
+async function load() {
+  ST = "load"; render();
   try { const d = await OfficerData.fetchJson(PATH); if (d && Array.isArray(d.now)) D = d; } catch (e) {}
-  try { const r = await OfficerData.fetchJson(RPATH); if (r && r.review && (Array.isArray(r.rows) || r.analysis)) RV = r; } catch (e) {}
-  render();
+  let ok = false;
+  for (let i = 0; i < 3 && !ok; i++) {   // a slow or dropped download is tried again before giving up
+    try { const r = await OfficerData.fetchJson(RPATH); if (r && r.review && (Array.isArray(r.rows) || r.analysis)) RV = r; ok = true; }
+    catch (e) { await new Promise((z) => setTimeout(z, 1500)); }
+  }
+  ST = ok ? "ok" : "err"; render();
+}
+async function init() {
+  if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { applyTexts(); $("bp_root").innerHTML = `<div class="card muted">${esc(t("locked"))}</div>`; return; }
+  await load();
 }
 function applyTexts() { if ($("bp_title")) { $("bp_title").textContent = t("title"); $("bp_intro").textContent = t("intro"); } }
-function setLang(l) { lang = l; applyTexts(); if (D || RV) render(); }
-OFFICER_PAGES.bearplan = { init, applyTexts, setLang, onShow: () => { if (D || RV) render(); } };
+function setLang(l) { lang = l; applyTexts(); if (ST !== "load") render(); }
+OFFICER_PAGES.bearplan = { init, applyTexts, setLang, onShow: () => { if (ST !== "load") render(); } };
 })();
