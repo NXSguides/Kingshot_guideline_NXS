@@ -1380,6 +1380,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 KvK Vorbereitung — Sparen, NICHT aufwerten!
+⚠️ ==VOR DEM NÄCHSTEN KVK NICHT AUF ECHTGOLD 5 (TG5) AUFWERTEN!==
+
+Ein zu frühes Upgrade auf Echtgold 5 (TG5) kann unser Matchmaking beeinträchtigen und uns gegen ein viel stärkeres Königreich bringen.
+
+---
+# 📅 Nächstes KvK
+- 🗓️ Vorbereitungs-Beginn: <t:1795996800:F> (00:00 UTC)
+- ⚔️ Schlacht-Tag: 5. Dezember
+
+---
+# 🛑 Was zu tun ist — jetzt anfangen
+## 1️⃣ Ressourcen sparen
+Legt so viel 🪵 Holz, 🍞 Brot, 🪨 Stein, ⚙️ Eisen und 🟡 Echtgold wie möglich auf Vorrat.
+- Ständig Ressourcen sammeln
+- Sammel-Boosts verwenden
+- Spart und nutzt die Befehle Tag der Produktivität + Eilauftrag
+
+## 2️⃣ Beschleunigungen sparen
+- ⏳ Behaltet JEDE Beschleunigung, die ihr habt
+- ❌ Gebt sie momentan nicht für Upgrades aus
+
+## 3️⃣ Warten mit dem Upgrade
+- 🏰 Behaltet eure Gebäude auf Echtgold 3 (TG3), bis die KvK Vorbereitung beginnt
+
+---
+# 📊 Geschätzte Ressourcenkosten
+## 🔹 Option 1 — Kern-Push (3 Gebäude)
+Stadtzentrum, Botschaft, Stall
+- 🏆 KvK-Punkte: 10.625.047 pro Spieler
+- Holz / Brot: ~892M
+- Stein: 173M
+- Eisen: 44M
+- Echtgold: 4.055
+- ⏳ Angepasste Zeit: 58 Tage
+
+## 🔹 Option 2 — Erweiterter Push (5 Gebäude)
+Stadtzentrum, Botschaft, Stall, Kaserne, Schießstand
+- 🏆 KvK-Punkte: 19.545.005 pro Spieler
+- Holz / Brot: ~1,57B
+- Stein: 311M
+- Eisen: 78M
+- Echtgold: 7.980
+- ⏳ Angepasste Zeit: 82 Tage
+
+## 🔹 Option 3 — Maximaler Push (7 Gebäude)
+Stadtzentrum, Botschaft, Stall, Kaserne, Schießstand, Krankenstation, Kommandozentrale
+- 🏆 KvK-Punkte: 22.247.410 pro Spieler
+- Holz / Brot: ~1,95B
+- Stein: 388M
+- Eisen: 96M
+- Echtgold: 9.210
+- ⏳ Angepasste Zeit: 88 Tage
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] Gouverneur Talisman-Obergrenze erhöht Stufe 12+
 Am 30.11.2026, 
 

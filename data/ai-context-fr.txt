@@ -1379,6 +1379,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 Préparation KvK — Économisez, n'améliorez PAS !
+⚠️ ==N'AMÉLIOREZ PAS EN OR VÉRITABLE 5 (TG5) AVANT NOTRE PROCHAIN KVK !==
+
+Améliorer en Or Véritable 5 (TG5) trop tôt peut nuire à notre matchmaking et risque de nous opposer à un royaume bien plus fort.
+
+---
+# 📅 Prochain KvK
+- 🗓️ Début de la préparation : <t:1795996800:F> (00h00 UTC)
+- ⚔️ Jour de bataille : 5 décembre
+
+---
+# 🛑 Ce qu'il faut faire — commencez maintenant
+## 1️⃣ Économiser les ressources
+Accumulez autant de 🪵 Bois, 🍞 Pain, 🪨 Pierre, ⚙️ Fer et 🟡 Or Véritable que possible.
+- Récoltez des ressources en permanence
+- Utilisez des boosts de collecte
+- Économisez et utilisez les décrets Journée de la Productivité + Travail Urgent
+
+## 2️⃣ Économiser les accélérateurs
+- ⏳ Gardez CHAQUE accélérateur que vous possédez
+- ❌ Ne les dépensez pas dans des améliorations pour le moment
+
+## 3️⃣ Attendre avant d'améliorer
+- 🏰 Gardez vos bâtiments en Or Véritable 3 (TG3) jusqu'au début de la préparation KvK
+
+---
+# 📊 Estimations des coûts en ressources
+## 🔹 Option 1 — Poussée de base (3 bâtiments)
+Centre, L'Ambassade, Écurie
+- 🏆 Points KvK : 10 625 047 par joueur
+- Bois / Pain : ~892M
+- Pierre : 173M
+- Fer : 44M
+- Or Véritable : 4 055
+- ⏳ Temps ajusté : 58 jours
+
+## 🔹 Option 2 — Poussée étendue (5 bâtiments)
+Centre, L'Ambassade, Écurie, Quartiers, Stand de Tir
+- 🏆 Points KvK : 19 545 005 par joueur
+- Bois / Pain : ~1,57B
+- Pierre : 311M
+- Fer : 78M
+- Or Véritable : 7 980
+- ⏳ Temps ajusté : 82 jours
+
+## 🔹 Option 3 — Poussée maximale (7 bâtiments)
+Centre, L'Ambassade, Écurie, Quartiers, Stand de Tir, Infirmerie, Base de Commandement
+- 🏆 Points KvK : 22 247 410 par joueur
+- Bois / Pain : ~1,95B
+- Pierre : 388M
+- Fer : 96M
+- Or Véritable : 9 210
+- ⏳ Temps ajusté : 88 jours
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] Limite du Talisman du Gouverneur augmentée Niv. 12+
 Le 30.11.2026, 
 

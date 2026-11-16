@@ -1377,6 +1377,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 KvK 備戰 — 累積資源，請勿升級！
+⚠️ ==在下次 KvK 前請勿升級至黃金5 (TG5)！==
+
+過早升級至黃金5 (TG5) 會影響我們的配對，並可能讓我們面對實力強大許多的王國。
+
+---
+# 📅 下次 KvK
+- 🗓️ 備戰開始： <t:1795996800:F> (00:00 UTC)
+- ⚔️ 戰鬥日： 12月5日
+
+---
+# 🛑 行動指南 — 立即開始
+## 1️⃣ 累積資源
+盡可能囤積 🪵 木材、🍞 麵包、🪨 石材、⚙️ 鐵礦與 🟡 黃金。
+- 持續採集資源
+- 使用採集增益
+- 留存並使用效率工作 + 立即生產法令
+
+## 2️⃣ 留存加速
+- ⏳ 保留你持有的每一項加速
+- ❌ 現在請勿將其消耗在升級上
+
+## 3️⃣ 等待升級
+- 🏰 在 KvK 備戰開始前，將你的建築等級維持在黃金3 (TG3)
+
+---
+# 📊 資源消耗預估
+## 🔹 選項 1 — 核心 3 建築衝刺
+城鎮中心、使館、騎兵營
+- 🏆 KvK 積分：10,625,047 每位玩家
+- 木材 / 麵包：約 892M
+- 石材：173M
+- 鐵礦：44M
+- 黃金：4,055
+- ⏳ 調整後時間：58 天
+
+## 🔹 選項 2 — 擴張 5 建築衝刺
+城鎮中心、使館、騎兵營、步兵營、弓兵營
+- 🏆 KvK 積分：19,545,005 每位玩家
+- 木材 / 麵包：約 1.57B
+- 石材：311M
+- 鐵礦：78M
+- 黃金：7,980
+- ⏳ 調整後時間：82 天
+
+## 🔹 選項 3 — 最大限度 7 建築衝刺
+城鎮中心、使館、騎兵營、步兵營、弓兵營、野戰醫院、指揮部
+- 🏆 KvK 積分：22,247,410 每位玩家
+- 木材 / 麵包：約 1.95B
+- 石材：388M
+- 鐵礦：96M
+- 黃金：9,210
+- ⏳ 調整後時間：88 天
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] 領主寶石等級上限提升：12級+
 於 2026.11.30，
 

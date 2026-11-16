@@ -1378,6 +1378,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 Prep do KvK — Economize, NÃO suba de nível!
+⚠️ ==NÃO MELHORE PARA ADAMANTE 5 (TG5) ANTES DO NOSSO PRÓXIMO KVK!==
+
+Melhorar para Adamante 5 (TG5) muito cedo pode prejudicar nosso pareamento e nos colocar contra um reino muito mais forte.
+
+---
+# 📅 Próximo KvK
+- 🗓️ Início da Preparação: <t:1795996800:F> (00:00 UTC)
+- ⚔️ Dia de Batalha: 5 de dezembro
+
+---
+# 🛑 O que fazer — comece agora
+## 1️⃣ Economize recursos
+Estoque o máximo de 🪵 Madeira, 🍞 Pão, 🪨 Pedra, ⚙️ Ferro e 🟡 Adamante que puder.
+- Colete recursos constantemente
+- Use reforços de coleta
+- Guarde e use os decretos Dia de Produtividade + Acelerar Trabalho
+
+## 2️⃣ Economize velocidades
+- ⏳ Guarde TODA velocidade que você tiver
+- ❌ Não as gaste em melhorias agora
+
+## 3️⃣ Espere antes de melhorar
+- 🏰 Mantenha suas construções em Adamante 3 (TG3) até o início da Preparação do KvK
+
+---
+# 📊 Estimativas de custo de recursos
+## 🔹 Opção 1 — Impulso principal de 3 construções
+Centro da Cidade, Embaixada, Estábulo
+- 🏆 Pontos de KvK: 10.625.047 por jogador
+- Madeira / Pão: ~892M
+- Pedra: 173M
+- Ferro: 44M
+- Adamante: 4.055
+- ⏳ Tempo ajustado: 58 dias
+
+## 🔹 Opção 2 — Impulso expandido de 5 construções
+Centro da Cidade, Embaixada, Estábulo, Quartel, Campo de Tiro
+- 🏆 Pontos de KvK: 19.545.005 por jogador
+- Madeira / Pão: ~1,57B
+- Pedra: 311M
+- Ferro: 78M
+- Adamante: 7.980
+- ⏳ Tempo ajustado: 82 dias
+
+## 🔹 Opção 3 — Impulso máximo de 7 construções
+Centro da Cidade, Embaixada, Estábulo, Quartel, Campo de Tiro, Enfermaria, Centro de Comando
+- 🏆 Pontos de KvK: 22.247.410 por jogador
+- Madeira / Pão: ~1,95B
+- Pedra: 388M
+- Ferro: 96M
+- Adamante: 9.210
+- ⏳ Tempo ajustado: 88 dias
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] Limite do Amuleto do Governador Aumentado Nv. 12+
 Em 30.11.2026, 
 

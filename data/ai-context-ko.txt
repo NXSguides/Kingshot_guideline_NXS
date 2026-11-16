@@ -1404,6 +1404,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 KvK 준비 — 저장하세요, 업그레이드 금지!
+⚠️ ==다음 KVK 전까지 순금5 (TG5)로 업그레이드하지 마세요!==
+
+너무 일찍 순금5 (TG5)로 업그레이드하면 매칭에 불이익을 줄 수 있고 훨씬 더 강한 왕국과 맞붙게 될 수 있습니다.
+
+---
+# 📅 다음 KvK
+- 🗓️ 준비 시작: <t:1795996800:F> (00:00 UTC)
+- ⚔️ 전투의 날: 12월 5일
+
+---
+# 🛑 행동 지침 — 지금 시작하세요
+## 1️⃣ 자원 비축
+🪵 목재, 🍞 빵, 🪨 석재, ⚙️ 철광 그리고 🟡 순금을 최대한 많이 비축하세요.
+- 끊임없이 자원 채집
+- 채집 버프 사용
+- 효율 업무 + 즉시 생산 법령을 아끼고 사용하세요
+
+## 2️⃣ 가속 아이템 아끼기
+- ⏳ 보유한 모든 가속 아이템을 보관하세요
+- ❌ 지금은 업그레이드에 사용하지 마세요
+
+## 3️⃣ 업그레이드 대기
+- 🏰 KvK 준비가 시작될 때까지 건물을 순금3 (TG3) 상태로 유지하세요
+
+---
+# 📊 자원 비용 추정치
+## 🔹 옵션 1 — 핵심 3개 건물 푸시
+도시 센터, 대사관, 기병대
+- 🏆 KvK 포인트: 플레이어당 10,625,047
+- 목재 / 빵: ~892M
+- 석재: 173M
+- 철광: 44M
+- 순금: 4,055
+- ⏳ 조정된 시간: 58일
+
+## 🔹 옵션 2 — 확장된 5개 건물 푸시
+도시 센터, 대사관, 기병대, 보병대, 궁병대
+- 🏆 KvK 포인트: 플레이어당 19,545,005
+- 목재 / 빵: ~1.57B
+- 석재: 311M
+- 철광: 78M
+- 순금: 7,980
+- ⏳ 조정된 시간: 82일
+
+## 🔹 옵션 3 — 최대 7개 건물 푸시
+도시 센터, 대사관, 기병대, 보병대, 궁병대, 야전 병원, 지휘부
+- 🏆 KvK 포인트: 플레이어당 22,247,410
+- 목재 / 빵: ~1.95B
+- 석재: 388M
+- 철광: 96M
+- 순금: 9,210
+- ⏳ 조정된 시간: 88일
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] 영주 보석 상한 레벨 확장 (Lv. 12+)
 2026.11.30, 
 

@@ -1378,6 +1378,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 Prep. de KvK — ¡Ahorra, NO mejores!
+⚠️ ==¡NO MEJORES A ADAMANTINA 5 (TG5) ANTES DE NUESTRO PRÓXIMO KVK!==
+
+Mejorar a Adamantina 5 (TG5) demasiado pronto puede perjudicar nuestra búsqueda de rivales y podría enfrentarnos a un reino mucho más fuerte.
+
+---
+# 📅 Próximo KvK
+- 🗓️ Comienzo de la preparación: <t:1795996800:F> (00:00 UTC)
+- ⚔️ Día de batalla: 5 de diciembre
+
+---
+# 🛑 Qué hacer — empieza ahora
+## 1️⃣ Ahorra recursos
+Almacena tanta 🪵 Madera, 🍞 Pan, 🪨 Piedra, ⚙️ Hierro y 🟡 Adamantina como puedas.
+- Recolecta recursos constantemente
+- Usa potenciadores de recolección
+- Guarda y usa los decretos Día de la Productividad + Trabajo urgente
+
+## 2️⃣ Guarda aceleradores
+- ⏳ Conserva CADA acelerador que tengas
+- ❌ No los gastes en mejoras ahora mismo
+
+## 3️⃣ Espera antes de mejorar
+- 🏰 Mantén tus edificios en Adamantina 3 (TG3) hasta que comience la Preparación de KvK
+
+---
+# 📊 Estimación de costes de recursos
+## 🔹 Opción 1 — Impulso básico de 3 edificios
+Centro de pueblo, Embajada, Establo
+- 🏆 Puntos de KvK: 10.625.047 por jugador
+- Madera / Pan: ~892M
+- Piedra: 173M
+- Hierro: 44M
+- Adamantina: 4.055
+- ⏳ Tiempo ajustado: 58 días
+
+## 🔹 Opción 2 — Impulso ampliado de 5 edificios
+Centro de pueblo, Embajada, Establo, Cuartel, Campo de tiro
+- 🏆 Puntos de KvK: 19.545.005 por jugador
+- Madera / Pan: ~1.57B
+- Piedra: 311M
+- Hierro: 78M
+- Adamantina: 7.980
+- ⏳ Tiempo ajustado: 82 días
+
+## 🔹 Opción 3 — Impulso máximo de 7 edificios
+Centro de pueblo, Embajada, Establo, Cuartel, Campo de tiro, Enfermería, Centro de mando
+- 🏆 Puntos de KvK: 22.247.410 por jugador
+- Madera / Pan: ~1.95B
+- Piedra: 388M
+- Hierro: 96M
+- Adamantina: 9.210
+- ⏳ Tiempo ajustado: 88 días
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] Límite de Talismán del Gobernador aumentado a Nv. 12+
 El 30.11.2026, 
 

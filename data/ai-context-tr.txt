@@ -1378,6 +1378,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 KvK Hazırlığı — Biriktir, Yükseltme YAPMA!
+⚠️ ==SONRAKİ KVK'DAN ÖNCE HASALTIN 5'E (TG5) YÜKSELTME YAPMA!==
+
+Çok erken Hasaltın 5'e (TG5) yükseltmek eşleştirmemize zarar verebilir ve bizi çok daha güçlü bir krallığa karşı getirebilir.
+
+---
+# 📅 Sonraki KvK
+- 🗓️ Hazırlık başlangıcı: <t:1795996800:F> (00:00 UTC)
+- ⚔️ Savaş Günü: 5 Aralık
+
+---
+# 🛑 Ne yapmalı — şimdi başla
+## 1️⃣ Kaynak biriktir
+Elinizden geldiğince fazla 🪵 Odun, 🍞 Ekmek, 🪨 Taş, ⚙️ Demir ve 🟡 Hasaltın stoklayın.
+- Sürekli kaynak topla
+- Toplama güçlendirmeleri kullan
+- Üretkenlik Günü + Acil İş kararlarını biriktir ve kullan
+
+## 2️⃣ Hızlandırmaları biriktir
+- ⏳ Sahip olduğun HER hızlandırmayı sakla
+- ❌ Şu anda bunları yükseltmeler için harcama
+
+## 3️⃣ Yükseltmeden önce bekle
+- 🏰 KvK Hazırlığı başlayana kadar binalarını Hasaltın 3 (TG3) seviyesinde tut
+
+---
+# 📊 Tahmini kaynak maliyetleri
+## 🔹 Seçenek 1 — Temel 3 bina hamlesi
+Şehir Merkezi, Elçilik, Ahır
+- 🏆 KvK Puanı: Oyuncu başına 10.625.047
+- Odun / Ekmek: ~892M
+- Taş: 173M
+- Demir: 44M
+- Hasaltın: 4.055
+- ⏳ Ayarlanmış süre: 58 gün
+
+## 🔹 Seçenek 2 — Genişletilmiş 5 bina hamlesi
+Şehir Merkezi, Elçilik, Ahır, Kışla, Poligon
+- 🏆 KvK Puanı: Oyuncu başına 19.545.005
+- Odun / Ekmek: ~1,57B
+- Taş: 311M
+- Demir: 78M
+- Hasaltın: 7.980
+- ⏳ Ayarlanmış süre: 82 gün
+
+## 🔹 Seçenek 3 — Maksimum 7 bina hamlesi
+Şehir Merkezi, Elçilik, Ahır, Kışla, Poligon, Revir, Komuta Merkezi
+- 🏆 KvK Puanı: Oyuncu başına 22.247.410
+- Odun / Ekmek: ~1,95B
+- Taş: 388M
+- Demir: 96M
+- Hasaltın: 9.210
+- ⏳ Ayarlanmış süre: 88 gün
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] Vali Tılsımı Seviye Sınırı Yükseltildi Sv. 12+
 30.11.2026 tarihinde, 
 

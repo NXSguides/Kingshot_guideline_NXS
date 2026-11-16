@@ -1378,6 +1378,62 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-16 by Nia] 🚨 Persiapan KvK — Simpan, JANGAN Upgrade!
+⚠️ ==JANGAN UPGRADE KE TRUEGOLD 5 (TG5) SEBELUM KVK BERIKUTNYA!==
+
+Melakukan upgrade ke Truegold 5 (TG5) terlalu dini dapat merusak matchmaking kita dan bisa menempatkan kita melawan kerajaan yang jauh lebih kuat.
+
+---
+# 📅 KvK Berikutnya
+- 🗓️ Persiapan dimulai: <t:1795996800:F> (00:00 UTC)
+- ⚔️ Hari Pertempuran: 5 Desember
+
+---
+# 🛑 Yang harus dilakukan — mulai sekarang
+## 1️⃣ Simpan sumber daya
+Kumpulkan sebanyak mungkin 🪵 Kayu, 🍞 Roti, 🪨 Batu, ⚙️ Besi, dan 🟡 Truegold yang kamu bisa.
+- Kumpulkan sumber daya terus-menerus
+- Gunakan boost mengumpulkan
+- Simpan dan gunakan dekrit Productivity Day + Rush Job
+
+## 2️⃣ Simpan speedup
+- ⏳ Simpan SETIAP speedup yang kamu miliki
+- ❌ Jangan habiskan untuk upgrade sekarang
+
+## 3️⃣ Tunggu sebelum upgrade
+- 🏰 Pertahankan gedung kamu di Truegold 3 (TG3) sampai Persiapan KvK dimulai
+
+---
+# 📊 Estimasi biaya sumber daya
+## 🔹 Opsi 1 — Push inti 3 gedung
+Pusat Kota, Kedutaan, Istal
+- 🏆 Poin KvK: 10.625.047 per pemain
+- Kayu / Roti: ~892M
+- Batu: 173M
+- Besi: 44M
+- Truegold: 4.055
+- ⏳ Waktu yang disesuaikan: 58 hari
+
+## 🔹 Opsi 2 — Push perluasan 5 gedung
+Pusat Kota, Kedutaan, Istal, Barak, Tempat Latihan
+- 🏆 Poin KvK: 19.545.005 per pemain
+- Kayu / Roti: ~1,57B
+- Batu: 311M
+- Besi: 78M
+- Truegold: 7.980
+- ⏳ Waktu yang disesuaikan: 82 hari
+
+## 🔹 Opsi 3 — Push maksimum 7 gedung
+Pusat Kota, Kedutaan, Istal, Barak, Tempat Latihan, Rumah Sakit, Pusat Komando
+- 🏆 Poin KvK: 22.247.410 per pemain
+- Kayu / Roti: ~1,95B
+- Batu: 388M
+- Besi: 96M
+- Truegold: 9.210
+- ⏳ Waktu yang disesuaikan: 88 hari
+
+(see guide #kvk)
+
 [2026-11-15 by ΔRMΔDΔ] Batas Charm Gubernur Ditingkatkan Lv. 12+
 Pada 30.11.2026, 
 
