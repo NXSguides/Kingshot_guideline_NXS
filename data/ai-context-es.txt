@@ -1399,6 +1399,53 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-15 by ΔRMΔDΔ] Límite de Talismán del Gobernador aumentado a Nv. 12+
+El 30.11.2026, 
+
+La ampliación del límite de nivel del Talismán del Gobernador de 11 a 22 es una actualización importante de progresión en *Kingshot*, que aumenta significativamente el poder potencial de tus tropas mediante los atributos de Letalidad y Salud. Alcanzar el nuevo nivel máximo de 22 proporciona una sustancial bonificación de +99.00% a Letalidad y Salud por pieza de talismán.
+
+Aquí tienes un desglose de lo que significa esta ampliación de límite, los costos implicados y cómo planificar tus mejoras de manera eficaz.
+
+
+### 📈 Atributos clave y requisito de desbloqueo
+
+El detalle más crucial es que, aunque el límite ahora sea 22, el sistema de Talismán del Gobernador no se desbloquea hasta que hayas mejorado tu Centro de pueblo al Nivel 25. Antes de esto, puedes empezar a acumular los materiales necesarios mediante diversos eventos.
+
+*   Nivel máximo: 22
+*   Requisito de desbloqueo: Centro de pueblo Nv. 25
+*   Bonificación máx. de atributos (Nivel 22): +99.00% de Letalidad y +99.00% de Salud por talismán
+*   Total de talismanes: 54 (18 por tipo de tropa: Infantería, Arquero, Caballería)
+
+
+### 💰 Costo de mejora y progresión de atributos (Niveles 12–22)
+
+El camino del nivel 12 al 22 es una inversión significativa. Cada nivel requiere dos materiales: Guía de talismanes y Planos de talismán. Los costos y aumentos de atributos no son lineales; puedes ver el desglose completo para este rango de niveles ampliado en la siguiente tabla.
+
+
+
+*Fuente de datos: bases de datos de Kingshot Guide y Kingshot World.*
+
+
+### 📊 Costo total de materiales (Niveles 1–22)
+
+Para maximizar por completo un solo talismán del nivel 1 al 22, el requisito total de materiales es considerable:
+*   Total de Guías de talismanes: 10.880
+*   Total de Planos de talismán: 19.200
+
+Esto destaca que alcanzar el nivel 22 es un objetivo a largo plazo y que los costos aumentan drásticamente en los niveles finales.
+
+💡 Consejos estratégicos
+
+
+Entender las cifras permite una planificación más eficiente. Aquí tienes algunos puntos estratégicos clave a considerar:
+
+*   Los niveles iniciales ofrecen un mejor retorno de inversión (ROI): Los niveles más bajos (especialmente hasta el 10 o 11) son significativamente más baratos en relación con los atributos que proporcionan. Para los jugadores que buscan ganancias de poder eficientes, subir todos los talismanes a un nivel base (como 5 o 10) es una estrategia de alto valor antes de llevar talismanes individuales al máximo.
+*   Prioriza la Letalidad y la Salud: Los talismanes son una inversión de primer nivel porque aumentan la Letalidad y la Salud, que generalmente tienen un mayor impacto en la fórmula de daño que los atributos de Ataque y Defensa proporcionados por el Equipo de gobernador.
+*   Ten en cuenta las fuentes de materiales: Las Guías de talismanes y los Planos de talismán se obtienen principalmente mediante eventos como Alcance de la Eternidad y Combate de Alianzas. Planifica tu participación en estos eventos para mantener tu progreso de mejora.
+*   Sincroniza las mejoras con los eventos: Para lograr la máxima eficiencia, haz coincidir tus mejoras de talismanes con eventos que otorguen puntos como "Reino del Poder". De esta forma, podrás ganar valiosas recompensas secundarias por materiales que de todos modos ibas a gastar.
+
+En resumen, la ampliación del límite de nivel a 22 ofrece un camino claro hacia una poderosa bonificación del +99% de Letalidad y Salud por talismán. Sin embargo, es un esfuerzo a largo plazo y con un alto consumo de recursos que requiere planificación estratégica, priorizando los niveles iniciales de alto retorno de inversión y la recolección constante de materiales en eventos.
+
 [2026-11-16 by Nia] 🚨 Prep. de KvK — ¡Ahorra, NO mejores!
 ⚠️ ==¡NO MEJORES A ADAMANTINA 5 (TG5) ANTES DE NUESTRO PRÓXIMO KVK!==
 
@@ -1454,53 +1501,6 @@ Centro de pueblo, Embajada, Establo, Cuartel, Campo de tiro, Enfermería, Centro
 - ⏳ Tiempo ajustado: 88 días
 
 (see guide #kvk)
-
-[2026-11-15 by ΔRMΔDΔ] Límite de Talismán del Gobernador aumentado a Nv. 12+
-El 30.11.2026, 
-
-La ampliación del límite de nivel del Talismán del Gobernador de 11 a 22 es una actualización importante de progresión en *Kingshot*, que aumenta significativamente el poder potencial de tus tropas mediante los atributos de Letalidad y Salud. Alcanzar el nuevo nivel máximo de 22 proporciona una sustancial bonificación de +99.00% a Letalidad y Salud por pieza de talismán.
-
-Aquí tienes un desglose de lo que significa esta ampliación de límite, los costos implicados y cómo planificar tus mejoras de manera eficaz.
-
-
-### 📈 Atributos clave y requisito de desbloqueo
-
-El detalle más crucial es que, aunque el límite ahora sea 22, el sistema de Talismán del Gobernador no se desbloquea hasta que hayas mejorado tu Centro de pueblo al Nivel 25. Antes de esto, puedes empezar a acumular los materiales necesarios mediante diversos eventos.
-
-*   Nivel máximo: 22
-*   Requisito de desbloqueo: Centro de pueblo Nv. 25
-*   Bonificación máx. de atributos (Nivel 22): +99.00% de Letalidad y +99.00% de Salud por talismán
-*   Total de talismanes: 54 (18 por tipo de tropa: Infantería, Arquero, Caballería)
-
-
-### 💰 Costo de mejora y progresión de atributos (Niveles 12–22)
-
-El camino del nivel 12 al 22 es una inversión significativa. Cada nivel requiere dos materiales: Guía de talismanes y Planos de talismán. Los costos y aumentos de atributos no son lineales; puedes ver el desglose completo para este rango de niveles ampliado en la siguiente tabla.
-
-
-
-*Fuente de datos: bases de datos de Kingshot Guide y Kingshot World.*
-
-
-### 📊 Costo total de materiales (Niveles 1–22)
-
-Para maximizar por completo un solo talismán del nivel 1 al 22, el requisito total de materiales es considerable:
-*   Total de Guías de talismanes: 10.880
-*   Total de Planos de talismán: 19.200
-
-Esto destaca que alcanzar el nivel 22 es un objetivo a largo plazo y que los costos aumentan drásticamente en los niveles finales.
-
-💡 Consejos estratégicos
-
-
-Entender las cifras permite una planificación más eficiente. Aquí tienes algunos puntos estratégicos clave a considerar:
-
-*   Los niveles iniciales ofrecen un mejor retorno de inversión (ROI): Los niveles más bajos (especialmente hasta el 10 o 11) son significativamente más baratos en relación con los atributos que proporcionan. Para los jugadores que buscan ganancias de poder eficientes, subir todos los talismanes a un nivel base (como 5 o 10) es una estrategia de alto valor antes de llevar talismanes individuales al máximo.
-*   Prioriza la Letalidad y la Salud: Los talismanes son una inversión de primer nivel porque aumentan la Letalidad y la Salud, que generalmente tienen un mayor impacto en la fórmula de daño que los atributos de Ataque y Defensa proporcionados por el Equipo de gobernador.
-*   Ten en cuenta las fuentes de materiales: Las Guías de talismanes y los Planos de talismán se obtienen principalmente mediante eventos como Alcance de la Eternidad y Combate de Alianzas. Planifica tu participación en estos eventos para mantener tu progreso de mejora.
-*   Sincroniza las mejoras con los eventos: Para lograr la máxima eficiencia, haz coincidir tus mejoras de talismanes con eventos que otorguen puntos como "Reino del Poder". De esta forma, podrás ganar valiosas recompensas secundarias por materiales que de todos modos ibas a gastar.
-
-En resumen, la ampliación del límite de nivel a 22 ofrece un camino claro hacia una poderosa bonificación del +99% de Letalidad y Salud por talismán. Sin embargo, es un esfuerzo a largo plazo y con un alto consumo de recursos que requiere planificación estratégica, priorizando los niveles iniciales de alto retorno de inversión y la recolección constante de materiales en eventos.
 
 [2026-10-19 by ΔRMΔDΔ] Ausencias en Enfrentamiento en Tierra de espadas
 ⚠️ Actualización importante de reglas: Ausencias en Enfrentamiento en Tierra de espadas

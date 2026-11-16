@@ -1400,6 +1400,53 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-15 by ΔRMΔDΔ] Limite du Talisman du Gouverneur augmentée Niv. 12+
+Le 30.11.2026, 
+
+L'extension de la limite de niveau du Talisman du Gouverneur de 11 à 22 est une mise à jour majeure de la progression dans *Kingshot*, augmentant considérablement la puissance potentielle de vos troupes grâce aux stats de Létalité et de Santé. Atteindre le nouveau niveau maximum de 22 offre un bonus substantiel de +99,00% en Létalité et en Santé par talisman.
+
+Voici le détail de ce que signifie cette extension de limite, les coûts impliqués et comment planifier efficacement vos améliorations.
+
+
+### 📈 Stats clés & Condition de déblocage
+
+Le détail le plus crucial est que bien que la limite soit désormais de 22, le système de Talisman du Gouverneur ne devient disponible que lorsque vous avez amélioré votre Centre au Niveau 25. Avant cela, vous pouvez commencer à accumuler les matériaux nécessaires grâce aux différents évènements.
+
+*   Niveau maximum : 22
+*   Condition de déblocage : Centre Niveau 25
+*   Bonus de stat max (Niveau 22) : +99,00% de Létalité et +99,00% de Santé par talisman
+*   Total de talisman : 54 (18 par type de troupe : Infanterie, Archer, Cavalerie)
+
+
+### 💰 Coût d'amélioration & Progression des stats (Niveaux 12–22)
+
+Le passage du niveau 12 à 22 représente un investissement important. Chaque niveau nécessite deux matériaux : Guide de Talisman et Plans de Talisman. Les coûts et les gains de stats ne sont pas linéaires ; vous pouvez voir la répartition complète pour cette plage de niveaux étendue dans le tableau ci-dessous.
+
+
+
+*Source des données : bases de données Kingshot Guide & Kingshot World.*
+
+
+### 📊 Coût total des matériaux (Niveaux 1–22)
+
+Pour maximiser entièrement un seul talisman du niveau 1 au niveau 22, la quantité totale de matériaux requise est considérable :
+*   Total de Guides de Talisman : 10 880
+*   Total de Plans de Talisman : 19 200
+
+Cela souligne qu'atteindre le niveau 22 est un objectif à long terme, et que les coûts augmentent de manière exponentielle dans les derniers niveaux.
+
+💡 Conseils stratégiques
+
+
+Comprendre les chiffres permet une planification plus efficace. Voici quelques points stratégiques clés à prendre en compte :
+
+*   Les premiers niveaux offrent un meilleur ROI : Les niveaux inférieurs (en particulier jusqu'au niveau 10 ou 11) sont nettement moins chers par rapport aux stats qu'ils fournissent. Pour les joueurs recherchant des gains de puissance efficaces, monter tous les talismans à un niveau de base (comme 5 ou 10) est une stratégie très rentable avant de pousser les talismans individuels au maximum.
+*   Priorité à la Létalité et à la Santé : Les talismans sont un investissement de premier ordre car ils augmentent la Létalité et la Santé, qui ont généralement plus d'impact dans la formule de dégâts que les stats d'Attaque et de Défense fournies par l'Équipement Chef.
+*   Attention aux sources de matériaux : Les Guides de Talisman et les Plans de Talisman s'obtiennent principalement lors d'évènements comme l'Éternité à Portée et le Rif d'Alliances. Planifiez votre participation à ces évènements pour maintenir votre progression d'amélioration.
+*   Planifiez les améliorations pour les évènements : Pour une efficacité maximale, planifiez vos améliorations de talismans pour qu'elles coïncident avec des évènements à points comme le « Royaume au Pouvoir ». De cette façon, vous pouvez obtenir de précieuses récompenses secondaires pour des matériaux que vous alliez dépenser de toute façon.
+
+En résumé, l'extension de la limite de niveau à 22 offre une voie claire vers un puissant bonus de +99% de Létalité et de Santé par talisman. Cependant, il s'agit d'une entreprise à long terme et gourmande en ressources qui nécessite une planification stratégique, en donnant la priorité aux premiers niveaux à ROI élevé et à la collecte constante de matériaux lors des évènements.
+
 [2026-11-16 by Nia] 🚨 Préparation KvK — Économisez, n'améliorez PAS !
 ⚠️ ==N'AMÉLIOREZ PAS EN OR VÉRITABLE 5 (TG5) AVANT NOTRE PROCHAIN KVK !==
 
@@ -1455,53 +1502,6 @@ Centre, L'Ambassade, Écurie, Quartiers, Stand de Tir, Infirmerie, Base de Comma
 - ⏳ Temps ajusté : 88 jours
 
 (see guide #kvk)
-
-[2026-11-15 by ΔRMΔDΔ] Limite du Talisman du Gouverneur augmentée Niv. 12+
-Le 30.11.2026, 
-
-L'extension de la limite de niveau du Talisman du Gouverneur de 11 à 22 est une mise à jour majeure de la progression dans *Kingshot*, augmentant considérablement la puissance potentielle de vos troupes grâce aux stats de Létalité et de Santé. Atteindre le nouveau niveau maximum de 22 offre un bonus substantiel de +99,00% en Létalité et en Santé par talisman.
-
-Voici le détail de ce que signifie cette extension de limite, les coûts impliqués et comment planifier efficacement vos améliorations.
-
-
-### 📈 Stats clés & Condition de déblocage
-
-Le détail le plus crucial est que bien que la limite soit désormais de 22, le système de Talisman du Gouverneur ne devient disponible que lorsque vous avez amélioré votre Centre au Niveau 25. Avant cela, vous pouvez commencer à accumuler les matériaux nécessaires grâce aux différents évènements.
-
-*   Niveau maximum : 22
-*   Condition de déblocage : Centre Niveau 25
-*   Bonus de stat max (Niveau 22) : +99,00% de Létalité et +99,00% de Santé par talisman
-*   Total de talisman : 54 (18 par type de troupe : Infanterie, Archer, Cavalerie)
-
-
-### 💰 Coût d'amélioration & Progression des stats (Niveaux 12–22)
-
-Le passage du niveau 12 à 22 représente un investissement important. Chaque niveau nécessite deux matériaux : Guide de Talisman et Plans de Talisman. Les coûts et les gains de stats ne sont pas linéaires ; vous pouvez voir la répartition complète pour cette plage de niveaux étendue dans le tableau ci-dessous.
-
-
-
-*Source des données : bases de données Kingshot Guide & Kingshot World.*
-
-
-### 📊 Coût total des matériaux (Niveaux 1–22)
-
-Pour maximiser entièrement un seul talisman du niveau 1 au niveau 22, la quantité totale de matériaux requise est considérable :
-*   Total de Guides de Talisman : 10 880
-*   Total de Plans de Talisman : 19 200
-
-Cela souligne qu'atteindre le niveau 22 est un objectif à long terme, et que les coûts augmentent de manière exponentielle dans les derniers niveaux.
-
-💡 Conseils stratégiques
-
-
-Comprendre les chiffres permet une planification plus efficace. Voici quelques points stratégiques clés à prendre en compte :
-
-*   Les premiers niveaux offrent un meilleur ROI : Les niveaux inférieurs (en particulier jusqu'au niveau 10 ou 11) sont nettement moins chers par rapport aux stats qu'ils fournissent. Pour les joueurs recherchant des gains de puissance efficaces, monter tous les talismans à un niveau de base (comme 5 ou 10) est une stratégie très rentable avant de pousser les talismans individuels au maximum.
-*   Priorité à la Létalité et à la Santé : Les talismans sont un investissement de premier ordre car ils augmentent la Létalité et la Santé, qui ont généralement plus d'impact dans la formule de dégâts que les stats d'Attaque et de Défense fournies par l'Équipement Chef.
-*   Attention aux sources de matériaux : Les Guides de Talisman et les Plans de Talisman s'obtiennent principalement lors d'évènements comme l'Éternité à Portée et le Rif d'Alliances. Planifiez votre participation à ces évènements pour maintenir votre progression d'amélioration.
-*   Planifiez les améliorations pour les évènements : Pour une efficacité maximale, planifiez vos améliorations de talismans pour qu'elles coïncident avec des évènements à points comme le « Royaume au Pouvoir ». De cette façon, vous pouvez obtenir de précieuses récompenses secondaires pour des matériaux que vous alliez dépenser de toute façon.
-
-En résumé, l'extension de la limite de niveau à 22 offre une voie claire vers un puissant bonus de +99% de Létalité et de Santé par talisman. Cependant, il s'agit d'une entreprise à long terme et gourmande en ressources qui nécessite une planification stratégique, en donnant la priorité aux premiers niveaux à ROI élevé et à la collecte constante de matériaux lors des évènements.
 
 [2026-10-19 by ΔRMΔDΔ] Absences au Choc du Glaive
 ⚠️ Mise à jour importante des règles : Absences au Choc du Glaive

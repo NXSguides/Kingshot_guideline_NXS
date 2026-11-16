@@ -1399,6 +1399,53 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-15 by ΔRMΔDΔ] Limite do Amuleto do Governador Aumentado Nv. 12+
+Em 30.11.2026, 
+
+A expansão do limite de nível do Amuleto do Governador de 11 para 22 é uma grande atualização de progressão em *Kingshot*, aumentando significativamente o poder potencial das suas tropas por meio dos atributos de Letalidade e Vida. Alcançar o novo nível máximo de 22 oferece um substancial bônus de +99,00% de Letalidade e Vida por peça de talismã.
+
+Aqui está um detalhamento do que essa expansão de limite significa, os custos envolvidos e como planejar seus aprimoramentos de forma eficaz.
+
+
+### 📈 Atributos Chave & Requisito de Desbloqueio
+
+O detalhe mais crucial é que, embora o limite agora seja 22, o próprio sistema de Amuleto do Governador não fica disponível até que você tenha aprimorado seu Centro da Cidade para o Nível 25. Antes disso, você pode começar a estocar os materiais necessários obtidos em vários eventos.
+
+*   Nível Máximo: 22
+*   Requisito de Desbloqueio: Centro da Cidade Nível 25
+*   Bônus de Atributo Máx. (Nível 22): +99,00% de Letalidade e +99,00% de Vida por talismã
+*   Total de Talismãs: 54 (18 por tipo de tropa: Infantaria, Arquearia, Cavalaria)
+
+
+### 💰 Custo de Aprimoramento & Progressão de Atributos (Níveis 12–22)
+
+A jornada do nível 12 ao 22 é um investimento significativo. Cada nível requer dois materiais: Guia de Acessórios e Design do Talismã. Os custos e ganhos de atributos não são lineares; você pode ver o detalhamento completo para essa faixa de nível expandida na tabela abaixo.
+
+
+
+*Fonte dos dados: bancos de dados Kingshot Guide & Kingshot World.*
+
+
+### 📊 Custo Total de Materiais (Níveis 1–22)
+
+Para maximizar totalmente um único talismã do nível 1 ao 22, o requisito total de materiais é considerável:
+*   Total de Guias de Acessórios: 10.880
+*   Total de Designs do Talismã: 19.200
+
+Isso destaca que alcançar o nível 22 é uma meta de longo prazo, e os custos aumentam drasticamente nos níveis finais.
+
+💡 Dicas Estratégicas
+
+
+Compreender os números permite um planejamento mais eficiente. Aqui estão alguns pontos estratégicos importantes a considerar:
+
+*   Níveis Iniciais Oferecem Melhor ROI: Os níveis mais baixos (especialmente até o 10 ou 11) são significativamente mais baratos em relação aos atributos que fornecem. Para jogadores que buscam ganhos eficientes de poder, levar todos os talismãs a um nível base (como 5 ou 10) é uma estratégia de alto valor antes de levar talismãs individuais ao máximo.
+*   Priorize Letalidade e Vida: Os talismãs são um investimento de primeira linha porque aumentam a Letalidade e a Vida, que geralmente têm mais impacto na fórmula de dano do que os atributos de Ataque e Defesa fornecidos pelo Equipamento do Chefe.
+*   Fique Atento às Fontes de Materiais: Guia de Acessórios e Design do Talismã são obtidos principalmente em eventos como Alcance da Eternidade e Briga da Aliança. Planeje sua participação nesses eventos para sustentar o progresso dos seus aprimoramentos.
+*   Programe os Aprimoramentos para Eventos: Para máxima eficiência, programe seus aprimoramentos de talismã para coincidirem com eventos de pontuação como o "Reino de Poder". Dessa forma, você pode ganhar recompensas secundárias valiosas por materiais que já iria gastar de qualquer maneira.
+
+Em resumo, a expansão do limite de nível para 22 oferece um caminho claro para um poderoso bônus de +99% de Letalidade e Vida por talismã. No entanto, é um esforço de longo prazo e intensivo em recursos que exige planejamento estratégico, priorização dos níveis iniciais de alto ROI e coleta consistente de materiais em eventos.
+
 [2026-11-16 by Nia] 🚨 Prep do KvK — Economize, NÃO suba de nível!
 ⚠️ ==NÃO MELHORE PARA ADAMANTE 5 (TG5) ANTES DO NOSSO PRÓXIMO KVK!==
 
@@ -1454,53 +1501,6 @@ Centro da Cidade, Embaixada, Estábulo, Quartel, Campo de Tiro, Enfermaria, Cent
 - ⏳ Tempo ajustado: 88 dias
 
 (see guide #kvk)
-
-[2026-11-15 by ΔRMΔDΔ] Limite do Amuleto do Governador Aumentado Nv. 12+
-Em 30.11.2026, 
-
-A expansão do limite de nível do Amuleto do Governador de 11 para 22 é uma grande atualização de progressão em *Kingshot*, aumentando significativamente o poder potencial das suas tropas por meio dos atributos de Letalidade e Vida. Alcançar o novo nível máximo de 22 oferece um substancial bônus de +99,00% de Letalidade e Vida por peça de talismã.
-
-Aqui está um detalhamento do que essa expansão de limite significa, os custos envolvidos e como planejar seus aprimoramentos de forma eficaz.
-
-
-### 📈 Atributos Chave & Requisito de Desbloqueio
-
-O detalhe mais crucial é que, embora o limite agora seja 22, o próprio sistema de Amuleto do Governador não fica disponível até que você tenha aprimorado seu Centro da Cidade para o Nível 25. Antes disso, você pode começar a estocar os materiais necessários obtidos em vários eventos.
-
-*   Nível Máximo: 22
-*   Requisito de Desbloqueio: Centro da Cidade Nível 25
-*   Bônus de Atributo Máx. (Nível 22): +99,00% de Letalidade e +99,00% de Vida por talismã
-*   Total de Talismãs: 54 (18 por tipo de tropa: Infantaria, Arquearia, Cavalaria)
-
-
-### 💰 Custo de Aprimoramento & Progressão de Atributos (Níveis 12–22)
-
-A jornada do nível 12 ao 22 é um investimento significativo. Cada nível requer dois materiais: Guia de Acessórios e Design do Talismã. Os custos e ganhos de atributos não são lineares; você pode ver o detalhamento completo para essa faixa de nível expandida na tabela abaixo.
-
-
-
-*Fonte dos dados: bancos de dados Kingshot Guide & Kingshot World.*
-
-
-### 📊 Custo Total de Materiais (Níveis 1–22)
-
-Para maximizar totalmente um único talismã do nível 1 ao 22, o requisito total de materiais é considerável:
-*   Total de Guias de Acessórios: 10.880
-*   Total de Designs do Talismã: 19.200
-
-Isso destaca que alcançar o nível 22 é uma meta de longo prazo, e os custos aumentam drasticamente nos níveis finais.
-
-💡 Dicas Estratégicas
-
-
-Compreender os números permite um planejamento mais eficiente. Aqui estão alguns pontos estratégicos importantes a considerar:
-
-*   Níveis Iniciais Oferecem Melhor ROI: Os níveis mais baixos (especialmente até o 10 ou 11) são significativamente mais baratos em relação aos atributos que fornecem. Para jogadores que buscam ganhos eficientes de poder, levar todos os talismãs a um nível base (como 5 ou 10) é uma estratégia de alto valor antes de levar talismãs individuais ao máximo.
-*   Priorize Letalidade e Vida: Os talismãs são um investimento de primeira linha porque aumentam a Letalidade e a Vida, que geralmente têm mais impacto na fórmula de dano do que os atributos de Ataque e Defesa fornecidos pelo Equipamento do Chefe.
-*   Fique Atento às Fontes de Materiais: Guia de Acessórios e Design do Talismã são obtidos principalmente em eventos como Alcance da Eternidade e Briga da Aliança. Planeje sua participação nesses eventos para sustentar o progresso dos seus aprimoramentos.
-*   Programe os Aprimoramentos para Eventos: Para máxima eficiência, programe seus aprimoramentos de talismã para coincidirem com eventos de pontuação como o "Reino de Poder". Dessa forma, você pode ganhar recompensas secundárias valiosas por materiais que já iria gastar de qualquer maneira.
-
-Em resumo, a expansão do limite de nível para 22 oferece um caminho claro para um poderoso bônus de +99% de Letalidade e Vida por talismã. No entanto, é um esforço de longo prazo e intensivo em recursos que exige planejamento estratégico, priorização dos níveis iniciais de alto ROI e coleta consistente de materiais em eventos.
 
 [2026-10-19 by ΔRMΔDΔ] Ausências no Confronto entre Espadas
 ⚠️ Atualização Importante de Regra: Ausências no Confronto entre Espadas
