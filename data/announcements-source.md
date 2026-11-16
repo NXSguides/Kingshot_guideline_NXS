@@ -83,3 +83,64 @@ content: |
   *   **Time Upgrades for Events:** For maximum efficiency, time your charm upgrades to coincide with point-scoring events like "Hall of Governors" or "Kingdom of Power." This way, you can earn valuable secondary rewards for materials you were going to spend anyway.
 
   In summary, the level cap expansion to 22 offers a clear path to a powerful **+99% Lethality and Health** bonus per charm. However, it is a resource-intensive, long-term endeavor that requires strategic planning, prioritizing high-ROI early levels, and consistent material collection from events.
+---
+author: "Nia"
+lang: en
+title: "🚨 KvK Prep — Save, Do NOT Upgrade!"
+images: []
+expires: "2026-11-30T00:00:00.000Z"
+content: |
+  ⚠️ ==**DO NOT UPGRADE TO TG5 BEFORE OUR NEXT KVK!**==
+
+  Upgrading to TG5 too early can hurt our matchmaking and may put us against a much stronger kingdom.
+
+  ---
+  # 📅 Next KvK
+  - 🗓️ **Prep starts:** <t:1795996800:F> (00:00 UTC)
+  - ⚔️ **Battle Day:** December 5
+
+  ---
+  # 🛑 What to do — start now
+  ## 1️⃣ Save resources
+  Stockpile as much 🪵 Wood, 🍞 Bread, 🪨 Stone, ⚙️ Iron and 🟡 **Truegold** as you can.
+  - Gather resources constantly
+  - Use gathering boosts
+  - Save and use the **Productivity Day** + **Rush Job** decrees
+
+  ## 2️⃣ Save speedups
+  - ⏳ Keep EVERY speedup you have
+  - ❌ Do not spend them on upgrades right now
+
+  ## 3️⃣ Wait before upgrading
+  - 🏰 Keep your buildings at **TG3** until KvK Prep begins
+
+  ---
+  # 📊 Resource cost estimates
+  ## 🔹 Option 1 — Core 3-building push
+  TC, Embassy, Stable
+  - 🏆 KvK Points: **10,625,047** per player
+  - Wood / Bread: ~892M
+  - Stone: 173M
+  - Iron: 44M
+  - Truegold: 4,055
+  - ⏳ Adjusted time: 58 days
+
+  ## 🔹 Option 2 — Expanded 5-building push
+  TC, Embassy, Stable, Barracks, Range
+  - 🏆 KvK Points: **19,545,005** per player
+  - Wood / Bread: ~1.57B
+  - Stone: 311M
+  - Iron: 78M
+  - Truegold: 7,980
+  - ⏳ Adjusted time: 82 days
+
+  ## 🔹 Option 3 — Maximum 7-building push
+  TC, Embassy, Stable, Barracks, Range, Infirmary, Command Center
+  - 🏆 KvK Points: **22,247,410** per player
+  - Wood / Bread: ~1.95B
+  - Stone: 388M
+  - Iron: 96M
+  - Truegold: 9,210
+  - ⏳ Adjusted time: 88 days
+
+  [[link:kvk]]
