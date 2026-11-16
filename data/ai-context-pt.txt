@@ -1148,6 +1148,27 @@ REPETIR UMA RODADA
 Se uma rodada der errado:
 Pausar → Bater em Retirada → Tentar de novo
 
+### GUIDE #governor-duel — Duelo dos Governadores
+Um evento 1 contra 1 de 7 dias para Governadores com Centro da Cidade Nv. 30+. Nenhum soldado de verdade é perdido ou ferido, então dá para lutar com força total.
+📅 CALENDÁRIO E REGRAS
+Domingo — Fase de Inscrição: inscreva-se e configure as 3 formações na hora. Se não estiverem definidas até o fim do domingo, a inscrição é cancelada.
+Segunda a sábado — 6 estágios de batalha: das 00:00 às 01:00 UTC você é reagrupado com Governadores de Poder parecido; das 01:00 às 24:00 UTC é o Horário de Batalha. Entre todo dia e desafie membros do seu grupo até 10 vezes.
+Pontuação: cada desafio é Formação 1 contra 1, 2 contra 2 e 3 contra 3. Cada esquadrão vencedor recebe 1 Ponto de Vitória (até 3 por desafio; derrota não tira pontos). Em caso de empate na classificação diária do grupo, fica na frente quem perdeu menos soldados.
+Recompensas diárias: faça desafios suficientes todo dia para a Recompensa de Marco Diária (as não coletadas chegam por mensagem no dia seguinte).
+🔍 RECONHECIMENTO E ORDEM DE ENVIO
+Cada esquadrão luta uma vez e as posições são fixas (1 contra 1, 2 contra 2, 3 contra 3). Contra um jogador mais forte, a meta é 2 vitórias em 3.
+Olhe antes de lutar: toque na luneta ao lado da foto do adversário. Ela mostra o herói líder e o Poder de cada uma das 3 formações dele. Depois arraste suas formações para a ordem que vence a dele.
+Sacrificar e varrer: se o esquadrão mais forte dele está na posição 1 (1º > 2º > 3º), ponha o seu mais fraco na posição 1, o mais forte na posição 2 e o 2º mais forte na posição 3 — uma derrota vira vitória por 2–1. Se o mais fraco dele está na posição 1, alinhe seus esquadrões fortes contra as duas posições mais fortes dele.
+Não concentre tudo em uma marcha: três formações equilibradas dão muito mais margem para reordenar do que um esquadrão de elite e dois vazios.
+🛡️ PROPORÇÃO DE TROPAS (Infantaria / Cavalaria / Arquearia)
+Suas tropas de nível mais alto entram automaticamente; ajuste a divisão aos seus heróis.
+Base segura — 50 / 20 / 30: aguenta bem na maioria dos confrontos.
+Foco em Arquearia — 50 / 10 / 40 ou 50 / 0 / 50: com heróis de Arquearia de ponta e uma linha de frente de Infantaria forte, para derreter o inimigo antes de a sua frente cair.
+Tanque — 60 / 40 / 0: para segurar uma marcha ou vencer formações com foco em Arquearia, se seus heróis de Cavalaria estiverem bem desenvolvidos.
+⚙️ ANTES DE CONFIRMAR
+Confira o equipamento: o seu melhor Equipamento do Herói deve estar nos 9 heróis das 3 formações, e ficar lá durante o Horário de Batalha.
+Bônus de cidade não contam: bônus temporários de Ataque / Defesa não valem aqui — só atributos permanentes (Tecnologia, Equipamento do Herói, Equipamento do Chefe, Talismã do Governador, Mascotes, estrelas e habilidades dos heróis). Não precisa gastar Gemas nem itens com bônus.
+
 ### GUIDE #tri-alliance-clash — Confronto Tri-Aliança
 🎲 COMO O EVENTO FUNCIONA
 Pense no Confronto Tri-Aliança como um jogo de tabuleiro com caminhos, construções e batalhas. Sua aliança avança por diferentes rotas, captura território e luta pelos objetivos mais valiosos.

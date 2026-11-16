@@ -1150,6 +1150,27 @@ VERSUCH WIEDERHOLEN
 Wenn ein Versuch schlecht läuft:
 Pause → Rückzug → Erneut versuchen
 
+### GUIDE #governor-duel — Gouverneursduell
+Ein 7-tägiges 1-gegen-1-Event für Gouverneure mit Stadtzentrum Lv. 30+. Es gehen keine echten Soldaten verloren und keine werden verwundet — du kannst mit voller Stärke kämpfen.
+📅 ABLAUF & REGELN
+Sonntag — Anmeldephase: melde dich an und stelle sofort alle 3 Formationen ein. Sind sie bis Sonntagende nicht eingestellt, wird deine Anmeldung storniert.
+Montag – Samstag — 6 Kampfstufen: 00:00–01:00 UTC wirst du mit Gouverneuren ähnlicher Kraft neu eingeteilt; 01:00–24:00 UTC ist Kampfzeit. Logge dich jeden Tag ein und starte bis zu 10 Herausforderungen in deiner Gruppe.
+Wertung: jede Herausforderung ist Formation 1 gegen 1, 2 gegen 2 und 3 gegen 3. Jede siegreiche Schwadron erhält 1 Siegpunkt (bis zu 3 pro Herausforderung; eine Niederlage kostet nichts). Bei Punktegleichstand in der täglichen Gruppenrangliste liegt vorn, wer weniger Soldaten verloren hat.
+Tägliche Belohnungen: beginne jeden Tag genug Herausforderungen für die Tägliche Meilensteinbelohnung (nicht abgeholte kommen am nächsten Tag per Mail).
+🔍 AUSSPÄHEN & EINSATZREIHENFOLGE
+Jede Schwadron kämpft einmal und die Plätze sind fest (1 gegen 1, 2 gegen 2, 3 gegen 3). Gegen einen stärkeren Spieler sind 2 Siege aus 3 das Ziel.
+Erst schauen, dann kämpfen: tippe auf das Fernrohr neben dem Bild des Gegners. Es zeigt seinen Haupthelden und die Kraft jeder seiner 3 Formationen. Ziehe dann deine Formationen in die Reihenfolge, die seine kontert.
+Opfern & abräumen: steht seine stärkste Schwadron auf Platz 1 (1. > 2. > 3.), stelle deine schwächste auf Platz 1, deine stärkste auf Platz 2 und deine zweitstärkste auf Platz 3 — aus einer Niederlage wird ein 2:1-Sieg. Steht seine schwächste auf Platz 1, stelle deine starken Schwadronen gegen seine zwei stärksten Plätze.
+Nicht alles in einen Marsch: drei ausgewogene Formationen lassen dir viel mehr Spielraum beim Umstellen als eine Top-Schwadron und zwei leere.
+🛡️ TRUPPENVERHÄLTNIS (Infanterie / Kavallerie / Bogenschütze)
+Deine höchsten Truppen werden automatisch aufgefüllt; passe die Aufteilung an deine Helden an.
+Sichere Basis — 50 / 20 / 30: hält gegen die meisten Gegner.
+Bogenschütze-lastig — 50 / 10 / 40 oder 50 / 0 / 50: mit Top-Bogenschütze-Helden und starker Infanterie-Front, um den Gegner zu schmelzen, bevor deine Front bricht.
+Tank — 60 / 40 / 0: um einen Marsch aufzuhalten oder Bogenschütze-lastige Aufstellungen zu kontern, wenn deine Kavallerie-Helden gut entwickelt sind.
+⚙️ VOR DEM FESTLEGEN
+Ausrüstung prüfen: deine beste Heldenausrüstung gehört auf die 9 Helden in deinen 3 Formationen — und bleibt dort während der Kampfzeit.
+Stadt-Buffs zählen nicht: temporäre Angriffs- / Verteidigungs-Buffs wirken hier nicht — nur dauerhafte Werte (Technologien, Heldenausrüstung, Gouverneur-Ausrüstung, Gouverneur Talisman, Begleittiere, Heldensterne und Fertigkeiten). Du musst keine Edelsteine oder Gegenstände für Buffs ausgeben.
+
 ### GUIDE #tri-alliance-clash — Drei-Allianz-Wettkampf
 🎲 SO FUNKTIONIERT DAS EVENT
 Stell dir den Drei-Allianz-Wettkampf wie ein Brettspiel mit Wegen, Gebäuden und Kämpfen vor. Deine Allianz bewegt sich über verschiedene Pfade, erobert Gebiet und kämpft sich zu den wertvollsten Zielen vor.

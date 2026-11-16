@@ -1149,6 +1149,27 @@ RECOMMENCER UNE PARTIE
 Si une partie se passe mal :
 Pause → Retraite → Réessayer
 
+### GUIDE #governor-duel — Duel des Gouverneurs
+Un événement 1 contre 1 de 7 jours pour les Gouverneurs avec un Centre Niv. 30+. Aucun vrai soldat n'est perdu ni blessé : tu peux combattre à pleine puissance.
+📅 CALENDRIER ET RÈGLES
+Dimanche — Phase d'inscription : inscris-toi et configure tout de suite tes 3 formations. Si elles ne sont pas définies avant la fin du dimanche, ton inscription est annulée.
+Lundi – samedi — 6 étapes de combat : de 00:00 à 01:00 UTC, tu es regroupé avec des Gouverneurs de Puissance proche ; de 01:00 à 24:00 UTC, ce sont les combats. Connecte-toi chaque jour et lance jusqu'à 10 défis dans ton groupe.
+Score : chaque défi oppose Formation 1 contre 1, 2 contre 2 et 3 contre 3. Chaque escouade gagnante obtient 1 Point de Victoire (3 maximum par défi ; une défaite ne coûte rien). En cas d'égalité au classement quotidien du groupe, celui qui a perdu le moins de soldats passe devant.
+Récompenses quotidiennes : lance assez de défis chaque jour pour la Récompense de Palier Quotidienne (celles non réclamées arrivent par courriel le lendemain).
+🔍 REPÉRAGE ET ORDRE DE DÉPLOIEMENT
+Chaque escouade ne combat qu'une fois et les places sont fixes (1 contre 1, 2 contre 2, 3 contre 3). Face à un joueur plus fort, l'objectif est 2 victoires sur 3.
+Regarde avant de combattre : touche la longue-vue à côté de l'image de l'adversaire. Elle montre son héros principal et la Puissance de chacune de ses 3 formations. Fais ensuite glisser tes formations dans l'ordre qui contre le sien.
+Sacrifier et balayer : si son escouade la plus forte est en place 1 (1re > 2e > 3e), mets ta plus faible en place 1, ta plus forte en place 2 et ta 2e plus forte en place 3 — une défaite devient une victoire 2–1. Si sa plus faible est en place 1, aligne plutôt tes escouades fortes face à ses deux places les plus fortes.
+Ne mise pas tout sur une marche : trois formations équilibrées te laissent bien plus de marge pour réordonner qu'une escouade d'élite et deux vides.
+🛡️ RATIOS DE TROUPES (Infanterie / Cavalerie / Archer)
+Tes troupes du plus haut niveau sont ajoutées automatiquement ; règle la répartition selon tes héros.
+Base sûre — 50 / 20 / 30 : tient bon dans la plupart des affrontements.
+Axé Archer — 50 / 10 / 40 ou 50 / 0 / 50 : avec des héros Archer de haut niveau et une ligne de front Infanterie solide, pour faire fondre l'ennemi avant que ta ligne ne cède.
+Tank — 60 / 40 / 0 : pour retenir une marche ou contrer les compositions axées Archer, si tes héros Cavalerie sont bien développés.
+⚙️ AVANT DE VALIDER
+Vérifie l'équipement : ton meilleur Équipement de héros doit être sur les 9 héros de tes 3 formations, et y rester pendant les combats.
+Les bonus de ville ne comptent pas : les bonus temporaires d'Attaque / Défense ne s'appliquent pas ici — seules les stats permanentes comptent (Techs, Équipement de héros, Équipement Chef, Talisman du Gouverneur, Animaux, étoiles et compétences des héros). Inutile de dépenser des Gemmes ou des objets en bonus.
+
 ### GUIDE #tri-alliance-clash — Conflit Tri-Alliance
 🎲 FONCTIONNEMENT DE L'ÉVÉNEMENT
 Voyez le Conflit Tri-Alliance comme un jeu de plateau avec des chemins, des bâtiments et des combats. Votre alliance avance sur différentes voies, capture du territoire et se bat vers les objectifs les plus précieux.

@@ -1148,6 +1148,27 @@ MENGULANG PERCOBAAN
 Jika percobaan berjalan buruk:
 Jeda → Mundur → Coba lagi
 
+### GUIDE #governor-duel — Duel Gubernur
+Event 1 lawan 1 selama 7 hari untuk Gubernur dengan Pusat Kota Lv. 30+. Tidak ada prajurit sungguhan yang gugur atau terluka, jadi kamu bisa bertarung dengan kekuatan penuh.
+📅 JADWAL & ATURAN
+Minggu — Fase Pendaftaran: daftar dan langsung atur ke-3 formasi. Kalau belum diatur sampai hari Minggu berakhir, pendaftaranmu dibatalkan.
+Senin – Sabtu — 6 stage pertempuran: pukul 00:00–01:00 UTC kamu dikelompokkan lagi dengan Gubernur yang Kekuatannya mirip; pukul 01:00–24:00 UTC adalah Waktu Pertempuran. Masuk setiap hari dan tantang anggota grupmu hingga 10 kali.
+Skor: setiap tantangan adalah Formasi 1 lawan 1, 2 lawan 2, dan 3 lawan 3. Setiap skuad yang menang memperoleh 1 Poin Kemenangan (maksimal 3 per tantangan; kalah tidak mengurangi poin). Kalau poin seri di peringkat grup harian, yang kehilangan lebih sedikit prajurit berada di atas.
+Hadiah harian: lakukan cukup tantangan setiap hari untuk Hadiah Milestone Harian (yang belum diklaim dikirim lewat surat besoknya).
+🔍 MENGINTAI & URUTAN PENGERAHAN
+Setiap skuad bertarung sekali dan posisinya tetap (1 lawan 1, 2 lawan 2, 3 lawan 3). Melawan pemain yang lebih kuat, targetnya menang 2 dari 3.
+Lihat dulu sebelum bertarung: ketuk teropong di samping foto lawan. Terlihat hero utamanya dan Kekuatan tiap dari 3 formasinya. Lalu geser formasimu ke urutan yang mengalahkan urutannya.
+Korbankan satu, sapu dua: kalau skuad terkuatnya di Slot 1 (ke-1 > ke-2 > ke-3), taruh skuad terlemahmu di Slot 1, terkuat di Slot 2, dan terkuat kedua di Slot 3 — kekalahan berubah jadi menang 2–1. Kalau yang terlemah miliknya ada di Slot 1, hadapkan skuad kuatmu ke dua slot terkuatnya.
+Jangan menumpuk di satu pasukan: tiga formasi yang seimbang memberi jauh lebih banyak ruang untuk mengatur urutan dibanding satu skuad super dan dua kosong.
+🛡️ RASIO PASUKAN (Infanteri / Kavaleri / Pemanah)
+Prajurit level tertinggimu terisi otomatis; atur pembagiannya sesuai hero-mu.
+Dasar yang aman — 50 / 20 / 30: tahan di kebanyakan pertandingan.
+Berat di Pemanah — 50 / 10 / 40 atau 50 / 0 / 50: dengan hero Pemanah papan atas dan barisan depan Infanteri yang kuat, untuk melelehkan lawan sebelum barisan depanmu runtuh.
+Tank — 60 / 40 / 0: untuk menahan pasukan lawan atau melawan susunan berat Pemanah, kalau hero Kavaleri-mu sudah berkembang baik.
+⚙️ SEBELUM MENGUNCI
+Cek perlengkapan: pastikan Gear Hero terbaikmu terpasang di 9 hero dalam 3 formasimu, dan biarkan di sana selama Waktu Pertempuran.
+Buff kota tidak berlaku: buff Serangan / Pertahanan sementara tidak berlaku di sini — hanya atribut permanen (Teknologi, Gear Hero, Gear Gubernur, Charm Gubernur, Peliharaan, bintang dan skill hero). Tidak perlu menghabiskan Permata atau item untuk buff.
+
 ### GUIDE #tri-alliance-clash — Clash Tiga Aliansi
 🎲 CARA KERJA EVENT
 Anggap Clash Tiga Aliansi seperti permainan papan dengan jalur, bangunan, dan pertempuran. Aliansi bergerak di berbagai jalur, merebut wilayah, dan bertarung menuju target paling berharga.

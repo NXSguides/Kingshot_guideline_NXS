@@ -1148,6 +1148,27 @@ TURU TEKRARLAMA
 Bir tur kötü giderse:
 Duraklat → Geri Çekil → Tekrar dene
 
+### GUIDE #governor-duel — Vali Düellosu
+Şehir Merkezi Sv. 30+ Valiler için 7 günlük bire bir etkinlik. Gerçek asker kaybı veya yaralı olmaz, yani tam güçle savaşabilirsin.
+📅 TAKVİM VE KURALLAR
+Pazar — Kayıt Evresi: kaydol ve 3 dizilişi hemen ayarla. Pazar bitmeden ayarlanmazsa kaydın iptal edilir.
+Pazartesi – Cumartesi — 6 savaş aşaması: 00:00–01:00 UTC arasında Gücü benzer Valilerle yeniden gruplanırsın; 01:00–24:00 UTC Savaş Zamanı. Her gün gir ve grubundakilere en fazla 10 kez meydan oku.
+Puanlama: her mücadele Diziliş 1'e 1, 2'ye 2 ve 3'e 3 şeklindedir. Kazanan her ekip 1 Galibiyet Puanı alır (mücadele başına en fazla 3; yenilgide puan düşmez). Günlük grup sıralamasında puanlar eşitse daha az asker kaybeden üstte yer alır.
+Günlük ödüller: Günlük Eşik Ödülü için her gün yeterli sayıda mücadele et (alınmayanlar ertesi gün postayla gelir).
+🔍 KEŞİF VE KONUŞLANMA SIRASI
+Her ekip bir kez savaşır ve yerler sabittir (1'e 1, 2'ye 2, 3'e 3). Daha güçlü bir oyuncuya karşı hedef 3'te 2 galibiyet.
+Savaşmadan önce bak: rakibin resminin yanındaki dürbüne dokun. Lider kahramanını ve 3 dizilişinin her birinin Gücünü gösterir. Sonra kendi dizilişlerini onunkini yenecek sıraya sürükle.
+Feda et ve süpür: en güçlü ekibi 1. sıradaysa (1. > 2. > 3.), en zayıfını 1. sıraya, en güçlünü 2. sıraya, ikinci en güçlünü 3. sıraya koy — yenilgi 2–1 galibiyete döner. En zayıfı 1. sıradaysa, güçlü ekiplerini onun en güçlü iki sırasının karşısına diz.
+Tek sefere yığma: üç dengeli diziliş, bir süper ekip ve iki boş ekipten çok daha fazla sıralama esnekliği verir.
+🛡️ ASKER ORANLARI (Piyade / Süvari / Okçu)
+En üst seviye askerlerin otomatik atanır; oranı kahramanlarına göre ayarla.
+Güvenli temel — 50 / 20 / 30: çoğu eşleşmede iyi dayanır.
+Okçu ağırlıklı — 50 / 10 / 40 veya 50 / 0 / 50: üst düzey Okçu kahramanları ve güçlü bir Piyade ön hattıyla, ön hattın çökmeden düşmanı eritmek için.
+Tank — 60 / 40 / 0: bir seferi oyalamak veya Okçu ağırlıklı dizilişleri karşılamak için; Süvari kahramanların iyi gelişmişse.
+⚙️ KİLİTLEMEDEN ÖNCE
+Donanım kontrolü: en iyi Kahraman Donanımı 3 dizilişindeki 9 kahramanda olsun ve Savaş Zamanı boyunca orada kalsın.
+Şehir güçlendirmeleri sayılmaz: geçici Saldırı / Savunma güçlendirmeleri burada geçerli değildir — yalnızca kalıcı özellikler sayılır (Teknoloji, Kahraman Donanımı, Şef Donanımı, Vali Tılsımı, Pet, kahraman yıldızları ve yetenekleri). Güçlendirmelere Elmas veya eşya harcamana gerek yok.
+
 ### GUIDE #tri-alliance-clash — Üçlü İttifak Çarpışması
 🎲 ETKİNLİK NASIL İŞLER
 Üçlü İttifak Çarpışması'nı yolları, binaları ve savaşları olan bir masa oyunu gibi düşün. İttifakın farklı hatlarda ilerler, bölge ele geçirir ve en değerli hedeflere doğru savaşır.

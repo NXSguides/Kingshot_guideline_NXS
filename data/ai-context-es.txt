@@ -1148,6 +1148,27 @@ REPETIR UNA PARTIDA
 Si una partida va mal:
 Pausa → Retirarse → Reintentar
 
+### GUIDE #governor-duel — Duelo de gobernadores
+Un evento 1 contra 1 de 7 días para Gobernadores con Centro de pueblo Nv. 30+. No se pierden ni se hieren soldados de verdad, así que puedes luchar con toda tu fuerza.
+📅 CALENDARIO Y REGLAS
+Domingo — Fase de Inscripción: inscríbete y configura enseguida las 3 formaciones. Si no están definidas antes de que acabe el domingo, se cancela tu inscripción.
+Lunes a sábado — 6 fases de batalla: de 00:00 a 01:00 UTC se te reagrupa con Gobernadores de poder parecido; de 01:00 a 24:00 UTC es el Tiempo de Batalla. Entra cada día y lanza hasta 10 desafíos contra miembros de tu grupo.
+Puntuación: cada desafío es Formación 1 contra 1, 2 contra 2 y 3 contra 3. Cada escuadrón vencedor obtiene 1 punto de victoria (hasta 3 por desafío; perder no resta puntos). Si hay empate en la clasificación diaria del grupo, queda por delante quien haya perdido menos soldados.
+Recompensas diarias: realiza suficientes desafíos cada día para las Recompensas de Hitos Diarios (las no reclamadas llegan por correo al día siguiente).
+🔍 RECONOCIMIENTO Y ORDEN DE DESPLIEGUE
+Cada escuadrón lucha una vez y los puestos son fijos (1 contra 1, 2 contra 2, 3 contra 3). Contra un jugador más fuerte, la meta es ganar 2 de 3.
+Mira antes de luchar: toca el catalejo junto a la imagen del rival. Muestra su héroe líder y el poder de cada una de sus 3 formaciones. Después arrastra tus formaciones al orden que venza al suyo.
+Sacrificar y barrer: si su escuadrón más fuerte está en el puesto 1 (1.º > 2.º > 3.º), pon el tuyo más débil en el puesto 1, el más fuerte en el puesto 2 y el 2.º más fuerte en el puesto 3 — una derrota se convierte en victoria 2–1. Si su más débil está en el puesto 1, alinea tus escuadrones fuertes contra sus dos puestos más fuertes.
+No lo apuestes todo a una marcha: tres formaciones equilibradas te dan mucho más margen para reordenar que un escuadrón de élite y dos vacíos.
+🛡️ PROPORCIÓN DE TROPAS (Infantería / Caballería / Arquero)
+Tus tropas de mayor nivel se añaden automáticamente; ajusta el reparto a tus héroes.
+Base segura — 50 / 20 / 30: aguanta bien en la mayoría de los enfrentamientos.
+Centrada en Arquero — 50 / 10 / 40 o 50 / 0 / 50: con héroes de Arquero de primer nivel y una línea frontal de Infantería fuerte, para derretir al enemigo antes de que caiga tu frente.
+Tanque — 60 / 40 / 0: para frenar una marcha o contrarrestar formaciones centradas en Arquero, si tus héroes de Caballería están bien desarrollados.
+⚙️ ANTES DE CONFIRMAR
+Revisa el equipo: tu mejor Equipo de Héroe debe estar en los 9 héroes de tus 3 formaciones, y quedarse ahí durante el Tiempo de Batalla.
+Las mejoras de ciudad no cuentan: las mejoras temporales de Ataque / Defensa no se aplican aquí — solo cuentan las estadísticas permanentes (Tecnología, Equipo de Héroe, Equipo de gobernador, Talismán del Gobernador, Mascotas, estrellas y habilidades de héroe). No hace falta gastar Gemas ni objetos en mejoras.
+
 ### GUIDE #tri-alliance-clash — Choque de Tres Alianzas
 🎲 CÓMO FUNCIONA EL EVENTO
 Piensa en el Choque de Tres Alianzas como un juego de mesa con caminos, edificios y batallas. Tu alianza avanza por distintas rutas, captura territorio y lucha por los objetivos más valiosos.

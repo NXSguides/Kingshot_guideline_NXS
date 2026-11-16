@@ -1147,6 +1147,27 @@ RETRYING A RUN
 If a run goes badly:
 Pause → Retreat → Retry
 
+### GUIDE #governor-duel — Governor Duel
+A 7-day 1v1 event for Governors with Town Center Lv. 30+. No real troops are lost or wounded, so you can fight at full strength.
+📅 SCHEDULE & RULES
+Sunday — Sign-Up Phase: register and set all 3 formations right away. If they aren't set before Sunday ends, the game cancels your registration.
+Monday – Saturday — 6 battle stages: 00:00–01:00 UTC you are regrouped with Governors of similar Power; 01:00–24:00 UTC is Battle Time. Log in every day and issue up to 10 challenges in your group.
+Scoring: each challenge is Formation 1 vs 1, 2 vs 2 and 3 vs 3. Every winning squad earns 1 Win Point (up to 3 per challenge; a loss costs nothing). Ties in the daily group ranking go to whoever lost fewer soldiers.
+Daily rewards: finish enough challenges each day for the Daily Milestone Rewards (unclaimed ones are mailed the next day).
+🔍 SCOUTING & FORMATION ORDER
+Each squad fights once and the slots are fixed (1 vs 1, 2 vs 2, 3 vs 3), so against a stronger player 2 wins out of 3 is the goal.
+Look before you fight: tap the spyglass next to the opponent's picture. It shows their lead hero and the Power of each of their 3 formations. Then drag your formations into the order that counters theirs.
+Sacrifice & sweep: if their strongest squad is in Slot 1 (1st > 2nd > 3rd), put your weakest in Slot 1, your strongest in Slot 2 and your 2nd strongest in Slot 3 — a loss turns into a 2–1 win. If their weakest is in Slot 1, line your strong squads up against their two strongest slots instead.
+Don't stack one march: three balanced formations leave you far more room to reorder than one top squad and two empty ones.
+🛡️ TROOP RATIOS (Infantry / Cavalry / Archer)
+Your highest-tier troops fill in automatically; set the split to fit your heroes.
+Safe baseline — 50 / 20 / 30: holds up across most matchups.
+Archer-heavy — 50 / 10 / 40 or 50 / 0 / 50: with top Archer heroes and a strong Infantry front, to melt the enemy before your front breaks.
+Tank — 60 / 40 / 0: to stall a march or counter Archer-heavy setups, if your Cavalry heroes are well developed.
+⚙️ BEFORE YOU LOCK IN
+Gear check: make sure your best Hero Gear is on the 9 heroes in your 3 formations, and keep it there during Battle Time.
+City buffs don't count: temporary Attack / Defense buffs do not apply here — only permanent stats (Tech, Hero Gear, Governor Gear, Governor Charm, Pets, hero stars and skills). No need to spend Gems or items on buffs.
+
 ### GUIDE #tri-alliance-clash — Tri-Alliance Clash
 🎲 HOW THE EVENT WORKS
 Think of Tri-Alliance Clash as a board game with paths, buildings and battles. Your alliance moves through different lanes, captures territory and fights toward the highest-value objectives.
