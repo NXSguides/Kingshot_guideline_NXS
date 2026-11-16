@@ -79,6 +79,7 @@ const FEATURES = [
   ["Post: formatting toolbar", /Word-like toolbar/, /po02b:/],
   ["Post: looks / scroll themes", /"Look" \(樣式\)/, /po05:/],
   ["Post: ⏰ publish later (scheduled)", /"Publish at" \(發布時間/, /{ s: "#pubAt", k: "po06b" }/],
+  ["Post: ↕️ reorder announcements", /order of the announcements/, /▲ \/ ▼ move an announcement/],
   ["Post: auto-delete", /Auto-delete/, /Auto-delete/],
   ["Events: announcement draft", /Announcement draft/, /Announcement draft/],
   ["Events: one-event game post", /Game post/, /Game post/],
