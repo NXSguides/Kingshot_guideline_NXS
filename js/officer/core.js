@@ -209,8 +209,8 @@ OFFICER.side = () => {
 /* 🏰 ONE "current alliance" for the whole officer page (Sherry 2026-11-17: "when I work on NXS every page is NXS's plan"). The switch sits in the
    top bar; the pages split by alliance (SPLIT_TABS) follow it and no longer have a switch of their own. Tabs that will be split later but still
    hold NXS's data only (NXS_ONLY_TABS) say so while nxs is picked; every other tab is shared and says "shared". */
-OFFICER.SPLIT_TABS = ["plan", "move", "ranking", "attend"];
-OFFICER.NXS_ONLY_TABS = ["watch", "bearplan"];
+OFFICER.SPLIT_TABS = ["plan", "move", "ranking", "attend", "bearplan"];
+OFFICER.NXS_ONLY_TABS = ["watch"];
 /* 📊 Roster, 📋 Attendance and the 🗡️ Swordland card (⚔️) read everything of ONE alliance when they start — the roster file, this device's
    settings, the plans and lists on the Worker ({ w: "f" } for nxs) — so nothing of the two alliances can meet on a page. Changing the alliance
    after one of them has started reloads the officer page (RELOAD_TABS); pages may hand in something to finish first (OFFICER.beforeWho). */
@@ -259,7 +259,7 @@ function whoTop() {
   document.querySelectorAll(".tabs a[data-tab]").forEach((a) => a.classList.toggle("sp", OFFICER.SPLIT_TABS.includes(a.dataset.tab)));
   // 🏰 the same "Planning now" strip as 🚩 Territory / 🐝 Hive, on the other pages kept per alliance
   const WN = { en: "Looking at:", zh: "現在看的是：", pt: "Vendo agora:", ar: "المعروض الآن:", ko: "지금 보는 연맹:" };
-  for (const t of ["ranking", "attend"]) { const pg = document.getElementById("pg-" + t); if (!pg) continue;
+  for (const t of ["ranking", "attend", "bearplan"]) { const pg = document.getElementById("pg-" + t); if (!pg) continue;
     let st = pg.querySelector(":scope > .who-now"); if (!st) { st = document.createElement("div"); pg.insertBefore(st, pg.firstChild); }
     st.className = "who-now who-" + w; st.innerHTML = `🏰 ${WN[OFFICER.lang] || WN.en} <b>${w === "f" ? "nxs" : "NXS"}</b>`; }
 }

@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Bear plan: leader cards per alliance + one shared trap card", /🏰 BEAR LEADERS PER ALLIANCE \(2026-11-17\)/, /wt03: "🏰 Leader cards are kept per alliance/],
   ["Roster / Attendance / Swordland card: kept per alliance (NXS | nxs)", /🏰 ROSTER PER ALLIANCE \(2026-11-17\)/, /wt02: "🏰 This page is kept apart for each alliance/],
   ["Top bar: 🏰 one NXS | nxs switch for the whole officer page", /🏰 CURRENT ALLIANCE switch \(2026-11-17\)/, /wt01: "🏰 One switch for the whole officer page/],
   ["Territory + Hive: 🏰 Planning now strip (which alliance)", /🏰 "Planning now: NXS \/ nxs" strip \(2026-11-17\)/, /mv23: "🏰 This strip always says/],
@@ -68,7 +69,7 @@ const FEATURES = [
   ["Battle losses report (🩹 research)", /🩹 BATTLE LOSSES report/, /ls: \[\{ s: "#ls_title", k: "ls01" \}\]/],
   ["Terror rallies report (🦣 research)", /🦣 TERROR RALLIES report/, /tb: \[\{ s: "#tb_title", k: "tb01" \}\]/],
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
-  ["Bear analysis tab (🐻 measured, ex Bear plan)", /🐻 BEAR ANALYSIS tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],
+  ["Bear analysis tab (🐻 measured, ex Bear plan)", /🐻 BEAR ANALYSIS tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}/],
   ["Bear analysis: leaders per trap, where marches score most, each player", /🚩 Where marches score most/, /🐻 Bear analysis: the officers' Bear reports/],
   ["Bear page: report chips (Scoring / Leaders / Sending troops / Joiners & heroes / Trend)", /one Bear page with 🐻 Bear Hunt report: chips at the top/, /The chips at the top switch between 👑 Leaders/],
   ["Bear page: 🦸 leader hero sets (strength with the same stats, × K)", /🦸 Leader hero sets \(updated 2026-11-12, ledger A14\)/, /the 🦸 leader hero sets: how hard a rally hits with the same stats/],
