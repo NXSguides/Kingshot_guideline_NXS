@@ -142,7 +142,7 @@ function renderList() {
     .forEach((ev) => { for (const [id, v] of missesOf(ev)) if (v.miss) allMiss.set(id, (allMiss.get(id) || 0) + 1); });
   for (const [name, list] of sheets) {
     list.sort((a, b) => (b.date || "").localeCompare(a.date || "") || b.at - a.at);
-    // per-member misses on this sheet (recent 8), for the summary
+    // per-member misses on this sheet (recent 8), for the summary. The marks read left → right = oldest → newest (Sherry 2026-11-17: time goes from left to right)
     const recent = list.slice(0, 8), rows = new Map();
     recent.forEach((ev, i) => { for (const [id, v] of missesOf(ev)) { const r = rows.get(id) || { name: v.name, n: 0, miss: 0, seq: [] }; r.n++; if (v.miss) r.miss++; r.seq[i] = v.miss ? "X" : "✓"; r.name = v.name; rows.set(id, r); } });
     const bad = [...rows.entries()].filter(([, r]) => r.miss > 0).sort((a, b) => b[1].miss - a[1].miss || (TOP.has(b[0]) - TOP.has(a[0])) || a[1].name.localeCompare(b[1].name));
@@ -151,7 +151,7 @@ function renderList() {
       <table class="at-sum"><thead><tr><th>${esc(t("date"))}</th><th></th><th>${esc(t("rate"))}</th><th></th></tr></thead><tbody>${list.map((ev) => { const r = rateOf(ev), sl = slot(ev);
         return `<tr class="at-ev" data-id="${esc(ev.id)}" style="cursor:pointer"><td>${esc(ev.date || "")}</td><td class="muted"><bdi>${esc(sl.name || "")}</bdi></td><td><b>${r.pct == null ? "—" : r.pct + "%"}</b> <span class="muted">${r.ok}/${r.n}</span></td><td>›</td></tr>`; }).join("")}</tbody></table>
       <div class="muted" style="font-size:12px;margin-top:4px">${esc(t("rateNote"))}</div>` +
-      (bad.length ? `<table class="at-sum" style="margin-top:10px"><thead><tr><th>${esc(t("name"))}</th><th>${esc(t("missN"))}</th><th>${esc(t("events"))}</th><th></th></tr></thead><tbody>${bad.map(([id, r]) => `<tr class="${cls(id, r)}"><td>${star(id)}<bdi>${esc(r.name)}</bdi></td><td><b>${r.miss}</b>${tot(id, r) > r.miss ? ` <span class="muted">${esc(t("allN", { n: tot(id, r) }))}</span>` : ""}</td><td>${r.n}</td><td class="seq">${recent.map((_, i) => r.seq[i] || "·").join(" ")}</td></tr>`).join("")}</tbody></table>` : "") + `</div>`;
+      (bad.length ? `<table class="at-sum" style="margin-top:10px"><thead><tr><th>${esc(t("name"))}</th><th>${esc(t("missN"))}</th><th>${esc(t("events"))}</th><th></th></tr></thead><tbody>${bad.map(([id, r]) => `<tr class="${cls(id, r)}"><td>${star(id)}<bdi>${esc(r.name)}</bdi></td><td><b>${r.miss}</b>${tot(id, r) > r.miss ? ` <span class="muted">${esc(t("allN", { n: tot(id, r) }))}</span>` : ""}</td><td>${r.n}</td><td class="seq">${recent.map((_, i) => r.seq[recent.length - 1 - i] || "·").join(" ")}</td></tr>`).join("")}</tbody></table>` : "") + `</div>`;
   }
   h += goneHtml();
   $("at_list").innerHTML = h;
