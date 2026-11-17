@@ -42,6 +42,7 @@ function build(lang) {
     .replace(/\[\[squad:page\]\]/g, "(see the Squad Guide page squad-guide.html)")
     .replace(/\[\[squad:guide\]\]/g, "(see guide #formations-rally-tips)")
     .replace(/\[\[img:[^\]]+\]\]/g, "")
+    .replace(/::(\w+?)\+?::/g, (m, k) => (D.GLOSSARY && D.GLOSSARY[k] ? pick(D.GLOSSARY[k]) : k))   // item pictures in reward tables → the item's name
     .replace(/\[\[video:[^\]]+\]\]/g, "(video)")
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .trim();
@@ -51,6 +52,7 @@ function build(lang) {
       const c = clean(v);
       if (c) out.push(D.HEROES[c] ? pick(D.HEROES[c]) : c);
     } else if (Array.isArray(v)) v.forEach((x) => walk(x, out, key));
+    else if (v && v.type === "rtable") { const row = (r) => r.map((c) => clean(String(c))).join(" | "); out.push(row(v.head || [])); for (const r of v.rows || []) out.push(row(r)); }   // one line per table row
     else if (v && typeof v === "object") for (const k in v) walk(v[k], out, k);
   };
 

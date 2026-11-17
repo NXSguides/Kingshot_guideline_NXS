@@ -1099,36 +1099,26 @@ Setiap pelayaran membawa Harta Karun Lautan Common (90%) atau Harta Karun Lautan
 Setiap Kompas memangkas pelayaran 1 jam. Kompas didapat dari Paket Layar Terbentang.
 Dapat 1 Kompas gratis setiap hari; yang tersisa terbawa ke event berikutnya.
 🎯 HADIAH MILESTONE (total pelayaran)
-Pelayaran Cahaya (11/17)
-1 → 1 Peti Custom Peningkatan Gear
-5 → 9 Forgehammer
-20 → 18 Forgehammer
-60 → 2 Peti Custom Peningkatan Gear
-120 → 6 Peti Custom Peningkatan Gear
-200 → 10 Peti Custom Peningkatan Gear
-350 → 15 Peti Custom Peningkatan Gear
-550 → 20 Peti Custom Peningkatan Gear
-800 → 30 Peti Custom Peningkatan Gear
-Peti Custom Peningkatan Gear (pilih satu): Peti Gear Hero Keberuntungan ×10 · Forgehammer ×10 · 100 Enhancement XP Part ×20 · Mithril ×1
-Pelayaran Ombak (10/20)
-1 → 5 Panduan Charm
-5 → 10 Panduan Charm
-20 → 20 Panduan Charm
-60 → 40 Desain Charm
-120 → 90 Desain Charm
-200 → 120 Desain Charm
-350 → 80 peti material Charm Gubernur acak
-550 → 100 peti material Charm Gubernur acak
-800 → 120 peti material Charm Gubernur acak
+ | Pelayaran Cahaya (11/17) | Pelayaran Ombak (10/20)
+1 | Peti Custom Peningkatan Gear ×1 | 5 Panduan Charm
+5 | Forgehammer ×9 | 10 Panduan Charm
+20 | Forgehammer ×18 | 20 Panduan Charm
+60 | Peti Custom Peningkatan Gear ×2 | 40 Desain Charm
+120 | Peti Custom Peningkatan Gear ×6 | 90 Desain Charm
+200 | Peti Custom Peningkatan Gear ×10 | 120 Desain Charm
+350 | Peti Custom Peningkatan Gear ×15 | 80 peti material Charm Gubernur acak
+550 | Peti Custom Peningkatan Gear ×20 | 100 peti material Charm Gubernur acak
+800 | Peti Custom Peningkatan Gear ×30 | 120 peti material Charm Gubernur acak
+Peti Custom Peningkatan Gear (pilih satu)
+Peti Gear Hero Keberuntungan ×10
+Forgehammer ×10
+100 Enhancement XP Part ×20
+Mithril ×1
 🎁 ISI TIAP HARTA KARUN
-Harta Karun Lautan Common: 100 Permata ×5 · 100 Enhancement XP Part ×3 · Percepatan Umum 5 menit ×12
-Harta Karun Lautan Premium: Peti Gear Hero Keberuntungan ×4 · 100 Enhancement XP Part ×5 · Percepatan Umum 1 jam ×3
-Harta Karun Lautan Exquisite: Forgehammer ×9 · Peti Gear Hero Keberuntungan ×6 · Paket Chip Keberuntungan Mitos ×2
-Harta Karun Lautan Majestic: Forgehammer ×27 · Peti Gear Hero Keberuntungan ×18 · Paket Chip Keberuntungan Mitos ×6
-Harta Karun Lautan Common: Desain Charm ×3 · Percepatan Umum 5 menit ×12 · 100 Permata ×2
-Harta Karun Lautan Premium: Panduan Charm ×3 · Desain Charm ×6 · Percepatan Umum 1 jam ×4
-Harta Karun Lautan Exquisite: Panduan Charm ×9 · Desain Charm ×9 · Paket Chip Keberuntungan Mitos ×2
-Harta Karun Lautan Majestic: Panduan Charm ×30 · Desain Charm ×30 · Paket Chip Keberuntungan Mitos ×6
+Harta Karun Lautan Common | 100 Permata ×5 · 100 Enhancement XP Part ×3 · Percepatan Umum 5 menit ×12 | Desain Charm ×3 · Percepatan Umum 5 menit ×12 · 100 Permata ×2
+Harta Karun Lautan Premium | Peti Gear Hero Keberuntungan ×4 · 100 Enhancement XP Part ×5 · Percepatan Umum 1 jam ×3 | Panduan Charm ×3 · Desain Charm ×6 · Percepatan Umum 1 jam ×4
+Harta Karun Lautan Exquisite | Forgehammer ×9 · Peti Gear Hero Keberuntungan ×6 · Paket Chip Keberuntungan Mitos ×2 | Panduan Charm ×9 · Desain Charm ×9 · Paket Chip Keberuntungan Mitos ×2
+Harta Karun Lautan Majestic | Forgehammer ×27 · Peti Gear Hero Keberuntungan ×18 · Paket Chip Keberuntungan Mitos ×6 | Panduan Charm ×30 · Desain Charm ×30 · Paket Chip Keberuntungan Mitos ×6
 Common = material dasar · Premium = awal penggabungan · Exquisite & Majestic = hadiah utama. Jumlah bisa berbeda sesuai progres server.
 💡 TIPS
 Kirim tim setiap 8 jam. Hanya dengan tim gratis, progres lambat.

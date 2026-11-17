@@ -1099,36 +1099,26 @@ Her yolculuk Sıradan Gelgit Hazinesi (%90) veya Premium Gelgit Hazinesi (%10) g
 Her Pusula bir yolculuğu 1 saat kısaltır. Pusulalar Yelkenler Fora Paketi ile alınır.
 Her gün 1 ücretsiz Pusula gelir; kullanılmayanlar sonraki etkinliğe kalır.
 🎯 EŞİK ÖDÜLLERİ (toplam yolculuk)
-Işık Yolculuğu (11/17)
-1 → 1 Donanım Takviyesi Özel Sandığı
-5 → 9 Demirci Çekici
-20 → 18 Demirci Çekici
-60 → 2 Donanım Takviyesi Özel Sandığı
-120 → 6 Donanım Takviyesi Özel Sandığı
-200 → 10 Donanım Takviyesi Özel Sandığı
-350 → 15 Donanım Takviyesi Özel Sandığı
-550 → 20 Donanım Takviyesi Özel Sandığı
-800 → 30 Donanım Takviyesi Özel Sandığı
-Donanım Takviyesi Özel Sandığı (birini seç): Uğurlu Kahraman Donanımı Sandığı ×10 · Demirci Çekici ×10 · 100 Geliştirme TP'si Bileşeni ×20 · Mithril ×1
-Dalgalara Karşı Yolculuk (10/20)
-1 → 5 Tılsım Kılavuzu
-5 → 10 Tılsım Kılavuzu
-20 → 20 Tılsım Kılavuzu
-60 → 40 Tılsım Tasarımı
-120 → 90 Tılsım Tasarımı
-200 → 120 Tılsım Tasarımı
-350 → 80 rastgele Vali Tılsımı malzeme sandığı
-550 → 100 rastgele Vali Tılsımı malzeme sandığı
-800 → 120 rastgele Vali Tılsımı malzeme sandığı
+ | Işık Yolculuğu (11/17) | Dalgalara Karşı Yolculuk (10/20)
+1 | Donanım Takviyesi Özel Sandığı ×1 | 5 Tılsım Kılavuzu
+5 | Demirci Çekici ×9 | 10 Tılsım Kılavuzu
+20 | Demirci Çekici ×18 | 20 Tılsım Kılavuzu
+60 | Donanım Takviyesi Özel Sandığı ×2 | 40 Tılsım Tasarımı
+120 | Donanım Takviyesi Özel Sandığı ×6 | 90 Tılsım Tasarımı
+200 | Donanım Takviyesi Özel Sandığı ×10 | 120 Tılsım Tasarımı
+350 | Donanım Takviyesi Özel Sandığı ×15 | 80 rastgele Vali Tılsımı malzeme sandığı
+550 | Donanım Takviyesi Özel Sandığı ×20 | 100 rastgele Vali Tılsımı malzeme sandığı
+800 | Donanım Takviyesi Özel Sandığı ×30 | 120 rastgele Vali Tılsımı malzeme sandığı
+Donanım Takviyesi Özel Sandığı (birini seç)
+Uğurlu Kahraman Donanımı Sandığı ×10
+Demirci Çekici ×10
+100 Geliştirme TP'si Bileşeni ×20
+Mithril ×1
 🎁 HAZİNELERİN İÇİNDEKİLER
-Sıradan Gelgit Hazinesi: 100 Elmas ×5 · 100 Geliştirme TP'si Bileşeni ×3 · 5 dk Genel Hızlandırma ×12
-Premium Gelgit Hazinesi: Uğurlu Kahraman Donanımı Sandığı ×4 · 100 Geliştirme TP'si Bileşeni ×5 · 1 sa Genel Hızlandırma ×3
-Seçkin Gelgit Hazinesi: Demirci Çekici ×9 · Uğurlu Kahraman Donanımı Sandığı ×6 · Mitik Genel Kahraman Parçası ×2
-İhtişamlı Gelgit Hazinesi: Demirci Çekici ×27 · Uğurlu Kahraman Donanımı Sandığı ×18 · Mitik Genel Kahraman Parçası ×6
-Sıradan Gelgit Hazinesi: Tılsım Tasarımı ×3 · 5 dk Genel Hızlandırma ×12 · 100 Elmas ×2
-Premium Gelgit Hazinesi: Tılsım Kılavuzu ×3 · Tılsım Tasarımı ×6 · 1 sa Genel Hızlandırma ×4
-Seçkin Gelgit Hazinesi: Tılsım Kılavuzu ×9 · Tılsım Tasarımı ×9 · Mitik Genel Kahraman Parçası ×2
-İhtişamlı Gelgit Hazinesi: Tılsım Kılavuzu ×30 · Tılsım Tasarımı ×30 · Mitik Genel Kahraman Parçası ×6
+Sıradan Gelgit Hazinesi | 100 Elmas ×5 · 100 Geliştirme TP'si Bileşeni ×3 · 5 dk Genel Hızlandırma ×12 | Tılsım Tasarımı ×3 · 5 dk Genel Hızlandırma ×12 · 100 Elmas ×2
+Premium Gelgit Hazinesi | Uğurlu Kahraman Donanımı Sandığı ×4 · 100 Geliştirme TP'si Bileşeni ×5 · 1 sa Genel Hızlandırma ×3 | Tılsım Kılavuzu ×3 · Tılsım Tasarımı ×6 · 1 sa Genel Hızlandırma ×4
+Seçkin Gelgit Hazinesi | Demirci Çekici ×9 · Uğurlu Kahraman Donanımı Sandığı ×6 · Mitik Genel Kahraman Parçası ×2 | Tılsım Kılavuzu ×9 · Tılsım Tasarımı ×9 · Mitik Genel Kahraman Parçası ×2
+İhtişamlı Gelgit Hazinesi | Demirci Çekici ×27 · Uğurlu Kahraman Donanımı Sandığı ×18 · Mitik Genel Kahraman Parçası ×6 | Tılsım Kılavuzu ×30 · Tılsım Tasarımı ×30 · Mitik Genel Kahraman Parçası ×6
 Sıradan = temel malzeme · Premium = birleştirmenin başlangıcı · Seçkin ve İhtişamlı = asıl ödüller. Miktarlar sunucu ilerlemesine göre değişebilir.
 💡 İPUÇLARI
 Takımları 8 saatte bir gönder. Sadece ücretsiz takımla yavaş ilerler.

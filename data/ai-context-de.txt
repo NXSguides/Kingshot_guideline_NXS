@@ -1101,36 +1101,26 @@ Jede Reise bringt einen Gewöhnlicher Gezeitenschatz (90 %) oder einen Höherwer
 Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehisst Paket.
 Du bekommst täglich 1 Kompass gratis; übrige bleiben bis zur nächsten Seereise.
 🎯 MEILENSTEINE (Reisen insgesamt)
-Reise des Lichts (11/17)
-1 → 1 Ausrüstungsschub Truhe
-5 → 9 Schmiedehammer
-20 → 18 Schmiedehammer
-60 → 2 Ausrüstungsschub Truhe
-120 → 6 Ausrüstungsschub Truhe
-200 → 10 Ausrüstungsschub Truhe
-350 → 15 Ausrüstungsschub Truhe
-550 → 20 Ausrüstungsschub Truhe
-800 → 30 Ausrüstungsschub Truhe
-Ausrüstungsschub Truhe (eins wählen): Glücksheld Ausrüstungskiste ×10 · Schmiedehammer ×10 · 100 Verbesserungs-XP-Teil ×20 · Mithril ×1
-Wellenwärtsreise (10/20)
-1 → 5 Talismanleitfaden
-5 → 10 Talismanleitfaden
-20 → 20 Talismanleitfaden
-60 → 40 Talismanpläne
-120 → 90 Talismanpläne
-200 → 120 Talismanpläne
-350 → 80 zufällige Gouverneur Talisman-Materialtruhen
-550 → 100 zufällige Gouverneur Talisman-Materialtruhen
-800 → 120 zufällige Gouverneur Talisman-Materialtruhen
+ | Reise des Lichts (11/17) | Wellenwärtsreise (10/20)
+1 | Ausrüstungsschub Truhe ×1 | 5 Talismanleitfaden
+5 | Schmiedehammer ×9 | 10 Talismanleitfaden
+20 | Schmiedehammer ×18 | 20 Talismanleitfaden
+60 | Ausrüstungsschub Truhe ×2 | 40 Talismanpläne
+120 | Ausrüstungsschub Truhe ×6 | 90 Talismanpläne
+200 | Ausrüstungsschub Truhe ×10 | 120 Talismanpläne
+350 | Ausrüstungsschub Truhe ×15 | 80 zufällige Gouverneur Talisman-Materialtruhen
+550 | Ausrüstungsschub Truhe ×20 | 100 zufällige Gouverneur Talisman-Materialtruhen
+800 | Ausrüstungsschub Truhe ×30 | 120 zufällige Gouverneur Talisman-Materialtruhen
+Ausrüstungsschub Truhe (eins wählen)
+Glücksheld Ausrüstungskiste ×10
+Schmiedehammer ×10
+100 Verbesserungs-XP-Teil ×20
+Mithril ×1
 🎁 INHALT DER SCHÄTZE
-Gewöhnlicher Gezeitenschatz: 100 Edelsteine ×5 · 100 Verbesserungs-XP-Teil ×3 · 5-Min.-Beschleunigung (allgemein) ×12
-Höherwertiger Gezeitenschatz: Glücksheld Ausrüstungskiste ×4 · 100 Verbesserungs-XP-Teil ×5 · 1-Std.-Beschleunigung (allgemein) ×3
-Exquisiter Gezeitenschatz: Schmiedehammer ×9 · Glücksheld Ausrüstungskiste ×6 · Mythisches Helden-Fragment ×2
-Majestätischer Gezeitenschatz: Schmiedehammer ×27 · Glücksheld Ausrüstungskiste ×18 · Mythisches Helden-Fragment ×6
-Gewöhnlicher Gezeitenschatz: Talismanpläne ×3 · 5-Min.-Beschleunigung (allgemein) ×12 · 100 Edelsteine ×2
-Höherwertiger Gezeitenschatz: Talismanleitfaden ×3 · Talismanpläne ×6 · 1-Std.-Beschleunigung (allgemein) ×4
-Exquisiter Gezeitenschatz: Talismanleitfaden ×9 · Talismanpläne ×9 · Mythisches Helden-Fragment ×2
-Majestätischer Gezeitenschatz: Talismanleitfaden ×30 · Talismanpläne ×30 · Mythisches Helden-Fragment ×6
+Gewöhnlicher Gezeitenschatz | 100 Edelsteine ×5 · 100 Verbesserungs-XP-Teil ×3 · 5-Min.-Beschleunigung (allgemein) ×12 | Talismanpläne ×3 · 5-Min.-Beschleunigung (allgemein) ×12 · 100 Edelsteine ×2
+Höherwertiger Gezeitenschatz | Glücksheld Ausrüstungskiste ×4 · 100 Verbesserungs-XP-Teil ×5 · 1-Std.-Beschleunigung (allgemein) ×3 | Talismanleitfaden ×3 · Talismanpläne ×6 · 1-Std.-Beschleunigung (allgemein) ×4
+Exquisiter Gezeitenschatz | Schmiedehammer ×9 · Glücksheld Ausrüstungskiste ×6 · Mythisches Helden-Fragment ×2 | Talismanleitfaden ×9 · Talismanpläne ×9 · Mythisches Helden-Fragment ×2
+Majestätischer Gezeitenschatz | Schmiedehammer ×27 · Glücksheld Ausrüstungskiste ×18 · Mythisches Helden-Fragment ×6 | Talismanleitfaden ×30 · Talismanpläne ×30 · Mythisches Helden-Fragment ×6
 Gewöhnlich = Grundmaterial · Höherwertig = Start fürs Zusammenführen · Exquisit & Majestätisch = die Hauptbelohnungen. Mengen können je nach Serverfortschritt abweichen.
 💡 TIPPS
 Alle 8 Stunden Teams schicken. Nur mit dem Gratis-Team geht es langsam.

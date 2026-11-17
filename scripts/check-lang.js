@@ -18,7 +18,7 @@ const STOP = {
   es: "el los las y no para con una un que del tu tus más por al cada antes después son",
 };
 const SW = Object.fromEntries(Object.entries(STOP).map(([l, s]) => [l, new Set(s.split(" "))]));
-const plain = (s) => String(s).replace(/\{\w+\}|\[\[[^\]]*\]\]|https?:\S+|[*_=#`]/g, " ");
+const plain = (s) => String(s).replace(/\{\w+\}|::\w+\+?::|\[\[[^\]]*\]\]|https?:\S+|[*_=#`]/g, " ");
 function latinGuess(text) {
   const w = plain(text).toLowerCase().split(/[^a-zà-ÿğışçöüâêîôûœæ']+/).filter(Boolean); if (w.length < 8) return null;
   const sc = Object.fromEntries(Object.keys(SW).map((l) => [l, w.filter((x) => SW[l].has(x)).length]));

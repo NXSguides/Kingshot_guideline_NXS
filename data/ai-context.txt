@@ -1098,36 +1098,26 @@ Merge 3 Common Tidal Treasure → 1 Premium Tidal Treasure. Merge 3 Premium Tida
 Each Compass cuts a voyage by 1 hour. Compasses come from the Sails Aloft Pack.
 You get 1 free Compass a day; unused ones carry over to the next Voyage Event.
 🎯 MILESTONE REWARDS (total voyages)
-Voyage of Light (11/17)
-1 → 1 Gear Boost Custom Chest
-5 → 9 Forgehammer
-20 → 18 Forgehammer
-60 → 2 Gear Boost Custom Chest
-120 → 6 Gear Boost Custom Chest
-200 → 10 Gear Boost Custom Chest
-350 → 15 Gear Boost Custom Chest
-550 → 20 Gear Boost Custom Chest
-800 → 30 Gear Boost Custom Chest
-Gear Boost Custom Chest (pick one): Lucky Hero Gear Chest ×10 · Forgehammer ×10 · 100 Enhancement XP Part ×20 · Mithril ×1
-Wavebound Voyage (10/20)
-1 → 5 Charm Guide
-5 → 10 Charm Guide
-20 → 20 Charm Guide
-60 → 40 Charm Design
-120 → 90 Charm Design
-200 → 120 Charm Design
-350 → 80 random Governor Charm material chest
-550 → 100 random Governor Charm material chest
-800 → 120 random Governor Charm material chest
+ | Voyage of Light (11/17) | Wavebound Voyage (10/20)
+1 | Gear Boost Custom Chest ×1 | 5 Charm Guide
+5 | Forgehammer ×9 | 10 Charm Guide
+20 | Forgehammer ×18 | 20 Charm Guide
+60 | Gear Boost Custom Chest ×2 | 40 Charm Design
+120 | Gear Boost Custom Chest ×6 | 90 Charm Design
+200 | Gear Boost Custom Chest ×10 | 120 Charm Design
+350 | Gear Boost Custom Chest ×15 | 80 random Governor Charm material chest
+550 | Gear Boost Custom Chest ×20 | 100 random Governor Charm material chest
+800 | Gear Boost Custom Chest ×30 | 120 random Governor Charm material chest
+Gear Boost Custom Chest (pick one)
+Lucky Hero Gear Chest ×10
+Forgehammer ×10
+100 Enhancement XP Part ×20
+Mithril ×1
 🎁 WHAT'S IN EACH TREASURE
-Common Tidal Treasure: 100 Gems ×5 · 100 Enhancement XP Part ×3 · 5m General Speedup ×12
-Premium Tidal Treasure: Lucky Hero Gear Chest ×4 · 100 Enhancement XP Part ×5 · 1h General Speedup ×3
-Exquisite Tidal Treasure: Forgehammer ×9 · Lucky Hero Gear Chest ×6 · Mythic General Hero Shard ×2
-Majestic Tidal Treasure: Forgehammer ×27 · Lucky Hero Gear Chest ×18 · Mythic General Hero Shard ×6
-Common Tidal Treasure: Charm Design ×3 · 5m General Speedup ×12 · 100 Gems ×2
-Premium Tidal Treasure: Charm Guide ×3 · Charm Design ×6 · 1h General Speedup ×4
-Exquisite Tidal Treasure: Charm Guide ×9 · Charm Design ×9 · Mythic General Hero Shard ×2
-Majestic Tidal Treasure: Charm Guide ×30 · Charm Design ×30 · Mythic General Hero Shard ×6
+Common Tidal Treasure | 100 Gems ×5 · 100 Enhancement XP Part ×3 · 5m General Speedup ×12 | Charm Design ×3 · 5m General Speedup ×12 · 100 Gems ×2
+Premium Tidal Treasure | Lucky Hero Gear Chest ×4 · 100 Enhancement XP Part ×5 · 1h General Speedup ×3 | Charm Guide ×3 · Charm Design ×6 · 1h General Speedup ×4
+Exquisite Tidal Treasure | Forgehammer ×9 · Lucky Hero Gear Chest ×6 · Mythic General Hero Shard ×2 | Charm Guide ×9 · Charm Design ×9 · Mythic General Hero Shard ×2
+Majestic Tidal Treasure | Forgehammer ×27 · Lucky Hero Gear Chest ×18 · Mythic General Hero Shard ×6 | Charm Guide ×30 · Charm Design ×30 · Mythic General Hero Shard ×6
 Common = basic materials · Premium = the start for merging · Exquisite & Majestic = the main rewards. Amounts may differ with your server's progress.
 💡 TIPS
 Send teams every 8 hours. One free team alone is slow.

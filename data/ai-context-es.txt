@@ -1099,36 +1099,26 @@ Cada viaje trae un Tesoro de Marea Común (90 %) o un Tesoro de Marea Premium (1
 Cada Brújula acorta un viaje 1 hora. Las brújulas vienen del Paquete de Velas Izadas.
 Recibes 1 Brújula gratis al día; las que no uses pasan al siguiente evento.
 🎯 RECOMPENSAS POR OBJETIVOS (viajes en total)
-Travesía de Luz (11/17)
-1 → 1 Cofre Personalizado Potenciador de Equipo
-5 → 9 Martillo de Forja
-20 → 18 Martillo de Forja
-60 → 2 Cofre Personalizado Potenciador de Equipo
-120 → 6 Cofre Personalizado Potenciador de Equipo
-200 → 10 Cofre Personalizado Potenciador de Equipo
-350 → 15 Cofre Personalizado Potenciador de Equipo
-550 → 20 Cofre Personalizado Potenciador de Equipo
-800 → 30 Cofre Personalizado Potenciador de Equipo
-Cofre Personalizado Potenciador de Equipo (elige uno): Caja de equipo de héroe de la suerte ×10 · Martillo de Forja ×10 · 100 partes de EXP de mejora ×20 · Mitrilo ×1
-Viaje Ligado a las Olas (10/20)
-1 → 5 Guía de talismanes
-5 → 10 Guía de talismanes
-20 → 20 Guía de talismanes
-60 → 40 Planos de talismán
-120 → 90 Planos de talismán
-200 → 120 Planos de talismán
-350 → 80 cofres aleatorios de materiales de Talismán del Gobernador
-550 → 100 cofres aleatorios de materiales de Talismán del Gobernador
-800 → 120 cofres aleatorios de materiales de Talismán del Gobernador
+ | Travesía de Luz (11/17) | Viaje Ligado a las Olas (10/20)
+1 | Cofre Personalizado Potenciador de Equipo ×1 | 5 Guía de talismanes
+5 | Martillo de Forja ×9 | 10 Guía de talismanes
+20 | Martillo de Forja ×18 | 20 Guía de talismanes
+60 | Cofre Personalizado Potenciador de Equipo ×2 | 40 Planos de talismán
+120 | Cofre Personalizado Potenciador de Equipo ×6 | 90 Planos de talismán
+200 | Cofre Personalizado Potenciador de Equipo ×10 | 120 Planos de talismán
+350 | Cofre Personalizado Potenciador de Equipo ×15 | 80 cofres aleatorios de materiales de Talismán del Gobernador
+550 | Cofre Personalizado Potenciador de Equipo ×20 | 100 cofres aleatorios de materiales de Talismán del Gobernador
+800 | Cofre Personalizado Potenciador de Equipo ×30 | 120 cofres aleatorios de materiales de Talismán del Gobernador
+Cofre Personalizado Potenciador de Equipo (elige uno)
+Caja de equipo de héroe de la suerte ×10
+Martillo de Forja ×10
+100 partes de EXP de mejora ×20
+Mitrilo ×1
 🎁 QUÉ TRAE CADA TESORO
-Tesoro de Marea Común: 100 Gemas ×5 · 100 partes de EXP de mejora ×3 · Acelerador general de 5 min ×12
-Tesoro de Marea Premium: Caja de equipo de héroe de la suerte ×4 · 100 partes de EXP de mejora ×5 · Acelerador general de 1 h ×3
-Tesoro de Marea Exquisito: Martillo de Forja ×9 · Caja de equipo de héroe de la suerte ×6 · Fragmento de héroe General Mítico ×2
-Tesoro de Marea Majestuoso: Martillo de Forja ×27 · Caja de equipo de héroe de la suerte ×18 · Fragmento de héroe General Mítico ×6
-Tesoro de Marea Común: Planos de talismán ×3 · Acelerador general de 5 min ×12 · 100 Gemas ×2
-Tesoro de Marea Premium: Guía de talismanes ×3 · Planos de talismán ×6 · Acelerador general de 1 h ×4
-Tesoro de Marea Exquisito: Guía de talismanes ×9 · Planos de talismán ×9 · Fragmento de héroe General Mítico ×2
-Tesoro de Marea Majestuoso: Guía de talismanes ×30 · Planos de talismán ×30 · Fragmento de héroe General Mítico ×6
+Tesoro de Marea Común | 100 Gemas ×5 · 100 partes de EXP de mejora ×3 · Acelerador general de 5 min ×12 | Planos de talismán ×3 · Acelerador general de 5 min ×12 · 100 Gemas ×2
+Tesoro de Marea Premium | Caja de equipo de héroe de la suerte ×4 · 100 partes de EXP de mejora ×5 · Acelerador general de 1 h ×3 | Guía de talismanes ×3 · Planos de talismán ×6 · Acelerador general de 1 h ×4
+Tesoro de Marea Exquisito | Martillo de Forja ×9 · Caja de equipo de héroe de la suerte ×6 · Fragmento de héroe General Mítico ×2 | Guía de talismanes ×9 · Planos de talismán ×9 · Fragmento de héroe General Mítico ×2
+Tesoro de Marea Majestuoso | Martillo de Forja ×27 · Caja de equipo de héroe de la suerte ×18 · Fragmento de héroe General Mítico ×6 | Guía de talismanes ×30 · Planos de talismán ×30 · Fragmento de héroe General Mítico ×6
 Común = materiales básicos · Premium = base para fusionar · Exquisito y Majestuoso = las recompensas principales. Las cantidades pueden variar según el progreso del servidor.
 💡 CONSEJOS
 Envía equipos cada 8 horas. Solo con el equipo gratis va lento.

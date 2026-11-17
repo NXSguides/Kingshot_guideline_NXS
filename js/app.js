@@ -425,6 +425,7 @@ function hcSet(k, v) {
   if (root) root.innerHTML = heroCardsHtml();
 }
 
+const ITEM_ICONS = new Set(["tidalCommon", "tidalPremium", "tidalExquisite", "tidalMajestic", "mythicGeneralShard", "luckyGearChest", "forgehammer", "enhXpPart100", "mithril", "gearBoostChest"]);   // pictures in figures/items/
 const BLOCKS = {
   h: (b) => `<h3 class="section-h"${b.id ? ` id="sec-${escapeHtml(b.id)}"` : ""}>${rich(b.text)}</h3>`,
   /* a button that scrolls to a heading with that id in the same guide (the hash is used for routing, so no #anchor links) */
@@ -433,6 +434,16 @@ const BLOCKS = {
   p: (b) => `<p>${rich(b.text)}</p>`,
   list: (b) => ul(b.items),
   callout: (b) => `<div class="callout flat">${rich(b.text)}</div>`,
+  /* 🎁 reward comparison table (Sherry 2026-11-17: the voyage event's rewards per run, side by side, with the item pictures).
+     A cell can name an item as ::termKey:: → its picture (figures/items/<key>.png) when we have one, otherwise the item's name;
+     ::termKey+:: = picture and name. Pictured items without their name get a small legend under the table. */
+  rtable: (b) => { const used = [];
+    const cell = (c) => rich(String(c)).replace(/::(\w+?)(\+?)::/g, (m, k, plus) => { const n = GLOSSARY[k] ? escapeHtml(term(k)) : k;
+      if (!ITEM_ICONS.has(k)) return n; if (!plus && !used.includes(k)) used.push(k);
+      return `<img class="it-ic" src="figures/items/${k}.png" alt="${n}" title="${n}" loading="lazy">${plus ? " " + n : ""}`; });
+    const body = (b.rows || []).map((r) => `<tr>${r.map((c, i) => i ? `<td>${cell(c)}</td>` : `<th scope="row">${cell(c)}</th>`).join("")}</tr>`).join("");
+    return `<div class="rt-wrap"><table class="rt"><thead><tr>${(b.head || []).map((h) => `<th>${cell(h)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`
+      + (used.length ? `<div class="rt-legend">${used.map((k) => `<span><img class="it-ic" src="figures/items/${k}.png" alt=""> ${escapeHtml(term(k))}</span>`).join("")}</div>` : ""); },
   /* the NAP rule: its own card so it stands out (Armada asked), alliance tags as chips */
   nap: (b) => `<div class="nap-card"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div></div>`,
   /* home page: the short NAP 6 card — tapping it opens the 🤝 NAP Rules guide */

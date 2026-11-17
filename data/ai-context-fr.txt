@@ -1100,36 +1100,26 @@ Chaque voyage rapporte un Trésor des Marées Commun (90 %) ou un Trésor des Ma
 Chaque Boussole réduit un voyage d'1 heure. Les boussoles viennent du Pack Voiles Hissées.
 Tu reçois 1 Boussole gratuite par jour ; celles non utilisées restent pour le prochain événement.
 🎯 RÉCOMPENSES DE PALIER (voyages au total)
-Voyage de Lumière (11/17)
-1 → 1 Coffre personnalisé de Boost d'Équipement
-5 → 9 Marteau de Forge
-20 → 18 Marteau de Forge
-60 → 2 Coffre personnalisé de Boost d'Équipement
-120 → 6 Coffre personnalisé de Boost d'Équipement
-200 → 10 Coffre personnalisé de Boost d'Équipement
-350 → 15 Coffre personnalisé de Boost d'Équipement
-550 → 20 Coffre personnalisé de Boost d'Équipement
-800 → 30 Coffre personnalisé de Boost d'Équipement
-Coffre personnalisé de Boost d'Équipement (un au choix): Caisse d'Équipement de Héros Chanceux ×10 · Marteau de Forge ×10 · 100 Points d'EXP d'Amélioration ×20 · Mithril ×1
-Voyage au Fil des Vagues (10/20)
-1 → 5 Guide de Talisman
-5 → 10 Guide de Talisman
-20 → 20 Guide de Talisman
-60 → 40 Plans de Talisman
-120 → 90 Plans de Talisman
-200 → 120 Plans de Talisman
-350 → 80 coffres de matériaux de Talisman du Gouverneur aléatoires
-550 → 100 coffres de matériaux de Talisman du Gouverneur aléatoires
-800 → 120 coffres de matériaux de Talisman du Gouverneur aléatoires
+ | Voyage de Lumière (11/17) | Voyage au Fil des Vagues (10/20)
+1 | Coffre personnalisé de Boost d'Équipement ×1 | 5 Guide de Talisman
+5 | Marteau de Forge ×9 | 10 Guide de Talisman
+20 | Marteau de Forge ×18 | 20 Guide de Talisman
+60 | Coffre personnalisé de Boost d'Équipement ×2 | 40 Plans de Talisman
+120 | Coffre personnalisé de Boost d'Équipement ×6 | 90 Plans de Talisman
+200 | Coffre personnalisé de Boost d'Équipement ×10 | 120 Plans de Talisman
+350 | Coffre personnalisé de Boost d'Équipement ×15 | 80 coffres de matériaux de Talisman du Gouverneur aléatoires
+550 | Coffre personnalisé de Boost d'Équipement ×20 | 100 coffres de matériaux de Talisman du Gouverneur aléatoires
+800 | Coffre personnalisé de Boost d'Équipement ×30 | 120 coffres de matériaux de Talisman du Gouverneur aléatoires
+Coffre personnalisé de Boost d'Équipement (un au choix)
+Caisse d'Équipement de Héros Chanceux ×10
+Marteau de Forge ×10
+100 Points d'EXP d'Amélioration ×20
+Mithril ×1
 🎁 CONTENU DES TRÉSORS
-Trésor des Marées Commun: 100 Gemmes ×5 · 100 Points d'EXP d'Amélioration ×3 · Accélérateur général 5 min ×12
-Trésor des Marées Premium: Caisse d'Équipement de Héros Chanceux ×4 · 100 Points d'EXP d'Amélioration ×5 · Accélérateur général 1 h ×3
-Trésor des Marées Exquis: Marteau de Forge ×9 · Caisse d'Équipement de Héros Chanceux ×6 · Fragment Universel de Héros Mythique ×2
-Trésor des Marées Majestueux: Marteau de Forge ×27 · Caisse d'Équipement de Héros Chanceux ×18 · Fragment Universel de Héros Mythique ×6
-Trésor des Marées Commun: Plans de Talisman ×3 · Accélérateur général 5 min ×12 · 100 Gemmes ×2
-Trésor des Marées Premium: Guide de Talisman ×3 · Plans de Talisman ×6 · Accélérateur général 1 h ×4
-Trésor des Marées Exquis: Guide de Talisman ×9 · Plans de Talisman ×9 · Fragment Universel de Héros Mythique ×2
-Trésor des Marées Majestueux: Guide de Talisman ×30 · Plans de Talisman ×30 · Fragment Universel de Héros Mythique ×6
+Trésor des Marées Commun | 100 Gemmes ×5 · 100 Points d'EXP d'Amélioration ×3 · Accélérateur général 5 min ×12 | Plans de Talisman ×3 · Accélérateur général 5 min ×12 · 100 Gemmes ×2
+Trésor des Marées Premium | Caisse d'Équipement de Héros Chanceux ×4 · 100 Points d'EXP d'Amélioration ×5 · Accélérateur général 1 h ×3 | Guide de Talisman ×3 · Plans de Talisman ×6 · Accélérateur général 1 h ×4
+Trésor des Marées Exquis | Marteau de Forge ×9 · Caisse d'Équipement de Héros Chanceux ×6 · Fragment Universel de Héros Mythique ×2 | Guide de Talisman ×9 · Plans de Talisman ×9 · Fragment Universel de Héros Mythique ×2
+Trésor des Marées Majestueux | Marteau de Forge ×27 · Caisse d'Équipement de Héros Chanceux ×18 · Fragment Universel de Héros Mythique ×6 | Guide de Talisman ×30 · Plans de Talisman ×30 · Fragment Universel de Héros Mythique ×6
 Commun = matériaux de base · Premium = point de départ des fusions · Exquis & Majestueux = les vraies récompenses. Les quantités peuvent varier selon la progression du serveur.
 💡 CONSEILS
 Envoie tes équipages toutes les 8 heures. Avec le seul équipage gratuit, c'est lent.
