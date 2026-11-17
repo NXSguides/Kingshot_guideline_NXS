@@ -3,6 +3,18 @@
 const ROOT = document.getElementById('pg-events');
 /* Starting content for the Events tab. Used only until the first save; after that data/events-x7k2p9.json is the source. */
 const INGAME_DEFAULTS = {
+  "wavebound-voyage": [
+    { title: "Voyage Event", text: `⛵️Voyage Event (the ship in Deals — the game gives it a new name every time)
+
+5-day event: send Voyager Teams every 8h for Tidal Treasures, then merge them for the key rewards.
+
+• Teams: 1 free + more with Gems/purchase (teams still out at the end count)
+
+• Merging: 3 Common → Premium / 3 Premium → Exquisite (75%) or Majestic (25%).
+*Check rewards before merging. Get what you need first.
+
+• Tips: F2P, use Gems to hit your goal. Light spenders: reach 196, finish at 200. Save Compasses for the end.` },
+  ],
   "call-of-sovereign": [
     { title: "Save your Gold & Platinum Keys", text: `🔑 SAVE YOUR GOLD & PLATINUM KEYS!
 
@@ -411,9 +423,13 @@ const MOBILIZATION_TODO = [
 const BEAR_TODO = [];   // Bear Hunt repeats by itself — nothing for officers to do unless the time changes
 /* built-in lists that replace an already-saved list once (bump the number to push a new version) */
 const TODO_PUSH = { "call-of-sovereign": [1, () => TODO["call-of-sovereign"]], "swordland-showdown": [8, () => SWORDLAND_TODO], "tri-alliance-clash": [1, () => TAC_TODO], "viking-vengeance": [1, () => VV_TODO],
-  "sanctuary-battle": [1, () => SANCTUARY_TODO], "alliance-mobilization": [1, () => MOBILIZATION_TODO], "bear-hunt": [2, () => BEAR_TODO] };
+  "sanctuary-battle": [1, () => SANCTUARY_TODO], "alliance-mobilization": [1, () => MOBILIZATION_TODO], "bear-hunt": [2, () => BEAR_TODO], "wavebound-voyage": [1, () => VOYAGE_TODO] };
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
+const VOYAGE_TODO = [
+  { due: 0, ig: "Voyage Event", en: "Send the Voyage Event message to everyone.", zh: "把航海之旅的訊息傳給大家。" },
+];
 const TODO = {
+  "wavebound-voyage": VOYAGE_TODO,
   "viking-vengeance": VV_TODO,
   // in-game phases: voting 2 days (day 0–1) · registration 2 days (day 2–3, R4 picks time + roster) · matchmaking 2 days (day 4–5) · battle 1 h (day 6)
   "swordland-showdown": SWORDLAND_TODO,
@@ -1329,6 +1345,12 @@ function seedTodos(list) {
   for (const e of list) if (e.id === "call-of-sovereign") { if (!e.zh || e.zh === "Call of the Sovereign") e.zh = EVENTS[e.id].zh; if (e.noteZh && /金鑰匙|白金/.test(e.noteZh) && !/黃金鑰匙/.test(e.noteZh)) e.noteZh = EVENTS[e.id].noteZh; }
   /* 🏆 Alliance Championship: troop updates close at 23:00 UTC on Tuesday → an exact 22:30 UTC reminder (added once; acAtV marks it, so deleting it sticks) */
   for (const e of list) if (e.id === "alliance-championship" && !e.acAtV) { e.todo = e.todo || []; if (!e.todo.some((t) => t.at)) e.todo.push({ ...EXTRA_EVENTS.find((x) => x.id === e.id).todo.find((t) => t.at) }); e.acAtV = 1; }
+  /* ⛵ the game renames this event every run (10/20 Wavebound Voyage, 11/17 Voyage of Light) → our own fixed name, every 28 days, and the message to send (once; vyV marks it, so later edits stick) */
+  for (const e of list) if (e.id === "wavebound-voyage" && !e.vyV) { const d = EVENTS[e.id];
+    if (!e.en || e.en === "Wavebound Voyage") e.en = d.en; if (!e.zh || e.zh === "踏浪之旅") e.zh = d.zh;
+    if (!(e.every > 0) || e.every > 1000) { e.start = d.start; e.every = d.every; e.days = d.days; }
+    if (!e.ingame || !e.ingame.length) e.ingame = INGAME_DEFAULTS[e.id].map((x) => ({ ...x }));
+    e.vyV = 1; }
   /* replace saved lists once with the newer built-in steps (todoV marks it, so later edits stick) */
   for (const e of list) { const p = TODO_PUSH[e.id]; if (p && e.todoV !== p[0]) { e.todo = p[1]().map((x) => ({ ...x })); e.todoV = p[0]; e.todoSeed = 1; } }
   for (const e of list) {
