@@ -808,7 +808,8 @@
   #pg-attend .at-plist { display: flex; flex-wrap: wrap; gap: 6px; }
   #pg-attend .at-p { padding: 5px 10px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: inherit; font: inherit; font-size: 13px; cursor: pointer; }
   #pg-attend .at-p.ok { border-color: #2e7d32; color: #2e7d32; }
-  #pg-attend .at-p.no { border-color: #b3261e; color: #b3261e; background: color-mix(in srgb, #b3261e 10%, transparent); }
+  /* a miss gets stronger each time (Sherry 2026-11-17: a 1st miss in red read as "3rd+"): 1st = yellow · 2nd = orange · 3rd+ = solid red */
+  #pg-attend .at-p.no { border-color: #b8920a; color: #b8920a; background: color-mix(in srgb, #d4a900 12%, transparent); }
   #pg-attend .at-p.no.m2 { border-color: #c0640a; color: #c0640a; background: color-mix(in srgb, #c0640a 12%, transparent); }
   #pg-attend .at-p.no.m3 { background: #b3261e; color: #fff; font-weight: 700; }
   #pg-attend .at-p small { font-size: 11px; opacity: .85; }
