@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Territory + Hive: 🏰 Planning now strip (which alliance)", /🏰 "Planning now: NXS \/ nxs" strip \(2026-11-17\)/, /mv23: "🏰 This strip always says/],
   ["Hive: 🤝 shared Bear Trap list (NXS BT3 + nxs BT1)", /🤝 Shared Bear Trap box \(2026-11-17\)/, /mv22: "🤝 Shared Bear Trap/],
   ["Hive: the other alliance faint in the background + Y 704 border", /🐝 Hive map \(2026-11-17\)/, /mv21: "🏰 The faint white squares/],
   ["Officers: 🏰 alliance per officer (NXS / nxs / both) + one shared NXS | nxs pick", /🏰 Alliance column \(2026-11-16\)/, /pm07: "🏰 Alliance: NXS \+ nxs/],
