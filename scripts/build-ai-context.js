@@ -52,7 +52,7 @@ function build(lang) {
       const c = clean(v);
       if (c) out.push(D.HEROES[c] ? pick(D.HEROES[c]) : c);
     } else if (Array.isArray(v)) v.forEach((x) => walk(x, out, key));
-    else if (v && v.type === "rtable") { const row = (r) => r.map((c) => clean(String(c))).join(" | "); out.push(row(v.head || [])); for (const r of v.rows || []) out.push(row(r)); }   // one line per table row
+    else if (v && v.type === "rtable") { const nm = v.names || {}, row = (r) => r.map((c) => clean(String(c).replace(/::gems:: ×/g, "100 {gems} ×").replace(/::(\w+?)\+?::/g, (m, k) => (nm[k] != null ? nm[k] : m)))).join(" | "); out.push(row(v.head || [])); for (const r of v.rows || []) out.push(row(r)); }   // one line per table row
     else if (v && typeof v === "object") for (const k in v) walk(v[k], out, k);
   };
 
