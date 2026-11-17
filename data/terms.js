@@ -27,7 +27,7 @@ const TERMS = [
  {
   "cat": "Wavebound Voyage",
   "rows": [
-   ["Wavebound Voyage", "踏浪之旅", "파도 위를 가르는 여행", "Wellenwärtsreise", "Voyage au Fil des Vagues", "Viagem das Ondas", "Dalgalara Karşı Yolculuk", "Pelayaran Ombak", "Вояж по волнам", "การเดินทางคลื่น", "رحلة الأمواج", "Viaje Ligado a las Olas", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Wavebound Voyage", "踏浪之旅", "파도 위를 가르는 여행", "Wellenwärtsreise", "Voyage au Fil des Vagues", "Viagem das Ondas", "Dalgalara Karşı Yolculuk", "Pelayaran Ombak", "Вояж по волнам", "การเดินทางคลื่น", "رحلة الأمواج", "Viaje Ligado a las Olas", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19. The game renames this event every run: the 2026-11-17 run is Voyage of Light / 沐光之旅 (EN + ZH screens). The site uses its own fixed name: Voyage Event / 航海之旅."],
    ["Voyager Team", "探索隊", "탐사대", "Seefahrer-Team", "Équipage", "Equipe de Viajantes", "Yolcu Takımı", "Tim Pelayaran", "отряд путешественников", "ทีมนักเดินทาง", "فريق الرحلة", "Equipo de Viajeros", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
    ["Compass", "航海羅盤", "항해 나침반", "Kompass", "Boussole", "Bússola", "Pusula", "Kompas", "компас", "เข็มทิศ", "بوصلة", "Brújula", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
    ["Sails Aloft Pack", "揚帆起航禮包", "본격적인 출항 패키지", "Segel gehisst Paket", "Pack Voiles Hissées", "Pacote Velas ao Alto", "Yelkenler Fora Paketi", "Paket Layar Terbentang", "набор «Поднять паруса»", "แพ็กกางใบเรือสู่การเดินทาง", "حزم الأشرعة العالية", "Paquete de Velas Izadas", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],

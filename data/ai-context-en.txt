@@ -1087,7 +1087,7 @@ Light spenders: same plan. Buy Fantasy Amulets only if it gets you an item you w
 Big spenders: only push to Floor 7 if you want Fanstars and the Fantasy Fortress (other players estimate about US$100–300).
 Also open the chest at the top right — it counts every Fantasy Amulets you use. Before the event ends, spend all Fantasy Tokens (leftovers become Lv.1 resource chests, from another player's guide).
 
-### GUIDE #wavebound-voyage — Wavebound Voyage
+### GUIDE #wavebound-voyage — Voyage Event
 WHEN
 Irregular event (no fixed cycle). 5 days: 10/20 00:00 UTC – 10/24 24:00 UTC, then 1 more day to open or merge treasures (no new voyages).
 HOW IT WORKS
@@ -1096,7 +1096,7 @@ You start with 1 free team. Teams 2 and 3 cost 2,000 and 10,000 Gems; team 4 is 
 Each voyage brings back a Common Tidal Treasure (90%) or a Premium Tidal Treasure (10%).
 Merge 3 Common Tidal Treasure → 1 Premium Tidal Treasure. Merge 3 Premium Tidal Treasure → Exquisite Tidal Treasure (75%) or Majestic Tidal Treasure (25%).
 Each Compass cuts a voyage by 1 hour. Compasses come from the Sails Aloft Pack.
-You get 1 free Compass a day; unused ones carry over to the next Wavebound Voyage.
+You get 1 free Compass a day; unused ones carry over to the next Voyage Event.
 🎯 MILESTONE REWARDS (total voyages)
 1 → 5 Charm Guide
 5 → 10 Charm Guide

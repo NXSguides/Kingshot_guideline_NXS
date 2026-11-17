@@ -1088,7 +1088,7 @@ Gastan poco: mismo plan. Compra Amuletos de fantasía solo si te alcanza para un
 Gastan mucho: sube al piso 7 solo por las Estrellas de fantasía y la Fortaleza de fantasía (otros jugadores estiman unos US$100–300).
 Abre también el cofre de arriba a la derecha — cuenta cada Amuletos de fantasía que usas. Antes de que termine, gasta todos los 🪙 Fantasy Token (lo que sobre se convierte en cofres de recursos Nv.1, guía de otro jugador).
 
-### GUIDE #wavebound-voyage — Viaje Ligado a las Olas
+### GUIDE #wavebound-voyage — Viaje Marítimo
 CUÁNDO
 Evento irregular (sin ciclo fijo). 5 días: 10/20 00:00 UTC – 10/24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes).
 CÓMO FUNCIONA
@@ -2585,6 +2585,7 @@ okay if needed = aceptable si es necesario
 don't use = no usar
 need to do daily = hacer a diario
 Fantasy Tokens = 🪙 Fantasy Token
+Voyage Event = Viaje Marítimo
 Captain = Capitán
 Conscript = reclutar
 neutral buildings = edificios neutrales

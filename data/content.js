@@ -306,7 +306,7 @@ const GLOSSARY = {
   fanstar: { zh:"夢幻之星", en:"Fanstars", ko:"몽환의 별", de:"Fan-Sterne", fr:"Étoiles Fantaisies", pt:"Estrelas Fantasia", tr:"Rüya Yıldızı", id:"Fanstar", ru:"звезды фантазии", th:"ดาวแฟนตาซี", ar:"نجوم الخيال", es:"Estrellas de fantasía" },
   fantasyFortress: { zh:"夢幻城堡", en:"Fantasy Fortress", ko:"몽환 캐슬", de:"Fantasy-Festung", fr:"Fort Fantaisie", pt:"Fortaleza Fantasia", tr:"Rüya Kalesi", id:"Benteng Fantasi", ru:"Форт фантазии", th:"ป้อมปราการแฟนตาซี", ar:"حصن الخيال", es:"Fortaleza de fantasía" },
   fantasyToken: { zh:"夢幻幣", en:"Fantasy Tokens", ko:"🪙 Fantasy Token", de:"🪙 Fantasy Token", fr:"🪙 Fantasy Token", pt:"🪙 Fantasy Token", tr:"🪙 Fantasy Token", id:"🪙 Fantasy Token", ru:"🪙 Fantasy Token", th:"🪙 Fantasy Token", ar:"🪙 Fantasy Token", es:"🪙 Fantasy Token" },
-  waveboundVoyage: { zh:"踏浪之旅", en:"Wavebound Voyage", ko:"파도 위를 가르는 여행", de:"Wellenwärtsreise", fr:"Voyage au Fil des Vagues", pt:"Viagem das Ondas", tr:"Dalgalara Karşı Yolculuk", id:"Pelayaran Ombak", ru:"Вояж по волнам", th:"การเดินทางคลื่น", ar:"رحلة الأمواج", es:"Viaje Ligado a las Olas" },
+  waveboundVoyage: { zh:"航海之旅", en:"Voyage Event", ko:"항해 여행", de:"Seereise", fr:"Voyage en Mer", pt:"Viagem Marítima", tr:"Deniz Yolculuğu", id:"Pelayaran", ru:"Морской вояж", th:"การเดินทางทางทะเล", ar:"الرحلة البحرية", es:"Viaje Marítimo" },
   voyagerTeam: { zh:"探索隊", en:"Voyager Team", ko:"탐사대", de:"Seefahrer-Team", fr:"Équipage", pt:"Equipe de Viajantes", tr:"Yolcu Takımı", id:"Tim Pelayaran", ru:"отряд путешественников", th:"ทีมนักเดินทาง", ar:"فريق الرحلة", es:"Equipo de Viajeros" },
   voyageCompass: { zh:"航海羅盤", en:"Compass", ko:"항해 나침반", de:"Kompass", fr:"Boussole", pt:"Bússola", tr:"Pusula", id:"Kompas", ru:"компас", th:"เข็มทิศ", ar:"بوصلة", es:"Brújula" },
   sailsAloftPack: { zh:"揚帆起航禮包", en:"Sails Aloft Pack", ko:"본격적인 출항 패키지", de:"Segel gehisst Paket", fr:"Pack Voiles Hissées", pt:"Pacote Velas ao Alto", tr:"Yelkenler Fora Paketi", id:"Paket Layar Terbentang", ru:"набор «Поднять паруса»", th:"แพ็กกางใบเรือสู่การเดินทาง", ar:"حزم الأشرعة العالية", es:"Paquete de Velas Izadas" },
@@ -10409,13 +10409,13 @@ const GUIDES = {
   },
   "wavebound-voyage": {
     emoji: "⛵",
-    name: { en: "Wavebound Voyage", zh: "踏浪之旅", ko: "파도 위를 가르는 여행", de: "Wellenwärtsreise", fr: "Voyage au Fil des Vagues", pt: "Viagem das Ondas", tr: "Dalgalara Karşı Yolculuk", id: "Pelayaran Ombak", ru: "Вояж по волнам", th: "การเดินทางคลื่น", ar: "رحلة الأمواج", es: "Viaje Ligado a las Olas" },
+    name: { en: "Voyage Event", zh: "航海之旅", ko: "항해 여행", de: "Seereise", fr: "Voyage en Mer", pt: "Viagem Marítima", tr: "Deniz Yolculuğu", id: "Pelayaran", ru: "Морской вояж", th: "การเดินทางทางทะเล", ar: "الرحلة البحرية", es: "Viaje Marítimo" },
     sections: {
-      en: { title: "Wavebound Voyage", blocks: [
+      en: { title: "Voyage Event", blocks: [
         {"type": "h", "text": "WHEN"},
         {"type": "p", "text": "Irregular event (no fixed cycle). 5 days: 10/20 00:00 UTC – 10/24 24:00 UTC, then 1 more day to open or merge treasures (no new voyages)."},
         {"type": "h", "text": "HOW IT WORKS"},
-        {"type": "list", "items": ["Send a {voyagerTeam} on a voyage — each team can go out every 8 hours.", "You start with 1 free team. Teams 2 and 3 cost 2,000 and 10,000 {gems}; team 4 is paid.", "Each voyage brings back a {tidalCommon} (90%) or a {tidalPremium} (10%).", "Merge 3 {tidalCommon} → 1 {tidalPremium}. Merge 3 {tidalPremium} → {tidalExquisite} (75%) or {tidalMajestic} (25%).", "Each {voyageCompass} cuts a voyage by 1 hour. Compasses come from the {sailsAloftPack}.", "You get 1 free Compass a day; unused ones carry over to the next Wavebound Voyage."]},
+        {"type": "list", "items": ["Send a {voyagerTeam} on a voyage — each team can go out every 8 hours.", "You start with 1 free team. Teams 2 and 3 cost 2,000 and 10,000 {gems}; team 4 is paid.", "Each voyage brings back a {tidalCommon} (90%) or a {tidalPremium} (10%).", "Merge 3 {tidalCommon} → 1 {tidalPremium}. Merge 3 {tidalPremium} → {tidalExquisite} (75%) or {tidalMajestic} (25%).", "Each {voyageCompass} cuts a voyage by 1 hour. Compasses come from the {sailsAloftPack}.", "You get 1 free Compass a day; unused ones carry over to the next Voyage Event."]},
         {"type": "h", "text": "🎯 MILESTONE REWARDS (total voyages)"},
         {"type": "list", "items": ["**1** → 5 {charmGuide}", "**5** → 10 {charmGuide}", "**20** → 20 {charmGuide}", "**60** → 40 {charmDesign}", "**120** → 90 {charmDesign}", "**200** → 120 {charmDesign}", "**350** → 80 random {governorCharm} material chest", "**550** → 100 random {governorCharm} material chest", "**800** → 120 random {governorCharm} material chest"]},
         {"type": "h", "text": "🎁 WHAT'S IN EACH TREASURE"},
@@ -10424,11 +10424,11 @@ const GUIDES = {
         {"type": "h", "text": "💡 TIPS"},
         {"type": "list", "items": ["**Send teams every 8 hours.** One free team alone is slow.", "Set a custom ⏰ timer on this site (in the AI chat) to remind you every 8 hours.", "**F2P:** Team 2 (2,000 {gems}) is worth it — 30 voyages reach milestone 20, and the {tidalCommon} give back about the {gems} you spent.", "Team 3 (10,000 {gems}) alone only reaches about 45 voyages; milestone 60 needs all 4 teams.", "**Light spenders:** reach 196 voyages, then finish with your last 4 (milestone 200) — good rewards without overspending.", "**Big spenders:** keep going to 800, the top milestone.", "Save {voyageCompass} for the end — don't use them early. Use them to reach 196 or to fill a gap.", "Merging into higher treasures is the key, but each chest gives different rewards — merge for what you need first.", "Teams already out when the event ends still come back and count toward the milestones."]}
       ]},
-      zh: { title: "踏浪之旅", blocks: [
+      zh: { title: "航海之旅", blocks: [
         {"type": "h", "text": "開放時間"},
         {"type": "p", "text": "不定期活動（沒有固定週期）。共 5 天：10/20 00:00 UTC – 10/24 24:00 UTC，之後還有 1 天可以開啟或合成寶藏（不能再派隊）。"},
         {"type": "h", "text": "怎麼玩"},
-        {"type": "list", "items": ["派{voyagerTeam}出去探索，每支隊伍每 8 小時可以出發一次。", "一開始有 1 支免費隊伍。第 2、3 支要 2,000 和 10,000 {gems}，第 4 支要付費。", "每次探索回來會拿到{tidalCommon}（90%）或{tidalPremium}（10%）。", "3 個{tidalCommon} → 1 個{tidalPremium}。3 個{tidalPremium} → {tidalExquisite}（75%）或{tidalMajestic}（25%）。", "每個{voyageCompass}可以讓一次探索縮短 1 小時，從{sailsAloftPack}取得。", "每天送 1 個免費{voyageCompass}，沒用完會留到下次踏浪之旅。"]},
+        {"type": "list", "items": ["派{voyagerTeam}出去探索，每支隊伍每 8 小時可以出發一次。", "一開始有 1 支免費隊伍。第 2、3 支要 2,000 和 10,000 {gems}，第 4 支要付費。", "每次探索回來會拿到{tidalCommon}（90%）或{tidalPremium}（10%）。", "3 個{tidalCommon} → 1 個{tidalPremium}。3 個{tidalPremium} → {tidalExquisite}（75%）或{tidalMajestic}（25%）。", "每個{voyageCompass}可以讓一次探索縮短 1 小時，從{sailsAloftPack}取得。", "每天送 1 個免費{voyageCompass}，沒用完會留到下次航海之旅。"]},
         {"type": "h", "text": "🎯 累計探索次數獎勵"},
         {"type": "list", "items": ["**1** → 5 {charmGuide}", "**5** → 10 {charmGuide}", "**20** → 20 {charmGuide}", "**60** → 40 {charmDesign}", "**120** → 90 {charmDesign}", "**200** → 120 {charmDesign}", "**350** → 80 隨機{governorCharm}材料寶箱", "**550** → 100 隨機{governorCharm}材料寶箱", "**800** → 120 隨機{governorCharm}材料寶箱"]},
         {"type": "h", "text": "🎁 各寶藏的主要獎勵"},
@@ -10437,7 +10437,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 小技巧"},
         {"type": "list", "items": ["**每 8 小時固定派隊。**只靠 1 支免費隊伍會很慢。", "可以在本網站設自訂 ⏰ 計時器（在 AI 對話裡），每 8 小時提醒自己派隊。", "**無課：**第 2 隊（2,000 {gems}）值得買 — 30 次探索能拿到 20 次的獎勵，{tidalCommon}開出的{gems}也差不多能回本。", "只開到第 3 隊（10,000 {gems}）大約 45 次，60 次的獎勵要 4 隊全開才拿得到。", "**小課：**累計到 196 次後，用最後 4 隊收尾（目標 200 次），不用花太多就能拿到不錯的獎勵。", "**大課：**穩穩衝到最高的 800 次。", "{voyageCompass}留到最後再用，不要一開始就用掉。拿來湊到 196 次或補不足的次數。", "合成更高級的寶藏是重點，但每種寶箱獎勵不同，先拿自己需要的。", "活動結束時已經出發的隊伍，回來後一樣算進累計次數。"]}
       ]},
-      ko: { title: "파도 위를 가르는 여행", blocks: [
+      ko: { title: "항해 여행", blocks: [
         {"type": "h", "text": "일정"},
         {"type": "p", "text": "비정기 이벤트. 5일간: 10/20 00:00 UTC – 10/24 24:00 UTC, 이후 1일 동안 보물 개봉·합성만 가능 (추가 탐사 불가)."},
         {"type": "h", "text": "진행 방식"},
@@ -10450,11 +10450,11 @@ const GUIDES = {
         {"type": "h", "text": "💡 팁"},
         {"type": "list", "items": ["**8시간마다 꾸준히 파견.** 무료 탐사대 1개만으로는 느림.", "이 사이트에서 사용자 지정 ⏰ 타이머(AI 채팅 안)로 8시간마다 알림을 받을 수 있어요.", "**무과금:** 2번째 탐사대(2,000 {gems})는 추천 — 30회로 20회 보상 달성, {tidalCommon}의 {gems}로 거의 회수.", "3번째(10,000 {gems})까지만으로는 약 45회 — 60회 보상은 4개 모두 필요.", "**소과금:** 196회까지 진행 후 마지막 탐사 4개로 마무리 (목표 200회) — 과하게 쓰지 않고 보상 확보.", "**고과금:** 최대 보상인 800회까지 꾸준히.", "{voyageCompass}는 마지막 조정용으로 아끼기. 196회 맞추기나 부족분 보완에 사용.", "상위 보물 합성이 핵심. 단 상자마다 보상이 다르니 필요한 것 먼저.", "이벤트 종료 시 이미 파견된 탐사대는 복귀 후 누적 횟수에 포함."]}
       ]},
-      de: { title: "Wellenwärtsreise", blocks: [
+      de: { title: "Seereise", blocks: [
         {"type": "h", "text": "WANN"},
         {"type": "p", "text": "Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 10/20 00:00 UTC – 10/24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen)."},
         {"type": "h", "text": "SO FUNKTIONIERT'S"},
-        {"type": "list", "items": ["Schicke ein {voyagerTeam} auf Reise — jedes Team kann alle 8 Stunden los.", "1 Team ist gratis. Team 2 und 3 kosten 2.000 und 10.000 {gems}, Team 4 ist kostenpflichtig.", "Jede Reise bringt einen {tidalCommon} (90 %) oder einen {tidalPremium} (10 %).", "3 × {tidalCommon} → 1 {tidalPremium}. 3 × {tidalPremium} → {tidalExquisite} (75 %) oder {tidalMajestic} (25 %).", "Jeder {voyageCompass} verkürzt eine Reise um 1 Stunde. Kompasse gibt es im {sailsAloftPack}.", "Du bekommst täglich 1 {voyageCompass} gratis; übrige bleiben bis zur nächsten Wellenwärtsreise."]},
+        {"type": "list", "items": ["Schicke ein {voyagerTeam} auf Reise — jedes Team kann alle 8 Stunden los.", "1 Team ist gratis. Team 2 und 3 kosten 2.000 und 10.000 {gems}, Team 4 ist kostenpflichtig.", "Jede Reise bringt einen {tidalCommon} (90 %) oder einen {tidalPremium} (10 %).", "3 × {tidalCommon} → 1 {tidalPremium}. 3 × {tidalPremium} → {tidalExquisite} (75 %) oder {tidalMajestic} (25 %).", "Jeder {voyageCompass} verkürzt eine Reise um 1 Stunde. Kompasse gibt es im {sailsAloftPack}.", "Du bekommst täglich 1 {voyageCompass} gratis; übrige bleiben bis zur nächsten Seereise."]},
         {"type": "h", "text": "🎯 MEILENSTEINE (Reisen insgesamt)"},
         {"type": "list", "items": ["**1** → 5 {charmGuide}", "**5** → 10 {charmGuide}", "**20** → 20 {charmGuide}", "**60** → 40 {charmDesign}", "**120** → 90 {charmDesign}", "**200** → 120 {charmDesign}", "**350** → 80 zufällige {governorCharm}-Materialtruhen", "**550** → 100 zufällige {governorCharm}-Materialtruhen", "**800** → 120 zufällige {governorCharm}-Materialtruhen"]},
         {"type": "h", "text": "🎁 INHALT DER SCHÄTZE"},
@@ -10463,7 +10463,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 TIPPS"},
         {"type": "list", "items": ["**Alle 8 Stunden Teams schicken.** Nur mit dem Gratis-Team geht es langsam.", "Stell dir auf dieser Seite einen eigenen ⏰-Timer (im KI-Chat) als Erinnerung alle 8 Stunden.", "**F2P:** Team 2 (2.000 {gems}) lohnt sich — 30 Reisen erreichen Meilenstein 20, und die {tidalCommon} bringen die {gems} ungefähr zurück.", "Mit Team 3 (10.000 {gems}) kommst du nur auf ca. 45 Reisen; Meilenstein 60 braucht alle 4 Teams.", "**Wenigzahler:** bis 196 Reisen, dann mit den letzten 4 abschließen (Meilenstein 200) — gute Belohnungen ohne zu viel auszugeben.", "**Vielzahler:** stetig bis 800, dem höchsten Meilenstein.", "{voyageCompass} fürs Ende aufheben, nicht früh verbrauchen — für 196 oder um Lücken zu füllen.", "Zusammenführen ist der Kern, aber jede Truhe gibt andere Belohnungen — zuerst, was du brauchst.", "Teams, die bei Eventende noch unterwegs sind, kommen zurück und zählen für die Meilensteine."]}
       ]},
-      fr: { title: "Voyage au Fil des Vagues", blocks: [
+      fr: { title: "Voyage en Mer", blocks: [
         {"type": "h", "text": "QUAND"},
         {"type": "p", "text": "Événement ponctuel (pas de cycle fixe). 5 jours : 10/20 00:00 UTC – 10/24 24:00 UTC, puis 1 jour pour ouvrir ou fusionner les trésors (plus de voyages)."},
         {"type": "h", "text": "FONCTIONNEMENT"},
@@ -10476,7 +10476,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 CONSEILS"},
         {"type": "list", "items": ["**Envoie tes équipages toutes les 8 heures.** Avec le seul équipage gratuit, c'est lent.", "Crée un ⏰ minuteur perso sur ce site (dans le chat IA) pour un rappel toutes les 8 heures.", "**F2P :** l'équipage 2 (2 000 {gems}) vaut le coup — 30 voyages atteignent le palier 20, et les {tidalCommon} remboursent à peu près les {gems}.", "Avec l'équipage 3 (10 000 {gems}) seul, tu fais env. 45 voyages ; le palier 60 demande les 4 équipages.", "**Petits payeurs :** monte à 196 voyages puis termine avec tes 4 derniers (palier 200) — de bonnes récompenses sans trop dépenser.", "**Gros payeurs :** continue jusqu'à 800, le palier max.", "Garde les {voyageCompass} pour la fin — pas au début. Utilise-les pour atteindre 196 ou combler un manque.", "La fusion est la clé, mais chaque coffre donne des récompenses différentes — prends d'abord ce dont tu as besoin.", "Les équipages encore en mer à la fin reviennent et comptent pour les paliers."]}
       ]},
-      pt: { title: "Viagem das Ondas", blocks: [
+      pt: { title: "Viagem Marítima", blocks: [
         {"type": "h", "text": "QUANDO"},
         {"type": "p", "text": "Evento irregular (sem ciclo fixo). 5 dias: 10/20 00:00 UTC – 10/24 24:00 UTC, depois mais 1 dia para abrir ou combinar tesouros (sem novas viagens)."},
         {"type": "h", "text": "COMO FUNCIONA"},
@@ -10489,7 +10489,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 DICAS"},
         {"type": "list", "items": ["**Envie equipes a cada 8 horas.** Só com a equipe grátis é lento.", "Crie um ⏰ timer personalizado neste site (no chat da IA) para lembrar a cada 8 horas.", "**F2P:** a equipe 2 (2.000 {gems}) vale a pena — 30 viagens chegam ao marco 20, e os {tidalCommon} devolvem mais ou menos as {gems}.", "Só com a equipe 3 (10.000 {gems}) você faz cerca de 45 viagens; o marco 60 precisa das 4 equipes.", "**Quem gasta pouco:** chegue a 196 viagens e termine com as últimas 4 (marco 200) — boas recompensas sem gastar demais.", "**Quem gasta muito:** siga até 800, o marco máximo.", "Guarde as {voyageCompass} para o final — não use cedo. Use para chegar a 196 ou cobrir o que faltar.", "Combinar em tesouros melhores é o principal, mas cada baú dá recompensas diferentes — pegue primeiro o que precisa.", "Equipes que ainda estiverem viajando no fim do evento voltam e contam para os marcos."]}
       ]},
-      tr: { title: "Dalgalara Karşı Yolculuk", blocks: [
+      tr: { title: "Deniz Yolculuğu", blocks: [
         {"type": "h", "text": "NE ZAMAN"},
         {"type": "p", "text": "Düzensiz etkinlik (sabit döngü yok). 5 gün: 10/20 00:00 UTC – 10/24 24:00 UTC, ardından hazineleri açmak veya birleştirmek için 1 gün daha (yeni yolculuk yok)."},
         {"type": "h", "text": "NASIL OYNANIR"},
@@ -10502,7 +10502,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 İPUÇLARI"},
         {"type": "list", "items": ["**Takımları 8 saatte bir gönder.** Sadece ücretsiz takımla yavaş ilerler.", "Bu sitede özel bir ⏰ zamanlayıcı (AI sohbetinde) kurup 8 saatte bir hatırlatma alabilirsin.", "**F2P:** 2. takım (2.000 {gems}) değer — 30 yolculuk 20 eşiğine ulaşır, {tidalCommon} harcadığın {gems} kadarını geri verir.", "Sadece 3. takımla (10.000 {gems}) yaklaşık 45 yolculuk olur; 60 eşiği için 4 takım gerekir.", "**Az harcayanlar:** 196 yolculuğa kadar git, son 4 ile bitir (eşik 200) — fazla harcamadan iyi ödüller.", "**Çok harcayanlar:** en yüksek eşik olan 800'e kadar devam et.", "{voyageCompass} sona sakla, erken kullanma. 196'ya ulaşmak veya eksiği kapatmak için kullan.", "Üst hazinelere birleştirmek esas, ama her sandık farklı ödül verir — önce ihtiyacın olanı al.", "Etkinlik bittiğinde yolda olan takımlar döner ve eşiklere sayılır."]}
       ]},
-      id: { title: "Pelayaran Ombak", blocks: [
+      id: { title: "Pelayaran", blocks: [
         {"type": "h", "text": "KAPAN"},
         {"type": "p", "text": "Event tidak rutin (tanpa siklus tetap). 5 hari: 10/20 00:00 UTC – 10/24 24:00 UTC, lalu 1 hari lagi untuk membuka atau menggabungkan harta karun (tanpa pelayaran baru)."},
         {"type": "h", "text": "CARA MAIN"},
@@ -10515,7 +10515,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 TIPS"},
         {"type": "list", "items": ["**Kirim tim setiap 8 jam.** Hanya dengan tim gratis, progres lambat.", "Pasang ⏰ timer kustom di situs ini (di chat AI) untuk pengingat setiap 8 jam.", "**F2P:** Tim ke-2 (2.000 {gems}) layak — 30 pelayaran mencapai milestone 20, dan {tidalCommon} mengembalikan kira-kira {gems} yang dipakai.", "Hanya sampai tim ke-3 (10.000 {gems}) sekitar 45 pelayaran; milestone 60 butuh 4 tim.", "**Spender kecil:** capai 196 pelayaran lalu tutup dengan 4 terakhir (milestone 200) — hadiah bagus tanpa boros.", "**Spender besar:** terus sampai 800, milestone tertinggi.", "Simpan {voyageCompass} untuk akhir — jangan dipakai di awal. Pakai untuk mencapai 196 atau menutup kekurangan.", "Menggabungkan ke harta karun lebih tinggi adalah kuncinya, tapi tiap peti beda hadiah — ambil yang kamu butuhkan dulu.", "Tim yang masih berlayar saat event berakhir tetap kembali dan dihitung untuk milestone."]}
       ]},
-      ru: { title: "Вояж по волнам", blocks: [
+      ru: { title: "Морской вояж", blocks: [
         {"type": "h", "text": "КОГДА"},
         {"type": "p", "text": "Нерегулярное событие (без фиксированного цикла). 5 дней: 10/20 00:00 UTC – 10/24 24:00 UTC, затем ещё 1 день, чтобы открыть или синтезировать сокровища (новые путешествия недоступны)."},
         {"type": "h", "text": "КАК ЭТО РАБОТАЕТ"},
@@ -10528,7 +10528,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 СОВЕТЫ"},
         {"type": "list", "items": ["**Отправляйте отряды каждые 8 часов.** С одним бесплатным отрядом прогресс медленный.", "Поставьте свой ⏰ таймер на этом сайте (в чате ИИ), чтобы получать напоминание каждые 8 часов.", "**F2P:** 2-й отряд (2 000 {gems}) стоит купить — 30 путешествий дают награду за 20, а {tidalCommon} примерно возвращают {gems}.", "С 3-м отрядом (10 000 {gems}) выходит около 45 путешествий; для награды за 60 нужны все 4 отряда.", "**Мало донатите:** дойдите до 196 путешествий и закончите последними 4 (награда за 200) — хорошо и без лишних трат.", "**Много донатите:** идите до 800 — максимальной награды.", "Берегите {voyageCompass} на конец, не тратьте сразу. Используйте, чтобы дойти до 196 или закрыть нехватку.", "Главное — синтез в высшие сокровища, но в каждом сундуке свои награды — сначала то, что вам нужно.", "Отряды, которые ещё в пути к концу события, вернутся и засчитаются в прогресс."]}
       ]},
-      th: { title: "การเดินทางคลื่น", blocks: [
+      th: { title: "การเดินทางทางทะเล", blocks: [
         {"type": "h", "text": "ช่วงเวลา"},
         {"type": "p", "text": "อีเวนต์ไม่ประจำ (ไม่มีรอบตายตัว) 5 วัน: 10/20 00:00 UTC – 10/24 24:00 UTC จากนั้นมีอีก 1 วันให้เปิดหรือรวมหีบสมบัติ (ส่งทีมใหม่ไม่ได้)"},
         {"type": "h", "text": "วิธีเล่น"},
@@ -10541,7 +10541,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 เคล็ดลับ"},
         {"type": "list", "items": ["**ส่งทีมทุก 8 ชั่วโมง** ทีมฟรีทีมเดียวจะช้า", "ตั้ง ⏰ ตัวจับเวลาเองบนเว็บนี้ (ในแชต AI) ให้เตือนทุก 8 ชั่วโมง", "**F2P:** ทีมที่ 2 (2,000 {gems}) คุ้ม — 30 ครั้งถึงเป้า 20 และ{tidalCommon}ให้{gems}คืนพอ ๆ กับที่จ่าย", "มีถึงทีมที่ 3 (10,000 {gems}) ได้ราว 45 ครั้ง เป้า 60 ต้องใช้ครบ 4 ทีม", "**เติมนิดหน่อย:** ไปให้ถึง 196 ครั้ง แล้วปิดด้วย 4 ครั้งสุดท้าย (เป้า 200) — ได้รางวัลดีโดยไม่ต้องจ่ายมาก", "**เติมหนัก:** ไปต่อจนถึง 800 ซึ่งเป็นเป้าสูงสุด", "เก็บ{voyageCompass}ไว้ใช้ตอนท้าย อย่าใช้ตั้งแต่แรก ใช้เพื่อให้ถึง 196 หรือเติมส่วนที่ขาด", "หัวใจคือการรวมเป็นหีบระดับสูง แต่แต่ละหีบให้รางวัลต่างกัน — เอาสิ่งที่ต้องการก่อน", "ทีมที่ยังเดินทางอยู่ตอนอีเวนต์จบจะกลับมาและนับรวมในเป้าหมาย"]}
       ]},
-      ar: { title: "رحلة الأمواج", blocks: [
+      ar: { title: "الرحلة البحرية", blocks: [
         {"type": "h", "text": "متى"},
         {"type": "p", "text": "فعالية غير دورية (بدون موعد ثابت). 5 أيام: 10/20 00:00 UTC – 10/24 24:00 UTC، ثم يوم إضافي لفتح الكنوز أو دمجها (بدون رحلات جديدة)."},
         {"type": "h", "text": "طريقة اللعب"},
@@ -10554,7 +10554,7 @@ const GUIDES = {
         {"type": "h", "text": "💡 نصائح"},
         {"type": "list", "items": ["**أرسل الفرق كل 8 ساعات.** الفريق المجاني وحده بطيء.", "اضبط مؤقت ⏰ خاصاً في هذا الموقع (داخل محادثة الذكاء الاصطناعي) ليذكّرك كل 8 ساعات.", "**اللاعب المجاني:** الفريق 2 (2,000 من {gems}) يستحق — 30 رحلة تصل إلى هدف 20، و{tidalCommon} تعيد تقريباً ما أنفقته من {gems}.", "مع الفريق 3 (10,000 من {gems}) وحده تصل إلى نحو 45 رحلة فقط؛ هدف 60 يحتاج الفرق الأربعة.", "**الإنفاق القليل:** صل إلى 196 رحلة ثم أنهِ بآخر 4 (هدف 200) — مكافآت جيدة دون إنفاق زائد.", "**الإنفاق الكبير:** واصل حتى 800، أعلى هدف.", "احتفظ بـ {voyageCompass} للنهاية ولا تستخدمها مبكراً — استخدمها للوصول إلى 196 أو لسد النقص.", "الدمج في كنوز أعلى هو الأساس، لكن لكل صندوق مكافآت مختلفة — خذ ما تحتاجه أولاً.", "الفرق التي ما زالت في رحلة عند انتهاء الفعالية تعود وتُحتسب في الأهداف."]}
       ]},
-      es: { title: "Viaje Ligado a las Olas", blocks: [
+      es: { title: "Viaje Marítimo", blocks: [
         {"type": "h", "text": "CUÁNDO"},
         {"type": "p", "text": "Evento irregular (sin ciclo fijo). 5 días: 10/20 00:00 UTC – 10/24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes)."},
         {"type": "h", "text": "CÓMO FUNCIONA"},

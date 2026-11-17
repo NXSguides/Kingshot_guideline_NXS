@@ -1089,7 +1089,7 @@ Petits payeurs : même plan. Achète des Amulettes Fantaisies seulement s'ils te
 Gros payeurs : ne vise l'étage 7 que pour les Étoiles Fantaisies et le Fort Fantaisie (d'autres joueurs estiment environ 100–300 $).
 Ouvre aussi le coffre en haut à droite — il compte chaque Amulettes Fantaisies utilisée. Avant la fin, dépense tous tes 🪙 Fantasy Token (le reste devient des coffres de ressources Nv.1, guide d'un autre joueur).
 
-### GUIDE #wavebound-voyage — Voyage au Fil des Vagues
+### GUIDE #wavebound-voyage — Voyage en Mer
 QUAND
 Événement ponctuel (pas de cycle fixe). 5 jours : 10/20 00:00 UTC – 10/24 24:00 UTC, puis 1 jour pour ouvrir ou fusionner les trésors (plus de voyages).
 FONCTIONNEMENT
@@ -2569,6 +2569,7 @@ okay if needed = acceptable si besoin
 don't use = ne pas utiliser
 need to do daily = à faire chaque jour
 Fantasy Tokens = 🪙 Fantasy Token
+Voyage Event = Voyage en Mer
 Conscript = recruter
 neutral buildings = bâtiments neutres
 Deploy = Déployer

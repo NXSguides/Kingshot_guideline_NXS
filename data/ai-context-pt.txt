@@ -1088,7 +1088,7 @@ Gastam pouco: mesmo plano. Compre Amuletos Fantasia só se isso te der um item q
 Gastam muito: só vá ao Andar 7 se quiser Estrelas Fantasia e a Fortaleza Fantasia (outros jogadores estimam uns US$100–300).
 Abra também o baú no canto superior direito — ele conta cada Amuletos Fantasia usado. Antes do fim, gaste todos os 🪙 Fantasy Token (o que sobrar vira baús de recursos Nv.1, guia de outro jogador).
 
-### GUIDE #wavebound-voyage — Viagem das Ondas
+### GUIDE #wavebound-voyage — Viagem Marítima
 QUANDO
 Evento irregular (sem ciclo fixo). 5 dias: 10/20 00:00 UTC – 10/24 24:00 UTC, depois mais 1 dia para abrir ou combinar tesouros (sem novas viagens).
 COMO FUNCIONA
@@ -2608,6 +2608,7 @@ okay if needed = ok se necessário
 don't use = não usar
 need to do daily = fazer diariamente
 Fantasy Tokens = 🪙 Fantasy Token
+Voyage Event = Viagem Marítima
 Conscript = recrutar
 neutral buildings = construções neutras
 Deploy = Posicionar

@@ -1088,7 +1088,7 @@ Sedikit belanja: rencana sama. Beli Jimat Fantasi hanya kalau cukup untuk item y
 Banyak belanja: naik ke Lantai 7 hanya untuk Fanstar dan Benteng Fantasi (perkiraan pemain lain sekitar US$100–300).
 Buka juga peti di kanan atas — peti itu menghitung setiap Jimat Fantasi yang kamu pakai. Sebelum event berakhir, habiskan semua 🪙 Fantasy Token (sisanya jadi peti sumber daya Lv.1, dari panduan pemain lain).
 
-### GUIDE #wavebound-voyage — Pelayaran Ombak
+### GUIDE #wavebound-voyage — Pelayaran
 KAPAN
 Event tidak rutin (tanpa siklus tetap). 5 hari: 10/20 00:00 UTC – 10/24 24:00 UTC, lalu 1 hari lagi untuk membuka atau menggabungkan harta karun (tanpa pelayaran baru).
 CARA MAIN
@@ -2257,6 +2257,7 @@ okay if needed = boleh jika perlu
 don't use = jangan digunakan
 need to do daily = perlu dilakukan setiap hari
 Fantasy Tokens = 🪙 Fantasy Token
+Voyage Event = Pelayaran
 Conscript = wajib militer
 neutral buildings = bangunan netral
 Deploy = Mengerahkan

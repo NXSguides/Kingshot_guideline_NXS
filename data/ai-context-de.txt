@@ -1090,7 +1090,7 @@ Wenigzahler: gleicher Plan. Fantasy-Amulette nur kaufen, wenn dir dann ein gewü
 Vielzahler: nur für Fan-Sterne und die Fantasy-Festung bis Etage 7 (andere Spieler schätzen etwa 100–300 US$).
 Öffne auch die Truhe oben rechts — sie zählt jedes benutzte Fantasy-Amulette. Vor Event-Ende alle 🪙 Fantasy Token ausgeben (Reste werden Lv.1-Ressourcentruhen, laut Guide eines anderen Spielers).
 
-### GUIDE #wavebound-voyage — Wellenwärtsreise
+### GUIDE #wavebound-voyage — Seereise
 WANN
 Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 10/20 00:00 UTC – 10/24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen).
 SO FUNKTIONIERT'S
@@ -1099,7 +1099,7 @@ Schicke ein Seefahrer-Team auf Reise — jedes Team kann alle 8 Stunden los.
 Jede Reise bringt einen Gewöhnlicher Gezeitenschatz (90 %) oder einen Höherwertiger Gezeitenschatz (10 %).
 3 × Gewöhnlicher Gezeitenschatz → 1 Höherwertiger Gezeitenschatz. 3 × Höherwertiger Gezeitenschatz → Exquisiter Gezeitenschatz (75 %) oder Majestätischer Gezeitenschatz (25 %).
 Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehisst Paket.
-Du bekommst täglich 1 Kompass gratis; übrige bleiben bis zur nächsten Wellenwärtsreise.
+Du bekommst täglich 1 Kompass gratis; übrige bleiben bis zur nächsten Seereise.
 🎯 MEILENSTEINE (Reisen insgesamt)
 1 → 5 Talismanleitfaden
 5 → 10 Talismanleitfaden
@@ -2557,6 +2557,7 @@ okay if needed = bei Bedarf okay
 don't use = nicht nutzen
 need to do daily = täglich nötig
 Fantasy Tokens = 🪙 Fantasy Token
+Voyage Event = Seereise
 Conscript = Einberufen
 neutral buildings = neutrale Gebäude
 Deploy = Aufstellen

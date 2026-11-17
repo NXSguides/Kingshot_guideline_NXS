@@ -1114,7 +1114,7 @@ KvK 준비 단계 2·3일차에는 영웅 룰렛 1회당 8,000점입니다. 그�
 고과금: 몽환의 별와 몽환 캐슬가 목표일 때만 7층까지 (다른 플레이어 추정 약 100–300달러).
 오른쪽 위 상자는 쓴 몽환 부적 수를 세요 — 열어 주세요. 이벤트 종료 전 🪙 Fantasy Token을 모두 쓰세요 (남으면 1레벨 자원 상자, 다른 플레이어 공략 기준).
 
-### GUIDE #wavebound-voyage — 파도 위를 가르는 여행
+### GUIDE #wavebound-voyage — 항해 여행
 일정
 비정기 이벤트. 5일간: 10/20 00:00 UTC – 10/24 24:00 UTC, 이후 1일 동안 보물 개봉·합성만 가능 (추가 탐사 불가).
 진행 방식
@@ -2690,6 +2690,7 @@ okay if needed = 필요하면 사용 가능
 don't use = 사용 금지
 need to do daily = 매일 필요
 Fantasy Tokens = 🪙 Fantasy Token
+Voyage Event = 항해 여행
 Captain = 지휘관
 Conscript = 징집
 neutral buildings = 중립 건물

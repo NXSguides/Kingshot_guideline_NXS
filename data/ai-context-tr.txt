@@ -1088,7 +1088,7 @@ Az harcayanlar: aynı plan. Rüya Tılsımları'yı sadece Tiyatro Mağazası'nd
 Çok harcayanlar: 7. Kata yalnızca Rüya Yıldızı ve Rüya Kalesi için çık (diğer oyuncuların tahmini yaklaşık 100–300 US$).
 Sağ üstteki sandığı da aç — kullandığın her Rüya Tılsımları'yı sayar. Etkinlik bitmeden tüm 🪙 Fantasy Token'leri harca (kalanlar Sv.1 kaynak sandığına dönüşür, başka bir oyuncunun rehberinden).
 
-### GUIDE #wavebound-voyage — Dalgalara Karşı Yolculuk
+### GUIDE #wavebound-voyage — Deniz Yolculuğu
 NE ZAMAN
 Düzensiz etkinlik (sabit döngü yok). 5 gün: 10/20 00:00 UTC – 10/24 24:00 UTC, ardından hazineleri açmak veya birleştirmek için 1 gün daha (yeni yolculuk yok).
 NASIL OYNANIR
@@ -2581,6 +2581,7 @@ okay if needed = gerekirse uygun
 don't use = kullanma
 need to do daily = her gün gerekli
 Fantasy Tokens = 🪙 Fantasy Token
+Voyage Event = Deniz Yolculuğu
 Conscript = görevlendirmek
 neutral buildings = tarafsız binalar
 Deploy = Konuşlandırmak
