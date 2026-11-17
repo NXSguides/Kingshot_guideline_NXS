@@ -1017,6 +1017,33 @@ function drawOwn() {
   g.innerHTML = h; OWN_B.contested = [n1, n2];
 }
 const FW = { hq: 3, b: 1, fl: 1, bt: 3, btp: 3, c: 2 };   // tiles each Academy thing stands on
+/* 🚩 nxs's planned banners get the SAME check as NXS's (flagCalc) — Sherry 2026-11-17: "nxs's banner plan is not checked as strictly as NXS's".
+   Per banner, in list order: tiles it adds, tiles already someone else's, connected to nxs's territory (edge or corner; a cut-off banner is inactive
+   and later ones can't lean on it), banner tile inside NXS's / another alliance's land, on a mountain / lake / resource node, in a no-build zone.
+   Land = what stands now (OWN_A: 1 NXS · 2 nxs · 3 others) + NXS's planned banners marked ⬆ "built first" — the mirror of what NXS's check sees. */
+function farmFlagCalc() {
+  if (!OWN_A) ownBuild();
+  const f = PLAN.farm || {}, mine = new Set(), first = new Set(), out = [];
+  for (const [x, y] of PLAN.fl || []) if (farmLv("p", x, y) === 1) for (let j = y - FR; j <= y + FR; j++) for (let i = x - FR; i <= x + FR; i++) first.add(i * FN + j);
+  const own = (x, y) => { if (x < 0 || y < 0 || x >= FN || y >= FN) return 9; const o = OWN_A[y * FN + x]; return o || (first.has(x * FN + y) ? 1 : 0); };
+  const ours = (x, y) => own(x, y) === 2 || mine.has(x * FN + y);
+  for (const [fx, fy] of f.fl || []) {
+    const fresh = [], lost = []; let conn = false;
+    for (let x = fx - FR; x <= fx + FR; x++) for (let y = fy - FR; y <= fy + FR; y++) {
+      if (ours(x, y)) { conn = true; continue; }
+      if (own(x, y)) { lost.push([x, y]); continue; }
+      fresh.push([x, y]);
+    }
+    if (!conn) for (let x = fx - FR; x <= fx + FR && !conn; x++) for (const y of [fy - FR - 1, fy + FR + 1]) if (ours(x, y)) conn = true;
+    if (!conn) for (let y = fy - FR; y <= fy + FR && !conn; y++) for (const x of [fx - FR - 1, fx + FR + 1]) if (ours(x, y)) conn = true;
+    if (!conn) for (const x of [fx - FR - 1, fx + FR + 1]) for (const y of [fy - FR - 1, fy + FR + 1]) if (ours(x, y)) conn = true;
+    if (conn) fresh.forEach(([x, y]) => mine.add(x * FN + y));
+    const o = own(fx, fy);
+    out.push({ x: fx, y: fy, fresh, lost, conn, onOther: !!o && o !== 2, ob: obstAt(fx, fy), node: nodeAt(fx, fy), zone: ZNAME[zoneAt(fx, fy)] || "" });
+  }
+  return out;
+}
+const farmFlagBad = (c) => !c.conn || c.onOther || c.ob || c.node || c.zone;
 function farmBlocked() { const f = PLAN.farm || {}, out = []; for (const k of FK) (f[k] || []).forEach((it, i) => { const r = blockOf(it[0], it[1], FW[k]); if (r) out.push({ k, i, x: it[0], y: it[1], r }); }); return out; }
 function drawFarm() {
   const clr = () => { for (const id of ["km_farmG", "km_hdlG", "km_topG"]) if ($(id)) $(id).innerHTML = ""; };
@@ -1027,7 +1054,8 @@ function drawFarm() {
   let h = "";
   (f.hq || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x - 6, y - 6, x + 8, y + 8)}" fill="rgba(60,190,90,.35)" stroke="#9be7a8" stroke-width=".5"/><polygon points="${sq(x, y, x + 2, y + 2)}" fill="#1f7a3a" stroke="#fff" stroke-width=".4"${sel("hq", i)}/>` + txt(x + 1.5, y + 1.5, "[" + fTag().replace(/[\[\]]/g, "").trim() + "] " + hqName({ n: f.hq[i][2] === 2 ? 2 : 1 }), 3.2); });
   (f.b || []).forEach(([x, y], i) => { const off = rm.has(x + "," + y); h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="${off ? "rgba(230,50,50,.18)" : "rgba(60,190,90,.38)"}" stroke="${off ? "#ff5a4d" : "#9be7a8"}" stroke-width="${off ? ".7" : ".35"}"${off ? ' stroke-dasharray="1.6 1"' : ""}/><polygon points="${tilePts(x, y)}" fill="#1f7a3a" stroke="#fff" stroke-width=".3"${sel("b", i)}/>` + (off ? txt(x + .5, y + .5, "✕", 4, "#ff5a4d") : ""); });
-  (f.fl || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="rgba(60,190,90,.15)" stroke="#3fae5a" stroke-width=".6" stroke-dasharray="1.4 .9"${sel("fl", i)}/>` + txt(x + .5, y + .5, String(i + 1), 3, "#d9ffe0"); });
+  { const chk = (f.fl || []).length ? farmFlagCalc() : [];
+    (f.fl || []).forEach(([x, y], i) => { const bad = chk[i] && farmFlagBad(chk[i]); h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="rgba(60,190,90,.15)" stroke="${bad ? "#ffb020" : "#3fae5a"}" stroke-width="${bad ? ".9" : ".6"}" stroke-dasharray="1.4 .9"${sel("fl", i)}/>` + txt(x + .5, y + .5, String(i + 1), 3, bad ? "#ffb020" : "#d9ffe0"); }); }
   (f.bt || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x, y, x + 2, y + 2)}" fill="#8d5a2b" stroke="#fff" stroke-width=".4"${sel("bt", i)}/>` + txt(x + 1.5, y + 1.5, "🐻", 3); });
   (f.btp || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x, y, x + 2, y + 2)}" fill="rgba(141,90,43,.35)" stroke="#ffcf8a" stroke-width=".6" stroke-dasharray="1.2 .8"${sel("btp", i)}/>` + txt(x + 1.5, y + 1.5, "🐻", 3); });
   (f.c || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x, y, x + 1, y + 1)}" fill="#d6f5dc" stroke="#1f7a3a" stroke-width=".3"${sel("c", i)}/>`; });
@@ -1065,6 +1093,12 @@ function renderFarm() {
       ${k === "hq" || k === "b" || k === "fl" ? (() => { const v = farmLv(k, x, y), bt = (n, t) => `<button type="button" class="btn small${v === n ? " primary" : ""}" data-flv="${n}" style="height:34px">${esc(fmt(t))}</button>`;
         return `<div class="row" style="gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px;font-size:13px"><span>${esc(fmt("lvH"))}</span>${ed ? bt(1, "lvUp") + bt(0, "lvDef") + bt(-1, "lvDn") : `<b>${esc(fmt(v === 1 ? "lvUp" : v === -1 ? "lvDn" : "lvDef"))}</b>`}</div>`; })() : ""}</div>`; }
   { const bl = farmBlocked(); if (bl.length) h += `<div class="km-pd" style="border-color:#ff5a4d"><b style="color:#ff6b5e">${esc(fmt("blkH").replace("{n}", bl.length))}</b><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${bl.map((b) => `<button type="button" class="btn small" data-fgo="${b.k},${b.i}">${FK_ICON[b.k]} ${b.x},${b.y} · ${esc(fmt("blk")[b.r])}</button>`).join("")}</div></div>`; }
+  if (n("fl")) { const fc = farmFlagCalc(), tot = fc.reduce((a, c) => a + c.fresh.length, 0), sw = (t) => t.replace(/nxs/g, "NXS"), FH = { en: "🚩 Planned banners — check", zh: "🚩 規劃的旗子：檢查", pt: "🚩 Estandartes planejados — verificação", ar: "🚩 الرايات المخططة — فحص", ko: "🚩 계획한 깃발 — 점검" };
+    h += `<div id="fm_chk" style="margin-top:10px"><b>${esc(FH[lang] || FH.en)}</b><div class="km-fl-list">${fc.map((c, i) => `<div class="km-fl"><b>#${i + 1}</b><button type="button" class="btn small" data-fgo="fl,${i}">X:${c.x} Y:${c.y}</button><span class="km-fl-n">${esc(ft("row").replace("{n}", c.fresh.length))}</span>`
+      + (c.lost.length ? `<span class="km-fl-w">${esc(sw(ft("lost")).replace("{n}", c.lost.length))}</span>` : "")
+      + (c.onOther ? `<span class="km-fl-w">${esc(sw(ft("onOther")))}</span>` : !c.conn ? `<span class="km-fl-w">${esc(ft("notConn"))}</span>` : "")
+      + (c.ob ? `<span class="km-fl-w">${esc(ft(c.ob === 1 ? "onMt" : "onLake"))}</span>` : c.node ? `<span class="km-fl-w">${esc(ft("onNode"))}</span>` : "")
+      + (c.zone ? `<span class="km-fl-w">${esc(ft("inZone").replace("{n}", c.zone))}</span>` : "") + `</div>`).join("")}</div><div style="margin-top:8px;font-weight:700">${esc(ft("total").replace("{f}", fc.length).replace("{n}", tot))}</div></div>`; }
   h += `<div class="muted" style="font-size:12.5px;margin-top:8px">${esc(fmt("cnt").replace("{hq}", n("hq")).replace("{b}", n("b")).replace("{rm}", (f.rm || []).length).replace("{fl}", n("fl")).replace("{bt}", n("bt")).replace("{btp}", n("btp")).replace("{c}", n("c")))}</div>`;
   const trap = (l, ok, k) => l.map(([x, y], i) => `<span class="mm-chip" style="display:inline-block;margin:2px 4px 2px 0">${FK_ICON[k]} ${x},${y} · ${ok[i] ? "✓ " + esc(fmt("in")) : "✗ " + esc(fmt("out"))}</span>`).join("");
   if (n("bt") || n("btp")) h += `<div style="margin-top:6px;font-size:12.5px">${n("bt") ? `<div>${esc(fmt("k").bt)}: ${trap(f.bt, c.bt, "bt")}</div>` : ""}${n("btp") ? `<div>${esc(fmt("k").btp)} (${esc(fmt("after"))}): ${trap(f.btp, c.btp, "btp")}</div>` : ""}</div>`;
