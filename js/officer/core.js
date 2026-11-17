@@ -224,6 +224,19 @@ function whoGuard() {
     if (OFFICER.previewAs) sessionStorage.setItem("nxs-preview", OFFICER.previewAs); } catch (e) { return false; }
   location.reload(); return true;
 }
+/* 🚪 people who are no longer on the roster of the alliance picked (Sherry 2026-11-17: someone who registers for an event and then leaves must not
+   silently drop off the lists): their last name, from the member history, and where they are now — the other one of our two alliances, else the
+   alliance list they were last seen on. Loaded once, only when a page needs it. */
+OFFICER.gone = (() => { let p = null; return { load: () => p || (p = (async () => {
+  const names = new Map(), now = new Map(), w = OFFICER.who(), get = async (u) => { try { return await OfficerData.fetchJson(u); } catch (e) { return null; } };
+  const [own, main, other] = await Promise.all([w === "f" ? get("data/watch-nxs-x7k2p9.json") : null, get("data/watch-x7k2p9.json"), get(w === "f" ? "data/roster-x7k2p9.json" : "data/academy-x7k2p9.json")]);
+  const hist = w === "f" ? own : main, put = (id, n) => { if (n && !names.has(String(id))) names.set(String(id), n); };
+  for (const [id, h] of Object.entries((hist && hist.members) || {})) put(id, h.names && h.names.length && h.names[h.names.length - 1][1]);
+  for (const l of (hist && hist.left) || []) put(l.id, l.name);
+  for (const a of Object.values((main && main.others) || {})) for (const [id, nm] of a.members || []) { put(id, nm); now.set(String(id), `${a.tag} (#${a.kid})`); }
+  for (const m of (other && other.members) || []) { put(m.id, m.name); now.set(String(m.id), w === "f" ? "NXS" : "nxs"); }
+  return { names, now };
+})()) }; })();
 OFFICER.wBody = () => (OFFICER.who() === "f" ? { w: "f" } : {});
 OFFICER.wKey = (k) => (OFFICER.who() === "f" ? k + "-f" : k);
 OFFICER.rosterUrl = () => (OFFICER.who() === "f" ? "data/academy-x7k2p9.json" : "data/roster-x7k2p9.json");

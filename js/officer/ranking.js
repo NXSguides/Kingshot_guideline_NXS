@@ -169,7 +169,7 @@ function renderList() {
     </tr>`;
   }).join("");
   const k = [...picked].filter((id) => subs.has(id)).length;
-  $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length }) + (k ? " " + tr("subN", { k }) : "");
+  $("pickCount").textContent = tr("selected", { n: picked.size - goneIds().length, t: data.members.length }) + (k ? " " + tr("subN", { k }) : "");
   renderReg(); renderBt();
   ROOT.querySelectorAll("th[data-sort]").forEach((th) => {
     if (th.dataset.sort === "sp") th.hidden = !spOn();
@@ -182,14 +182,25 @@ function renderList() {
 
 /* ✅ registration (Nia's SS & TAC Registration Tracker, 2026-10-30): each ticked person's reply — rep[id] = "y" confirmed / "n" can't come / none = no reply yet.
    Saved with the plan (a shared plan shares it). 🟡 SAFE = safe players, registered without waiting for a reply: one list for every plan (and the 📋 Attendance tab), kept on the Worker. */
-const RG = {"en": {"miss": "No-show {n}× (📋 Attendance)", "byRank": "Sort by ranking", "note": "✅ Registration: tap ⏳ next to a ticked name to cycle ✅ confirmed → ❌ can't come → ⏳ no reply. 🟡 = safe player, registered without waiting (remembered for every plan). Only ✅ and 🟡 are ranked and go into ③ and ④; ⏳ and ❌ stay out.", "count": "✅ {y} confirmed · 🟡 {s} safe, no reply → {r} can be registered · ⏳ {w} no reply · ❌ {n} can't", "copyWait": "📋 Copy not-replied names", "copyReg": "📋 Copy registration list", "safeOn": "🟡 Safe player (tap to remove)", "safeOff": "Mark as safe player (registered without waiting)", "rep": "Reply: ⏳ no reply → ✅ confirmed → ❌ can't come", "copied": "Copied", "noWait": "Everyone has replied."}, "zh": {"miss": "缺席 {n} 次（📋 出席）", "byRank": "依排名排序", "note": "✅ 報名確認：點勾選名字旁的 ⏳ 會循環 ✅ 確認會來 → ❌ 不能來 → ⏳ 還沒回。🟡 = 放心成員，不用等回覆就先報名（每個計畫都會記得）。只有 ✅ 和 🟡 會排名、進 ③ 分組和 ④ 分工表；⏳ 和 ❌ 不會。", "count": "✅ 確認 {y} · 🟡 放心沒回 {s} → 可報名 {r} 人 · ⏳ 沒回 {w} · ❌ 不能來 {n}", "copyWait": "📋 複製沒回覆的人", "copyReg": "📋 複製報名名單", "safeOn": "🟡 放心成員（點一下取消）", "safeOff": "設成放心成員（不用等回覆就報名）", "rep": "回覆：⏳ 還沒回 → ✅ 確認 → ❌ 不能來", "copied": "已複製", "noWait": "大家都回覆了。"}, "pt": {"miss": "Faltou {n}× (📋 Presença)", "byRank": "Ordenar pelo ranking", "note": "✅ Inscrição: toque em ⏳ ao lado de um nome marcado para alternar ✅ confirmou → ❌ não pode → ⏳ sem resposta. 🟡 = jogador de confiança, inscrito sem esperar (lembrado em todos os planos). Só ✅ e 🟡 entram no ranking, em ③ e ④; ⏳ e ❌ ficam de fora.", "count": "✅ {y} confirmados · 🟡 {s} de confiança sem resposta → {r} podem ser inscritos · ⏳ {w} sem resposta · ❌ {n} não podem", "copyWait": "📋 Copiar quem não respondeu", "copyReg": "📋 Copiar lista de inscrição", "safeOn": "🟡 Jogador de confiança (toque para tirar)", "safeOff": "Marcar como de confiança (inscrito sem esperar)", "rep": "Resposta: ⏳ sem resposta → ✅ confirmou → ❌ não pode", "copied": "Copiado", "noWait": "Todos responderam."}, "ar": {"miss": "غاب {n} مرة (📋 الحضور)", "byRank": "الفرز حسب الترتيب", "note": "✅ التسجيل: اضغط ⏳ بجانب اسم محدد للتبديل ✅ أكّد → ❌ لا يستطيع → ⏳ لم يرد. 🟡 = لاعب موثوق يُسجَّل دون انتظار (يُتذكَّر في كل الخطط). فقط ✅ و🟡 يُرتَّبون ويدخلون ③ و④؛ ⏳ و❌ يبقون خارجها.", "count": "✅ {y} أكّدوا · 🟡 {s} موثوقون لم يردّوا ← يمكن تسجيل {r} · ⏳ {w} لم يردّوا · ❌ {n} لا يستطيعون", "copyWait": "📋 نسخ من لم يرد", "copyReg": "📋 نسخ قائمة التسجيل", "safeOn": "🟡 لاعب موثوق (اضغط للإلغاء)", "safeOff": "تعيين كلاعب موثوق (يُسجَّل دون انتظار)", "rep": "الرد: ⏳ لم يرد ← ✅ أكّد ← ❌ لا يستطيع", "copied": "تم النسخ", "noWait": "ردّ الجميع."}, "ko": {"miss": "불참 {n}번 (📋 출석)", "byRank": "순위대로 정렬", "note": "✅ 등록: 체크한 이름 옆 ⏳를 누르면 ✅ 확정 → ❌ 못 옴 → ⏳ 미응답 순으로 바뀌어요. 🟡 = 믿을 수 있는 멤버, 기다리지 않고 등록 (모든 계획에서 기억돼요). ✅와 🟡만 순위에 들고 ③·④에 들어가요; ⏳와 ❌는 빠져요.", "count": "✅ 확정 {y} · 🟡 믿을 만한 미응답 {s} → 등록 가능 {r}명 · ⏳ 미응답 {w} · ❌ 못 옴 {n}", "copyWait": "📋 미응답자 복사", "copyReg": "📋 등록 명단 복사", "safeOn": "🟡 믿을 수 있는 멤버 (누르면 해제)", "safeOff": "믿을 수 있는 멤버로 표시 (기다리지 않고 등록)", "rep": "응답: ⏳ 미응답 → ✅ 확정 → ❌ 못 옴", "copied": "복사됨", "noWait": "모두 답했어요."}};
+const RG = {"en": {"gone": "🚪 Left the alliance ({n})", "goneNote": "Still on this plan, so the 📋 Attendance list keeps them as \"registered, then left\". × takes one off.", "miss": "No-show {n}× (📋 Attendance)", "byRank": "Sort by ranking", "note": "✅ Registration: tap ⏳ next to a ticked name to cycle ✅ confirmed → ❌ can't come → ⏳ no reply. 🟡 = safe player, registered without waiting (remembered for every plan). Only ✅ and 🟡 are ranked and go into ③ and ④; ⏳ and ❌ stay out.", "count": "✅ {y} confirmed · 🟡 {s} safe, no reply → {r} can be registered · ⏳ {w} no reply · ❌ {n} can't", "copyWait": "📋 Copy not-replied names", "copyReg": "📋 Copy registration list", "safeOn": "🟡 Safe player (tap to remove)", "safeOff": "Mark as safe player (registered without waiting)", "rep": "Reply: ⏳ no reply → ✅ confirmed → ❌ can't come", "copied": "Copied", "noWait": "Everyone has replied."}, "zh": {"gone": "🚪 已離開聯盟（{n}）", "goneNote": "還留在這個方案裡，📋 出席名單會把他們記成「報名後離開」。按 × 移除。", "miss": "缺席 {n} 次（📋 出席）", "byRank": "依排名排序", "note": "✅ 報名確認：點勾選名字旁的 ⏳ 會循環 ✅ 確認會來 → ❌ 不能來 → ⏳ 還沒回。🟡 = 放心成員，不用等回覆就先報名（每個計畫都會記得）。只有 ✅ 和 🟡 會排名、進 ③ 分組和 ④ 分工表；⏳ 和 ❌ 不會。", "count": "✅ 確認 {y} · 🟡 放心沒回 {s} → 可報名 {r} 人 · ⏳ 沒回 {w} · ❌ 不能來 {n}", "copyWait": "📋 複製沒回覆的人", "copyReg": "📋 複製報名名單", "safeOn": "🟡 放心成員（點一下取消）", "safeOff": "設成放心成員（不用等回覆就報名）", "rep": "回覆：⏳ 還沒回 → ✅ 確認 → ❌ 不能來", "copied": "已複製", "noWait": "大家都回覆了。"}, "pt": {"gone": "🚪 Saíram da aliança ({n})", "goneNote": "Continuam neste plano, então a lista de 📋 Presença os mantém como \"inscreveu-se e saiu\". × remove.", "miss": "Faltou {n}× (📋 Presença)", "byRank": "Ordenar pelo ranking", "note": "✅ Inscrição: toque em ⏳ ao lado de um nome marcado para alternar ✅ confirmou → ❌ não pode → ⏳ sem resposta. 🟡 = jogador de confiança, inscrito sem esperar (lembrado em todos os planos). Só ✅ e 🟡 entram no ranking, em ③ e ④; ⏳ e ❌ ficam de fora.", "count": "✅ {y} confirmados · 🟡 {s} de confiança sem resposta → {r} podem ser inscritos · ⏳ {w} sem resposta · ❌ {n} não podem", "copyWait": "📋 Copiar quem não respondeu", "copyReg": "📋 Copiar lista de inscrição", "safeOn": "🟡 Jogador de confiança (toque para tirar)", "safeOff": "Marcar como de confiança (inscrito sem esperar)", "rep": "Resposta: ⏳ sem resposta → ✅ confirmou → ❌ não pode", "copied": "Copiado", "noWait": "Todos responderam."}, "ar": {"gone": "🚪 غادروا التحالف ({n})", "goneNote": "ما زالوا في هذه الخطة، فتبقيهم قائمة 📋 الحضور ضمن «سجّل ثم غادر». × للإزالة.", "miss": "غاب {n} مرة (📋 الحضور)", "byRank": "الفرز حسب الترتيب", "note": "✅ التسجيل: اضغط ⏳ بجانب اسم محدد للتبديل ✅ أكّد → ❌ لا يستطيع → ⏳ لم يرد. 🟡 = لاعب موثوق يُسجَّل دون انتظار (يُتذكَّر في كل الخطط). فقط ✅ و🟡 يُرتَّبون ويدخلون ③ و④؛ ⏳ و❌ يبقون خارجها.", "count": "✅ {y} أكّدوا · 🟡 {s} موثوقون لم يردّوا ← يمكن تسجيل {r} · ⏳ {w} لم يردّوا · ❌ {n} لا يستطيعون", "copyWait": "📋 نسخ من لم يرد", "copyReg": "📋 نسخ قائمة التسجيل", "safeOn": "🟡 لاعب موثوق (اضغط للإلغاء)", "safeOff": "تعيين كلاعب موثوق (يُسجَّل دون انتظار)", "rep": "الرد: ⏳ لم يرد ← ✅ أكّد ← ❌ لا يستطيع", "copied": "تم النسخ", "noWait": "ردّ الجميع."}, "ko": {"gone": "🚪 연맹 탈퇴 ({n})", "goneNote": "이 계획에 남아 있어서 📋 출석 명단에 \"신청 후 탈퇴\"로 기록돼요. × 로 뺄 수 있어요.", "miss": "불참 {n}번 (📋 출석)", "byRank": "순위대로 정렬", "note": "✅ 등록: 체크한 이름 옆 ⏳를 누르면 ✅ 확정 → ❌ 못 옴 → ⏳ 미응답 순으로 바뀌어요. 🟡 = 믿을 수 있는 멤버, 기다리지 않고 등록 (모든 계획에서 기억돼요). ✅와 🟡만 순위에 들고 ③·④에 들어가요; ⏳와 ❌는 빠져요.", "count": "✅ 확정 {y} · 🟡 믿을 만한 미응답 {s} → 등록 가능 {r}명 · ⏳ 미응답 {w} · ❌ 못 옴 {n}", "copyWait": "📋 미응답자 복사", "copyReg": "📋 등록 명단 복사", "safeOn": "🟡 믿을 수 있는 멤버 (누르면 해제)", "safeOff": "믿을 수 있는 멤버로 표시 (기다리지 않고 등록)", "rep": "응답: ⏳ 미응답 → ✅ 확정 → ❌ 못 옴", "copied": "복사됨", "noWait": "모두 답했어요."}};
 const rg = (k, v = {}) => String((RG[lang] || RG.en)[k] ?? RG.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const isSafe = (id) => SAFE.has(String(id));
 /* confirmed = ✅ replied yes, or 🟡 safe player who didn't say ❌. Only they get a rank, a ③ group or a ④ place — ⏳ no reply / ❌ never (2026-11-01) */
 const confirmed = (id) => rep[id] === "y" || (isSafe(id) && rep[id] !== "n");
+/* 🚪 ticked, but no longer on the roster: kept in the plan (and on the 📋 Attendance list made from it), never ranked, grouped or placed */
+let RIDS = null, GONE_N = null;
+const inRoster = (id) => { if (!data) return true; if (!RIDS || RIDS.d !== data) RIDS = { d: data, s: new Set(data.members.map((m) => String(m.id))) }; return RIDS.s.has(String(id)); };
+const goneIds = () => [...picked].filter((id) => !inRoster(id));
+function goneHtml() {
+  const g = goneIds(); if (!g.length) return "";
+  if (!GONE_N) { GONE_N = { names: new Map(), now: new Map() }; OFFICER.gone.load().then((x) => { GONE_N = x; renderReg(); }).catch(() => {}); }
+  const ed = OFFICER.can("ranking", "edit");
+  return `<div class="rk-gone"><b>${esc(rg("gone", { n: g.length }))}</b> <span class="muted">${esc(rg("goneNote"))}</span><div class="chips" style="margin-top:4px">${g.map((id) => { const k = String(id), r = rep[id];
+    return `<span class="chip">${r === "y" ? "✅" : r === "n" ? "❌" : isSafe(id) ? "🟡" : "⏳"} <bdi>${esc(GONE_N.names.get(k) || "ID " + k)}</bdi>${GONE_N.now.get(k) ? ` <small class="muted">→ ${esc(GONE_N.now.get(k))}</small>` : ""}${ed ? ` <button type="button" class="rk-gx" data-gone="${esc(k)}" aria-label="×">×</button>` : ""}</span>`; }).join("")}</div></div>`;
+}
 function regOf() {
   let y = 0, n = 0, s = 0, w = 0;
-  for (const id of picked) { const r = rep[id]; if (r === "y") y++; else if (r === "n") n++; else if (isSafe(id)) s++; else w++; }
+  for (const id of picked) { if (!inRoster(id)) continue; const r = rep[id]; if (r === "y") y++; else if (r === "n") n++; else if (isSafe(id)) s++; else w++; }
   return { y, n, s, w, r: y + s };
 }
 const regBtns = (m) => !picked.has(m.id) ? "" : `<button type="button" class="rk-rb" data-rep="1" title="${esc(rg("rep"))}">${rep[m.id] === "y" ? "✅" : rep[m.id] === "n" ? "❌" : "⏳"}</button>`;
@@ -197,7 +208,8 @@ const safeBtn = (m) => !picked.has(m.id) ? "" : `<button type="button" class="rk
 function renderReg() {
   const el = $("rk_reg"); if (!el || !data) return;
   el.hidden = false;   // always there (also before anyone is ticked), so Little Sparrow can point at it
-  el.innerHTML = `<div class="muted" style="font-size:12.5px${picked.size ? ";margin-bottom:4px" : ""}">${esc(rg("note"))}</div>${picked.size ? `<b>${esc(rg("count", regOf()))}</b>` : ""}`;
+  el.innerHTML = `<div class="muted" style="font-size:12.5px${picked.size ? ";margin-bottom:4px" : ""}">${esc(rg("note"))}</div>${picked.size ? `<b>${esc(rg("count", regOf()))}</b>` : ""}${goneHtml()}`;
+  el.querySelectorAll("[data-gone]").forEach((b) => b.onclick = () => { for (const id of [...picked]) if (String(id) === b.dataset.gone) { picked.delete(id); subs.delete(id); delete rep[id]; } persist(); renderList(); });
 }
 async function setSafe(id, on) {
   if (on) SAFE.add(String(id)); else SAFE.delete(String(id));
@@ -339,9 +351,8 @@ async function init() {
     data = await OfficerData.fetchJsonFast(DATA_URL, (d) => { data = d; renderAll(); });
     if (!data) throw 0;
   } catch (e) { $("rk_noData").hidden = false; return; }
-  // drop picks of players who left the alliance
-  const ids = new Set(data.members.map((m) => m.id));
-  picked = new Set([...picked].filter((id) => ids.has(id)));
+  // 🚪 picks of players who left the alliance are NOT dropped any more (Sherry 2026-11-17: someone who registers and then leaves must stay
+  // visible) — they are listed above the table (goneIds below) until an officer removes them
   $("rk_app").hidden = false;
   setWeights(wts);
   renderAll(); histReset();
