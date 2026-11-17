@@ -77,14 +77,16 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 let lang = OFFICER.lang;
 let newDays = store.newDays || 14;
 let rivals = (store.rivals ?? "RED, ESA, NRD").replace(/\bNBD\b/g, "NRD");   // the alliance NBD renamed itself NRD (2026-11-15) — a saved list follows
-let farms = store.farms ?? "nxs, VZP";
+let farms = store.farms ?? (WF ? "NXS, VZP" : "nxs, VZP");   // 🏰 for NXS, nxs is its Academy; for nxs, NXS is its main alliance (VZP = NXS's old tag)
 const tagList = (s) => String(s).split(/[,\s]+/).map((x) => x.trim()).filter(Boolean);
 const tagOf = (t) => t.replace(/ \(#\d+\)$/, "");
 let sortKey = "flags", sortDir = -1;
 let roster = null, watch = null, records = null, rows = [];
 
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
-const tr = (k, v = {}) => { const s = String((T[lang] && T[lang][k]) ?? T.en[k] ?? k); return (WF ? s.replace(/NXS/g, "nxs") : s).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m); };
+const FARMS_L = { m: { en: "Our Academy / sister alliances:", zh: "我們的學院／分盟：", pt: "Nossa Academia / alianças irmãs:", ar: "أكاديميتنا / التحالفات الشقيقة:", ko: "우리 아카데미 / 자매 연맹:" },
+  f: { en: "Our main alliance:", zh: "我們的主盟：", pt: "Nossa aliança principal:", ar: "تحالفنا الرئيسي:", ko: "우리 본 연맹:" } };
+const tr = (k, v = {}) => { if (k === "farmsL") return FARMS_L[WF ? "f" : "m"][lang] || FARMS_L[WF ? "f" : "m"].en; const s = String((T[lang] && T[lang][k]) ?? T.en[k] ?? k); return (WF ? s.replace(/NXS/g, "nxs") : s).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m); };
 const esc = OFFICER.util.esc;
 const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
 const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[亗卍〆『』「」【】〖〗★☆♛♚♕✿❀•·]/g, "").replace(/[^\p{L}\p{N}]/gu, "");

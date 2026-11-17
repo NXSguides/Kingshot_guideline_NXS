@@ -784,7 +784,7 @@ function ownBuild() {
     for (const [x, y] of G.hq || []) L.push([1, hq, x, y, 1]);
     for (const [x, y] of exList()) if (!after || !rm.has(x + "," + y)) L.push([rank("e", x, y), sq, x, y, 1]);
     for (const [x, y] of f.hq || []) L.push([rank("hq", x, y, ord.now), hq, x, y, 2]);
-    for (const [x, y] of f.b || []) if (!after || !frm.has(x + "," + y)) L.push([rank("b", x, y, ord.now), sq, x, y, 2]);
+    for (const [x, y] of fbAll()) if (!after || !frm.has(x + "," + y)) L.push([rank("b", x, y, ord.now), sq, x, y, 2]);
     L.sort((p, q) => p[0] - q[0]); for (const [, fn, x, y, who] of L) fn(O, x, y, who); }
   { const L = []; for (const [x, y] of PLAN.fl || []) L.push([rank("p", x, y), x, y, 1]); for (const [x, y] of f.fl || []) L.push([rank("fl", x, y, ord.plan), x, y, 2]);
     L.sort((p, q) => p[0] - q[0]); for (const [, x, y, who] of L) sq(OWN_B, x, y, who); }
@@ -962,6 +962,12 @@ function planDeltaHtml(d) {
    Its land is never NXS land and the other way round. */
 const FK = ["hq", "b", "fl", "bt", "btp", "c"], FK_ICON = { hq: "🏯", b: "🏳️", fl: "🚩", bt: "🐻", btp: "🐻", c: "🏠" };
 const farm = () => (PLAN.farm = PLAN.farm || {}, FK.forEach((k) => { PLAN.farm[k] = PLAN.farm[k] || []; }), PLAN.farm.rm = PLAN.farm.rm || [], PLAN.farm);
+/* 🐝 nxs plan banners ticked as built in nxs's move steps count as standing nxs banners — the mirror of what exList() does for NXS */
+const fTick = () => { const f = PLAN.farm || {}, have = new Set((f.b || []).map(([x, y]) => x + "," + y)); try { return window.MemberMap && MemberMap.tickedF ? MemberMap.tickedF().filter(([x, y]) => !have.has(x + "," + y)) : []; } catch (e) { return []; } };
+const fbAll = () => ((PLAN.farm || {}).b || []).concat(fTick());
+/* 🐝 nxs plan banners that are listed as STANDING here although nxs's move steps don't have them ticked as built (Sherry 2026-11-17: the HQ plan's
+   banners were being counted as if they stood) */
+const fbPlanOdd = () => { try { const p = window.MemberMap && MemberMap.planF ? MemberMap.planF() : null; if (!p) return []; const have = new Set(((PLAN.farm || {}).b || []).map(([x, y]) => x + "," + y)); return p.b.filter(([x, y]) => have.has(x + "," + y) && !p.st.has(x + "," + y)); } catch (e) { return []; } };
 const farmAny = () => { const f = PLAN.farm; return !!f && (FK.some((k) => (f[k] || []).length) || !!f.tag || !!f.ord || !!(f.op && ["o", "t", "h", "sp"].some((k) => Object.keys(f.op[k] || {}).length))); };
 const FKU = ["hq", "hqb", "b", "fl", "bt", "btp", "c"], fList = (k) => (k === "hqb" ? "hq" : k), fMake = (k, x, y) => (k === "hqb" ? [x, y, 2] : [x, y]);   // the farm has a Plains HQ and a Badland HQ, like NXS
 const fk = (k) => (k === "hq" ? "🏯 " + ft("hqP") : k === "hqb" ? "🏯 " + ft("hqB") : fmt("k")[k]);   // HQ names = the game's own (same as NXS)
@@ -1054,6 +1060,7 @@ function drawFarm() {
   let h = "";
   (f.hq || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x - 6, y - 6, x + 8, y + 8)}" fill="rgba(60,190,90,.35)" stroke="#9be7a8" stroke-width=".5"/><polygon points="${sq(x, y, x + 2, y + 2)}" fill="#1f7a3a" stroke="#fff" stroke-width=".4"${sel("hq", i)}/>` + txt(x + 1.5, y + 1.5, "[" + fTag().replace(/[\[\]]/g, "").trim() + "] " + hqName({ n: f.hq[i][2] === 2 ? 2 : 1 }), 3.2); });
   (f.b || []).forEach(([x, y], i) => { const off = rm.has(x + "," + y); h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="${off ? "rgba(230,50,50,.18)" : "rgba(60,190,90,.38)"}" stroke="${off ? "#ff5a4d" : "#9be7a8"}" stroke-width="${off ? ".7" : ".35"}"${off ? ' stroke-dasharray="1.6 1"' : ""}/><polygon points="${tilePts(x, y)}" fill="#1f7a3a" stroke="#fff" stroke-width=".3"${sel("b", i)}/>` + (off ? txt(x + .5, y + .5, "✕", 4, "#ff5a4d") : ""); });
+  for (const [x, y] of fTick()) h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="rgba(60,190,90,.38)" stroke="#9be7a8" stroke-width=".35"/><polygon points="${tilePts(x, y)}" fill="#1f7a3a" stroke="#fff" stroke-width=".3"/>`;
   { const chk = (f.fl || []).length ? farmFlagCalc() : [];
     (f.fl || []).forEach(([x, y], i) => { const bad = chk[i] && farmFlagBad(chk[i]); h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="rgba(60,190,90,.15)" stroke="${bad ? "#ffb020" : "#3fae5a"}" stroke-width="${bad ? ".9" : ".6"}" stroke-dasharray="1.4 .9"${sel("fl", i)}/>` + txt(x + .5, y + .5, String(i + 1), 3, bad ? "#ffb020" : "#d9ffe0"); }); }
   (f.bt || []).forEach(([x, y], i) => { h += `<polygon points="${sq(x, y, x + 2, y + 2)}" fill="#8d5a2b" stroke="#fff" stroke-width=".4"${sel("bt", i)}/>` + txt(x + 1.5, y + 1.5, "🐻", 3); });
@@ -1093,6 +1100,8 @@ function renderFarm() {
       ${k === "hq" || k === "b" || k === "fl" ? (() => { const v = farmLv(k, x, y), bt = (n, t) => `<button type="button" class="btn small${v === n ? " primary" : ""}" data-flv="${n}" style="height:34px">${esc(fmt(t))}</button>`;
         return `<div class="row" style="gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px;font-size:13px"><span>${esc(fmt("lvH"))}</span>${ed ? bt(1, "lvUp") + bt(0, "lvDef") + bt(-1, "lvDn") : `<b>${esc(fmt(v === 1 ? "lvUp" : v === -1 ? "lvDn" : "lvDef"))}</b>`}</div>`; })() : ""}</div>`; }
   { const bl = farmBlocked(); if (bl.length) h += `<div class="km-pd" style="border-color:#ff5a4d"><b style="color:#ff6b5e">${esc(fmt("blkH").replace("{n}", bl.length))}</b><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${bl.map((b) => `<button type="button" class="btn small" data-fgo="${b.k},${b.i}">${FK_ICON[b.k]} ${b.x},${b.y} · ${esc(fmt("blk")[b.r])}</button>`).join("")}</div></div>`; }
+  { const odd = fbPlanOdd(); if (odd.length) { const HP = { en: ["🐝 {n} banners of the Hive move plan are listed here as STANDING, but the move steps don't have them ticked as built.", "If they are not built yet, the territory, the resource nodes and the banner check count them as if they stood. Take them off this list; once one is built, tick it in 🐝 Hive → move steps and it counts again.", "Take all {n} off the standing list"], zh: ["🐝 蜂巢搬家計畫裡有 {n} 面旗，在這裡被列成「已經蓋好」，但搬家步驟還沒勾已蓋。", "如果還沒蓋，領地、資源點和旗幟檢查都會把它們當成已經存在。把它們移出這份清單就好；蓋好之後到 🐝 蜂巢的搬家步驟勾起來，就會重新算進來。", "把這 {n} 面移出「已蓋好」"], pt: ["🐝 {n} estandartes do plano de mudança da Colmeia estão aqui como JÁ CONSTRUÍDOS, mas os passos da mudança não os têm marcados.", "Se ainda não foram construídos, o território, os nós de recurso e a verificação contam como se existissem. Tire-os desta lista; quando um for construído, marque-o em 🐝 Colmeia → passos da mudança e ele volta a contar.", "Tirar os {n} da lista de construídos"], ar: ["🐝 {n} راية من خطة نقل الخلية مدرجة هنا على أنها قائمة، لكن خطوات النقل لم تُعلَّم فيها كمبنية.", "إن لم تُبنَ بعد، فالإقليم ونقاط الموارد وفحص الرايات تحسبها كأنها قائمة. أزلها من هذه القائمة؛ وبعد بناء إحداها علّمها في 🐝 الخلية ← خطوات النقل فتُحسب من جديد.", "إزالة الـ {n} من قائمة القائمة"], ko: ["🐝 하이브 이사 계획의 깃발 {n}개가 여기에는 '세워짐'으로 들어가 있는데, 이사 단계에는 완료 체크가 없어요.", "아직 안 세웠다면 영지, 자원 지점, 깃발 점검이 이미 있는 것으로 계산해요. 이 목록에서 빼 주세요. 세운 뒤 🐝 하이브 → 이사 단계에서 체크하면 다시 계산돼요.", "{n}개를 '세워짐' 목록에서 빼기"] }, hp = HP[lang] || HP.en;
+    h += `<div class="km-pd" id="fm_hp" style="border-color:#ffb020"><b style="color:#c98a00">${esc(hp[0].replace("{n}", odd.length))}</b><div class="muted" style="font-size:12.5px;margin-top:4px">${esc(hp[1])}</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${odd.map(([x, y]) => `<button type="button" class="btn small" data-fgo="b,${f.b.findIndex(([a, b]) => a === x && b === y)}">🏳️ ${x},${y}</button>`).join("")}</div>${ed ? `<button type="button" class="btn small primary" id="fm_hpdo" style="margin-top:8px">${esc(hp[2].replace("{n}", odd.length))}</button>` : ""}</div>`; } }
   if (n("fl")) { const fc = farmFlagCalc(), tot = fc.reduce((a, c) => a + c.fresh.length, 0), sw = (t) => t.replace(/nxs/g, "NXS"), FH = { en: "🚩 Planned banners — check", zh: "🚩 規劃的旗子：檢查", pt: "🚩 Estandartes planejados — verificação", ar: "🚩 الرايات المخططة — فحص", ko: "🚩 계획한 깃발 — 점검" };
     h += `<div id="fm_chk" style="margin-top:10px"><b>${esc(FH[lang] || FH.en)}</b><div class="km-fl-list">${fc.map((c, i) => `<div class="km-fl"><b>#${i + 1}</b><button type="button" class="btn small" data-fgo="fl,${i}">X:${c.x} Y:${c.y}</button><span class="km-fl-n">${esc(ft("row").replace("{n}", c.fresh.length))}</span>`
       + (c.lost.length ? `<span class="km-fl-w">${esc(sw(ft("lost")).replace("{n}", c.lost.length))}</span>` : "")
@@ -1118,6 +1127,7 @@ function bindFarm() {
     $("fm_fix").onclick = fix;   // the map follows as soon as a number is changed (no need to press the button); the field being typed in next keeps the cursor
     for (const id of ["fm_sx", "fm_sy"]) { $(id).onchange = () => setTimeout(() => { const a = document.activeElement && document.activeElement.id; fix(); if (a && a !== id && $(a)) $(a).focus(); }, 0); $(id).onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); fix(); } }; } }
   QA("[data-flv]").forEach((b) => b.onclick = () => { if (!PE() || !FARM_SEL) return; const f = farm(), it = f[FARM_SEL.k][FARM_SEL.i]; if (!it) return; const key = FARM_SEL.k + ":" + it[0] + "," + it[1], v = +b.dataset.flv; f.lv = f.lv || {}; if (v) f.lv[key] = v; else delete f.lv[key]; if (!Object.keys(f.lv).length) delete f.lv; flagsChanged(); });
+  if ($("fm_hpdo")) $("fm_hpdo").onclick = () => { if (!PE()) return; const f = farm(), odd = new Set(fbPlanOdd().map(([x, y]) => x + "," + y)); if (!odd.size) return; f.b = f.b.filter(([x, y]) => !odd.has(x + "," + y)); f.rm = (f.rm || []).filter((k) => !odd.has(k)); for (const k of Object.keys(f.lv || {})) if (k.startsWith("b:") && odd.has(k.slice(2))) delete f.lv[k]; FARM_SEL = null; flagsChanged(); };
   QA("[data-fgo]").forEach((b) => b.onclick = () => { const [k, i] = b.dataset.fgo.split(","), it = (PLAN.farm[k] || [])[+i]; if (!it) return; FARM_SEL = { k, i: +i }; centerOn({ x: it[0], y: it[1] }, true); drawFarm(); renderFarm(); });
   QA("[data-fa]").forEach((b) => b.onclick = () => { if (!PE() || !FARM_SEL) return; const f = farm(), k = FARM_SEL.k, i = FARM_SEL.i, it = f[k][i]; if (!it) return; const a = b.dataset.fa, key = it[0] + "," + it[1];
     if (a === "rm") { const j = f.rm.indexOf(key); if (j >= 0) f.rm.splice(j, 1); else f.rm.push(key); }
@@ -1137,7 +1147,7 @@ let PWHO = (() => { try { const v = localStorage.getItem("kp-who"); return v ===
 const sideOf = () => (OFFICER.side ? OFFICER.side() : "");   // 🏰 an officer set to one alliance on 👥 stays on it
 function setWho(w) { const sd = sideOf(); if (sd && w !== "o" && w !== sd) return; if (PWHO === w) return; PWHO = w; try { if (w === "o") localStorage.setItem("kp-who", w); else if (OFFICER.setWho) OFFICER.setWho(w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }   // renderFlags → drawFarm: the handles follow the alliance picked
 const WHO_T = { en: ["Planning / looking at:", "What to place:"], zh: ["現在規劃／查看：", "要放什麼："], pt: ["Planejando / vendo:", "O que colocar:"], ar: ["التخطيط / العرض لـ:", "ماذا تضع:"], ko: ["계획 / 보기 대상:", "놓을 것:"] };
-const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: c.off, nUp: n("fl"), nDown: n("rm"), n0: n("b"), n1: n("b") - n("rm") + n("fl") }; };
+const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: c.off, nUp: n("fl"), nDown: n("rm"), n0: fbAll().length, n1: fbAll().length - n("rm") + n("fl") }; };
 const MC_T = { en: "🏠 Members & Bear Traps", zh: "🏠 成員的城和熊陷阱", pt: "🏠 Membros e Armadilhas", ar: "🏠 الأعضاء وفخاخ الدب", ko: "🏠 연맹원과 곰 덫" };
 const MC_H = { en: "Hive plan", zh: "蜂巢規劃", pt: "plano da Colmeia", ar: "خطة الخلية", ko: "하이브 계획" };
 function renderTools() {
@@ -1431,8 +1441,8 @@ window.KM_SHARED = {
   whoName: () => (PMODE && PWHO === "f" ? fTag() : "NXS"),
   ctx: "m", who: () => (PMODE && PWHO === "f" ? "f" : "m"),   // 🌾 banner check for nxs: who = the alliance picked on 🚩 Territory; ctx = "f" only while that check runs
   farmPL: () => { const f = PLAN.farm || {}; return { hq: (f.hq || []).map(([x, y]) => [x, y]), c: (f.c || []).map(([x, y]) => [0, x, y]), bt: (f.bt || []).map(([x, y]) => [x, y]), b: [] }; },
-  banners: () => KM_SHARED.ctx === "f" ? ((PLAN.farm || {}).b || []).map(([x, y]) => [x, y, 1]) : exList(true),                  // [x, y, 1 = checked in game / 0 = estimated] (without 🚚 Move ticks)
-  moveChanged: () => { rebuildOwn(); drawEx(); drawFlags(); renderFlags(); },
+  banners: () => KM_SHARED.ctx === "f" ? ((PLAN.farm || {}).b || []).map(([x, y]) => [x, y, 1]) : exList(true),   // (nxs: without its 🚚 Move ticks, like NXS's)                  // [x, y, 1 = checked in game / 0 = estimated] (without 🚚 Move ticks)
+  moveChanged: () => { rebuildOwn(); drawEx(); drawFlags(); renderFlags(); try { drawFarm(); renderFarm(); } catch (e) {} },   // + the nxs card: its plan banners ticked / listed as standing
   /* 🚚 Move's HQ step ticked: our HQ is the plan's new HQ (G.hq[0] already changed by members.js) — move the marker + territory */
   hqMoved: () => { const h = G && G.hq && G.hq[0], b = BY.h0; if (!h || !b) return;
     const m = $("km_svg") && $("km_svg").querySelector('.mk[data-id="h0"]');
@@ -1441,7 +1451,7 @@ window.KM_SHARED = {
       const a = P(+m.dataset.x0, +m.dataset.y0), c = P(h[0], h[1]); w.setAttribute("transform", `translate(${(c[0] - a[0]).toFixed(1)},${(c[1] - a[1]).toFixed(1)})`); }
     b.x = h[0]; b.y = h[1]; rebuildOwn(); drawEx(); renderList(); },   // 🚚 Move steps ticked / unticked a banner
   planned: () => KM_SHARED.ctx === "f" ? (PLAN.farm || {}).fl || [] : (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
-  others: () => (otOn ? otList().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(KM_SHARED.ctx === "f" ? exList().concat(PLAN.fl || []).map(([x, y]) => ["NXS", x, y, "#2b6cc4"]) : ((PLAN.farm || {}).b || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),
+  others: () => (otOn ? otList().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(KM_SHARED.ctx === "f" ? exList().concat(PLAN.fl || []).map(([x, y]) => ["NXS", x, y, "#2b6cc4"]) : fbAll().map(([x, y]) => ["🌾", x, y, "#3fae5a"])),
   othersHq: () => (otOn ? otHq().map(([n, x, y]) => [n, x, y, otCol(n)]) : []).concat(KM_SHARED.ctx === "f" ? (G.hq || []).map(([x, y]) => ["NXS", x, y, "#2b6cc4"]) : ((PLAN.farm || {}).hq || []).map(([x, y]) => ["🌾", x, y, "#3fae5a"])),   // other alliances' HQs (15×15)
   obst: (x, y) => obstAt(x, y),                // 1 mountain · 2 lake · 0 free
   outposts: () => B.filter(isOp).map((b) => ({ n: nm(b) + (b.lv ? " Lv." + b.lv : ""), x: b.x, y: b.y, sq: opSq(b), st: eff(b) })),   // 🌾 banner check (members.js): which Outposts our territory touches

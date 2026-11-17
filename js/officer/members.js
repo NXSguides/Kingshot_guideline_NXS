@@ -194,7 +194,7 @@ async function mpApply() {
 /* 🚩 banners ticked by hand in 🧭 Move steps count as standing on 🗺️ Map too (and Map's own ✅ Built shows here by itself) */
 const NX = () => (WHO === "m" || !SLOT.m ? { D, MV } : SLOT.m);   // NXS's own data even while 🐝 shows nxs
 function ticked() { const MV = NX().MV; const set = new Set(((MV && MV.st) || {}).b || []); return ((MV && MV.plan && MV.plan.b) || []).filter(([x, y]) => set.has(x + "," + y)).map(([x, y]) => [x, y]); }
-const mapSync = () => { if (WHO === "f") return; try { hqFollow(); } catch (e) {} try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
+const mapSync = () => { if (WHO !== "f") { try { hqFollow(); } catch (e) {} } try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
 const t = (k) => (T[lang] || T.en)[k] || T.en[k];
 const ED = () => WHO === "m" && OFFICER.can("map", "edit");   // nxs positions come from their roster: look only
 const norm = (s) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
@@ -258,13 +258,28 @@ function blockMid() { const h = hqNow()[0]; if (h) return [h[0] + 1, h[1] + 1];
 const far = ([, x, y], mx, my) => Math.abs(x - mx) > 60 || Math.abs(y - my) > 60;
 /* 🏰 the other alliance, faint, behind ours (Sherry 2026-11-16: NXS and nxs are planned apart but share a border at Y 704 and one Bear Trap).
    Its plan when it has one, otherwise where its cities are now. Looking only — nothing of it can be tapped or changed from here. */
+/* 🐻 nxs's Bear Traps on 🚩 Territory are in the order they were put on the map, not by number (Sherry 2026-11-17: nxs's BT1 — the trap shared with
+   NXS — showed as BT2 because the other trap had been entered first). When nxs has a move plan, a trap standing where the plan has one takes the
+   plan's number; the others fill the numbers that are left, in their own order. Without a plan the order is kept. */
+function btOrderF(now, plan) {
+  const pb = (plan && plan.bt) || []; if (!pb.length || !now.length) return now;
+  const at = [], rest = [];
+  for (const b of now) { const i = pb.findIndex((q) => q[0] === b[0] && q[1] === b[1]); if (i >= 0 && !at[i]) at[i] = b; else rest.push(b); }
+  const out = []; for (let i = 0; out.length < now.length && i < now.length + pb.length; i++) { if (at[i]) out.push(at[i]); else if (rest.length) out.push(rest.shift()); }
+  return out;
+}
+/* nxs's move plan wherever it is held: the view itself, the nxs slot, or the copy read for the NXS view */
+const MVF = () => (WHO === "f" ? MV : SLOT.f ? SLOT.f.MV : BGF && BGF.MV) || null;
+const planF = () => { const m = MVF(); return m && m.plan ? { b: (m.plan.b || []).map(([x, y]) => [x, y]), st: new Set(((m.st || {}).b) || []) } : null; };
+const tickedF = () => { const p = planF(); return p ? p.b.filter(([x, y]) => p.st.has(x + "," + y)) : []; };   // nxs plan banners ticked as built in nxs's move steps (the mirror of ticked())
 let BGF = null;   // nxs, read once for the NXS view (the nxs view has NXS in SLOT.m already)
 async function bgLoad() {
-  if (BGF || !OFFICER.can("move", "view")) return;
+  if (BGF || !(OFFICER.can("move", "view") || OFFICER.can("plan", "view"))) return;
   let r = null, p = null; try { r = await OfficerData.fetchJson("data/academy-x7k2p9.json"); } catch (e) {} try { p = await OfficerData.fetchJson(MV_PATH_F); } catch (e) {}
   const KS = window.KM_SHARED, f = KS && KS.farmPL ? KS.farmPL() : { bt: [] };
-  BGF = { roster: r && Array.isArray(r.members) ? r : { members: [] }, D: { m: ((r && r.members) || []).filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: (f.bt || []).map((b) => b.slice(0, 2)) }, MV: { plan: p && p.plan ? p.plan : null } };
-  try { await OFFICER.BTF.load(); } catch (e) {}
+  BGF = { roster: r && Array.isArray(r.members) ? r : { members: [] }, D: { m: ((r && r.members) || []).filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: btOrderF((f.bt || []).map((b) => b.slice(0, 2)), p && p.plan) }, MV: { plan: p && p.plan ? p.plan : null, st: (p && p.st) || {} } };
+  try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {}   // 🚩 Territory: nxs's ticked plan banners count as standing
+  try { if (OFFICER.can("move", "view")) await OFFICER.BTF.load(); } catch (e) {}
   if (WHO === "m" && D) { draw(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); }
 }
 /* 🤝 the one trap both alliances use: NXS marks it BT3, nxs marks it BT1 — one list with both, each side by power */
@@ -278,8 +293,8 @@ function sharedBtHtml() { const L = sharedBt(), row = (n, a) => `<div style="mar
 function otherLayer() {
   const o = WHO === "m" ? "f" : "m", d = SLOT[o] || (o === "f" ? BGF : null); if (!d || !d.D) return null;
   const PL = d.MV && d.MV.plan, xy = (a) => a.map((v) => [v[v.length > 2 && typeof v[0] !== "number" ? 1 : 0], v[v.length > 2 && typeof v[0] !== "number" ? 2 : 1]]);
-  return PL ? { n: o === "f" ? "nxs" : "NXS", c: xy(PL.c || []), b: xy(PL.b || []), hq: xy(PL.hq || []), bt: xy(PL.bt || []) }
-    : { n: o === "f" ? "nxs" : "NXS", c: xy(d.D.m || []), b: [], hq: [], bt: xy(d.D.bt || []) };
+  return PL ? { o, n: o === "f" ? "nxs" : "NXS", c: xy(PL.c || []), b: xy(PL.b || []), hq: xy(PL.hq || []), bt: xy(PL.bt || []) }
+    : { o, n: o === "f" ? "nxs" : "NXS", c: xy(d.D.m || []), b: [], hq: [], bt: xy(d.D.bt || []) };
 }
 function draw(boxId = "mm_map") {
   const KSx = window.KM_SHARED, ctx0 = KSx ? KSx.ctx : "m"; if (KSx) KSx.ctx = WHO;   // nxs: their banners / planned banners; ours show as another alliance
@@ -314,7 +329,7 @@ function drawIn(boxId) {
       for (const [x, y] of OL.c) if (inB(x, y)) g.push(sq(x, y, 2));
       for (const [x, y] of OL.b) if (inB(x, y)) g.push(sq(x, y, 1));
       for (const [x, y] of OL.hq) if (inB(x, y)) { const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.n} HQ</text>`); }
-      OL.bt.forEach(([x, y], i) => { if (!inB(x, y)) return; const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.n} BT${i + 1}</text>`); });
+      OL.bt.forEach(([x, y], i) => { if (!inB(x, y)) return; const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.o === "f" && i === 0 ? "BT3" : OL.n + " BT" + (i + 1)}</text>`); });   // nxs's BT1 is the trap shared with NXS = NXS's BT3 (Sherry 2026-11-17: show it under our name for it)
       if (g.length) s.push(`<g class="mm-oa" style="pointer-events:none"><title>${OL.n}</title>${g.join("")}</g>`);
       if (yb > y1 && yb < y2) { const a = P(x1, yb), b = P(x2, yb), [lx, ly] = P(x1 + 1.5, yb);
         s.push(`<g class="mm-oa" style="pointer-events:none"><line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="#ffde4a" stroke-opacity=".8" stroke-width="1.6" stroke-dasharray="8 5"/><text x="${lx.toFixed(1)}" y="${(ly - 5).toFixed(1)}" class="mm-bl" style="fill:#ffde4a;opacity:.9">NXS ┄ Y ${SPLIT_Y} ┄ nxs</text></g>`); } } }
@@ -1104,6 +1119,7 @@ function lists() {
     + (notMap.length ? `<div class="mm-l"><b>${esc(t("notMap"))}</b> ${notMap.map((n) => `<span class="mm-chip">${esc(n)}</span>`).join(" ")}</div>` : "");
 }
 function render() {
+  if (WHO === "f" && D && MV && MV.plan) { const o = btOrderF(D.bt, MV.plan); if (JSON.stringify(o) !== JSON.stringify(D.bt)) { D.bt = o; SAVED = snap(); } }   // 🐻 numbers follow the plan
   const el = $("km_members"); if (!el || !D) return; if (WHO === "m") { renderOptNow(); if (window.KM_SHARED && KM_SHARED.cityDraw) KM_SHARED.cityDraw(); }   // 🚩 Territory draws the members / Bear Traps / Hive plan too
   const dirty = snap() !== SAVED, ed = ED();
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
@@ -1159,6 +1175,7 @@ async function init(map) {
   OfficerData.fetchJsonFast("data/watch-x7k2p9.json", (w) => { WATCH = w; again(); }).then((w) => { if (w) { WATCH = w; again(); } }).catch(() => {});
   OfficerData.fetchJsonFast("data/records-x7k2p9.json", (r) => { RECS = r; again(); }).then((r) => { if (r) { RECS = r; again(); } }).catch(() => {});
   render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove();   // the moving table needs the roster too (TC, Power, 🐻 BT boxes) — 2026-11-05: it was drawn before the roster came
+  bgLoad();   // 🚩 Territory needs nxs's move plan too (its ticked banners, and plan banners listed as standing)
 }
 /* 🧭 the move step by step, read from the blueprint labels: ✅ comes by itself when the map already shows it
    (our banner standing there, the HQ / a Bear Trap at its new X Y, a member at their new spot); officers with the edit right tick the rest */
@@ -1377,11 +1394,15 @@ function mpCardF() {
   return `<div class="mm-add" id="mp_card" style="margin-bottom:12px"><b>${esc(t("mpT"))}</b>
     <div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("mpHowF"))}</div>
     <div class="row" style="gap:6px;flex-wrap:wrap;align-items:center"><a class="btn small" href="https://mightpulse.com/map?kid=2189" target="_blank" rel="noopener">${esc(t("mpMap"))}</a>
-    <button type="button" class="btn small primary" id="mp_posf"${posfBusy ? " disabled" : ""}>${esc(posfBusy ? t("mpBusy") : t("mpBtn"))}</button>
+    <button type="button" class="btn small primary" id="mp_posf"${posfBusy ? " disabled" : ""}>${esc(posfBusy ? t("mpBusy") : t("mpBtn"))}</button>${OFFICER.rosterNow ? " " + OFFICER.rosterNow.html("mp_rnf") : ""}
     ${at ? `<span class="muted" style="font-size:12.5px">${esc(t("mpGot").replace("{t}", fmtT(at)).replace("{n}", (D && D.m.length) || 0))}</span>` : ""}</div>
     ${posfMsg ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(posfMsg)}</div>` : ""}</div>`;
 }
 function bindMpF(el) {
+  /* 🔄 Update roster now, for nxs too (Sherry 2026-11-17: nxs had no button). The same job refreshes both rosters; when it is done nxs's own roster is read again. */
+  if (OFFICER.rosterNow && el.querySelector("#mp_rnf")) OFFICER.rosterNow.bind(el.querySelector("#mp_rnf"), () => roster && roster.updated, async () => { if (WHO !== "f") return;
+    try { const r = await OfficerData.fetchJson("data/academy-x7k2p9.json"); if (r && Array.isArray(r.members)) { roster = r; D.m = r.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]); SAVED = snap(); } } catch (e) {}
+    render(); renderMove(); });
   const b = el.querySelector("#mp_posf"); if (!b) return;
   b.onclick = async () => { posfBusy = true; posfMsg = ""; renderMove();
     const live = await posFetch(true, "f"); posfBusy = false;
@@ -1406,7 +1427,7 @@ async function loadF() {
   D = { m: roster.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: (f.bt || []).map((b) => b.slice(0, 2)) }; SAVED = snap();
   msg = roster.members.length ? "" : t("fNoRoster");
   try { const l = await posFetch(false, "f"); if (l) { POSF = l; fPosUse(l); } } catch (e) {}   // the last 📍 look-up, if newer than the daily roster
-  MV_PATH = MV_PATH_F; await loadMove(); mvMsg = "";
+  MV_PATH = MV_PATH_F; await loadMove(); mvMsg = ""; D.bt = btOrderF(D.bt, MV && MV.plan); SAVED = snap();
   if (OFFICER.can("move", "view")) OFFICER.BTF.load();
 }
 let whoBusy = false;
@@ -1417,7 +1438,7 @@ async function setWho(w) {
   SLOT[WHO] = keepSlot(); WHO = w; if (OFFICER.setWho) OFFICER.setWho(w);   // 🚩 Territory opens on the same alliance
   if (SLOT[w]) useSlot(SLOT[w]); else { SEL = null; SPOT = null; NOWAT = null; mvMsg = ""; msg = ""; if (w === "f") { $("km_members").innerHTML = whoBar() + `<div class="muted">…</div>`; await loadF(); } }
   whoBusy = false; if ($("hp_root")) $("hp_root").hidden = w === "f"; OPTN = null; OPTR = null;
-  render(); renderMove();
+  render(); renderMove(); mapSync();
 }
 /* the 🚚 tab: needs the map tab's data (positions, banners, obstacles), so that one starts first (hidden) */
 async function initMove() {
@@ -1456,7 +1477,7 @@ function autoKick() { if (!OFFICER.token || !(posDirty() || mvDirty())) return; 
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && autoT) autoSave(); });
 window.addEventListener("pagehide", () => { if (autoT) autoSave(); });
 window.MemberMap = { cities: () => { const { D } = NX(); return D && D.m ? D.m.map((m) => [m[0], m[1], m[2]]) : []; }, traps: () => { const { D } = NX(); return D && D.bt ? D.bt.map((b) => [b[0], b[1]]) : []; },
-  hivePlan: () => { const { MV } = NX(); return MV && MV.plan ? { c: (MV.plan.c || []).map((c) => [c[0] || "", c[1], c[2]]), bt: (MV.plan.bt || []).map((b) => [b[0], b[1]]), hq: (MV.plan.hq || []).map((h) => [h[0], h[1]]) } : null; }, init, setLang, refresh, importPlan, ticked, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
+  hivePlan: () => { const { MV } = NX(); return MV && MV.plan ? { c: (MV.plan.c || []).map((c) => [c[0] || "", c[1], c[2]]), bt: (MV.plan.bt || []).map((b) => [b[0], b[1]]), hq: (MV.plan.hq || []).map((h) => [h[0], h[1]]) } : null; }, init, setLang, refresh, importPlan, ticked, tickedF, planF, bgLoad, whoChanged: () => { OPTN = null; OPTR = null; renderOptNow(); } };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
 const whoSync = () => { try { const w = OFFICER.who ? OFFICER.who() : sideOf() || localStorage.getItem("nxs-hive-who"); if ((w === "m" || w === "f") && w !== WHO) return setWho(w); } catch (e) {} };   // follows 👥 (one alliance only) and the last pick on 🚩 Territory
 window.addEventListener("nxs-perms", () => { if (D) whoSync(); });
 window.addEventListener("nxs-who", () => { if (D) whoSync(); });   // 🏰 the top-bar switch

@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Territory: nxs Hive-plan banners listed as standing (notice + mirror of the Move ticks)", /🐝 nxs PLAN BANNERS vs STANDING \(2026-11-17\)/, /fm21: "🐝 This box appears when banners of nxs/],
   ["Territory: nxs planned banners get the same check as NXS", /🚩 NXS BANNER CHECK FOR nxs \(2026-11-17\)/, /fm20: "🚩 Planned banners — check/],
   ["Attendance / Roster: 🚪 registered, then left (kept by player ID)", /🚪 REGISTERED, THEN LEFT \(2026-11-17\)/, /at20: "🚪 Registered, then left/],
   ["Watchlist: kept per alliance (nxs has its own member history)", /🏰 WATCHLIST PER ALLIANCE \(2026-11-17\)/, /wt05: "🏰 The Watchlist is kept per alliance/],
