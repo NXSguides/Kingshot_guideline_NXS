@@ -114,7 +114,7 @@ async function handle(req, env, ctx) {
       if (at >= 0) { terms = context.slice(context.indexOf("\n", at) + 1).trim(); context = context.slice(0, at).trim(); }
       if (officer) {
         context += "\n\n" + helpFor(acc.tabs);
-        try { const od = officerDataFor(await getOfficer(env), acc.tabs); if (od) context += "\n\n" + od; }
+        try { const od = officerDataFor(await getOfficer(env), acc.tabs, acc.side); if (od) context += "\n\n" + od; }
         catch (e) { context += "\n\n(OFFICER DATA is unavailable right now: " + e.message + ")"; }
         if (acc.tabs.has("events")) {
           try { context += "\n\n" + await getEvents(env); }
@@ -436,8 +436,8 @@ NEWER TOOLS (officers)
 [attend] - 🏰 ROSTER PER ALLIANCE: 📋 Attendance is kept per alliance the same way — the lists, the attendance rates and the no-show counts are those of the alliance picked in the top bar; a new list belongs to that alliance and imports from that alliance's plans.
 [attack] - 🏰 ROSTER PER ALLIANCE: on the 🗡️ Swordland card "our side" is the alliance picked in the top bar — its plans and its roster (labelled NXS or nxs).
 [bearplan] - 🏰 BEAR LEADERS PER ALLIANCE (2026-11-17): on 🐻 Bear plan the leader cards and the growth tables belong to one alliance and follow the 🏰 NXS | nxs switch in the top bar (strip "🏰 Looking at: NXS / nxs" at the top). NXS picked: NXS's traps and the whole report as before. nxs picked: only nxs's own cards — the observations, suggestions and detail table were worked out from NXS's rallies and are not shown; with no nxs card yet the page says there is no Bear Hunt data for nxs yet. The trap the two alliances share (NXS's Trap 3 = nxs's Trap 1) is ONE card, shown on both sides with its own title on each. Everything is in the same data file (📥 Update data, admins): a card with side "f" is nxs's, side "s" is the shared trap (titleF = its title on the nxs side), no side = NXS.
-[map] - 🏰 MAP OWNERSHIP PER ALLIANCE (2026-11-17): the 🗺️ Map picture, the buildings, the rewards and the 72 h / 24 h cycle are the same for NXS and nxs, but who holds what is kept apart, because in the game they are two alliances and whoever takes an Outpost has its buff. The 🎯 Target / ✅ Ours marks on Outposts, Fortresses and Sanctuaries, the countdown timers, the ⭐ priorities, the buff conflict check, the buff totals in the 📋 Outpost plan card and the distance to the HQ are those of the alliance picked with the 🏰 NXS | nxs switch in the top bar (strip "🏰 Looking at: NXS / nxs" at the top). A mark made while nxs is picked is nxs's and never shows under NXS. Both are saved in the same plan with 💾 Save plan. The 📍 Outpost reminders and the Outpost plan the AI can read are still NXS's only.
-[watch] - 🏰 WATCHLIST PER ALLIANCE (2026-11-17): 🕵️ Watchlist is kept apart for NXS and nxs and shows the alliance picked with the 🏰 NXS | nxs switch in the top bar (strip "🏰 Looking at: NXS / nxs"; changing it reloads the officer page). nxs has its own member list (the daily nxs roster) and its own history — first seen, earlier names, power and kills over time, and who left — which starts on the day the roster job first tracked nxs (2026-11-17 or the next daily update), so "before {date}" for nxs means before that day. The other alliances' member lists (where someone came from, similar names elsewhere), the records and the officers' notes (kept by player ID) are the same for both. The AI's ROSTER / WATCH data is still NXS's only.
+[map] - 🏰 MAP OWNERSHIP PER ALLIANCE (2026-11-17): the 🗺️ Map picture, the buildings, the rewards and the 72 h / 24 h cycle are the same for NXS and nxs, but who holds what is kept apart, because in the game they are two alliances and whoever takes an Outpost has its buff. The 🎯 Target / ✅ Ours marks on Outposts, Fortresses and Sanctuaries, the countdown timers, the ⭐ priorities, the buff conflict check, the buff totals in the 📋 Outpost plan card and the distance to the HQ are those of the alliance picked with the 🏰 NXS | nxs switch in the top bar (strip "🏰 Looking at: NXS / nxs" at the top). A mark made while nxs is picked is nxs's and never shows under NXS. Both are saved in the same plan with 💾 Save plan. The 📍 Outpost reminders cover each alliance's own Outposts: an officer set to one alliance on 👥 is reminded of that alliance's only, everyone else of both (nxs's start with "nxs ·").
+[watch] - 🏰 WATCHLIST PER ALLIANCE (2026-11-17): 🕵️ Watchlist is kept apart for NXS and nxs and shows the alliance picked with the 🏰 NXS | nxs switch in the top bar (strip "🏰 Looking at: NXS / nxs"; changing it reloads the officer page). nxs has its own member list (the daily nxs roster) and its own history — first seen, earlier names, power and kills over time, and who left — which starts on the day the roster job first tracked nxs (2026-11-17 or the next daily update), so "before {date}" for nxs means before that day. The other alliances' member lists (where someone came from, similar names elsewhere), the records and the officers' notes (kept by player ID) are the same for both. The AI reads each alliance's roster, history and Outpost marks under separate headings ("ROSTER" / "nxs ROSTER" …): an officer set to one alliance on 👥 gets only that alliance's, everyone else both — say which alliance a figure is from.
 [move] - 🏰 CURRENT ALLIANCE switch: 🐝 Hive follows the 🏰 NXS | nxs switch in the top bar (see 🚩 Territory); it no longer has NXS / nxs buttons of its own.
 [move] - 🏰 "Planning now: NXS / nxs" strip (2026-11-17): on the two pages that are split by alliance — 🚩 Territory and 🐝 Hive — a coloured strip at the top always says which alliance is being planned (NXS brown, nxs teal) and the map / tool card has a frame in the same colour. In 🐝 Hive a save says which alliance it went to ("Saved ✅ … · 🏰 nxs") and an imported layout says which alliance it was loaded into. No other page mentions the alliance split — announcements, events, research and the roster are shared.
 [move] - 🐝 Hive → 🤝 Shared Bear Trap box (2026-11-17), under the BT1 / BT2 / BT3 lists of the move table (shown once a plan is loaded): the trap both alliances use is BT3 for NXS and BT1 for nxs, so this one box lists everyone ticked for it — the NXS members ticked BT3 and the nxs members ticked BT1, each side by Power — with 📋 Copy for the whole list. The ticks themselves are still made in each alliance's own table.
@@ -777,7 +777,7 @@ async function officerAccess(req, env, body) {
   if (role !== "admin") { const p = u.perms || {}; for (const k of RESEARCH_TABS) tabs.delete(k);
     const on = "research" in p ? (p.research === "view" || p.research === "edit") : RESEARCH_TABS.some((k) => p[k] === "view" || p[k] === "edit");
     tabs.delete("research"); if (on) for (const k of ["research", ...RESEARCH_TABS]) tabs.add(k); }
-  return { role, tabs, token: await seal(env, c.s) };
+  return { role, tabs, side: role !== "admin" && (u.side === "m" || u.side === "f") ? u.side : "", token: await seal(env, c.s) };   // 🏰 side: the alliance an officer is set to on 👥 (none = both)
 }
 /* handbook parts for these tabs only (see the @tab / [tab] marks in OFFICER_HELP) */
 function helpFor(tabs) {
@@ -793,10 +793,15 @@ function helpFor(tabs) {
 }
 /* officer data parts (### headings from scripts/build-officer-context.js) → the tab that shows them; unknown parts: admins only */
 const DATA_TABS = [["ROSTER", ["ranking", "watch"]], ["WATCH", ["watch"]], ["OTHER ALLIANCES", ["watch"]], ["SCOUT", ["attack"]], ["TRANSFER", ["tr"]], ["OUTPOST PLAN", ["map", "plan"]]];
-function officerDataFor(text, tabs) {
+/* 🏰 ROSTER / WATCH / OUTPOST PLAN come once per alliance ("### ROSTER" = NXS, "### nxs ROSTER" = nxs): an officer set to one alliance on 👥
+   (side "m" / "f") gets only that alliance's; everyone else gets both, each under its own heading. The other parts are the same for both. */
+const DATA_SPLIT = ["ROSTER", "WATCH", "OUTPOST PLAN"];
+function officerDataFor(text, tabs, side) {
   const parts = String(text || "").split(/\n(?=### )/);
-  const keep = parts.filter((p) => {
-    if (!p.startsWith("### ")) return true;   // the "===== OFFICER DATA" title
+  const keep = parts.filter((p0) => {
+    if (!p0.startsWith("### ")) return true;   // the "===== OFFICER DATA" title
+    const f = p0.startsWith("### nxs "), p = f ? "### " + p0.slice(8) : p0;
+    if (side && DATA_SPLIT.some((h) => p.startsWith("### " + h)) && (side === "f") !== f) return false;
     const hit = DATA_TABS.find(([h]) => p.startsWith("### " + h));
     return hit ? hit[1].some((t) => tabs.has(t)) : tabs.has("perms");
   });

@@ -12,12 +12,14 @@ const M = (n) => (n == null ? "?" : (n / 1e6).toFixed(1) + "M");
 const day = (s) => (s ? new Date(s * 1000).toISOString().slice(0, 10) : "?");
 const out = ["===== OFFICER DATA (officers only) ====="];
 
-out.push(`### ROSTER — ${roster.alliance?.name || ""} [${roster.alliance?.tag || ""}], updated ${String(roster.updated).slice(0, 10)}`,
-  "name | rank | power | TC | kills | language");
-for (const m of [...roster.members].sort((a, b) => (b.power || 0) - (a.power || 0)))
-  out.push(`${m.name} | ${m.rank} | ${M(m.power)} | ${m.tc ?? "?"} | ${M(m.kills)} | ${m.lang || "?"}`);
-
-if (watch) {
+/* 🏰 one ROSTER / WATCH part per alliance (2026-11-17): NXS's headings are "### ROSTER" / "### WATCH" as before, nxs's are "### nxs ROSTER" /
+   "### nxs WATCH" — the Worker hands an officer set to one alliance only that alliance's parts (worker.js officerDataFor) */
+function allianceParts(roster, watch, pre) {
+  out.push(`### ${pre}ROSTER — ${roster.alliance?.name || ""} [${roster.alliance?.tag || ""}], updated ${String(roster.updated).slice(0, 10)}`,
+    "name | rank | power | TC | kills | language");
+  for (const m of [...roster.members].sort((a, b) => (b.power || 0) - (a.power || 0)))
+    out.push(`${m.name} | ${m.rank} | ${M(m.power)} | ${m.tc ?? "?"} | ${M(m.kills)} | ${m.lang || "?"}`);
+  if (!watch) return;
   const byId = Object.fromEntries(roster.members.map((m) => [m.id, m.name]));
   const renames = [], growth = [];
   for (const [id, w] of Object.entries(watch.members || {})) {
@@ -26,12 +28,19 @@ if (watch) {
     const p = w.power || [];
     if (p.length > 1) growth.push([name, p[0][1], p.at(-1)[1], p[0][0], p.at(-1)[0]]);
   }
-  out.push(`### WATCH — tracking since ${watch.started}`);
+  out.push(`### ${pre}WATCH — tracking since ${watch.started}`);
   out.push("Name changes:", renames.length ? renames.join("\n") : "none");
   out.push("Left the alliance:", (watch.left || []).map((l) => `${l.name} (${l.leftOn})`).join(", ") || "none");
   growth.sort((a, b) => (b[2] - b[1]) - (a[2] - a[1]));
   out.push("Power change since tracking started (biggest first):",
     growth.map(([n, a, b, d1, d2]) => `${n}: ${M(a)} (${d1}) → ${M(b)} (${d2})`).join("\n"));
+}
+allianceParts(roster, watch, "");
+{ let fr = null, fw = null;
+  try { fr = readData("data/academy-x7k2p9.json"); } catch (e) {}
+  try { fw = readData("data/watch-nxs-x7k2p9.json"); } catch (e) {}
+  if (fr && Array.isArray(fr.members) && fr.members.length) allianceParts(fr, fw, "nxs "); }
+if (watch) {
   const others = Object.values(watch.others || {}).map((a) =>
     `[${a.tag}] ${a.name} (#${a.kid}, ${a.asOf}): ${a.members.length} members; top: ` +
     a.members.slice(0, 5).map(([, n, p]) => `${n} ${M(p)}`).join(", "));
@@ -65,7 +74,9 @@ if (tr && Array.isArray(tr.players) && tr.players.length) {
 // Map tab: the officers' Outpost plan (data/outpost-plan-x7k2p9.json) with names/levels/buffs from data/kingdom-map.js
 let plan = null;
 try { plan = readData("data/outpost-plan-x7k2p9.json"); } catch (e) {}
-if (plan && plan.o && Object.keys(plan.o).length) {
+/* 🏰 who holds what is kept per alliance: NXS in plan.o / plan.t, nxs in plan.farm.op — "### OUTPOST PLAN" and "### nxs OUTPOST PLAN" */
+const outpostPart = (PO, pre, who) => {
+  if (!PO || !PO.o || !Object.keys(PO.o).length) return;
   const fs = require("fs"), path = require("path");
   const KM = new Function(fs.readFileSync(path.join(__dirname, "..", "data/kingdom-map.js"), "utf8") + "\nreturn KINGDOM_MAP;")();
   const TY = Object.fromEntries(KM.types.map(([k, n, b]) => [k, { n, b, zh: KM.zh.types[k] }]));
@@ -74,7 +85,7 @@ if (plan && plan.o && Object.keys(plan.o).length) {
   const cycAt = (raw, end) => { if ((raw !== "held" && raw !== "vuln") || !end) return [raw, 0]; if (NOW < end) return [raw, end];
     const e = NOW - end, base = end + Math.floor(e / (P + V)) * (P + V), t = e % (P + V), first = raw === "held" ? V : P;
     return t < first ? [raw === "held" ? "vuln" : "held", base + first] : [raw, base + P + V]; };
-  const all = KM.outposts.map(([t, lv, x, y]) => { const k = x + "," + y, r0 = plan.o[k] || "", r = r0 === "conflict" ? "held" : r0, [s, sw] = cycAt(r, (plan.t || {})[k]);
+  const all = KM.outposts.map(([t, lv, x, y]) => { const k = x + "," + y, r0 = PO.o[k] || "", r = r0 === "conflict" ? "held" : r0, [s, sw] = cycAt(r, (PO.t || {})[k]);
     return { t, lv, x, y, buff: KM.buff[t][lv], s, sw, legacy: r0 === "conflict", start: sw ? (s === "held" ? sw - P : sw - V - P) : null }; });
   /* Buff conflict from the timers: same type + level, the one Protected most recently (more Protected time left) gets no buff */
   for (const o of all) if (o.s === "held" && (o.start == null ? o.legacy : all.some((x) => x !== o && x.t === o.t && x.lv === o.lv && (x.s === "held" || x.s === "vuln") && !x.legacy &&
@@ -86,7 +97,7 @@ if (plan && plan.o && Object.keys(plan.o).length) {
   const total = (states) => { const seen = new Set(), sum = {};
     for (const o of all) if (states.includes(o.s) && !seen.has(o.t + o.lv)) { seen.add(o.t + o.lv); sum[o.t] = (sum[o.t] || 0) + o.buff; }
     return KM.types.map(([k]) => `${TY[k].b} ${sum[k] ? "+" + sum[k] + "%" : "—"}`).join(", "); };
-  out.push(`### OUTPOST PLAN — NXS (nxs keeps its own marks on the 🗺️ Map; they are not in this data) — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)} (statuses as of ${utc(NOW)}; cycle ${P / 36e5} h Protected → ${V / 36e5} h Vulnerable for Outposts with a timer)`,
+  out.push(`### ${pre}OUTPOST PLAN — ${who}'s own marks (each alliance keeps its own on the 🗺️ Map) — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)} (statuses as of ${utc(NOW)}; cycle ${P / 36e5} h Protected → ${V / 36e5} h Vulnerable for Outposts with a timer)`,
     "Ours, Protected (buff active): " + (all.filter((o) => o.s === "held").map(line).join("; ") || "none"),
     "Ours, Vulnerable (no buff until Protected again; can be attacked): " + (all.filter((o) => o.s === "vuln").map(line).join("; ") || "none"),
     "Ours, Buff conflict (worked out from the timers: same type + level as another of ours that has been Protected longer, gives nothing): " + (all.filter((o) => o.s === "conflict").map(line).join("; ") || "none"),
@@ -94,12 +105,13 @@ if (plan && plan.o && Object.keys(plan.o).length) {
     "Buff totals now, as the game shows them (Protected only; same type + level counted once): " + total(["held"]),
     "Buff totals with everything we hold + targets: " + total(["held", "vuln", "conflict", "target"]));
   const ruins = [...KM.fortress.map(([x, y], i) => ({ n: `Fortress ${i + 1} (${i + 1}號要塞)`, p: 2, x, y })),
-                 ...KM.sanctuary.map(([x, y], i) => ({ n: `Sanctuary ${i + 1} (${i + 1}號遺跡)`, p: 1, x, y }))].map((r) => ({ ...r, s: plan.o[r.x + "," + r.y] || "" }));
+                 ...KM.sanctuary.map(([x, y], i) => ({ n: `Sanctuary ${i + 1} (${i + 1}號遺跡)`, p: 1, x, y }))].map((r) => ({ ...r, s: PO.o[r.x + "," + r.y] || "" }));
   const rl = (s) => ruins.filter((r) => r.s === s).map((r) => `${r.n} X${r.x} Y${r.y}`).join("; ") || "none";
   const rp = (ss) => ruins.filter((r) => ss.includes(r.s)).reduce((n, r) => n + r.p, 0);
   out.push("Sanctuary Battle — Fortresses/Sanctuaries we hold: " + rl("held"), "Fortress/Sanctuary targets: " + rl("target"),
     `Season points per phase (Sanctuary 1, Fortress 2): now ${rp(["held"])}, with targets ${rp(["held", "target"])}`);
-}
+};
+if (plan) { outpostPart(plan, "", "NXS"); outpostPart(plan.farm && plan.farm.op, "nxs ", "nxs"); }
 
 const text = out.join("\n");
 writeData("data/ai-officer.json", { built: new Date().toISOString(), text });
