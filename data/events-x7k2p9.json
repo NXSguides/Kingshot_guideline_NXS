@@ -94,7 +94,7 @@
   },
   "wavebound-voyage": {
    "anchor": "2026-10-20",
-   "periodDays": 100000,
+   "periodDays": 28,
    "activeDays": 5
   },
   "castle-battle": {
