@@ -1091,7 +1091,7 @@ const TL_T = { en: ["Tapping the map places:", "— nothing (just look / select)
 const tl = (i) => (TL_T[lang] || TL_T.en)[i];
 let PWHO = (() => { try { const v = localStorage.getItem("kp-who"); return v === "f" || v === "o" ? v : "m"; } catch (e) { return "m"; } })();   // m = NXS · f = nxs · o = other alliances (corrections only)
 const sideOf = () => (OFFICER.side ? OFFICER.side() : "");   // 🏰 an officer set to one alliance on 👥 stays on it
-function setWho(w) { const sd = sideOf(); if (sd && w !== "o" && w !== sd) return; if (PWHO === w) return; PWHO = w; try { localStorage.setItem("kp-who", w); if (w !== "o") localStorage.setItem("nxs-hive-who", w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }   // renderFlags → drawFarm: the handles follow the alliance picked
+function setWho(w) { const sd = sideOf(); if (sd && w !== "o" && w !== sd) return; if (PWHO === w) return; PWHO = w; try { if (w === "o") localStorage.setItem("kp-who", w); else if (OFFICER.setWho) OFFICER.setWho(w); } catch (e) {} farmKind = ""; flagMode = false; otKind = ""; if ($("km_svg")) $("km_svg").classList.remove("flag-mode"); renderFlags(); if (window.MemberMap && MemberMap.whoChanged) MemberMap.whoChanged(); }   // renderFlags → drawFarm: the handles follow the alliance picked
 const WHO_T = { en: ["Planning / looking at:", "What to place:"], zh: ["現在規劃／查看：", "要放什麼："], pt: ["Planejando / vendo:", "O que colocar:"], ar: ["التخطيط / العرض لـ:", "ماذا تضع:"], ko: ["계획 / 보기 대상:", "놓을 것:"] };
 const farmDelta = () => { if (!RESD) return null; const c = farmCalc(), f = PLAN.farm || {}, n = (k) => (f[k] || []).length; return { a: c.a, b: c.b, off: c.off, nUp: n("fl"), nDown: n("rm"), n0: n("b"), n1: n("b") - n("rm") + n("fl") }; };
 const MC_T = { en: "🏠 Members & Bear Traps", zh: "🏠 成員的城和熊陷阱", pt: "🏠 Membros e Armadilhas", ar: "🏠 الأعضاء وفخاخ الدب", ko: "🏠 연맹원과 곰 덫" };
@@ -1105,12 +1105,12 @@ function renderTools() {
   const opts = PWHO === "m" ? opt("p", "🚩 " + fk("fl").replace(/^\S+\s*/, "")) : PWHO === "f" ? FKU.map((k) => opt("f:" + k, fk(k))).join("") : al.map((n) => opt("o:" + n, "🏴 " + n)).join("") + al.map((n) => opt("o:h:" + n, "🏯 " + n + " " + ft("hqP"))).join("") + al.map((n) => opt("o:b:" + n, "🏯 " + n + " " + ft("hqB"))).join("");
   const WN = { en: "Planning now:", zh: "現在規劃的是：", pt: "Planejando agora:", ar: "التخطيط الآن لـ:", ko: "지금 계획 중:" };   // 🏰 same strip as on 🐝 Hive
   el.dataset.who = PWHO;
-  el.innerHTML = (PWHO === "o" ? "" : `<div class="who-now who-${PWHO}">🏰 ${esc(WN[lang] || WN.en)} <b>${PWHO === "f" ? esc(fTag().replace(/[\[\]]/g, "").trim()) : "NXS"}</b></div>`) + `<div class="row km-fl-add" style="gap:6px;flex-wrap:wrap;align-items:center"><b style="font-size:13px">${esc(wt[0])}</b>${sd === "f" ? "" : wb("m", "NXS")}${sd === "m" ? "" : wb("f", fTag())}${ed && al.length ? wb("o", "🏴 " + tl(6)) : ""}</div>`
+  el.innerHTML = (PWHO === "o" ? "" : `<div class="who-now who-${PWHO}">🏰 ${esc(WN[lang] || WN.en)} <b>${PWHO === "f" ? esc(fTag().replace(/[\[\]]/g, "").trim()) : "NXS"}</b></div>`) + (ed && al.length ? `<div class="row km-fl-add" style="gap:6px;flex-wrap:wrap;align-items:center">${wb("o", "🏴 " + tl(6))}</div>` : "")
     + (ed ? `<div class="row km-fl-add" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center"><b style="font-size:13px">${esc(wt[1])}</b><select class="btn${cur ? " primary" : ""}" id="kp_put" style="height:36px;max-width:100%">${opt("", tl(1))}${opts}</select>`
       + (typed ? `<label>X <input id="kp_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="kp_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn primary" id="kp_add">➕ ${esc(tl(5))}</button>` : "") + `</div>`
       + (cur ? `<div class="muted" style="font-size:12px;margin-top:4px;color:var(--accent,#ffb020);font-weight:700">${esc(tl(3))}</div>` : "") : "")
     + `<div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center">${tg("fl_obst", obstOn, ft("obst"))}${tg("fl_ex", exOn, ft("ex"))}${tg("fl_ot", otOn, ft("ot"))}${tg("fl_mc", mcOn, MC_T[lang] || MC_T.en)}${otOn && OTB ? `<span class="muted" style="font-size:12px">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`;
-  el.querySelectorAll("[data-who]").forEach((b) => b.onclick = () => setWho(b.dataset.who));
+  el.querySelectorAll("[data-who]").forEach((b) => b.onclick = () => setWho(PWHO === "o" ? OFFICER.who() : "o"));   // 🏴 on / off; NXS | nxs is the top-bar switch
   // each alliance's own cards: only the one being planned / looked at
   { const sh = (id, on) => { const e = $(id); if (e) e.hidden = !on; }; sh("km_flags", PWHO === "m"); sh("km_opt", PWHO !== "o"); sh("km_farm", PWHO === "f"); sh("kp_roster", PWHO === "f"); sh("kp_resCard", PWHO !== "o"); }
   $("fl_mc").onclick = () => { mcOn = !mcOn; try { localStorage.setItem("kp-mc", mcOn ? "1" : "0"); } catch (err) {} drawAc(); renderTools(); };
@@ -1417,5 +1417,6 @@ const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.
 function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }
 let initP = null; const init1 = () => initP || (initP = init());
 OFFICER_PAGES.map = { init: init1, onShow: () => { setMode(false); onShow(); }, applyTexts, setLang };
-OFFICER_PAGES.plan = { init: init1, onShow: () => { try { const w = sideOf() || localStorage.getItem("kp-who"); if ((w === "m" || w === "f") && PWHO !== "o" && w !== PWHO) setWho(w); } catch (e) {} setMode(true); onShow(); acLoad(); }, applyTexts, setLang: () => {} };
+window.addEventListener("nxs-who", () => { try { setWho(OFFICER.who()); } catch (e) {} });   // 🏰 the top-bar switch (also leaves 🏴 other alliances)
+OFFICER_PAGES.plan = { init: init1, onShow: () => { try { const w = OFFICER.who(); if (PWHO !== "o" && w !== PWHO) setWho(w); } catch (e) {} setMode(true); onShow(); acLoad(); }, applyTexts, setLang: () => {} };
 })();

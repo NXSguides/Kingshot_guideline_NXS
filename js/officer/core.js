@@ -206,6 +206,36 @@ OFFICER.side = () => {
   const u = OFFICER.perms && OFFICER.perms.users && OFFICER.perms.users[uid];
   return u && !u.admin && (u.side === "m" || u.side === "f") ? u.side : "";
 };
+/* 🏰 ONE "current alliance" for the whole officer page (Sherry 2026-11-17: "when I work on NXS every page is NXS's plan"). The switch sits in the
+   top bar; the pages split by alliance (SPLIT_TABS) follow it and no longer have a switch of their own. Tabs that will be split later but still
+   hold NXS's data only (NXS_ONLY_TABS) say so while nxs is picked; every other tab is shared and says "shared". */
+OFFICER.SPLIT_TABS = ["plan", "move"];
+OFFICER.NXS_ONLY_TABS = ["ranking", "attend", "watch", "bearplan"];
+const WHO_LS = "nxs-who";
+OFFICER.who = () => {
+  const sd = OFFICER.side(); if (sd) return sd;
+  try { const v = localStorage.getItem(WHO_LS) || localStorage.getItem("nxs-hive-who") || localStorage.getItem("kp-who"); return v === "f" ? "f" : "m"; } catch (e) { return "m"; }
+};
+OFFICER.setWho = (w) => {
+  if (w !== "m" && w !== "f") return; const sd = OFFICER.side(); if (sd && w !== sd) return;
+  let old = ""; try { old = localStorage.getItem(WHO_LS) || ""; } catch (e) {}
+  try { localStorage.setItem(WHO_LS, w); localStorage.setItem("nxs-hive-who", w); localStorage.setItem("kp-who", w); } catch (e) {}
+  whoTop(); if (old !== w) window.dispatchEvent(new Event("nxs-who"));
+};
+function whoTop() {
+  const el = document.getElementById("whoTop"); if (!el) return;
+  const w = OFFICER.who(), sd = OFFICER.side(), k = currentTab(), signed = !!(OFFICER.user || OFFICER.pw);
+  const sees = signed && (OFFICER.SPLIT_TABS.some((x) => OFFICER.can(x, "view")) || OFFICER.NXS_ONLY_TABS.some((x) => OFFICER.can(x, "view")) && !sd);
+  document.body.dataset.who = w;
+  const L = { zh: ["兩邊共用", "這頁目前是 NXS 的資料", "目前聯盟"], en: ["Shared by both", "NXS data on this page for now", "Current alliance"], pt: ["Das duas alianças", "Por enquanto, dados da NXS nesta página", "Aliança atual"], ar: ["مشترك بين التحالفين", "بيانات NXS فقط في هذه الصفحة حاليًا", "التحالف الحالي"], ko: ["두 연맹 공용", "이 페이지는 아직 NXS 데이터예요", "현재 연맹"] }[OFFICER.lang] || ["Shared by both", "NXS data on this page for now", "Current alliance"];
+  const split = OFFICER.SPLIT_TABS.includes(k), only = OFFICER.NXS_ONLY_TABS.includes(k);
+  const chip = only ? (w === "f" ? L[1] : "") : split || sd ? "" : L[0];
+  const sw = sd ? "" : `<span class="who-top who-${w}" role="group" aria-label="${L[2]}" title="${L[2]}"><span aria-hidden="true">🏰</span><button type="button" data-wt="m" class="${w === "m" ? "on" : ""}">NXS</button><button type="button" data-wt="f" class="${w === "f" ? "on" : ""}">nxs</button></span>`;
+  el.hidden = !sees || (!sw && !chip);
+  el.innerHTML = sw + (chip ? `<span class="who-chip${only ? " warn" : ""}">${chip}</span>` : "");
+  el.querySelectorAll("[data-wt]").forEach((b) => b.onclick = () => OFFICER.setWho(b.dataset.wt));
+  document.querySelectorAll(".tabs a[data-tab]").forEach((a) => a.classList.toggle("sp", OFFICER.SPLIT_TABS.includes(a.dataset.tab)));
+}
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
   if (tab === "perms") return OFFICER.isAdmin();
@@ -237,7 +267,7 @@ function previewBar() {
   bar.lastChild.onclick = () => OFFICER.setPreview(null);
 }
 OFFICER.applyPerms = () => {
-  previewBar();
+  previewBar(); whoTop();
   const bp = document.getElementById("pg-board"); if (bp) bp.classList.toggle("view-only", !OFFICER.can("board", "edit"));
   document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" || k === "attend" ? !((OFFICER.user || OFFICER.pw) && OFFICER.can(k)) : !OFFICER.can(k, "view"); });
   const ro = { zh: "👁️ 這個分頁你只能看，不能修改。", en: "👁️ View only: you can look at this tab but not change it.", pt: "👁️ Só leitura: você pode ver esta aba, mas não mudar nada.", ar: "👁️ للعرض فقط: يمكنك مشاهدة هذا القسم دون تعديله.", ko: "👁️ 보기 전용: 이 탭은 볼 수만 있고 수정할 수 없습니다." }[OFFICER.lang] || "";
@@ -371,7 +401,7 @@ function applyShared() {
   document.getElementById("gateOr").textContent = t.or;
   document.getElementById("gateDiscord").style.display = DISCORD_TRY ? "block" : "none"; document.getElementById("gateOr").hidden = !DISCORD_TRY;
   const dm = document.getElementById("gateDiscordMsg"); dm.hidden = !loginMsg; dm.textContent = loginMsg ? t["e_" + loginMsg] || t.e_discord : "";
-  if (typeof showMe === "function" && document.getElementById("meBox")) showMe();
+  if (typeof showMe === "function" && document.getElementById("meBox")) showMe(); whoTop();
 }
 /* home-screen app: no browser reload button, so show our own ↻ */
 (function () {

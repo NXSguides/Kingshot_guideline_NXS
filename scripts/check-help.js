@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Top bar: 🏰 one NXS | nxs switch for the whole officer page", /🏰 CURRENT ALLIANCE switch \(2026-11-17\)/, /wt01: "🏰 One switch for the whole officer page/],
   ["Territory + Hive: 🏰 Planning now strip (which alliance)", /🏰 "Planning now: NXS \/ nxs" strip \(2026-11-17\)/, /mv23: "🏰 This strip always says/],
   ["Hive: 🤝 shared Bear Trap list (NXS BT3 + nxs BT1)", /🤝 Shared Bear Trap box \(2026-11-17\)/, /mv22: "🤝 Shared Bear Trap/],
   ["Hive: the other alliance faint in the background + Y 704 border", /🐝 Hive map \(2026-11-17\)/, /mv21: "🏰 The faint white squares/],
@@ -95,7 +96,7 @@ const FEATURES = [
   ["Ranking: 🗂️ Recover plans (admins; deleted plans too)", /Recover plans/, /{ s: "#planRec", k: "rk02r", e: 1 }/],
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
-  ["Move: NXS / nxs hive plans + BT3", /🐝 Hive → NXS \/ nxs switch/, /{ s: "#km_members \.mm-who", k: "mv20" }/],
+  ["Move: NXS / nxs hive plans + BT3", /🐝 Hive → NXS \/ nxs switch/, /{ s: "#whoTop \.who-top", k: "mv20" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
   ["Map: 🏫 Academy (second alliance on the map), first come first served", /🏫 ACADEMY \(2026-11-14/, /{ s: "#km_farm", k: "mp40", e: 1 }/],
   ["Map: 🌾 our resource nodes now, switching a node off", /🌾 OUR RESOURCE NODES NOW \+ SWITCHING A NODE OFF \(2026-11-14/, /{ s: "#kp_res", k: "mp39", e: 1 }/],
