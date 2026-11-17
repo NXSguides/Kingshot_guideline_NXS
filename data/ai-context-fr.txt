@@ -1091,7 +1091,7 @@ Ouvre aussi le coffre en haut à droite — il compte chaque Amulettes Fantaisie
 
 ### GUIDE #wavebound-voyage — Voyage en Mer
 QUAND
-Événement ponctuel (pas de cycle fixe). 5 jours : 10/20 00:00 UTC – 10/24 24:00 UTC, puis 1 jour pour ouvrir ou fusionner les trésors (plus de voyages).
+Environ tous les 28 jours (vu le 20/10 et le 17/11). 5 jours, puis 1 jour de plus pour ouvrir ou fusionner les trésors (plus de nouveaux voyages). Le jeu lui donne un nouveau nom à chaque fois (Voyage au Fil des Vagues, Voyage de Lumière) et les récompenses changent aussi.
 FONCTIONNEMENT
 Envoie un Équipage en voyage — chaque équipage peut repartir toutes les 8 heures.
 1 équipage gratuit au départ. Les équipages 2 et 3 coûtent 2 000 et 10 000 Gemmes, le 4e est payant.
@@ -1100,6 +1100,18 @@ Chaque voyage rapporte un Trésor des Marées Commun (90 %) ou un Trésor des Ma
 Chaque Boussole réduit un voyage d'1 heure. Les boussoles viennent du Pack Voiles Hissées.
 Tu reçois 1 Boussole gratuite par jour ; celles non utilisées restent pour le prochain événement.
 🎯 RÉCOMPENSES DE PALIER (voyages au total)
+Voyage de Lumière (11/17)
+1 → 1 Coffre personnalisé de Boost d'Équipement
+5 → 9 Marteau de Forge
+20 → 18 Marteau de Forge
+60 → 2 Coffre personnalisé de Boost d'Équipement
+120 → 6 Coffre personnalisé de Boost d'Équipement
+200 → 10 Coffre personnalisé de Boost d'Équipement
+350 → 15 Coffre personnalisé de Boost d'Équipement
+550 → 20 Coffre personnalisé de Boost d'Équipement
+800 → 30 Coffre personnalisé de Boost d'Équipement
+Coffre personnalisé de Boost d'Équipement (un au choix): Caisse d'Équipement de Héros Chanceux ×10 · Marteau de Forge ×10 · 100 Points d'EXP d'Amélioration ×20 · Mithril ×1
+Voyage au Fil des Vagues (10/20)
 1 → 5 Guide de Talisman
 5 → 10 Guide de Talisman
 20 → 20 Guide de Talisman
@@ -1110,6 +1122,10 @@ Tu reçois 1 Boussole gratuite par jour ; celles non utilisées restent pour le 
 550 → 100 coffres de matériaux de Talisman du Gouverneur aléatoires
 800 → 120 coffres de matériaux de Talisman du Gouverneur aléatoires
 🎁 CONTENU DES TRÉSORS
+Trésor des Marées Commun: 100 Gemmes ×5 · 100 Points d'EXP d'Amélioration ×3 · Accélérateur général 5 min ×12
+Trésor des Marées Premium: Caisse d'Équipement de Héros Chanceux ×4 · 100 Points d'EXP d'Amélioration ×5 · Accélérateur général 1 h ×3
+Trésor des Marées Exquis: Marteau de Forge ×9 · Caisse d'Équipement de Héros Chanceux ×6 · Fragment Universel de Héros Mythique ×2
+Trésor des Marées Majestueux: Marteau de Forge ×27 · Caisse d'Équipement de Héros Chanceux ×18 · Fragment Universel de Héros Mythique ×6
 Trésor des Marées Commun: Plans de Talisman ×3 · Accélérateur général 5 min ×12 · 100 Gemmes ×2
 Trésor des Marées Premium: Guide de Talisman ×3 · Plans de Talisman ×6 · Accélérateur général 1 h ×4
 Trésor des Marées Exquis: Guide de Talisman ×9 · Plans de Talisman ×9 · Fragment Universel de Héros Mythique ×2
@@ -1543,6 +1559,9 @@ Basics = Les bases
 Probabilities = Probabilités
 Rewards History = Historique des Récompenses
 Wavebound Voyage = Voyage au Fil des Vagues
+Voyage of Light = Voyage de Lumière
+Gear Boost Custom Chest = Coffre personnalisé de Boost d'Équipement
+Lucky Hero Gear Chest = Caisse d'Équipement de Héros Chanceux
 Voyager Team = Équipage
 Compass = Boussole
 Sails Aloft Pack = Pack Voiles Hissées

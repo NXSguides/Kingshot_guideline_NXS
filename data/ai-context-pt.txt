@@ -1090,7 +1090,7 @@ Abra também o baú no canto superior direito — ele conta cada Amuletos Fantas
 
 ### GUIDE #wavebound-voyage — Viagem Marítima
 QUANDO
-Evento irregular (sem ciclo fixo). 5 dias: 10/20 00:00 UTC – 10/24 24:00 UTC, depois mais 1 dia para abrir ou combinar tesouros (sem novas viagens).
+Cerca de a cada 28 dias (visto em 20/10 e 17/11). 5 dias, depois mais 1 dia para abrir ou fundir tesouros (sem novas viagens). O jogo dá um nome novo a cada vez (Viagem das Ondas, Voyage da Luz) e as recompensas mudam junto.
 COMO FUNCIONA
 Envie uma Equipe de Viajantes em viagem — cada equipe pode sair a cada 8 horas.
 Você começa com 1 equipe grátis. As equipes 2 e 3 custam 2.000 e 10.000 Gemas; a 4ª é paga.
@@ -1099,6 +1099,18 @@ Cada viagem traz um Tesouro das Marés Comum (90%) ou um Tesouro das Marés Prem
 Cada Bússola reduz uma viagem em 1 hora. Bússolas vêm do Pacote Velas ao Alto.
 Você ganha 1 Bússola grátis por dia; as não usadas ficam para o próximo evento.
 🎯 RECOMPENSAS DE MARCO (total de viagens)
+Voyage da Luz (11/17)
+1 → 1 Baú Personalizado de Reforço de Equipamento
+5 → 9 Martelo de forja
+20 → 18 Martelo de forja
+60 → 2 Baú Personalizado de Reforço de Equipamento
+120 → 6 Baú Personalizado de Reforço de Equipamento
+200 → 10 Baú Personalizado de Reforço de Equipamento
+350 → 15 Baú Personalizado de Reforço de Equipamento
+550 → 20 Baú Personalizado de Reforço de Equipamento
+800 → 30 Baú Personalizado de Reforço de Equipamento
+Baú Personalizado de Reforço de Equipamento (escolha um): Baú de Equipamento da Sorte do Herói ×10 · Martelo de forja ×10 · 100 Peças de XP de Aprimoramento ×20 · Mithril ×1
+Viagem das Ondas (10/20)
 1 → 5 Guia de Acessórios
 5 → 10 Guia de Acessórios
 20 → 20 Guia de Acessórios
@@ -1109,6 +1121,10 @@ Você ganha 1 Bússola grátis por dia; as não usadas ficam para o próximo eve
 550 → 100 baús aleatórios de materiais de Talismã do Governador
 800 → 120 baús aleatórios de materiais de Talismã do Governador
 🎁 O QUE VEM EM CADA TESOURO
+Tesouro das Marés Comum: 100 Gemas ×5 · 100 Peças de XP de Aprimoramento ×3 · 5m de Aceleração Geral ×12
+Tesouro das Marés Premium: Baú de Equipamento da Sorte do Herói ×4 · 100 Peças de XP de Aprimoramento ×5 · 1h de Aceleração Geral ×3
+Tesouro das Marés Requintado: Martelo de forja ×9 · Baú de Equipamento da Sorte do Herói ×6 · Fragmento de Herói Geral Mítico ×2
+Tesouro das Marés Majestoso: Martelo de forja ×27 · Baú de Equipamento da Sorte do Herói ×18 · Fragmento de Herói Geral Mítico ×6
 Tesouro das Marés Comum: Design do Talismã ×3 · 5m de Aceleração Geral ×12 · 100 Gemas ×2
 Tesouro das Marés Premium: Guia de Acessórios ×3 · Design do Talismã ×6 · 1h de Aceleração Geral ×4
 Tesouro das Marés Requintado: Guia de Acessórios ×9 · Design do Talismã ×9 · Fragmento de Herói Geral Mítico ×2
@@ -1542,6 +1558,9 @@ Basics = Básico
 Probabilities = Probabilidades
 Rewards History = Recompensas
 Wavebound Voyage = Viagem das Ondas
+Voyage of Light = Voyage da Luz
+Gear Boost Custom Chest = Baú Personalizado de Reforço de Equipamento
+Lucky Hero Gear Chest = Baú de Equipamento da Sorte do Herói
 Voyager Team = Equipe de Viajantes
 Compass = Bússola
 Sails Aloft Pack = Pacote Velas ao Alto

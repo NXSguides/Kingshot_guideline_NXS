@@ -1090,7 +1090,7 @@ Abre también el cofre de arriba a la derecha — cuenta cada Amuletos de fantas
 
 ### GUIDE #wavebound-voyage — Viaje Marítimo
 CUÁNDO
-Evento irregular (sin ciclo fijo). 5 días: 10/20 00:00 UTC – 10/24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes).
+Aproximadamente cada 28 días (visto el 20/10 y el 17/11). 5 días, y luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes). El juego le pone un nombre nuevo cada vez (Viaje Ligado a las Olas, Travesía de Luz) y las recompensas cambian con él.
 CÓMO FUNCIONA
 Envía un Equipo de Viajeros de viaje — cada equipo puede salir cada 8 horas.
 Empiezas con 1 equipo gratis. Los equipos 2 y 3 cuestan 2.000 y 10.000 Gemas; el 4 es de pago.
@@ -1099,6 +1099,18 @@ Cada viaje trae un Tesoro de Marea Común (90 %) o un Tesoro de Marea Premium (1
 Cada Brújula acorta un viaje 1 hora. Las brújulas vienen del Paquete de Velas Izadas.
 Recibes 1 Brújula gratis al día; las que no uses pasan al siguiente evento.
 🎯 RECOMPENSAS POR OBJETIVOS (viajes en total)
+Travesía de Luz (11/17)
+1 → 1 Cofre Personalizado Potenciador de Equipo
+5 → 9 Martillo de Forja
+20 → 18 Martillo de Forja
+60 → 2 Cofre Personalizado Potenciador de Equipo
+120 → 6 Cofre Personalizado Potenciador de Equipo
+200 → 10 Cofre Personalizado Potenciador de Equipo
+350 → 15 Cofre Personalizado Potenciador de Equipo
+550 → 20 Cofre Personalizado Potenciador de Equipo
+800 → 30 Cofre Personalizado Potenciador de Equipo
+Cofre Personalizado Potenciador de Equipo (elige uno): Caja de equipo de héroe de la suerte ×10 · Martillo de Forja ×10 · 100 partes de EXP de mejora ×20 · Mitrilo ×1
+Viaje Ligado a las Olas (10/20)
 1 → 5 Guía de talismanes
 5 → 10 Guía de talismanes
 20 → 20 Guía de talismanes
@@ -1109,6 +1121,10 @@ Recibes 1 Brújula gratis al día; las que no uses pasan al siguiente evento.
 550 → 100 cofres aleatorios de materiales de Talismán del Gobernador
 800 → 120 cofres aleatorios de materiales de Talismán del Gobernador
 🎁 QUÉ TRAE CADA TESORO
+Tesoro de Marea Común: 100 Gemas ×5 · 100 partes de EXP de mejora ×3 · Acelerador general de 5 min ×12
+Tesoro de Marea Premium: Caja de equipo de héroe de la suerte ×4 · 100 partes de EXP de mejora ×5 · Acelerador general de 1 h ×3
+Tesoro de Marea Exquisito: Martillo de Forja ×9 · Caja de equipo de héroe de la suerte ×6 · Fragmento de héroe General Mítico ×2
+Tesoro de Marea Majestuoso: Martillo de Forja ×27 · Caja de equipo de héroe de la suerte ×18 · Fragmento de héroe General Mítico ×6
 Tesoro de Marea Común: Planos de talismán ×3 · Acelerador general de 5 min ×12 · 100 Gemas ×2
 Tesoro de Marea Premium: Guía de talismanes ×3 · Planos de talismán ×6 · Acelerador general de 1 h ×4
 Tesoro de Marea Exquisito: Guía de talismanes ×9 · Planos de talismán ×9 · Fragmento de héroe General Mítico ×2
@@ -1542,6 +1558,9 @@ Basics = Instrucciones básicas
 Probabilities = Probabilidades
 Rewards History = Recompensas
 Wavebound Voyage = Viaje Ligado a las Olas
+Voyage of Light = Travesía de Luz
+Gear Boost Custom Chest = Cofre Personalizado Potenciador de Equipo
+Lucky Hero Gear Chest = Caja de equipo de héroe de la suerte
 Voyager Team = Equipo de Viajeros
 Compass = Brújula
 Sails Aloft Pack = Paquete de Velas Izadas

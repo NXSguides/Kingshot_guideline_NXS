@@ -1092,7 +1092,7 @@ Vielzahler: nur für Fan-Sterne und die Fantasy-Festung bis Etage 7 (andere Spie
 
 ### GUIDE #wavebound-voyage — Seereise
 WANN
-Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 10/20 00:00 UTC – 10/24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen).
+Etwa alle 28 Tage (gesehen am 20.10. und 17.11.). 5 Tage, danach 1 weiterer Tag zum Öffnen oder Verschmelzen von Schätzen (keine neuen Reisen). Das Spiel gibt dem Event jedes Mal einen neuen Namen (Wellenwärtsreise, Reise des Lichts), und die Belohnungen ändern sich mit.
 SO FUNKTIONIERT'S
 Schicke ein Seefahrer-Team auf Reise — jedes Team kann alle 8 Stunden los.
 1 Team ist gratis. Team 2 und 3 kosten 2.000 und 10.000 Edelsteine, Team 4 ist kostenpflichtig.
@@ -1101,6 +1101,18 @@ Jede Reise bringt einen Gewöhnlicher Gezeitenschatz (90 %) oder einen Höherwer
 Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehisst Paket.
 Du bekommst täglich 1 Kompass gratis; übrige bleiben bis zur nächsten Seereise.
 🎯 MEILENSTEINE (Reisen insgesamt)
+Reise des Lichts (11/17)
+1 → 1 Ausrüstungsschub Truhe
+5 → 9 Schmiedehammer
+20 → 18 Schmiedehammer
+60 → 2 Ausrüstungsschub Truhe
+120 → 6 Ausrüstungsschub Truhe
+200 → 10 Ausrüstungsschub Truhe
+350 → 15 Ausrüstungsschub Truhe
+550 → 20 Ausrüstungsschub Truhe
+800 → 30 Ausrüstungsschub Truhe
+Ausrüstungsschub Truhe (eins wählen): Glücksheld Ausrüstungskiste ×10 · Schmiedehammer ×10 · 100 Verbesserungs-XP-Teil ×20 · Mithril ×1
+Wellenwärtsreise (10/20)
 1 → 5 Talismanleitfaden
 5 → 10 Talismanleitfaden
 20 → 20 Talismanleitfaden
@@ -1111,6 +1123,10 @@ Du bekommst täglich 1 Kompass gratis; übrige bleiben bis zur nächsten Seereis
 550 → 100 zufällige Gouverneur Talisman-Materialtruhen
 800 → 120 zufällige Gouverneur Talisman-Materialtruhen
 🎁 INHALT DER SCHÄTZE
+Gewöhnlicher Gezeitenschatz: 100 Edelsteine ×5 · 100 Verbesserungs-XP-Teil ×3 · 5-Min.-Beschleunigung (allgemein) ×12
+Höherwertiger Gezeitenschatz: Glücksheld Ausrüstungskiste ×4 · 100 Verbesserungs-XP-Teil ×5 · 1-Std.-Beschleunigung (allgemein) ×3
+Exquisiter Gezeitenschatz: Schmiedehammer ×9 · Glücksheld Ausrüstungskiste ×6 · Mythisches Helden-Fragment ×2
+Majestätischer Gezeitenschatz: Schmiedehammer ×27 · Glücksheld Ausrüstungskiste ×18 · Mythisches Helden-Fragment ×6
 Gewöhnlicher Gezeitenschatz: Talismanpläne ×3 · 5-Min.-Beschleunigung (allgemein) ×12 · 100 Edelsteine ×2
 Höherwertiger Gezeitenschatz: Talismanleitfaden ×3 · Talismanpläne ×6 · 1-Std.-Beschleunigung (allgemein) ×4
 Exquisiter Gezeitenschatz: Talismanleitfaden ×9 · Talismanpläne ×9 · Mythisches Helden-Fragment ×2
@@ -1543,6 +1559,9 @@ Basics = Grundlagen
 Probabilities = Wahrscheinlichkeiten
 Rewards History = Belohnungsverlauf
 Wavebound Voyage = Wellenwärtsreise
+Voyage of Light = Reise des Lichts
+Gear Boost Custom Chest = Ausrüstungsschub Truhe
+Lucky Hero Gear Chest = Glücksheld Ausrüstungskiste
 Voyager Team = Seefahrer-Team
 Compass = Kompass
 Sails Aloft Pack = Segel gehisst Paket

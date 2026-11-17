@@ -1090,7 +1090,7 @@ Buka juga peti di kanan atas — peti itu menghitung setiap Jimat Fantasi yang k
 
 ### GUIDE #wavebound-voyage — Pelayaran
 KAPAN
-Event tidak rutin (tanpa siklus tetap). 5 hari: 10/20 00:00 UTC – 10/24 24:00 UTC, lalu 1 hari lagi untuk membuka atau menggabungkan harta karun (tanpa pelayaran baru).
+Sekitar setiap 28 hari (terlihat pada 20/10 dan 17/11). 5 hari, lalu 1 hari lagi untuk membuka atau menggabungkan harta (tidak ada pelayaran baru). Game memberi nama baru setiap kali (Pelayaran Ombak, Pelayaran Cahaya) dan hadiahnya ikut berubah.
 CARA MAIN
 Kirim Tim Pelayaran berlayar — tiap tim bisa berangkat setiap 8 jam.
 1 tim gratis di awal. Tim ke-2 dan ke-3 seharga 2.000 dan 10.000 Permata; tim ke-4 berbayar.
@@ -1099,6 +1099,18 @@ Setiap pelayaran membawa Harta Karun Lautan Common (90%) atau Harta Karun Lautan
 Setiap Kompas memangkas pelayaran 1 jam. Kompas didapat dari Paket Layar Terbentang.
 Dapat 1 Kompas gratis setiap hari; yang tersisa terbawa ke event berikutnya.
 🎯 HADIAH MILESTONE (total pelayaran)
+Pelayaran Cahaya (11/17)
+1 → 1 Peti Custom Peningkatan Gear
+5 → 9 Forgehammer
+20 → 18 Forgehammer
+60 → 2 Peti Custom Peningkatan Gear
+120 → 6 Peti Custom Peningkatan Gear
+200 → 10 Peti Custom Peningkatan Gear
+350 → 15 Peti Custom Peningkatan Gear
+550 → 20 Peti Custom Peningkatan Gear
+800 → 30 Peti Custom Peningkatan Gear
+Peti Custom Peningkatan Gear (pilih satu): Peti Gear Hero Keberuntungan ×10 · Forgehammer ×10 · 100 Enhancement XP Part ×20 · Mithril ×1
+Pelayaran Ombak (10/20)
 1 → 5 Panduan Charm
 5 → 10 Panduan Charm
 20 → 20 Panduan Charm
@@ -1109,6 +1121,10 @@ Dapat 1 Kompas gratis setiap hari; yang tersisa terbawa ke event berikutnya.
 550 → 100 peti material Charm Gubernur acak
 800 → 120 peti material Charm Gubernur acak
 🎁 ISI TIAP HARTA KARUN
+Harta Karun Lautan Common: 100 Permata ×5 · 100 Enhancement XP Part ×3 · Percepatan Umum 5 menit ×12
+Harta Karun Lautan Premium: Peti Gear Hero Keberuntungan ×4 · 100 Enhancement XP Part ×5 · Percepatan Umum 1 jam ×3
+Harta Karun Lautan Exquisite: Forgehammer ×9 · Peti Gear Hero Keberuntungan ×6 · Paket Chip Keberuntungan Mitos ×2
+Harta Karun Lautan Majestic: Forgehammer ×27 · Peti Gear Hero Keberuntungan ×18 · Paket Chip Keberuntungan Mitos ×6
 Harta Karun Lautan Common: Desain Charm ×3 · Percepatan Umum 5 menit ×12 · 100 Permata ×2
 Harta Karun Lautan Premium: Panduan Charm ×3 · Desain Charm ×6 · Percepatan Umum 1 jam ×4
 Harta Karun Lautan Exquisite: Panduan Charm ×9 · Desain Charm ×9 · Paket Chip Keberuntungan Mitos ×2
@@ -1542,6 +1558,9 @@ Basics = Dasar
 Probabilities = Probabilitas
 Rewards History = Riwayat Hadiah
 Wavebound Voyage = Pelayaran Ombak
+Voyage of Light = Pelayaran Cahaya
+Gear Boost Custom Chest = Peti Custom Peningkatan Gear
+Lucky Hero Gear Chest = Peti Gear Hero Keberuntungan
 Voyager Team = Tim Pelayaran
 Compass = Kompas
 Sails Aloft Pack = Paket Layar Terbentang

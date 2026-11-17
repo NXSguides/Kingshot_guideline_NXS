@@ -1090,7 +1090,7 @@ Sağ üstteki sandığı da aç — kullandığın her Rüya Tılsımları'yı s
 
 ### GUIDE #wavebound-voyage — Deniz Yolculuğu
 NE ZAMAN
-Düzensiz etkinlik (sabit döngü yok). 5 gün: 10/20 00:00 UTC – 10/24 24:00 UTC, ardından hazineleri açmak veya birleştirmek için 1 gün daha (yeni yolculuk yok).
+Yaklaşık 28 günde bir (20/10 ve 17/11'de görüldü). 5 gün sürer, ardından hazineleri açmak veya birleştirmek için 1 gün daha vardır (yeni yolculuk yok). Oyun her seferinde yeni bir ad verir (Dalgalara Karşı Yolculuk, Işık Yolculuğu) ve ödüller de değişir.
 NASIL OYNANIR
 Yolcu Takımı yolculuğa gönder — her takım 8 saatte bir çıkabilir.
 1 takım ücretsiz. 2. ve 3. takım 2.000 ve 10.000 Elmas; 4. takım ücretli.
@@ -1099,6 +1099,18 @@ Her yolculuk Sıradan Gelgit Hazinesi (%90) veya Premium Gelgit Hazinesi (%10) g
 Her Pusula bir yolculuğu 1 saat kısaltır. Pusulalar Yelkenler Fora Paketi ile alınır.
 Her gün 1 ücretsiz Pusula gelir; kullanılmayanlar sonraki etkinliğe kalır.
 🎯 EŞİK ÖDÜLLERİ (toplam yolculuk)
+Işık Yolculuğu (11/17)
+1 → 1 Donanım Takviyesi Özel Sandığı
+5 → 9 Demirci Çekici
+20 → 18 Demirci Çekici
+60 → 2 Donanım Takviyesi Özel Sandığı
+120 → 6 Donanım Takviyesi Özel Sandığı
+200 → 10 Donanım Takviyesi Özel Sandığı
+350 → 15 Donanım Takviyesi Özel Sandığı
+550 → 20 Donanım Takviyesi Özel Sandığı
+800 → 30 Donanım Takviyesi Özel Sandığı
+Donanım Takviyesi Özel Sandığı (birini seç): Uğurlu Kahraman Donanımı Sandığı ×10 · Demirci Çekici ×10 · 100 Geliştirme TP'si Bileşeni ×20 · Mithril ×1
+Dalgalara Karşı Yolculuk (10/20)
 1 → 5 Tılsım Kılavuzu
 5 → 10 Tılsım Kılavuzu
 20 → 20 Tılsım Kılavuzu
@@ -1109,6 +1121,10 @@ Her gün 1 ücretsiz Pusula gelir; kullanılmayanlar sonraki etkinliğe kalır.
 550 → 100 rastgele Vali Tılsımı malzeme sandığı
 800 → 120 rastgele Vali Tılsımı malzeme sandığı
 🎁 HAZİNELERİN İÇİNDEKİLER
+Sıradan Gelgit Hazinesi: 100 Elmas ×5 · 100 Geliştirme TP'si Bileşeni ×3 · 5 dk Genel Hızlandırma ×12
+Premium Gelgit Hazinesi: Uğurlu Kahraman Donanımı Sandığı ×4 · 100 Geliştirme TP'si Bileşeni ×5 · 1 sa Genel Hızlandırma ×3
+Seçkin Gelgit Hazinesi: Demirci Çekici ×9 · Uğurlu Kahraman Donanımı Sandığı ×6 · Mitik Genel Kahraman Parçası ×2
+İhtişamlı Gelgit Hazinesi: Demirci Çekici ×27 · Uğurlu Kahraman Donanımı Sandığı ×18 · Mitik Genel Kahraman Parçası ×6
 Sıradan Gelgit Hazinesi: Tılsım Tasarımı ×3 · 5 dk Genel Hızlandırma ×12 · 100 Elmas ×2
 Premium Gelgit Hazinesi: Tılsım Kılavuzu ×3 · Tılsım Tasarımı ×6 · 1 sa Genel Hızlandırma ×4
 Seçkin Gelgit Hazinesi: Tılsım Kılavuzu ×9 · Tılsım Tasarımı ×9 · Mitik Genel Kahraman Parçası ×2
@@ -1542,6 +1558,9 @@ Basics = Temel İlkeler
 Probabilities = Olasılıklar
 Rewards History = Ödül Geçmişi
 Wavebound Voyage = Dalgalara Karşı Yolculuk
+Voyage of Light = Işık Yolculuğu
+Gear Boost Custom Chest = Donanım Takviyesi Özel Sandığı
+Lucky Hero Gear Chest = Uğurlu Kahraman Donanımı Sandığı
 Voyager Team = Yolcu Takımı
 Compass = Pusula
 Sails Aloft Pack = Yelkenler Fora Paketi
