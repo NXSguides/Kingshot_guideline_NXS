@@ -309,7 +309,7 @@ function drawIn(boxId) {
     RESN.forEach(([k, rx, ry], ri) => { if (!inB(rx, ry)) return; const c = PL ? rsCov(T, rx, ry) : 0, ok = c >= 3, [cx, cy] = P(rx + 1, ry + 1);
       s.push(`<g class="mm-r" data-r="${ri}"><polygon points="${poly(rx, ry, 2)}" fill="${RS_COL[k] || "#ccc"}" fill-opacity="${ok || !PL ? 1 : .55}" stroke="${ok ? "#2e7d32" : "#ffffffaa"}" stroke-width="${ok ? 2.4 : 1}" stroke-dasharray="${ok || !PL ? "" : "3 2"}"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font-size:11px;pointer-events:none">${RS_ICON[k] || ""}</text></g>`); }); }
   /* 🏰 NXS ↔ nxs: the border (cities on Y 704 and above it are NXS) and the other alliance's layout, faint */
-  { const OL = otherLayer(), yb = SPLIT_Y + 2;
+  { const OL = otherLayer(), yb = SPLIT_Y + 1;   // the line sits right after row Y 704 (Sherry 2026-11-17: nxs probably starts at 705; was 706)
     if (OL) { const g = [], sq = (x, y, n, extra) => `<polygon points="${poly(x, y, n)}" fill="#ffffff" fill-opacity=".16" stroke="#ffffff" stroke-opacity=".55" stroke-width="1" stroke-dasharray="2 2"${extra || ""}/>`;
       for (const [x, y] of OL.c) if (inB(x, y)) g.push(sq(x, y, 2));
       for (const [x, y] of OL.b) if (inB(x, y)) g.push(sq(x, y, 1));
