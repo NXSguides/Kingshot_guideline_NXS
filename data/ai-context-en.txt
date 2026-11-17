@@ -1114,7 +1114,7 @@ Forgehammer ×10
 100 Enhancement XP Part ×20
 Mithril ×1
 🎁 WHAT'S IN EACH TREASURE
-Common Tidal Treasure | 100 Gems ×5 · 100 Enhancement XP Part ×3 · 5m General Speedup ×12 | Charm Design ×3 · 5m General Speedup ×12 · 100 Gems ×2
+Common Tidal Treasure | 100 Gems ×5 · 100 Enhancement XP Part ×3 · 5m General Speedup ×12 | 100 Gems ×2 · Charm Design ×3 · 5m General Speedup ×12
 Premium Tidal Treasure | Lucky Hero Gear Chest ×4 · 100 Enhancement XP Part ×5 · 1h General Speedup ×3 | Charm Guide ×3 · Charm Design ×6 · 1h General Speedup ×4
 Exquisite Tidal Treasure | Forgehammer ×9 · Lucky Hero Gear Chest ×6 · Mythic General Hero Shard ×2 | Charm Guide ×9 · Charm Design ×9 · Mythic General Hero Shard ×2
 Majestic Tidal Treasure | Forgehammer ×27 · Lucky Hero Gear Chest ×18 · Mythic General Hero Shard ×6 | Charm Guide ×30 · Charm Design ×30 · Mythic General Hero Shard ×6

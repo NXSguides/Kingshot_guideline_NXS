@@ -1116,7 +1116,7 @@ Marteau de Forge ×10
 100 Points d'EXP d'Amélioration ×20
 Mithril ×1
 🎁 CONTENU DES TRÉSORS
-Trésor des Marées Commun | 100 Gemmes ×5 · 100 Points d'EXP d'Amélioration ×3 · Accélérateur général 5 min ×12 | Plans de Talisman ×3 · Accélérateur général 5 min ×12 · 100 Gemmes ×2
+Trésor des Marées Commun | 100 Gemmes ×5 · 100 Points d'EXP d'Amélioration ×3 · Accélérateur général 5 min ×12 | 100 Gemmes ×2 · Plans de Talisman ×3 · Accélérateur général 5 min ×12
 Trésor des Marées Premium | Caisse d'Équipement de Héros Chanceux ×4 · 100 Points d'EXP d'Amélioration ×5 · Accélérateur général 1 h ×3 | Guide de Talisman ×3 · Plans de Talisman ×6 · Accélérateur général 1 h ×4
 Trésor des Marées Exquis | Marteau de Forge ×9 · Caisse d'Équipement de Héros Chanceux ×6 · Fragment Universel de Héros Mythique ×2 | Guide de Talisman ×9 · Plans de Talisman ×9 · Fragment Universel de Héros Mythique ×2
 Trésor des Marées Majestueux | Marteau de Forge ×27 · Caisse d'Équipement de Héros Chanceux ×18 · Fragment Universel de Héros Mythique ×6 | Guide de Talisman ×30 · Plans de Talisman ×30 · Fragment Universel de Héros Mythique ×6

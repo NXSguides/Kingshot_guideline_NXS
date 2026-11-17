@@ -1115,7 +1115,7 @@ Demirci Çekici ×10
 100 Geliştirme TP'si Bileşeni ×20
 Mithril ×1
 🎁 HAZİNELERİN İÇİNDEKİLER
-Sıradan Gelgit Hazinesi | 100 Elmas ×5 · 100 Geliştirme TP'si Bileşeni ×3 · 5 dk Genel Hızlandırma ×12 | Tılsım Tasarımı ×3 · 5 dk Genel Hızlandırma ×12 · 100 Elmas ×2
+Sıradan Gelgit Hazinesi | 100 Elmas ×5 · 100 Geliştirme TP'si Bileşeni ×3 · 5 dk Genel Hızlandırma ×12 | 100 Elmas ×2 · Tılsım Tasarımı ×3 · 5 dk Genel Hızlandırma ×12
 Premium Gelgit Hazinesi | Uğurlu Kahraman Donanımı Sandığı ×4 · 100 Geliştirme TP'si Bileşeni ×5 · 1 sa Genel Hızlandırma ×3 | Tılsım Kılavuzu ×3 · Tılsım Tasarımı ×6 · 1 sa Genel Hızlandırma ×4
 Seçkin Gelgit Hazinesi | Demirci Çekici ×9 · Uğurlu Kahraman Donanımı Sandığı ×6 · Mitik Genel Kahraman Parçası ×2 | Tılsım Kılavuzu ×9 · Tılsım Tasarımı ×9 · Mitik Genel Kahraman Parçası ×2
 İhtişamlı Gelgit Hazinesi | Demirci Çekici ×27 · Uğurlu Kahraman Donanımı Sandığı ×18 · Mitik Genel Kahraman Parçası ×6 | Tılsım Kılavuzu ×30 · Tılsım Tasarımı ×30 · Mitik Genel Kahraman Parçası ×6

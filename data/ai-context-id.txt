@@ -1115,7 +1115,7 @@ Forgehammer ×10
 100 Enhancement XP Part ×20
 Mithril ×1
 🎁 ISI TIAP HARTA KARUN
-Harta Karun Lautan Common | 100 Permata ×5 · 100 Enhancement XP Part ×3 · Percepatan Umum 5 menit ×12 | Desain Charm ×3 · Percepatan Umum 5 menit ×12 · 100 Permata ×2
+Harta Karun Lautan Common | 100 Permata ×5 · 100 Enhancement XP Part ×3 · Percepatan Umum 5 menit ×12 | 100 Permata ×2 · Desain Charm ×3 · Percepatan Umum 5 menit ×12
 Harta Karun Lautan Premium | Peti Gear Hero Keberuntungan ×4 · 100 Enhancement XP Part ×5 · Percepatan Umum 1 jam ×3 | Panduan Charm ×3 · Desain Charm ×6 · Percepatan Umum 1 jam ×4
 Harta Karun Lautan Exquisite | Forgehammer ×9 · Peti Gear Hero Keberuntungan ×6 · Paket Chip Keberuntungan Mitos ×2 | Panduan Charm ×9 · Desain Charm ×9 · Paket Chip Keberuntungan Mitos ×2
 Harta Karun Lautan Majestic | Forgehammer ×27 · Peti Gear Hero Keberuntungan ×18 · Paket Chip Keberuntungan Mitos ×6 | Panduan Charm ×30 · Desain Charm ×30 · Paket Chip Keberuntungan Mitos ×6

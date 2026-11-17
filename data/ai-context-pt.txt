@@ -1115,7 +1115,7 @@ Martelo de forja ×10
 100 Peças de XP de Aprimoramento ×20
 Mithril ×1
 🎁 O QUE VEM EM CADA TESOURO
-Tesouro das Marés Comum | 100 Gemas ×5 · 100 Peças de XP de Aprimoramento ×3 · 5m de Aceleração Geral ×12 | Design do Talismã ×3 · 5m de Aceleração Geral ×12 · 100 Gemas ×2
+Tesouro das Marés Comum | 100 Gemas ×5 · 100 Peças de XP de Aprimoramento ×3 · 5m de Aceleração Geral ×12 | 100 Gemas ×2 · Design do Talismã ×3 · 5m de Aceleração Geral ×12
 Tesouro das Marés Premium | Baú de Equipamento da Sorte do Herói ×4 · 100 Peças de XP de Aprimoramento ×5 · 1h de Aceleração Geral ×3 | Guia de Acessórios ×3 · Design do Talismã ×6 · 1h de Aceleração Geral ×4
 Tesouro das Marés Requintado | Martelo de forja ×9 · Baú de Equipamento da Sorte do Herói ×6 · Fragmento de Herói Geral Mítico ×2 | Guia de Acessórios ×9 · Design do Talismã ×9 · Fragmento de Herói Geral Mítico ×2
 Tesouro das Marés Majestoso | Martelo de forja ×27 · Baú de Equipamento da Sorte do Herói ×18 · Fragmento de Herói Geral Mítico ×6 | Guia de Acessórios ×30 · Design do Talismã ×30 · Fragmento de Herói Geral Mítico ×6

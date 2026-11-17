@@ -1115,7 +1115,7 @@ Martillo de Forja ×10
 100 partes de EXP de mejora ×20
 Mitrilo ×1
 🎁 QUÉ TRAE CADA TESORO
-Tesoro de Marea Común | 100 Gemas ×5 · 100 partes de EXP de mejora ×3 · Acelerador general de 5 min ×12 | Planos de talismán ×3 · Acelerador general de 5 min ×12 · 100 Gemas ×2
+Tesoro de Marea Común | 100 Gemas ×5 · 100 partes de EXP de mejora ×3 · Acelerador general de 5 min ×12 | 100 Gemas ×2 · Planos de talismán ×3 · Acelerador general de 5 min ×12
 Tesoro de Marea Premium | Caja de equipo de héroe de la suerte ×4 · 100 partes de EXP de mejora ×5 · Acelerador general de 1 h ×3 | Guía de talismanes ×3 · Planos de talismán ×6 · Acelerador general de 1 h ×4
 Tesoro de Marea Exquisito | Martillo de Forja ×9 · Caja de equipo de héroe de la suerte ×6 · Fragmento de héroe General Mítico ×2 | Guía de talismanes ×9 · Planos de talismán ×9 · Fragmento de héroe General Mítico ×2
 Tesoro de Marea Majestuoso | Martillo de Forja ×27 · Caja de equipo de héroe de la suerte ×18 · Fragmento de héroe General Mítico ×6 | Guía de talismanes ×30 · Planos de talismán ×30 · Fragmento de héroe General Mítico ×6

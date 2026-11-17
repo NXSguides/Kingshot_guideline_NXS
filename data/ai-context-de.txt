@@ -1117,7 +1117,7 @@ Schmiedehammer ×10
 100 Verbesserungs-XP-Teil ×20
 Mithril ×1
 🎁 INHALT DER SCHÄTZE
-Gewöhnlicher Gezeitenschatz | 100 Edelsteine ×5 · 100 Verbesserungs-XP-Teil ×3 · 5-Min.-Beschleunigung (allgemein) ×12 | Talismanpläne ×3 · 5-Min.-Beschleunigung (allgemein) ×12 · 100 Edelsteine ×2
+Gewöhnlicher Gezeitenschatz | 100 Edelsteine ×5 · 100 Verbesserungs-XP-Teil ×3 · 5-Min.-Beschleunigung (allgemein) ×12 | 100 Edelsteine ×2 · Talismanpläne ×3 · 5-Min.-Beschleunigung (allgemein) ×12
 Höherwertiger Gezeitenschatz | Glücksheld Ausrüstungskiste ×4 · 100 Verbesserungs-XP-Teil ×5 · 1-Std.-Beschleunigung (allgemein) ×3 | Talismanleitfaden ×3 · Talismanpläne ×6 · 1-Std.-Beschleunigung (allgemein) ×4
 Exquisiter Gezeitenschatz | Schmiedehammer ×9 · Glücksheld Ausrüstungskiste ×6 · Mythisches Helden-Fragment ×2 | Talismanleitfaden ×9 · Talismanpläne ×9 · Mythisches Helden-Fragment ×2
 Majestätischer Gezeitenschatz | Schmiedehammer ×27 · Glücksheld Ausrüstungskiste ×18 · Mythisches Helden-Fragment ×6 | Talismanleitfaden ×30 · Talismanpläne ×30 · Mythisches Helden-Fragment ×6
