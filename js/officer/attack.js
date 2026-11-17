@@ -279,7 +279,7 @@ function plOf(x, al, kid) { const id = String(x.id); if (!PL[id]) PL[id] = { id,
   if (!sOf(PL[id]) && x.S) PL[id].sEst = x.S; return PL[id]; }
 const oppOn = () => SSD && PLAN.onlyOpp !== false && +SSD.kid === +PLAN.ss.kid && String(SSD.tag).toLowerCase() === String(PLAN.ss.tag || "").toLowerCase();
 const oppList = () => { const pk = new Set(((PLAN.ss.pick || {})[wKey()]) || []); return theirList().filter((x) => (!pk.size || pk.has(x.id)) && x.S).map((x) => plOf(x, SSD.tag, SSD.kid)); };   // 🔍 their picked players (all when nobody is picked)
-const usPlanList = () => { const off = new Set(PLAN.ss.off["u:" + PLAN.ss.plan] || []); return ourList().filter((x) => !off.has(x.id) && x.S).map((x) => plOf(x, "NXS", 2189)); };
+const usPlanList = () => { const off = new Set(PLAN.ss.off["u:" + PLAN.ss.plan] || []); return ourList().filter((x) => !off.has(x.id) && x.S).map((x) => plOf(x, US_TAG, 2189)); };
 /* 🗡️ Swordland: their side = the fetched alliance (ticked), ours = the 📊 plan (ticked). 🏰 / ⚔️ KvK: a fetched alliance replaces "everyone else" on their side */
 function planLists() { const D = isDef(), ss = PLAN.mode === "ss", them = ss || oppOn() ? oppList() : null, us = ss ? usPlanList() : null;
   return { gList: (D ? us : them) || strong(D), rList: (D ? them : us) || strong(!D) }; }
@@ -355,6 +355,8 @@ function boardsCard() {   // 📊 one list, everyone together (Sherry 2026-11-04
 /* ---------- 🗡️ Swordland ---------- */
 const OPEN = new Set();   // which ▸ sections stay open across re-renders
 let rosterQ = "";   // 🔍 search text in their roster (kept across re-renders)
+OFFICER.whoLoaded.attack = OFFICER.who();
+const W_BODY = OFFICER.wBody(), US_ROSTER = OFFICER.rosterUrl(), US_TAG = OFFICER.who() === "f" ? "nxs" : "NXS";   // 🏰 our side on the 🗡️ Swordland card = the alliance picked in the top bar (its roster, its plans)
 let SAFE_IDS = new Set(), ROSTER = null, PLANS = null, plansErr = "", SSD = null, ssMsg = "", ssBusy = false;
 /* 💾 fetched opponents stay on this device until deleted (Sherry 2026-11-02: "the data I fetched is gone" — it used to live only in this tab) */
 const SV_LS = "nxs-ss-saved", svKey = (d) => `${+d.kid}:${String(d.tag || "").toLowerCase()}`;
@@ -369,9 +371,9 @@ const sFrom = (b, power) => { if (b && B3.every((k) => b[k] != null)) return { S
   return power && CPOW ? { S: power / 1e6 * CPOW, est: true } : { S: null, est: true }; };
 const wKey = () => SSD ? `${SSD.kid}:${String(SSD.tag || "").toLowerCase()}` : "";   // ⚠️ marks are kept per opposing alliance
 async function ssLoad() {
-  if (!ROSTER) { try { ROSTER = await OfficerData.fetchJson("data/roster-x7k2p9.json"); } catch (e) { ROSTER = { members: [] }; } }
+  if (!ROSTER) { try { ROSTER = await OfficerData.fetchJson(US_ROSTER); } catch (e) { ROSTER = { members: [] }; } }
   if (!PLANS) {
-    try { const r = await fetch(AI_URL + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op: "list" }), cache: "no-store" });
+    try { const r = await fetch(AI_URL + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), ...W_BODY, op: "list" }), cache: "no-store" });
       const j = await r.json(); if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
       PLANS = j.plans || {}; plansErr = j.error || ""; SAFE_IDS = new Set((j.safe || []).map(String)); } catch (e) { PLANS = {}; plansErr = "net"; }
   }
@@ -621,7 +623,7 @@ function bind() {
     delete SAVED[k]; svWrite(); if (SSD && svKey(SSD) === k) { SSD = null; PLAN.tgt = ""; } re(); });
   if ($("ak_auto")) $("ak_auto").onclick = () => { if (autoPlan()) re(); };
   /* 🎯 / ➕ in the 🗡️ ranking (players get a PL entry first, so the planner can use them) */
-  const pick = (id) => { const x = [...ourList().map((m) => ({ m, al: "NXS", kid: 2189 })), ...theirList().map((m) => ({ m, al: SSD && SSD.tag, kid: SSD && SSD.kid }))].find((o) => o.m.id === id); if (x) plOf(x.m, x.al, x.kid); };
+  const pick = (id) => { const x = [...ourList().map((m) => ({ m, al: US_TAG, kid: 2189 })), ...theirList().map((m) => ({ m, al: SSD && SSD.tag, kid: SSD && SSD.kid }))].find((o) => o.m.id === id); if (x) plOf(x.m, x.al, x.kid); };
   document.querySelectorAll("[data-tg]").forEach((b) => b.onclick = (e) => { e.stopPropagation(); const id = b.dataset.tg; pick(id); PLAN.tgt = PLAN.tgt === id ? "" : id; re(); });
   document.querySelectorAll("[data-ra]").forEach((b) => b.onclick = (e) => { e.stopPropagation(); const id = b.dataset.ra; pick(id); const i = PLAN.rallies.findIndex((r) => r.lead === id), S0 = PLAN.ss, D0 = isDef();
     if (i >= 0) { if (PLAN.rallies.length > 1) PLAN.rallies.splice(i, 1); else PLAN.rallies[0].lead = ""; }

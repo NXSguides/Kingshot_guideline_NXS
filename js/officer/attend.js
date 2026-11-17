@@ -6,7 +6,9 @@
 const ROOT = document.getElementById("pg-attend");
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document.getElementById(id);
 const esc = OFFICER.util.esc;
-const ROSTER_URL = "data/roster-x7k2p9.json";
+OFFICER.whoLoaded.attend = OFFICER.who();
+const W_BODY = OFFICER.wBody();
+const ROSTER_URL = OFFICER.rosterUrl();   // 🏰 the alliance picked in the top bar (a change reloads the page)
 const T = {
   zh: { regSec: "① 報名確認：誰回覆了", regHint: "報名回覆（✅ 確認 · ❌ 不能來 · ⏳ 還沒回）和 🟡 放心成員都在排名分頁勾人的地方設定，按「🔄 依計畫更新名單」帶進來。點名字切換「替補」，× 移除。", regCount: "✅ 確認 {y} · 🟡 放心沒回 {s} → 可報名 {r} 人 · ⏳ 沒回 {w} · ❌ 不能來 {n}", copyWait: "📋 複製沒回覆的人", copyReg: "📋 複製報名名單", safeOn: "🟡 放心成員（點一下取消）", safeOff: "設成放心成員（不用等回覆就報名）", noWait: "大家都回覆了。", planDeleted: "（計畫已刪除，名單保留）", planGoneKeep: "這份名單的計畫已經刪除了，名單照原樣保留，不會再變動。", planSec: "📋 共用計畫（來自排名分頁）", planNote: "每個活動先在排名分頁建一個共用計畫、勾人（可標替補），這裡就會出現它的出席名單。", makeList: "建立出席名單", noPlans: "還沒有共用計畫。先到排名分頁建立計畫並勾人。", reload: "🔄 依計畫更新名單", reloaded: "名單已依計畫更新（出席勾選保留）。", planGone: "這份名單的計畫已被刪除。", title: "📋 出席", sub: "每種活動一張表（聖劍、三盟…），表裡每個日期一份名單：說會來的人（可標替補），打完後勾誰真的到了。缺席會累計：第 2 次橘、第 3 次紅；⭐ 是戰力前 20。", login: "要先用 Discord 登入才能看出席名單。", loginBtn: "用 Discord 登入",
     newBtn: "＋ 新名單", sheet: "活動表", sheetPh: "活動名稱（例如 聖劍爭奪、三盟爭霸）", date: "日期", plan: "從排名分頁的共用計畫匯入", planNone: "（不匯入，手動加人）", planHint: "一份名單只放一個計畫。兩個軍團就分別建兩份。", create: "建立名單",
@@ -54,7 +56,7 @@ const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 
 const S = (x) => String(x);
 
 async function api(op, extra = {}) {
-  const r = await fetch(AUTH_API + "/attend", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...extra }) });
+  const r = await fetch(AUTH_API + "/attend", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), ...W_BODY, op, ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
   if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
   if (!r.ok || j.error) throw Object.assign(new Error(j.error || "HTTP " + r.status), { code: j.error, detail: j.detail });
@@ -277,7 +279,7 @@ function init() {
 async function freshPlans() {
   try { const r = OFFICER_PAGES.ranking; const p = r && r.freshPlans ? await r.freshPlans() : null; if (p && Object.keys(p).length) { plans = p; render(); return; } } catch (e) {}
   try {
-    const r = await fetch(AUTH_API + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op: "list" }) });
+    const r = await fetch(AUTH_API + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), ...W_BODY, op: "list" }) });
     const j = await r.json(); if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
     if (j.plans) { plans = j.plans; render(); }
   } catch (e) {}

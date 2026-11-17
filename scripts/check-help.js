@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Roster / Attendance / Swordland card: kept per alliance (NXS | nxs)", /🏰 ROSTER PER ALLIANCE \(2026-11-17\)/, /wt02: "🏰 This page is kept apart for each alliance/],
   ["Top bar: 🏰 one NXS | nxs switch for the whole officer page", /🏰 CURRENT ALLIANCE switch \(2026-11-17\)/, /wt01: "🏰 One switch for the whole officer page/],
   ["Territory + Hive: 🏰 Planning now strip (which alliance)", /🏰 "Planning now: NXS \/ nxs" strip \(2026-11-17\)/, /mv23: "🏰 This strip always says/],
   ["Hive: 🤝 shared Bear Trap list (NXS BT3 + nxs BT1)", /🤝 Shared Bear Trap box \(2026-11-17\)/, /mv22: "🤝 Shared Bear Trap/],

@@ -127,12 +127,18 @@ function findRows(o, depth = 0) {
   try {
     const fa = await get(`/alliances/${KID}/${ACADEMY}?include=info,roster`);
     if (fa.status === 200 && fa.body?.members) {
-      const fm = fa.body.members, fp = await getMany(fm.map((m) => `/players/${m.governor_id}?include=base`), "Academy");
+      // 🏰 the same fields as the NXS roster (2026-11-17: 📊 Roster, 📋 Attendance and the 🗡️ Swordland card work for nxs too). Still one request per
+      // player — only the include list grew, so it costs no extra calls.
+      const fm = fa.body.members, fp = await getMany(fm.map((m) => `/players/${m.governor_id}?include=base,ranks,heroes`), "Academy");
       const fal = fa.body.alliance || {};
       writeData(ACADEMY_OUT, { updated: new Date().toISOString(), alliance: { kid: KID, tag: ACADEMY, name: fal.name || "", power: fal.power ?? null, count: fm.length },
-        members: fm.map((m, i) => { const pl = (fp[i].status === 200 && fp[i].body && fp[i].body.player) || {};
-          return { id: m.governor_id, name: pl.nick_name || m.nick_name, power: pl.power ?? m.power ?? null, tc: pl.town_center_level ?? m.town_center_level ?? null,
-            rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""), lastActive: pl.last_active_at ?? m.last_active_at ?? null, x: pl.x ?? null, y: pl.y ?? null }; }) });
+        members: fm.map((m, i) => { const p = fp[i], ok = p.status === 200 && p.body, pl = (ok && p.body.player) || {}, r = (ok && p.body.ranks) || {};
+          return { id: m.governor_id, uid: (ok && p.body.uid) || m.uid || null, name: pl.nick_name || m.nick_name, power: pl.power ?? m.power ?? null, tc: pl.town_center_level ?? m.town_center_level ?? null,
+            rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""), lastActive: pl.last_active_at ?? m.last_active_at ?? null,
+            mystic: r.mystic_trial ?? null, migrant: r.migrant_score ?? null, mysticRank: r.mystic_rank ?? null, asOf: ok && p.body.cached_at ? p.body.cached_at : null,
+            kills: pl.kills ?? m.kills ?? null, kid: pl.kid ?? m.kid ?? null, vip: pl.vip ?? null, lang: pl.language ?? null, x: pl.x ?? null, y: pl.y ?? null,
+            lastLogin: pl.last_login ?? null, allianceNow: pl.alliance?.abbr ?? null,
+            raw: ok ? { player: p.body.player, ranks: p.body.ranks, heroes: p.body.heroes } : null }; }) });
       console.log(`✅ Academy file: ${fm.length} members`);
     } else console.log(`⚠️ Could not read the Academy roster: HTTP ${fa.status}`);
   } catch (e) { if (e.code === "NOKEY") throw e; console.log("⚠️ Academy roster failed"); }

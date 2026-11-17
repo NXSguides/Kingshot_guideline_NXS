@@ -430,7 +430,10 @@ NEWER TOOLS (officers)
 [move] - 🐝 Hive → "📤 Export CSV (Kingshot Mapper)" (匯出 CSV, under the moving table, Nia & Sherry 2026-11-05): downloads the moving plan as a Kingshot Mapper CSV (lines type,X,Y,label,#color,seq — no header line, Mapper rejects one) — every city labelled with the member placed there (empty spots "NXS"), Bear Trap 1 / 2, HQ, banners with their step labels, KILL banners. Open it in ksmapper.pages.dev for the next relocation, or load it here again with 📥. "⇄ Swap BT1 / BT2" (對調 BT1 / BT2, next to it, Hive editors): turns the plan's Bear Trap 1 and 2 the other way round when the Mapper file had them swapped; the members' 🐻 BT marks do not change. Saved like any plan change (auto save). "🖼️ Save as image (PNG)" (存成圖片, next to it): downloads a sharp PNG of the plan drawn like Kingshot Mapper (member names, X,Y, Bear Traps, HQ, banners; BT1 blue / BT2 orange) to post on Discord. "📍 Public page Where's my spot?" box (公開網站「我的新位置在哪？」): shows whether the public page is shown or hidden; Hive editors press 🌐 Show / 🙈 Hide (it is hidden until opened; the change reaches everyone in a few minutes). Also: tap any city, planned spot, HQ or Bear Trap on the 👥 map and a small box right next to it shows the name, X:Y and TC / TG.
 [move] - 🚚 Move → "📐 Auto plan from a Mapper layout" (從 Mapper 自動規劃, at the bottom of the 🚚 Move page): load a Kingshot Mapper CSV of a new hive (Export → CSV; its city, beartrap, hq, banner, resource and obs rows) or paste it. The site works out TWO roads of banners to the new HQ's 15×15 and lists both in the table: one starting from our Plains HQ today (its block of banners) and the shortest one from any of our banners; the road from our HQ is used by default, the other is drawn dashed, and "🔀 Use the other road" swaps them. Works anywhere on the kingdom map (searches up to about 300 tiles around the new HQ; mountains, lakes and no-build zones are known for the whole map, other alliances' banners only where the site has them, resources only from the CSV) (fewest banners; each joins the one before, centres ≤ 7 tiles apart; never on mountains, lakes, no-build zones, resources, buildings or inside another alliance's land), sorts the drawn banners into stage 1 (BT2 side, built right after the HQ moves) and stage 2 (BT1 side) in build order, and checks: cities / Bear Traps / HQ / banners on mountains, lakes, no-build zones, resources or inside another alliance's land (their banners in the way are listed to take down), overlaps, banners not joined to our land, HQ on Fertile Land (not allowed) or its 15×15 reaching Fertile Land (risky). Table: HQ, nearest Fortress and distance, cities on Fertile Land, cities inside our land after the HQ / stage 1 / stage 2, cities per Bear Trap, average distance to the trap, farthest city from the HQ, road banners in order, stage banners, banner budget (now + new vs 285, how many old ones to take down), other alliances' banners in the way, problems, move order. Drawn like the game (turned 45°) with a legend. Editing: pick a pen — ⚫ Road, 🟡 Stage 1, 🟠 Stage 2, 🧽 Remove, 🏯 Move HQ — and tap the map (a new banner, or change / remove the one tapped); ↩️ Undo, 🔄 Auto road again, 🔄 Re-sort stages, − / + zoom. ⬇️ Picture (PNG) = map + legend + table for Discord, ⬇️ Blueprint CSV, ➡️ Use as moving plan = loads it into 🧭 Move steps (then 💾 Save there; needs the move edit right). "Plan:" list (計畫) like the Ranking tab's shared plans: "🔒 Only on this device" is the officer's own draft (kept in that browser); "➕ Share as a plan" saves it under a name (encrypted, data/hive-plans-x7k2p9.json) so every officer with the 🚚 Move tab can pick it from the list and see the same map and table; changes to a shared plan save by themselves and others see them within about 15 seconds; ✏️ Rename / 🗑️ Delete; officers without the move edit right see shared plans view only (look and download). Several plans can be shared side by side (e.g. A and B) to compare.
 [move] - 🚚 Move → "📘 Hive rules & tips" (蜂巢規則與技巧) at the top: HQ only in the Plains or Badlands ring, never on Fertile Land (沃土; in #2189 X and Y 450–749) or the Ruins ring — put it just outside the fertile edge; every banner must connect to the HQ; no banners in Outpost no-build zones; limits 285 banners / 100 member cities / 2 Bear Traps; a city counts only with all 4 tiles inside our territory; about 50 cities per Bear Trap; check the area for other cities, alliance buildings, mountains, lakes; move order HQ → banners outward from BT2 → members → Bear Traps last (members never move traps).
-[plan] - 🏰 CURRENT ALLIANCE switch (2026-11-17): ONE "🏰 NXS | nxs" switch in the top bar of the officer page, for the whole page — the separate switches at the top of 🚩 Territory and 🐝 Hive are gone (🚩 Territory keeps only the 🏴 other alliances button, press it again to go back). The tabs split by alliance (🚩 Territory, 🐝 Hive — marked by a coloured line under the tab, brown = NXS, teal = nxs) show the alliance picked there. Beside the switch a small label says what the open tab is: "Shared by both" on tabs both alliances use (📅 Events, 💬 Board, 📢 Post, 🔬 Research, 🗺️ Map, 🧳 Transfer, 🎯 Blacklist…), or — while nxs is picked — "NXS data on this page for now" on tabs that are not split yet (📊 Roster, 📋 Attendance, 🕵️ Watchlist, 🐻 Bear plan). An officer set to one alliance on 👥 has no switch. The switch is shown only to officers who can open one of those tabs.
+[plan] - 🏰 CURRENT ALLIANCE switch (2026-11-17): ONE "🏰 NXS | nxs" switch in the top bar of the officer page, for the whole page — the separate switches at the top of 🚩 Territory and 🐝 Hive are gone (🚩 Territory keeps only the 🏴 other alliances button, press it again to go back). The tabs split by alliance (📊 Roster, 📋 Attendance, 🚩 Territory, 🐝 Hive — marked by a coloured line under the tab, brown = NXS, teal = nxs) show the alliance picked there. Beside the switch a small label says what the open tab is: "Shared by both" on tabs both alliances use (📅 Events, 💬 Board, 📢 Post, 🔬 Research, 🗺️ Map, 🧳 Transfer, 🎯 Blacklist…), or — while nxs is picked — "NXS data on this page for now" on tabs that are not split yet (🕵️ Watchlist, 🐻 Bear plan). An officer set to one alliance on 👥 has no switch. The switch is shown only to officers who can open one of those tabs.
+[ranking] - 🏰 ROSTER PER ALLIANCE (2026-11-17): 📊 Roster is kept apart for NXS and nxs and shows the alliance picked with the 🏰 NXS | nxs switch in the top bar (a strip "🏰 Looking at: NXS / nxs" at the top of the page says which). Each alliance has its own member list (nxs: the daily nxs roster, with the same columns as NXS from the first roster update after 2026-11-17 — until then Mystic Trial, Migrant Score and Squad Power show "?" for nxs), its own shared plans (ticked people, registration replies, groups, battle table) and its own settings on the device; a plan made while nxs is picked is an nxs plan and never appears under NXS, and the other way round. Changing the alliance while 📊 Roster, 📋 Attendance or ⚖️ Compare is open reloads the officer page, so the two alliances are never mixed on screen. The 🟡 safe players list is one list for both (it goes by player ID). An officer set to one alliance on 👥 only reaches that alliance's plans and lists.
+[attend] - 🏰 ROSTER PER ALLIANCE: 📋 Attendance is kept per alliance the same way — the lists, the attendance rates and the no-show counts are those of the alliance picked in the top bar; a new list belongs to that alliance and imports from that alliance's plans.
+[attack] - 🏰 ROSTER PER ALLIANCE: on the 🗡️ Swordland card "our side" is the alliance picked in the top bar — its plans and its roster (labelled NXS or nxs).
 [move] - 🏰 CURRENT ALLIANCE switch: 🐝 Hive follows the 🏰 NXS | nxs switch in the top bar (see 🚩 Territory); it no longer has NXS / nxs buttons of its own.
 [move] - 🏰 "Planning now: NXS / nxs" strip (2026-11-17): on the two pages that are split by alliance — 🚩 Territory and 🐝 Hive — a coloured strip at the top always says which alliance is being planned (NXS brown, nxs teal) and the map / tool card has a frame in the same colour. In 🐝 Hive a save says which alliance it went to ("Saved ✅ … · 🏰 nxs") and an imported layout says which alliance it was loaded into. No other page mentions the alliance split — announcements, events, research and the roster are shared.
 [move] - 🐝 Hive → 🤝 Shared Bear Trap box (2026-11-17), under the BT1 / BT2 / BT3 lists of the move table (shown once a plan is loaded): the trap both alliances use is BT3 for NXS and BT1 for nxs, so this one box lists everyone ticked for it — the NXS members ticked BT3 and the nxs members ticked BT1, each side by Power — with 📋 Copy for the whole list. The ticks themselves are still made in each alliance's own table.
@@ -1264,7 +1267,11 @@ export class PushTimers extends DurableObject {
   }
   /* one save = only what that device changed: ticks added / removed, the settings and battle-table fields it touched.
      Done here, inside the Durable Object, so two saves at the same moment are applied one after the other — nothing is overwritten. */
-  rpPatch(id, patch, user, admin) {
+  rpW(id) {   // 🏰 which alliance a plan belongs to: "" = NXS · "f" = nxs · null = no such plan
+    const r = [...this.sql.exec(`SELECT data FROM rp WHERE id = ?`, id)][0]; if (!r) return null;
+    try { return JSON.parse(r.data).w === "f" ? "f" : ""; } catch (e) { return ""; }
+  }
+  rpPatch(id, patch, user, admin, w) {
     const r = [...this.sql.exec(`SELECT data, v FROM rp WHERE id = ?`, id)][0];
     const cur = r ? JSON.parse(r.data) : null, v = r ? r.v + 1 : 1;
     if (cur && cur.editors && !admin && !(cur.owner && cur.owner.id === user.id) && !cur.editors.includes(user.id)) return { error: "ed_no" };
@@ -1290,6 +1297,7 @@ export class PushTimers extends DurableObject {
       if (patch.ed.owner) p.owner = patch.ed.owner; else if (!p.owner) p.owner = { id: user.id, name: user.name };
       if (patch.ed.editors) p.editors = patch.ed.editors.map(String).slice(0, 60); else delete p.editors;
     }
+    if (w === "f") p.w = "f"; else delete p.w;   // 🏰 the alliance comes from the route (which checked it), never from the page's plan data
     const ids = new Set(p.picked || []); p.subs = (p.subs || []).filter((x) => ids.has(x));
     if (p.rep) for (const k of Object.keys(p.rep)) if (!ids.has(Number(k)) && !ids.has(k)) delete p.rep[k];
     p.by = user.name; p.at = Date.now();
@@ -1677,6 +1685,12 @@ async function plansRoute(env, stub, user, body, token, perms) {
       if (Object.keys(cur).length > 400) return json({ error: "bad request" }, 400);
       await stub.kvSet(btKey, cur); return json({ ok: true, token, bt: cur, stamp: await plansTouch(env) }); });
   }
+  /* 🏰 plans are kept per alliance (2026-11-17): body.w "f" = nxs, nothing = NXS. A plan made while nxs is picked carries w: "f"; every list holds
+     only the plans of the alliance asked for, and a plan is never read, changed or deleted through the other alliance. An officer set to one
+     alliance on 👥 only reaches that alliance's plans. Pages that send no w (older copies) get NXS, exactly as before. */
+  const W = body.w === "f" ? "f" : "";
+  if (!admin && u && u.side && (W || "m") !== u.side) return json({ error: "other_alliance" }, 403);
+  const rpMine = async () => Object.fromEntries(Object.entries(await stub.rpAll()).filter(([, x]) => (x && x.w === "f" ? "f" : "") === W));
   /* ⚔️ Battle → 🗡️ Swordland reads only the lists (plan name, ticked players, substitutes) — nothing else of a plan, and nothing else here */
   const listOnly = !mayView && seeTab("attack");
   if (!mayView && !listOnly) return json({ error: "no_access" }, 403);
@@ -1685,12 +1699,12 @@ async function plansRoute(env, stub, user, body, token, perms) {
   if (op === "list" && since && stamp && stamp <= since) return json({ ok: true, token, unchanged: true, stamp });
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
   try { await plansImport(env, stub); } catch (e) { if (op === "list") return json({ error: "import", detail: [String(e.message || e)] }, 503); }
-  if (op === "list" && listOnly) { const all = await stub.rpAll(), o = {}, safe = new Set(((await stub.kvGet("att:safe")) || []).map(String));
+  if (op === "list" && listOnly) { const all = await rpMine(), o = {}, safe = new Set(((await stub.kvGet("att:safe")) || []).map(String));
     // battle-only officers: names of CONFIRMED people only (✅, or 🟡 safe and not ❌) — no one who hasn't confirmed (Sherry, 2026-11-01)
     for (const [id, x] of Object.entries(all)) { const rep = x.rep || {}, ok = (m) => rep[m] === "y" || (safe.has(String(m)) && rep[m] !== "n");
       o[id] = { name: x.name || "", picked: (x.picked || []).filter(ok), subs: (x.subs || []).filter(ok), filtered: true }; }
     return json({ ok: true, token, plans: o, stamp: stamp || await plansTouch(env) }); }
-  if (op === "list") return json({ ok: true, token, plans: await stub.rpAll(), safe: (await stub.kvGet("att:safe")) || [], bt: (await stub.kvGet("rk:bt")) || {}, stamp: stamp || await plansTouch(env) });
+  if (op === "list") return json({ ok: true, token, plans: await rpMine(), safe: (await stub.kvGet("att:safe")) || [], bt: (await stub.kvGet(W ? "rk:btf" : "rk:bt")) || {}, stamp: stamp || await plansTouch(env) });
   // 🟡 safe players (registered without waiting for a reply): one list, shared with the 📋 Attendance tab
   if (op === "safe") {
     if (!mayEdit) return json({ error: "view_only" }, 403);
@@ -1702,6 +1716,7 @@ async function plansRoute(env, stub, user, body, token, perms) {
   if (op === "all") { if (!admin) return json({ error: "no_access" }, 403); return json({ ok: true, token, ids: await stub.rpIds() }); }
   const id = String(body.id || "");
   if (!/^[\w-]{1,40}$/.test(id)) return json({ error: "bad request" }, 400);
+  { const cw = await stub.rpW(id); if (cw !== null && cw !== W) return json({ error: "other_alliance" }, 403); }   // 🏰 a plan of the other alliance
   if (op === "vers") { if (!admin) return json({ error: "no_access" }, 403); return json({ ok: true, token, vers: await stub.rpVers(id) }); }
   if (op === "restore") { if (!admin) return json({ error: "no_access" }, 403);
     return write(async () => { const p = await stub.rpRestore(id, +body.v || 0, user.name); if (!p) return json({ error: "gone" }, 404); return json({ ok: true, token, plan: p, stamp: await plansTouch(env) }); }); }
@@ -1710,7 +1725,7 @@ async function plansRoute(env, stub, user, body, token, perms) {
   if (op === "save") return write(async () => {
     const patch = body.patch && typeof body.patch === "object" ? body.patch : null;
     if (!patch || JSON.stringify(patch).length > 200000) return json({ error: "bad request" }, 400);
-    const r = await stub.rpPatch(id, patch, { id: user.id, name: user.name }, admin);
+    const r = await stub.rpPatch(id, patch, { id: user.id, name: user.name }, admin, W);
     if (r.error) return json({ error: r.error }, r.error === "gone" ? 404 : 403);
     return json({ ok: true, token, plan: r.plan, stamp: await plansTouch(env) });
   });
@@ -1751,11 +1766,14 @@ async function rewardsRoute(stub, user, body, token, perms) {
   } catch (e) { return json({ error: "db", detail: [String(e && e.message || e)] }, 503); }
   return json({ ok: true, token, rewards: all });
 }
-async function attendRoute(env, stub, user, body, token, mayEdit) {
+async function attendRoute(env, stub, user, body, token, mayEdit, perms) {
   const op = String(body.op || "list");
+  /* 🏰 attendance lists are kept per alliance, like the plans they come from: body.w "f" = nxs, nothing = NXS (2026-11-17) */
+  const W = body.w === "f" ? "f" : "", pu = perms && perms.users && perms.users[user.id];
+  if (roleOf(perms, user.id) !== "admin" && pu && pu.side && (W || "m") !== pu.side) return json({ error: "other_alliance" }, 403);
   if (op !== "list" && !mayEdit) return json({ error: "view_only" }, 403);
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
-  if (op === "list") return json({ ok: true, token, events: await stub.attList(), safe: (await stub.kvGet("att:safe")) || [] });
+  if (op === "list") return json({ ok: true, token, events: (await stub.attList()).filter((e) => (e && e.w === "f" ? "f" : "") === W), safe: (await stub.kvGet("att:safe")) || [] });
   // 🟡 safe players (registered without waiting for a reply): one list for every event, remembered for the next lists
   if (op === "safe") return write(async () => {
     const id = String(body.id || "").slice(0, 40); if (!id) return json({ error: "bad request" }, 400);
@@ -1767,7 +1785,7 @@ async function attendRoute(env, stub, user, body, token, mayEdit) {
     if (!ev || !/^[\w-]{1,40}$/.test(String(ev.id || ""))) return json({ error: "bad request" }, 400);
     // sheet = the event type this list belongs to (Swordland, Tri-Alliance…); one list = one plan / one slot. sub = substitute
     // reg = list with the registration step: per person rep "y" (confirmed) / "n" (can't come) / none (no reply yet); safe = 🟡 when saved
-    const clean = { title: String(ev.title || "").slice(0, 80), sheet: String(ev.sheet || "").slice(0, 40), plan: String(ev.plan || "").slice(0, 40), date: String(ev.date || "").slice(0, 10), by: { id: user.id, name: user.name }, ...(ev.reg ? { reg: 1 } : {}),
+    const clean = { title: String(ev.title || "").slice(0, 80), sheet: String(ev.sheet || "").slice(0, 40), plan: String(ev.plan || "").slice(0, 40), date: String(ev.date || "").slice(0, 10), by: { id: user.id, name: user.name }, ...(ev.reg ? { reg: 1 } : {}), ...(W ? { w: "f" } : {}),
       slots: (Array.isArray(ev.slots) ? ev.slots : []).slice(0, 8).map((sl) => ({
         name: String(sl.name || "").slice(0, 40),
         confirmed: (Array.isArray(sl.confirmed) ? sl.confirmed : []).slice(0, 200).map((m) => ({ id: String(m.id || "").slice(0, 40), name: String(m.name || "").slice(0, 60), ...(m.sub ? { sub: 1 } : {}), ...(m.rep === "y" || m.rep === "n" ? { rep: m.rep } : {}), ...(m.safe ? { safe: 1 } : {}) })),
@@ -2086,7 +2104,7 @@ async function authRoute(req, env, path, ctx) {
     }
     if (!stub) return json({ error: "push_not_set_up" }, 503);
     if (path === "/board") return boardRoute(env, ctx, stub, u, body, token, canEdit(perms, s.u.id, "board"), perms);
-    if (path === "/attend") return attendRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "attend"));
+    if (path === "/attend") return attendRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "attend"), perms);
     if (path === "/plans") return plansRoute(env, stub, u, body, token, perms);
     if (path === "/rewards") return rewardsRoute(stub, u, body, token, perms);
     if (path === "/perms") return permsRoute(stub, u, body, token, role);

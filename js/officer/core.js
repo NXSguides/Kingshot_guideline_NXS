@@ -191,7 +191,7 @@ OFFICER.savePerms = () => {
   }, 600);
 };
 OFFICER.loadPerms();
-OFFICER.previewAs = null;   // an admin can look at the page with another officer's rights (👥 tab → "Preview as")
+OFFICER.previewAs = (() => { try { const v = sessionStorage.getItem("nxs-preview"); sessionStorage.removeItem("nxs-preview"); return v || null; } catch (e) { return null; } })();   // an admin can look at the page with another officer's rights (👥 tab → "Preview as")
 /* the person using the page: Discord user, or (trial) someone who unlocked with the officer password — named by the author name on the Post tab */
 OFFICER.me = () => OFFICER.user || (OFFICER.pw ? (() => { const n = (officerStore().author || "").trim() || "Officer"; return { id: "pw-" + (n.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "").slice(0, 30) || "officer"), name: n, pw: true }; })() : null);
 /* what the Worker needs to know who is asking: the Discord session, else (trial) the officer password */
@@ -209,8 +209,24 @@ OFFICER.side = () => {
 /* 🏰 ONE "current alliance" for the whole officer page (Sherry 2026-11-17: "when I work on NXS every page is NXS's plan"). The switch sits in the
    top bar; the pages split by alliance (SPLIT_TABS) follow it and no longer have a switch of their own. Tabs that will be split later but still
    hold NXS's data only (NXS_ONLY_TABS) say so while nxs is picked; every other tab is shared and says "shared". */
-OFFICER.SPLIT_TABS = ["plan", "move"];
-OFFICER.NXS_ONLY_TABS = ["ranking", "attend", "watch", "bearplan"];
+OFFICER.SPLIT_TABS = ["plan", "move", "ranking", "attend"];
+OFFICER.NXS_ONLY_TABS = ["watch", "bearplan"];
+/* 📊 Roster, 📋 Attendance and the 🗡️ Swordland card (⚔️) read everything of ONE alliance when they start — the roster file, this device's
+   settings, the plans and lists on the Worker ({ w: "f" } for nxs) — so nothing of the two alliances can meet on a page. Changing the alliance
+   after one of them has started reloads the officer page (RELOAD_TABS); pages may hand in something to finish first (OFFICER.beforeWho). */
+OFFICER.whoLoaded = {};   // page → the alliance it started with (set by ranking.js, attend.js, attack.js)
+OFFICER.beforeWho = [];
+/* the alliance changed under a page that was started for the other one (the 👥 table arrived, 👁️ preview of an officer of the other alliance):
+   start the officer page over. A preview is carried across the reload; never more than one reload in 5 s. */
+function whoGuard() {
+  const w = OFFICER.who(); if (!Object.values(OFFICER.whoLoaded).some((x) => x !== w)) return false;
+  try { const t = +sessionStorage.getItem("nxs-who-rl") || 0; if (Date.now() - t < 5000) return false; sessionStorage.setItem("nxs-who-rl", String(Date.now()));
+    if (OFFICER.previewAs) sessionStorage.setItem("nxs-preview", OFFICER.previewAs); } catch (e) { return false; }
+  location.reload(); return true;
+}
+OFFICER.wBody = () => (OFFICER.who() === "f" ? { w: "f" } : {});
+OFFICER.wKey = (k) => (OFFICER.who() === "f" ? k + "-f" : k);
+OFFICER.rosterUrl = () => (OFFICER.who() === "f" ? "data/academy-x7k2p9.json" : "data/roster-x7k2p9.json");
 const WHO_LS = "nxs-who";
 OFFICER.who = () => {
   const sd = OFFICER.side(); if (sd) return sd;
@@ -219,6 +235,12 @@ OFFICER.who = () => {
 OFFICER.setWho = (w) => {
   if (w !== "m" && w !== "f") return; const sd = OFFICER.side(); if (sd && w !== sd) return;
   let old = ""; try { old = localStorage.getItem(WHO_LS) || ""; } catch (e) {}
+  const cur = OFFICER.who();
+  if (cur !== w && Object.keys(OFFICER.whoLoaded).length) {
+    const el = document.getElementById("whoTop"); if (el) el.style.opacity = ".5";
+    Promise.all(OFFICER.beforeWho.map((f) => { try { return Promise.resolve(f()).catch(() => {}); } catch (e) { return null; } })).then(() => { try { localStorage.setItem(WHO_LS, w); localStorage.setItem("nxs-hive-who", w); localStorage.setItem("kp-who", w); } catch (e) {} location.reload(); });
+    return;
+  }
   try { localStorage.setItem(WHO_LS, w); localStorage.setItem("nxs-hive-who", w); localStorage.setItem("kp-who", w); } catch (e) {}
   whoTop(); if (old !== w) window.dispatchEvent(new Event("nxs-who"));
 };
@@ -235,6 +257,11 @@ function whoTop() {
   el.innerHTML = sw + (chip ? `<span class="who-chip${only ? " warn" : ""}">${chip}</span>` : "");
   el.querySelectorAll("[data-wt]").forEach((b) => b.onclick = () => OFFICER.setWho(b.dataset.wt));
   document.querySelectorAll(".tabs a[data-tab]").forEach((a) => a.classList.toggle("sp", OFFICER.SPLIT_TABS.includes(a.dataset.tab)));
+  // 🏰 the same "Planning now" strip as 🚩 Territory / 🐝 Hive, on the other pages kept per alliance
+  const WN = { en: "Looking at:", zh: "現在看的是：", pt: "Vendo agora:", ar: "المعروض الآن:", ko: "지금 보는 연맹:" };
+  for (const t of ["ranking", "attend"]) { const pg = document.getElementById("pg-" + t); if (!pg) continue;
+    let st = pg.querySelector(":scope > .who-now"); if (!st) { st = document.createElement("div"); pg.insertBefore(st, pg.firstChild); }
+    st.className = "who-now who-" + w; st.innerHTML = `🏰 ${WN[OFFICER.lang] || WN.en} <b>${w === "f" ? "nxs" : "NXS"}</b>`; }
 }
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
@@ -249,10 +276,12 @@ OFFICER.can = (tab, what = "view") => {
 /* tab list + read-only look follow the rights (called after login, after a change on the 👥 tab, and when previewing) */
 /* 👁️ preview bar: the only way back while previewing (the 👥 tab is hidden then, like for them) */
 OFFICER.setPreview = (id) => {
-  OFFICER.previewAs = id || null; OFFICER.applyPerms(); window.dispatchEvent(new Event("nxs-perms"));
+  OFFICER.previewAs = id || null; if (!id && OFFICER.isAdmin()) location.hash = "#perms";
+  OFFICER.applyPerms(); window.dispatchEvent(new Event("nxs-perms"));
   if (!id && OFFICER.isAdmin()) location.hash = "#perms";
 };
 function previewBar() {
+  if (OFFICER.previewAs && OFFICER.user && !OFFICER.isRealAdmin()) OFFICER.previewAs = null;   // previewing is for admins only
   let bar = document.getElementById("pvBar");
   const u = OFFICER.previewAs && OFFICER.perms.users[OFFICER.previewAs];
   if (!u || !OFFICER.isRealAdmin()) { if (bar) bar.remove(); return; }
@@ -267,6 +296,7 @@ function previewBar() {
   bar.lastChild.onclick = () => OFFICER.setPreview(null);
 }
 OFFICER.applyPerms = () => {
+  if (whoGuard()) return;   // 🏰 a page kept per alliance was started for the other alliance: the page starts over
   previewBar(); whoTop();
   const bp = document.getElementById("pg-board"); if (bp) bp.classList.toggle("view-only", !OFFICER.can("board", "edit"));
   document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" || k === "attend" ? !((OFFICER.user || OFFICER.pw) && OFFICER.can(k)) : !OFFICER.can(k, "view"); });
