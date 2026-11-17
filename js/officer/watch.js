@@ -60,8 +60,17 @@ const T = { ko: {"title": "NXS 관찰 명단", "home": "홈", "export": "Google 
     errBusy: "剛好有人也在存備註，請再試一次。", errNet: "連不上 GitHub，請檢查網路後再試一次。",
   },
 };
-const KID = 2189, TAG = "NXS";
-const LS = "nxs-watch-v1";
+/* 🏰 one alliance per page load (the one picked in the top bar; a change reloads the page): nxs has its own roster and its own member history
+   (data/watch-nxs-x7k2p9.json); the other alliances' lists, the records and the notes (kept by player ID) are the same for both */
+const WF = OFFICER.who() === "f"; OFFICER.whoLoaded.watch = OFFICER.who();
+const KID = 2189, TAG = WF ? "nxs" : "NXS", ROSTER_URL = OFFICER.rosterUrl();
+const watchGet = async (fast, cb) => {
+  const main = fast ? await OfficerData.fetchJsonFast("data/watch-x7k2p9.json", WF ? () => {} : cb) : await OfficerData.fetchJson("data/watch-x7k2p9.json");
+  if (!WF) return main;
+  let n = null; try { n = await OfficerData.fetchJson("data/watch-nxs-x7k2p9.json"); } catch (e) {}
+  return main ? { ...main, started: (n && n.started) || new Date().toISOString().slice(0, 10), members: (n && n.members) || {}, left: (n && n.left) || [], updated: (n && n.updated) || main.updated } : null;
+};
+const LS = OFFICER.wKey("nxs-watch-v1");
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
 /* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
@@ -75,7 +84,7 @@ let sortKey = "flags", sortDir = -1;
 let roster = null, watch = null, records = null, rows = [];
 
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
-const tr = (k, v = {}) => String((T[lang] && T[lang][k]) ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const tr = (k, v = {}) => { const s = String((T[lang] && T[lang][k]) ?? T.en[k] ?? k); return (WF ? s.replace(/NXS/g, "nxs") : s).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m); };
 const esc = OFFICER.util.esc;
 const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
 const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[亗卍〆『』「」【】〖〗★☆♛♚♕✿❀•·]/g, "").replace(/[^\p{L}\p{N}]/gu, "");
@@ -371,8 +380,8 @@ async function init() {
     if (cachedNotes) notes = cachedNotes;
     const notesDone = loadNotes().then(() => { OfficerData.cacheSet("notes", notes); if (cachedNotes && roster && watch && JSON.stringify(notes) !== JSON.stringify(cachedNotes)) { build(); render(); } });
     const [a, b, rec] = await Promise.all([
-      OfficerData.fetchJsonFast("data/roster-x7k2p9.json", refresh((d) => { roster = d; })),
-      OfficerData.fetchJsonFast("data/watch-x7k2p9.json", refresh((d) => { watch = d; })),
+      OfficerData.fetchJsonFast(ROSTER_URL, refresh((d) => { roster = d; })),
+      watchGet(true, refresh((d) => { watch = d; })),
       OfficerData.fetchJsonFast("data/records-x7k2p9.json", refresh((d) => { records = d; })).catch(() => undefined),
       cachedNotes ? null : notesDone,
     ]);
@@ -388,7 +397,7 @@ async function init() {
 function rosterNowBox() {
   const box = $("wa_rn"); if (!box) return;
   box.innerHTML = OFFICER.rosterNow.html("wa_rnb");
-  OFFICER.rosterNow.bind($("wa_rnb"), () => roster && roster.updated, async (r) => { roster = r; try { watch = (await OfficerData.fetchJson("data/watch-x7k2p9.json")) || watch; } catch (e) {} build(); render(); });
+  OFFICER.rosterNow.bind($("wa_rnb"), () => roster && roster.updated, async (r) => { try { roster = WF ? (await OfficerData.fetchJson(ROSTER_URL)) || roster : r; } catch (e) {} try { watch = (await watchGet(false)) || watch; } catch (e) {} build(); render(); });
 }
 
 OFFICER_PAGES.watch = { init, applyTexts, setLang };

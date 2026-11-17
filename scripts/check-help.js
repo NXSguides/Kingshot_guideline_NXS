@@ -19,6 +19,8 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Watchlist: kept per alliance (nxs has its own member history)", /🏰 WATCHLIST PER ALLIANCE \(2026-11-17\)/, /wt05: "🏰 The Watchlist is kept per alliance/],
+  ["Map: Outpost / Fortress / Sanctuary ownership per alliance", /🏰 MAP OWNERSHIP PER ALLIANCE \(2026-11-17\)/, /wt04: "🏰 The map is the same for both alliances/],
   ["Bear plan: leader cards per alliance + one shared trap card", /🏰 BEAR LEADERS PER ALLIANCE \(2026-11-17\)/, /wt03: "🏰 Leader cards are kept per alliance/],
   ["Roster / Attendance / Swordland card: kept per alliance (NXS | nxs)", /🏰 ROSTER PER ALLIANCE \(2026-11-17\)/, /wt02: "🏰 This page is kept apart for each alliance/],
   ["Top bar: 🏰 one NXS | nxs switch for the whole officer page", /🏰 CURRENT ALLIANCE switch \(2026-11-17\)/, /wt01: "🏰 One switch for the whole officer page/],

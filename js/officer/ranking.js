@@ -364,7 +364,7 @@ async function missLoad() {
 }
 const missTag = (m) => { const n = MISS.get(String(m.id)); return n ? `<span class="rk-miss m${Math.min(n, 3)}" title="${esc(rg("miss", { n }))}">X${n}</span>` : ""; };
 
-function setLang(l) { lang = l; persist(); if (data) renderAll(); else applyTexts(); };
+function setLang(l) { lang = l; persist(); if (data) { renderAll(); try { planRenderBar(); } catch (e) {} } else applyTexts(); };   // 📋 the plan card too (Sherry 2026-11-17: it stayed in the old language)
 $("rk_q").oninput = renderList;
 $("rk_onlyTicked").onchange = renderList;
 $("rk_byRank").checked = store.byRank !== false;   // the ranking is the default view (it replaced the ③ card)

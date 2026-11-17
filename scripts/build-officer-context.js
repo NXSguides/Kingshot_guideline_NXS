@@ -86,7 +86,7 @@ if (plan && plan.o && Object.keys(plan.o).length) {
   const total = (states) => { const seen = new Set(), sum = {};
     for (const o of all) if (states.includes(o.s) && !seen.has(o.t + o.lv)) { seen.add(o.t + o.lv); sum[o.t] = (sum[o.t] || 0) + o.buff; }
     return KM.types.map(([k]) => `${TY[k].b} ${sum[k] ? "+" + sum[k] + "%" : "—"}`).join(", "); };
-  out.push(`### OUTPOST PLAN — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)} (statuses as of ${utc(NOW)}; cycle ${P / 36e5} h Protected → ${V / 36e5} h Vulnerable for Outposts with a timer)`,
+  out.push(`### OUTPOST PLAN — NXS (nxs keeps its own marks on the 🗺️ Map; they are not in this data) — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)} (statuses as of ${utc(NOW)}; cycle ${P / 36e5} h Protected → ${V / 36e5} h Vulnerable for Outposts with a timer)`,
     "Ours, Protected (buff active): " + (all.filter((o) => o.s === "held").map(line).join("; ") || "none"),
     "Ours, Vulnerable (no buff until Protected again; can be attacked): " + (all.filter((o) => o.s === "vuln").map(line).join("; ") || "none"),
     "Ours, Buff conflict (worked out from the timers: same type + level as another of ours that has been Protected longer, gives nothing): " + (all.filter((o) => o.s === "conflict").map(line).join("; ") || "none"),

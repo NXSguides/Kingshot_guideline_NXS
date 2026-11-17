@@ -173,9 +173,9 @@ function renderInfo() {
     if ($("tm_set")) $("tm_set").onclick = () => {
       const v = (id) => Math.max(0, parseInt($(id).value, 10) || 0), ms = ((v("tm_d") * 24 + v("tm_h")) * 60 + v("tm_m")) * 6e4;
       if (!ms) return;
-      PLAN.o[pk(b)] = s; PLAN.t[pk(b)] = Date.now() + ms; planMsg = ""; refreshPlan();
+      OW().o[pk(b)] = s; OW().t[pk(b)] = Date.now() + ms; planMsg = ""; refreshPlan();
     };
-    if ($("tm_clr")) $("tm_clr").onclick = () => { PLAN.o[pk(b)] = s; delete PLAN.t[pk(b)]; planMsg = ""; refreshPlan(); };
+    if ($("tm_clr")) $("tm_clr").onclick = () => { OW().o[pk(b)] = s; delete OW().t[pk(b)]; planMsg = ""; refreshPlan(); };
   }
   else if (isOp(b) && ME()) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
   if (PRIOABLE(b) && !ME()) {
@@ -386,18 +386,25 @@ function cycAt(raw, end, now) {   // → [status now, time of next switch]
   const first = raw === "held" ? V : P;   // the phase after the typed one
   return t < first ? [raw === "held" ? "vuln" : "held", base + first] : [raw, base + L];
 }
+/* 🏰 who holds what is kept per alliance (Sherry 2026-11-17: "whoever takes an Outpost has that buff"): NXS's marks, timers and ⭐ priorities stay
+   in PLAN.o / .t / .h / .sp as before; nxs's are in PLAN.farm.op (same file, same shape). The alliance is the one picked in the top bar.
+   OR() = read (never creates anything, so looking doesn't make the plan "changed"), OW() = write. The map itself, the rewards, the 72 h / 24 h
+   cycle and the banners are the same for both. */
+const curW = () => (OFFICER.who && OFFICER.who() === "f" ? "f" : "m"), OP0 = { o: {}, t: {}, h: {}, sp: {} };
+const OR = () => (curW() !== "f" ? PLAN : (PLAN.farm && PLAN.farm.op) || OP0);
+const OW = () => { if (curW() !== "f") return PLAN; const f = farm(); f.op = f.op || {}; for (const k of ["o", "t", "h", "sp"]) f.op[k] = f.op[k] || {}; return f.op; };
 const pk = (b) => b.x + "," + b.y;
 const PLANNABLE = (b) => b && (b.kind === "outpost" || b.kind === "fortress" || b.kind === "sanctuary");
-const raw = (b) => (PLANNABLE(b) && PLAN.o[pk(b)]) || "";
+const raw = (b) => (PLANNABLE(b) && OR().o[pk(b)]) || "";
 /* eff = ✅ held / ⚔️ vuln after the timer (an old hand-set "conflict" counts as held) */
 /* 🏯 Fortress / Sanctuary: one Sanctuary Battle period = start…start+every days (the battle is its last day). A "held" one that was
    marked before the current period began belongs to the last period → shown as 🎯 target again. PLAN.h[xy] = when it was marked held. */
 const sancStart = () => { let e = null; try { e = (OfficerData.cacheGet("events") || []).find((x) => x && x.id === "sanctuary-battle"); } catch (err) {}
   const st = Date.parse(((e && e.start) || "2026-10-06") + "T00:00:00Z"), ev = ((e && e.every > 0 && e.every) || 7) * 864e5;
   return st + Math.floor((Date.now() - st) / ev) * ev; };
-const stale = (b) => !isOp(b) && raw(b) === "held" && (((PLAN.h || {})[pk(b)]) || Date.parse(PLAN.at || "") || 0) < sancStart();
-const eff = (b) => { if (stale(b)) return "target"; const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); return isOp(b) && PLAN.t[pk(b)] ? cycAt(r, PLAN.t[pk(b)], Date.now())[0] : r; };
-const nextSw = (b) => isOp(b) && PLAN.t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), PLAN.t[pk(b)], Date.now())[1] : 0;
+const stale = (b) => !isOp(b) && raw(b) === "held" && (((OR().h || {})[pk(b)]) || Date.parse(PLAN.at || "") || 0) < sancStart();
+const eff = (b) => { if (stale(b)) return "target"; const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); return isOp(b) && OR().t[pk(b)] ? cycAt(r, OR().t[pk(b)], Date.now())[0] : r; };
+const nextSw = (b) => isOp(b) && OR().t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), OR().t[pk(b)], Date.now())[1] : 0;
 /* start of its latest Protected phase (needs a timer) — the later one was taken later */
 const protStart = (b) => { const n = nextSw(b); if (!n) return null; const P = CYC().p * 36e5, V = CYC().v * 36e5; return eff(b) === "held" ? n - P : n - V - P; };
 /* ⚠️ Buff conflict, worked out from the timers: among our Protected Outposts of the same type + level, the one that has
@@ -416,16 +423,16 @@ const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.flo
   return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
 const snap = () => JSON.stringify({ pub: PLAN.pub ? 1 : 0, o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null, ot: PLAN.ot || null, farm: PLAN.farm || null });
 /* ⭐ Sanctuary / Fortress priority: PLAN.sp["x,y"] = { p: 1…, r: "rewards", n: "note" } */
-const SP = (b) => (PLAN.sp && PLAN.sp[pk(b)]) || {};
+const SP = (b) => (OR().sp && OR().sp[pk(b)]) || {};
 const PRIOABLE = (b) => b && (b.kind === "sanctuary" || b.kind === "fortress");
 function setSP(b, k, v) {
   if (!ME()) return;
-  PLAN.sp = PLAN.sp || {}; const cur = { ...SP(b) };
+  OW().sp = OW().sp || {}; const cur = { ...SP(b) };
   if (v === "" || v == null) delete cur[k]; else cur[k] = v;
-  if (Object.keys(cur).length) PLAN.sp[pk(b)] = cur; else delete PLAN.sp[pk(b)];
+  if (Object.keys(cur).length) OW().sp[pk(b)] = cur; else delete OW().sp[pk(b)];
   planMsg = "";
 }
-const hqDist = (b) => { const d = (G.hq || []).map((h) => Math.hypot(b.x - h[0], b.y - h[1])); return d.length ? Math.round(Math.min(...d)) : null; };   // to the nearer of our two HQs
+const hqDist = (b) => { const d = (curW() === "f" ? (PLAN.farm && PLAN.farm.hq) || [] : G.hq || []).map((h) => Math.hypot(b.x - h[0], b.y - h[1])); return d.length ? Math.round(Math.min(...d)) : null; };   // to the nearer of our two HQs
 const prioTxt = (n) => (n >= 1 && n <= 20 ? String.fromCharCode(0x2460 + n - 1) : String(n));
 const isOp = (b) => b.kind === "outpost";
 const dirty = () => snap() !== SAVED;
@@ -502,7 +509,7 @@ function drawPlan() {
 const refreshPlan = () => { drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 /* once a minute: update the countdowns; redraw everything when an Outpost switched state (not while typing) */
 let lastSig = "";
-const sig = () => B.filter((b) => isOp(b) && PLAN.t[pk(b)]).map((b) => st(b)).join();
+const sig = () => B.filter((b) => isOp(b) && OR().t[pk(b)]).map((b) => st(b)).join();
 setInterval(() => {
   if (!G || !$("km_plan")) return;
   const a = document.activeElement, typing = a && a.tagName === "INPUT" && a.closest("#pg-map, #pg-plan");
@@ -512,9 +519,9 @@ setInterval(() => {
 function setStatus(id, v) {
   if (!ME()) return;
   const b = BY[id]; if (!PLANNABLE(b)) return;
-  if (v) PLAN.o[pk(b)] = v; else delete PLAN.o[pk(b)];
-  delete PLAN.t[pk(b)];   // a hand-set status starts without a timer — type the in-game countdown again
-  if (!isOp(b)) { PLAN.h = PLAN.h || {}; if (v === "held") PLAN.h[pk(b)] = Date.now(); else delete PLAN.h[pk(b)]; }
+  if (v) OW().o[pk(b)] = v; else delete OW().o[pk(b)];
+  delete OW().t[pk(b)];   // a hand-set status starts without a timer — type the in-game countdown again
+  if (!isOp(b)) { OW().h = OW().h || {}; if (v === "held") OW().h[pk(b)] = Date.now(); else delete OW().h[pk(b)]; }
   planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan();
 }
 /* 📍 Outpost reminders: when each of our Outposts (with a countdown) next turns Vulnerable, left in this browser for the ⏰ panel
@@ -599,7 +606,7 @@ function renderPlan() {
   for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) if ($(id)) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
   lastSig = sig();
   renderFlags();
-  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; PLAN.h = S.h || {}; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; if (S.ot) PLAN.ot = S.ot; else delete PLAN.ot; drawOt(); rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; PLAN.h = S.h || {}; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (PLAN.farm) { if (S.farm && S.farm.op) PLAN.farm.op = S.farm.op; else delete PLAN.farm.op; } if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; if (S.ot) PLAN.ot = S.ot; else delete PLAN.ot; drawOt(); rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 }
 const gh = (method, path, body, token = OFFICER.token) => OFFICER.gh(method, path, body, token);   // shared (js/officer/core.js)
 const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
@@ -622,12 +629,12 @@ function importFromLink() {
   const prm = new URLSearchParams(q), coords = new Set(B.filter(PLANNABLE).map(pk));
   let n = 0;
   for (const k of ["held", "vuln", "conflict", "target"]) for (const c of (prm.get(k) || "").split(",")) {
-    const xy = c.trim().replace("-", ","); if (coords.has(xy)) { PLAN.o[xy] = k; delete PLAN.t[xy]; n++; }
+    const xy = c.trim().replace("-", ","); if (coords.has(xy)) { OW().o[xy] = k; delete OW().t[xy]; n++; }
   }
   /* t=x-y@unixSeconds — when the status given for that Outpost ends (screenshot time + in-game countdown) */
   for (const c of (prm.get("t") || "").split(",")) {
     const m = c.trim().match(/^(\d+)-(\d+)@(\d{9,11})$/), xy = m && m[1] + "," + m[2];
-    if (m && (PLAN.o[xy] === "held" || PLAN.o[xy] === "vuln")) { PLAN.t[xy] = +m[3] * 1000; n++; }
+    if (m && (OW().o[xy] === "held" || OW().o[xy] === "vuln")) { OW().t[xy] = +m[3] * 1000; n++; }
   }
   importBy = (prm.get("by") || "").slice(0, 30);
   if (!n) return 0;
@@ -640,7 +647,7 @@ async function savePlan() {
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
-  for (const b of B) if (PLANNABLE(b) && !isOp(b) && raw(b) === "held" && !(PLAN.h || {})[pk(b)]) { PLAN.h = PLAN.h || {}; PLAN.h[pk(b)] = Date.parse(PLAN.at || "") || 0; }   // keep the old date, or saving would make last period's ones current again
+  for (const b of B) if (PLANNABLE(b) && !isOp(b) && raw(b) === "held" && !(OW().h || {})[pk(b)]) { OW().h = OW().h || {}; OW().h[pk(b)] = Date.parse(PLAN.at || "") || 0; }   // keep the old date, or saving would make last period's ones current again
   const next = { ...(PLAN.pub ? { pub: 1 } : {}), o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length || (PLAN.ex.rm || []).length || (PLAN.ex.nx || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), ...(farmAny() ? { farm: PLAN.farm } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
@@ -952,7 +959,7 @@ function planDeltaHtml(d) {
    Its land is never NXS land and the other way round. */
 const FK = ["hq", "b", "fl", "bt", "btp", "c"], FK_ICON = { hq: "🏯", b: "🏳️", fl: "🚩", bt: "🐻", btp: "🐻", c: "🏠" };
 const farm = () => (PLAN.farm = PLAN.farm || {}, FK.forEach((k) => { PLAN.farm[k] = PLAN.farm[k] || []; }), PLAN.farm.rm = PLAN.farm.rm || [], PLAN.farm);
-const farmAny = () => { const f = PLAN.farm; return !!f && (FK.some((k) => (f[k] || []).length) || !!f.tag || !!f.ord); };
+const farmAny = () => { const f = PLAN.farm; return !!f && (FK.some((k) => (f[k] || []).length) || !!f.tag || !!f.ord || !!(f.op && ["o", "t", "h", "sp"].some((k) => Object.keys(f.op[k] || {}).length))); };
 const FKU = ["hq", "hqb", "b", "fl", "bt", "btp", "c"], fList = (k) => (k === "hqb" ? "hq" : k), fMake = (k, x, y) => (k === "hqb" ? [x, y, 2] : [x, y]);   // the farm has a Plains HQ and a Badland HQ, like NXS
 const fk = (k) => (k === "hq" ? "🏯 " + ft("hqP") : k === "hqb" ? "🏯 " + ft("hqB") : fmt("k")[k]);   // HQ names = the game's own (same as NXS)
 const fName = (k, it) => fk(k === "hq" && it && it[2] === 2 ? "hqb" : k);
@@ -1417,6 +1424,6 @@ const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.
 function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }
 let initP = null; const init1 = () => initP || (initP = init());
 OFFICER_PAGES.map = { init: init1, onShow: () => { setMode(false); onShow(); }, applyTexts, setLang };
-window.addEventListener("nxs-who", () => { try { setWho(OFFICER.who()); } catch (e) {} });   // 🏰 the top-bar switch (also leaves 🏴 other alliances)
+window.addEventListener("nxs-who", () => { try { setWho(OFFICER.who()); } catch (e) {} try { if (ready) refreshPlan(); } catch (e) {} });   // 🏰 the top-bar switch (also leaves 🏴 other alliances)
 OFFICER_PAGES.plan = { init: init1, onShow: () => { try { const w = OFFICER.who(); if (PWHO !== "o" && w !== PWHO) setWho(w); } catch (e) {} setMode(true); onShow(); acLoad(); }, applyTexts, setLang: () => {} };
 })();

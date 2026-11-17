@@ -15,6 +15,7 @@ const KID = 2189, TAG = "NXS";
 const OUT = "data/roster-x7k2p9.json";
 const ACADEMY = "nxs", ACADEMY_OUT = "data/academy-x7k2p9.json";   // tags are case-sensitive: "nxs" is the Academy, "NXS" is us
 const WATCH = "data/watch-x7k2p9.json";
+const WATCH_F = "data/watch-nxs-x7k2p9.json";   // 🏰 nxs's own member history (first seen, names, power / kills, who left) for the 🕵️ Watchlist — other alliances' lists stay in WATCH
 // Other alliances to keep a member list of: the top alliances (by power) of these kingdoms.
 // Add the KvK enemy kingdom number here, e.g. [2189, 2190]. Each alliance costs 1 request per day.
 const WATCH_KINGDOMS = [2189];
@@ -124,6 +125,7 @@ function findRows(o, depth = 0) {
     members: out,
   });
   /* ---------- 🏫 the Academy (our second alliance, "nxs") — reference list for the 🚩 Territory tab; kept apart from the NXS roster ---------- */
+  let acadOut = null;
   try {
     const fa = await get(`/alliances/${KID}/${ACADEMY}?include=info,roster`);
     if (fa.status === 200 && fa.body?.members) {
@@ -131,14 +133,14 @@ function findRows(o, depth = 0) {
       // player — only the include list grew, so it costs no extra calls.
       const fm = fa.body.members, fp = await getMany(fm.map((m) => `/players/${m.governor_id}?include=base,ranks,heroes`), "Academy");
       const fal = fa.body.alliance || {};
-      writeData(ACADEMY_OUT, { updated: new Date().toISOString(), alliance: { kid: KID, tag: ACADEMY, name: fal.name || "", power: fal.power ?? null, count: fm.length },
-        members: fm.map((m, i) => { const p = fp[i], ok = p.status === 200 && p.body, pl = (ok && p.body.player) || {}, r = (ok && p.body.ranks) || {};
+      acadOut = fm.map((m, i) => { const p = fp[i], ok = p.status === 200 && p.body, pl = (ok && p.body.player) || {}, r = (ok && p.body.ranks) || {};
           return { id: m.governor_id, uid: (ok && p.body.uid) || m.uid || null, name: pl.nick_name || m.nick_name, power: pl.power ?? m.power ?? null, tc: pl.town_center_level ?? m.town_center_level ?? null,
             rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""), lastActive: pl.last_active_at ?? m.last_active_at ?? null,
             mystic: r.mystic_trial ?? null, migrant: r.migrant_score ?? null, mysticRank: r.mystic_rank ?? null, asOf: ok && p.body.cached_at ? p.body.cached_at : null,
             kills: pl.kills ?? m.kills ?? null, kid: pl.kid ?? m.kid ?? null, vip: pl.vip ?? null, lang: pl.language ?? null, x: pl.x ?? null, y: pl.y ?? null,
             lastLogin: pl.last_login ?? null, allianceNow: pl.alliance?.abbr ?? null,
-            raw: ok ? { player: p.body.player, ranks: p.body.ranks, heroes: p.body.heroes } : null }; }) });
+            raw: ok ? { player: p.body.player, ranks: p.body.ranks, heroes: p.body.heroes } : null }; });
+      writeData(ACADEMY_OUT, { updated: new Date().toISOString(), alliance: { kid: KID, tag: ACADEMY, name: fal.name || "", power: fal.power ?? null, count: fm.length }, members: acadOut });
       console.log(`✅ Academy file: ${fm.length} members`);
     } else console.log(`⚠️ Could not read the Academy roster: HTTP ${fa.status}`);
   } catch (e) { if (e.code === "NOKEY") throw e; console.log("⚠️ Academy roster failed"); }
@@ -214,4 +216,26 @@ function findRows(o, depth = 0) {
   w.updated = new Date().toISOString();
   writeData(WATCH, w);
   console.log(`✅ Watch file: ${Object.keys(w.others || {}).length} other alliances · tracking since ${w.started}`);
+
+  /* ---------- 🏰 nxs's own history (same shape as the NXS part above) — only when its roster was read this run ---------- */
+  if (acadOut && acadOut.length) {
+    try {
+      let f = {};
+      try { f = readData(WATCH_F) || {}; } catch (e) { if (e.code === "NOKEY") throw e; }
+      const first = !f.started; f.started = f.started || today; f.members = f.members || {}; f.left = f.left || [];
+      const ids = new Set();
+      acadOut.forEach((m) => {
+        ids.add(String(m.id));
+        const h = f.members[m.id] || { firstSeen: today, names: [], ...(first ? { before: true } : {}) };
+        if (h.leftOn) { h.rejoined = today; delete h.leftOn; }
+        if (!h.names.length || h.names[h.names.length - 1][1] !== m.name) h.names.push([today, m.name]);
+        h.names = h.names.slice(-10); h.power = pushPoint(h.power, m.power); h.kills = pushPoint(h.kills, m.kills); h.lastSeen = today;
+        f.members[m.id] = h;
+      });
+      for (const [id, h] of Object.entries(f.members)) if (!ids.has(id) && !h.leftOn) { h.leftOn = today; f.left.push({ id: Number(id), name: h.names[h.names.length - 1]?.[1] || "", leftOn: today }); }
+      f.left = f.left.slice(-200); f.updated = new Date().toISOString();
+      writeData(WATCH_F, f);
+      console.log(`✅ nxs watch file: tracking since ${f.started}`);
+    } catch (e) { if (e.code === "NOKEY") throw e; console.log("⚠️ nxs watch file failed"); }
+  }
 })();
