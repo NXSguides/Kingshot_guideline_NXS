@@ -1100,15 +1100,15 @@ Cada Brújula acorta un viaje 1 hora. Las brújulas vienen del Paquete de Velas 
 Recibes 1 Brújula gratis al día; las que no uses pasan al siguiente evento.
 🎯 RECOMPENSAS POR OBJETIVOS (viajes en total)
  | Travesía de Luz (11/17) | Viaje Ligado a las Olas (10/20)
-1 | Cofre Personalizado Potenciador de Equipo ×1 | 5 Guía de talismanes
-5 | Martillo de Forja ×9 | 10 Guía de talismanes
-20 | Martillo de Forja ×18 | 20 Guía de talismanes
-60 | Cofre Personalizado Potenciador de Equipo ×2 | 40 Planos de talismán
-120 | Cofre Personalizado Potenciador de Equipo ×6 | 90 Planos de talismán
-200 | Cofre Personalizado Potenciador de Equipo ×10 | 120 Planos de talismán
-350 | Cofre Personalizado Potenciador de Equipo ×15 | 80 cofres aleatorios de materiales de Talismán del Gobernador
-550 | Cofre Personalizado Potenciador de Equipo ×20 | 100 cofres aleatorios de materiales de Talismán del Gobernador
-800 | Cofre Personalizado Potenciador de Equipo ×30 | 120 cofres aleatorios de materiales de Talismán del Gobernador
+1 | Cofre Personalizado Potenciador de Equipo ×1 | Guía de talismanes ×5
+5 | Martillo de Forja ×9 | Guía de talismanes ×10
+20 | Martillo de Forja ×18 | Guía de talismanes ×20
+60 | Cofre Personalizado Potenciador de Equipo ×2 | Planos de talismán ×40
+120 | Cofre Personalizado Potenciador de Equipo ×6 | Planos de talismán ×90
+200 | Cofre Personalizado Potenciador de Equipo ×10 | Planos de talismán ×120
+350 | Cofre Personalizado Potenciador de Equipo ×15 | cofres aleatorios de materiales de Talismán del Gobernador ×80
+550 | Cofre Personalizado Potenciador de Equipo ×20 | cofres aleatorios de materiales de Talismán del Gobernador ×100
+800 | Cofre Personalizado Potenciador de Equipo ×30 | cofres aleatorios de materiales de Talismán del Gobernador ×120
 Cofre Personalizado Potenciador de Equipo (elige uno)
 Caja de equipo de héroe de la suerte ×10
 Martillo de Forja ×10

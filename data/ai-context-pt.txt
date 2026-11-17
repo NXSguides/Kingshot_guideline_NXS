@@ -1100,15 +1100,15 @@ Cada Bússola reduz uma viagem em 1 hora. Bússolas vêm do Pacote Velas ao Alto
 Você ganha 1 Bússola grátis por dia; as não usadas ficam para o próximo evento.
 🎯 RECOMPENSAS DE MARCO (total de viagens)
  | Voyage da Luz (11/17) | Viagem das Ondas (10/20)
-1 | Baú Personalizado de Reforço de Equipamento ×1 | 5 Guia de Acessórios
-5 | Martelo de forja ×9 | 10 Guia de Acessórios
-20 | Martelo de forja ×18 | 20 Guia de Acessórios
-60 | Baú Personalizado de Reforço de Equipamento ×2 | 40 Design do Talismã
-120 | Baú Personalizado de Reforço de Equipamento ×6 | 90 Design do Talismã
-200 | Baú Personalizado de Reforço de Equipamento ×10 | 120 Design do Talismã
-350 | Baú Personalizado de Reforço de Equipamento ×15 | 80 baús aleatórios de materiais de Talismã do Governador
-550 | Baú Personalizado de Reforço de Equipamento ×20 | 100 baús aleatórios de materiais de Talismã do Governador
-800 | Baú Personalizado de Reforço de Equipamento ×30 | 120 baús aleatórios de materiais de Talismã do Governador
+1 | Baú Personalizado de Reforço de Equipamento ×1 | Guia de Acessórios ×5
+5 | Martelo de forja ×9 | Guia de Acessórios ×10
+20 | Martelo de forja ×18 | Guia de Acessórios ×20
+60 | Baú Personalizado de Reforço de Equipamento ×2 | Design do Talismã ×40
+120 | Baú Personalizado de Reforço de Equipamento ×6 | Design do Talismã ×90
+200 | Baú Personalizado de Reforço de Equipamento ×10 | Design do Talismã ×120
+350 | Baú Personalizado de Reforço de Equipamento ×15 | baús aleatórios de materiais de Talismã do Governador ×80
+550 | Baú Personalizado de Reforço de Equipamento ×20 | baús aleatórios de materiais de Talismã do Governador ×100
+800 | Baú Personalizado de Reforço de Equipamento ×30 | baús aleatórios de materiais de Talismã do Governador ×120
 Baú Personalizado de Reforço de Equipamento (escolha um)
 Baú de Equipamento da Sorte do Herói ×10
 Martelo de forja ×10

@@ -1099,15 +1099,15 @@ Each Compass cuts a voyage by 1 hour. Compasses come from the Sails Aloft Pack.
 You get 1 free Compass a day; unused ones carry over to the next Voyage Event.
 🎯 MILESTONE REWARDS (total voyages)
  | Voyage of Light (11/17) | Wavebound Voyage (10/20)
-1 | Gear Boost Custom Chest ×1 | 5 Charm Guide
-5 | Forgehammer ×9 | 10 Charm Guide
-20 | Forgehammer ×18 | 20 Charm Guide
-60 | Gear Boost Custom Chest ×2 | 40 Charm Design
-120 | Gear Boost Custom Chest ×6 | 90 Charm Design
-200 | Gear Boost Custom Chest ×10 | 120 Charm Design
-350 | Gear Boost Custom Chest ×15 | 80 random Governor Charm material chest
-550 | Gear Boost Custom Chest ×20 | 100 random Governor Charm material chest
-800 | Gear Boost Custom Chest ×30 | 120 random Governor Charm material chest
+1 | Gear Boost Custom Chest ×1 | Charm Guide ×5
+5 | Forgehammer ×9 | Charm Guide ×10
+20 | Forgehammer ×18 | Charm Guide ×20
+60 | Gear Boost Custom Chest ×2 | Charm Design ×40
+120 | Gear Boost Custom Chest ×6 | Charm Design ×90
+200 | Gear Boost Custom Chest ×10 | Charm Design ×120
+350 | Gear Boost Custom Chest ×15 | random Governor Charm material chest ×80
+550 | Gear Boost Custom Chest ×20 | random Governor Charm material chest ×100
+800 | Gear Boost Custom Chest ×30 | random Governor Charm material chest ×120
 Gear Boost Custom Chest (pick one)
 Lucky Hero Gear Chest ×10
 Forgehammer ×10

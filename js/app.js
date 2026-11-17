@@ -441,8 +441,8 @@ const BLOCKS = {
     const cell = (c) => rich(String(c)).replace(/::(\w+?)(\+?)::/g, (m, k, plus) => { const n = GLOSSARY[k] ? escapeHtml(term(k)) : k;
       if (!ITEM_ICONS.has(k)) return n; if (!plus && !used.includes(k)) used.push(k);
       return `<img class="it-ic" src="figures/items/${k}.png" alt="${n}" title="${n}" loading="lazy">${plus ? " " + n : ""}`; });
-    const body = (b.rows || []).map((r) => `<tr>${r.map((c, i) => i ? `<td>${cell(c)}</td>` : `<th scope="row">${cell(c)}</th>`).join("")}</tr>`).join("");
-    return `<div class="rt-wrap"><table class="rt"><thead><tr>${(b.head || []).map((h) => `<th>${cell(h)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`
+    const body = (b.rows || []).map((r) => `<tr>${r.map((c, i) => i ? `<td>${cell(c).replace(/ · /g, "<br>")}</td>` : `<th scope="row">${cell(c)}</th>`).join("")}</tr>`).join("");
+    return `<div class="rt-wrap${b.narrow ? " narrow" : ""}"><table class="rt c${(b.head || []).length}"><thead><tr>${(b.head || []).map((h) => `<th>${cell(h)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`
       + (used.length ? `<div class="rt-legend">${used.map((k) => `<span><img class="it-ic" src="figures/items/${k}.png" alt=""> ${escapeHtml(term(k))}</span>`).join("")}</div>` : ""); },
   /* the NAP rule: its own card so it stands out (Armada asked), alliance tags as chips */
   nap: (b) => `<div class="nap-card"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div></div>`,

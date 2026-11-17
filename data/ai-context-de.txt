@@ -1102,15 +1102,15 @@ Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehiss
 Du bekommst täglich 1 Kompass gratis; übrige bleiben bis zur nächsten Seereise.
 🎯 MEILENSTEINE (Reisen insgesamt)
  | Reise des Lichts (11/17) | Wellenwärtsreise (10/20)
-1 | Ausrüstungsschub Truhe ×1 | 5 Talismanleitfaden
-5 | Schmiedehammer ×9 | 10 Talismanleitfaden
-20 | Schmiedehammer ×18 | 20 Talismanleitfaden
-60 | Ausrüstungsschub Truhe ×2 | 40 Talismanpläne
-120 | Ausrüstungsschub Truhe ×6 | 90 Talismanpläne
-200 | Ausrüstungsschub Truhe ×10 | 120 Talismanpläne
-350 | Ausrüstungsschub Truhe ×15 | 80 zufällige Gouverneur Talisman-Materialtruhen
-550 | Ausrüstungsschub Truhe ×20 | 100 zufällige Gouverneur Talisman-Materialtruhen
-800 | Ausrüstungsschub Truhe ×30 | 120 zufällige Gouverneur Talisman-Materialtruhen
+1 | Ausrüstungsschub Truhe ×1 | Talismanleitfaden ×5
+5 | Schmiedehammer ×9 | Talismanleitfaden ×10
+20 | Schmiedehammer ×18 | Talismanleitfaden ×20
+60 | Ausrüstungsschub Truhe ×2 | Talismanpläne ×40
+120 | Ausrüstungsschub Truhe ×6 | Talismanpläne ×90
+200 | Ausrüstungsschub Truhe ×10 | Talismanpläne ×120
+350 | Ausrüstungsschub Truhe ×15 | zufällige Gouverneur Talisman-Materialtruhen ×80
+550 | Ausrüstungsschub Truhe ×20 | zufällige Gouverneur Talisman-Materialtruhen ×100
+800 | Ausrüstungsschub Truhe ×30 | zufällige Gouverneur Talisman-Materialtruhen ×120
 Ausrüstungsschub Truhe (eins wählen)
 Glücksheld Ausrüstungskiste ×10
 Schmiedehammer ×10

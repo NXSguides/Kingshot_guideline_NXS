@@ -1100,15 +1100,15 @@ Setiap Kompas memangkas pelayaran 1 jam. Kompas didapat dari Paket Layar Terbent
 Dapat 1 Kompas gratis setiap hari; yang tersisa terbawa ke event berikutnya.
 🎯 HADIAH MILESTONE (total pelayaran)
  | Pelayaran Cahaya (11/17) | Pelayaran Ombak (10/20)
-1 | Peti Custom Peningkatan Gear ×1 | 5 Panduan Charm
-5 | Forgehammer ×9 | 10 Panduan Charm
-20 | Forgehammer ×18 | 20 Panduan Charm
-60 | Peti Custom Peningkatan Gear ×2 | 40 Desain Charm
-120 | Peti Custom Peningkatan Gear ×6 | 90 Desain Charm
-200 | Peti Custom Peningkatan Gear ×10 | 120 Desain Charm
-350 | Peti Custom Peningkatan Gear ×15 | 80 peti material Charm Gubernur acak
-550 | Peti Custom Peningkatan Gear ×20 | 100 peti material Charm Gubernur acak
-800 | Peti Custom Peningkatan Gear ×30 | 120 peti material Charm Gubernur acak
+1 | Peti Custom Peningkatan Gear ×1 | Panduan Charm ×5
+5 | Forgehammer ×9 | Panduan Charm ×10
+20 | Forgehammer ×18 | Panduan Charm ×20
+60 | Peti Custom Peningkatan Gear ×2 | Desain Charm ×40
+120 | Peti Custom Peningkatan Gear ×6 | Desain Charm ×90
+200 | Peti Custom Peningkatan Gear ×10 | Desain Charm ×120
+350 | Peti Custom Peningkatan Gear ×15 | peti material Charm Gubernur acak ×80
+550 | Peti Custom Peningkatan Gear ×20 | peti material Charm Gubernur acak ×100
+800 | Peti Custom Peningkatan Gear ×30 | peti material Charm Gubernur acak ×120
 Peti Custom Peningkatan Gear (pilih satu)
 Peti Gear Hero Keberuntungan ×10
 Forgehammer ×10

@@ -1101,15 +1101,15 @@ Chaque Boussole réduit un voyage d'1 heure. Les boussoles viennent du Pack Voil
 Tu reçois 1 Boussole gratuite par jour ; celles non utilisées restent pour le prochain événement.
 🎯 RÉCOMPENSES DE PALIER (voyages au total)
  | Voyage de Lumière (11/17) | Voyage au Fil des Vagues (10/20)
-1 | Coffre personnalisé de Boost d'Équipement ×1 | 5 Guide de Talisman
-5 | Marteau de Forge ×9 | 10 Guide de Talisman
-20 | Marteau de Forge ×18 | 20 Guide de Talisman
-60 | Coffre personnalisé de Boost d'Équipement ×2 | 40 Plans de Talisman
-120 | Coffre personnalisé de Boost d'Équipement ×6 | 90 Plans de Talisman
-200 | Coffre personnalisé de Boost d'Équipement ×10 | 120 Plans de Talisman
-350 | Coffre personnalisé de Boost d'Équipement ×15 | 80 coffres de matériaux de Talisman du Gouverneur aléatoires
-550 | Coffre personnalisé de Boost d'Équipement ×20 | 100 coffres de matériaux de Talisman du Gouverneur aléatoires
-800 | Coffre personnalisé de Boost d'Équipement ×30 | 120 coffres de matériaux de Talisman du Gouverneur aléatoires
+1 | Coffre personnalisé de Boost d'Équipement ×1 | Guide de Talisman ×5
+5 | Marteau de Forge ×9 | Guide de Talisman ×10
+20 | Marteau de Forge ×18 | Guide de Talisman ×20
+60 | Coffre personnalisé de Boost d'Équipement ×2 | Plans de Talisman ×40
+120 | Coffre personnalisé de Boost d'Équipement ×6 | Plans de Talisman ×90
+200 | Coffre personnalisé de Boost d'Équipement ×10 | Plans de Talisman ×120
+350 | Coffre personnalisé de Boost d'Équipement ×15 | coffres de matériaux de Talisman du Gouverneur aléatoires ×80
+550 | Coffre personnalisé de Boost d'Équipement ×20 | coffres de matériaux de Talisman du Gouverneur aléatoires ×100
+800 | Coffre personnalisé de Boost d'Équipement ×30 | coffres de matériaux de Talisman du Gouverneur aléatoires ×120
 Coffre personnalisé de Boost d'Équipement (un au choix)
 Caisse d'Équipement de Héros Chanceux ×10
 Marteau de Forge ×10
