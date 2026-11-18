@@ -1578,6 +1578,7 @@ Swordland Summit League = Ligue suprême du glaive
 Forsaken Temple = Temple Abandonné
 Hero Roulette = Roulette des Héros
 Lucky Chip = Jeton Chanceux
+Defeat nearby beasts = Bats la bête proche
 Officer Project = Projet d'Officier
 Swordland Showdown = Choc du Glaive
 Swordland = Terres du Glaive

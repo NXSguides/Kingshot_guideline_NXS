@@ -1579,6 +1579,7 @@ Calendar = Takvim
 Forsaken Temple = Issız Tapınak
 Hero Roulette = Kahraman Ruleti
 Lucky Chip = Uğurlu Fiş
+Defeat nearby beasts = Civardaki hayvanları yen
 Officer Project = Subay Projesi
 Swordland Showdown = Kılıçdiyarı Hesaplaşması
 Swordland = Kılıçdiyarı

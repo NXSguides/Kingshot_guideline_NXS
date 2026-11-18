@@ -1577,6 +1577,7 @@ Swordland Summit League = دوري قمة أرض السيوف
 Forsaken Temple = المعبد المهجور
 Hero Roulette = روليت البطل
 Lucky Chip = رقاقة الحظ
+Defeat nearby beasts = اهزم الوحوش القريبة
 Officer Project = مسؤول المشروع
 Swordland Showdown = مواجهة أرض السيوف
 Swordland = أرض السيوف

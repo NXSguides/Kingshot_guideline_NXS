@@ -1576,6 +1576,7 @@ Calendar = Calendario
 Forsaken Temple = Templo abandonado
 Hero Roulette = Ruleta de Héroes
 Lucky Chip = Ficha de la suerte
+Defeat nearby beasts = Derrota bestias cerca
 Officer Project = Proyecto de oficial
 Swordland Showdown = Enfrentamiento en Tierra de espadas
 Swordland = Tierra de espadas
