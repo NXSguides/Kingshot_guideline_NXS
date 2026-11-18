@@ -562,7 +562,7 @@ const TT = { ko: {"unc": "⏳ 미확인 / 🔁 후보 — 자동 배치 안 됨,
     draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ③.",
     clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
     pool: "People — suggested roles by score (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
-    addText: "+ text", sync: "📋 Each phase (Phase 1, Phase 2, Stay behind…) has its own table of buildings, one row = one building. The same person can be in several phases. Rename the phases in Table setup.", imp: "📥 Paste text → table", impNote: "Paste the assignment post as you wrote it for Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Names are matched to the roster automatically; any not found go in as text.", impGo: "Turn into table", impBad: "No buildings found in that text.", impDraft: "📝 Insert a draft (people by ranking)", rem: "📌 Reminders (added at the bottom of the picture and the text)", game: "🎮 For in-game chat", undo: "↩️ Undo", xlsx: "📊 Download Excel", gameNote: "Game chat sends one message at a time — copy each box and paste them in order.", addB: "+ Building", moveTo: "Phase:", stay: "stay", textPrompt: "Text to add (e.g. Stays behind)",
+    addText: "+ text", sync: "📋 Each phase (Phase 1, Phase 2, Stay behind…) has its own table of buildings, one row = one building. The same person can be in several phases. Rename the phases in Table setup.", imp: "📥 Paste text → table", impNote: "Paste the assignment post as you wrote it for Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Names are matched to the roster automatically; any not found go in as text.", impGo: "Turn into table", impBad: "No buildings found in that text.", impDraft: "📝 Insert a draft (people by ranking)", rem: "📌 Reminders (added at the bottom of the picture and the text)", game: "🎮 For in-game chat", undo: "↩️ Undo", xlsx: "📊 Download Excel", gameNote: "Game chat sends one message at a time — copy each box and paste them in order.", gameOver: "⚠️ over the game's 512 characters — shorten it or split it", addB: "+ Building", moveTo: "Phase:", stay: "stay", textPrompt: "Text to add (e.g. Stays behind)",
     image: "🖼️ Make image", text: "📋 Copy text", toPost: "📢 Use in a new announcement",
     saveHint: "Phone: press and hold the picture to save it.", download: "Download", close: "Close",
     confirmClear: "Clear the whole table?", confirmDraft: "Replace the table with a new draft?", copied: "Copied!",
@@ -582,7 +582,7 @@ const TT = { ko: {"unc": "⏳ 미확인 / 🔁 후보 — 자동 배치 안 됨,
     draft: "依排序自動排一份草稿", draftNote: "使用 ③ 裡 Attackers／Defenders 的人數。",
     clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
     pool: "人員 — 依分數建議的角色（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
-    addText: "+ 文字", sync: "📋 每個階段（Phase 1、Phase 2、Stay behind…）各一張建築表，一列＝一個建築。同一個人可以出現在不同階段。階段名稱在「表格設定」裡改。", imp: "📥 貼上文字轉成表格", impNote: "把寫給 Discord 的分配文字整段貼進來（① ROYAL STABLES／* ⚔️ Attacker: Papa …）。名字會自動對到名單，對不到的會變成文字格。", impGo: "轉成表格", impBad: "這段文字裡找不到建築。", impDraft: "📝 放入草稿（依排序自動填人）", rem: "📌 提醒事項（會加在圖片和文字的最下面）", game: "🎮 複製到遊戲聊天", undo: "↩️ 復原", xlsx: "📊 下載 Excel", gameNote: "遊戲聊天一次只能貼一則：照順序一則一則複製、貼上。", addB: "+ 新增建築", moveTo: "階段：", stay: "留守", textPrompt: "要加入的文字（例如 Stays behind）",
+    addText: "+ 文字", sync: "📋 每個階段（Phase 1、Phase 2、Stay behind…）各一張建築表，一列＝一個建築。同一個人可以出現在不同階段。階段名稱在「表格設定」裡改。", imp: "📥 貼上文字轉成表格", impNote: "把寫給 Discord 的分配文字整段貼進來（① ROYAL STABLES／* ⚔️ Attacker: Papa …）。名字會自動對到名單，對不到的會變成文字格。", impGo: "轉成表格", impBad: "這段文字裡找不到建築。", impDraft: "📝 放入草稿（依排序自動填人）", rem: "📌 提醒事項（會加在圖片和文字的最下面）", game: "🎮 複製到遊戲聊天", undo: "↩️ 復原", xlsx: "📊 下載 Excel", gameNote: "遊戲聊天一次只能貼一則：照順序一則一則複製、貼上。", gameOver: "⚠️ 超過遊戲的 512 字元——要縮短或拆成兩則", addB: "+ 新增建築", moveTo: "階段：", stay: "留守", textPrompt: "要加入的文字（例如 Stays behind）",
     image: "🖼️ 產生圖片", text: "📋 複製文字", toPost: "📢 拿去發公告",
     saveHint: "手機：長按圖片即可儲存。", download: "下載", close: "關閉",
     confirmClear: "確定清空整張表？", confirmDraft: "用新的草稿取代目前的表格？", copied: "已複製！",
@@ -1225,11 +1225,15 @@ function tbGameMsgs() {
   if (rem.length) out.push(["📌 IMPORTANT REMINDERS", ...rem].join("\n"));
   return out;
 }
+/* 🔢 each message's length against the game's limit (2026-11-18: only the roles summary was kept under it — a building's message, the Stay-behind
+   list, the reminders or the map text could be longer and the game refuses those). Counted in characters as typed (an emoji = 1). */
+const GAME_LIMIT = 512;
+const glen = (t) => { const n = [...String(t)].length, over = n > GAME_LIMIT; return `<div class="tb-glen${over ? " over" : ""}" style="font-size:12px;margin:-4px 0 10px 2.2em;${over ? "color:#b45309;font-weight:700" : "color:var(--muted,#888)"}">${n} / ${GAME_LIMIT}${over ? " " + esc(tt("gameOver")) : ""}</div>`; };
 function tbGameBox() {
   const msgs = tbGameMsgs(), m = document.createElement("div");
   m.className = "tb-modal";
   m.innerHTML = `<div class="card" style="width:min(560px,96vw)"><b>${esc(tt("game"))}</b><div class="muted" style="margin:6px 0 10px;font-size:12.5px">${esc(tt("gameNote"))}</div>
-    ${msgs.map((t, i) => `<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px"><b style="min-width:1.6em">${i + 1}.</b><pre style="flex:1;margin:0;white-space:pre-wrap;font:inherit;font-size:13px;background:var(--panel-2,var(--panel));border:1px solid var(--rule);border-radius:8px;padding:8px">${esc(t)}</pre><button class="btn small" data-gcopy="${i}">📋</button></div>`).join("")}
+    ${msgs.map((t, i) => `<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px"><b style="min-width:1.6em">${i + 1}.</b><pre style="flex:1;margin:0;white-space:pre-wrap;font:inherit;font-size:13px;background:var(--panel-2,var(--panel));border:1px solid var(--rule);border-radius:8px;padding:8px">${esc(t)}</pre><button class="btn small" data-gcopy="${i}">📋</button></div>${glen(t)}`).join("")}
     <div class="row"><button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
   m.onclick = (e) => {
     if (e.target === m || e.target.dataset.close) { m.remove(); return; }

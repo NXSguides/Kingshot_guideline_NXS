@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Battle table: length of each game-chat message against the 512 limit", /shows its length as "N \/ 512"/, /Under each box is its length, N \/ 512/],
   ["Compare: ≫ ＞ ≈ ＜ ≪ marks against one person on the Strength list", /📍 WHO IS STRONGER THAN WHOM \(2026-11-18\)/, /ak11: "📍 The Strength list now says/],
   ["Territory: banner route to an Outpost + one shared banner check", /🧭 BANNER ROUTE TO AN OUTPOST \(2026-11-18\)/, /rt01: "🧭 Tap an Outpost while planning/],
   ["Territory: nxs Hive-plan banners listed as standing (notice + mirror of the Move ticks)", /🐝 nxs PLAN BANNERS vs STANDING \(2026-11-17\)/, /fm21: "🐝 This box appears when banners of nxs/],
