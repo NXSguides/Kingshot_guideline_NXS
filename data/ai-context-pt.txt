@@ -1579,6 +1579,7 @@ Calendar = Calendário
 Forsaken Temple = Templo Abandonado
 Hero Roulette = Roleta do Herói
 Lucky Chip = Ficha da Sorte
+Defeat nearby beasts = Derrotar feras próximas
 Officer Project = Projeto de Oficial
 Swordland Showdown = Confronto entre Espadas
 Swordland = Terra das Espadas

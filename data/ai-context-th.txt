@@ -1578,6 +1578,7 @@ Calendar = ปฏิทิน
 Forsaken Temple = วิหารร้าง
 Hero Roulette = รูเล็ตฮีโร่
 Lucky Chip = ชิปนำโชค
+Defeat nearby beasts = เอาชนะสัตว์อสูรที่อยู่ใกล้เคียง
 Officer Project = โครงการพัฒนาฮีโร่
 Swordland Showdown = ศึกดวลดินแดนดาบ
 Swordland = ดินแดนดาบ
