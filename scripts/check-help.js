@@ -196,5 +196,13 @@ for (const [re, why] of STALE)
 /* 🙈 the stats site's name never appears in public files (Sherry 2026-11-10: "never let this word show on public pages") */
 for (const f of ["js/app.js", "js/sparrow.js", "data/content.js", "data/terms.js", "css/styles.css", "index.html", ...require("fs").readdirSync("data").filter((x) => /^ai-context.*\.txt$/.test(x)).map((x) => "data/" + x)])
   if (/mightpulse/i.test(require("fs").readFileSync(f, "utf8"))) fails.push(`🙈 "${f}" names the stats site (public file) — use {MP} in js/sparrow.js, or leave the name out`);
+/* 🫥 code hidden behind a comment (2026-11-18: three one-line edits had put a "// note" in the middle of a line, so the statements after it never
+   ran — an event's reminder times were dropped on save, the Territory panels were not redrawn, a guard was skipped). A "//" comment whose text
+   ends like a statement and reads like code fails here: put the comment at the end of the line or on its own line. */
+{ const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(d + "/" + e.name) : /\.js$/.test(e.name) ? [d + "/" + e.name] : []);
+  for (const f of [...walk("js"), "worker/worker.js", "sw.js"]) fs.readFileSync(f, "utf8").split("\n").forEach((l, i) => {
+    const m = /(?<![:"'`/\\])\/\/(?!\/)\s?(.*)$/.exec(l); if (!m) return; const pre = l.slice(0, m.index), c = m[1].trimEnd();
+    if ((pre.split("`").length - 1) % 2 || (pre.split('"').length - 1) % 2) return;
+    if (c.length > 25 && /;\s*$/.test(c) && /\b(if|for|while) \(|\w\(\);|=>| = /.test(c)) fails.push(`🫥 ${f}:${i + 1} — code after a "//" comment never runs: …${c.slice(-70)}`); }); }
 if (fails.length) { console.error("❌ Little Sparrow / AI out of step:\n  " + fails.join("\n  ")); process.exit(1); }
 console.log(`✅ Little Sparrow and the AI match (${tabs.length} officer tabs, ${FEATURES.length} features, ${keys.size} tour steps)`);

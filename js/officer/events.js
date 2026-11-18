@@ -1075,7 +1075,8 @@ function readEditor() {
     if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1; { const l = [...r.querySelectorAll('[data-k="ig"]')].map((x) => x.value).filter(Boolean); if (l.length === 1) o.ig = l[0]; else if (l.length > 1) o.ig = l; }
     const u = parseInt(g("until").value, 10); if (u >= 1 && u <= 24) o.until = u;
     { const only = [...r.querySelectorAll("[data-only]:checked")].map((x) => x.dataset.only); if (only.length) o.only = only; }
-    const am = String(g("at").value || "").trim().replace(/[：.．\s]/g, ":").replace(/^(\d{1,2})(\d{2})$/, "$1:$2").match(/^(\d{1,2}):(\d{2})$/);   // 22:30, 22.30, 2230 all work (a phone number pad has no ":") if (am && +am[1] < 24 && +am[2] < 60) o.at = am[1].padStart(2, "0") + ":" + am[2];
+    const am = String(g("at").value || "").trim().replace(/[：.．\s]/g, ":").replace(/^(\d{1,2})(\d{2})$/, "$1:$2").match(/^(\d{1,2}):(\d{2})$/);   // 22:30, 22.30, 2230 all work (a phone number pad has no ":")
+      if (am && +am[1] < 24 && +am[2] < 60) o.at = am[1].padStart(2, "0") + ":" + am[2];   // (2026-11-18: this stood behind the comment above since 2026-11-02, so saving an event in the editor dropped every to-do's clock time)
     return o;
   }).filter((o) => OFFICER_LANGS.some((l) => o[l]));
   e.ingame = [...ROOT.querySelectorAll("#edIgs .ig-ed")].map((r) => ({ title: r.querySelector('[data-k="title"]').value.trim(), text: r.querySelector('[data-k="text"]').value.replace(/\r/g, "").trimEnd() })).filter((g) => g.text);

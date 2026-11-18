@@ -1484,7 +1484,8 @@ function setMode(p) {
   { const tb = $("kp_tools"), card = blk && blk.querySelector(".km-card"); if (tb && card) { if (p) blk.insertBefore(tb, card); else $("kp_slot").parentNode.insertBefore(tb, $("kp_slot")); } }   // the tool row sits right on top of the map (under the layer chips)
   if (PMODE === p) return; PMODE = p; if (!ready) return;
   if (!p) { flagMode = false; farmKind = ""; otKind = ""; $("km_svg").classList.remove("flag-mode"); } FSEL = null; FARM_SEL = null; if ($("km_sel")) $("km_sel").innerHTML = ""; renderInfo();
-  renderLayers(); drawEx(); drawFlags(); drawRes(); drawAc(); drawZones();   // drawAc: members, Bear Traps, the Hive plan renderFlags(); renderPlan(); memRefresh(); if (!p && KM_SHARED.optDraw) KM_SHARED.optDraw({});
+  renderLayers(); drawEx(); drawFlags(); drawRes(); drawAc(); drawZones();   // drawAc: members, Bear Traps, the Hive plan
+  renderFlags(); renderPlan(); memRefresh(); if (!p && KM_SHARED.optDraw) KM_SHARED.optDraw({});   // (2026-11-18: these four stood behind the comment above since 2026-11-14 and never ran)
 }
 function onShow() {
   if (ready && importFromLink()) { drawPlan(); applyHidden(); applyTexts(); }   // link opened while the page was already open

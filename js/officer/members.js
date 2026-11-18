@@ -459,7 +459,8 @@ const bSq = ([x, y]) => [x - 3, y - 3, x + 3, y + 3], hSq = ([x, y]) => [x - 6, 
 const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1;   // overlap, a shared edge or just a corner (Sherry 2026-11-12, seen in game: territories that meet only at a corner are linked)
 const curHq = () => ((G && G.hq) || []).map((h) => [h[0], h[1]]);   // our HQs as the 🗺️ Map has them now
 function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the same layout without one far line, only the extra banners are worked out   // now = the kingdom as it stands (our HQs, standing banners, members' cities, Bear Traps) instead of the moving plan
-  const KS = window.KM_SHARED, { D, MV } = NX(), PL = now ? (KS && KS.ctx === "f" ? KS.farmPL() : D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan;   // NXS's cities even while 🐝 shows nxs (2026-11-15 fix) if (!PL || !(PL.hq || []).length) return null;
+  const KS = window.KM_SHARED, { D, MV } = NX(), PL = now ? (KS && KS.ctx === "f" ? KS.farmPL() : D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan;   // NXS's cities even while 🐝 shows nxs (2026-11-15 fix)
+  if (!PL || !(PL.hq || []).length) return null;   // (2026-11-18: this stood behind the comment above since 2026-11-15 and never ran)
   const oth = new Uint8Array(OPT_N * OPT_N), occ = new Uint8Array(OPT_N * OPT_N);
   const fill = (g, [x0, y0, x1, y1], v) => { for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) g[oK(i, j)] = v; };
   if (KS) { for (const [, x, y] of KS.others()) fill(oth, bSq([x, y]), 1); for (const [, x, y] of KS.othersHq()) fill(oth, hSq([x, y]), 1);
