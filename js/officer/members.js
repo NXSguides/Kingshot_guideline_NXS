@@ -261,7 +261,23 @@ const tagKind = (tag) => !tag ? "" : /^S1-/i.test(tag) ? "S1" : /^S2-/i.test(tag
 function ownSet() { const KS = window.KM_SHARED; return new Set((WHO === "f" ? (KS && KS.farmB ? KS.farmB() : []) : KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1])).map(([x, y]) => x + "," + y)); }
 /* where we are now = our Alliance HQ (from 🗺️ Map); without it, the median X and Y of the members' cities */
 let JUMP = {};
-const hqNow = () => WHO === "f" ? ((window.KM_SHARED && KM_SHARED.farmPL && KM_SHARED.farmPL().hq) || []) : ((G && G.hq) || []);
+/* nxs for the banner check and the 🐝 map (Sherry 2026-11-18: "it starts from the Wilderness HQ, not the Plains HQ, and treats our hive's
+   banners as useless"): the 🚩 Map's hand-drawn nxs cities were the only cities the check knew, and its first HQ was simply the one drawn
+   first. Now nxs's hive comes from 🐝 itself — members' cities now + the move plan's spots + its Bear Traps — home is the middle of the
+   plan's spots (else the Bear Trap, else the cities), and the HQ nearest to home comes first (the Plains HQ is the one the hive stands on). */
+const nxsSrc = () => (WHO === "f" ? { D, MV } : SLOT.f || BGF || null);
+function nxsHive() {
+  const KS = window.KM_SHARED, f = KS && KS.farmPL ? KS.farmPL() : { hq: [], c: [], bt: [], b: [] }, src = nxsSrc(), pl = src && src.MV && src.MV.plan;
+  const med = (a) => { const v = a.slice().sort((p, q) => p - q); return v[v.length >> 1]; }, seen = new Set(), c = [], bt = [], sb = new Set();
+  const addC = (n, x, y) => { x = +x; y = +y; if (!isFinite(x) || !isFinite(y) || seen.has(x + "," + y)) return; seen.add(x + "," + y); c.push([n || 0, x, y]); };
+  const spots = ((pl && pl.c) || []).map((r) => [r[0], +r[1], +r[2]]).filter((r) => isFinite(r[1]) && isFinite(r[2])), now = ((src && src.D && src.D.m) || []).map((r) => [r[0], +r[1], +r[2]]).filter((r) => isFinite(r[1]) && isFinite(r[2]));
+  spots.forEach((r) => addC(r[0], r[1], r[2])); now.forEach((r) => addC(r[0], r[1], r[2])); (f.c || []).forEach((r) => addC(r[0], r[1], r[2]));
+  for (const t0 of ((pl && pl.bt) || []).concat(f.bt || [])) { const k = t0[0] + "," + t0[1]; if (!sb.has(k)) { sb.add(k); bt.push([t0[0], t0[1]]); } }
+  const base = spots.length ? spots : bt.length ? [] : now.length ? now : c, home = base.length ? [med(base.map((r) => r[1])) + 1, med(base.map((r) => r[2])) + 1] : bt.length ? [bt[0][0] + 1.5, bt[0][1] + 1.5] : null;   // no plan yet → the Bear Trap (members who have not moved are no guide to where the hive is)
+  const hq = (f.hq || []).slice(); if (home) hq.sort((p, q) => Math.hypot(p[0] + 1.5 - home[0], p[1] + 1.5 - home[1]) - Math.hypot(q[0] + 1.5 - home[0], q[1] + 1.5 - home[1]));
+  return { hq, c, bt, b: [], home };
+}
+const hqNow = () => WHO === "f" ? nxsHive().hq : ((G && G.hq) || []);
 function blockMid() { const h = hqNow()[0]; if (h) return [h[0] + 1, h[1] + 1];
   const c = (D && D.m) || [], med = (a) => { const b = a.slice().sort((p, q) => p - q); return b.length ? b[b.length >> 1] : 0; };
   if (c.length) return [med(c.map((r) => r[1])), med(c.map((r) => r[2]))];
@@ -470,7 +486,7 @@ const bSq = ([x, y]) => [x - 3, y - 3, x + 3, y + 3], hSq = ([x, y]) => [x - 6, 
 const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1;   // overlap, a shared edge or just a corner (Sherry 2026-11-12, seen in game: territories that meet only at a corner are linked)
 const curHq = () => ((G && G.hq) || []).map((h) => [h[0], h[1]]);   // our HQs as the 🗺️ Map has them now
 function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the same layout without one far line, only the extra banners are worked out   // now = the kingdom as it stands (our HQs, standing banners, members' cities, Bear Traps) instead of the moving plan
-  const KS = window.KM_SHARED, { D, MV } = NX(), PL = now ? (KS && KS.ctx === "f" ? KS.farmPL() : D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan;   // NXS's cities even while 🐝 shows nxs (2026-11-15 fix)
+  const KS = window.KM_SHARED, { D, MV } = NX(), PL = now ? (KS && KS.ctx === "f" ? nxsHive() : D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan;   // NXS's cities even while 🐝 shows nxs (2026-11-15 fix)
   if (!PL || !(PL.hq || []).length) return null;   // (2026-11-18: this stood behind the comment above since 2026-11-15 and never ran)
   const oth = new Uint8Array(OPT_N * OPT_N), occ = new Uint8Array(OPT_N * OPT_N);
   const fill = (g, [x0, y0, x1, y1], v) => { for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) g[oK(i, j)] = v; };
@@ -530,7 +546,7 @@ function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the 
   const wT = (ty) => { if (!optBal) return optPri === ty ? 4 : 1; const tot = cnt.b + cnt.w + cnt.q + cnt.i + 4; return Math.max(.35, Math.min(3, Math.pow((USE[ty] / 100) / (((cnt[ty] || 0) + 1) / tot), 2))) * (optPri === ty ? 4 : 1); };   // the kind we are shortest of, measured against how fast we use it, counts most
   /* home = where the troops leave from: the middle of our cities; without city data, the first HQ only (a second HQ far from the hive is not home — 2026-11-13: suggestions next to it read as "very far") */
   const over = (ty) => { if (!optStrict) return false; const tot = cnt.b + cnt.w + cnt.q + cnt.i; return tot > 0 && (cnt[ty] || 0) / tot >= USE[ty] / 100; };   // strict: this kind already has its share
-  const homes = []; if ((PL.c || []).length) { const xs = PL.c.map((c) => c[1]).sort((a, b) => a - b), ys = PL.c.map((c) => c[2]).sort((a, b) => a - b); homes.push([xs[xs.length >> 1], ys[ys.length >> 1]]); } else homes.push([(hqs[0][0] + hqs[0][2]) / 2, (hqs[0][1] + hqs[0][3]) / 2]);
+  const homes = []; if (PL.home) homes.push(PL.home); else if ((PL.c || []).length) { const xs = PL.c.map((c) => c[1]).sort((a, b) => a - b), ys = PL.c.map((c) => c[2]).sort((a, b) => a - b); homes.push([xs[xs.length >> 1], ys[ys.length >> 1]]); } else homes.push([(hqs[0][0] + hqs[0][2]) / 2, (hqs[0][1] + hqs[0][3]) / 2]);
   const home = (x, y) => Math.min(...homes.map(([hx, hy]) => Math.hypot(x - hx, y - hy)));
   const inS = (s, i, j) => i >= s[0] - 3 && i <= s[0] + 3 && j >= s[1] - 3 && j <= s[1] + 3;
   const gain = (list) => { let x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1; for (const [x, y] of list) { x0 = Math.min(x0, x - 3); y0 = Math.min(y0, y - 3); x1 = Math.max(x1, x + 3); y1 = Math.max(y1, y + 3); }
