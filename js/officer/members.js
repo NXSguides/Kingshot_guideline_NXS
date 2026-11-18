@@ -385,6 +385,8 @@ function drawIn(boxId) {
     s.push(`<g class="mm-c${sel ? " sel" : ""}" data-i="${i}" tabindex="0" role="button" aria-label="${esc(n)} X${x} Y${y}"><polygon points="${poly(x, y, 2)}" fill="${arrived ? "#8fd19e" : on ? "#9ec3f0" : "#f3b46b"}" stroke="${sel ? "#ffde4a" : "#ffffffcc"}" stroke-width="${sel ? 3 : 1.2}"/>`
       + `<text x="${cx}" y="${cy + 3}" text-anchor="middle" class="mm-n">${esc(n.length > 10 ? n.slice(0, 9) + "…" : n)}</text></g>`);
   }
+  if (PL) for (const b of btMis()) { const [cx, cy] = P(b.x + 1, b.y + 1);   // 🐻 changed group, spot still on the other trap's side
+    s.push(`<g pointer-events="none"><polygon points="${poly(b.x, b.y, 2)}" fill="none" stroke="${MISC}" stroke-width="3.2"/><text x="${cx}" y="${cy - 5}" text-anchor="middle" style="font:700 8.5px Arial,sans-serif;fill:${MISC};paint-order:stroke;stroke:#1b1b1b;stroke-width:2.2px">BT${b.had}</text></g>`); }
   box.innerHTML = `<svg viewBox="-6 -6 ${W + 12} ${H + 12}" width="${Math.round(Math.max(W + 12, 300) * ZOOM)}" style="display:block;max-width:none">${s.join("")}</svg>`;
   box._w0 = Math.max(W + 12, 300); zoomBind(box);
   const v = (PL ? "p" : "n") + cities.length + "," + pc.length;
@@ -797,11 +799,11 @@ function assign(i, name) {
 /* legend under the map (only with a plan) */
 function legend() {
   if (!(MV && MV.plan)) return "";
-  return rsSummary() + legend0();
+  return btMisHtml() + rsSummary() + legend0();
 }
 function legend0() {
   const sw = (c, txt, dash) => `<span class="mm-lg"><i style="background:${c};${dash ? "border:1.5px dashed #fff;" : ""}"></i>${esc(txt)}</span>`;
-  return (MED() ? `<div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("asTip"))}</div><div class="mv-auto" style="font-size:12.5px;margin:4px 0;padding:6px 10px;border-radius:10px;background:var(--panel-2)">${esc(t("asAuto"))}</div>` : "") + `<div class="mm-legend">${sw("#9ec3f0", t("lgNow"))}${sw("#ffffff33", t("lgSpot"), 1)}${sw("#8fd19e", t("lgThere"))}${sw(TAGC.R, t("lgRoad"))}${sw(TAGC.P, t("lgEarly"))}${sw(TAGC.S1, t("lgS1"))}${sw(TAGC.S2, t("lgS2"))}${sw("#0b3d91", t("lgBuilt"))}${sw("#8e6bbf88", t("lgHq"), 1)}<span class="mm-lg"><b style="color:#ff6b6b">✖</b> ${esc(t("lgKill"))}</span></div>`;
+  return (MED() ? `<div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("asTip"))}</div><div class="mv-auto" style="font-size:12.5px;margin:4px 0;padding:6px 10px;border-radius:10px;background:var(--panel-2)">${esc(t("asAuto"))}</div>` : "") + `<div class="mm-legend">${sw("#9ec3f0", t("lgNow"))}${sw("#ffffff33", t("lgSpot"), 1)}${sw("#8fd19e", t("lgThere"))}${sw(MISC, t("lgMis"))}${sw(TAGC.R, t("lgRoad"))}${sw(TAGC.P, t("lgEarly"))}${sw(TAGC.S1, t("lgS1"))}${sw(TAGC.S2, t("lgS2"))}${sw("#0b3d91", t("lgBuilt"))}${sw("#8e6bbf88", t("lgHq"), 1)}<span class="mm-lg"><b style="color:#ff6b6b">✖</b> ${esc(t("lgKill"))}</span></div>`;
 }
 /* a city drawn over a planned spot: the tap shows who was PLANNED there (Sherry, 2026-11-11 — that is what you change);
    "👤 Edit …" under it opens the person sitting there */
@@ -1274,6 +1276,22 @@ function adoptCard() {
     <div style="margin-top:6px">${a.ch.length || btSide(a.next || MV.plan.c).length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length))}${btSide(a.next || MV.plan.c).length ? ` · 🐻 ${btSide(a.next || MV.plan.c).length}` : ""}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`} <span class="muted" style="font-size:12.5px">${esc(t("adCnt").replace("{n}", a.inside || 0).replace("{c}", a.ch.length))}</span></div>
     <div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("adSpots").replace("{n}", MV.plan.c.length).replace("{f}", MV.plan.c.filter(([q]) => q).length).replace("{e}", MV.plan.c.filter(([q]) => !q).length))}</div></div>`;
 }
+/* 🐻 group changed, spot not yet (Sherry 2026-11-18: after a Bear Trap time vote people change group — "the map should show who is
+   changing group, so we know whose spot has to change"): a member ticked for ONE trap whose planned spot is on the OTHER trap's side
+   gets a pink frame on the map (with the group they are in now) and is listed under it. Both ticked / BT3 / not ticked: not listed. */
+for (const [l, o] of Object.entries({
+  en: { misT: "🐻 Changed group — their spot is still on the other trap's side ({n}):", misNone: "🐻 Everyone's spot is on the side of their own Bear Trap group.", lgMis: "group changed, spot on the other trap's side" },
+  zh: { misT: "🐻 換組了，位置還在另一個熊陷阱那一側（{n} 人）：", misNone: "🐻 每個人的位置都在自己那一組熊陷阱的那一側。", lgMis: "換組了，位置還在另一側" },
+  pt: { misT: "🐻 Mudou de grupo — o lugar ainda está do lado da outra armadilha ({n}):", misNone: "🐻 O lugar de todos está do lado do seu grupo de Armadilha de Urso.", lgMis: "mudou de grupo, lugar do outro lado" },
+  ar: { misT: "🐻 غيّر المجموعة — مكانه ما زال في جهة المصيدة الأخرى ({n}):", misNone: "🐻 مكان كل عضو في جهة مجموعة مصيدة الدب الخاصة به.", lgMis: "غيّر المجموعة والمكان في الجهة الأخرى" },
+  ko: { misT: "🐻 조가 바뀌었는데 자리는 아직 다른 함정 쪽이에요 ({n}명):", misNone: "🐻 모두의 자리가 자기 곰 함정 조 쪽에 있어요.", lgMis: "조가 바뀜, 자리는 반대쪽" } })) Object.assign(T[l], o);
+const MISC = "#ff4fd8";
+const btMis = () => (MV && MV.plan ? btSide(MV.plan.c).filter((b) => b.had) : []);   // marked for the other trap only
+function btMisHtml() {
+  if (!(MV && MV.plan) || ((MV.plan.bt || []).length < 2)) return "";
+  const l = btMis();
+  return `<div class="mm-rs" id="mv_btmis">${l.length ? `<b>${esc(t("misT").replace("{n}", l.length))}</b> ${l.map((b) => `<span class="mm-chip" style="border:1.5px solid ${MISC}"><bdi>${esc(b.n)}</bdi> · BT${b.had}</span>`).join(" ")}` : esc(t("misNone"))}</div>`;
+}
 /* 🐻 after 📌: BT1 / BT2 follow the side of the plan each member's spot is on (closer to the plan's Bear Trap 1 or 2 — Sherry,
    2026-11-11). Members ticked for both are left as they are. */
 function btSide(c) {
@@ -1283,7 +1301,7 @@ function btSide(c) {
     const k = Math.hypot(x + 1 - (pt[0][0] + 1.5), y + 1 - (pt[0][1] + 1.5)) <= Math.hypot(x + 1 - (pt[1][0] + 1.5), y + 1 - (pt[1][1] + 1.5)) ? "1" : "2", o = k === "1" ? "2" : "1";
     const h1 = BTX().has(m.id, k), h2 = BTX().has(m.id, o); if (BTX().has(m.id, "3")) continue;   // BT3 people go to nxs for it — the spot doesn't change their marks
     if (h1 && h2) continue; if (h1 && !h2) continue;
-    out.push({ id: String(m.id), n, k, o, had: h2 ? o : "" }); }
+    out.push({ id: String(m.id), n, k, o, had: h2 ? o : "", x, y }); }
   return out;
 }
 async function adoptGo() {

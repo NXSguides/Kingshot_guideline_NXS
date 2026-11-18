@@ -106,6 +106,7 @@ const FEATURES = [
   ["Ranking: 🗂️ Recover plans (admins; deleted plans too)", /Recover plans/, /{ s: "#planRec", k: "rk02r", e: 1 }/],
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
+  ["Move: changed Bear Trap group, spot on the other side", /🐝 Hive → CHANGED GROUP/, /{ s: "#mv_btmis", k: "mv26" }/],
   ["Move: NXS / nxs hive plans + BT3", /🐝 Hive → NXS \/ nxs switch/, /{ s: "#whoTop \.who-top", k: "mv20" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
   ["Map: 🏫 Academy (second alliance on the map), first come first served", /🏫 ACADEMY \(2026-11-14/, /{ s: "#km_farm", k: "mp40", e: 1 }/],
