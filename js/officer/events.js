@@ -386,7 +386,12 @@ const EVENTS = {
 // from the in-game calendar 2026-11-06 (Sherry: "put it on every calendar"); one-off until the next date is known → then set "every"
 EVENTS["kingdom-transfer"] = { emoji: "🧳", en: "Kingdom Transfer", zh: "王國移民", noGuide: true, start: "2026-11-08", every: 100000, days: 7,
   note: "Phase I Pre-Transfer → II Invitational Transfer → III Transfer Opens · Leading Kingdoms take up to 30, Ordinary Kingdoms up to 55", noteZh: "移民前奏 → 移民邀請 → 自由移民 · 強盛王國最多收 30 人、普通王國最多 55 人" };
-EVENTS["armament-competition"] = { emoji: "⚒️", en: "Armament Competition", zh: "軍備競演", noGuide: true, start: "2026-11-09", every: 100000, days: 2 };
+/* ⚒️ 軍備競演 / 🎖️ 士官計畫 — cycles from Sherry's ranking mails (2026-11-18; a mail arrives at 00:00 UTC right after the 2 days):
+   Armament mails 09/30, 10/14 (+14 d); seen running 11/09–11/10 = 2 × 14 d later (no mails for 10/28 and 11/11: she skipped those) → every 14 days.
+   Officer Project mails 10/02, 10/16, 10/30, 11/13 → every 14 days, runs the 2 days before (11/11–11/12).
+   (Before 10/02 both sat 4 days earlier in the cycle: mails 09/20 and 09/22.) */
+EVENTS["armament-competition"] = { emoji: "⚒️", en: "Armament Competition", zh: "軍備競演", noGuide: true, start: "2026-11-09", every: 14, days: 2 };
+EVENTS["officer-project"] = { emoji: "🎖️", en: "Officer Project", zh: "士官計畫", noGuide: true, start: "2026-11-11", every: 14, days: 2 };
 /* 🐺 清理野獸 (in-game name; the English one is from a guide site, not checked in game): ranking mail 2026-11-05 00:00 UTC → ran 11/03–11/04;
    running again 11/17–11/18 (Sherry 2026-11-18) → every 14 days, 2 days. Points: a beast 1, a Terror rally 3 (guide site). */
 EVENTS["defeat-nearby-beasts"] = { emoji: "🐺", en: "Defeat Nearby Beasts", zh: "清理野獸", noGuide: true, start: "2026-11-03", every: 14, days: 2,
