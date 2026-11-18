@@ -387,6 +387,10 @@ const EVENTS = {
 EVENTS["kingdom-transfer"] = { emoji: "🧳", en: "Kingdom Transfer", zh: "王國移民", noGuide: true, start: "2026-11-08", every: 100000, days: 7,
   note: "Phase I Pre-Transfer → II Invitational Transfer → III Transfer Opens · Leading Kingdoms take up to 30, Ordinary Kingdoms up to 55", noteZh: "移民前奏 → 移民邀請 → 自由移民 · 強盛王國最多收 30 人、普通王國最多 55 人" };
 EVENTS["armament-competition"] = { emoji: "⚒️", en: "Armament Competition", zh: "軍備競演", noGuide: true, start: "2026-11-09", every: 100000, days: 2 };
+/* 🐺 清理野獸 (in-game name; the English one is from a guide site, not checked in game): ranking mail 2026-11-05 00:00 UTC → ran 11/03–11/04;
+   running again 11/17–11/18 (Sherry 2026-11-18) → every 14 days, 2 days. Points: a beast 1, a Terror rally 3 (guide site). */
+EVENTS["defeat-nearby-beasts"] = { emoji: "🐺", en: "Defeat Nearby Beasts", zh: "清理野獸", noGuide: true, start: "2026-11-03", every: 14, days: 2,
+  note: "Every 2 weeks, 2 days · 1 point per beast (10 stamina), 3 per Terror rally (25 stamina)", noteZh: "每 2 週一次，2 天 · 打一隻野獸 1 分（10 體力），集結打恐怖獸 3 分（25 體力）" };
 const SWORDLAND_TODO = [
   { due: 0, post: 1, en: "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.",
             zh: "投票階段：發聯盟投票，確認誰在固定的時段 100% 能參加。" },
