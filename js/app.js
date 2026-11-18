@@ -326,7 +326,10 @@ const NOTE_EVENTS = [
   { name: "Strongest Governor", emoji: "💪", start: "2026-10-19", every: 28, days: 7 },
   { name: "Golden Glaives", emoji: "🪙", start: "2026-10-19", every: 14, days: 2 },
   { name: "Kingdom Transfer", emoji: "🧳", start: "2026-11-08", days: 7 },
-  { name: "Armament Competition", emoji: "⚒️", start: "2026-11-09", days: 2 },   // 11/09–11/10 (in-game calendar, Sherry 2026-11-06); add `every` once the next one is known
+  // the three 2-day ranking events, every 14 days (cycles from Sherry's ranking-reward mails, 2026-11-18; see js/officer/events.js)
+  { name: "Armament Competition", emoji: "⚒️", start: "2026-11-09", every: 14, days: 2 },
+  { name: "Officer Project", emoji: "🎖️", start: "2026-11-11", every: 14, days: 2 },
+  { name: "Defeat nearby beasts", emoji: "🐺", start: "2026-11-03", every: 14, days: 2 },
   //   // 11/08–11/14 (in-game calendar); probably periodic — add `every` once the next one is known   // 尋物奇緣: 10/11–10/13, 11/08–11/10 → every 28 days, 3 days (Sherry 2026-11-06)
 ];
 const noteName = (ev) => (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
