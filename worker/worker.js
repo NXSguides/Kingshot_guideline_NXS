@@ -892,7 +892,6 @@ async function ssPullRoute(req, env, body) {
    minute, the second batch got 429 and those members vanished from the positions. So: before each further batch, wait for the minute
    bucket to reset when the batch does not fit what is left of it (the response headers say how much is left and when it resets); a 429
    waits and tries once more; and a member who still cannot be read keeps the position from last time (marked old) instead of vanishing. */
-const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 async function positionsTick(env, w) {   // w "f" = nxs (2189 nxs, our second alliance): their roster file, kept as "pos-live-f" (2026-11-15)
   if (!env.MIGHTPULSE_API_KEY || !env.TIMERS) return null;
   let roster = null; try { roster = await openData(JSON.parse(await getText(w === "f" ? "data/academy-x7k2p9.json" : "data/roster-x7k2p9.json")), env); } catch (e) { return null; }

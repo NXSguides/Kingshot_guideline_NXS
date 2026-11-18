@@ -58,7 +58,7 @@ async function get(path) {
   for (const a of alls) {
     const tag = String(a.tag), r = await get(`/alliances/${+a.kid}/${encodeURIComponent(tag)}?include=info,roster`); await sleep(GAP_MS);
     if (r.status === 200 && r.body) day.alliances[`${+a.kid}:${tag}`] = { fetched_at: new Date().toISOString(), info: r.body.alliance || r.body.info || null,
-      members: (r.body.members || (r.body.roster && r.body.roster.members) || r.body.roster || []).map((m) => ({ governor_id: String(m.governor_id), nick_name: m.nick_name, power: m.power, town_center_level: m.town_center_level, kills: m.kills, alliance_rank: m.alliance_rank, last_active_at: m.last_active_at })) };
+      members: (r.body.members || (r.body.roster && r.body.roster.members) || r.body.roster || []).map((m) => ({ governor_id: String(m.governor_id), nick_name: m.nick_name, power: m.power, town_center_level: m.town_center_level, kills: m.kills, alliance_rank: m.alliance_rank })) };
   }
   // 3. who to fetch: union of the chosen boards per kingdom, by best rank, positions from..to; + extra IDs
   const want = [];
