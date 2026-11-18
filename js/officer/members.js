@@ -949,6 +949,13 @@ function keepOld(np) {
   for (const row of np.c) { const n = at[row[1] + "," + row[2]]; if (!row[0] && n && !used.has(norm(n))) { row[0] = n; used.add(norm(n)); r.kept++; } }
   for (const [n] of old.c || []) if (n && !used.has(norm(n))) r.lost.push(n);
   const nb = new Set((np.b || []).map(([x, y]) => x + "," + y)); MV.st = { b: (st0.b || []).filter((k) => nb.has(k)) };
+  /* the same two Bear Traps as before: keep the numbers the plan had (2026-11-18 — loading the Mapper file again put BT1 / BT2 back the way the
+     file has them, undoing the ⇄ swap) and their ticks; the HQ tick stays when the HQ spot is the same; ✖ ticks stay for banners still in the list */
+  const eq = (p, q) => p && q && p[0] === q[0] && p[1] === q[1], ob = old.bt || [], nt = np.bt || [];
+  if (ob.length === 2 && nt.length === 2 && eq(ob[0], nt[1]) && eq(ob[1], nt[0])) np.bt = [nt[1], nt[0]];
+  if (Array.isArray(st0.bt) && ob.length === (np.bt || []).length && ob.every((b, i) => eq(b, np.bt[i]))) MV.st.bt = st0.bt.slice();
+  if (st0.hq && eq((old.hq || [])[0], (np.hq || [])[0])) MV.st.hq = true;
+  if ((st0.k || []).length) { const nk = new Set((np.k || []).map(([x, y]) => x + "," + y)); const k = st0.k.filter((v) => nk.has(v)); if (k.length) MV.st.k = k; }
   return r;
 }
 const keptMsg = (r) => (r.kept ? " " + t("impKept").replace("{n}", r.kept) : "") + (r.lost.length ? " " + t("impLost").replace("{n}", r.lost.length).replace("{l}", r.lost.join(", ")) : "");
@@ -1262,7 +1269,7 @@ function adoptCard() {
   if (!MED() || !(MV && MV.plan)) return "";
   const a = adoptList();
   return `<div class="mm-add" style="margin:12px 0"><b>${esc(t("adT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("adHow"))}</span>
-    <div style="margin-top:6px">${a.ch.length || btSide(a.next || MV.plan.c).length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length))}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`} <span class="muted" style="font-size:12.5px">${esc(t("adCnt").replace("{n}", a.inside || 0).replace("{c}", a.ch.length))}</span></div>
+    <div style="margin-top:6px">${a.ch.length || btSide(a.next || MV.plan.c).length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length))}${btSide(a.next || MV.plan.c).length ? ` · 🐻 ${btSide(a.next || MV.plan.c).length}` : ""}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`} <span class="muted" style="font-size:12.5px">${esc(t("adCnt").replace("{n}", a.inside || 0).replace("{c}", a.ch.length))}</span></div>
     <div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("adSpots").replace("{n}", MV.plan.c.length).replace("{f}", MV.plan.c.filter(([q]) => q).length).replace("{e}", MV.plan.c.filter(([q]) => !q).length))}</div></div>`;
 }
 /* 🐻 after 📌: BT1 / BT2 follow the side of the plan each member's spot is on (closer to the plan's Bear Trap 1 or 2 — Sherry,
@@ -1445,6 +1452,7 @@ async function setWho(w) {
 /* the 🚚 tab: needs the map tab's data (positions, banners, obstacles), so that one starts first (hidden) */
 async function initMove() {
   const el = $("mv_root"); if (!el) return;
+  lang = OFFICER.lang || lang;   // opened as the first tab (e.g. after the alliance switch reloads the page): the page language, not "en" (2026-11-18 — title and rules stayed English)
   $("mv_title").textContent = t("mvPage"); $("mv_intro").textContent = t("mvIntro"); rulesCard();
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<div class="muted">${esc(t("locked"))}</div>`; return; }
   if (OFFICER.ensure) await OFFICER.ensure("map");
