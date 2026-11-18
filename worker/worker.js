@@ -451,7 +451,7 @@ NEWER TOOLS (officers)
 [move] - 🏰 "Planning now: NXS / nxs" strip (2026-11-17): on the two pages that are split by alliance — 🚩 Territory and 🐝 Hive — a coloured strip at the top always says which alliance is being planned (NXS brown, nxs teal) and the map / tool card has a frame in the same colour. In 🐝 Hive a save says which alliance it went to ("Saved ✅ … · 🏰 nxs") and an imported layout says which alliance it was loaded into. No other page mentions the alliance split — announcements, events, research and the roster are shared.
 [move] - 🐝 Hive → 🤝 Shared Bear Trap box (2026-11-17), under the BT1 / BT2 / BT3 lists of the move table (shown once a plan is loaded): the trap both alliances use is BT3 for NXS and BT1 for nxs, so this one box lists everyone ticked for it — the NXS members ticked BT3 and the nxs members ticked BT1, each side by Power — with 📋 Copy for the whole list. The ticks themselves are still made in each alliance's own table.
 [move] - 🐝 Hive map (2026-11-17): the OTHER alliance is drawn faintly behind the one you are planning — white dashed squares for its cities, banners, HQ and Bear Traps (labelled "nxs BT1", "NXS HQ" …), its plan when it has one, otherwise where its cities are now — plus a yellow dashed line "NXS ┄ Y 704 ┄ nxs" for the border (cities on Y 704 or above it belong to NXS). It is only for looking: nothing of the other alliance can be tapped or changed from this view; switch NXS | nxs to plan the other one.
-[move] - 🚚 Move → "📍 Where everyone is now" (2026-11-11): NEW OR LEFT MEMBERS: 📍 only looks up the members on the roster, so when someone joined or left, press "🔄 Update roster now" (same card, the full roster job, about 5 minutes) first, then 📍. ① open the MightPulse map and press Update Map ② 📍 Update positions — the Worker looks up only castle positions of every roster member in batch calls (not the whole roster). It can take up to about a minute (2026-11-18): the data source allows 60 players a minute, so the Worker waits for the next minute before the second half. A member who still cannot be read keeps the position from last time, and the card says how many; the newest positions are also used by 🐝 Hive and the public 📍 Where's my spot? page. Logged-in officers see the same two buttons (map + positions) under the map on the public page; the stats site's name is never shown there. ③ check the changes ④ ✅ Use these positions. (Old text, outdated:) [move] - 🚚 Move → "📍 Positions from the roster" (從名單更新座標, the card at the top of the Move page): every member's castle X:Y comes with the roster (MightPulse, updated every day at 20:13 UTC — the same data as 🕵️ Watch). MightPulse only knows new positions after someone presses "Update Map" on its map (https://mightpulse.com/map?kid=2189). After members move (a "members move" step that is the current ▶ step reminds you): open the MightPulse map, press Update Map, then "🔄 Update roster now" (立即更新名單) — about 5 minutes, the page updates by itself. It is ONE shared request: the same button sits on 🕵️ Watch, both start the same roster job and both pages get the new roster (not again within 10 minutes of the last update). The card lists the changes against 👥 Member positions: name, old X:Y → new X:Y, ✅ = now at their planned new spot. Members are matched by player ID (saved on each 👥 entry after the first ✅), else by the exact name — never by a look-alike name, so two members with almost the same name (e.g. two "GhOsT") stay two people. Names on 👥 Member positions that are no longer on the roster (left the alliance) are listed as "Not in the alliance any more" and removed by the same ✅ button (or "✅ Remove them" when nothing else changed). ⚠️ lists members with no position on MightPulse (left as they are). "✅ Use these positions" (套用這些座標, needs 🗺️ Map edit right) writes them into 👥 Member positions and saves, so the moving table and 🧭 Move steps tick themselves. Banners ticked by hand in 🧭 Move steps also count as standing banners on 🗺️ Map (and banners marked ✅ Built on 🗺️ Map tick the steps by themselves).
+[move] - 🚚 Move → "📍 Where everyone is now" (2026-11-11): NEW OR LEFT MEMBERS: 📍 only looks up the members on the roster, so when someone joined or left, press "🔄 Update roster now" (same card, the full roster job, about 5 minutes) first, then 📍. ① open the MightPulse map and press Update Map ② 📍 Update positions — the Worker looks up only castle positions of every roster member in batch calls (not the whole roster). It can take up to about a minute (2026-11-18): the data source allows 60 players a minute, so the first half comes at once and the page waits for the next minute before asking for the rest, showing "50 / 98 read — the rest in N s" meanwhile (keep the page open). A member who still cannot be read keeps the position from last time, and the card says how many; the newest positions are also used by 🐝 Hive and the public 📍 Where's my spot? page. Logged-in officers see the same two buttons (map + positions) under the map on the public page; the stats site's name is never shown there. ③ check the changes ④ ✅ Use these positions. (Old text, outdated:) [move] - 🚚 Move → "📍 Positions from the roster" (從名單更新座標, the card at the top of the Move page): every member's castle X:Y comes with the roster (MightPulse, updated every day at 20:13 UTC — the same data as 🕵️ Watch). MightPulse only knows new positions after someone presses "Update Map" on its map (https://mightpulse.com/map?kid=2189). After members move (a "members move" step that is the current ▶ step reminds you): open the MightPulse map, press Update Map, then "🔄 Update roster now" (立即更新名單) — about 5 minutes, the page updates by itself. It is ONE shared request: the same button sits on 🕵️ Watch, both start the same roster job and both pages get the new roster (not again within 10 minutes of the last update). The card lists the changes against 👥 Member positions: name, old X:Y → new X:Y, ✅ = now at their planned new spot. Members are matched by player ID (saved on each 👥 entry after the first ✅), else by the exact name — never by a look-alike name, so two members with almost the same name (e.g. two "GhOsT") stay two people. Names on 👥 Member positions that are no longer on the roster (left the alliance) are listed as "Not in the alliance any more" and removed by the same ✅ button (or "✅ Remove them" when nothing else changed). ⚠️ lists members with no position on MightPulse (left as they are). "✅ Use these positions" (套用這些座標, needs 🗺️ Map edit right) writes them into 👥 Member positions and saves, so the moving table and 🧭 Move steps tick themselves. Banners ticked by hand in 🧭 Move steps also count as standing banners on 🗺️ Map (and banners marked ✅ Built on 🗺️ Map tick the steps by themselves).
 [watch] - 🕵️ Watch → "🔄 Update roster now" (立即更新名單, under the update time): fetches every member from MightPulse again right away (power, Mystic Trial, castle X:Y…) — the same job as the daily 20:13 UTC update; about 5 minutes, then the table updates by itself. Shared with the same button on 🚚 Move (one request, both pages get the new roster).
 [move] - 🚚 Move (搬家, its own tab): only admins see it unless the 👥 table gives it. Load the moving plan: Kingshot Mapper (ksmapper.pages.dev) → Export → CSV file, cities labelled with member names (a .json from another planner also works; with several alliances in one file, ours is found by colour), "🧭 Move steps" (搬家步驟) and the moving table: each member's current X:Y → new spot (tap to copy), ✓ Moved, progress bar, "Only not moved yet". A member whose current position in 👥 Member positions already equals the new spot gets ✅ automatically. "➕ Add / change a spot" gives someone a spot or moves them; their old spot becomes free. "🧭 Move steps" lists the plan in order from the banner labels in the CSV: road R1… → early hive banners P1… / take down KILL banners → move the HQ → stage 1 S1-… → BT2-side members move → stage 2 S2-… → BT1-side members move → Bear Traps last; ▶ marks the current step. ✅ comes by itself when the map already shows it (our banner standing at that X Y on 🗺️ Map, the HQ / a Bear Trap / a member already at the new X Y); officers with the move edit right tap an item to tick it by hand, then 💾 Save. Under the steps: banners standing + blueprint banners still to build against the 285 limit, with a warning to take down old banners first when it is over. Blueprint CSV labels on banners: R1… road, P1… early hive banners, S1-1… stage 1, S2-1… stage 2, "KILL TTT" = another alliance's banner to take down; Bear Traps labelled "Bear Trap 1" / "Bear Trap 2".
 [board] - 💬 Board (討論板): a message is posted at once with only the original. "🌐 Translate for everyone" (翻譯給所有人, a tick box next to Post / Reply, off by default, remembered on that device) translates it into 中文 / English / Português / العربية / 한국어 in the background — the post appears at once and switches to each reader's language by itself when done. Without it, readers whose language differs see "🌐 Translate to …" (翻成…) under the post: it translates that one post into their language and keeps it, so the next reader of that language sees it at once. Editing a post that had translations translates it again in the background. Messages from before this change keep all their translations; @ mentions, 📋 Assign to (makes a task with ✅ Done), 🖼️ pictures, 📌 Set as decision. "Tasks for you" lists what you were assigned or @'d in.
@@ -893,22 +893,32 @@ async function ssPullRoute(req, env, body) {
    minute, the second batch got 429 and those members vanished from the positions. So: before each further batch, wait for the minute
    bucket to reset when the batch does not fit what is left of it (the response headers say how much is left and when it resets); a 429
    waits and tries once more; and a member who still cannot be read keeps the position from last time (marked old) instead of vanishing. */
+/* 2026-11-18 (later the same day): holding the page's request open while the Worker waits for the next minute did not work — a phone
+   gives up on a request that stays silent for about a minute ("positions couldn't be fetched"). So the Worker never waits: ONE call does
+   the batches that fit the minute bucket right now, keeps what it has in the DO ("pos-job"), and answers { more: { wait, got, total } };
+   the page waits that long (showing the progress) and calls again until the answer has no "more". */
 async function positionsTick(env, w) {   // w "f" = nxs (2189 nxs, our second alliance): their roster file, kept as "pos-live-f" (2026-11-15)
   if (!env.MIGHTPULSE_API_KEY || !env.TIMERS) return null;
-  let roster = null; try { roster = await openData(JSON.parse(await getText(w === "f" ? "data/academy-x7k2p9.json" : "data/roster-x7k2p9.json")), env); } catch (e) { return null; }
-  const ids = [...new Set(((roster && roster.members) || []).map((m) => String(m.id || "").replace(/\D/g, "")).filter(Boolean))].slice(0, 200);
-  const stub = env.TIMERS.get(env.TIMERS.idFromName("all")), key = w === "f" ? "pos-live-f" : "pos-live";
-  let prev = null; try { prev = await stub.kvGet(key); } catch (e) {}
-  const rows = {}, fail = [], WAIT_MAX = 62000;
+  const stub = env.TIMERS.get(env.TIMERS.idFromName("all")), key = w === "f" ? "pos-live-f" : "pos-live", jkey = w === "f" ? "pos-job-f" : "pos-job";
+  let job = null; try { job = await stub.kvGet(jkey); } catch (e) {}
+  if (!job || !job.ids || Date.now() - job.at > 300000) {   // no look-up under way (or one abandoned 5 minutes ago) → start one
+    let roster = null; try { roster = await openData(JSON.parse(await getText(w === "f" ? "data/academy-x7k2p9.json" : "data/roster-x7k2p9.json")), env); } catch (e) { return null; }
+    const ids = [...new Set(((roster && roster.members) || []).map((m) => String(m.id || "").replace(/\D/g, "")).filter(Boolean))].slice(0, 200);
+    job = { at: Date.now(), ids, i: 0, rows: {}, fail: [], tries: 0 };
+  }
+  const { ids, rows, fail } = job;
   const call = (part) => fetch(`https://api.mightpulse.com/v1/players?ids=${part.join(",")}&include=base&max_age=300&wait=25`, { headers: { Authorization: `Bearer ${env.MIGHTPULSE_API_KEY}` } });
-  let left = null, resetAt = 0;   // what the minute bucket still holds, and when it refills (from the last response)
-  for (let i = 0; i < ids.length; i += 50) {
-    const part = ids.slice(i, i + 50);
+  const more = async (wait) => { job.at = Date.now(); await stub.kvSet(jkey, job); return { more: { wait: Math.max(1, Math.min(62, Math.ceil(wait))), got: Object.keys(rows).length, total: ids.length } }; };
+  while (job.i < ids.length) {
+    const part = ids.slice(job.i, job.i + 50);
+    let left = null, resetAt = 0;
     try {
-      if (i > 0 && (left == null || left < part.length)) await pause(Math.min(WAIT_MAX, Math.max(1000, (resetAt || Date.now() + 61000) - Date.now() + 1500)));
-      let res = await call(part);
-      if (res.status === 429) { await pause(Math.min(WAIT_MAX, ((+res.headers.get("Retry-After") || 60) + 1) * 1000)); res = await call(part); }
-      if (res.status === 429) { fail.push(...ids.slice(i)); break; }   // still refused after waiting → stop asking; the rest keep last time's position
+      const res = await call(part);
+      if (res.status === 429) {   // the minute is used up (another job is running, or a look-up a moment ago)
+        if (++job.tries >= 3) { fail.push(...ids.slice(job.i)); break; }   // refused three times → stop asking; the rest keep last time's position
+        return more((+res.headers.get("Retry-After") || 60) + 1);
+      }
+      job.tries = 0;
       const rem = res.headers.get("X-RateLimit-Remaining-Minute"), rst = +res.headers.get("X-RateLimit-Reset-Minute") || 0;
       left = rem == null || rem === "" ? null : +rem; resetAt = rst ? rst * 1000 : Date.now() + 61000;
       const b = await res.json().catch(() => null), ps = (b && (b.players || b.results || b.data)) || [];
@@ -917,22 +927,27 @@ async function positionsTick(env, w) {   // w "f" = nxs (2189 nxs, our second al
         rows[id] = { id, name: p.nick_name ?? null, x: p.x ?? null, y: p.y ?? null, alliance: (p.alliance && p.alliance.abbr) ?? null, asOf: (it && (it.cached_at || it.updated_at)) || null }; }
       for (const id of part) if (!rows[id]) fail.push(id);
     } catch (e) { fail.push(...part.filter((id) => !rows[id])); }
+    job.i += 50;
+    const next = Math.min(50, ids.length - job.i);
+    if (next > 0 && (left == null || left < next)) return more(((resetAt || Date.now() + 61000) - Date.now()) / 1000 + 1.5);   // the next batch does not fit this minute
   }
+  let prev = null; try { prev = await stub.kvGet(key); } catch (e) {}
   const n = Object.keys(rows).length;
   for (const id of fail) { const o = prev && prev.rows && prev.rows[id]; if (o && o.x != null && o.y != null) rows[id] = { ...o, old: 1 }; }   // not read this time → last time's position stays
   const live = { fetched: new Date().toISOString(), rows, fail: fail.length, n };
-  await stub.kvSet(key, live);
+  await stub.kvSet(key, live); await stub.kvSet(jkey, null);
   if (w !== "f") hiveCache = { at: 0, body: null };
-  return live;
+  return { live };
 }
 async function positionsRoute(req, env, body) {
   const acc = await officerAccess(req, env, body);
   if (!acc || !["move", "map", "hive"].some((k) => acc.tabs.has(k))) return json({ error: "forbidden" }, 403);
   const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
   const w = body.w === "f" ? "f" : "";
-  let live = await stub.kvGet(w ? "pos-live-f" : "pos-live");
-  if (body.refresh && (!live || Date.now() - Date.parse(live.fetched) > 60000)) live = (await positionsTick(env, w)) || live;
-  return json({ ok: true, live: live || null, setup: !!env.MIGHTPULSE_API_KEY, token: acc.token, mapUrl: "https://mightpulse.com/map?kid=2189" });   // the link is only ever sent to officers (never in public files)
+  let live = await stub.kvGet(w ? "pos-live-f" : "pos-live"), more = null;
+  if (body.refresh) { const job = await stub.kvGet(w ? "pos-job-f" : "pos-job"), under = job && job.ids && Date.now() - job.at <= 300000;
+    if (under || !live || Date.now() - Date.parse(live.fetched) > 60000) { const r = await positionsTick(env, w); if (r && r.live) live = r.live; else if (r && r.more) more = r.more; } }
+  return json({ ok: true, live: live || null, ...(more ? { more } : {}), setup: !!env.MIGHTPULSE_API_KEY, token: acc.token, mapUrl: "https://mightpulse.com/map?kid=2189" });   // the link is only ever sent to officers (never in public files)
 }
 let hiveCache = { at: 0, body: null };
 async function hiveRoute(env) {

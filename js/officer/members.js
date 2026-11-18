@@ -113,12 +113,20 @@ const fmtT = (iso) => { const d = new Date(iso); if (isNaN(d)) return ""; const 
 /* 📍 positions only (Sherry 2026-11-11): the Worker looks every member up in a few batch calls; newer than the roster → used instead */
 const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev";
 let POS = null, posBusy = false;
-async function posFetch(refresh, w) {
+async function posFetch(refresh, w, onMore) {
   let tk = ""; try { tk = localStorage.getItem("nxs-discord-v1") || ""; } catch (e) {} if (!tk) return null;
-  try { const r = await fetch(AI_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ positions: 1, token: tk, refresh: refresh ? 1 : 0, ...(w ? { w } : {}) }) });
-    const j = await r.json(); if (j && j.token) { try { localStorage.setItem("nxs-discord-v1", j.token); } catch (e) {} }
-    return j && j.live && j.live.rows ? j.live : null; } catch (e) { return null; }
+  /* the Worker answers at once with what fits this minute and says how long to wait for the rest ({ more }): ask again after that */
+  try { for (let round = 0; round < 8; round++) {
+    const r = await fetch(AI_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ positions: 1, token: tk, refresh: refresh ? 1 : 0, ...(w ? { w } : {}) }) });
+    const j = await r.json(); if (j && j.token) { tk = j.token; try { localStorage.setItem("nxs-discord-v1", j.token); } catch (e) {} }
+    if (refresh && j && j.more) { if (onMore) onMore(j.more); await new Promise((ok) => setTimeout(ok, (j.more.wait || 30) * 1000)); continue; }
+    return j && j.live && j.live.rows ? j.live : null; }
+    return null; } catch (e) { return null; }
 }
+for (const [l, o] of Object.entries({ en: { mpWait: "{g} / {n} read — the rest in {s} s (keep this page open)." }, zh: { mpWait: "已查到 {g} / {n} 人，剩下的 {s} 秒後繼續（請不要關掉這一頁）。" },
+  pt: { mpWait: "{g} / {n} lidos — o resto em {s} s (deixe esta página aberta)." }, ar: { mpWait: "تمت قراءة {g} / {n} — الباقي بعد {s} ثانية (أبقِ هذه الصفحة مفتوحة)." },
+  ko: { mpWait: "{g} / {n}명 읽음 — 나머지는 {s}초 뒤 (이 페이지를 열어 두세요)." } })) Object.assign(T[l], o);
+const mpWaitTxt = (m) => t("mpWait").replace("{g}", m.got).replace("{n}", m.total).replace("{s}", m.wait);
 const MPv = () => POS && (!roster || !roster.updated || Date.parse(POS.fetched) > Date.parse(roster.updated)) ? { fetched: POS.fetched, total: POS.n,
   rows: Object.fromEntries(Object.values(POS.rows).map((r) => [String(r.id), { id: String(r.id), name: r.name, x: r.x, y: r.y, ok: r.x != null && r.y != null, alliance: r.alliance, asOf: r.asOf }])) }
   : roster && roster.members ? { fetched: roster.updated, total: roster.members.length,
@@ -177,7 +185,7 @@ function mpCard() {
 }
 function bindMp(el) {
   const pb = el.querySelector("#mp_pos"); if (pb) pb.onclick = async () => { posBusy = true; mpMsg = ""; renderMove();
-    const live = await posFetch(true); posBusy = false; if (live) POS = live; else mpMsg = t("mpErr"); render(); renderMove(); };
+    const live = await posFetch(true, "", (m) => { mpMsg = mpWaitTxt(m); renderMove(); }); posBusy = false; mpMsg = ""; if (live) POS = live; else mpMsg = t("mpErr"); render(); renderMove(); };
   if (OFFICER.rosterNow) OFFICER.rosterNow.bind(el.querySelector("#mp_rn"), () => roster && roster.updated, (r) => { roster = r; mpMsg = ""; render(); renderMove(); });   // new / gone members: the full roster (slow, ~5 min)
   if (!POS && !posBusy && !bindMp.tried) { bindMp.tried = 1; posFetch(false).then((l) => { if (l) { POS = l; render(); renderMove(); } }); }
   const u = el.querySelector("#mp_use"); if (u) u.onclick = async () => {
@@ -1434,7 +1442,7 @@ function bindMpF(el) {
     render(); renderMove(); });
   const b = el.querySelector("#mp_posf"); if (!b) return;
   b.onclick = async () => { posfBusy = true; posfMsg = ""; renderMove();
-    const live = await posFetch(true, "f"); posfBusy = false;
+    const live = await posFetch(true, "f", (m) => { posfMsg = mpWaitTxt(m); renderMove(); }); posfBusy = false;
     if (live) { POSF = live; const n = fPosUse(live); posfMsg = t("mpMovedF").replace("{n}", n); } else posfMsg = t("mpErr");
     render(); renderMove(); };
 }
