@@ -1506,6 +1506,7 @@ window.KM_SHARED = {
   cityDraw: () => drawAc(),
   whoName: () => (PMODE && PWHO === "f" ? fTag() : "NXS"),
   ctx: "m", who: () => (PMODE && PWHO === "f" ? "f" : "m"),   // 🌾 banner check for nxs: who = the alliance picked on 🚩 Territory; ctx = "f" only while that check runs
+  farmB: () => ((PLAN.farm || {}).b || []).map(([x, y]) => [x, y, 1]),   // nxs's standing banners as listed on 🚩 Territory (without its 🚚 Move ticks)
   farmPL: () => { const f = PLAN.farm || {}; return { hq: (f.hq || []).map(([x, y]) => [x, y]), c: (f.c || []).map(([x, y]) => [0, x, y]), bt: (f.bt || []).map(([x, y]) => [x, y]), b: [] }; },
   banners: () => KM_SHARED.ctx === "f" ? ((PLAN.farm || {}).b || []).map(([x, y]) => [x, y, 1]) : exList(true),   // (nxs: without its 🚚 Move ticks, like NXS's)                  // [x, y, 1 = checked in game / 0 = estimated] (without 🚚 Move ticks)
   moveChanged: () => { rebuildOwn(); drawEx(); drawFlags(); renderFlags(); try { drawFarm(); renderFarm(); } catch (e) {} },   // + the nxs card: its plan banners ticked / listed as standing

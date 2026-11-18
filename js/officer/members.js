@@ -247,7 +247,9 @@ const fmtPw = (n) => n >= 1e9 ? (n / 1e9).toFixed(2) + "B" : n >= 1e6 ? (n / 1e6
    (planned city spots, road / stage banners, new HQ, Bear Traps, banners of other alliances to take down) + what is done */
 const TAGC = { R: "#222222", P: "#6a3d9a", S1: "#d4a017", S2: "#e07b39" };
 const tagKind = (tag) => !tag ? "" : /^S1-/i.test(tag) ? "S1" : /^S2-/i.test(tag) ? "S2" : tag[0].toUpperCase();
-function ownSet() { const KS = window.KM_SHARED; return new Set((KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1])).map(([x, y]) => x + "," + y)); }
+/* the banners that really stand, for the alliance 🐝 shows: NXS's banner list, or nxs's standing list from 🚩 Territory
+   (2026-11-18: nxs's move steps were checked against NXS's banners, so nothing of nxs ever showed as built by itself) */
+function ownSet() { const KS = window.KM_SHARED; return new Set((WHO === "f" ? (KS && KS.farmB ? KS.farmB() : []) : KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1])).map(([x, y]) => x + "," + y)); }
 /* where we are now = our Alliance HQ (from 🗺️ Map); without it, the median X and Y of the members' cities */
 let JUMP = {};
 const hqNow = () => WHO === "f" ? ((window.KM_SHARED && KM_SHARED.farmPL && KM_SHARED.farmPL().hq) || []) : ((G && G.hq) || []);
@@ -1189,7 +1191,7 @@ function steps() {
   const ico = (d) => d ? "✅" : "⬜";
   const chip = (b) => { const d = bState(b); return `<button type="button" class="btn small mv-chip${d ? " ok" : ""}" data-b="${b[0]},${b[1]}"${d === 2 || !ed ? " disabled" : ""}${d === 2 ? ` title="${esc(t("autoB"))}"` : ""}>${ico(d)} ${b[2] ? `<b>${esc(b[2])}</b> ` : ""}${b[0]},${b[1]}</button>`; };
   const kchip = ([x, y, n]) => { const d = gone.has(x + "," + y); return `<button type="button" class="btn small mv-chip${d ? " ok" : ""}" data-k="${x},${y}"${ed ? "" : " disabled"}>${ico(d)} ✖ ${esc(n || "")} ${x},${y}</button>`; };
-  const hq = (PL.hq || [])[0], h0 = HQ0 || (G && G.hq && G.hq[0]), hqAuto = hq && h0 && h0[0] === hq[0] && h0[1] === hq[1], hqD = hqAuto ? 2 : st.hq ? 1 : 0;
+  const hq = (PL.hq || [])[0], h0 = WHO === "f" ? hqNow()[0] : HQ0 || (G && G.hq && G.hq[0]), hqAuto = hq && h0 && h0[0] === hq[0] && h0[1] === hq[1], hqD = hqAuto ? 2 : st.hq ? 1 : 0;
   const pt = PL.bt || [], btD = pt.map(([x, y], i) => D.bt[i] && D.bt[i][0] === x && D.bt[i][1] === y ? 2 : (st.bt || [])[i] ? 1 : 0);
   /* members: each planned spot belongs to the Bear Trap it is closest to */
   const here = {}; D.m.forEach(([n, x, y]) => here[norm(n)] = [x, y]); const doneSet = new Set((MV.done || []).map(norm));
