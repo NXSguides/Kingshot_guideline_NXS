@@ -134,7 +134,7 @@ function centerOn(b, smooth) {
 }
 
 function select(id, fromList) {
-  FSEL = null;
+  FSEL = null; if (ROUTE && ROUTE.id !== id) { ROUTE = null; drawFlags(); }
   SEL = id; const b = BY[id], [X, Y] = P(b.x, b.y);
   const r = b.kind === "castle" ? 34 : b.kind === "fortress" ? 28 : b.kind === "sanctuary" ? 22 : 20;
   $("km_sel").innerHTML = `<circle class="sel-ring" style="transform-origin:${X}px ${Y}px" cx="${X}" cy="${Y}" r="${r}"/>`
@@ -160,7 +160,7 @@ function renderInfo() {
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : b.kind === "hq" ? "[NXS]" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
     (PLANNABLE(b) && ME() ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${eff(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "") +
-    (b.kind === "outpost" && (EXB || OTB) ? (() => { const c = contesters(b); return `<div class="km-tm" style="flex-basis:100%">${c.length ? `${esc(ft("cont"))} <b>${c.map((n) => `<span style="color:${n === "NXS" ? "#2b6cc4" : otCol(n)}">■</span> ${esc(n)}`).join("、")}</b>` : esc(ft("contNone"))}</div>`; })() : "") +
+    (b.kind === "outpost" && (EXB || OTB) ? (() => { const c = contesters(b); return `<div class="km-tm" style="flex-basis:100%">${c.length ? `${esc(ft("cont"))} <b>${c.map((n) => `<span style="color:${n === "NXS" ? "#2b6cc4" : n === fTag() ? "#2e9e4f" : otCol(n)}">■</span> ${esc(n)}`).join("、")}</b>` : esc(ft("contNone"))}</div>`; })() : "") +
     (isOp(b) && st(b) === "conflict" ? `<div class="km-tm" style="flex-basis:100%;color:#c0473a">⚠️ ${esc(pt("conflictAuto"))}</div>` : "");
   const s = eff(b);
   if (isOp(b) && (s === "held" || s === "vuln")) {
@@ -196,7 +196,8 @@ function renderInfo() {
   const spR = specialOf(b);
   if (spR) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">🎁 ${esc(rt("special"))}: <b>${esc(iName(spR[0]))} ×${spR[1] ?? "?"}</b></div>`);
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
-  if (PMODE) { const cp = $("km_cp"); while (cp.nextSibling) cp.nextSibling.remove(); }   // 🚩 Territory: only what the building is — its status, timer, priority and rewards are set on 🗺️ Map
+  if (PMODE) { const cp = $("km_cp"); while (cp.nextSibling) cp.nextSibling.remove(); }
+  if (PMODE && isOp(b) && PWHO !== "o" && PE()) routeBox(b);   // 🧭 the banners still missing to reach this Outpost   // 🚩 Territory: only what the building is — its status, timer, priority and rewards are set on 🗺️ Map
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
     try { navigator.clipboard.writeText(`X:${b.x} Y:${b.y}`).then(done, () => {}); } catch (e) {}
@@ -436,6 +437,11 @@ const hqDist = (b) => { const d = (curW() === "f" ? (PLAN.farm && PLAN.farm.hq) 
 const prioTxt = (n) => (n >= 1 && n <= 20 ? String.fromCharCode(0x2460 + n - 1) : String(n));
 const isOp = (b) => b.kind === "outpost";
 const dirty = () => snap() !== SAVED;
+/* unsaved changes: ask before the alliance switch reloads the page, and before the tab is closed or reloaded (2026-11-18) */
+let PLAN_READ = false;
+const unsavedNow = () => { try { return PLAN_READ && (ME() || OFFICER.can("plan", "edit")) && dirty(); } catch (e) { return false; } };
+OFFICER.unsaved.push(unsavedNow);
+window.addEventListener("beforeunload", (e) => { if (!OFFICER.leaving && unsavedNow()) { e.preventDefault(); e.returnValue = ""; } });
 const PT = { ko: {"title": "📋 거점 계획", "hint": "지도나 목록에서 거점을 탭한 뒤 🎯 목표, ✅ 우리 거점(보호 상태), ⚔️ 우리 거점(쟁탈 가능 상태)으로 표시하세요. 우리 거점은 게임 속 카운트다운을 한 번만 입력하면 페이지가 보호 상태 ⇄ 쟁탈 가능 상태를 알아서 전환합니다. 합계는 게임 규칙을 따릅니다: 같은 종류·같은 레벨만 중첩되지 않고, 레벨이나 종류가 다르면 항상 더해집니다.", "target": "🎯 목표", "held": "✅ 우리 거점 · 보호 상태", "vuln": "⚔️ 우리 거점 · 쟁탈 가능 상태", "clear": "✕ 지우기", "type": "거점", "buff": "버프", "now": "현재 (게임과 동일)", "after": "목표 포함", "nowNote": "\"현재\"는 게임의 점령 버프 화면처럼 쟁탈 가능 상태인 거점을 제외합니다. \"목표 포함\"은 우리가 보유한 모든 거점에 목표를 더해 계산합니다.", "conflict": "버프 충돌", "conflictBtn": "⚠️ 우리 거점 · 버프 충돌", "conflicts": "⚠️ 우리 거점 · 버프 충돌 (타이머로 자동 판단, 버프 없음)", "conflictAuto": "버프 충돌: 같은 종류·같은 레벨의 거점을 하나 더 보유하고 있고 그쪽이 더 오래 보호 상태입니다. 버프는 그 거점만 줍니다. (타이머 기준: 보호 시간이 더 많이 남은 쪽이 버프 충돌입니다.)", "heldR": "✅ 우리 거점", "ruinsT": "🏛️ 성채와 유적 (유적 쟁탈)", "ruinsNote": "버프는 없지만 회마다 시즌 포인트를 줍니다: 유적 1, 성채 2. 보유 중인 곳은 자동으로 다시 신청되고, 회마다 직접 추가 신청할 수 있는 건 유적 1곳 + 성채 1곳뿐입니다.", "ptsNow": "현재", "ptsAfter": "목표 포함", "ptsRow": "회당 시즌 포인트", "tooMany": "목표에 유적이나 성채가 1곳보다 많습니다 — 회마다 각각 1곳만 신청할 수 있습니다.", "targets": "🎯 목표", "helds": "✅ 우리 거점 · 보호 상태", "vulns": "⚔️ 우리 거점 · 쟁탈 가능 상태 (현재 버프 없음)", "none": "아직 없음", "save": "💾 계획 저장", "by": "내 이름", "saving": "저장 중…", "saved": "저장했습니다 ✅ 다른 간부는 새로고침하면 볼 수 있습니다.", "unsaved": "저장하지 않은 변경 사항", "last": "마지막 저장: {by} · {at}", "noKey": "저장하려면 간부용 GitHub 키가 필요합니다 (공지 탭에서 설정).", "errAuth": "GitHub 키가 거부되었습니다.", "errBusy": "다른 사람이 동시에 저장했습니다 — 다시 시도하세요.", "errNet": "GitHub에 연결할 수 없습니다 — 다시 시도하세요.", "planOnly": "📋 계획만 보기", "reset": "변경 취소", "prio": "⭐ 우선순위", "prioNone": "—", "rewards": "보상", "rewardsPh": "예: 이곳에서 받는 보상 (게임 내 정보 참고)", "note": "메모", "notePh": "예: 지난주 보유 연맹, 경쟁 정도", "dist": "우리 본부에서 {n}칸", "prioList": "⭐ 유적·성채 우선순위", "prioEmpty": "아직 우선순위가 없습니다 — 지도에서 유적이나 성채를 탭하고 숫자를 고르세요 (1 = 최우선).", "prioSave": "다른 간부가 볼 수 있도록 💾 계획 저장을 꼭 누르세요.", "toV": "⚔️ 쟁탈 가능 상태", "toP": "✅ 보호 상태", "noT": "타이머 없음 — 간부가 직접 바꿀 때만 상태가 바뀝니다.", "tmHint": "타이머 추가: 먼저 ✅ 우리 거점 · 보호 상태 또는 ⚔️ 우리 거점 · 쟁탈 가능 상태를 탭하면 게임 카운트다운 입력칸이 여기에 나타납니다.", "leftP": "게임 속 보호 상태 남은 시간:", "leftV": "게임 속 쟁탈 가능 상태 남은 시간:", "dd": "일", "hh": "시간", "mm": "분", "setT": "타이머 설정", "clrT": "타이머 삭제", "cyc": "주기:", "cycNote": "타이머가 있으면 페이지가 보호 상태 ⇄ 쟁탈 가능 상태를 알아서 전환합니다. 거점을 잃으면 직접 다시 표시하세요."},
  ar: {"title": "📋 خطة المستوطنات", "hint": "اضغط على مستوطنة في الخريطة أو في القائمة، ثم ضع عليها 🎯 هدف، ✅ لنا (محمي)، ⚔️ لنا (مستضعف). للمستوطنات التي نملكها، أدخل العد التنازلي من اللعبة مرة واحدة وستتبدل الصفحة بين محمي ⇄ مستضعف تلقائيًا. المجاميع تتبع قاعدة اللعبة: فقط النوع نفسه بالمستوى نفسه لا يتراكم — المستوى المختلف أو النوع المختلف يُضاف دائمًا.", "target": "🎯 هدف", "held": "✅ لنا · محمي", "vuln": "⚔️ لنا · مستضعف", "clear": "✕ مسح", "type": "مستوطنة", "buff": "المكافأة", "now": "الآن (كما في اللعبة)", "after": "مع الأهداف", "nowNote": "\"الآن\" لا يحسب المستوطنات المستضعفة، مثل شاشة إيرادات الاحتلال في اللعبة. \"مع الأهداف\" يحسب كل ما نملكه بالإضافة إلى الأهداف.", "conflict": "تعارض المكافآت", "conflictBtn": "⚠️ لنا · تعارض المكافآت", "conflicts": "⚠️ لنا · تعارض المكافآت (محسوب من المؤقتات، بلا مكافأة)", "conflictAuto": "تعارض المكافآت: نملك مستوطنة أخرى من النوع والمستوى نفسيهما محمية منذ مدة أطول — هي وحدها تعطي المكافأة. (حسب المؤقتات: التي بقي لها وقت حماية أكثر هي المتعارضة.)", "heldR": "✅ لنا", "ruinsT": "🏛️ الحصون والمآوي (معركة المأوى)", "ruinsNote": "بلا مكافآت — تعطي نقاط موسم في كل مرحلة: المأوى 1، الحصن 2. التي نملكها تُسجَّل تلقائيًا من جديد؛ وفي كل مرحلة يمكننا التسجيل يدويًا في مأوى واحد إضافي + حصن واحد إضافي فقط.", "ptsNow": "الآن", "ptsAfter": "مع الأهداف", "ptsRow": "نقاط الموسم لكل مرحلة", "tooMany": "أكثر من مأوى واحد أو حصن واحد كأهداف — يمكن تسجيل واحد فقط من كل نوع في كل مرحلة.", "targets": "🎯 الأهداف", "helds": "✅ لنا · محمي", "vulns": "⚔️ لنا · مستضعف (بلا مكافأة حاليًا)", "none": "لا شيء بعد", "save": "💾 حفظ الخطة", "by": "اسمك", "saving": "جارٍ الحفظ…", "saved": "تم الحفظ ✅ سيراها الضباط الآخرون بعد تحديث الصفحة.", "unsaved": "تغييرات غير محفوظة", "last": "آخر حفظ بواسطة {by} · {at}", "noKey": "الحفظ يحتاج مفتاح GitHub الخاص بالضباط (يُضبط في تبويب النشر).", "errAuth": "تم رفض مفتاح GitHub.", "errBusy": "قام شخص آخر بالحفظ في اللحظة نفسها — حاول مرة أخرى.", "errNet": "تعذر الاتصال بـ GitHub — حاول مرة أخرى.", "planOnly": "📋 الخطة فقط", "reset": "تراجع عن التغييرات", "prio": "⭐ الأولوية", "prioNone": "—", "rewards": "الجوائز", "rewardsPh": "مثلًا: ماذا يعطي هذا (من معلومات اللعبة)", "note": "ملاحظة", "notePh": "مثلًا: من امتلكه الأسبوع الماضي، ومدى شدة المنافسة", "dist": "{n} مربع من مقرنا", "prioList": "⭐ أولوية المآوي والحصون", "prioEmpty": "لم تُحدَّد أولوية بعد — اضغط على مأوى أو حصن في الخريطة واختر رقمًا (1 = الأفضل).", "prioSave": "تذكّر الضغط على 💾 حفظ الخطة ليراها الضباط الآخرون.", "toV": "⚔️ مستضعف", "toP": "✅ محمي", "noT": "بلا مؤقت — تتغير الحالة فقط عندما يغيرها أحد الضباط.", "tmHint": "لإضافة مؤقت: اضغط أولًا على ✅ لنا · محمي أو ⚔️ لنا · مستضعف — ستظهر هنا خانات العد التنازلي من اللعبة.", "leftP": "وقت الحماية المتبقي في اللعبة:", "leftV": "وقت الاستضعاف المتبقي في اللعبة:", "dd": "ي", "hh": "س", "mm": "د", "setT": "ضبط المؤقت", "clrT": "إزالة المؤقت", "cyc": "الدورة:", "cycNote": "مع المؤقت تتبدل الصفحة بين محمي ⇄ مستضعف تلقائيًا. إذا خسرنا مستوطنة، ضع علامتها من جديد يدويًا."},
  pt: {"title": "📋 Plano dos Postos Avançados", "hint": "Toque num Posto Avançado no mapa ou na lista e marque como 🎯 Alvo, ✅ Nosso (Protegido), ⚔️ Nosso (Vulnerável). Nos nossos, digite uma vez a contagem regressiva do jogo e a página troca Protegido ⇄ Vulnerável sozinha. Os totais seguem a regra do jogo: só o mesmo tipo no mesmo nível não acumula — nível diferente ou tipo diferente sempre somam.", "target": "🎯 Alvo", "held": "✅ Nosso · Protegido", "vuln": "⚔️ Nosso · Vulnerável", "clear": "✕ Limpar", "type": "Posto Avançado", "buff": "Bônus", "now": "Agora (como no jogo)", "after": "Com os alvos", "nowNote": "\"Agora\" deixa de fora os Postos Avançados Vulneráveis, como a tela de bônus de ocupação do jogo. \"Com os alvos\" conta tudo o que temos mais os alvos.", "conflict": "Conflito de bônus", "conflictBtn": "⚠️ Nosso · Conflito de bônus", "conflicts": "⚠️ Nosso · Conflito de bônus (calculado pelos timers, sem bônus)", "conflictAuto": "Conflito de bônus: temos outro do mesmo tipo e nível que está Protegido há mais tempo — só esse dá o bônus. (Pelos timers: o que tem mais tempo de Protegido restante é o conflito.)", "heldR": "✅ Nosso", "ruinsT": "🏛️ Fortalezas e Santuários (Batalha do Santuário)", "ruinsNote": "Sem bônus — dão pontos de temporada a cada fase: Santuário 1, Fortaleza 2. Os que já temos se inscrevem de novo sozinhos; a cada fase só podemos inscrever ativamente mais 1 Santuário + mais 1 Fortaleza.", "ptsNow": "Agora", "ptsAfter": "Com os alvos", "ptsRow": "Pontos de temporada por fase", "tooMany": "Mais de 1 Santuário ou 1 Fortaleza como alvo — só dá para inscrever 1 de cada por fase.", "targets": "🎯 Alvos", "helds": "✅ Nossos · Protegidos", "vulns": "⚔️ Nossos · Vulneráveis (sem bônus agora)", "none": "Nenhum ainda", "save": "💾 Salvar plano", "by": "Seu nome", "saving": "Salvando…", "saved": "Salvo ✅ Os outros oficiais veem depois de atualizar.", "unsaved": "Mudanças não salvas", "last": "Salvo por último por {by} · {at}", "noKey": "Para salvar é preciso a chave do GitHub dos oficiais (configurada na aba Post).", "errAuth": "A chave do GitHub foi recusada.", "errBusy": "Outra pessoa salvou no mesmo momento — tente de novo.", "errNet": "Não foi possível conectar ao GitHub — tente de novo.", "planOnly": "📋 Só o plano", "reset": "Desfazer mudanças", "prio": "⭐ Prioridade", "prioNone": "—", "rewards": "Recompensas", "rewardsPh": "ex.: o que este dá (pelas informações do jogo)", "note": "Observação", "notePh": "ex.: quem ficou com ele na semana passada, quão disputado é", "dist": "{n} casas do nosso QG", "prioList": "⭐ Prioridade de Santuários e Fortalezas", "prioEmpty": "Nenhuma prioridade definida ainda — toque num Santuário ou Fortaleza no mapa e escolha um número (1 = melhor).", "prioSave": "Lembre de tocar em 💾 Salvar plano para os outros oficiais verem.", "toV": "⚔️ Vulnerável", "toP": "✅ Protegido", "noT": "Sem timer — o status só muda quando um oficial muda.", "tmHint": "Para adicionar um timer: primeiro toque em ✅ Nosso · Protegido ou ⚔️ Nosso · Vulnerável — as caixas para a contagem regressiva do jogo aparecem aqui.", "leftP": "Tempo restante como Protegido no jogo:", "leftV": "Tempo restante como Vulnerável no jogo:", "dd": "d", "hh": "h", "mm": "m", "setT": "Definir timer", "clrT": "Remover timer", "cyc": "Ciclo:", "cycNote": "Com um timer a página troca Protegido ⇄ Vulnerável sozinha. Se perdermos um Posto Avançado, marque de novo à mão."},
@@ -621,7 +627,7 @@ async function loadPlan() {
   if (!d) { try { d = await OfficerData.fetchJson(PLAN_PATH); } catch (e) {} }
   PLAN = d && d.o ? d : { o: {}, t: {} }; if (!PLAN.t) PLAN.t = {};
   if (PLAN.ot) for (const k of ["add", "hq"]) for (const r of PLAN.ot[k] || []) if (AL_REN[r[0]]) r[0] = AL_REN[r[0]]; if (PLAN.ot && PLAN.ot.off) PLAN.ot.off = PLAN.ot.off.map((k) => { const i = String(k).indexOf(":"), n = String(k).slice(0, i); return AL_REN[n] ? AL_REN[n] + String(k).slice(i) : k; });   // an alliance that renamed itself: saved corrections follow the new tag (written back at the next save)
-  SAVED = snap();
+  SAVED = snap(); PLAN_READ = true;
 }
 /* A link like officer-x7k2p9.html#map?held=666-138,486-138&target=327-666&by=Sparrow pre-marks Outposts
    (not saved yet — the officer checks the map and presses 💾 Save plan). Coordinates that are not Outposts are ignored. */
@@ -786,7 +792,10 @@ function ownBuild() {
     for (const [x, y] of f.hq || []) L.push([rank("hq", x, y, ord.now), hq, x, y, 2]);
     for (const [x, y] of fbAll()) if (!after || !frm.has(x + "," + y)) L.push([rank("b", x, y, ord.now), sq, x, y, 2]);
     L.sort((p, q) => p[0] - q[0]); for (const [, fn, x, y, who] of L) fn(O, x, y, who); }
-  { const L = []; for (const [x, y] of PLAN.fl || []) L.push([rank("p", x, y), x, y, 1]); for (const [x, y] of f.fl || []) L.push([rank("fl", x, y, ord.plan), x, y, 2]);
+  /* "after": only planned banners that would really stand and be active — connected, and not on an obstacle, a resource node, a no-build zone
+     or another alliance's territory (2026-11-18: a cut-off banner used to be counted into the resource table) */
+  { const L = [], ok1 = bannerCheck(PLAN.fl || [], 1), ok2 = bannerCheck(f.fl || [], 2);
+    (PLAN.fl || []).forEach(([x, y], n) => { if (!farmFlagBad(ok1[n])) L.push([rank("p", x, y), x, y, 1]); }); (f.fl || []).forEach(([x, y], n) => { if (!farmFlagBad(ok2[n])) L.push([rank("fl", x, y, ord.plan), x, y, 2]); });
     L.sort((p, q) => p[0] - q[0]); for (const [, x, y, who] of L) sq(OWN_B, x, y, who); }
 }
 const farmLv = (k, x, y) => ((PLAN.farm || {}).lv || {})[k + ":" + x + "," + y] || 0;
@@ -809,15 +818,17 @@ const otEd = () => (PLAN.ot = PLAN.ot || { off: [], add: [] }, PLAN.ot.off = PLA
 const hqLbl = (t) => ft(t === 2 ? "hqB" : "hqP");
 const otHq = () => (PLAN.ot && PLAN.ot.hq) || [];
 /* ⚔️ Outpost contest: an Outpost takes 15×15 tiles (its X, Y − 6 … + 8, e.g. X 1068 → 1062–1076). An alliance can contest it
-   when any of its territory is inside that square or right next to it (sharing an edge). Ours = our banners + HQs;
+   when any of its territory is inside that square or right next to it (an edge or a corner). Ours = our banners + HQs;
    other alliances = their 🏴 banners (7×7) + 🏯 HQs (15×15). */
 const opSq = (b) => [b.x - 6, b.y - 6, b.x + 8, b.y + 8];
 const ovl = (a0, a1, b0, b1) => a0 <= b1 && b0 <= a1;
-const rTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => (ovl(p0, p1, x0 - 1, x1 + 1) && ovl(q0, q1, y0, y1)) || (ovl(p0, p1, x0, x1) && ovl(q0, q1, y0 - 1, y1 + 1));   // inside the square or sharing an edge with it
+const rTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => ovl(p0, p1, x0 - 1, x1 + 1) && ovl(q0, q1, y0 - 1, y1 + 1);   // inside the square, sharing an edge with it, or meeting it at a corner (Sherry 2026-11-18: a corner is connected)
 function contesters(b) {
   const sq = opSq(b), out = [], [x0, y0, x1, y1] = sq;
   // ours: only our real banners (7×7) and HQs (15×15) — the territory picture is a few tiles off at the edges, so it is not used here
   if (EXB && (exList().some(([x, y]) => rTouch(sq, [x - FR, y - FR, x + FR, y + FR])) || (G.hq || []).some(([x, y]) => rTouch(sq, [x - 6, y - 6, x + 8, y + 8])))) out.push("NXS");
+  { const f = PLAN && PLAN.farm;   // nxs: its standing banners and HQs (2026-11-18 — it was missing from this line)
+    if (f && (fbAll().some(([x, y]) => rTouch(sq, [x - FR, y - FR, x + FR, y + FR])) || (f.hq || []).some(([x, y]) => rTouch(sq, [x - 6, y - 6, x + 8, y + 8])))) out.push(fTag()); }
   if (OTB) { const seen = new Set();
     for (const [n, x, y] of otList()) if (!seen.has(n) && rTouch(sq, [x - FR, y - FR, x + FR, y + FR])) seen.add(n);
     for (const [n, x, y] of otHq()) if (!seen.has(n) && rTouch(sq, [x - 6, y - 6, x + 8, y + 8])) seen.add(n);
@@ -889,30 +900,105 @@ function loadGrid() {
   im.src = "data/territory-2189-grid.png?v=20";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : OV ? OV[y * FN + x] : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
-/* every banner in list order → its new tiles, the tiles another alliance holds, and whether it touches our territory */
-function flagCalc() {
-  const mine = new Set(), out = [];
-  for (const [fx, fy] of PLAN.fl || []) {
-    const fresh = [], lost = []; let conn = false;
-    for (let x = fx - FR; x <= fx + FR; x++) for (let y = fy - FR; y <= fy + FR; y++) {
-      const o = own(x, y), k = x * FN + y;
-      if (o === 2) { lost.push([x, y]); continue; }
-      if (o === 1 || mine.has(k)) { conn = true; continue; }
-      fresh.push([x, y]);
-    }
-    // in-game rules 3–4: a banner's territory must border (share an edge with) territory that already reaches the HQ
-    if (!conn) for (let x = fx - FR; x <= fx + FR && !conn; x++) for (const y of [fy - FR - 1, fy + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
-    if (!conn) for (let y = fy - FR; y <= fy + FR && !conn; y++) for (const x of [fx - FR - 1, fx + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
-    if (!conn) for (const x of [fx - FR - 1, fx + FR + 1]) for (const y of [fy - FR - 1, fy + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;   // meeting at a corner is enough (seen in game, 2026-11-12)
-    if (conn) fresh.forEach(([x, y]) => mine.add(x * FN + y));   // a cut-off banner is inactive: later banners can't lean on it
-    out.push({ x: fx, y: fy, fresh, lost, conn, onOther: own(fx, fy) === 2, ob: obstAt(fx, fy), node: nodeAt(fx, fy), zone: ZNAME[zoneAt(fx, fy)] || "" });
-  }
+/* 🚩 one banner check for both alliances (2026-11-18 — there used to be one per alliance, and the nxs one fell behind). who: 1 NXS · 2 nxs.
+   Land = what stands now (OWN_A) + the other alliance's planned banners marked ⬆ "built first". A banner is connected when its 7×7 overlaps,
+   borders or meets at a corner (Sherry 2026-11-18: a corner is enough) territory of ours that stands today, or a planned banner that is itself
+   connected. (Standing territory is not tested for reaching an HQ: in the banner file alone ~120 of 273 standing banners do not, so that would
+   only punish gaps in the data.) The order the banners were tapped does not matter: the list is gone through until nothing new connects. */
+function bannerCheck(list, who) {
+  if (!OWN_A) ownBuild();
+  const f = PLAN.farm || {}, first = new Set(), oth = who === 1 ? 2 : 1, mine = new Set();
+  for (const [x, y] of (who === 1 ? f.fl : PLAN.fl) || []) if (farmLv(who === 1 ? "fl" : "p", x, y) === 1) for (let j = y - FR; j <= y + FR; j++) for (let i = x - FR; i <= x + FR; i++) first.add(i * FN + j);
+  const at = (x, y) => { if (x < 0 || y < 0 || x >= FN || y >= FN) return 9; return OWN_A[y * FN + x] || (first.has(x * FN + y) ? oth : 0); };
+  const ours = (x, y) => (x >= 0 && y >= 0 && x < FN && y < FN && OWN_A[y * FN + x] === who) || mine.has(x * FN + y);
+  const out = list.map(([fx, fy]) => { const o = at(fx, fy); return { x: fx, y: fy, fresh: [], lost: [], conn: false, onOther: !!o && o !== who, ob: obstAt(fx, fy), node: nodeAt(fx, fy), zone: ZNAME[zoneAt(fx, fy)] || "" }; });
+  const touches = (c) => { for (let x = c.x - FR - 1; x <= c.x + FR + 1; x++) for (let y = c.y - FR - 1; y <= c.y + FR + 1; y++) if (ours(x, y)) return true; return false; };
+  for (let grew = true; grew;) { grew = false;
+    for (const c of out) { if (c.conn || !touches(c)) continue; c.conn = true; grew = true;
+      for (let x = c.x - FR; x <= c.x + FR; x++) for (let y = c.y - FR; y <= c.y + FR; y++) { const v = at(x, y); if (ours(x, y) || v === who) continue; if (v) { c.lost.push([x, y]); continue; } c.fresh.push([x, y]); mine.add(x * FN + y); } } }
+  for (const c of out) if (!c.conn) for (let x = c.x - FR; x <= c.x + FR; x++) for (let y = c.y - FR; y <= c.y + FR; y++) { const v = at(x, y); if (v === who || mine.has(x * FN + y)) continue; (v ? c.lost : c.fresh).push([x, y]); }
   return out;
 }
+const flagCalc = () => bannerCheck(PLAN.fl || [], 1);
 const tilePts = (x, y) => pts([[x, y], [x + 1, y], [x + 1, y + 1], [x, y + 1]]);
+/* 🧭 Banner route to an Outpost (Sherry 2026-11-18: "the best plan to reach an Outpost, counting the banners already on the way").
+   The fewest new banners from our connected territory (HQs, standing banners, planned banners that are connected) to a spot whose 7×7 touches the
+   Outpost's 15×15. Banners stand only on free or own tiles: not on mountains / lakes, no-build zones, resource nodes, another alliance's territory
+   or a tile that already has a banner. Between routes of the same length, the one covering more resource nodes we do not hold yet wins.
+   The result is a preview (ROUTE) — nothing is added to the plan until the officer accepts it. */
+const RO_T = {
+  en: { go: "🧭 Plan the banners to here ({a})", have: "{a}'s territory already touches this Outpost — no banner needed.", none: "No route found: the way is closed by obstacles, no-build zones or other alliances' territory.", noLand: "{a} has no territory on the map yet.",
+    need: "{n} new banners reach this Outpost.", sum: "Banners: {s} standing + {p} planned + {n} = {t} (limit {l})", over: "⚠️ Over the limit of {l}.", add: "➕ Add to the plan", no: "Cancel", note: "Shown on the map in purple, in build order. Banners already standing or planned on the way are used, so only the missing ones are counted." },
+  zh: { go: "🧭 規劃到這裡的旗（{a}）", have: "{a} 的領地已經碰到這個據點——不用再插旗。", none: "找不到路線：被障礙物、禁建區或別的聯盟領地擋住了。", noLand: "地圖上還沒有 {a} 的領地。",
+    need: "再插 {n} 面旗就能接到這個據點。", sum: "旗數：已蓋 {s} + 已規劃 {p} + 這條 {n} = {t}（上限 {l}）", over: "⚠️ 超過上限 {l}。", add: "➕ 加入規劃", no: "取消", note: "地圖上用紫色標出，數字是建造順序。路上已經蓋好或已規劃的旗會直接用，所以只算還缺的。" },
+  pt: { go: "🧭 Planejar os estandartes até aqui ({a})", have: "O território da {a} já toca este Posto Avançado — nenhum estandarte necessário.", none: "Nenhuma rota: o caminho está fechado por obstáculos, zonas sem construção ou território de outras alianças.", noLand: "A {a} ainda não tem território no mapa.",
+    need: "{n} estandartes novos chegam a este Posto Avançado.", sum: "Estandartes: {s} de pé + {p} planejados + {n} = {t} (limite {l})", over: "⚠️ Acima do limite de {l}.", add: "➕ Adicionar ao plano", no: "Cancelar", note: "No mapa em roxo, na ordem de construção. Estandartes já de pé ou planejados no caminho são usados; só os que faltam são contados." },
+  ar: { go: "🧭 خطّط الرايات إلى هنا ({a})", have: "إقليم {a} يلامس هذه المستوطنة بالفعل — لا حاجة لراية.", none: "لا يوجد طريق: الطريق مغلق بعوائق أو مناطق منع البناء أو إقليم تحالفات أخرى.", noLand: "لا يوجد إقليم لـ {a} على الخريطة بعد.",
+    need: "{n} رايات جديدة تصل إلى هذه المستوطنة.", sum: "الرايات: {s} قائمة + {p} مخططة + {n} = {t} (الحد {l})", over: "⚠️ فوق الحد {l}.", add: "➕ أضف إلى الخطة", no: "إلغاء", note: "تظهر على الخريطة بالبنفسجي بترتيب البناء. الرايات القائمة أو المخططة على الطريق تُستخدم، فلا يُحسب إلا الناقص." },
+  ko: { go: "🧭 여기까지 깃발 계획 ({a})", have: "{a} 영지가 이미 이 거점에 닿아 있어요 — 깃발이 필요 없어요.", none: "경로 없음: 장애물, 건설 금지 구역, 다른 연맹 영지에 막혀 있어요.", noLand: "지도에 아직 {a} 영지가 없어요.",
+    need: "새 깃발 {n}개면 이 거점에 닿아요.", sum: "깃발: 세워짐 {s} + 계획 {p} + 이번 {n} = {t} (한도 {l})", over: "⚠️ 한도 {l} 초과.", add: "➕ 계획에 추가", no: "취소", note: "지도에 보라색으로, 건설 순서대로 표시돼요. 길 위에 이미 세워졌거나 계획된 깃발은 그대로 쓰고, 모자란 것만 세요." } };
+const rox = (k, v = {}) => String((RO_T[lang] || RO_T.en)[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const RO_LIMIT = 285;
+let ROUTE = null;   // { id, who, state: "ok" | "have" | "none" | "noLand", list: [[x, y]] }
+function routeTo(b, who) {
+  if (!OWN_A) ownBuild();
+  const f = PLAN.farm || {}, land = [], taken = new Set();
+  const good = (list, w) => { const c = bannerCheck(list, w); return list.filter((_, i) => !farmFlagBad(c[i])); };
+  const stand = who === 1 ? exList() : fbAll(), plan = who === 1 ? PLAN.fl || [] : f.fl || [];
+  for (const [x, y] of who === 1 ? G.hq || [] : f.hq || []) land.push([x - 6, y - 6, x + 8, y + 8]);
+  for (const [x, y] of stand) land.push([x - FR, y - FR, x + FR, y + FR]);
+  for (const [x, y] of good(plan, who)) land.push([x - FR, y - FR, x + FR, y + FR]);
+  for (const L of [exList(), fbAll(), PLAN.fl || [], f.fl || []]) for (const [x, y] of L) taken.add(x * FN + y);
+  const goal = opSq(b), res = { id: b.id, who, list: [], nS: stand.length, nP: plan.length };
+  if (!land.length) return { ...res, state: "noLand" };
+  if (land.some((r) => rTouch(goal, r))) return { ...res, state: "have" };
+  let best = Infinity; for (const r of land) best = Math.min(best, Math.max(goal[0] - r[2], r[0] - goal[2], goal[1] - r[3], r[1] - goal[3]));
+  const M = Math.min(900, best + 40), bx0 = Math.max(0, goal[0] - M), bx1 = Math.min(FN - 1, goal[2] + M), by0 = Math.max(0, goal[1] - M), by1 = Math.min(FN - 1, goal[3] + M);
+  const H = by1 - by0 + 1, N = (bx1 - bx0 + 1) * H, idx = (x, y) => (x - bx0) * H + (y - by0);
+  const ok = new Uint8Array(N), start = new Uint8Array(N), end = new Uint8Array(N), lvl = new Int16Array(N).fill(-1), prev = new Int32Array(N).fill(-1), sum = new Int16Array(N), sc = new Int8Array(N).fill(-1);
+  const fill = (arr, x0, y0, x1, y1) => { for (let x = Math.max(bx0, x0); x <= Math.min(bx1, x1); x++) for (let y = Math.max(by0, y0); y <= Math.min(by1, y1); y++) arr[idx(x, y)] = 1; };
+  for (const r of land) fill(start, r[0] - FR - 1, r[1] - FR - 1, r[2] + FR + 1, r[3] + FR + 1);   // a banner here touches that territory (an edge or a corner)
+  fill(end, goal[0] - FR - 1, goal[1] - FR - 1, goal[2] + FR + 1, goal[3] + FR + 1);
+  for (let x = bx0; x <= bx1; x++) for (let y = by0; y <= by1; y++) { const o = OWN_A[y * FN + x]; if ((!o || o === who) && !obstAt(x, y) && !zoneAt(x, y) && !nodeAt(x, y) && !taken.has(x * FN + y)) ok[idx(x, y)] = 1; }
+  /* resource nodes a banner here would newly cover (all four tiles inside its 7×7, and not ours yet) */
+  const NT = new Set((RESD || []).map(([, x, y]) => x * FN + y));
+  const score = (i) => { if (sc[i] >= 0) return sc[i]; const x = bx0 + Math.floor(i / H), y = by0 + (i % H); let n = 0;
+    for (let nx = x - FR; nx <= x + FR - 1; nx++) for (let ny = y - FR; ny <= y + FR - 1; ny++) { if (!NT.has(nx * FN + ny)) continue; let c = 0; for (let j = ny; j < ny + 2; j++) for (let k = nx; k < nx + 2; k++) if (OWN_A[j * FN + k] === who) c++; if (c < 3) n++; }
+    return (sc[i] = n); };
+  let q = [], L = 0;
+  for (let i = 0; i < N; i++) if (ok[i] && start[i]) { lvl[i] = 0; sum[i] = score(i); q.push(i); }
+  while (q.length && L < 300) {
+    let hit = -1; for (const i of q) if (end[i] && (hit < 0 || sum[i] > sum[hit])) hit = i;
+    if (hit >= 0) { const path = []; for (let i = hit; i >= 0; i = prev[i]) path.push([bx0 + Math.floor(i / H), by0 + (i % H)]); return { ...res, state: "ok", list: path.reverse() }; }
+    const nq = [];
+    for (const i of q) { const x = bx0 + Math.floor(i / H), y = by0 + (i % H);
+      for (let dx = -7; dx <= 7; dx++) { const nx = x + dx; if (nx < bx0 || nx > bx1) continue;
+        for (let dy = -7; dy <= 7; dy++) { const ny = y + dy; if ((!dx && !dy) || ny < by0 || ny > by1) continue; const j = idx(nx, ny); if (!ok[j]) continue;
+          if (lvl[j] < 0) { lvl[j] = L + 1; prev[j] = i; sum[j] = sum[i] + score(j); nq.push(j); }
+          else if (lvl[j] === L + 1 && sum[i] + score(j) > sum[j]) { sum[j] = sum[i] + score(j); prev[j] = i; } } } }
+    q = nq; L++;
+  }
+  return { ...res, state: "none" };
+}
+function routeBox(b) {
+  const who = PWHO === "f" ? 2 : 1, a = who === 2 ? fTag() : "NXS", r = ROUTE && ROUTE.id === b.id && ROUTE.who === who ? ROUTE : null;
+  let h = `<div class="km-tm" id="km_route" style="flex-basis:100%"><button type="button" class="btn small" id="km_rt">${esc(rox("go", { a }))}</button>`;
+  if (r) { const n = r.list.length, t = r.nS + r.nP + n;
+    h += r.state !== "ok" ? `<div style="margin-top:6px">${esc(rox(r.state, { a }))}</div>`
+      : `<div style="margin-top:6px"><b>${esc(rox("need", { n }))}</b></div><div class="muted" style="font-size:12.5px">${esc(rox("sum", { s: r.nS, p: r.nP, n, t, l: RO_LIMIT }))}${t > RO_LIMIT ? ` <b style="color:#c0473a">${esc(rox("over", { l: RO_LIMIT }))}</b>` : ""}</div>
+        <div class="row" style="gap:6px;margin-top:6px;justify-content:flex-start"><button type="button" class="btn small primary" id="km_rtok">${esc(rox("add"))}</button><button type="button" class="btn small" id="km_rtno">${esc(rox("no"))}</button></div>
+        <div class="muted" style="font-size:12px;margin-top:4px">${esc(rox("note"))}</div>`; }
+  $("km_info").insertAdjacentHTML("beforeend", h + "</div>");
+  $("km_rt").onclick = () => { ROUTE = routeTo(b, who); drawFlags(); renderInfo(); };
+  if ($("km_rtno")) $("km_rtno").onclick = () => { ROUTE = null; drawFlags(); renderInfo(); };
+  if ($("km_rtok")) $("km_rtok").onclick = () => { const L = r.list.map(([x, y]) => [x, y]); if (who === 2) farm().fl.push(...L); else { PLAN.fl = PLAN.fl || []; PLAN.fl.push(...L); }
+    ROUTE = null; flagsChanged(); try { drawFarm(); renderFarm(); } catch (e) {} renderInfo(); };
+}
+const routeSvg = () => !ROUTE || ROUTE.state !== "ok" ? "" : ROUTE.list.map(([x, y], i) => { const [X, Y] = P(x + .5, y + .5);
+  return `<g class="km-rt"><polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(150,90,220,.3)" stroke="#8a4fd8" stroke-width=".6" stroke-dasharray="1.5 1"/><polygon points="${tilePts(x, y)}" fill="#8a4fd8" stroke="#fff" stroke-width=".25"/><text x="${X}" y="${Y - 1.6}" text-anchor="middle" font-family="Arial" font-size="2.6" font-weight="800" fill="#fff" stroke="#5b2aa8" stroke-width=".5" paint-order="stroke">${i + 1}</text></g>`; }).join("");
 function drawFlags() {
   const g = $("km_flagG"); if (!g) return; if (!SHOWP()) { g.innerHTML = ""; return; }
-  g.innerHTML = flagCalc().map((f, i) => {
+  g.innerHTML = routeSvg() + flagCalc().map((f, i) => {
     const [X, Y] = P(f.x + .5, f.y + .5);
     return `<g>${f.fresh.map(([x, y]) => `<polygon points="${tilePts(x, y)}" fill="rgba(60,150,255,.55)"/>`).join("")}${f.lost.map(([x, y]) => `<polygon points="${tilePts(x, y)}" fill="rgba(230,50,50,.6)"/>`).join("")}`
       + `<polygon points="${pts([[f.x - FR, f.y - FR], [f.x + FR + 1, f.y - FR], [f.x + FR + 1, f.y + FR + 1], [f.x - FR, f.y + FR + 1]])}" fill="none" stroke="${f.conn && !f.onOther && !f.ob && !f.node && !f.zone ? "#fff" : "#ffb020"}" stroke-width=".5"/>`
@@ -1027,28 +1113,7 @@ const FW = { hq: 3, b: 1, fl: 1, bt: 3, btp: 3, c: 2 };   // tiles each Academy 
    Per banner, in list order: tiles it adds, tiles already someone else's, connected to nxs's territory (edge or corner; a cut-off banner is inactive
    and later ones can't lean on it), banner tile inside NXS's / another alliance's land, on a mountain / lake / resource node, in a no-build zone.
    Land = what stands now (OWN_A: 1 NXS · 2 nxs · 3 others) + NXS's planned banners marked ⬆ "built first" — the mirror of what NXS's check sees. */
-function farmFlagCalc() {
-  if (!OWN_A) ownBuild();
-  const f = PLAN.farm || {}, mine = new Set(), first = new Set(), out = [];
-  for (const [x, y] of PLAN.fl || []) if (farmLv("p", x, y) === 1) for (let j = y - FR; j <= y + FR; j++) for (let i = x - FR; i <= x + FR; i++) first.add(i * FN + j);
-  const own = (x, y) => { if (x < 0 || y < 0 || x >= FN || y >= FN) return 9; const o = OWN_A[y * FN + x]; return o || (first.has(x * FN + y) ? 1 : 0); };
-  const ours = (x, y) => own(x, y) === 2 || mine.has(x * FN + y);
-  for (const [fx, fy] of f.fl || []) {
-    const fresh = [], lost = []; let conn = false;
-    for (let x = fx - FR; x <= fx + FR; x++) for (let y = fy - FR; y <= fy + FR; y++) {
-      if (ours(x, y)) { conn = true; continue; }
-      if (own(x, y)) { lost.push([x, y]); continue; }
-      fresh.push([x, y]);
-    }
-    if (!conn) for (let x = fx - FR; x <= fx + FR && !conn; x++) for (const y of [fy - FR - 1, fy + FR + 1]) if (ours(x, y)) conn = true;
-    if (!conn) for (let y = fy - FR; y <= fy + FR && !conn; y++) for (const x of [fx - FR - 1, fx + FR + 1]) if (ours(x, y)) conn = true;
-    if (!conn) for (const x of [fx - FR - 1, fx + FR + 1]) for (const y of [fy - FR - 1, fy + FR + 1]) if (ours(x, y)) conn = true;
-    if (conn) fresh.forEach(([x, y]) => mine.add(x * FN + y));
-    const o = own(fx, fy);
-    out.push({ x: fx, y: fy, fresh, lost, conn, onOther: !!o && o !== 2, ob: obstAt(fx, fy), node: nodeAt(fx, fy), zone: ZNAME[zoneAt(fx, fy)] || "" });
-  }
-  return out;
-}
+function farmFlagCalc() { return bannerCheck((PLAN.farm || {}).fl || [], 2); }
 const farmFlagBad = (c) => !c.conn || c.onOther || c.ob || c.node || c.zone;
 function farmBlocked() { const f = PLAN.farm || {}, out = []; for (const k of FK) (f[k] || []).forEach((it, i) => { const r = blockOf(it[0], it[1], FW[k]); if (r) out.push({ k, i, x: it[0], y: it[1], r }); }); return out; }
 function drawFarm() {
@@ -1233,7 +1298,7 @@ function saveCsv(rows, name) {
   a.download = `${name}-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
 }
-function flagsChanged() { planMsg = ""; renderPub(); rmClean(); rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); memRefresh(); }
+function flagsChanged() { planMsg = ""; ROUTE = null; renderPub(); rmClean(); rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); memRefresh(); }
 /* 🎯 tapped banner (planned or standing): shown in the info box under the map, where it can be moved, marked built / demolished or removed */
 let FSEL = null;
 const near = (list, x, y) => { let best = -1, bd = 3; list.forEach(([a, b], i) => { const d = Math.max(Math.abs(a - x), Math.abs(b - y)); if (d < bd) { bd = d; best = i; } }); return best; };
@@ -1437,6 +1502,7 @@ async function init() {
 }
 /* 👥 the member map (js/officer/members.js) draws the same banners and obstacles as this map, with the officers' edits */
 window.KM_SHARED = {
+  check: (list, who) => bannerCheck(list, who), hqs: () => (G.hq || []).map(([x, y]) => [x, y]),   // the shared 🚩 banner check (also used by tests)
   cityDraw: () => drawAc(),
   whoName: () => (PMODE && PWHO === "f" ? fTag() : "NXS"),
   ctx: "m", who: () => (PMODE && PWHO === "f" ? "f" : "m"),   // 🌾 banner check for nxs: who = the alliance picked on 🚩 Territory; ctx = "f" only while that check runs

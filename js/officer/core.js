@@ -216,6 +216,7 @@ OFFICER.NXS_ONLY_TABS = [];
    after one of them has started reloads the officer page (RELOAD_TABS); pages may hand in something to finish first (OFFICER.beforeWho). */
 OFFICER.whoLoaded = {};   // page → the alliance it started with (set by ranking.js, attend.js, attack.js)
 OFFICER.beforeWho = [];
+OFFICER.unsaved = [];   // pages hand in a test: "do I hold changes that are not saved?" (🚩 Territory)
 /* the alliance changed under a page that was started for the other one (the 👥 table arrived, 👁️ preview of an officer of the other alliance):
    start the officer page over. A preview is carried across the reload; never more than one reload in 5 s. */
 function whoGuard() {
@@ -250,6 +251,12 @@ OFFICER.setWho = (w) => {
   let old = ""; try { old = localStorage.getItem(WHO_LS) || ""; } catch (e) {}
   const cur = OFFICER.who();
   if (cur !== w && Object.keys(OFFICER.whoLoaded).length) {
+    /* switching reloads the page: ask first when a page holds changes that are not saved yet (2026-11-18 — 🚩 Territory edits were lost without a word) */
+    if (OFFICER.unsaved.some((f) => { try { return f(); } catch (e) { return false; } })) {
+      const q = { en: "There are changes that are not saved yet. Switching alliance reloads the page and they will be lost. Switch anyway?", zh: "有還沒儲存的修改。切換聯盟會重新載入頁面，這些修改會不見。還是要切換嗎？", pt: "Há alterações ainda não salvas. Trocar de aliança recarrega a página e elas serão perdidas. Trocar mesmo assim?", ar: "توجد تغييرات لم تُحفظ بعد. تبديل التحالف يعيد تحميل الصفحة وستضيع. هل تبدّل على أي حال؟", ko: "아직 저장하지 않은 변경이 있어요. 연맹을 바꾸면 페이지가 새로 열려서 사라져요. 그래도 바꿀까요?" };
+      if (!window.confirm(q[OFFICER.lang] || q.en)) { whoTop(); return; }
+      OFFICER.leaving = true;
+    }
     const el = document.getElementById("whoTop"); if (el) el.style.opacity = ".5";
     Promise.all(OFFICER.beforeWho.map((f) => { try { return Promise.resolve(f()).catch(() => {}); } catch (e) { return null; } })).then(() => { try { localStorage.setItem(WHO_LS, w); localStorage.setItem("nxs-hive-who", w); localStorage.setItem("kp-who", w); } catch (e) {} location.reload(); });
     return;

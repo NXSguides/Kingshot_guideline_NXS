@@ -66,7 +66,7 @@ function rows(el, list, max) {
 }
 function render() {
   applyTexts();
-  if (!DATA) return;
+  if (!DATA || !DATA.total) return;   // no numbers (a failed fetch): keep the message, nothing to redraw
   const t = L(), days = DATA.days;
   // daily
   const st = DATA.total.stats || [];
