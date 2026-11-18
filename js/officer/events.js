@@ -392,9 +392,9 @@ EVENTS["kingdom-transfer"] = { emoji: "🧳", en: "Kingdom Transfer", zh: "王�
    (Before 10/02 both sat 4 days earlier in the cycle: mails 09/20 and 09/22.) */
 EVENTS["armament-competition"] = { emoji: "⚒️", en: "Armament Competition", zh: "軍備競演", noGuide: true, start: "2026-11-09", every: 14, days: 2 };
 EVENTS["officer-project"] = { emoji: "🎖️", en: "Officer Project", zh: "士官計畫", noGuide: true, start: "2026-11-11", every: 14, days: 2 };
-/* 🐺 清理野獸 (in-game name; the English one is from a guide site, not checked in game): ranking mail 2026-11-05 00:00 UTC → ran 11/03–11/04;
+/* 🐺 清理野獸 (in-game names EN / ZH / KO / DE from the ranking mails, 2026-11-18): ranking mail 2026-11-05 00:00 UTC → ran 11/03–11/04;
    running again 11/17–11/18 (Sherry 2026-11-18) → every 14 days, 2 days. Points: a beast 1, a Terror rally 3 (guide site). */
-EVENTS["defeat-nearby-beasts"] = { emoji: "🐺", en: "Defeat Nearby Beasts", zh: "清理野獸", noGuide: true, start: "2026-11-03", every: 14, days: 2,
+EVENTS["defeat-nearby-beasts"] = { emoji: "🐺", en: "Defeat nearby beasts", zh: "清理野獸", noGuide: true, start: "2026-11-03", every: 14, days: 2,
   note: "Every 2 weeks, 2 days · 1 point per beast (10 stamina), 3 per Terror rally (25 stamina)", noteZh: "每 2 週一次，2 天 · 打一隻野獸 1 分（10 體力），集結打恐怖獸 3 分（25 體力）" };
 const SWORDLAND_TODO = [
   { due: 0, post: 1, en: "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.",
@@ -1355,6 +1355,9 @@ function seedTodos(list) {
   for (const e of list) if (e.id === "call-of-sovereign") { if (!e.zh || e.zh === "Call of the Sovereign") e.zh = EVENTS[e.id].zh; if (e.noteZh && /金鑰匙|白金/.test(e.noteZh) && !/黃金鑰匙/.test(e.noteZh)) e.noteZh = EVENTS[e.id].noteZh; }
   /* 🏆 Alliance Championship: troop updates close at 23:00 UTC on Tuesday → an exact 22:30 UTC reminder (added once; acAtV marks it, so deleting it sticks) */
   for (const e of list) if (e.id === "alliance-championship" && !e.acAtV) { e.todo = e.todo || []; if (!e.todo.some((t) => t.at)) e.todo.push({ ...EXTRA_EVENTS.find((x) => x.id === e.id).todo.find((t) => t.at) }); e.acAtV = 1; }
+  /* ⚒️ Armament Competition was saved as a one-off before its cycle was known (every 14 days, 2026-11-18): fix an already-saved one-off */
+  for (const e of list) if (e.id === "armament-competition" && (!(e.every > 0) || e.every > 1000)) { const d = EVENTS[e.id]; e.start = d.start; e.every = d.every; e.days = d.days; }
+  for (const e of list) if (e.id === "defeat-nearby-beasts" && e.en === "Defeat Nearby Beasts") e.en = EVENTS[e.id].en;   // the in-game English name
   /* ⛵ the game renames this event every run (10/20 Wavebound Voyage, 11/17 Voyage of Light) → our own fixed name, every 28 days, and the message to send (once; vyV marks it, so later edits stick) */
   for (const e of list) if (e.id === "wavebound-voyage" && !e.vyV) { const d = EVENTS[e.id];
     if (!e.en || e.en === "Wavebound Voyage") e.en = d.en; if (!e.zh || e.zh === "踏浪之旅") e.zh = d.zh;
