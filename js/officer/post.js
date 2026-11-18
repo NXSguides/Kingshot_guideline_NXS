@@ -282,7 +282,7 @@ function setExp(iso) {   // editing: show the saved time
    it is scheduled (they need to be in the repo; nothing links to them until it goes out). */
 const SCHED_PATH = "data/ann-scheduled-x7k2p9.json";
 let SCHED = [], editingSched = null;   // editingSched = id of the scheduled item now in the Write form
-const atFmt = (iso) => new Date(iso).toLocaleString([], { month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit" });
+const atFmt = (iso) => new Date(iso).toLocaleString(({ zh: "zh-TW", pt: "pt-BR", ar: "ar-u-nu-latn", ko: "ko-KR" }[OFFICER.lang] || "en-GB"), { month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit" });
 function atValue() { const v = $("pubAt").value; if (!v) return ""; const d = new Date(v); return isNaN(d) ? "" : d.toISOString(); }
 function setAt(iso) { const d = iso ? new Date(iso) : null; $("pubAt").value = d && !isNaN(d) ? new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 16) : ""; showAt(); }
 function showAt() { const v = atValue(); $("pubAtWhen").textContent = v ? tr("atWhen").replace("{t}", atFmt(v)) : ""; $("pubAtClear").hidden = !v;

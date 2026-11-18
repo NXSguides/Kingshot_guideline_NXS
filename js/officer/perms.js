@@ -135,6 +135,6 @@ function init() {
   };
   $("pm_reset").onclick = () => { OFFICER.resetPerms(); OFFICER.previewAs = null; changed(); };
 }
-function setLang(l) { lang = l; applyTexts(); }
+function setLang(l) { lang = l; applyTexts(); if ($("pm_msg")) $("pm_msg").textContent = stateText(); }   // the "saved" line follows the language too
 OFFICER_PAGES.perms = { init, onShow: () => { render(); OFFICER.fetchPerms(); OFFICER.ensure("post"); }, applyTexts, setLang };
 })();
