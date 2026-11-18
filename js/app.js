@@ -948,8 +948,8 @@ function annBodyHtml(a) {
   const body = typeof annFormat === "function" ? annFormat(rich(text)) : rich(text);   // ✍️ bold / lists / headings … (js/ann-themes.js)
   return `
           <div class="ann-meta">
-            <span>${escapeHtml(a.author)}</span>
-            <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}${announcements.length > 1 ? ` <button type="button" class="ann-pin${annPinned ? " on" : ""}" onclick="annPinToggle()">${escapeHtml(t(annPinned ? ANN_AUTO : ANN_STAY))}</button>` : ""}${annKey(a) ? ` <button type="button" class="ann-pin ann-link" onclick="annCopyLink(this,'${annKey(a)}')">${escapeHtml(t(ANN_LINK))}</button>` : ""}</span>
+            <span class="ann-who"><span>${escapeHtml(a.author)}</span><span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span></span>
+            <span class="ann-acts">${announcements.length > 1 ? ` <button type="button" class="ann-pin${annPinned ? " on" : ""}" onclick="annPinToggle()">${escapeHtml(t(annPinned ? ANN_AUTO : ANN_STAY))}</button>` : ""}${annKey(a) ? ` <button type="button" class="ann-pin ann-link" onclick="annCopyLink(this,'${annKey(a)}')">${escapeHtml(t(ANN_LINK))}</button>` : ""}</span>
           </div>
           ${a.style && typeof annThemeHtml === "function"   /* 📜 scroll / theme look (js/ann-themes.js): the paper grows with the text */
             ? annThemeHtml(a.style, a.title ? escapeHtml(annLabel(a)) : "", `<div class="ann-text" dir="auto">${body.replace(/\n[ \t]*\n\s*/g, "<span class=\"sc2-gap\"></span>")}</div>${imgs}`)
