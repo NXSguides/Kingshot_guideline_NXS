@@ -141,7 +141,6 @@ function renderList() {
       if (byRank) return (pos.has(a.id) ? pos.get(a.id) : 1e9) - (pos.has(b.id) ? pos.get(b.id) : 1e9) || (b.power || 0) - (a.power || 0);
       if (sortKey === "rank") return sortDir * (rankNum(a) - rankNum(b)) || (b.power || 0) - (a.power || 0);
       let x = sortKey === "sp" || sortKey === "migrant" ? statOf(a, sortKey) : a[sortKey], y = sortKey === "sp" || sortKey === "migrant" ? statOf(b, sortKey) : b[sortKey];
-      if (sortKey === "lastActive") { x = toMs(x) || 0; y = toMs(y) || 0; }
       if (typeof x === "string" || typeof y === "string") return sortDir * String(x ?? "").localeCompare(String(y ?? ""));
       return sortDir * ((x ?? -1) - (y ?? -1));
     });

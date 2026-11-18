@@ -83,12 +83,11 @@ async function scoutKingdom(kid) {
       const al = r.body.alliance || {}, members = r.body.members || [];
       // 🎯 KvK intel: who is active, the R4/R5s, and a short member list (id, name, power, TC, rank, last active, online)
       const nowS = Date.now() / 1000, sec = (v) => v == null ? null : v > 1e12 ? v / 1000 : v;
-      const act = (m, h) => { const v = sec(m.last_active_at); return v != null && nowS - v < h * 3600; };
       const tcs = members.map((m) => m.town_center_level).filter((x) => x != null);
       alliances.push({ tag: arows[i].abbr, name: al.name || arows[i].name || "", power: al.power ?? arows[i].power ?? null, count: members.length,
-        active24: members.filter((m) => act(m, 24)).length, active72: members.filter((m) => act(m, 72)).length, online: members.filter((m) => m.online).length,
+        /* no active / online counts: the game stopped sending activity data, and Sherry never wanted it (2026-11-18) */
         tcMax: tcs.length ? Math.max(...tcs) : null, tcAvg: tcs.length ? +(tcs.reduce((a, b) => a + b, 0) / tcs.length).toFixed(1) : null,
-        members: members.map((m) => [m.governor_id, m.nick_name, m.power ?? null, m.town_center_level ?? null, m.alliance_rank ?? null, sec(m.last_active_at), m.online ? 1 : 0]) });
+        members: members.map((m) => [m.governor_id, m.nick_name, m.power ?? null, m.town_center_level ?? null, m.alliance_rank ?? null]) });
       for (const m of members) rosterPool.push({ id: m.governor_id, name: m.nick_name, power: m.power ?? null, alliance: arows[i].abbr });
     });
   }

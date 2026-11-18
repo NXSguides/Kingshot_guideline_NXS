@@ -21,9 +21,9 @@ const T = {
     dH: ["Player", "Strength", "Hero gear", "Gov gear", "Charms", "Master", "Troops", "Best hero", "Pets"],
     hT: "🦸 Their main fighters' heroes", hNote: "Level · ★ stars · ⚙️ exclusive gear (Widget) level. From each player's own record (the top players of 🔭 Scout).",
     hCommon: "Most used:", hNone: "No hero data yet — press 🔄 Fetch in 🔭 Scout.",
-    aT: "🛡️ Their alliances", aH: ["Alliance", "Power", "Members", "Active 24 h", "Active 3 days", "Online now", "TC max / avg"], aLead: "R4 / R5:",
+    aT: "🛡️ Their alliances", aH: ["Alliance", "Power", "Members", "TC max / avg"], aLead: "R4 / R5:",
     pT: "📍 Castles and shields", pNote: "From MightPulse — positions and shields only change after someone presses “Update Map” on the MightPulse map.",
-    pH: ["Player", "X:Y", "Shield until", "Last login"], noShield: "—" },
+    pH: ["Player", "X:Y", "Shield until"], noShield: "—" },
   zh: { title: "🎯 KvK 對手情報", pick: "對手：", none: "還沒有偵察其他王國。用下面的 🔭 偵察：輸入對方王國編號 → 立即抓取。",
     old: "這個王國是在情報功能出來之前偵察的——在下面 🔭 偵察按一次 🔄 重新抓取（2–3 分鐘），就會補齊全部資料。",
     data: "資料：{t}", kT: "🏰 王國對照", kH: ["", "我們 #{a}", "對方 #{b}", "對方比我們"],
@@ -37,9 +37,9 @@ const T = {
     dH: ["玩家", "強度", "英雄裝備", "領主裝備", "魅力", "大師", "部隊", "單一英雄", "寵物"],
     hT: "🦸 對方主力的英雄", hNote: "等級 · ★ 星級 · ⚙️ 專屬裝備（零件）等級。來自每個人自己的資料（🔭 偵察抓的前段玩家）。",
     hCommon: "最常帶：", hNone: "還沒有英雄資料——在 🔭 偵察按 🔄 重新抓取。",
-    aT: "🛡️ 對方聯盟", aH: ["聯盟", "戰力", "人數", "24 小時內上線", "3 天內上線", "現在在線", "城鎮中心 最高／平均"], aLead: "R4／R5：",
+    aT: "🛡️ 對方聯盟", aH: ["聯盟", "戰力", "人數", "城鎮中心 最高／平均"], aLead: "R4／R5：",
     pT: "📍 城堡位置和護盾", pNote: "來自 MightPulse——要有人在 MightPulse 地圖按「Update Map」，位置和護盾才會更新。",
-    pH: ["玩家", "X:Y", "護盾到", "最後登入"], noShield: "—" },
+    pH: ["玩家", "X:Y", "護盾到"], noShield: "—" },
   pt: { title: "🎯 Informações do adversário (KvK)", pick: "Adversário:", none: "Nenhum outro reino espiado ainda. Use 🔭 Espiar abaixo: número do reino → Buscar agora.",
     old: "Este reino foi espiado antes destas informações existirem — aperte 🔄 Buscar de novo em 🔭 Espiar abaixo (2–3 min) para preencher tudo.",
     data: "Dados: {t}", kT: "🏰 Reinos lado a lado", kH: ["", "Nós #{a}", "Eles #{b}", "Eles vs nós"],
@@ -53,9 +53,9 @@ const T = {
     dH: ["Jogador", "Força", "Equip. heróis", "Equip. gov.", "Amuletos", "Mestre", "Tropas", "Melhor herói", "Mascotes"],
     hT: "🦸 Heróis dos lutadores principais", hNote: "Nível · ★ estrelas · ⚙️ nível da Ferramenta. Do registro de cada jogador (os primeiros do 🔭 Espiar).",
     hCommon: "Mais usados:", hNone: "Ainda sem heróis — aperte 🔄 Buscar no 🔭 Espiar.",
-    aT: "🛡️ Alianças deles", aH: ["Aliança", "Poder", "Membros", "Ativos 24 h", "Ativos 3 dias", "Online agora", "CC máx / média"], aLead: "R4 / R5:",
+    aT: "🛡️ Alianças deles", aH: ["Aliança", "Poder", "Membros", "CC máx / média"], aLead: "R4 / R5:",
     pT: "📍 Castelos e escudos", pNote: "Do MightPulse — posições e escudos só mudam depois que alguém aperta “Update Map” no mapa do MightPulse.",
-    pH: ["Jogador", "X:Y", "Escudo até", "Último login"], noShield: "—" },
+    pH: ["Jogador", "X:Y", "Escudo até"], noShield: "—" },
   ar: { title: "🎯 معلومات الخصم (KvK)", pick: "الخصم:", none: "لم تُستطلع مملكة أخرى بعد. استخدم 🔭 الاستطلاع بالأسفل: رقم المملكة ← اجلب الآن.",
     old: "استُطلعت هذه المملكة قبل وجود هذه المعلومات — اضغط 🔄 اجلب مجددًا في 🔭 الاستطلاع بالأسفل (2–3 دقائق) لملء كل شيء.",
     data: "البيانات: {t}", kT: "🏰 المملكتان جنبًا إلى جنب", kH: ["", "نحن #{a}", "هم #{b}", "هم مقارنة بنا"],
@@ -69,9 +69,9 @@ const T = {
     dH: ["اللاعب", "القوة", "معدات الأبطال", "معدات الحاكم", "التمائم", "الأستاذ", "القوات", "أفضل بطل", "الحيوانات"],
     hT: "🦸 أبطال مقاتليهم الرئيسيين", hNote: "المستوى · ★ النجوم · ⚙️ مستوى الأداة. من سجل كل لاعب (أوائل 🔭 الاستطلاع).",
     hCommon: "الأكثر استخدامًا:", hNone: "لا توجد بيانات أبطال بعد — اضغط 🔄 اجلب في 🔭 الاستطلاع.",
-    aT: "🛡️ تحالفاتهم", aH: ["التحالف", "القوة", "الأعضاء", "نشط 24 س", "نشط 3 أيام", "متصل الآن", "مركز المدينة أعلى / متوسط"], aLead: "R4 / R5:",
+    aT: "🛡️ تحالفاتهم", aH: ["التحالف", "القوة", "الأعضاء", "مركز المدينة أعلى / متوسط"], aLead: "R4 / R5:",
     pT: "📍 القلاع والدروع", pNote: "من MightPulse — المواقع والدروع لا تتغير إلا بعد أن يضغط أحد «Update Map» على خريطة MightPulse.",
-    pH: ["اللاعب", "X:Y", "الدرع حتى", "آخر دخول"], noShield: "—" },
+    pH: ["اللاعب", "X:Y", "الدرع حتى"], noShield: "—" },
   ko: { title: "🎯 KvK 상대 정보", pick: "상대:", none: "아직 다른 왕국을 정찰하지 않았어요. 아래 🔭 정찰에서 왕국 번호 → 지금 가져오기.",
     old: "이 왕국은 정보 기능이 생기기 전에 정찰했어요 — 아래 🔭 정찰에서 🔄 다시 가져오기를 누르면 (2–3분) 전부 채워져요.",
     data: "데이터: {t}", kT: "🏰 왕국 비교", kH: ["", "우리 #{a}", "상대 #{b}", "상대 대비"],
@@ -85,9 +85,9 @@ const T = {
     dH: ["플레이어", "강도", "영웅 장비", "영주 장비", "매력", "마스터", "병력", "최고 영웅", "펫"],
     hT: "🦸 상대 주력의 영웅", hNote: "레벨 · ★ 별 · ⚙️ 전용 장비(부속품) 레벨. 각자 기록에서 (🔭 정찰의 상위 플레이어).",
     hCommon: "가장 많이 씀:", hNone: "아직 영웅 데이터 없음 — 🔭 정찰에서 🔄 가져오기.",
-    aT: "🛡️ 상대 연맹", aH: ["연맹", "전투력", "인원", "24시간 내 접속", "3일 내 접속", "지금 접속", "도시센터 최고 / 평균"], aLead: "R4 / R5:",
+    aT: "🛡️ 상대 연맹", aH: ["연맹", "전투력", "인원", "도시센터 최고 / 평균"], aLead: "R4 / R5:",
     pT: "📍 성 위치와 보호막", pNote: "MightPulse 기준 — 누가 MightPulse 지도에서 “Update Map”을 눌러야 위치와 보호막이 바뀌어요.",
-    pH: ["플레이어", "X:Y", "보호막 종료", "마지막 접속"], noShield: "—" },
+    pH: ["플레이어", "X:Y", "보호막 종료"], noShield: "—" },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -186,7 +186,7 @@ function html(snap) {
   if (al.length) {
     const r4 = (a) => (a.members || []).filter((m) => m[4] >= 4).sort((x, y) => y[4] - x[4]).map((m) => `${m[1]}${m[4] >= 5 ? " (R5)" : ""}`);
     out += det("in_a", t("aT"), `<div class="ak-tw"><table class="ak-t in-t"><thead><tr>${t("aH").map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>
-      ${al.map((a) => `<tr><td><b>${esc(a.tag)}</b>${a.name ? `<br><small class="muted"><bdi>${esc(a.name)}</bdi></small>` : ""}</td><td>${big(a.power)}</td><td>${a.count ?? "—"}</td><td>${a.active24 ?? "—"}</td><td>${a.active72 ?? "—"}</td><td>${a.online ?? "—"}</td><td>${a.tcMax ?? "—"} / ${a.tcAvg ?? "—"}</td></tr>`).join("")}</tbody></table></div>
+      ${al.map((a) => `<tr><td><b>${esc(a.tag)}</b>${a.name ? `<br><small class="muted"><bdi>${esc(a.name)}</bdi></small>` : ""}</td><td>${big(a.power)}</td><td>${a.count ?? "—"}</td><td>${a.tcMax ?? "—"} / ${a.tcAvg ?? "—"}</td></tr>`).join("")}</tbody></table></div>
       ${al.filter((a) => r4(a).length).map((a) => `<div class="in-lead"><b>${esc(a.tag)}</b> ${esc(t("aLead"))} <span><bdi>${esc(r4(a).join(", "))}</bdi></span></div>`).join("")}`);
   }
 
@@ -195,7 +195,7 @@ function html(snap) {
   if (pos.length) {
     const now = Date.now(), sh = (v) => { if (!v) return t("noShield"); const ms = v < 1e12 ? v * 1000 : v; return ms > now ? "🛡️ " + when(ms) : t("noShield"); };
     out += det("in_p", t("pT"), `<div class="muted" style="font-size:12px;margin-bottom:4px">${esc(t("pNote"))}</div><div class="ak-tw"><table class="ak-t in-t"><thead><tr>${t("pH").map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>
-      ${pos.slice(0, 40).map(([, r]) => `<tr><td><bdi>${esc(r.name)}</bdi> <span class="muted">[${esc(r.al)}]</span></td><td>${r.player.x}:${r.player.y}</td><td>${sh(r.player.shield_endtime)}</td><td>${when(r.player.last_login || r.player.last_active_at)}</td></tr>`).join("")}</tbody></table></div>`);
+      ${pos.slice(0, 40).map(([, r]) => `<tr><td><bdi>${esc(r.name)}</bdi> <span class="muted">[${esc(r.al)}]</span></td><td>${r.player.x}:${r.player.y}</td><td>${sh(r.player.shield_endtime)}</td></tr>`).join("")}</tbody></table></div>`);
   }
   return out;
 }

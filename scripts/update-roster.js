@@ -101,7 +101,7 @@ function findRows(o, depth = 0) {
       power: pl.power ?? m.power ?? null,
       tc: pl.town_center_level ?? m.town_center_level ?? null,
       rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""),
-      lastActive: pl.last_active_at ?? m.last_active_at ?? null,
+     
       mystic: r.mystic_trial ?? null,
       migrant: r.migrant_score ?? null,   // the game's migration score ≈ Squad Power × 317 (checked on all 98 members, 2026-10-14)
       mysticRank: r.mystic_rank ?? null,
@@ -112,7 +112,6 @@ function findRows(o, depth = 0) {
       vip: pl.vip ?? null,
       lang: pl.language ?? null,
       x: pl.x ?? null, y: pl.y ?? null,
-      lastLogin: pl.last_login ?? null,
       allianceNow: pl.alliance?.abbr ?? null,
       raw: ok ? { player: p.body.player, ranks: p.body.ranks, heroes: p.body.heroes } : null,
     };
@@ -135,10 +134,9 @@ function findRows(o, depth = 0) {
       const fal = fa.body.alliance || {};
       acadOut = fm.map((m, i) => { const p = fp[i], ok = p.status === 200 && p.body, pl = (ok && p.body.player) || {}, r = (ok && p.body.ranks) || {};
           return { id: m.governor_id, uid: (ok && p.body.uid) || m.uid || null, name: pl.nick_name || m.nick_name, power: pl.power ?? m.power ?? null, tc: pl.town_center_level ?? m.town_center_level ?? null,
-            rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""), lastActive: pl.last_active_at ?? m.last_active_at ?? null,
+            rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""),
             mystic: r.mystic_trial ?? null, migrant: r.migrant_score ?? null, mysticRank: r.mystic_rank ?? null, asOf: ok && p.body.cached_at ? p.body.cached_at : null,
-            kills: pl.kills ?? m.kills ?? null, kid: pl.kid ?? m.kid ?? null, vip: pl.vip ?? null, lang: pl.language ?? null, x: pl.x ?? null, y: pl.y ?? null,
-            lastLogin: pl.last_login ?? null, allianceNow: pl.alliance?.abbr ?? null,
+            kills: pl.kills ?? m.kills ?? null, kid: pl.kid ?? m.kid ?? null, vip: pl.vip ?? null, lang: pl.language ?? null, x: pl.x ?? null, y: pl.y ?? null, allianceNow: pl.alliance?.abbr ?? null,
             raw: ok ? { player: p.body.player, ranks: p.body.ranks, heroes: p.body.heroes } : null }; });
       writeData(ACADEMY_OUT, { updated: new Date().toISOString(), alliance: { kid: KID, tag: ACADEMY, name: fal.name || "", power: fal.power ?? null, count: fm.length }, members: acadOut });
       console.log(`✅ Academy file: ${fm.length} members`);
