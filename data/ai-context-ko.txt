@@ -1605,6 +1605,7 @@ Calendar = 일정
 Forsaken Temple = 신전 대모험
 Hero Roulette = 영웅 룰렛
 Lucky Chip = 행운의 코인
+Defeat nearby beasts = 야수 처치
 Officer Project = 사관의 계획
 Swordland Showdown = 성검 쟁탈
 Swordland = 성검 전장

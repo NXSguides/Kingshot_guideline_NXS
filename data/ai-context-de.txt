@@ -1578,6 +1578,7 @@ Swordland Summit League = Schwertland-Gipfel-Liga
 Forsaken Temple = Einsamer Tempel
 Hero Roulette = Helden Roulette
 Lucky Chip = Glückschip
+Defeat nearby beasts = Besiege Bestien in der Nähe
 Officer Project = Offiziersprojekt
 Swordland Showdown = Schwertland-Showdown
 Swordland = Schwertland
