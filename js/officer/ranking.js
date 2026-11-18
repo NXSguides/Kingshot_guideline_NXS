@@ -1117,6 +1117,7 @@ function tbDragStart(e) {
 function tbDrop(e) {
   const cl = e.target.closest(".tb-cell"); if (!cl || !tbDrag) return;
   e.preventDefault();
+  if (TB.groups[cl.dataset.g] && TB.groups[cl.dataset.g].follow) { tbDrag = null; return; }   // a row that copies another team's names takes no drop — and the name must not vanish from where it was (2026-11-18)
   if (tbDrag.from) { const [g, , k] = tbDrag.from; gDel(g, k, tbDrag.chip); }
   tbPut(cl.dataset.g, cl.dataset.r, cl.dataset.k, tbDrag.chip);
   tbDrag = null; tbSave(); tbRender();
