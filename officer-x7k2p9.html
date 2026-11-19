@@ -512,12 +512,20 @@
   #pg-vv .vv-ic { flex: 0 0 52px; height: 52px; border-radius: 10px; overflow: hidden; display: grid; place-items: center; font-size: 28px; background: var(--panel); } #pg-vv .vv-ic img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
   #pg-vv .vv-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; } @media (max-width: 620px) { #pg-vv .vv-two { grid-template-columns: 1fr; } }
   #pg-vv .vv-ul { margin: 0; padding-inline-start: 1.2em; font-size: 13.5px; line-height: 1.55; } #pg-vv .vv-ul li { margin: 4px 0; }
-  /* 📄 Save as PDF (Sherry 2026-11-19): the report only, light colours, folded numbers open */
+  /* 📄 Save as PDF (Sherry 2026-11-19): the report only, light colours; no calculator, no folded numbers, no page address */
   #pg-vv .vv-out { text-align: right; max-width: 240px; } #pg-vv .vv-out .muted { font-size: 12px; margin-top: 4px; }
   @media print {
-    html:has(body.vv-print), body.vv-print { padding: 0; background: #fff !important; }
+    html:has(body.vv-print), body.vv-print { padding: 0; margin: 0; background: #fff !important; }
     body.vv-print > *:not(#main), body.vv-print #main > *:not(#pg-vv), body.vv-print #pg-vv .vv-out { display: none !important; }
-    body.vv-print #pg-vv .vv-hero, body.vv-print #pg-vv .vv-trs, body.vv-print #pg-vv .vv-calc, body.vv-print #pg-vv h3, body.vv-print #pg-vv .vv-tr, body.vv-print #pg-vv .vv-pile, body.vv-print #pg-vv tr, body.vv-print #pg-vv li { break-inside: avoid; }
+    /* left out of the file: the calculator, the wave picker and the folded "how we worked it out" part */
+    body.vv-print #pg-vv .vv-calc, body.vv-print #pg-vv .vv-key, body.vv-print #pg-vv .vv-wb:not(.on), body.vv-print #pg-vv .vv-num { display: none !important; }
+    body.vv-print #pg-vv .vv-bar i.me, body.vv-print #pg-vv .vv-bar i.oth { background: #9ab5dc; }
+    /* the page has no margin (so the browser has no room to print the address and page title); these two blank strips repeat on every sheet instead */
+    body.vv-print #main { max-width: none; padding: 0 11mm; }
+    body.vv-print #pg-vv { display: table; width: 100%; }
+    body.vv-print #pg-vv::before { content: ""; display: table-header-group; height: 11mm; }
+    body.vv-print #pg-vv::after { content: ""; display: table-footer-group; height: 11mm; }
+    body.vv-print #pg-vv .vv-hero, body.vv-print #pg-vv .vv-trs, body.vv-print #pg-vv h3, body.vv-print #pg-vv .vv-tr, body.vv-print #pg-vv .vv-pile, body.vv-print #pg-vv tr, body.vv-print #pg-vv li { break-inside: avoid; }
     body.vv-print #pg-vv h3, body.vv-print #pg-vv h4 { break-after: avoid; }
     body.vv-print #pg-vv * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }

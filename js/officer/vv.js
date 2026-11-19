@@ -240,13 +240,17 @@ function bind() {
     el.onchange = () => { S[k] = num ? Math.max(0, +el.value || 0) : el.value; redo(); };
   }
 }
-/* 📄 Save as PDF: the browser's own print window, showing this report only. Light colours, every folded part open and every
-   picture loaded while it prints; all put back afterwards. Nothing is sent anywhere. */
+/* 📄 Save as PDF: the browser's own print window, showing this report only — light colours, every picture loaded; the calculator
+   and the folded "how we worked it out" part are left out (Sherry 2026-11-19). The file must not say where it came from: the tab
+   title becomes the report's name and the sheet gets no margin, so the browser has no room for its address / title lines.
+   All put back afterwards. Nothing is sent anywhere. */
 function toPdf() {
   const root = document.documentElement, pg = $("pg-vv"); if (!pg) return;
-  const theme = root.getAttribute("data-theme"), shut = [...pg.querySelectorAll("details:not([open])")];
-  const back = () => { document.body.classList.remove("vv-print"); if (theme === null) root.removeAttribute("data-theme"); else root.setAttribute("data-theme", theme); shut.forEach((d) => { d.open = false; }); window.removeEventListener("afterprint", back); };
-  document.body.classList.add("vv-print"); root.setAttribute("data-theme", "light"); shut.forEach((d) => { d.open = true; });
+  const theme = root.getAttribute("data-theme"), title = document.title;
+  const st = document.createElement("style"); st.textContent = "@page { margin: 0; }";
+  const back = () => { document.body.classList.remove("vv-print"); if (theme === null) root.removeAttribute("data-theme"); else root.setAttribute("data-theme", theme); document.title = title; st.remove(); window.removeEventListener("afterprint", back); };
+  document.body.classList.add("vv-print"); root.setAttribute("data-theme", "light"); document.head.appendChild(st);
+  document.title = t("title").replace(/^\S+\s/, "");
   const imgs = [...pg.querySelectorAll("img")]; imgs.forEach((im) => { im.loading = "eager"; });
   window.addEventListener("afterprint", back);
   Promise.all(imgs.map((im) => (im.complete ? 0 : new Promise((ok) => { im.onload = im.onerror = ok; setTimeout(ok, 3000); })))).then(() => { try { window.print(); } catch (e) { back(); } });
