@@ -20,6 +20,12 @@ expect /plans   '{"op":"list"}'   '"logged_out"'
 expect /plans   '{"op":"bt","id":"1","k":"1","on":true}'   '"logged_out"'
 expect /rewards '{"op":"get"}'    '"logged_out"'
 expect /directed '{"items":[]}'  '"logged_out"'
+# 🔒 link-only announcements: the list needs a login; a wrong or unknown link gives nothing
+expect /secret  '{"op":"list"}'   '"logged_out"'
+expect /secret  '{"op":"save","title":"x","text":"y"}'   '"logged_out"'
+expect /secret/get '{"id":"AAAAAAAAAAAAAAAAAAAAAA"}' '"gone"'
+expect /secret/get '{"id":"../x"}' '"gone"'
+expect /secret/get '{}' '"gone"'
 # the officer password alone no longer opens anything (Discord login only, 2026-10-16)
 expect /attend  '{"op":"list","pw":"test-pw","pwName":"Tester"}' '"logged_out"'
 expect /attend  '{"op":"list","pw":"wrong"}' '"logged_out"'

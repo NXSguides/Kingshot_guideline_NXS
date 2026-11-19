@@ -676,7 +676,7 @@ function showEditing() {
   $("editBanner").hidden = !editing && !sx;
   if (editing) $("editBannerTitle").textContent = editing.title;
   else if (sx) $("editBannerTitle").textContent = tr("schedEditing") + " · " + (sx.title || "");
-  $("publishBtn").textContent = editing || sx ? tr("saveEdit") : atValue() ? "⏰ " + tr("schedTitle") : tr("publish");
+  $("publishBtn").textContent = editing || sx ? tr("saveEdit") : atValue() ? "⏰ " + tr("schedTitle") : ($("secChk") && $("secChk").checked ? "🔒 " : "") + tr("publish");
 }
 $("cancelEdit").onclick = () => {
   editing = null; editingSched = null; setAt(""); $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); demoKeep = null; $("fmtDemoNote").hidden = true;
@@ -807,7 +807,7 @@ function applyTexts() {
   if (typeof showEditing === "function") showEditing();
   if (cur) fillEditLang();
 }
-function showApp() { $("setupCard").hidden = true; $("po_app").hidden = false; renderPreview(); loadList(); loadSched(); takeCarriedImage(); }
+function showApp() { $("setupCard").hidden = true; $("po_app").hidden = false; renderPreview(); loadList(); loadSched(); loadSec(); takeCarriedImage(); }
 
 async function tryUnlock(pw, silent, retried) {
   try { TOKEN = await decryptToken(keyBlob, pw); }
@@ -833,7 +833,7 @@ async function init() {
 }
 
 /* ===== events ===== */
-function setLang(l) { ui = l; store.ui = ui; save(); applyTexts(); if (!$("po_app").hidden) { renderPreview(); loadList(); } };
+function setLang(l) { ui = l; store.ui = ui; save(); applyTexts(); if (!$("po_app").hidden) { renderPreview(); loadList(); renderSec(); } };
 ["annTitle", "body", "guide", "srcLang"].forEach((id) => $(id).addEventListener("input", renderPreview));
 $("srcLang").onchange = () => { if (!editing) { store.lang = $("srcLang").value; save(); } renderPreview(); };
 $("author").onchange = () => { if (!editing) { store.author = $("author").value.trim(); save(); } };
@@ -868,6 +868,74 @@ $("po_list").onclick = (e) => {
   const ed = e.target.closest("[data-edit]"); if (ed) openEdit(Number(ed.dataset.edit));
 };
 
+
+/* ===== 🔒 link-only announcements (Sherry 2026-11-19) =====
+   Written in the same form; with 🔒 ticked it is NOT put in the repo: it is saved on our Worker and translated there, and only opens through
+   its link (#s/<id>). The list below the public one gives the link again and deletes it (the link then stops working). */
+for (const [l, o] of Object.entries({"en": {"secChk": "🔒 Link only (confidential)", "secNote": "It never appears on the site. Only people who open the link you copy can read it, in any language. Delete it and the link stops working. Anyone who has the link can pass it on.", "secTitle": "Link-only announcements", "secListNote": "These are not on the site. Copy the link and send it to the people who should read it.", "secEmpty": "None yet.", "secCopy": "🔗 Copy link", "secCopied": "Link copied ✅", "secMore": "🌐 Finish translating", "secLangs": "{n} / {t} languages", "secDel": "Delete", "secConfirmDel": "Delete this announcement? Its link stops working at once.", "secDelOk": "Deleted ✅ The link no longer opens anything.", "secConfirmPub": "Publish this as a link-only announcement? It will not appear on the site.", "secSaving": "Saving…", "secTr": "Translating… {n} / {t} (keep this page open)", "secOk": "Done ✅ The link is copied — it is also in the list below.", "secOkPart": "Saved ✅ {n} of {t} languages are translated; press 🌐 in the list below to finish the rest. The link works already.", "secNoPics": "A link-only announcement cannot have pictures, tables or videos: those are public files. Take them out first.", "secNoSched": "A link-only announcement cannot be scheduled or edited yet. Clear the time, or untick 🔒.", "secNoRight": "Only officers who may post announcements can use this.", "secLogin": "Log in with Discord on the officer page first.", "secErr": "Could not reach the server — try again.", "secTooMany": "There are already 40 link-only announcements. Delete an old one first."}, "zh": {"secChk": "🔒 機密：只有拿到連結的人看得到", "secNote": "不會出現在網站上。只有打開你複製的連結的人看得到，12 種語言都可以切換。刪掉後連結就失效。拿到連結的人可以再轉給別人。", "secTitle": "機密公告（只有連結）", "secListNote": "這些不在網站上。複製連結，傳給該看的人。", "secEmpty": "目前沒有。", "secCopy": "🔗 複製連結", "secCopied": "連結已複製 ✅", "secMore": "🌐 補完翻譯", "secLangs": "{n} / {t} 種語言", "secDel": "刪除", "secConfirmDel": "確定刪除這則公告？連結會立刻失效。", "secDelOk": "已刪除 ✅ 連結已經打不開了。", "secConfirmPub": "確定發布成機密公告？它不會出現在網站上。", "secSaving": "儲存中…", "secTr": "翻譯中… {n} / {t}（請不要關掉這一頁）", "secOk": "完成 ✅ 連結已複製，下面的清單裡也有。", "secOkPart": "已儲存 ✅ 翻好了 {n} / {t} 種語言；剩下的請在下面清單按 🌐 補完。連結現在就能用。", "secNoPics": "機密公告不能放圖片、表格或影片：那些是公開的檔案。請先拿掉。", "secNoSched": "機密公告目前不能排程或修改。請清掉時間，或取消勾選 🔒。", "secNoRight": "只有可以發公告的幹部能用這個功能。", "secLogin": "請先在幹部頁用 Discord 登入。", "secErr": "連不上伺服器，請再試一次。", "secTooMany": "機密公告已經有 40 則了，請先刪掉舊的。"}, "pt": {"secChk": "🔒 Só pelo link (confidencial)", "secNote": "Nunca aparece no site. Só quem abrir o link que você copiar pode ler, em qualquer idioma. Apague e o link para de funcionar. Quem tem o link pode repassá-lo.", "secTitle": "Anúncios só pelo link", "secListNote": "Estes não estão no site. Copie o link e envie para quem deve ler.", "secEmpty": "Nenhum ainda.", "secCopy": "🔗 Copiar link", "secCopied": "Link copiado ✅", "secMore": "🌐 Terminar a tradução", "secLangs": "{n} / {t} idiomas", "secDel": "Apagar", "secConfirmDel": "Apagar este anúncio? O link para de funcionar na hora.", "secDelOk": "Apagado ✅ O link não abre mais nada.", "secConfirmPub": "Publicar como anúncio só pelo link? Ele não vai aparecer no site.", "secSaving": "Salvando…", "secTr": "Traduzindo… {n} / {t} (deixe esta página aberta)", "secOk": "Pronto ✅ O link foi copiado — também está na lista abaixo.", "secOkPart": "Salvo ✅ {n} de {t} idiomas traduzidos; aperte 🌐 na lista abaixo para terminar. O link já funciona.", "secNoPics": "Um anúncio só pelo link não pode ter imagens, tabelas ou vídeos: são arquivos públicos. Tire-os primeiro.", "secNoSched": "Um anúncio só pelo link ainda não pode ser agendado nem editado. Limpe o horário ou desmarque 🔒.", "secNoRight": "Só oficiais que podem publicar anúncios podem usar isto.", "secLogin": "Entre com o Discord na página dos oficiais primeiro.", "secErr": "Não foi possível falar com o servidor — tente de novo.", "secTooMany": "Já existem 40 anúncios só pelo link. Apague um antigo primeiro."}, "ar": {"secChk": "🔒 بالرابط فقط (سرّي)", "secNote": "لا يظهر في الموقع أبدًا. لا يقرؤه إلا من يفتح الرابط الذي تنسخه، وبأي لغة. احذفه فيتوقف الرابط عن العمل. من يملك الرابط يستطيع إرساله لغيره.", "secTitle": "إعلانات بالرابط فقط", "secListNote": "هذه ليست في الموقع. انسخ الرابط وأرسله لمن يجب أن يقرأه.", "secEmpty": "لا يوجد شيء بعد.", "secCopy": "🔗 نسخ الرابط", "secCopied": "تم نسخ الرابط ✅", "secMore": "🌐 إكمال الترجمة", "secLangs": "{n} / {t} لغة", "secDel": "حذف", "secConfirmDel": "حذف هذا الإعلان؟ سيتوقف رابطه عن العمل فورًا.", "secDelOk": "تم الحذف ✅ الرابط لم يعد يفتح شيئًا.", "secConfirmPub": "نشر هذا كإعلان بالرابط فقط؟ لن يظهر في الموقع.", "secSaving": "جارٍ الحفظ…", "secTr": "جارٍ الترجمة… {n} / {t} (أبقِ هذه الصفحة مفتوحة)", "secOk": "تم ✅ نُسخ الرابط — وهو أيضًا في القائمة أدناه.", "secOkPart": "تم الحفظ ✅ تُرجمت {n} من {t} لغة؛ اضغط 🌐 في القائمة أدناه لإكمال الباقي. الرابط يعمل الآن.", "secNoPics": "الإعلان بالرابط فقط لا يمكن أن يحتوي صورًا أو جداول أو فيديو: هذه ملفات عامة. أزلها أولًا.", "secNoSched": "الإعلان بالرابط فقط لا يمكن جدولته أو تعديله بعد. امسح الوقت أو ألغِ علامة 🔒.", "secNoRight": "هذه الميزة للضباط الذين يحق لهم نشر الإعلانات فقط.", "secLogin": "سجّل الدخول عبر Discord في صفحة الضباط أولًا.", "secErr": "تعذّر الوصول إلى الخادم — حاول مرة أخرى.", "secTooMany": "يوجد بالفعل 40 إعلانًا بالرابط فقط. احذف واحدًا قديمًا أولًا."}, "ko": {"secChk": "🔒 링크 전용 (기밀)", "secNote": "사이트에는 절대 나오지 않아요. 복사한 링크를 연 사람만 읽을 수 있고, 어느 언어로든 볼 수 있어요. 삭제하면 링크가 바로 막혀요. 링크를 가진 사람은 다른 사람에게 넘길 수 있어요.", "secTitle": "링크 전용 공지", "secListNote": "이 공지들은 사이트에 없어요. 링크를 복사해서 읽어야 할 사람에게 보내세요.", "secEmpty": "아직 없어요.", "secCopy": "🔗 링크 복사", "secCopied": "링크를 복사했어요 ✅", "secMore": "🌐 번역 마저 하기", "secLangs": "{n} / {t}개 언어", "secDel": "삭제", "secConfirmDel": "이 공지를 삭제할까요? 링크가 바로 막혀요.", "secDelOk": "삭제했어요 ✅ 링크는 이제 열리지 않아요.", "secConfirmPub": "링크 전용 공지로 올릴까요? 사이트에는 나오지 않아요.", "secSaving": "저장 중…", "secTr": "번역 중… {n} / {t} (이 페이지를 열어 두세요)", "secOk": "완료 ✅ 링크를 복사했어요 — 아래 목록에도 있어요.", "secOkPart": "저장했어요 ✅ {t}개 중 {n}개 언어가 번역됐어요. 나머지는 아래 목록의 🌐를 누르세요. 링크는 지금 바로 쓸 수 있어요.", "secNoPics": "링크 전용 공지에는 사진, 표, 영상을 넣을 수 없어요: 그것들은 공개 파일이에요. 먼저 빼 주세요.", "secNoSched": "링크 전용 공지는 아직 예약하거나 수정할 수 없어요. 시간을 지우거나 🔒 체크를 해제하세요.", "secNoRight": "공지를 올릴 수 있는 간부만 쓸 수 있어요.", "secLogin": "먼저 간부 페이지에서 Discord로 로그인하세요.", "secErr": "서버에 연결할 수 없어요 — 다시 시도하세요.", "secTooMany": "링크 전용 공지가 이미 40개예요. 오래된 것을 먼저 삭제하세요."}})) Object.assign(T[l], o);
+const SEC_ALL = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar", "es"];
+let secItems = [];
+async function sapi(op, extra = {}) {
+  const r = await fetch(AUTH_API + "/secret", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...extra }) });
+  const j = await r.json().catch(() => ({ error: "network" }));
+  if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
+  if (!r.ok || j.error) throw Object.assign(new Error(j.error || "HTTP " + r.status), { code: j.error });
+  return j;
+}
+const secErr = (e) => tr({ view_only: "secNoRight", logged_out: "secLogin", no_pictures: "secNoPics", too_many: "secTooMany" }[e && e.code] || "secErr");
+const secLink = (id) => new URL("./", location.href).href.replace(/[?#].*$/, "") + "#s/" + id;
+async function secCopy(id) {
+  const url = secLink(id);
+  try { await navigator.clipboard.writeText(url); }
+  catch (e) { const ta = document.createElement("textarea"); ta.value = url; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e2) {} ta.remove(); }
+}
+function renderSec() {
+  $("po_sec").innerHTML = secItems.length ? secItems.map((x) => `
+    <div class="ann"><div><b dir="auto">${esc(x.title || "—")}</b>
+      <span class="muted">${esc(x.author || "")} · ${esc(tr("secLangs").replace("{n}", x.langs.length).replace("{t}", SEC_ALL.length))}${x.exp ? " · " + esc(tr("expTag").replace("{t}", expFmt(new Date(x.exp).toISOString()))) : ""}</span></div>
+      <div class="acts"><button class="btn" data-seccopy="${esc(x.id)}">${esc(tr("secCopy"))}</button>${x.langs.length < SEC_ALL.length ? `<button class="btn" data-secmore="${esc(x.id)}">${esc(tr("secMore"))}</button>` : ""}
+      <button class="btn danger" data-secdel="${esc(x.id)}">${esc(tr("secDel"))}</button></div></div>`).join("") : `<p class="muted">${esc(tr("secEmpty"))}</p>`;
+}
+async function loadSec() {
+  try { secItems = (await sapi("list")).list || []; $("po_secCard").hidden = false; renderSec(); }
+  catch (e) { if (e.code === "view_only") { $("po_secCard").hidden = true; return; } $("po_sec").innerHTML = ""; showMsg("secMsg", "err", secErr(e)); }
+}
+/* every language still missing, three at a time; the Worker does one language per call */
+async function secTranslate(item, msgId) {
+  let cur = item; const todo = SEC_ALL.filter((l) => !cur.langs.includes(l));
+  const show = () => showMsg(msgId, "info", tr("secTr").replace("{n}", cur.langs.length).replace("{t}", SEC_ALL.length));
+  show();
+  const run = async () => { for (;;) { const l = todo.shift(); if (!l) return; try { const j = await sapi("tr", { id: item.id, to: l }); if (j.item && j.item.langs.length >= cur.langs.length) cur = j.item; show(); } catch (e) { if (e.code === "gone") { todo.length = 0; return; } } } };
+  await Promise.all([run(), run(), run()]);
+  try { const j = await sapi("list"); secItems = j.list || []; cur = secItems.find((x) => x.id === item.id) || cur; renderSec(); } catch (e) {}
+  return cur;
+}
+async function secPublish({ author, title, expires }) {
+  if (/\[\[(img|table|video):/.test(fullBody())) { showMsg("pubMsg", "err", tr("secNoPics")); return false; }
+  if (!(await askYesNo(tr("secConfirmPub")))) return false;
+  const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("secSaving"));
+  try {
+    const j = await sapi("save", { title, text: fullBody(), author, lang: $("srcLang").value, style: styleValue(), exp: expires });
+    store.author = author; save();
+    secItems = [j.item, ...secItems]; renderSec();
+    const done = await secTranslate(j.item, "pubMsg");
+    await secCopy(j.item.id);
+    showMsg("pubMsg", "ok", done.langs.length >= SEC_ALL.length ? tr("secOk") : tr("secOkPart").replace("{n}", done.langs.length).replace("{t}", SEC_ALL.length));
+    $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); $("secChk").checked = false; demoKeep = null; $("fmtDemoNote").hidden = true; renderPreview(); showEditing();
+    btn.disabled = false; return true;
+  } catch (e) { showMsg("pubMsg", "err", secErr(e)); btn.disabled = false; return false; }
+}
+$("po_sec").onclick = async (e) => {
+  const c = e.target.closest("[data-seccopy]"); if (c) { await secCopy(c.dataset.seccopy); return showMsg("secMsg", "ok", tr("secCopied")); }
+  const m = e.target.closest("[data-secmore]"); if (m) { const x = secItems.find((y) => y.id === m.dataset.secmore); if (!x) return; m.disabled = true; const d = await secTranslate(x, "secMsg"); return showMsg("secMsg", d.langs.length >= SEC_ALL.length ? "ok" : "info", tr("secLangs").replace("{n}", d.langs.length).replace("{t}", SEC_ALL.length)); }
+  const d = e.target.closest("[data-secdel]"); if (d) {
+    if (!(await askYesNo(tr("secConfirmDel")))) return;
+    try { secItems = (await sapi("del", { id: d.dataset.secdel })).list || []; renderSec(); showMsg("secMsg", "ok", tr("secDelOk")); } catch (er) { showMsg("secMsg", "err", secErr(er)); }
+  }
+};
+$("secReload").onclick = () => loadSec();
+$("secChk").onchange = () => showEditing();
+
 $("publishBtn").onclick = async () => {
   const author = $("author").value.trim(), title = $("annTitle").value.trim(), body = $("body").value.trim();
   if (!author || !title || !body) { showMsg("pubMsg", "err", tr("needAll")); return; }
@@ -875,6 +943,10 @@ $("publishBtn").onclick = async () => {
   const expires = expValue();
   if ($("expSel").value !== "never" && (!expires || Date.parse(expires) <= Date.now())) { showMsg("pubMsg", "err", tr("expPast")); return; }
   const at = atValue();   // ⏰ publish later
+  if ($("secChk").checked) {   // 🔒 link only: never into the repo
+    if (at || editing || editingSched) { showMsg("pubMsg", "err", tr("secNoSched")); return; }
+    await secPublish({ author, title, expires }); return;
+  }
   if (at && editing) { showMsg("pubMsg", "err", tr("schedNoEdit")); return; }
   if (at && Date.parse(at) <= Date.now()) { showMsg("pubMsg", "err", tr("schedPast")); return; }
   if (at && expires && Date.parse(expires) <= Date.parse(at)) { showMsg("pubMsg", "err", tr("schedExp")); return; }

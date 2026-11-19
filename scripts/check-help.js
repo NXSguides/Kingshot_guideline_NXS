@@ -96,6 +96,7 @@ const FEATURES = [
   ["Post: ⏰ publish later (scheduled)", /"Publish at" \(發布時間/, /{ s: "#pubAt", k: "po06b" }/],
   ["Post: ↕️ reorder announcements", /order of the announcements/, /▲ \/ ▼ move an announcement/],
   ["Post: auto-delete", /Auto-delete/, /Auto-delete/],
+  ["Post: 🔒 link-only announcement", /🔒 LINK ONLY/, /{ s: "#secChk", k: "po12", e: 1 }/],
   ["Events: announcement draft", /Announcement draft/, /Announcement draft/],
   ["Events: one-event game post", /Game post/, /Game post/],
   ["Events: battle-day times (@)", /22:00@1/, /@1/],

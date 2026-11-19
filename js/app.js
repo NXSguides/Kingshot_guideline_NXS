@@ -47,6 +47,32 @@ let pendingJump = "";
 /* 🔗 a link straight to one announcement (Sherry 2026-11-15): …/#a/<key>. No language in it, so each reader keeps their own; the board opens on that
    announcement, scrolled into view, and does not auto-switch away until the reader moves on. */
 let pendingAnn = "", annLinkHold = false;
+/* 🔒 a link-only announcement (Sherry 2026-11-19): …/#s/<id>. It is not in data/announcements.json — it is fetched from our Worker with the id in
+   the link, shown on the board like any other (every language, the reader's own), and gone once an officer deletes it. The id leaves the
+   address bar as soon as the page opens (the usual #/lang/guide takes its place); it is kept for this tab only, so a reload still shows it. */
+let pendingSecret = "";
+const SECRET_API = "https://nxs-ai.tapegirljoke.workers.dev/secret/get", SECRET_SS = "nxs-secret";
+const SECRET_GONE = { en: "This announcement is no longer available.", zh: "這則公告已經不存在了。", ko: "이 공지는 더 이상 볼 수 없어요.", de: "Diese Ankündigung ist nicht mehr verfügbar.", fr: "Cette annonce n'est plus disponible.", pt: "Este anúncio não está mais disponível.", tr: "Bu duyuru artık mevcut değil.", id: "Pengumuman ini sudah tidak tersedia.", ru: "Это объявление больше недоступно.", th: "ประกาศนี้ไม่มีอยู่แล้ว", ar: "هذا الإعلان لم يعد متاحًا.", es: "Este anuncio ya no está disponible." };
+async function loadSecret() {
+  let id = pendingSecret; pendingSecret = "";
+  if (!id) { try { id = sessionStorage.getItem(SECRET_SS) || ""; } catch (e) {} }
+  if (!id || announcements.some((a) => a.secret === id)) return;
+  let j = null;
+  try { const r = await fetch(SECRET_API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }), cache: "no-store" }); j = await r.json(); } catch (e) { return; }   // offline: keep the id, try again on the next load
+  if (!j || !j.ok || !j.a) { try { sessionStorage.removeItem(SECRET_SS); } catch (e) {} if (j && j.error === "gone") secretGone(); return; }
+  try { sessionStorage.setItem(SECRET_SS, id); } catch (e) {}
+  if (announcements.some((a) => a.secret === id)) return;
+  const a = { ...j.a, secret: id, images: [] };
+  announcements = [a, ...announcements]; currentAnnIndex = 0;
+  dropExpired(); pendingAnn = annKey(a);
+  if (langChosen) openPendingAnn(); else renderAll();
+}
+function secretGone() {
+  const el = document.createElement("div");
+  el.setAttribute("role", "status"); el.textContent = "🔒 " + t(SECRET_GONE);
+  el.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9000;max-width:min(92vw,420px);padding:12px 16px;border-radius:12px;background:#2a2118;color:#f3e6c8;border:1px solid #8a6a3a;box-shadow:0 6px 24px rgba(0,0,0,.35);font-size:15px;text-align:center";
+  document.body.appendChild(el); setTimeout(() => el.remove(), 7000);
+}
 const annKey = (a) => { const n = new Date(a.createdAt).getTime(); return isNaN(n) ? "" : n.toString(36); };
 function openPendingAnn() {
   if (!pendingAnn || !langChosen || !announcements.length) return;
@@ -56,6 +82,7 @@ function openPendingAnn() {
 function readHash() {
   const hash = (location.hash || "").replace(/^#\/?/, "");
   { const m = hash.match(/^a\/([0-9a-z]+)$/); if (m) { pendingAnn = m[1]; return; } }
+  { const m = hash.match(/^s\/([A-Za-z0-9_-]{20,40})$/); if (m) { pendingSecret = m[1]; return; } }
   const [lang, guide, jump] = hash.split("/");
   pendingJump = jump || "";
   if (lang) { currentLang = pickLang(lang); langChosen = true; }
@@ -114,7 +141,7 @@ function restorePrefs() {
   // A shared link with a hash (e.g. #/ko/swordland-showdown) still opens that page.
   readHash();
   // The home-screen app remembers the last language chosen in it.
-  if (!langChosen && (isInstalledApp() || pendingAnn)) {   // a 🔗 link to one announcement: a reader who already chose a language here skips the picker
+  if (!langChosen && (isInstalledApp() || pendingAnn || pendingSecret)) {   // a 🔗 link to one announcement: a reader who already chose a language here skips the picker
     const saved = safeGet(STORAGE_KEYS.lang);
     if (saved && LANGS.some((l) => l.code === saved)) {
       currentLang = saved;
@@ -926,6 +953,7 @@ async function loadAnnouncements() {
   dropExpired();
   renderAll();
   openPendingAnn();
+  loadSecret();
 }
 /* auto-delete time set on the officer Post page: hidden right on time (the hourly clean-up then removes it from the files) */
 function dropExpired() {
@@ -952,7 +980,7 @@ function annBodyHtml(a) {
   return `
           <div class="ann-meta">
             <span class="ann-who"><span>${escapeHtml(a.author)}</span><span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span></span>
-            <span class="ann-acts">${announcements.length > 1 ? ` <button type="button" class="ann-pin${annPinned ? " on" : ""}" onclick="annPinToggle()">${escapeHtml(t(annPinned ? ANN_AUTO : ANN_STAY))}</button>` : ""}${annKey(a) ? ` <button type="button" class="ann-pin ann-link" onclick="annCopyLink(this,'${annKey(a)}')">${escapeHtml(t(ANN_LINK))}</button>` : ""}</span>
+            <span class="ann-acts">${announcements.length > 1 ? ` <button type="button" class="ann-pin${annPinned ? " on" : ""}" onclick="annPinToggle()">${escapeHtml(t(annPinned ? ANN_AUTO : ANN_STAY))}</button>` : ""}${a.secret ? ` <span class="ann-pin" style="cursor:default" aria-hidden="true">🔒</span>` : annKey(a) ? ` <button type="button" class="ann-pin ann-link" onclick="annCopyLink(this,'${annKey(a)}')">${escapeHtml(t(ANN_LINK))}</button>` : ""}</span>
           </div>
           ${a.style && typeof annThemeHtml === "function"   /* 📜 scroll / theme look (js/ann-themes.js): the paper grows with the text */
             ? annThemeHtml(a.style, a.title ? escapeHtml(annLabel(a)) : "", `<div class="ann-text" dir="auto">${body.replace(/\n[ \t]*\n\s*/g, "<span class=\"sc2-gap\"></span>")}</div>${imgs}`)
@@ -1720,6 +1748,7 @@ window.addEventListener("hashchange", () => {
   persistPrefs();
   renderAll();
   openPendingAnn();
+  if (pendingSecret) loadSecret();
 });
 
 /* ---- 點圖片放大（公告圖片、指南圖片） ----------------------------- */

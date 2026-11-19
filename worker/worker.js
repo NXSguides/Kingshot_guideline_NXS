@@ -62,10 +62,15 @@ async function handle(req, env, ctx) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed" || path === "/secret") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
+    }
+    if (path === "/secret/get") {   // 🔒 a link-only announcement, for whoever holds its link (no login)
+      if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
+      let b; try { b = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
+      return secretGet(env, b);
     }
     if (path === "/hive") {   // 📍 public "Where's my spot?" page: the moving plan's spots with today's roster names (no login)
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
@@ -370,6 +375,7 @@ ONLY CONFIRMED people are ranked and placed (Sherry, 2026-11-01): ✅ replied ye
 - ✏️ Edit at the bottom of an event changes the whole event: emoji, name (中文 / English), "Repeats on a fixed schedule" (first day in UTC, repeats every … days, lasts … days), note (e.g. times), guide on the site, action items (days before (−) / after the start, text in 中文 and English, show an announcement / Ranking button), and the in-game messages (+ Message, ✕ removes). "Delete event" removes it.
 - + New event adds an event. Events without a fixed schedule only appear in the list, not in the calendar.
 [ranking] - 📊 Ranking tab → "📋 Plan" (中文: 方案) at the top: "🔒 Only on this device" (default, private) or a shared plan made with "+ New shared plan" (e.g. "Legion 1"). In a shared plan every officer sees the same ticked participants, weights, group sizes and battle table; changes show for the others within about 10 seconds to a minute. Shared plans are saved on the Worker (Discord login, no GitHub key): each save sends only what changed on that device, so two officers editing at once — or an old tab left open — don't undo each other. A box at the top of the screen shows the save: ✅ Saved · time / ⏳ Saving / ⚠️ Not saved yet (kept on that device and retried by itself, also after a reload; don't close the page). Rename / Delete buttons next to it. Officers whose 👥 Ranking right is "view" can look but not change a plan.
+[post] - 📢 Post → 🔒 LINK ONLY (機密, 2026-11-19, Sherry): a tick box above the preview, for things that must not be on the site (a battle strategy). Write it as usual, tick "🔒 Link only (confidential)", press Publish. It is NOT put on the site or in the public files: it is kept on our server, translated into all 12 languages (same game-term list; the page shows "Translating… n / 12" — keep it open; about a minute), and the link is copied. It opens only through that link (…/#s/…); the reader sees it on the home page's announcement board like any other announcement, in their own language, and can switch language. The card "🔒 Link-only announcements" at the bottom of the Post tab lists them: 🔗 Copy link, 🌐 Finish translating (when some languages are missing), Delete. Deleting makes the link stop working at once; "Auto-delete" works too. Limits: no pictures, tables or videos (those are public files); cannot be scheduled or edited yet (delete and post again — the link changes); at most 40. It keeps honest people out, nothing more: anyone holding the link can read it and pass it on, no login is asked. Only officers who may post announcements see the list and the links.
 [post] - 📢 Post tab → "Auto-delete" (中文: 自動刪除) under the guide button: Never / when today ends (00:00 UTC) / when tomorrow ends / after 1, 2, 3 or 7 days / pick a date & time (UTC). The announcement disappears from the site on time by itself (the files are cleaned up within the hour). The list shows "🗑️ auto-delete …". To change or remove the time: Edit → Edit the whole announcement → change Auto-delete → Save (it is not translated again).
 - Changes are saved on the site for all officers (other officers see them after refreshing, about 1 minute). Saving uses the same GitHub key as the Post tab; "Someone else changed the events meanwhile" → refresh and try again. The event texts are encrypted like the other officer data.
 - Changing the dates of KvK, Viking Vengeance, Swordland Showdown, Tri-Alliance Clash, Eternity's Reach, All Out, Fishing Tournament, Hero Roulette or Cesares Fury also changes when the main site shows those events (with a link to their guide) in 📅 This week and the 📆 calendar on the 🏠 Home page.
@@ -1594,6 +1600,91 @@ async function boardTranslate1(env, label, body, to) {
   }
   return { ok: false, err: errs.map((e) => e.slice(0, 120)).join(" | ").slice(0, 500) };
 }
+/* 🔒 LINK-ONLY ANNOUNCEMENTS (Sherry 2026-11-19: "strategy that only opens with a special link; officers write it the same way; without the
+   link nobody sees it; delete it and the link is dead" — and "no login: it only has to keep honest people out").
+   The text never goes into the public repo: it lives in the DO ("sec-<id>" + the list "secrets"). The link is #s/<id>, id = 128 random bits,
+   so the link IS the permission: anyone holding it can read (in any language), nobody else can find it. Deleted or expired → gone.
+   Translation is done here (same term table as the board), one language per call, driven by the officer's page — the Worker cannot keep
+   working for minutes after it has answered. No pictures (pictures are public files in the repo). */
+const SEC_LANGS = Object.keys(LANG_NAMES), SEC_ID = /^[A-Za-z0-9_-]{20,40}$/;
+const secLive = (x) => x && (!x.exp || Date.parse(x.exp) > Date.now());
+async function secretTr(env, title, text, to) {
+  if (!env.GEMINI_API_KEY) return { ok: false, err: "no key" };
+  let terms = ""; try { terms = termTable(await getTermRows(), title + "\n" + text); } catch (e) {}
+  const system = [
+    "You are the translator for the NXS alliance in the mobile game Kingshot. You translate an announcement written by an officer for the members.",
+    "Rules: keep the meaning, tone, line breaks, lists, emojis, numbers, coordinates (X:123 Y:456), times and dates exactly; times are UTC — never convert them.",
+    "Keep every formatting mark exactly as written and in the same place: **bold**, lines starting with #, -, >, markers in [[double brackets]] and {curly braces}, and links.",
+    "Never translate member names, alliance tags like [NXS], @mentions or links.",
+    "Game terms: when a game term from the TERM TABLE appears, use exactly the name given for the target language; never invent your own translation of a game term; if the table says (none), keep the term as written.",
+    "Chinese = Traditional Chinese as used in Taiwan (繁體中文), never Simplified. Portuguese = Brazilian Portuguese. Arabic = Modern Standard Arabic (keep numbers as 0-9). Korean = natural Korean as used in the game.",
+    terms ? "\n===== TERM TABLE (official in-game names) =====\n" + terms : "",
+  ].join("\n");
+  const ask = `Translate this announcement (its title and its text) into ${LANG_NAMES[to]}. If it is already written in ${LANG_NAMES[to]}, return it unchanged. Reply with JSON only: {"title": "...", "text": "..."}\n\nTITLE:\n${title}\n\nTEXT:\n${text}`;
+  const schema = { type: "object", properties: { title: { type: "string" }, text: { type: "string" } }, required: ["title", "text"] };
+  const errs = [];
+  for (let round = 0; round < 2; round++) {
+    if (round) { if (!errs.length || !errs.every((e) => /HTTP (429|500|502|503|504)|UNAVAILABLE|overloaded|high demand|timeout/i.test(e))) break; await new Promise((r) => setTimeout(r, 2500)); }
+    for (const m of MODELS) {
+      let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask }] }], { responseMimeType: "application/json", responseSchema: schema, temperature: 0.2, maxOutputTokens: 16384 });
+      if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask }] }], { temperature: 0.2, maxOutputTokens: 16384 });
+      if (r.error) { errs.push(m + ": " + r.error); continue; }
+      try { const raw = r.answer.replace(/^```(?:json)?\s*|\s*```$/g, ""); const j = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1));
+        if (typeof j.text === "string" && j.text.trim() && typeof j.title === "string" && j.title.trim()) return { ok: true, title: j.title.trim(), text: j.text.trim() }; errs.push(m + ": empty"); }
+      catch (e) { errs.push(m + ": bad JSON"); }
+    }
+  }
+  return { ok: false, err: errs.map((e) => e.slice(0, 120)).join(" | ").slice(0, 500) };
+}
+const secRow = (x) => ({ id: x.id, title: x.title[x.lang] || "", author: x.author, at: x.at, exp: x.exp || "", lang: x.lang, langs: Object.keys(x.content) });
+async function secretList(stub) {   // the list officers see; expired ones are removed here (and on a read)
+  const ids = (await stub.kvGet("secrets")) || [], out = [], keep = [];
+  for (const id of ids) { const x = await stub.kvGet("sec-" + id); if (!x) continue; if (!secLive(x)) { await stub.kvSet("sec-" + id, null); continue; } keep.push(id); out.push(secRow(x)); }
+  if (keep.length !== ids.length) await stub.kvSet("secrets", keep);
+  return out.sort((a, b) => b.at - a.at);
+}
+async function secretRoute(env, stub, user, body, token, mayPost) {
+  const op = String(body.op || "list");
+  if (!mayPost) return json({ error: "view_only", token }, 403);   // only officers who may post announcements ever see the list (the list holds the links)
+  if (op === "list") return json({ ok: true, token, list: await secretList(stub) });
+  if (op === "save") {
+    const title = String(body.title || "").trim().slice(0, 200), text = String(body.text || "").trim().slice(0, 12000), author = String(body.author || user.name || "").trim().slice(0, 60);
+    const lang = LANG_NAMES[body.lang] ? body.lang : "en", style = /^[a-z.-]{0,40}$/.test(String(body.style || "")) ? String(body.style || "") : "";
+    const exp = body.exp && !isNaN(Date.parse(body.exp)) && Date.parse(body.exp) > Date.now() ? new Date(body.exp).toISOString() : "";
+    if (!title || !text) return json({ error: "empty", token }, 400);
+    if (/\[\[(img|table|video):/.test(text)) return json({ error: "no_pictures", token }, 400);   // pictures are public files in the repo
+    const ids = (await stub.kvGet("secrets")) || [];
+    if (ids.length >= 40) return json({ error: "too_many", token }, 400);
+    const raw = crypto.getRandomValues(new Uint8Array(16)), id = btoa(String.fromCharCode(...raw)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    const x = { id, at: Date.now(), exp, author, by: user.id, lang, style, title: { [lang]: title }, content: { [lang]: text } };
+    await stub.kvSet("sec-" + id, x); await stub.kvSet("secrets", [...ids, id]);
+    return json({ ok: true, token, item: secRow(x), langs: SEC_LANGS });
+  }
+  const id = String(body.id || ""); if (!SEC_ID.test(id)) return json({ error: "bad id", token }, 400);
+  if (op === "del") {
+    await stub.kvSet("sec-" + id, null); await stub.kvSet("secrets", ((await stub.kvGet("secrets")) || []).filter((v) => v !== id));
+    return json({ ok: true, token, list: await secretList(stub) });
+  }
+  if (op === "tr") {   // one language per call (the page asks for each in turn and shows the progress)
+    const to = String(body.to || ""); if (!LANG_NAMES[to]) return json({ error: "bad lang", token }, 400);
+    let x = await stub.kvGet("sec-" + id); if (!secLive(x)) return json({ error: "gone", token }, 404);
+    if (x.content[to]) return json({ ok: true, token, item: secRow(x) });
+    const r = await secretTr(env, x.title[x.lang], x.content[x.lang], to);
+    if (!r.ok) return json({ error: "translate", detail: [r.err || ""], token }, 502);
+    x = await stub.kvGet("sec-" + id); if (!secLive(x)) return json({ error: "gone", token }, 404);   // read again: other languages were written meanwhile
+    x.title[to] = r.title.slice(0, 300); x.content[to] = r.text.slice(0, 20000); await stub.kvSet("sec-" + id, x);
+    return json({ ok: true, token, item: secRow(x) });
+  }
+  return json({ error: "bad op", token }, 400);
+}
+async function secretGet(env, body) {
+  const id = String((body && body.id) || "");
+  if (!SEC_ID.test(id) || !env.TIMERS) return json({ error: "gone" }, 404);
+  const stub = env.TIMERS.get(env.TIMERS.idFromName("all")), x = await stub.kvGet("sec-" + id);
+  if (!x) return json({ error: "gone" }, 404);
+  if (!secLive(x)) { await stub.kvSet("sec-" + id, null); return json({ error: "gone" }, 404); }
+  return json({ ok: true, a: { author: x.author, createdAt: new Date(x.at).toISOString(), expiresAt: x.exp || "", style: x.style || "", title: x.title, content: x.content } });
+}
 /* the language a message is written in, from its letters (a post sent without translation has no AI-detected source);
    Latin text → the writer's page language if that is en / pt, else en */
 function boardSrc(text, pageLang) {
@@ -2129,7 +2220,7 @@ async function authRoute(req, env, path, ctx) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed" || path === "/secret") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);   // Discord login only (the officer password alone no longer opens anything)
@@ -2157,6 +2248,7 @@ async function authRoute(req, env, path, ctx) {
     if (path === "/plans") return plansRoute(env, stub, u, body, token, perms);
     if (path === "/rewards") return rewardsRoute(stub, u, body, token, perms);
     if (path === "/perms") return permsRoute(stub, u, body, token, role);
+    if (path === "/secret") return secretRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "post"));
     if (path === "/directed") {   // 👤 to-dos sent only to chosen officers (Events editor "Only remind"): the Worker sends them, no phone set-up needed
       if (!canEdit(perms, s.u.id, "events")) return json({ error: "view_only", token }, 403);
       const now = Date.now();
