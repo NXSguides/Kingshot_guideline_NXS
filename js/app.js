@@ -996,10 +996,17 @@ function selectAnnouncement(i) {
     currentAnnIndex = i;
     board.querySelectorAll(".ann-tab").forEach((t, k) => t.classList.toggle("active", k === i));
     // each announcement keeps its own height; the box eases from the old height to the new one instead of jumping
-    const from = bodyEl.offsetHeight;
+    /* a much shorter announcement used to pull the whole window up (Sherry 2026-11-19): the page got shorter than where the reader was, and the
+       browser moved the window to fit. Now the page never gets shorter than the reader's screen: the box keeps just enough empty room under
+       the short announcement, and gives it back as the reader scrolls up (annRoom, below). */
+    const root = document.documentElement, from = bodyEl.offsetHeight, docH = root.scrollHeight, rootMin = root.style.minHeight;
+    root.style.minHeight = docH + "px";   // hold the page while the new text is measured
     bodyEl.style.minHeight = ""; bodyEl.style.transition = ""; bodyEl.style.height = "";
     bodyEl.innerHTML = annBodyHtml(announcements[i]);
-    const to = bodyEl.offsetHeight;
+    const nat = bodyEl.offsetHeight, need = Math.ceil(window.scrollY + window.innerHeight - (docH - from + nat)), room = need > 0 ? need + 2 : 0;
+    bodyEl._annNat = nat; bodyEl.style.minHeight = room ? nat + room + "px" : "";
+    const to = nat + room;
+    root.style.minHeight = rootMin;
     if (from !== to && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
       bodyEl.style.overflow = "hidden"; bodyEl.style.height = from + "px"; void bodyEl.offsetHeight;
       bodyEl.style.transition = "height .25s ease"; bodyEl.style.height = to + "px";
@@ -1017,6 +1024,14 @@ function selectAnnouncement(i) {
   window.scrollTo(0, pageY);
 }
 window.selectAnnouncement = selectAnnouncement;
+/* the empty room kept under a short announcement goes away as the reader scrolls up (never while it would move the window) */
+function annRoom() {
+  const bodyEl = document.querySelector(".ann-board .ann-body"); if (!bodyEl || !bodyEl.style.minHeight || !bodyEl._annNat) return;
+  const cur = parseFloat(bodyEl.style.minHeight) || 0, nat = bodyEl._annNat, room = Math.max(0, Math.ceil(window.scrollY + window.innerHeight - (document.documentElement.scrollHeight - Math.max(cur, nat) + nat)));
+  if (nat + room < cur) bodyEl.style.minHeight = room ? nat + room + "px" : "";
+}
+window.addEventListener("scroll", annRoom, { passive: true });
+window.addEventListener("resize", annRoom, { passive: true });
 /* more than one announcement: after 8 s on screen with nothing done to it, the next one shows.
    Only the time it is actually on screen counts (at least half of it visible); any tap, swipe, wheel or mouse move on it starts the 8 s again. */
 const ANN_IDLE = 7000;
