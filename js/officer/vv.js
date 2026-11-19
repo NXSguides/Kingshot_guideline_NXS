@@ -12,7 +12,7 @@ const ELITE = [7, 14, 17];
 const CITY_WAVES = Array.from({ length: 19 }, (_, i) => i + 1).filter((w) => w !== 10);   // waves 10 and 20 only hit the HQ, not the cities (Sherry 2026-11-04)
 const hostPts = (w) => (ELITE.includes(w) ? 2 : 1) * (2700 + 1800 * w);
 const T = {
-  en: { title: "🪓 Viking report", intro: "", obs: ["A city that clears the wave gets a fixed score; the reinforcers' part is split by infantry × tier.", "Almost all kills come from infantry.", "Even when Ambusher triggers, cavalry can get everything, a part, or 0.", "In a city that clears the wave, buffs and heroes don't change your share."], obsH: "🔎 What we saw", howH: "🔢 How we worked it out",
+  en: { title: "🪓 Viking report", pdf: "📄 Save as PDF", pdfHint: "In the print window, choose “Save as PDF”.", intro: "", obs: ["A city that clears the wave gets a fixed score; the reinforcers' part is split by infantry × tier.", "Almost all kills come from infantry.", "Even when Ambusher triggers, cavalry can get everything, a part, or 0.", "In a city that clears the wave, buffs and heroes don't change your share."], obsH: "🔎 What we saw", howH: "🔢 How we worked it out",
     badge: "🔬 Our research · updated {d}",
     heroH: "Every wave has a fixed number of Vikings.", heroP: "If the city holds, they all die. So the question isn't how hard you hit — it's how much of the city's infantry is yours.",
     whoH: "⚔️ Who does the fighting",
@@ -44,7 +44,7 @@ const T = {
       "2 · Depends on the battle: infantry + cavalry + archer kills = share killed × number of Vikings. Enough infantry → wave cleared, cavalry only via Ambusher, archers 0. Little infantry → cavalry take part; very little → maybe not cleared. Needs a round-by-round simulation to predict.",
       "3 · Points: owner = base points × share killed; reinforcers share half of the base, split by layer 1."],
     foot: "Source: Sparrow's screenshots and battle-report sums (11/03 difficulty 11, 11/06 ~60 reports). The formulas are worked back from report numbers, not from the game. Re-check after a game update." },
-  zh: { title: "🪓 維京研究", intro: "", obs: ["守住的城每波分數固定；增援者那一份照「步兵數 × 兵等」分。", "擊殺幾乎都是步兵打的。", "奇襲觸發後，騎兵可能拿到全部、一部分，或 0。", "會全滅的城，增益和英雄不影響你分到多少。"], obsH: "🔎 我們觀察到", howH: "🔢 怎麼算的",
+  zh: { title: "🪓 維京研究", pdf: "📄 存成 PDF", pdfHint: "在列印視窗選「另存為 PDF」。", intro: "", obs: ["守住的城每波分數固定；增援者那一份照「步兵數 × 兵等」分。", "擊殺幾乎都是步兵打的。", "奇襲觸發後，騎兵可能拿到全部、一部分，或 0。", "會全滅的城，增益和英雄不影響你分到多少。"], obsH: "🔎 我們觀察到", howH: "🔢 怎麼算的",
     badge: "🔬 我們的研究 · 更新 {d}",
     heroH: "每一波的維京人數是固定的。", heroP: "守住了就全部死光。所以重點不是打得多猛，而是城裡的步兵有多少是你的。",
     whoH: "⚔️ 誰在打",
@@ -76,7 +76,7 @@ const T = {
       "2 · 看戰況：步＋騎＋弓總擊殺 = 殺掉的比例 × 維京人數。步兵夠 → 全滅、騎兵靠奇襲、弓兵 0；步兵偏少 → 騎兵分一部分；步兵很少 → 可能殺不完。要逐回合模擬才算得準。",
       "3 · 分數：城主 = 基本分 × 殺掉的比例；增援者分基本分的一半，照第 1 層的擊殺比例分。"],
     foot: "來源：Sparrow 的截圖和戰報加總（11/03 難度 11、11/06 約 60 份戰報）。公式是從戰報數字反推的，不是遊戲官方說明。遊戲改版後要重新確認。" },
-  pt: { title: "🪓 Estudo Viking", intro: "", obs: ["Uma cidade que elimina a onda ganha pontuação fixa; a parte dos reforços é dividida por infantaria × nível.", "Quase todos os abates vêm da infantaria.", "Mesmo quando o Emboscador ativa, a Cavalaria pode ficar com tudo, uma parte ou 0.", "Numa cidade que elimina a onda, bônus e heróis não mudam a sua parte."], obsH: "🔎 O que observamos", howH: "🔢 Como calculamos",
+  pt: { title: "🪓 Estudo Viking", pdf: "📄 Salvar em PDF", pdfHint: "Na janela de impressão, escolha “Salvar como PDF”.", intro: "", obs: ["Uma cidade que elimina a onda ganha pontuação fixa; a parte dos reforços é dividida por infantaria × nível.", "Quase todos os abates vêm da infantaria.", "Mesmo quando o Emboscador ativa, a Cavalaria pode ficar com tudo, uma parte ou 0.", "Numa cidade que elimina a onda, bônus e heróis não mudam a sua parte."], obsH: "🔎 O que observamos", howH: "🔢 Como calculamos",
     badge: "🔬 Nossa pesquisa · atualizado {d}",
     heroH: "Cada onda tem um número fixo de vikings.", heroP: "Se a cidade aguenta, todos morrem. Então a questão não é o quanto você bate — é quanto da infantaria da cidade é sua.",
     whoH: "⚔️ Quem luta",
@@ -108,7 +108,7 @@ const T = {
       "2 · Depende da batalha: abates de infantaria + cavalaria + arquearia = parte abatida × número de vikings. Infantaria suficiente → onda eliminada, cavalaria só com Emboscador, arquearia 0. Pouca infantaria → a cavalaria participa; muito pouca → talvez não elimine. Para prever, precisa de uma simulação rodada a rodada.",
       "3 · Pontos: dono = pontos base × parte abatida; os reforços dividem metade da base, conforme a camada 1."],
     foot: "Fonte: capturas de tela do Sparrow e somas dos relatórios de batalha (11/03 dificuldade 11, 11/06 ~60 relatórios). As fórmulas foram deduzidas dos números dos relatórios, não do jogo. Confira de novo depois de uma atualização do jogo." },
-  ar: { title: "🪓 دراسة الفايكنغ", intro: "", obs: ["المدينة التي تنهي الموجة تحصل على نقاط ثابتة؛ حصة المعزّزين تُقسم حسب المشاة × المستوى.", "معظم القتلى يأتي من المشاة.", "حتى عند تفعيل المتربص، قد يحصل الفرسان على الكل أو جزء أو 0.", "في مدينة تنهي الموجة، التعزيزات والأبطال لا يغيّرون حصتك."], obsH: "🔎 ما لاحظناه", howH: "🔢 كيف حسبناها",
+  ar: { title: "🪓 دراسة الفايكنغ", pdf: "📄 حفظ كملف PDF", pdfHint: "في نافذة الطباعة اختر «حفظ بتنسيق PDF».", intro: "", obs: ["المدينة التي تنهي الموجة تحصل على نقاط ثابتة؛ حصة المعزّزين تُقسم حسب المشاة × المستوى.", "معظم القتلى يأتي من المشاة.", "حتى عند تفعيل المتربص، قد يحصل الفرسان على الكل أو جزء أو 0.", "في مدينة تنهي الموجة، التعزيزات والأبطال لا يغيّرون حصتك."], obsH: "🔎 ما لاحظناه", howH: "🔢 كيف حسبناها",
     badge: "🔬 بحثنا · آخر تحديث {d}",
     heroH: "لكل موجة عدد ثابت من الفايكنغ.", heroP: "إذا صمدت المدينة يموتون كلهم. لذلك السؤال ليس كم تضرب بقوة — بل كم من مشاة المدينة لك.",
     whoH: "⚔️ من يقاتل",
@@ -140,7 +140,7 @@ const T = {
       "2 · تعتمد على المعركة: قتلى المشاة + الفرسان + الرماة = نسبة القتلى × عدد الفايكنغ. مشاة كافية → تنتهي الموجة، الفرسان فقط عبر المتربص، الرماة 0. مشاة قليلة → يشارك الفرسان؛ قليلة جداً → ربما لا تنتهي. التوقع يحتاج محاكاة جولة بجولة.",
       "3 · النقاط: صاحب المدينة = النقاط الأساسية × نسبة القتلى؛ المعززون يتقاسمون نصف الأساس حسب الطبقة 1."],
     foot: "المصدر: لقطات شاشة Sparrow ومجاميع تقارير المعارك (11/03 الصعوبة 11، 11/06 ~60 تقريراً). استنتجنا الصيغ من أرقام التقارير، لا من اللعبة. تحقق مرة أخرى بعد تحديث اللعبة." },
-  ko: { title: "🪓 바이킹 연구", intro: "", obs: ["웨이브를 다 처치한 도시는 고정 점수를 받고, 증원자 몫은 보병 × 등급으로 나눠.", "처치는 거의 다 보병이 해.", "기습이 발동해도 기병은 전부, 일부, 또는 0을 받을 수 있어.", "웨이브를 다 처치하는 도시에서는 버프와 영웅이 내 몫을 바꾸지 않아."], obsH: "🔎 우리가 관찰한 것", howH: "🔢 어떻게 계산했는지",
+  ko: { title: "🪓 바이킹 연구", pdf: "📄 PDF로 저장", pdfHint: "인쇄 창에서 “PDF로 저장”을 골라.", intro: "", obs: ["웨이브를 다 처치한 도시는 고정 점수를 받고, 증원자 몫은 보병 × 등급으로 나눠.", "처치는 거의 다 보병이 해.", "기습이 발동해도 기병은 전부, 일부, 또는 0을 받을 수 있어.", "웨이브를 다 처치하는 도시에서는 버프와 영웅이 내 몫을 바꾸지 않아."], obsH: "🔎 우리가 관찰한 것", howH: "🔢 어떻게 계산했는지",
     badge: "🔬 우리 연구 · 업데이트 {d}",
     heroH: "웨이브마다 바이킹 수는 정해져 있음.", heroP: "도시가 버티면 전부 죽음. 그래서 중요한 건 얼마나 세게 때리느냐가 아니라 — 도시 보병 중 내 보병이 얼마나 되느냐.",
     whoH: "⚔️ 누가 싸우나",
@@ -240,8 +240,19 @@ function bind() {
     el.onchange = () => { S[k] = num ? Math.max(0, +el.value || 0) : el.value; redo(); };
   }
 }
-function init() { applyTexts(); render(); }
-function applyTexts() { if ($("vv_title")) { $("vv_title").textContent = t("title"); $("vv_intro").textContent = t("intro"); } }
+/* 📄 Save as PDF: the browser's own print window, showing this report only. Light colours, every folded part open and every
+   picture loaded while it prints; all put back afterwards. Nothing is sent anywhere. */
+function toPdf() {
+  const root = document.documentElement, pg = $("pg-vv"); if (!pg) return;
+  const theme = root.getAttribute("data-theme"), shut = [...pg.querySelectorAll("details:not([open])")];
+  const back = () => { document.body.classList.remove("vv-print"); if (theme === null) root.removeAttribute("data-theme"); else root.setAttribute("data-theme", theme); shut.forEach((d) => { d.open = false; }); window.removeEventListener("afterprint", back); };
+  document.body.classList.add("vv-print"); root.setAttribute("data-theme", "light"); shut.forEach((d) => { d.open = true; });
+  const imgs = [...pg.querySelectorAll("img")]; imgs.forEach((im) => { im.loading = "eager"; });
+  window.addEventListener("afterprint", back);
+  Promise.all(imgs.map((im) => (im.complete ? 0 : new Promise((ok) => { im.onload = im.onerror = ok; setTimeout(ok, 3000); })))).then(() => { try { window.print(); } catch (e) { back(); } });
+}
+function init() { applyTexts(); render(); if ($("vv_pdf")) $("vv_pdf").onclick = toPdf; }
+function applyTexts() { if ($("vv_title")) { $("vv_title").textContent = t("title"); $("vv_intro").textContent = t("intro"); } if ($("vv_pdf")) { $("vv_pdf").textContent = t("pdf"); $("vv_pdfHint").textContent = t("pdfHint"); } }
 function setLang(l) { lang = l; applyTexts(); render(); }
 OFFICER_PAGES.vv = { init, applyTexts, setLang };
 })();

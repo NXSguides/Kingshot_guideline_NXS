@@ -512,6 +512,15 @@
   #pg-vv .vv-ic { flex: 0 0 52px; height: 52px; border-radius: 10px; overflow: hidden; display: grid; place-items: center; font-size: 28px; background: var(--panel); } #pg-vv .vv-ic img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
   #pg-vv .vv-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; } @media (max-width: 620px) { #pg-vv .vv-two { grid-template-columns: 1fr; } }
   #pg-vv .vv-ul { margin: 0; padding-inline-start: 1.2em; font-size: 13.5px; line-height: 1.55; } #pg-vv .vv-ul li { margin: 4px 0; }
+  /* 📄 Save as PDF (Sherry 2026-11-19): the report only, light colours, folded numbers open */
+  #pg-vv .vv-out { text-align: right; max-width: 240px; } #pg-vv .vv-out .muted { font-size: 12px; margin-top: 4px; }
+  @media print {
+    html:has(body.vv-print), body.vv-print { padding: 0; background: #fff !important; }
+    body.vv-print > *:not(#main), body.vv-print #main > *:not(#pg-vv), body.vv-print #pg-vv .vv-out { display: none !important; }
+    body.vv-print #pg-vv .vv-hero, body.vv-print #pg-vv .vv-trs, body.vv-print #pg-vv .vv-calc, body.vv-print #pg-vv h3, body.vv-print #pg-vv .vv-tr, body.vv-print #pg-vv .vv-pile, body.vv-print #pg-vv tr, body.vv-print #pg-vv li { break-inside: avoid; }
+    body.vv-print #pg-vv h3, body.vv-print #pg-vv h4 { break-after: avoid; }
+    body.vv-print #pg-vv * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
   #pg-vv .vv-num summary { cursor: pointer; font-weight: 700; } #pg-vv .vv-t { border-collapse: collapse; margin-top: 10px; font-size: 13px; min-width: 280px; }
   #pg-vv .vv-t th, #pg-vv .vv-t td { padding: 5px 12px; border-bottom: 1px solid var(--rule); text-align: start; } #pg-vv .vv-t .n { text-align: end; font-variant-numeric: tabular-nums; } #pg-vv .vv-t tr.el td { font-weight: 700; }
   #pg-bearplan { --bp-main: #d98a1c; --bp-second: #2f8f8a; --bp-weak: #9a8fa6; --bp-idle: #e6e9ee; }
@@ -1898,7 +1907,7 @@
   <div id="rg_root"></div>
 </section>
 <section class="pg" id="pg-vv" hidden>
-  <div class="top"><div><h1 id="vv_title">🪓</h1><div class="muted" id="vv_intro"></div></div></div>
+  <div class="top"><div><h1 id="vv_title">🪓</h1><div class="muted" id="vv_intro"></div></div><div class="vv-out"><button type="button" class="btn" id="vv_pdf">📄</button><div class="muted" id="vv_pdfHint"></div></div></div>
   <div id="vv_root"></div>
 </section>
 <section class="pg" id="pg-attack" hidden>
