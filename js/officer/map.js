@@ -166,7 +166,7 @@ function renderInfo() {
   if (isOp(b) && (s === "held" || s === "vuln")) {
     const n = nextSw(b);
     $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">
-      <div>${n ? `⏱ <b>${esc(left(n - Date.now()))}</b> → ${esc(pt(s === "held" ? "toV" : "toP"))}` : `<span class="muted">${esc(pt("noT"))}</span>`}</div>
+      <div>${n ? `⏱ <b>${esc(left(n - Date.now()))}</b> → ${esc(pt(s === "held" ? "toV" : "toP"))} <span class="muted">（${esc(swAt(n))}）</span>` : `<span class="muted">${esc(pt("noT"))}</span>`}</div>
       ${ME() ? `<div class="km-tmin"><span class="muted" style="flex-basis:100%">${esc(pt(s === "held" ? "leftP" : "leftV"))}</span>
         <input id="tm_d" type="number" min="0" max="9" inputmode="numeric">${esc(pt("dd"))}<input id="tm_h" type="number" min="0" max="23" inputmode="numeric">${esc(pt("hh"))}<input id="tm_m" type="number" min="0" max="59" inputmode="numeric">${esc(pt("mm"))}
         <button type="button" class="btn" id="tm_set">${esc(pt("setT"))}</button>${n ? `<button type="button" class="btn" id="tm_clr">${esc(pt("clrT"))}</button>` : ""}</div>` : ""}</div>`);
@@ -407,6 +407,10 @@ const stale = (b) => !isOp(b) && raw(b) === "held" && (((OR().h || {})[pk(b)]) |
 const eff = (b) => { if (stale(b)) return "target"; const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); return isOp(b) && OR().t[pk(b)] ? cycAt(r, OR().t[pk(b)], Date.now())[0] : r; };
 const nextSw = (b) => isOp(b) && OR().t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), OR().t[pk(b)], Date.now())[1] : 0;
 /* start of its latest Protected phase (needs a timer) — the later one was taken later */
+/* when the next switch happens, as a clock time (Sherry 2026-11-19: "in brackets, what time that is — UTC and local"): "11/21 14:30 UTC · 11/21 22:30 UTC+8" */
+const swAt = (n) => { const d = new Date(n), z = (v) => String(v).padStart(2, "0"), off = -d.getTimezoneOffset(), a = Math.abs(off);
+  const u = `${z(d.getUTCMonth() + 1)}/${z(d.getUTCDate())} ${z(d.getUTCHours())}:${z(d.getUTCMinutes())} UTC`;
+  return off === 0 ? u : `${u} · ${z(d.getMonth() + 1)}/${z(d.getDate())} ${z(d.getHours())}:${z(d.getMinutes())} UTC${off < 0 ? "−" : "+"}${Math.floor(a / 60)}${a % 60 ? ":" + z(a % 60) : ""}`; };
 const protStart = (b) => { const n = nextSw(b); if (!n) return null; const P = CYC().p * 36e5, V = CYC().v * 36e5; return eff(b) === "held" ? n - P : n - V - P; };
 /* ⚠️ Buff conflict, worked out from the timers: among our Protected Outposts of the same type + level, the one that has
    been Protected the shortest (= more Protected time left when both are Protected) gets no buff. Without timers an
@@ -572,7 +576,8 @@ function renderPlan() {
   const rows = G.types.map(([k]) => `<tr><td><span class="sw" style="background:${TY[k].c};display:inline-block;vertical-align:-2px;margin-right:6px"></span>${esc(typeName(k))}</td><td class="muted">${esc(buffName(k))}</td><td class="n">${fmt(now[k])}</td><td class="n${(after[k] || 0) > (now[k] || 0) ? " up" : ""}">${fmt(after[k])}</td></tr>`).join("");
   /* in-game "增益衝突": a second Outpost we hold with the same type + level as another one we hold */
   /* ⚠️ Buff conflict is worked out from the timers (isConflict above) */
-  const list = (s) => { const L = B.filter((b) => isOp(b) && st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${nextSw(b) ? ` <span class="muted">⏱ <span data-sw="${nextSw(b)}">${esc(left(nextSw(b) - Date.now()))}</span></span>` : ""}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
+  const list = (s) => { const L = B.filter((b) => isOp(b) && st(b) === s).map((b, i) => [nextSw(b) || Infinity, i, b]).sort((p, q) => p[0] - q[0] || p[1] - q[1]).map((r) => r[2]);   // the one that switches soonest first; no timer → last
+    return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${nextSw(b) ? ` <span class="muted">⏱ <span data-sw="${nextSw(b)}">${esc(left(nextSw(b) - Date.now()))}</span>（${esc(swAt(nextSw(b)))}）</span>` : ""}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
   const cnt = (s) => B.filter((b) => isOp(b) && st(b) === s).length;
   /* Sanctuary Battle: season points per phase (Sanctuary 1, Fortress 2); one active sign-up of each kind per phase */
   const R = (s) => B.filter((b) => !isOp(b) && st(b) === s);
