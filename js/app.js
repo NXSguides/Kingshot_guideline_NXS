@@ -361,7 +361,7 @@ const NOTE_EVENTS = [
 ];
 const noteName = (ev) => (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
-const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [3, 5, 11, 14, 16, 18] };
+const EVENT_TIMES = { "bear-hunt": [13, 22, 19], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [3, 5, 11, 14, 16, 18] };
 /* officers set these on the officer Events tab → data/event-times.json ("13:30" → 13.5); the ⏰ timers read them too */
 const hmToH = (v) => { const m = String(v).match(/^(\d{1,2})(?::(\d{2}))?$/); return m && +m[1] < 24 && +(m[2] || 0) < 60 ? +m[1] + (+(m[2] || 0)) / 60 : null; };
 const hToHM = (h) => String(Math.floor(h)).padStart(2, "0") + ":" + String(Math.round((h % 1) * 60)).padStart(2, "0");
@@ -1324,7 +1324,7 @@ function todayCardHtml() {
   soon.sort((a, b) => a.until - b.until);
   const hh = hToHM;
   const local = (h) => { const d = new Date(Math.floor(Date.now() / 864e5) * 864e5 + Math.round(h * 60) * 6e4); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
-  const times = (key, day) => { const T = timesOnDay(key, day); if (!T || !T.length) return "";
+  const times = (key, day) => { const T = [...(timesOnDay(key, day) || [])].sort((p, q) => p - q); if (!T.length) return "";   // shown earliest first, whatever order they were saved in (the ⏰ switches go by saved position)
     const off = new Date().getTimezoneOffset() !== 0 ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${T.map(local).join(" & ")})</span>` : "";
     return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
   const row = (it, meta) => {
