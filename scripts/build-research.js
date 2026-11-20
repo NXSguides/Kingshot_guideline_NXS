@@ -38,11 +38,20 @@ const html = `<!doctype html>
 ${PUBLIC.map(([id]) => sec(id)).join("\n")}
 ${sec("growth")}
 </div>
+<script src="data/research-i18n.js"></script>
 <script>
 (function () {
   const PUBLIC = ${JSON.stringify(PUBLIC)};
-  const LANGS = { en: "English", zh: "繁體中文", pt: "Português", ar: "العربية", ko: "한국어" };
+  const LANGS = { en: "English", zh: "繁體中文", ko: "한국어", de: "Deutsch", fr: "Français", pt: "Português", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย", ar: "العربية" };
   const LOCK = { en: "Preview: this page is not linked from the site yet.", zh: "預覽：這一頁還沒有接到網站的選單上。", pt: "Prévia: esta página ainda não está ligada ao site.", ar: "معاينة: هذه الصفحة غير مرتبطة بالموقع بعد.", ko: "미리보기: 이 페이지는 아직 사이트에 연결되지 않았어." };
+  const RT = window.RESEARCH_T || {};
+  for (const l in ((RT.vv || {}).T || {})) if (RT.vv.T[l].lock) LOCK[l] = RT.vv.T[l].lock;
+  /* de fr es tr id ru th: the officer report files only carry 5 languages, the rest is laid over English here */
+  const deep = (base, add) => { if (add === null || typeof add !== "object") return add; const o = Array.isArray(base) ? base.slice() : { ...(base || {}) }; for (const k of Object.keys(add)) o[k] = deep(base ? base[k] : undefined, add[k]); return o; };
+  window.RESEARCH_MERGE = (rep, tables) => { const R = RT[rep]; if (!R) return;
+    for (const [name, tb] of Object.entries(tables)) { const add = R[name]; if (!add) continue;
+      if (name === "HN") { for (const l in add) for (const id in add[l]) if (tb[id]) tb[id][l] = add[l][id]; continue; }
+      for (const l in add) tb[l] = deep(tb.en, add[l]); } };
   const q = new URLSearchParams(location.search);
   const rep = PUBLIC.find((p) => p[0] === q.get("r")) || PUBLIC[0];
   let lang = q.get("lang") || ""; if (!LANGS[lang]) { try { lang = localStorage.getItem("ks-lang") || ""; } catch (e) {} } if (!LANGS[lang]) lang = "en";

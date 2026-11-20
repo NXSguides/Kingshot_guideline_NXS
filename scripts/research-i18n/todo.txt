@@ -1,0 +1,345 @@
+0	⚔️ Rally & Garrison
+1	A rally uses the leader's stats; a garrison uses its strongest defender's.
+2	Same skill type adds; different types multiply.
+3	🔎 What we saw
+4	Only your first hero's skill counts: bring a 4★ hero with the skill at Lv5.
+5	Bear Hunt: 2 Attack (Amane, Margot) + 2 Lethality (Chenko, Yeonwoo).
+6	PvP rally and garrison: 4 different types (e.g. Amane + Chenko + Gordon + Howard).
+7	City Bonus: the rally leader, or the strongest defender in a garrison.
+8	After taking a building: garrison heroes and garrison Exclusive Gear.
+9	💡 Suggestions
+10	🔬 Our research · updated {d}
+11	✅ sure
+12	🟡 likely
+13	🦸 The 4 joiner skills
+14	Only your first hero's top-right skill counts.
+15	Higher skill level first; same level → join order.
+16	No battle skills
+17	Attack 25 + Health 25 + Lethality 25
+18	Attack 25 + Attack 25 + Health 25
+19	🛡️ Defense skills count as much as attack
+20	Health, Damage Taken Down and Enemy Attack Down each work about ×(1 + X).
+21	Enemy Attack Down works on monsters too.
+22	🎯 Which joiners
+23	⚔️🛡️ PvP rally & garrison
+24	🧮 Try 4 joiners
+25	no battle skill
+26	4 × Chenko
+27	2 Chenko + 2 Amane
+28	Saul + Gordon + Howard + Fahd (all defense)
+29	Amane + Chenko + Gordon + Howard
+30	Examples (Lv5)
+31	👑 The leader / strongest defender
+32	Battle report stats = (1 + troop % + squad %) × (1 + City Bonus + rally/garrison Exclusive Gear) ÷ (1 + enemy debuff) − 1.
+33	Joiners turning on City Bonus does nothing.
+34	Rally Exclusive Gear works only when you launch the rally; garrison gear only in a garrison.
+35	🐻 Bear Hunt report
+36	Archer marches to the strongest rallies first; infantry and cavalry to the later ones.
+37	Mostly archers (about 1 : 25 : 74), but don't send zero of any troop type.
+38	Join with an Attack or Lethality hero in the first slot.
+39	Leaders: Petra and Amadeus are worth bringing; City Bonus on; joiner skills 2 Attack + 2 Lethality.
+40	💡 Suggestions
+41	🔬 Our research · updated {d}
+42	🏹 Archers count most
+43	Best mix:
+44	🧮 Try your mix
+45	{t} count
+46	{p}% of the best mix for {n} troops
+47	🚩 The rally you join matters most
+48	The same archer march: about 50–60M in a strong rally, about 20M in a weak one.
+49	Weak leader
+50	Strong leader
+51	👑 What makes a rally strong
+52	The leader's archer Attack and Lethality
+53	The leader's City Bonus
+54	Joiner skills (4 slots, higher skill level first)
+55	The leader's three heroes — they change the rally a lot (see below)
+56	Joiner skills: mix Attack and Lethality
+57	🎲 Luck
+58	Same troops = same score.
+59	One leader's rallies differ by 10–25%; compare leaders over 3–4 rallies.
+60	{n} players
+61	🌟 Valora (Master)
+62	Hunter Instinct adds to your own damage score:
+63	Dance of the Hunt: rally capacity +30,000 per level. Savage Advantage: your own march capacity +3,000 per level.
+64	🩹 Battle losses
+65	🔬 Our research · updated {d}
+66	🔎 What we saw
+67	Troops that fall go one of three ways: lightly injured (out of this fight, but they stay with the march and can fight again — except when defending a building such as a Sanctuary, Outpost or King's Castle: there they are sent home — no healing needed — so the garrison gets thinner with each attack), injured (in the Infirmary, can be healed), or lost (gone).
+68	In any battle, once your Infirmary is full, the injured that don't fit are lost. Apart from that, troops are lost only when you attack someone's Town (35% of the troops that fall) or fight over a Lv. 4 Outpost (10%).
+69	When the defending side of a report shows losses, their Infirmary was full.
+70	💡 Suggestions
+71	Before you can be attacked, heal your injured so the Infirmary has room.
+72	Holding a building: refill the garrison between attacks — the lightly injured have gone home.
+73	Before attacking a Town, count on 35% of the fallen troops not coming back.
+74	Where fallen troops go
+75	Both sides
+76	Defender
+77	Lost
+78	Lightly injured
+79	Attacking a Town
+80	Attacking gatherers or troops on the map
+81	Rally on a building, or garrison
+82	Outpost Lv. 1
+83	Outpost Lv. 2
+84	Outpost Lv. 3
+85	Outpost Lv. 4
+86	Sanctuary, Fortress
+87	one report
+88	Almost all lightly injured.
+89	Also
+90	Outposts: the higher the level, the more injured (10%, 20%, 30%); only Lv. 4 also loses troops.
+91	Kills = the other side's lost + injured. Lightly injured don't count.
+92	Injured troops enter the Infirmary from the highest tier down.
+93	A Town with no troops inside: no battle, nobody is hurt.
+94	In a rally or garrison, each person's share of the fallen follows their share of that troop type.
+95	Attacks hit the front line first: infantry, then cavalry, then archers — so infantry fall first and cavalry almost never fall. Archers sometimes fall before the infantry are gone: that is the enemy cavalry's Ambusher (from T7, 20% of their attacks skip infantry).
+96	🦣 Terror rallies
+97	The Recommended Power is for the whole rally.
+98	Rally power ≈ the leader's power per troop × all troops in the rally.
+99	Hurt troops are almost all only lightly injured.
+100	The whole rally should reach the Recommended Power.
+101	1× wins; 1.5× for few injuries; under half, don't start.
+102	💡 Suggestions
+103	🔬 Our research · updated {d}
+104	✅ sure
+105	🟡 likely
+106	Great Moose
+107	Alpha Black Panther
+108	Regal White Lion
+109	Ironclad War Elephant
+110	Ironclad War Bear
+111	Titan Roc
+112	📋 The levels
+113	Lv
+114	Troops (inf / cav / arc)
+115	Tier
+116	All stats
+117	Rally power ≈ the leader's march power ÷ the leader's march capacity × all troops in the rally
+118	The two numbers at the top of the leader's march page (3 heroes, full march).
+119	📏 Rally power ÷ Recommended Power
+120	1.5× or more: easy — under 10% hurt
+121	about 1×: you win, 20–30% hurt
+122	about 0.7×: barely win, about half hurt
+123	under 0.5×: you lose
+124	easy
+125	win
+126	barely
+127	lose
+128	🧮 Try a rally
+129	Leader's march power (M)
+130	Leader's march capacity
+131	All troops in the rally
+132	Rally power ≈ {p}
+133	Lv
+134	× Recommended
+135	📊 How full must the rally be?
+136	Rally troops, as a multiple of the leader's own march capacity, to reach 1× the Recommended Power:
+137	Leader's march power
+138	Lv
+139	Account
+140	Rally troops
+141	× Recommended
+142	Hurt
+143	Result
+144	lost — beast −{g}%
+145	🎓 Masters
+146	🔬 Our research · updated {d}
+147	💡 Suggestions: who to raise first
+148	You mostly
+149	First
+150	Then
+151	No hurry
+152	Lead rallies or garrisons
+153	Lead Bear Hunt rallies
+154	Join rallies
+155	Play the Arena
+156	Develop and gather
+157	Cassia's skills: Commando and Inspiring Mobilization first; take the three combat skills to Lv5–10 each before going higher.
+158	Relationship Advancement: Roman's first 3 are the cheapest; Cassia's first 2 are also good value, from the 3rd it gets expensive.
+159	🔎 What we saw
+160	A master's stats only count when your own stats are used: your own marches, rallies and garrisons you lead. In someone else's rally only the Squad size limit helps.
+161	Each 1% from Cassia adds 3–4 times the Power of a Governor Charm: Power grows much more than real strength.
+162	🎓 The four masters
+163	Expedition, max
+164	Real effect, all maxed
+165	Lethality, Health +20%
+166	Attack, Defense +10% · Lethality, Health +10% · Rally capacity +100,000 · Squad size limit +10,000 · 600 free soldiers a day
+167	Bear / Terror leader +20–30% · PvP rally leader +20–25%
+168	Attack, Defense +15%
+169	All in the Arena
+170	Bear leader +2% · PvP rally leader +4%
+171	Attack +15%
+172	All in Bear Hunt: rally capacity +300,000 · your own Squad size limit +30,000 · Hunter Instinct (up to +30% to your own score) · Forgehammers and Enhancement XP every hunt
+173	Stats +2% · about 75 Forgehammers and 7,500 Enhancement XP a month
+174	Defense +15%
+175	All non-combat: Reserve Chests, Intel Missions, Governor Stamina, faster Construction
+176	PvP rally leader +2% · Bear Hunt 0
+177	Where each one helps
+178	Rally leader (PvP)
+179	Garrison lead
+180	Bear leader
+181	Joining rallies / Bear
+182	Development
+183	✅ a lot · ⚠️ a little · — not at all
+184	💎 Relationship Advancement: gems per 1%
+185	Advancement
+186	Valora / Pan
+187	#{n}
+188	1% of Lethality or Health is worth about 1.3 times 1% of Attack or Defense. Emblem counts are from the web.
+189	🧭 Meeting them
+190	You meet all four in the Realm Journey; each settles in at 1,000 Affinity.
+191	Order: Valora → Pan → Roman → Cassia.
+192	Valora settles in after about 25 stops. The later ones give +50, +100 or +200 per meeting, with many stops in between.
+193	Pan: about 8–9 days after you meet him. Cassia: 350 after about 55 stops.
+194	Cassia's skills: gems per 1%
+195	Skill
+196	Manuscripts to max
+197	Commando (Lethality + Health)
+198	Firepower to Win (Attack + Defense)
+199	Inspiring Mobilization (Rally capacity)
+200	Recruiter In Chief (free soldiers)
+201	🧭 Attack vs Defense
+202	Most important
+203	Rally capacity — one big rally beats two small ones
+204	Garrison capacity — how many troops can hold the building
+205	Whose stats count
+206	The rally leader's
+207	The strongest person inside
+208	Widget type
+209	Offensive (rally)
+210	Defensive (garrison)
+211	Troop ratio
+212	50:20:30 · Infantry ≥ 40%
+213	High infantry (infantry is the wall)
+214	Joiner skills
+215	First 4 people with a hero: 2 Attack + 2 Lethality
+216	Up to 4: different kinds best; 2 Gordon + 2 Howard also good → 🛡️ Garrison joiners
+217	Tactics / losses
+218	Strong target: expendable rallies first, the strongest leader last
+219	The lead takes ~32% more losses — Infirmary ready
+220	Bonus
+221	Defensive Widgets also work when your own city is attacked
+222	🛡️ Garrison joiners
+223	Up to 4 count — each one's first hero, top-right skill only
+224	Who counts: higher skill level first; same level → whoever joined first. The garrison lead and R4/R5 can change the order
+225	Same kind of bonus adds up (each extra one gives less); different kinds multiply → 4 different kinds is best
+226	Chance skills (Jabel, Helga): the same one only counts once
+227	Joiners
+228	vs the best
+229	best
+230	paid
+231	heavy spend
+232	free
+233	🐻 Bear lead
+234	🃏 Every hero, rated for each role → Hero Cards
+235	🦸 Hero comparison (Gen 1–5)
+236	⚔️ PvP rally lead
+237	🛡️ Garrison lead
+238	🐻 Bear lead
+239	Best
+240	Head to head
+241	Why
+242	Verdict
+243	Petra +12% (her rally Widget)
+244	about the same (Margot −1%)
+245	Margot +30% (garrison Widget, higher troop bonus)
+246	Already have Petra? Keep her for rallies and the Bear; switch to Margot only for a garrison cavalry.
+247	Eric → Long Fei +39%, → Alcar +92%; Long Fei → Alcar +38%
+248	same as garrison
+249	all three are weak here — Amadeus is the best infantry (Alcar −31%, Long Fei −41%, Eric −54%)
+250	Long Fei's lead = higher troop bonus (newer generation). Alcar's extra = infantry damage +100% and +60% stacking — not confirmed yet.
+251	Garrison infantry: Alcar > Long Fei > Eric.
+252	Jaeger +32%
+253	Jaeger +32%
+254	Jaeger +10% (both weak here — use Vivian / Rosa)
+255	Archer in a garrison: Jaeger, clearly.
+256	Marlin → Rosa +22%, → Vivian +58%; Rosa → Vivian +29%
+257	Marlin → Rosa +28%, → Vivian +38%; Rosa → Vivian only +8%
+258	Marlin → Rosa +29%, → Vivian +39%; Rosa → Vivian +8%
+259	Vivian pays off most for the Bear; for PvP and garrisons Rosa is almost as good.
+260	⚖️ Compare two heroes
+261	Widget Lv
+262	about equal
+263	🎯 Second uses — joiners & side jobs
+264	What for
+265	Fixed bonus (first choice)
+266	Chance-based (second choice)
+267	⚔️🐻 Damage joiner (Bear, PvP rallies)
+268	🛡️ Garrison joiner
+269	❌ No use as a joiner
+270	Atk
+271	Leth
+272	Def
+273	HP
+274	Enemy dmg taken
+275	Enemy Def
+276	Dmg taken
+277	Enemy dmg
+278	Enemy Atk
+279	Enemy Leth
+280	Extra hit every 4 rounds
+281	Garrison: pick 4 different kinds (same kind adds up with less each time, different kinds multiply). E.g. 1 damage cut (Howard) + Saul + Hilde + 1 Lethality (Chenko).
+282	Two-in-one top-right skills (Saul, Hilde) are extra good: one slot, two stats — multiplied, better than one +25%.
+283	When WE rally a garrison, defensive joiners help too: the garrison hits back, and Enemy Atk −20% (Eric), Dmg taken −20% (Howard, Quinn) cut our losses.
+284	Hero by hero
+285	Weak as an archer lead, but one of the best garrison joiners (Def + HP). Green skill: construction speed +15%, cost −15%. Bottom-right Lethality +25% when he leads.
+286	Top-right HP +25% → garrison joiner. As a lead his middle skill Attack +25% works too.
+287	Top-right Attack + Defense → garrison and PvP joiner (only the Attack half helps against the Bear).
+288	Cheap damage-cut garrison joiners: Howard, Quinn (Dmg taken −20%), Fahd (Enemy dmg −20%). Fahd green skill: solo beast-march speed +100%.
+289	Middle Attack +25% (fixed) → useful as a lead, even the Bear infantry slot. As a joiner only a chance skill.
+290	Free, garrison-type Widget → helps everyone when their own city is hit. Bottom-right Lethality +25%.
+291	Green skill: Infirmary healing speed +50%.
+292	Green skill: research speed +15% (may help on KvK research day).
+293	No fight use: stamina −20%, beast-march speed +100% → beast hunting only.
+294	R heroes (Forrest, Seth, Edwin, Olive): gathering speed +25% → gathering marches only.
+295	Green (development) skills work by themselves once unlocked — no need to put the hero anywhere (Sparrow 11/03). Gathering and beast-march speed may need the hero in that march ⚠️ not confirmed.
+296	🪓 Viking report
+297	Preview: this page is not linked from the site yet.
+298	🔬 NXS research
+299	Our battle reports
+300	Said online
+301	Every wave has a fixed number of Vikings.
+302	If the city holds, they all die. So the question isn't how hard you hit — it's how much of the city's infantry is yours.
+303	💡 Suggestions
+304	Reinforce with your highest-tier infantry.
+305	City owners: keep only archers at home.
+306	Every city needs a reinforcer.
+307	Spread infantry over several cities.
+308	Can't send everything? Infantry first.
+309	Cities short on infantry get infantry first.
+310	⚔️ Who does the fighting
+311	Almost all the kills.
+312	Only when Ambusher triggers — and even then it can be 0.
+313	Reinforcing archers: 0.
+314	ours
+315	Hero skill kills are not kept by the hero's owner. They go into the total and are shared by troops × tier like every other kill.
+316	ours
+317	For the same strength, cavalry earned about a quarter of what infantry did.
+318	web
+319	Which 4 reinforcers' skills the city uses is picked as in a rally: higher skill level first; same level → join order.
+320	🍰 How the points are split
+321	Each city gives out two fixed piles of points per wave. Kills only decide how the reinforcers' pile is cut.
+322	Wave
+323	Elite wave ×2
+324	🏠 City owner
+325	Fixed when the wave is cleared.
+326	🤝 Reinforcers share
+327	Half of the owner's, split by infantry × tier.
+328	ours
+329	Kills by the owner's own troops: that part of the reinforcers' pile goes to nobody.
+330	ours
+331	A city with no reinforcer: nobody gets the reinforcers' pile.
+332	ours
+333	A city without enough infantry can still show Victory with Vikings left alive. Its points shrink to the share killed.
+334	📏 Higher tier = a bigger slice
+335	Kills are split by your own troops' tier (this is not the Vikings' level). One T10 TG3 troop = 1:
+336	1 TG3 infantry ≈ 1.17 TG1 ≈ 1.66 T9. Infantry and cavalry follow the same ratios.
+337	🤷 Doesn't change your points
+338	ours
+339	In a city that clears the wave: attack and defense buffs and pet debuffs. Shares were the same with and without them.
+340	ours
+341	Which heroes you send, how many, or being the garrison captain.
+342	ours
+343	Waves 10 and 20 only attack the Alliance HQ, not the cities. Kills are split the same way, by infantry × tier, and points follow kills.
+344	Worked out from NXS's own battle reports. Not an official description of the game; it may change after a game update.

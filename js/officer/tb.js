@@ -97,6 +97,7 @@ const T = {
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
+if (window.RESEARCH_MERGE) window.RESEARCH_MERGE("tb", { T });   // public research pages only: 7 more languages from data/research-i18n.js
 const S = { pow: 100, cap: 120000, tr: 1000000 };
 try { Object.assign(S, JSON.parse(localStorage.getItem("nxs-tb") || "{}")); } catch (e) {}
 const keep = () => { try { localStorage.setItem("nxs-tb", JSON.stringify(S)); } catch (e) {} };

@@ -108,6 +108,7 @@ const T = {
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
+if (window.RESEARCH_MERGE) window.RESEARCH_MERGE("ma", { T });   // public research pages only: 7 more languages from data/research-i18n.js
 const nf = (n) => Math.round(n).toLocaleString("en-US");
 const img = (k, cls) => `<img class="${cls}" src="figures/masters/${k}.webp" alt="" loading="lazy">`;
 const who = (k) => `<span class="ma-who">${img(k, "ma-av")}<b>${esc(t("names")[k])}</b></span>`;

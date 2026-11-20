@@ -1,0 +1,303 @@
+0	⚔️ Seferberlik ve Garnizon
+1	Seferberlik önderin niteliklerini kullanır; garnizon ise en güçlü savunmacınınkini.
+2	Aynı yetenek türü toplanır; farklı türler çarpılır.
+3	🔎 Gördüklerimiz
+4	Sadece ilk kahramanının yeteneği sayılır: yeteneği Lv5 olan 4★ bir kahraman getir.
+5	Ayı Avı: 2 Saldırı (Amane, Margot) + 2 Öldürücülük (Chenko, Yeonwoo).
+6	PvP seferberliği ve garnizon: 4 farklı tür (ör. Amane + Chenko + Gordon + Howard).
+7	Şehir Bonusu: seferberlik önderi ya da garnizondaki en güçlü savunmacı.
+8	Bir bina alındıktan sonra: garnizon kahramanları ve garnizon Özel Donanımı.
+9	💡 Öneriler
+10	🔬 Araştırmamız · güncelleme {d}
+11	✅ kesin
+12	🟡 muhtemel
+13	🦸 Katılanların 4 yeteneği
+14	Sadece ilk kahramanının sağ üstteki yeteneği sayılır.
+15	Önce yüksek yetenek seviyesi; aynı seviye → katılma sırası.
+16	Savaş yeteneği yok
+17	Saldırı 25 + Sağlık 25 + Öldürücülük 25
+18	Saldırı 25 + Saldırı 25 + Sağlık 25
+19	🛡️ Savunma yetenekleri saldırı kadar değerlidir
+20	Sağlık, Alınan Hasar Düşüşü ve Düşman Birlik Saldırısı Düşüşü her biri yaklaşık ×(1 + X) etki eder.
+21	Düşman Birlik Saldırısı Düşüşü canavarlara karşı da işe yarar.
+22	🎯 Hangi katılanlar
+23	⚔️🛡️ PvP seferberliği ve garnizon
+24	🧮 4 katılan dene
+25	savaş yeteneği yok
+28	Saul + Gordon + Howard + Fahd (hepsi savunma)
+30	Örnekler (Lv5)
+31	👑 Önder / en güçlü savunmacı
+32	Savaş raporu nitelikleri = (1 + birlik %'si + ekip %'si) × (1 + Şehir Bonusu + seferberlik/garnizon Özel Donanımı) ÷ (1 + düşman zayıflatması) − 1.
+33	Katılanların Şehir Bonusu açması hiçbir şey değiştirmez.
+34	Seferberlik Özel Donanımı sadece seferberliği sen başlattığında çalışır; garnizon donanımı sadece garnizonda.
+35	🐻 Ayı Avı raporu
+36	Okçu intikalleri önce en güçlü seferberliklere; piyade ve süvari sonrakilere.
+37	Çoğunlukla okçu (yaklaşık 1 : 25 : 74), ama hiçbir birlik türünden sıfır gönderme.
+38	İlk sırada Saldırı ya da Öldürücülük kahramanıyla katıl.
+39	Önderler: Petra ve Amadeus getirmeye değer; Şehir Bonusu açık; katılan yetenekleri 2 Saldırı + 2 Öldürücülük.
+42	🏹 En çok okçular sayılır
+43	En iyi karışım:
+44	🧮 Karışımını dene
+45	{t} sayısı
+46	{n} birlik için en iyi karışımın %{p}'i
+47	🚩 En önemlisi hangi seferberliğe katıldığın
+48	Aynı okçu intikali: güçlü bir seferberlikte yaklaşık 50–60M, zayıf birinde yaklaşık 20M.
+49	Zayıf önder
+50	Güçlü önder
+51	👑 Bir seferberliği güçlü yapan şeyler
+52	Önderin okçu Saldırısı ve Öldürücülüğü
+53	Önderin Şehir Bonusu
+54	Katılan yetenekleri (4 yer, önce yüksek yetenek seviyesi)
+55	Önderin üç kahramanı — seferberliği çok değiştirir (aşağıya bak)
+56	Katılan yetenekleri: Saldırı ve Öldürücülüğü karıştır
+57	🎲 Şans
+58	Aynı birlikler = aynı puan.
+59	Bir önderin seferberlikleri %10–25 oynar; önderleri 3–4 seferberlik üzerinden karşılaştır.
+60	{n} oyuncu
+61	🌟 Valora (Usta)
+62	Avcı İçgüdüsü kendi hasar puanına eklenir:
+63	Av Dansı: seferberlik kapasitesi seviye başına +30,000. Vahşi Avantaj: kendi intikal kapasiten seviye başına +3,000.
+64	🩹 Savaş kayıpları
+67	Düşen birlikler üç yoldan birine gider: hafif yaralı (bu savaştan çıkar ama intikalde kalır ve yeniden savaşabilir — Tapınak, Karakol ya da Kralın Şatosu gibi bir binayı savunurken hariç: orada eve gönderilirler — tedavi gerekmez — yani garnizon her saldırıda incelir), yaralı (Revirde, tedavi edilebilir) ya da kayıp (gider).
+68	Her savaşta, Revirin dolduğunda sığmayan yaralılar kaybedilir. Bunun dışında birlikler sadece birinin Şehrine saldırdığında (düşen birliklerin %35'i) ya da Lv. 4 bir Karakol için savaştığında (%10) kaybedilir.
+69	Bir raporda savunan taraf kayıp gösteriyorsa, Reviri doluydu.
+71	Saldırıya açık olmadan önce yaralılarını tedavi et ki Revirde yer olsun.
+72	Bir binayı tutmak: saldırılar arasında garnizonu yeniden doldur — hafif yaralılar eve gitti.
+73	Bir Şehre saldırmadan önce, düşen birliklerin %35'inin geri gelmeyeceğini hesaba kat.
+74	Düşen birlikler nereye gider
+75	İki taraf
+76	Savunmacı
+77	Kayıp
+78	Hafif Yaralı
+79	Bir Şehre saldırmak
+80	Kaynak toplayanlara ya da haritadaki birliklere saldırmak
+81	Bir binaya seferberlik, ya da garnizon
+82	Karakol Lv. 1
+83	Karakol Lv. 2
+84	Karakol Lv. 3
+85	Karakol Lv. 4
+86	Tapınak, Kale
+87	tek rapor
+88	Neredeyse hepsi hafif yaralı.
+89	Ayrıca
+90	Karakollar: seviye yükseldikçe yaralı artar (%10, %20, %30); sadece Lv. 4 birlik de kaybeder.
+91	Öldürme = karşı tarafın kayıpları + yaralıları. Hafif yaralılar sayılmaz.
+92	Yaralı birlikler Revire en yüksek kademeden aşağıya doğru girer.
+93	İçinde birlik olmayan bir Şehir: savaş olmaz, kimse zarar görmez.
+94	Seferberlikte ya da garnizonda, her kişinin düşenlerdeki payı o birlik türündeki payını izler.
+95	Saldırılar önce ön safa vurur: piyade, sonra süvari, sonra okçular — bu yüzden önce piyade düşer, süvari neredeyse hiç düşmez. Bazen piyade bitmeden okçular düşer: bu, düşman süvarisinin Pusucu yeteneğidir (T7'den itibaren saldırılarının %20'si piyadeyi atlar).
+96	🦣 Dehşet seferberlikleri
+97	Önerilen Güç tüm seferberlik içindir.
+98	Seferberlik gücü ≈ önderin birlik başına gücü × seferberlikteki tüm birlikler.
+99	Zarar gören birliklerin neredeyse hepsi sadece hafif yaralıdır.
+100	Tüm seferberlik Önerilen Güce ulaşmalı.
+101	1× kazanır; az yaralı için 1.5×; yarısının altındaysa başlatma.
+112	📋 Seviyeler
+114	Birlikler (piy / süv / okç)
+115	Kademe
+116	Tüm nitelikler
+117	Seferberlik gücü ≈ önderin intikal gücü ÷ önderin intikal kapasitesi × seferberlikteki tüm birlikler
+118	Önderin intikal sayfasının üstündeki iki sayı (3 kahraman, dolu intikal).
+119	📏 Seferberlik gücü ÷ Önerilen Güç
+120	1.5× ya da fazlası: kolay — %10'dan azı zarar görür
+121	yaklaşık 1×: kazanırsın, %20–30 zarar görür
+122	yaklaşık 0.7×: zar zor kazanırsın, yaklaşık yarısı zarar görür
+123	0.5×'in altı: kaybedersin
+124	kolay
+125	galibiyet
+126	zar zor
+127	yenilgi
+128	🧮 Bir seferberlik dene
+129	Önderin intikal gücü (M)
+130	Önderin intikal kapasitesi
+131	Seferberlikteki tüm birlikler
+132	Seferberlik gücü ≈ {p}
+134	× Önerilen
+135	📊 Seferberlik ne kadar dolu olmalı?
+136	1× Önerilen Güce ulaşmak için, önderin kendi intikal kapasitesinin katı olarak seferberlik birlikleri:
+137	Önderin intikal gücü
+139	Hesap
+140	Seferberlik birlikleri
+142	Zarar gören
+143	Sonuç
+144	kaybedildi — hayvan −%{g}
+145	🎓 Ustalar
+147	💡 Öneriler: önce kimi geliştirmeli
+148	Çoğunlukla yaptığın
+149	Önce
+150	Sonra
+151	Acelesi yok
+152	Seferberlik ya da garnizon yönetmek
+153	Ayı Avı seferberliklerini yönetmek
+154	Seferberliklere katılmak
+155	Arena oynamak
+156	Gelişmek ve kaynak toplamak
+157	Cassia'nın yetenekleri: önce Komando ve İlham Veren Harekat; daha yukarı çıkmadan önce üç savaş yeteneğinin her birini Lv5–10'a getir.
+158	İlişki İlerlemesi: Roman'ın ilk 3'ü en ucuzu; Cassia'nın ilk 2'si de değer, 3.'den itibaren pahalılaşır.
+160	Bir ustanın nitelikleri sadece senin kendi niteliklerin kullanıldığında sayılır: kendi intikallerin, yönettiğin seferberlikler ve garnizonlar. Başkasının seferberliğinde sadece Ekip kapasitesi sınırı işe yarar.
+161	Cassia'dan gelen her %1, bir Vali Tılsımının 3–4 katı Güç ekler: Güç, gerçek kuvvetten çok daha fazla artar.
+162	🎓 Dört usta
+163	Sefer, maks
+164	Gerçek etki, hepsi maks
+165	Öldürücülük, Sağlık +%20
+166	Saldırı, Savunma +%10 · Öldürücülük, Sağlık +%10 · Seferberlik kapasitesi +100,000 · Ekip kapasitesi sınırı +10,000 · günde 600 bedava asker
+167	Ayı / Dehşet önderi +%20–30 · PvP seferberlik önderi +%20–25
+168	Saldırı, Savunma +%15
+169	Hepsi Arena'da
+170	Ayı önderi +%2 · PvP seferberlik önderi +%4
+171	Saldırı +%15
+172	Hepsi Ayı Avı'nda: seferberlik kapasitesi +300,000 · kendi Ekip kapasitesi sınırın +30,000 · Avcı İçgüdüsü (kendi puanına +%30'a kadar) · her avda Demirci Çekici ve Geliştirme TP
+173	Nitelikler +%2 · ayda yaklaşık 75 Demirci Çekici ve 7,500 Geliştirme TP
+174	Savunma +%15
+175	Hepsi savaş dışı: Yedek Sandık, Bilgi Görevleri, Şef Enerjisi, daha hızlı İnşaat
+176	PvP seferberlik önderi +%2 · Ayı Avı 0
+177	Her biri nerede işe yarar
+178	Seferberlik önderi (PvP)
+179	Garnizon yönetmek
+180	Ayı önderi
+181	Seferberliklere / Ayıya katılmak
+182	Gelişim
+183	✅ çok · ⚠️ biraz · — hiç
+184	💎 İlişki İlerlemesi: %1 başına elmas
+185	İlerleme
+188	%1 Öldürücülük ya da Sağlık, %1 Saldırı ya da Savunmanın yaklaşık 1.3 katı değerindedir. Amblem sayıları internetten.
+189	🧭 Onlarla tanışmak
+190	Dördüyle de Krallık Yolculuğu'nda tanışırsın; her biri 1,000 Yakınlıkta yerleşir.
+191	Sıra: Valora → Pan → Roman → Cassia.
+192	Valora yaklaşık 25 duraktan sonra yerleşir. Sonrakiler her karşılaşmada +50, +100 ya da +200 verir, arada çok durak vardır.
+193	Pan: onunla tanıştıktan yaklaşık 8–9 gün sonra. Cassia: yaklaşık 55 duraktan sonra 350.
+194	Cassia'nın yetenekleri: %1 başına elmas
+195	Yetenek
+196	Maks için El Yazması
+197	Komando (Öldürücülük + Sağlık)
+198	Zafer için Ateş Gücü (Saldırı + Savunma)
+199	İlham Veren Harekat (Seferberlik kapasitesi)
+200	Baş İşveren (bedava asker)
+201	🧭 Saldırı ve Savunma
+202	En önemlisi
+203	Seferberlik kapasitesi — bir büyük seferberlik iki küçüğü yener
+204	Garnizon kapasitesi — binayı kaç birlik tutabilir
+205	Kimin nitelikleri sayılır
+206	Seferberlik önderininki
+207	İçerideki en güçlü kişininki
+208	Alet türü
+209	Saldırı (seferberlik)
+210	Savunma (garnizon)
+211	Birlik oranı
+212	50:20:30 · Piyade ≥ %40
+213	Yüksek piyade (piyade duvardır)
+214	Katılan yetenekleri
+215	Kahramanı olan ilk 4 kişi: 2 Saldırı + 2 Öldürücülük
+216	En fazla 4: farklı türler en iyisi; 2 Gordon + 2 Howard da iyi → 🛡️ Garnizona katılanlar
+217	Taktik / kayıplar
+218	Güçlü hedef: önce harcanabilir seferberlikler, en güçlü önder en son
+219	Yöneten ~%32 daha fazla kayıp alır — Revir hazır olsun
+220	Bonus
+221	Savunma Aletleri kendi şehrin saldırıya uğradığında da çalışır
+222	🛡️ Garnizona katılanlar
+223	En fazla 4 sayılır — her birinin ilk kahramanı, sadece sağ üst yetenek
+224	Kim sayılır: önce yüksek yetenek seviyesi; aynı seviye → kim önce katıldıysa. Garnizonu yöneten ve R4/R5 sırayı değiştirebilir
+225	Aynı tür bonus toplanır (her ek daha az verir); farklı türler çarpılır → en iyisi 4 farklı tür
+226	İhtimalli yetenekler (Jabel, Helga): aynısı sadece bir kez sayılır
+227	Katılanlar
+228	en iyiye göre
+229	en iyi
+230	ücretli
+231	yüksek harcama
+232	bedava
+233	🐻 Ayı önderi
+234	🃏 Her kahraman, her rol için puanlandı → Kahraman Kartları
+235	🦸 Kahraman karşılaştırması (Nesil 1–5)
+236	⚔️ PvP seferberlik önderi
+237	🛡️ Garnizon yönetmek
+239	En iyi
+240	Karşı karşıya
+241	Neden
+242	Sonuç
+243	Petra +%12 (seferberlik Aleti)
+244	yaklaşık aynı (Margot −%1)
+245	Margot +%30 (garnizon Aleti, daha yüksek birlik bonusu)
+246	Petra'n zaten var mı? Onu seferberlikler ve Ayı için tut; sadece garnizon süvarisi için Margot'a geç.
+248	garnizonla aynı
+249	üçü de burada zayıf — en iyi piyade Amadeus (Alcar −%31, Long Fei −%41, Eric −%54)
+250	Long Fei'nin üstünlüğü = daha yüksek birlik bonusu (daha yeni nesil). Alcar'ın fazlası = piyade hasarı +%100 ve +%60 birikir — henüz doğrulanmadı.
+251	Garnizon piyadesi: Alcar > Long Fei > Eric.
+254	Jaeger +%10 (ikisi de burada zayıf — Vivian / Rosa kullan)
+255	Garnizonda okçu: açıkça Jaeger.
+257	Marlin → Rosa +%28, → Vivian +%38; Rosa → Vivian sadece +%8
+259	Vivian en çok Ayı için karşılığını verir; PvP ve garnizonlar için Rosa neredeyse onun kadar iyi.
+260	⚖️ İki kahramanı karşılaştır
+261	Alet Lv
+262	yaklaşık eşit
+263	🎯 İkinci kullanımlar — katılanlar ve yan işler
+264	Ne için
+265	Sabit bonus (ilk tercih)
+266	İhtimalli (ikinci tercih)
+267	⚔️🐻 Hasar için katılan (Ayı, PvP seferberlikleri)
+268	🛡️ Garnizona katılan
+269	❌ Katılan olarak işe yaramaz
+270	Sal
+271	Öld
+272	Sav
+273	Sağ
+274	Düşmanın aldığı hasar
+275	Düşman Sav
+276	Alınan hasar
+277	Düşman hasarı
+278	Düşman Sal
+279	Düşman Öld
+280	Her 4 turda ek vuruş
+281	Garnizon: 4 farklı tür seç (aynı tür her seferinde daha az ekleyerek toplanır, farklı türler çarpılır). Ör. 1 hasar azaltma (Howard) + Saul + Hilde + 1 Öldürücülük (Chenko).
+282	Sağ üstteki ikisi bir arada yetenekler (Saul, Hilde) ekstra iyidir: bir yer, iki nitelik — çarpılır, tek bir +%25'ten iyidir.
+283	BİZ bir garnizona seferberlik yaptığımızda savunma katılanları da işe yarar: garnizon karşılık verir, Düşman Sal −%20 (Eric) ve Alınan hasar −%20 (Howard, Quinn) kayıplarımızı azaltır.
+284	Kahraman kahraman
+285	Okçu önderi olarak zayıf, ama garnizona katılanların en iyilerinden (Sav + Sağ). Yeşil yetenek: inşaat hızı +%15, maliyet −%15. Yönettiğinde sağ altta Öldürücülük +%25.
+286	Sağ üst Sağ +%25 → garnizona katılan. Önder olarak ortadaki yeteneği Saldırı +%25 de çalışır.
+287	Sağ üst Saldırı + Savunma → garnizon ve PvP için katılan (Ayıya karşı sadece Saldırı yarısı işe yarar).
+288	Ucuz, hasar azaltan garnizon katılanları: Howard, Quinn (Alınan hasar −%20), Fahd (Düşman hasarı −%20). Fahd'ın yeşil yeteneği: tek başına hayvan intikal hızı +%100.
+289	Orta Saldırı +%25 (sabit) → önder olarak işe yarar, Ayı'da piyade yerinde bile. Katılan olarak sadece ihtimalli bir yetenek.
+290	Bedava, garnizon türü Alet → kendi şehri vurulduğunda herkese yardım eder. Sağ altta Öldürücülük +%25.
+291	Yeşil yetenek: Revir Tedavi Hızı +%50.
+292	Yeşil yetenek: Araştırma Hızı +%15 (KvK araştırma gününde işe yarayabilir).
+293	Savaşta kullanımı yok: enerji −%20, hayvan intikal hızı +%100 → sadece hayvan avı için.
+294	R kahramanları (Forrest, Seth, Edwin, Olive): Toplama Hızı +%25 → sadece toplama intikalleri için.
+295	Yeşil (gelişim) yetenekleri açıldıktan sonra kendiliğinden çalışır — kahramanı bir yere koymaya gerek yok. Toplama ve hayvan intikal hızı için kahramanın o intikalde olması gerekebilir.
+296	🪓 Viking raporu
+297	Önizleme: bu sayfa henüz siteye bağlanmadı.
+298	🔬 NXS araştırması
+299	Savaş raporlarımız
+300	İnternette söylenen
+301	Her dalgada sabit sayıda Viking vardır.
+302	Şehir dayanırsa hepsi ölür. Yani mesele ne kadar sert vurduğun değil — şehirdeki piyadenin ne kadarının senin olduğu.
+304	En yüksek kademe piyadenle takviye et.
+305	Şehir sahipleri: evde sadece okçu bırak.
+306	Her şehrin bir takviyeciye ihtiyacı var.
+307	Piyadeyi birkaç şehre dağıt.
+308	Hepsini gönderemiyor musun? Önce piyade.
+309	Piyadesi az olan şehirler önce piyade alır.
+310	⚔️ Kim savaşıyor
+311	Öldürmelerin neredeyse hepsi.
+312	Sadece Pusucu tetiklendiğinde — o zaman bile 0 olabilir.
+313	Takviye okçuları: 0.
+315	Kahraman yeteneği öldürmeleri kahramanın sahibinde kalmaz. Toplama girer ve diğer her öldürme gibi birlik × kademe oranında paylaşılır.
+317	Aynı güçte süvari, piyadenin kazandığının yaklaşık dörtte birini kazandı.
+319	Şehrin hangi 4 takviyecinin yeteneğini kullanacağı seferberlikteki gibi seçilir: önce yüksek yetenek seviyesi; aynı seviye → katılma sırası.
+320	🍰 Puanlar nasıl paylaşılır
+321	Her şehir dalga başına iki sabit puan yığını verir. Öldürmeler sadece takviyecilerin yığınının nasıl bölüneceğini belirler.
+322	Dalga
+323	Seçkin dalga ×2
+324	🏠 Şehir sahibi
+325	Dalga tamamen temizlendiğinde sabittir.
+326	🤝 Takviyeciler paylaşır
+327	Sahibinkinin yarısı, piyade × kademe oranında paylaşılır.
+329	Sahibin kendi birliklerinin öldürmeleri: takviyeci yığınının o kısmı kimseye gitmez.
+331	Takviyecisi olmayan şehir: takviyeci yığınını kimse almaz.
+333	Piyadesi yetmeyen bir şehir, Vikingler hayatta kalsa da Zafer gösterebilir. Puanı öldürülen orana düşer.
+334	📏 Daha yüksek kademe = daha büyük dilim
+335	Öldürmeler kendi birliklerinin kademesine göre paylaşılır (bu Vikinglerin seviyesi değildir). Bir T10 TG3 birlik = 1:
+336	1 TG3 piyade ≈ 1.17 TG1 ≈ 1.66 T9. Piyade ve süvari aynı oranları izler.
+337	🤷 Puanını değiştirmez
+339	Dalgayı tamamen temizleyen şehirde: saldırı ve savunma güçlendirmeleri ile pet zayıflatmaları. Paylar bunlarla da bunlarsız da aynıydı.
+341	Hangi kahramanları gönderdiğin, kaç tane, ya da garnizon kaptanı olman.
+343	10. ve 20. dalgalar şehirlere değil, sadece İttifak Karargahına saldırır. Öldürmeler aynı şekilde, piyade × kademe oranında paylaşılır ve puanlar öldürmeleri izler.
+344	NXS'in kendi savaş raporlarından çıkarıldı. Oyunun resmi açıklaması değildir; oyun güncellemesinden sonra değişebilir.

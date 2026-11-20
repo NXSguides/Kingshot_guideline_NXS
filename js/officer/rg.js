@@ -185,6 +185,7 @@ const T = {
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
+if (window.RESEARCH_MERGE) window.RESEARCH_MERGE("rg", { T });   // public research pages only: 7 more languages from data/research-i18n.js
 const S = { mode: "pvp", picks: PRESET.pvp.slice() };
 try { Object.assign(S, JSON.parse(localStorage.getItem("nxs-rg") || "{}")); } catch (e) {}
 if (!Array.isArray(S.picks) || S.picks.length !== 4) S.picks = PRESET[S.mode === "bear" ? "bear" : "pvp"].slice();

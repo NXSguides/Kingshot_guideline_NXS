@@ -67,10 +67,15 @@
   <div class="vvp-lock" id="vv_lock"></div>
   <div id="vv_root"></div>
 </div>
+<script src="data/research-i18n.js"></script>
 <script src="data/research-vv.js"></script>
 <script>
 (function () {
-  const G = RESEARCH_VV, CODES = Object.keys(G.T);
+  const G = RESEARCH_VV;
+  { const NAMES = { de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย" }, add = ((window.RESEARCH_T || {}).vv || {}).T || {};
+    const deep = (base, x) => { if (x === null || typeof x !== "object") return x; const o = Array.isArray(base) ? base.slice() : { ...(base || {}) }; for (const k of Object.keys(x)) o[k] = deep(base ? base[k] : undefined, x[k]); return o; };
+    for (const l in add) { G.T[l] = deep(G.T.en, add[l]); G.T[l].langName = NAMES[l] || l; } }
+  const CODES = ["en", "zh", "ko", "de", "fr", "pt", "es", "tr", "id", "ru", "th", "ar"].filter((c) => G.T[c]);
   let lang = (() => { let l = ""; try { l = new URLSearchParams(location.search).get("lang") || ""; } catch (e) {}
     if (!CODES.includes(l)) { try { l = localStorage.getItem("ks-lang") || ""; } catch (e) {} } return CODES.includes(l) ? l : "en"; })();
   const $ = (id) => document.getElementById(id);
@@ -92,7 +97,7 @@
       </div>`;
   }
   function render() {
-    document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang; document.title = t("title").replace(/^\S+\s/, "");
+    document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr"; document.title = t("title").replace(/^\S+\s/, "");
     $("vv_title").textContent = t("title"); $("vv_lock").textContent = t("lock");
     $("vv_lang").innerHTML = CODES.map((c) => `<option value="${c}"${c === lang ? " selected" : ""}>${esc(G.T[c].langName)}</option>`).join("");
     const max = Math.max(...G.TIERS.map((x) => x[1]));

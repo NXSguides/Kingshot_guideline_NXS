@@ -1,0 +1,303 @@
+0	⚔️ Reli & Garnisun
+1	Reli memakai stats kaptennya; garnisun memakai stats pemain bertahan terkuatnya.
+2	Jenis skill yang sama dijumlahkan; jenis yang berbeda dikalikan.
+3	🔎 Yang kami lihat
+4	Hanya skill hero pertamamu yang dihitung: bawa hero 4★ dengan skill di Lv5.
+5	Bear Hunt: 2 Attack (Amane, Margot) + 2 Lethality (Chenko, Yeonwoo).
+6	Reli PvP dan garnisun: 4 jenis berbeda (mis. Amane + Chenko + Gordon + Howard).
+7	Bonus Kota: kapten reli, atau pemain bertahan terkuat di garnisun.
+8	Setelah merebut bangunan: hero garnisun dan Gear Eksklusif garnisun.
+9	💡 Saran
+10	🔬 Riset kami · diperbarui {d}
+11	✅ pasti
+12	🟡 kemungkinan
+13	🦸 4 skill peserta reli
+14	Hanya skill kanan atas hero pertamamu yang dihitung.
+15	Level skill lebih tinggi dulu; level sama → urutan bergabung.
+16	Tanpa skill tempur
+17	Attack 25 + Health 25 + Lethality 25
+18	Attack 25 + Attack 25 + Health 25
+19	🛡️ Skill bertahan sama berharganya dengan serangan
+20	Health, Kerusakan Diturunkan, dan Serangan Pasukan Musuh Turun masing-masing bekerja sekitar ×(1 + X).
+21	Serangan Pasukan Musuh Turun juga berlaku melawan monster.
+22	🎯 Peserta yang mana
+23	⚔️🛡️ Reli PvP & garnisun
+24	🧮 Coba 4 peserta
+25	tanpa skill tempur
+28	Saul + Gordon + Howard + Fahd (semua bertahan)
+30	Contoh (Lv5)
+31	👑 Kapten / pemain bertahan terkuat
+32	Stats laporan pertempuran = (1 + % pasukan + % skuad) × (1 + Bonus Kota + Gear Eksklusif reli/garnisun) ÷ (1 + debuff musuh) − 1.
+33	Peserta yang menyalakan Bonus Kota tidak berpengaruh apa-apa.
+34	Gear Eksklusif reli hanya bekerja saat kamu yang memulai reli; gear garnisun hanya di garnisun.
+35	🐻 Laporan Bear Hunt
+36	Barisan pemanah ke reli terkuat dulu; infanteri dan kavaleri ke reli berikutnya.
+37	Sebagian besar pemanah (sekitar 1 : 25 : 74), tapi jangan kirim nol untuk jenis pasukan mana pun.
+38	Bergabunglah dengan hero Attack atau Lethality di slot pertama.
+39	Kapten: Petra dan Amadeus layak dibawa; Bonus Kota menyala; skill peserta 2 Attack + 2 Lethality.
+42	🏹 Pemanah paling berpengaruh
+43	Campuran terbaik:
+44	🧮 Coba campuranmu
+45	Jumlah {t}
+46	{p}% dari campuran terbaik untuk {n} pasukan
+47	🚩 Reli yang kamu ikuti paling menentukan
+48	Barisan pemanah yang sama: sekitar 50–60M di reli kuat, sekitar 20M di reli lemah.
+49	Kapten lemah
+50	Kapten kuat
+51	👑 Apa yang membuat reli kuat
+52	Attack dan Lethality pemanah milik kapten
+53	Bonus Kota milik kapten
+54	Skill peserta (4 slot, level skill lebih tinggi dulu)
+55	Tiga hero kapten — sangat mengubah reli (lihat di bawah)
+56	Skill peserta: campur Attack dan Lethality
+57	🎲 Keberuntungan
+58	Pasukan sama = skor sama.
+59	Reli satu kapten berbeda 10–25%; bandingkan kapten dari 3–4 reli.
+60	{n} pemain
+61	🌟 Valora (Master)
+62	Hunter Instinct menambah skor damage milikmu sendiri:
+63	Dance of the Hunt: kapasitas reli +30,000 per level. Savage Advantage: kapasitas barisanmu sendiri +3,000 per level.
+64	🩹 Kerugian pertempuran
+67	Pasukan yang tumbang menempuh salah satu dari tiga jalan: cedera ringan (keluar dari pertarungan ini, tapi tetap bersama barisan dan bisa bertarung lagi — kecuali saat mempertahankan bangunan seperti Sanctuary, Pos Terdepan, atau Kastil Raja: di sana mereka dipulangkan — tidak perlu disembuhkan — sehingga garnisun makin tipis tiap serangan), terluka (di Rumah Sakit, bisa disembuhkan), atau hilang (lenyap).
+68	Di pertempuran apa pun, begitu Rumah Sakit penuh, yang terluka dan tidak muat akan hilang. Selain itu, pasukan hanya hilang saat kamu menyerang Kota seseorang (35% dari pasukan yang tumbang) atau memperebutkan Pos Terdepan Lv. 4 (10%).
+69	Jika pihak bertahan di laporan menunjukkan kehilangan, Rumah Sakit mereka penuh.
+71	Sebelum kamu bisa diserang, sembuhkan yang terluka supaya Rumah Sakit punya ruang.
+72	Menahan bangunan: isi ulang garnisun di antara serangan — yang cedera ringan sudah pulang.
+73	Sebelum menyerang Kota, perhitungkan 35% pasukan yang tumbang tidak kembali.
+74	Ke mana pasukan yang tumbang pergi
+75	Kedua pihak
+76	Pihak bertahan
+77	Hilang
+78	Cedera Ringan
+79	Menyerang Kota
+80	Menyerang pengumpul atau pasukan di peta
+81	Reli ke bangunan, atau garnisun
+82	Pos Terdepan Lv. 1
+83	Pos Terdepan Lv. 2
+84	Pos Terdepan Lv. 3
+85	Pos Terdepan Lv. 4
+86	Sanctuary, Benteng
+87	satu laporan
+88	Hampir semuanya cedera ringan.
+89	Selain itu
+90	Pos Terdepan: makin tinggi levelnya, makin banyak yang terluka (10%, 20%, 30%); hanya Lv. 4 yang juga kehilangan pasukan.
+91	Pembunuhan = yang hilang + terluka di pihak lawan. Cedera ringan tidak dihitung.
+92	Pasukan terluka masuk Rumah Sakit dari tier tertinggi ke bawah.
+93	Kota tanpa pasukan di dalamnya: tidak ada pertempuran, tidak ada yang terluka.
+94	Di reli atau garnisun, bagian tiap orang dari pasukan yang tumbang mengikuti bagiannya pada jenis pasukan itu.
+95	Serangan mengenai garis depan dulu: infanteri, lalu kavaleri, lalu pemanah — jadi infanteri tumbang lebih dulu dan kavaleri hampir tidak pernah. Kadang pemanah tumbang sebelum infanteri habis: itu Ambusher milik kavaleri musuh (mulai T7, 20% serangan mereka melewati infanteri).
+96	🦣 Reli Terror
+97	Kekuatan yang Disarankan berlaku untuk seluruh reli.
+98	Kekuatan reli ≈ kekuatan per pasukan milik kapten × semua pasukan di reli.
+99	Pasukan yang kena hampir semuanya hanya cedera ringan.
+100	Seluruh reli sebaiknya mencapai Kekuatan yang Disarankan.
+101	1× menang; 1.5× supaya sedikit yang terluka; di bawah setengah, jangan mulai.
+112	📋 Level-levelnya
+114	Pasukan (inf / kav / pem)
+115	Tier
+116	Semua stats
+117	Kekuatan reli ≈ kekuatan barisan kapten ÷ kapasitas barisan kapten × semua pasukan di reli
+118	Dua angka di bagian atas halaman barisan kapten (3 hero, barisan penuh).
+119	📏 Kekuatan reli ÷ Kekuatan yang Disarankan
+120	1.5× atau lebih: mudah — di bawah 10% kena
+121	sekitar 1×: kamu menang, 20–30% kena
+122	sekitar 0.7×: menang tipis, sekitar setengah kena
+123	di bawah 0.5×: kamu kalah
+124	mudah
+125	menang
+126	tipis
+127	kalah
+128	🧮 Coba sebuah reli
+129	Kekuatan barisan kapten (M)
+130	Kapasitas barisan kapten
+131	Semua pasukan di reli
+132	Kekuatan reli ≈ {p}
+134	× Disarankan
+135	📊 Seberapa penuh reli harus terisi?
+136	Pasukan reli, sebagai kelipatan kapasitas barisan kapten sendiri, untuk mencapai 1× Kekuatan yang Disarankan:
+137	Kekuatan barisan kapten
+139	Akun
+140	Pasukan reli
+142	Kena
+143	Hasil
+144	kalah — binatang buas −{g}%
+145	🎓 Master
+147	💡 Saran: siapa yang dinaikkan dulu
+148	Kamu kebanyakan
+149	Pertama
+150	Lalu
+151	Tidak perlu buru-buru
+152	Memimpin reli atau garnisun
+153	Memimpin reli Bear Hunt
+154	Ikut reli
+155	Main Arena
+156	Berkembang dan mengumpulkan
+157	Skill Cassia: Commando dan Inspiring Mobilization dulu; naikkan tiga skill tempur ke Lv5–10 masing-masing sebelum lebih tinggi.
+158	Peningkatan Hubungan: 3 pertama Roman paling murah; 2 pertama Cassia juga sepadan, mulai yang ke-3 jadi mahal.
+160	Stats seorang master hanya dihitung saat stats milikmu sendiri dipakai: barisanmu sendiri, serta reli dan garnisun yang kamu pimpin. Di reli orang lain hanya batas ukuran Skuad yang membantu.
+161	Tiap 1% dari Cassia menambah 3–4 kali Kekuatan sebuah Charm Gubernur: Kekuatan naik jauh lebih banyak daripada kekuatan sebenarnya.
+162	🎓 Empat master
+163	Ekspedisi, maks
+164	Efek nyata, semua maks
+165	Lethality, Health +20%
+166	Attack, Defense +10% · Lethality, Health +10% · Kapasitas reli +100,000 · batas ukuran Skuad +10,000 · 600 prajurit gratis per hari
+167	Kapten Bear / Terror +20–30% · kapten reli PvP +20–25%
+168	Attack, Defense +15%
+169	Semua di Arena
+170	Kapten Bear +2% · kapten reli PvP +4%
+171	Attack +15%
+172	Semua di Bear Hunt: kapasitas reli +300,000 · batas ukuran Skuad milikmu +30,000 · Hunter Instinct (sampai +30% ke skormu sendiri) · Forgehammer dan Enhancement XP tiap perburuan
+173	Stats +2% · sekitar 75 Forgehammer dan 7,500 Enhancement XP per bulan
+174	Defense +15%
+175	Semua non-tempur: Peti Cadangan, Misi Intel, Stamina Gubernur, Konstruksi lebih cepat
+176	Kapten reli PvP +2% · Bear Hunt 0
+177	Di mana masing-masing membantu
+178	Kapten reli (PvP)
+179	Memimpin garnisun
+180	Kapten Bear
+181	Ikut reli / Bear
+182	Pengembangan
+183	✅ banyak · ⚠️ sedikit · — tidak sama sekali
+184	💎 Peningkatan Hubungan: permata per 1%
+185	Peningkatan
+188	1% Lethality atau Health bernilai sekitar 1.3 kali 1% Attack atau Defense. Jumlah emblem berasal dari web.
+189	🧭 Bertemu mereka
+190	Kamu bertemu keempatnya di Perjalanan Alam; masing-masing menetap pada 1,000 Kedekatan.
+191	Urutan: Valora → Pan → Roman → Cassia.
+192	Valora menetap setelah sekitar 25 perhentian. Yang berikutnya memberi +50, +100, atau +200 per pertemuan, dengan banyak perhentian di antaranya.
+193	Pan: sekitar 8–9 hari setelah kamu bertemu dengannya. Cassia: 350 setelah sekitar 55 perhentian.
+194	Skill Cassia: permata per 1%
+195	Skill
+196	Manuskrip sampai maks
+197	Commando (Lethality + Health)
+198	Firepower to Win (Attack + Defense)
+199	Inspiring Mobilization (kapasitas reli)
+200	Recruiter In Chief (prajurit gratis)
+201	🧭 Serang vs Bertahan
+202	Paling penting
+203	Kapasitas reli — satu reli besar mengalahkan dua reli kecil
+204	Kapasitas garnisun — berapa banyak pasukan yang bisa menahan bangunan
+205	Stats siapa yang dihitung
+206	Milik kapten reli
+207	Milik orang terkuat di dalam
+208	Jenis Widget
+209	Ofensif (reli)
+210	Defensif (garnisun)
+211	Rasio pasukan
+212	50:20:30 · Infanteri ≥ 40%
+213	Infanteri tinggi (infanteri adalah temboknya)
+214	Skill peserta
+215	4 orang pertama yang membawa hero: 2 Attack + 2 Lethality
+216	Sampai 4: jenis berbeda paling baik; 2 Gordon + 2 Howard juga bagus → 🛡️ Peserta garnisun
+217	Taktik / kerugian
+218	Target kuat: reli yang bisa dikorbankan dulu, kapten terkuat paling akhir
+219	Pemimpin menanggung ~32% lebih banyak kerugian — siapkan Rumah Sakit
+220	Bonus
+221	Widget defensif juga bekerja saat kotamu sendiri diserang
+222	🛡️ Peserta garnisun
+223	Sampai 4 yang dihitung — hero pertama masing-masing, hanya skill kanan atas
+224	Siapa yang dihitung: level skill lebih tinggi dulu; level sama → siapa yang bergabung lebih dulu. Pemimpin garnisun dan R4/R5 bisa mengubah urutan
+225	Jenis bonus yang sama dijumlahkan (tiap tambahan memberi lebih sedikit); jenis berbeda dikalikan → 4 jenis berbeda paling baik
+226	Skill peluang (Jabel, Helga): yang sama hanya dihitung sekali
+227	Peserta
+228	vs yang terbaik
+229	terbaik
+230	berbayar
+231	belanja besar
+232	gratis
+233	🐻 Kapten Bear
+234	🃏 Setiap hero, dinilai untuk tiap peran → Kartu Hero
+235	🦸 Perbandingan hero (Gen 1–5)
+236	⚔️ Kapten reli PvP
+237	🛡️ Memimpin garnisun
+239	Terbaik
+240	Satu lawan satu
+241	Kenapa
+242	Kesimpulan
+243	Petra +12% (Widget relinya)
+244	kurang lebih sama (Margot −1%)
+245	Margot +30% (Widget garnisun, bonus pasukan lebih tinggi)
+246	Sudah punya Petra? Pertahankan untuk reli dan Bear; pindah ke Margot hanya untuk kavaleri garnisun.
+248	sama dengan garnisun
+249	ketiganya lemah di sini — Amadeus infanteri terbaik (Alcar −31%, Long Fei −41%, Eric −54%)
+250	Keunggulan Long Fei = bonus pasukan lebih tinggi (generasi lebih baru). Tambahan Alcar = damage infanteri +100% dan +60% bertumpuk — belum terkonfirmasi.
+251	Infanteri garnisun: Alcar > Long Fei > Eric.
+254	Jaeger +10% (keduanya lemah di sini — pakai Vivian / Rosa)
+255	Pemanah di garnisun: jelas Jaeger.
+257	Marlin → Rosa +28%, → Vivian +38%; Rosa → Vivian hanya +8%
+259	Vivian paling sepadan untuk Bear; untuk PvP dan garnisun Rosa hampir sama bagusnya.
+260	⚖️ Bandingkan dua hero
+261	Lv Widget
+262	kurang lebih setara
+263	🎯 Kegunaan kedua — peserta & tugas sampingan
+264	Untuk apa
+265	Bonus tetap (pilihan pertama)
+266	Berbasis peluang (pilihan kedua)
+267	⚔️🐻 Peserta damage (Bear, reli PvP)
+268	🛡️ Peserta garnisun
+269	❌ Tidak berguna sebagai peserta
+270	Atk
+271	Leth
+272	Def
+273	HP
+274	Damage diterima musuh
+275	Def musuh
+276	Damage diterima
+277	Damage musuh
+278	Atk musuh
+279	Leth musuh
+280	Pukulan tambahan tiap 4 ronde
+281	Garnisun: pilih 4 jenis berbeda (jenis sama dijumlahkan dengan hasil makin kecil, jenis berbeda dikalikan). Mis. 1 pengurang damage (Howard) + Saul + Hilde + 1 Lethality (Chenko).
+282	Skill kanan atas dua-dalam-satu (Saul, Hilde) sangat bagus: satu slot, dua stats — dikalikan, lebih baik daripada satu +25%.
+283	Saat KITA me-reli garnisun, peserta defensif juga membantu: garnisun membalas, dan Atk musuh −20% (Eric), Damage diterima −20% (Howard, Quinn) mengurangi kerugian kita.
+284	Hero demi hero
+285	Lemah sebagai pemimpin pemanah, tapi salah satu peserta garnisun terbaik (Def + HP). Skill hijau: kecepatan konstruksi +15%, biaya −15%. Kanan bawah Lethality +25% saat dia memimpin.
+286	Kanan atas HP +25% → peserta garnisun. Sebagai pemimpin, skill tengahnya Attack +25% juga bekerja.
+287	Kanan atas Attack + Defense → peserta garnisun dan PvP (melawan Bear hanya separuh Attack yang membantu).
+288	Peserta garnisun pengurang damage yang murah: Howard, Quinn (Damage diterima −20%), Fahd (Damage musuh −20%). Skill hijau Fahd: kecepatan barisan solo melawan binatang buas +100%.
+289	Tengah Attack +25% (tetap) → berguna sebagai pemimpin, bahkan di slot infanteri Bear. Sebagai peserta hanya skill peluang.
+290	Gratis, Widget jenis garnisun → membantu semua orang saat kota mereka sendiri diserang. Kanan bawah Lethality +25%.
+291	Skill hijau: Kecepatan Penyembuhan Rumah Sakit +50%.
+292	Skill hijau: Kecepatan Penelitian +15% (bisa membantu di hari riset KvK).
+293	Tidak berguna di pertarungan: stamina −20%, kecepatan barisan melawan binatang buas +100% → hanya untuk berburu binatang buas.
+294	Hero R (Forrest, Seth, Edwin, Olive): Kecepatan Mengumpulkan +25% → hanya untuk barisan pengumpul.
+295	Skill hijau (pengembangan) bekerja sendiri begitu terbuka — hero tidak perlu ditempatkan di mana pun. Untuk kecepatan mengumpulkan dan barisan melawan binatang buas, hero mungkin harus ada di barisan itu.
+296	🪓 Laporan Viking
+297	Pratinjau: halaman ini belum ditautkan dari situs.
+298	🔬 Riset NXS
+299	Laporan pertempuran kami
+300	Kata orang di internet
+301	Setiap gelombang punya jumlah Viking yang tetap.
+302	Kalau kota bertahan, mereka semua mati. Jadi yang penting bukan seberapa keras kamu memukul — melainkan berapa banyak infanteri di kota itu yang milikmu.
+304	Perkuat dengan infanteri tier tertinggimu.
+305	Pemilik kota: sisakan hanya pemanah di rumah.
+306	Setiap kota butuh bala bantuan.
+307	Sebar infanteri ke beberapa kota.
+308	Tidak bisa kirim semuanya? Infanteri dulu.
+309	Kota yang kekurangan infanteri mendapat infanteri lebih dulu.
+310	⚔️ Siapa yang bertarung
+311	Hampir semua pembunuhan.
+312	Hanya saat Ambusher terpicu — itu pun bisa 0.
+313	Pemanah bala bantuan: 0.
+315	Pembunuhan dari skill hero tidak disimpan pemilik hero. Semuanya masuk ke total dan dibagi menurut pasukan × tier seperti pembunuhan lainnya.
+317	Dengan kekuatan yang sama, kavaleri mendapat sekitar seperempat dari yang didapat infanteri.
+319	4 skill bala bantuan mana yang dipakai kota dipilih seperti di reli: level skill lebih tinggi dulu; level sama → urutan bergabung.
+320	🍰 Cara poin dibagi
+321	Setiap kota membagikan dua tumpukan poin tetap per gelombang. Pembunuhan hanya menentukan cara tumpukan bala bantuan dipotong.
+322	Gelombang
+323	Gelombang elite ×2
+324	🏠 Pemilik kota
+325	Tetap saat gelombang dihabisi.
+326	🤝 Bala bantuan berbagi
+327	Setengah dari milik pemilik, dibagi menurut infanteri × tier.
+329	Pembunuhan oleh pasukan pemilik sendiri: bagian itu dari tumpukan bala bantuan tidak didapat siapa pun.
+331	Kota tanpa bala bantuan: tidak ada yang mendapat tumpukan bala bantuan.
+333	Kota yang kekurangan infanteri tetap bisa menampilkan Kemenangan meski masih ada Viking yang hidup. Poinnya menyusut sesuai bagian yang terbunuh.
+334	📏 Tier lebih tinggi = potongan lebih besar
+335	Pembunuhan dibagi menurut tier pasukanmu sendiri (ini bukan level Viking). Satu pasukan T10 TG3 = 1:
+336	1 infanteri TG3 ≈ 1.17 TG1 ≈ 1.66 T9. Infanteri dan kavaleri mengikuti rasio yang sama.
+337	🤷 Tidak mengubah poinmu
+339	Di kota yang menghabisi gelombang: buff attack dan defense serta debuff peliharaan. Bagiannya sama dengan atau tanpa itu.
+341	Hero mana yang kamu kirim, berapa banyak, atau menjadi kapten garnisun.
+343	Gelombang 10 dan 20 hanya menyerang markas aliansi, bukan kota. Pembunuhan dibagi dengan cara yang sama, menurut infanteri × tier, dan poin mengikuti pembunuhan.
+344	Disusun dari laporan pertempuran NXS sendiri. Bukan penjelasan resmi dari game; bisa berubah setelah pembaruan game.

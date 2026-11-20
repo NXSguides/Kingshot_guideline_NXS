@@ -77,6 +77,7 @@ const T = {
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
+if (window.RESEARCH_MERGE) window.RESEARCH_MERGE("ls", { T });   // public research pages only: 7 more languages from data/research-i18n.js
 const CLS = ["lost", "inj", "light"];
 const bar = (p) => `<div class="ls-bar">${p.map((v, i) => v ? `<span class="ls-seg ${CLS[i]}" style="flex:${v}">${v}%</span>` : "").join("")}</div>`;
 const side = (ty, s, both) => { const p = ty[s]; if (!p) return `<div class="ls-side"><span class="ls-who">${esc(t(s === "a" ? "atk" : "def"))}</span><span class="muted">${esc(t("none"))}</span></div>`;

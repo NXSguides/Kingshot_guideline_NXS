@@ -434,7 +434,7 @@ function rdHtml() {
 }
 function render() {
   const L = t(), root = $("gr_root"); if (!root) return;
-  const site = { zh: "zh", en: "en", pt: "pt", ar: "ar", ko: "ko" }[lang] || "en";
+  const site = ["en", "zh", "ko", "de", "fr", "pt", "es", "tr", "id", "ru", "th", "ar"].includes(lang) ? lang : "en";
   const chip = ([id, st, tg]) => `<span class="gr-chip"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'">${GENS[id] ? `<b class="gr-gen"><i>S</i>${GENS[id]}</b>` : ""}</span>
     <b dir="auto">${esc(hname(id))}</b>${st ? `<em class="gr-st ${st}">${esc(L.st[st])}</em>` : ""}${tg ? `<small>${esc(L.tag[tg])}</small>` : ""}</span>`;
   const side = (k, tr) => `<div class="gr-chips">${SIDE[k][tr].map(chip).join(SIDE[k].seq && SIDE[k].seq[tr] ? '<span class="gr-arr">→</span>' : "")}</div>`;
@@ -466,10 +466,11 @@ const HRT = {
   pt: { title: "🦸 Heróis", intro: "Quão forte é cada herói e o que fazer com os outros: Gen 1–5, pelos nossos relatórios e simulações. Para escolher uma direção: 🧭 Crescimento.", link: "🦸 Comparação de heróis, comparar dois, participantes → Heróis" },
   ar: { title: "🦸 الأبطال", intro: "ما مدى قوة كل بطل وماذا تفعل بالآخرين: الأجيال 1–5، من تقارير معاركنا والمحاكاة. لاختيار الاتجاه: 🧭 التطوير.", link: "🦸 مقارنة الأبطال، مقارنة بطلين، المنضمون ← الأبطال" },
   ko: { title: "🦸 영웅", intro: "영웅별 강함과 나머지 영웅의 활용: 1–5세대, 우리 전투 보고서와 시뮬레이션 기준. 육성 방향은 🧭 육성에서.", link: "🦸 영웅 비교, 두 영웅 비교, 참여자 → 영웅" } };
+if (window.RESEARCH_MERGE) { window.RESEARCH_MERGE("hr", { T, HRT, HC, CMP, SU, HN }); for (const tb of [HC, CMP, SU]) for (const [l, o] of Object.entries(tb)) Object.assign(T[l], o); }   // public research pages only: 7 more languages from data/research-i18n.js (HC / CMP / SU live inside T, as above)
 const HR = () => HRT[lang] || HRT.en;
 function renderHr() {
   const L = t(), root = $("hr_root"); if (!root) return;
-  const site = { zh: "zh", en: "en", pt: "pt", ar: "ar", ko: "ko" }[lang] || "en";
+  const site = ["en", "zh", "ko", "de", "fr", "pt", "es", "tr", "id", "ru", "th", "ar"].includes(lang) ? lang : "en";
   const chip = ([id, st, tg]) => `<span class="gr-chip"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'">${GENS[id] ? `<b class="gr-gen"><i>S</i>${GENS[id]}</b>` : ""}</span>
     <b dir="auto">${esc(hname(id))}</b>${st ? `<em class="gr-st ${st}">${esc(L.st[st])}</em>` : ""}${tg ? `<small>${esc(L.tag[tg])}</small>` : ""}</span>`;
   root.innerHTML = `

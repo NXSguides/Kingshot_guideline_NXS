@@ -1,0 +1,303 @@
+0	⚔️ Ralliement & Garnison
+1	Un ralliement utilise les stats du capitaine ; une garnison celles de son défenseur le plus fort.
+2	Le même type de compétence s'additionne ; des types différents se multiplient.
+3	🔎 Ce que nous avons vu
+4	Seule la compétence de ton premier héros compte : amène un héros 4★ avec la compétence au Lv5.
+5	Chasse à l'Ours : 2 Attaque (Amane, Margot) + 2 Létalité (Chenko, Yeonwoo).
+6	Ralliement PvP et garnison : 4 types différents (p. ex. Amane + Chenko + Gordon + Howard).
+7	Revenu de la Ville : le capitaine du ralliement, ou le défenseur le plus fort d'une garnison.
+8	Après la prise d'un bâtiment : héros de garnison et Équipement Exclusif de garnison.
+9	💡 Suggestions
+10	🔬 Notre recherche · mise à jour {d}
+11	✅ sûr
+12	🟡 probable
+13	🦸 Les 4 compétences des participants
+14	Seule la compétence en haut à droite de ton premier héros compte.
+15	Niveau de compétence le plus élevé d'abord ; même niveau → ordre d'arrivée.
+16	Aucune compétence de combat
+17	Attaque 25 + Santé 25 + Létalité 25
+18	Attaque 25 + Attaque 25 + Santé 25
+19	🛡️ Les compétences défensives comptent autant que l'attaque
+20	Santé, Dégâts Subis - et Attaque Troupes Ennemies - valent chacun environ ×(1 + X).
+21	Attaque Troupes Ennemies - fonctionne aussi contre les monstres.
+22	🎯 Quels participants
+23	⚔️🛡️ Ralliement PvP & garnison
+24	🧮 Essaie 4 participants
+25	aucune compétence de combat
+28	Saul + Gordon + Howard + Fahd (tout en défense)
+30	Exemples (Lv5)
+31	👑 Le capitaine / le défenseur le plus fort
+32	Stats du rapport de combat = (1 + % de troupes + % d'escouade) × (1 + Revenu de la Ville + Équipement Exclusif de ralliement/garnison) ÷ (1 + affaiblissement ennemi) − 1.
+33	Que les participants activent le Revenu de la Ville ne change rien.
+34	L'Équipement Exclusif de ralliement ne fonctionne que si tu lances le ralliement ; celui de garnison seulement en garnison.
+35	🐻 Rapport Chasse à l'Ours
+36	Les marches d'archers d'abord dans les ralliements les plus forts ; infanterie et cavalerie dans les suivants.
+37	Surtout des archers (environ 1 : 25 : 74), mais n'envoie zéro d'aucun type de troupe.
+38	Rejoins avec un héros d'Attaque ou de Létalité en première place.
+39	Capitaines : Petra et Amadeus valent la peine ; Revenu de la Ville activé ; compétences des participants 2 Attaque + 2 Létalité.
+42	🏹 Les archers comptent le plus
+43	Meilleur mélange :
+44	🧮 Essaie ton mélange
+45	Nombre de {t}
+46	{p}% du meilleur mélange pour {n} troupes
+47	🚩 Le ralliement que tu rejoins compte le plus
+48	La même marche d'archers : environ 50–60M dans un ralliement fort, environ 20M dans un faible.
+49	Capitaine faible
+50	Capitaine fort
+51	👑 Ce qui rend un ralliement fort
+52	L'Attaque et la Létalité des archers du capitaine
+53	Le Revenu de la Ville du capitaine
+54	Compétences des participants (4 places, niveau de compétence le plus élevé d'abord)
+55	Les trois héros du capitaine — ils changent beaucoup le ralliement (voir plus bas)
+56	Compétences des participants : mélanger Attaque et Létalité
+57	🎲 Chance
+58	Mêmes troupes = même score.
+59	Les ralliements d'un même capitaine varient de 10–25% ; compare les capitaines sur 3–4 ralliements.
+60	{n} joueurs
+61	🌟 Valora (Expert)
+62	Instinct de chasseuse s'ajoute à ton propre score de dégâts :
+63	Danse de la chasse : capacité de ralliement +30,000 par niveau. Avantage primitif : ta propre capacité de marche +3,000 par niveau.
+64	🩹 Pertes au combat
+67	Les troupes qui tombent suivent l'une de trois voies : blessés légers (hors de ce combat, mais ils restent avec la marche et peuvent recombattre — sauf en défense d'un bâtiment comme un Sanctuaire, un Avant-poste ou le Château Royal : là, ils sont renvoyés chez eux — sans soins nécessaires — donc la garnison s'amincit à chaque attaque), blessés (à l'Infirmerie, soignables) ou perdus (disparus).
+68	Dans tout combat, une fois ton Infirmerie pleine, les blessés qui n'y tiennent pas sont perdus. À part cela, des troupes ne sont perdues que si tu attaques la Ville de quelqu'un (35% des troupes tombées) ou si tu te bats pour un Avant-poste Lv. 4 (10%).
+69	Quand le côté défenseur d'un rapport montre des pertes, son Infirmerie était pleine.
+71	Avant de pouvoir être attaqué, soigne tes blessés pour que l'Infirmerie ait de la place.
+72	Tenir un bâtiment : remplis la garnison entre les attaques — les blessés légers sont rentrés chez eux.
+73	Avant d'attaquer une Ville, compte que 35% des troupes tombées ne reviendront pas.
+74	Où vont les troupes tombées
+75	Les deux côtés
+76	Défenseur
+77	Perdus
+78	Blessés légers
+79	Attaquer une Ville
+80	Attaquer des collecteurs ou des troupes sur la carte
+81	Ralliement sur un bâtiment, ou garnison
+82	Avant-poste Lv. 1
+83	Avant-poste Lv. 2
+84	Avant-poste Lv. 3
+85	Avant-poste Lv. 4
+86	Sanctuaire, Fort
+87	un rapport
+88	Presque tous blessés légers.
+89	Aussi
+90	Avant-postes : plus le niveau est élevé, plus il y a de blessés (10%, 20%, 30%) ; seul le Lv. 4 perd aussi des troupes.
+91	Éliminations = perdus + blessés de l'autre côté. Les blessés légers ne comptent pas.
+92	Les troupes blessées entrent à l'Infirmerie du rang le plus élevé vers le bas.
+93	Une Ville sans troupes : pas de combat, personne n'est touché.
+94	Dans un ralliement ou une garnison, la part de chacun dans les troupes tombées suit sa part de ce type de troupe.
+95	Les attaques touchent d'abord la première ligne : infanterie, puis cavalerie, puis archers — l'infanterie tombe donc en premier et la cavalerie presque jamais. Parfois des archers tombent avant que l'infanterie ait disparu : c'est l'Embuscade de la cavalerie ennemie (à partir de T7, 20% de ses attaques sautent l'infanterie).
+96	🦣 Ralliements de Terreur
+97	La Puissance Recommandée vaut pour tout le ralliement.
+98	Puissance du ralliement ≈ puissance par troupe du capitaine × toutes les troupes du ralliement.
+99	Les troupes touchées sont presque toutes seulement des blessés légers.
+100	Tout le ralliement devrait atteindre la Puissance Recommandée.
+101	1× gagne ; 1.5× pour peu de blessés ; sous la moitié, ne lance pas.
+112	📋 Les niveaux
+114	Troupes (inf / cav / arc)
+115	Rang
+116	Toutes les stats
+117	Puissance du ralliement ≈ puissance de marche du capitaine ÷ capacité de marche du capitaine × toutes les troupes du ralliement
+118	Les deux chiffres en haut de la page de marche du capitaine (3 héros, marche pleine).
+119	📏 Puissance du ralliement ÷ Puissance Recommandée
+120	1.5× ou plus : facile — moins de 10% touchés
+121	environ 1× : tu gagnes, 20–30% touchés
+122	environ 0.7× : victoire de justesse, environ la moitié touchés
+123	sous 0.5× : tu perds
+124	facile
+125	victoire
+126	de justesse
+127	défaite
+128	🧮 Essaie un ralliement
+129	Puissance de marche du capitaine (M)
+130	Capacité de marche du capitaine
+131	Toutes les troupes du ralliement
+132	Puissance du ralliement ≈ {p}
+134	× Recommandée
+135	📊 À quel point le ralliement doit-il être rempli ?
+136	Troupes du ralliement, en multiple de la capacité de marche du capitaine, pour atteindre 1× la Puissance Recommandée :
+137	Puissance de marche du capitaine
+139	Compte
+140	Troupes du ralliement
+142	Touchés
+143	Résultat
+144	perdu — bête −{g}%
+145	🎓 Experts
+147	💡 Suggestions : qui améliorer d'abord
+148	Tu fais surtout
+149	D'abord
+150	Ensuite
+151	Rien ne presse
+152	Mener des ralliements ou des garnisons
+153	Mener des ralliements de Chasse à l'Ours
+154	Rejoindre des ralliements
+155	Jouer à L'Arène
+156	Développer et collecter
+157	Compétences de Cassia : Commando et Mobilisation inspirante d'abord ; monte les trois compétences de combat au Lv5–10 chacune avant d'aller plus haut.
+158	Progrès de la Relation : les 3 premiers de Roman sont les moins chers ; les 2 premiers de Cassia valent aussi le coup, à partir du 3e cela devient cher.
+160	Les stats d'un expert ne comptent que lorsque tes propres stats sont utilisées : tes propres marches, les ralliements et garnisons que tu mènes. Dans le ralliement de quelqu'un d'autre, seule la limite de l’escouade aide.
+161	Chaque 1% de Cassia ajoute 3–4 fois la Puissance d'un Talisman du Gouverneur : la Puissance augmente bien plus que la force réelle.
+162	🎓 Les quatre experts
+163	Expédition, max
+164	Effet réel, tout au max
+165	Létalité, Santé +20%
+166	Attaque, Défense +10% · Létalité, Santé +10% · Capacité de ralliement +100,000 · limite de l’escouade +10,000 · 600 soldats gratuits par jour
+167	Capitaine Ours / Terreur +20–30% · capitaine de ralliement PvP +20–25%
+168	Attaque, Défense +15%
+169	Tout dans L'Arène
+170	Capitaine Ours +2% · capitaine de ralliement PvP +4%
+171	Attaque +15%
+172	Tout dans la Chasse à l'Ours : capacité de ralliement +300,000 · ta propre limite de l’escouade +30,000 · Instinct de chasseuse (jusqu'à +30% sur ton propre score) · Marteaux de Forge et EXP d'Amélioration à chaque chasse
+173	Stats +2% · environ 75 Marteaux de Forge et 7,500 EXP d'Amélioration par mois
+174	Défense +15%
+175	Tout hors combat : Coffres de Réserve, Missions de renseignements, Endurance du Chef, Construction plus rapide
+176	Capitaine de ralliement PvP +2% · Chasse à l'Ours 0
+177	Où chacun aide
+178	Capitaine de ralliement (PvP)
+179	Mener une garnison
+180	Capitaine Ours
+181	Rejoindre des ralliements / l'Ours
+182	Développement
+183	✅ beaucoup · ⚠️ un peu · — pas du tout
+184	💎 Progrès de la Relation : gemmes par 1%
+185	Progrès
+188	1% de Létalité ou de Santé vaut environ 1.3 fois 1% d'Attaque ou de Défense. Les nombres d'emblèmes viennent du web.
+189	🧭 Les rencontrer
+190	Tu rencontres les quatre dans le Voyage dans le royaume ; chacun s'installe à 1,000 d'affinité.
+191	Ordre : Valora → Pan → Roman → Cassia.
+192	Valora s'installe après environ 25 arrêts. Les suivants donnent +50, +100 ou +200 par rencontre, avec beaucoup d'arrêts entre deux.
+193	Pan : environ 8–9 jours après l'avoir rencontré. Cassia : 350 après environ 55 arrêts.
+194	Compétences de Cassia : gemmes par 1%
+195	Compétence
+196	Manuscrits jusqu'au max
+197	Commando (Létalité + Santé)
+198	La puissance pour gagner (Attaque + Défense)
+199	Mobilisation inspirante (capacité de ralliement)
+200	Recruteuse en chef (soldats gratuits)
+201	🧭 Attaque vs Défense
+202	Le plus important
+203	Capacité de ralliement — un grand ralliement bat deux petits
+204	Capacité de garnison — combien de troupes peuvent tenir le bâtiment
+205	Les stats de qui comptent
+206	Celles du capitaine du ralliement
+207	Celles de la personne la plus forte à l'intérieur
+208	Type de Composant
+209	Offensif (ralliement)
+210	Défensif (garnison)
+211	Ratio de troupes
+212	50:20:30 · Infanterie ≥ 40%
+213	Beaucoup d'infanterie (l'infanterie est le mur)
+214	Compétences des participants
+215	Les 4 premières personnes avec un héros : 2 Attaque + 2 Létalité
+216	Jusqu'à 4 : des types différents de préférence ; 2 Gordon + 2 Howard aussi bien → 🛡️ Participants de garnison
+217	Tactique / pertes
+218	Cible forte : d'abord les ralliements sacrifiables, le capitaine le plus fort en dernier
+219	Celui qui mène subit ~32% de pertes en plus — Infirmerie prête
+220	Bonus
+221	Les Composants défensifs fonctionnent aussi quand ta propre ville est attaquée
+222	🛡️ Participants de garnison
+223	Jusqu'à 4 comptent — le premier héros de chacun, compétence en haut à droite seulement
+224	Qui compte : niveau de compétence le plus élevé d'abord ; même niveau → celui qui a rejoint en premier. Celui qui mène la garnison et les R4/R5 peuvent changer l'ordre
+225	Le même type de bonus s'additionne (chaque ajout rapporte moins) ; des types différents se multiplient → 4 types différents, c'est le mieux
+226	Compétences à chances (Jabel, Helga) : la même ne compte qu'une fois
+227	Participants
+228	vs le meilleur
+229	meilleur
+230	payant
+231	grosse dépense
+232	gratuit
+233	🐻 Capitaine Ours
+234	🃏 Chaque héros, noté pour chaque rôle → Cartes de héros
+235	🦸 Comparaison des héros (Gén. 1–5)
+236	⚔️ Capitaine de ralliement PvP
+237	🛡️ Mener une garnison
+239	Meilleur
+240	Face à face
+241	Pourquoi
+242	Verdict
+243	Petra +12% (son Composant de ralliement)
+244	à peu près pareil (Margot −1%)
+245	Margot +30% (Composant de garnison, bonus de troupes plus élevé)
+246	Tu as déjà Petra ? Garde-la pour les ralliements et l'Ours ; passe à Margot seulement pour une cavalerie de garnison.
+248	comme la garnison
+249	les trois sont faibles ici — Amadeus est la meilleure infanterie (Alcar −31%, Long Fei −41%, Éric −54%)
+250	L'avance de Long Fei = bonus de troupes plus élevé (génération plus récente). Le plus d'Alcar = dégâts d'infanterie +100% et +60% cumulables — pas encore confirmé.
+251	Infanterie de garnison : Alcar > Long Fei > Éric.
+254	Jaeger +10% (les deux sont faibles ici — prends Viviane / Rosa)
+255	Archer en garnison : Jaeger, clairement.
+257	Marlin → Rosa +28%, → Viviane +38% ; Rosa → Viviane seulement +8%
+259	Viviane rapporte le plus pour l'Ours ; pour le PvP et les garnisons, Rosa est presque aussi bonne.
+260	⚖️ Comparer deux héros
+261	Lv du Composant
+262	à peu près égal
+263	🎯 Seconds usages — participants & rôles annexes
+264	Pour quoi
+265	Bonus fixe (premier choix)
+266	À chances (second choix)
+267	⚔️🐻 Participant de dégâts (Ours, ralliements PvP)
+268	🛡️ Participant de garnison
+269	❌ Inutile comme participant
+270	Att
+271	Lét
+272	Déf
+273	Santé
+274	Dégâts subis par l'ennemi
+275	Déf ennemie
+276	Dégâts subis
+277	Dégâts ennemis
+278	Att ennemie
+279	Lét ennemie
+280	Coup supplémentaire tous les 4 tours
+281	Garnison : choisis 4 types différents (le même type s'additionne avec de moins en moins, des types différents se multiplient). P. ex. 1 réduction de dégâts (Howard) + Saul + Hilde + 1 Létalité (Chenko).
+282	Les compétences deux-en-un en haut à droite (Saul, Hilde) sont très bonnes : une place, deux stats — multipliées, mieux qu'un seul +25%.
+283	Quand NOUS attaquons une garnison en ralliement, les participants défensifs aident aussi : la garnison riposte, et Att ennemie −20% (Éric), Dégâts subis −20% (Howard, Quinn) réduisent nos pertes.
+284	Héros par héros
+285	Faible comme meneur archer, mais l'un des meilleurs participants de garnison (Déf + Santé). Compétence verte : vitesse de construction +15%, coût −15%. En bas à droite Létalité +25% quand il mène.
+286	En haut à droite Santé +25% → participant de garnison. Comme meneur, sa compétence du milieu Attaque +25% fonctionne aussi.
+287	En haut à droite Attaque + Défense → participant de garnison et de PvP (contre l'Ours, seule la moitié Attaque aide).
+288	Participants de garnison bon marché à réduction de dégâts : Howard, Quinn (Dégâts subis −20%), Fahd (Dégâts ennemis −20%). Compétence verte de Fahd : vitesse de marche en solo contre les bêtes +100%.
+289	Milieu Attaque +25% (fixe) → utile comme meneur, même à la place infanterie de l'Ours. Comme participant, seulement une compétence à chances.
+290	Gratuit, Composant de type garnison → aide tout le monde quand sa propre ville est attaquée. En bas à droite Létalité +25%.
+291	Compétence verte : Vitesse de Soins de l'Infirmerie +50%.
+292	Compétence verte : Vitesse de Recherche +15% (peut aider le jour recherche du KvK).
+293	Aucun usage au combat : endurance −20%, vitesse de marche contre les bêtes +100% → seulement pour la chasse aux bêtes.
+294	Héros R (Forrest, Seth, Edwin, Olive) : Vitesse de Collecte +25% → seulement pour les marches de collecte.
+295	Les compétences vertes (développement) fonctionnent toutes seules une fois débloquées — pas besoin de placer le héros quelque part. Pour la vitesse de collecte et de marche contre les bêtes, le héros doit peut-être être dans cette marche.
+296	🪓 Rapport Viking
+297	Aperçu : cette page n'est pas encore liée au site.
+298	🔬 Recherche NXS
+299	Nos rapports de combat
+300	Dit en ligne
+301	Chaque vague a un nombre fixe de Vikings.
+302	Si la ville tient, ils meurent tous. La question n'est donc pas la force de tes coups — c'est quelle part de l'infanterie de la ville est à toi.
+304	Renforce avec ton infanterie du rang le plus élevé.
+305	Propriétaires de ville : ne garde que des archers à la maison.
+306	Chaque ville a besoin d'un renfort.
+307	Répartis l'infanterie sur plusieurs villes.
+308	Tu ne peux pas tout envoyer ? L'infanterie d'abord.
+309	Les villes qui manquent d'infanterie reçoivent de l'infanterie en premier.
+310	⚔️ Qui se bat
+311	Presque toutes les éliminations.
+312	Seulement quand Embuscade se déclenche — et même alors cela peut être 0.
+313	Archers en renfort : 0.
+315	Les éliminations des compétences de héros ne restent pas au propriétaire du héros. Elles entrent dans le total et sont partagées selon troupes × rang comme toute autre élimination.
+317	À force égale, la cavalerie a gagné environ un quart de ce qu'a gagné l'infanterie.
+319	Les 4 compétences de renforts que la ville utilise sont choisies comme dans un ralliement : niveau de compétence le plus élevé d'abord ; même niveau → ordre d'arrivée.
+320	🍰 Comment les points sont partagés
+321	Chaque ville distribue deux lots de points fixes par vague. Les éliminations décident seulement comment le lot des renforts est découpé.
+322	Vague
+323	Vague d'élite ×2
+324	🏠 Propriétaire de la ville
+325	Fixe quand la vague est entièrement éliminée.
+326	🤝 Les renforts se partagent
+327	La moitié de celui du propriétaire, partagée selon infanterie × rang.
+329	Éliminations par les troupes du propriétaire : cette part du lot des renforts ne va à personne.
+331	Une ville sans renfort : personne ne reçoit le lot des renforts.
+333	Une ville sans assez d'infanterie peut quand même afficher Victoire avec des Vikings encore en vie. Ses points se réduisent à la part éliminée.
+334	📏 Rang plus élevé = plus grosse part
+335	Les éliminations sont partagées selon le rang de tes propres troupes (ce n'est pas le niveau des Vikings). Une troupe T10 TG3 = 1 :
+336	1 infanterie TG3 ≈ 1.17 TG1 ≈ 1.66 T9. L'infanterie et la cavalerie suivent les mêmes ratios.
+337	🤷 Ne change pas tes points
+339	Dans une ville qui élimine toute la vague : bonus d'attaque et de défense et affaiblissements d'animaux. Les parts étaient les mêmes avec et sans.
+341	Quels héros tu envoies, combien, ou le fait d'être capitaine de garnison.
+343	Les vagues 10 et 20 n'attaquent que le QG d'Alliance, pas les villes. Les éliminations sont partagées de la même façon, selon infanterie × rang, et les points suivent les éliminations.
+344	Établi à partir des propres rapports de combat de NXS. Ce n'est pas une description officielle du jeu ; cela peut changer après une mise à jour.

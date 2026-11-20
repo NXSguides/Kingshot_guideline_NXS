@@ -1,0 +1,303 @@
+0	⚔️ Rally & Garnison
+1	Ein Rally nutzt die Werte des Rally-Kapitäns; eine Garnison die des stärksten Verteidigers.
+2	Gleiche Fertigkeitsart addiert sich; verschiedene Arten multiplizieren sich.
+3	🔎 Was wir gesehen haben
+4	Nur die Fertigkeit deines ersten Helden zählt: Bring einen 4★-Helden mit der Fertigkeit auf Lv5.
+5	Bärenjagd: 2 Angriff (Amane, Margot) + 2 Tödlichkeit (Chenko, Yeonwoo).
+6	PvP-Rally und Garnison: 4 verschiedene Arten (z. B. Amane + Chenko + Gordon + Howard).
+7	Stadts Bonus: der Rally-Kapitän bzw. der stärkste Verteidiger in einer Garnison.
+8	Nach der Einnahme eines Gebäudes: Garnisonshelden und Garnisons-Exklusive Ausrüstung.
+9	💡 Vorschläge
+10	🔬 Unsere Forschung · aktualisiert {d}
+11	✅ sicher
+12	🟡 wahrscheinlich
+13	🦸 Die 4 Fertigkeiten der Beitretenden
+14	Nur die Fertigkeit oben rechts deines ersten Helden zählt.
+15	Höheres Fertigkeitslevel zuerst; gleiches Level → Reihenfolge des Beitritts.
+16	Keine Kampffertigkeiten
+17	Angriff 25 + Gesundheit 25 + Tödlichkeit 25
+18	Angriff 25 + Angriff 25 + Gesundheit 25
+19	🛡️ Verteidigungsfertigkeiten zählen so viel wie Angriff
+20	Gesundheit, Reduktion des erlittenen Schadens und Feindlicher Trupp Angriffs-Reduktion wirken jeweils etwa ×(1 + X).
+21	Feindlicher Trupp Angriffs-Reduktion wirkt auch gegen Monster.
+22	🎯 Welche Beitretenden
+23	⚔️🛡️ PvP-Rally & Garnison
+24	🧮 4 Beitretende ausprobieren
+25	keine Kampffertigkeit
+28	Saul + Gordon + Howard + Fahd (alle defensiv)
+30	Beispiele (Lv5)
+31	👑 Der Rally-Kapitän / stärkste Verteidiger
+32	Werte im Kampfbericht = (1 + Truppen-% + Schwadron-%) × (1 + Stadts Bonus + Exklusive Ausrüstung für Rally/Garnison) ÷ (1 + feindliche Schwächung) − 1.
+33	Wenn Beitretende den Stadts Bonus einschalten, bringt das nichts.
+34	Rally-Exklusive Ausrüstung wirkt nur, wenn du den Rally startest; Garnisonsausrüstung nur in einer Garnison.
+35	🐻 Bärenjagd-Bericht
+36	Bogenschützen-Märsche zuerst in die stärksten Rallys; Infanterie und Kavallerie in die späteren.
+37	Vor allem Bogenschützen (etwa 1 : 25 : 74), aber schick von keiner Truppenart null.
+38	Tritt mit einem Angriffs- oder Tödlichkeits-Helden im ersten Platz bei.
+39	Rally-Kapitäne: Petra und Amadeus lohnen sich; Stadts Bonus an; Fertigkeiten der Beitretenden 2 Angriff + 2 Tödlichkeit.
+42	🏹 Bogenschützen zählen am meisten
+43	Beste Mischung:
+44	🧮 Deine Mischung ausprobieren
+45	Anzahl {t}
+46	{p}% der besten Mischung für {n} Truppen
+47	🚩 Am wichtigsten ist, welchem Rally du beitrittst
+48	Derselbe Bogenschützen-Marsch: etwa 50–60 Mio. in einem starken Rally, etwa 20 Mio. in einem schwachen.
+49	Schwacher Kapitän
+50	Starker Kapitän
+51	👑 Was einen Rally stark macht
+52	Angriff und Tödlichkeit der Bogenschützen des Kapitäns
+53	Stadts Bonus des Kapitäns
+54	Fertigkeiten der Beitretenden (4 Plätze, höheres Fertigkeitslevel zuerst)
+55	Die drei Helden des Kapitäns – sie verändern den Rally stark (siehe unten)
+56	Fertigkeiten der Beitretenden: Angriff und Tödlichkeit mischen
+57	🎲 Glück
+58	Gleiche Truppen = gleiche Punkte.
+59	Die Rallys eines Kapitäns schwanken um 10–25%; vergleiche Kapitäne über 3–4 Rallys.
+60	{n} Spieler
+61	🌟 Valora (Meister)
+62	Jägerinstinkt erhöht deine eigenen Schadenspunkte:
+63	Tanz der Jagd: Rally-Kapazität +30.000 pro Level. Vorteil des Wilden: deine eigene Marschkapazität +3.000 pro Level.
+64	🩹 Kampfverluste
+67	Gefallene Truppen gehen einen von drei Wegen: leicht verletzt (raus aus diesem Kampf, bleiben aber beim Marsch und können wieder kämpfen – außer bei der Verteidigung eines Gebäudes wie Heiligtum, Außenposten oder Königliches Schloss: dort werden sie nach Hause geschickt – keine Heilung nötig –, sodass die Garnison mit jedem Angriff dünner wird), verletzt (in der Krankenstation, heilbar) oder verloren (weg).
+68	In jedem Kampf gilt: Ist deine Krankenstation voll, gehen die Verletzten, die nicht hineinpassen, verloren. Sonst gehen Truppen nur verloren, wenn du jemandes Stadt angreifst (35% der gefallenen Truppen) oder um einen Außenposten Lv. 4 kämpfst (10%).
+69	Zeigt die verteidigende Seite eines Berichts Verluste, war ihre Krankenstation voll.
+71	Bevor du angegriffen werden kannst, heile deine Verletzten, damit die Krankenstation Platz hat.
+72	Ein Gebäude halten: Fülle die Garnison zwischen den Angriffen auf – die leicht Verletzten sind nach Hause gegangen.
+73	Vor dem Angriff auf eine Stadt: Rechne damit, dass 35% der gefallenen Truppen nicht zurückkommen.
+74	Wohin gefallene Truppen gehen
+75	Beide Seiten
+76	Verteidiger
+77	Verloren
+78	Leicht verletzt
+79	Angriff auf eine Stadt
+80	Angriff auf Sammler oder Truppen auf der Karte
+81	Rally auf ein Gebäude oder Garnison
+82	Außenposten Lv. 1
+83	Außenposten Lv. 2
+84	Außenposten Lv. 3
+85	Außenposten Lv. 4
+86	Heiligtum, Fort
+87	ein Bericht
+88	Fast alle leicht verletzt.
+89	Außerdem
+90	Außenposten: je höher das Level, desto mehr Verletzte (10%, 20%, 30%); nur Lv. 4 verliert auch Truppen.
+91	Kills = Verlorene + Verletzte der anderen Seite. Leicht Verletzte zählen nicht.
+92	Verletzte Truppen kommen vom höchsten Rang abwärts in die Krankenstation.
+93	Eine Stadt ohne Truppen: kein Kampf, niemand wird verletzt.
+94	In einem Rally oder einer Garnison entspricht der Anteil jeder Person an den Gefallenen ihrem Anteil an dieser Truppenart.
+95	Angriffe treffen zuerst die vordere Reihe: Infanterie, dann Kavallerie, dann Bogenschützen – daher fällt Infanterie zuerst und Kavallerie fast nie. Manchmal fallen Bogenschützen, bevor die Infanterie weg ist: Das ist der Hinterhalt der feindlichen Kavallerie (ab T7 überspringen 20% ihrer Angriffe die Infanterie).
+96	🦣 Terror-Rallys
+97	Die Empfohlene Kraft gilt für den ganzen Rally.
+98	Rally-Kraft ≈ Kraft pro Truppe des Kapitäns × alle Truppen im Rally.
+99	Getroffene Truppen sind fast alle nur leicht verletzt.
+100	Der ganze Rally sollte die Empfohlene Kraft erreichen.
+101	1× gewinnt; 1,5× für wenige Verletzte; unter der Hälfte nicht starten.
+112	📋 Die Level
+114	Truppen (Inf / Kav / Bog)
+115	Rang
+116	Alle Werte
+117	Rally-Kraft ≈ Marschkraft des Kapitäns ÷ Marschkapazität des Kapitäns × alle Truppen im Rally
+118	Die zwei Zahlen oben auf der Marschseite des Kapitäns (3 Helden, voller Marsch).
+119	📏 Rally-Kraft ÷ Empfohlene Kraft
+120	1,5× oder mehr: leicht – unter 10% getroffen
+121	etwa 1×: du gewinnst, 20–30% getroffen
+122	etwa 0,7×: knapper Sieg, etwa die Hälfte getroffen
+123	unter 0,5×: du verlierst
+124	leicht
+125	Sieg
+126	knapp
+127	Niederlage
+128	🧮 Einen Rally ausprobieren
+129	Marschkraft des Kapitäns (Mio.)
+130	Marschkapazität des Kapitäns
+131	Alle Truppen im Rally
+132	Rally-Kraft ≈ {p}
+134	× Empfohlen
+135	📊 Wie voll muss der Rally sein?
+136	Rally-Truppen als Vielfaches der eigenen Marschkapazität des Kapitäns, um 1× die Empfohlene Kraft zu erreichen:
+137	Marschkraft des Kapitäns
+139	Konto
+140	Rally-Truppen
+142	Getroffen
+143	Ergebnis
+144	verloren – Bestie −{g}%
+145	🎓 Meister
+147	💡 Vorschläge: wen zuerst ausbauen
+148	Du machst vor allem
+149	Zuerst
+150	Dann
+151	Keine Eile
+152	Rallys oder Garnisonen anführen
+153	Bärenjagd-Rallys anführen
+154	Rallys beitreten
+155	Arena spielen
+156	Entwickeln und sammeln
+157	Cassias Fertigkeiten: zuerst Kommando und Ruf zu den Waffen; bring die drei Kampffertigkeiten jeweils auf Lv5–10, bevor du höher gehst.
+158	Beziehungs-fortschritt: Romans erste 3 sind am günstigsten; Cassias erste 2 lohnen sich auch, ab der 3. wird es teuer.
+160	Die Werte eines Meisters zählen nur, wenn deine eigenen Werte genutzt werden: deine eigenen Märsche sowie Rallys und Garnisonen, die du anführst. Im Rally eines anderen hilft nur das Schwadronen-Größenlimit.
+161	Jedes 1% von Cassia bringt 3–4-mal so viel Kraft wie ein Gouverneur Talisman: Die Kraft wächst viel stärker als die echte Stärke.
+162	🎓 Die vier Meister
+163	Expedition, max.
+164	Echte Wirkung, alles auf max.
+165	Tödlichkeit, Gesundheit +20%
+166	Angriff, Verteidigung +10% · Tödlichkeit, Gesundheit +10% · Rally-Kapazität +100.000 · Schwadronen-Größenlimit +10.000 · 600 kostenlose Soldaten pro Tag
+167	Bären-/Terror-Kapitän +20–30% · PvP-Rally-Kapitän +20–25%
+168	Angriff, Verteidigung +15%
+169	Alles in der Arena
+170	Bären-Kapitän +2% · PvP-Rally-Kapitän +4%
+171	Angriff +15%
+172	Alles in der Bärenjagd: Rally-Kapazität +300.000 · dein eigenes Schwadronen-Größenlimit +30.000 · Jägerinstinkt (bis zu +30% auf deine eigenen Punkte) · Forgehammer und Verbesserungs-XP bei jeder Jagd
+173	Werte +2% · etwa 75 Forgehammer und 7.500 Verbesserungs-XP pro Monat
+174	Verteidigung +15%
+175	Alles außerhalb des Kampfes: Reserve-Truhen, Geheimdienst-Missionen, Gouverneur-Ausdauer, schnellerer Bau
+176	PvP-Rally-Kapitän +2% · Bärenjagd 0
+177	Wo jeder hilft
+178	Rally-Kapitän (PvP)
+179	Garnison anführen
+180	Bären-Kapitän
+181	Rallys / Bär beitreten
+182	Entwicklung
+183	✅ viel · ⚠️ wenig · — gar nicht
+184	💎 Beziehungs-fortschritt: Edelsteine pro 1%
+185	Fortschritt
+188	1% Tödlichkeit oder Gesundheit ist etwa 1,3-mal so viel wert wie 1% Angriff oder Verteidigung. Die Emblem-Zahlen stammen aus dem Netz.
+189	🧭 Sie treffen
+190	Du triffst alle vier auf der Reichsreise; jeder lässt sich bei 1.000 Affinität nieder.
+191	Reihenfolge: Valora → Pan → Roman → Cassia.
+192	Valora lässt sich nach etwa 25 Stopps nieder. Die späteren geben +50, +100 oder +200 pro Treffen, mit vielen Stopps dazwischen.
+193	Pan: etwa 8–9 Tage, nachdem du ihn triffst. Cassia: 350 nach etwa 55 Stopps.
+194	Cassias Fertigkeiten: Edelsteine pro 1%
+195	Fertigkeit
+196	Manuskripte bis max.
+197	Kommando (Tödlichkeit + Gesundheit)
+198	Feuerkraft zum Sieg (Angriff + Verteidigung)
+199	Ruf zu den Waffen (Rally-Kapazität)
+200	Leitender Anwerber (kostenlose Soldaten)
+201	🧭 Angriff vs. Verteidigung
+202	Am wichtigsten
+203	Rally-Kapazität – ein großer Rally schlägt zwei kleine
+204	Garnisonskapazität – wie viele Truppen das Gebäude halten können
+205	Wessen Werte zählen
+206	Die des Rally-Kapitäns
+207	Die der stärksten Person darin
+208	Element-Art
+209	Offensiv (Rally)
+210	Defensiv (Garnison)
+211	Truppenverhältnis
+212	50:20:30 · Infanterie ≥ 40%
+213	Viel Infanterie (Infanterie ist die Mauer)
+214	Fertigkeiten der Beitretenden
+215	Die ersten 4 Personen mit Held: 2 Angriff + 2 Tödlichkeit
+216	Bis zu 4: verschiedene Arten am besten; 2 Gordon + 2 Howard auch gut → 🛡️ Garnisons-Beitretende
+217	Taktik / Verluste
+218	Starkes Ziel: zuerst entbehrliche Rallys, der stärkste Kapitän zuletzt
+219	Wer anführt, hat ~32% mehr Verluste – Krankenstation bereithalten
+220	Bonus
+221	Defensive Elemente wirken auch, wenn deine eigene Stadt angegriffen wird
+222	🛡️ Garnisons-Beitretende
+223	Bis zu 4 zählen – jeweils nur der erste Held, Fertigkeit oben rechts
+224	Wer zählt: höheres Fertigkeitslevel zuerst; gleiches Level → wer zuerst beigetreten ist. Wer die Garnison anführt und R4/R5 können die Reihenfolge ändern
+225	Gleiche Bonusart addiert sich (jeder weitere bringt weniger); verschiedene Arten multiplizieren sich → 4 verschiedene Arten sind am besten
+226	Chance-Fertigkeiten (Jabel, Helga): dieselbe zählt nur einmal
+227	Beitretende
+228	ggü. dem Besten
+229	am besten
+230	bezahlt
+231	hohe Ausgaben
+232	kostenlos
+233	🐻 Bären-Kapitän
+234	🃏 Jeder Held, für jede Rolle bewertet → Heldenkarten
+235	🦸 Heldenvergleich (Gen 1–5)
+236	⚔️ PvP-Rally-Kapitän
+237	🛡️ Garnison anführen
+239	Am besten
+240	Direkter Vergleich
+241	Warum
+242	Fazit
+243	Petra +12% (ihr Rally-Element)
+244	etwa gleich (Margot −1%)
+245	Margot +30% (Garnisons-Element, höherer Truppenbonus)
+246	Hast du Petra schon? Behalte sie für Rallys und den Bären; wechsle nur für eine Garnisons-Kavallerie zu Margot.
+248	wie Garnison
+249	alle drei sind hier schwach – Amadeus ist die beste Infanterie (Alcar −31%, Long Fei −41%, Eric −54%)
+250	Long Feis Vorsprung = höherer Truppenbonus (neuere Generation). Alcars Extra = Infanterieschaden +100% und +60% stapelbar – noch nicht bestätigt.
+251	Garnisons-Infanterie: Alcar > Long Fei > Eric.
+254	Jaeger +10% (beide hier schwach – nimm Vivian / Rosa)
+255	Bogenschütze in einer Garnison: eindeutig Jaeger.
+257	Marlin → Rosa +28%, → Vivian +38%; Rosa → Vivian nur +8%
+259	Vivian lohnt sich am meisten für den Bären; für PvP und Garnisonen ist Rosa fast genauso gut.
+260	⚖️ Zwei Helden vergleichen
+261	Element-Lv
+262	etwa gleich
+263	🎯 Zweitnutzen – Beitretende & Nebenaufgaben
+264	Wofür
+265	Fester Bonus (erste Wahl)
+266	Mit Chance (zweite Wahl)
+267	⚔️🐻 Schadens-Beitretender (Bär, PvP-Rallys)
+268	🛡️ Garnisons-Beitretender
+269	❌ Als Beitretender nutzlos
+270	Angr
+271	Tödl
+272	Vert
+273	Ges
+274	Erl. Schaden d. Feindes
+275	Feind-Vert
+276	Erl. Schaden
+277	Feind-Schaden
+278	Feind-Angr
+279	Feind-Tödl
+280	Zusatztreffer alle 4 Runden
+281	Garnison: wähle 4 verschiedene Arten (gleiche Art addiert sich mit immer weniger, verschiedene multiplizieren sich). Z. B. 1 Schadensreduktion (Howard) + Saul + Hilde + 1 Tödlichkeit (Chenko).
+282	Zwei-in-eins-Fertigkeiten oben rechts (Saul, Hilde) sind besonders gut: ein Platz, zwei Werte – multipliziert, besser als einmal +25%.
+283	Wenn WIR eine Garnison per Rally angreifen, helfen defensive Beitretende auch: Die Garnison schlägt zurück, und Feind-Angr −20% (Eric) sowie Erl. Schaden −20% (Howard, Quinn) senken unsere Verluste.
+284	Held für Held
+285	Schwach als Bogenschützen-Anführer, aber einer der besten Garnisons-Beitretenden (Vert + Ges). Grüne Fertigkeit: Bautempo +15%, Kosten −15%. Unten rechts Tödlichkeit +25%, wenn er anführt.
+286	Oben rechts Ges +25% → Garnisons-Beitretender. Als Anführer wirkt auch seine mittlere Fertigkeit Angriff +25%.
+287	Oben rechts Angriff + Verteidigung → Beitretender für Garnison und PvP (gegen den Bären hilft nur die Angriffs-Hälfte).
+288	Günstige Garnisons-Beitretende mit Schadensreduktion: Howard, Quinn (Erl. Schaden −20%), Fahd (Feind-Schaden −20%). Fahds grüne Fertigkeit: Marschtempo allein gegen Bestien +100%.
+289	Mitte Angriff +25% (fest) → nützlich als Anführer, sogar auf dem Infanterie-Platz beim Bären. Als Beitretender nur eine Chance-Fertigkeit.
+290	Kostenlos, Garnisons-Element → hilft jedem, wenn die eigene Stadt getroffen wird. Unten rechts Tödlichkeit +25%.
+291	Grüne Fertigkeit: Heilungsgeschwindigkeit der Krankenstation +50%.
+292	Grüne Fertigkeit: Forschungstempo +15% (kann am KvK-Forschungstag helfen).
+293	Kein Kampfnutzen: Ausdauer −20%, Marschtempo gegen Bestien +100% → nur für die Bestienjagd.
+294	R-Helden (Forrest, Seth, Edwin, Olive): Sammelgeschwindigkeit +25% → nur für Sammelmärsche.
+295	Grüne (Entwicklungs-)Fertigkeiten wirken von selbst, sobald sie freigeschaltet sind – der Held muss nirgends eingesetzt werden. Für Sammel- und Bestien-Marschtempo muss der Held möglicherweise in diesem Marsch sein.
+296	🪓 Wikinger-Bericht
+297	Vorschau: Diese Seite ist noch nicht mit der Website verlinkt.
+298	🔬 NXS-Forschung
+299	Unsere Kampfberichte
+300	Im Netz gesagt
+301	Jede Welle hat eine feste Zahl an Wikingern.
+302	Hält die Stadt, sterben sie alle. Es kommt also nicht darauf an, wie hart du zuschlägst – sondern wie viel der Infanterie in der Stadt dir gehört.
+304	Verstärke mit deiner Infanterie vom höchsten Rang.
+305	Stadtbesitzer: nur Bogenschützen zu Hause lassen.
+306	Jede Stadt braucht einen Verstärker.
+307	Verteile Infanterie auf mehrere Städte.
+308	Kannst du nicht alles schicken? Infanterie zuerst.
+309	Städte mit zu wenig Infanterie bekommen zuerst Infanterie.
+310	⚔️ Wer kämpft
+311	Fast alle Kills.
+312	Nur wenn Hinterhalt auslöst – und selbst dann kann es 0 sein.
+313	Verstärkende Bogenschützen: 0.
+315	Kills durch Heldenfertigkeiten behält nicht der Besitzer des Helden. Sie kommen in die Gesamtzahl und werden wie jeder andere Kill nach Truppen × Rang geteilt.
+317	Bei gleicher Stärke bekam Kavallerie etwa ein Viertel dessen, was Infanterie bekam.
+319	Welche 4 Verstärker-Fertigkeiten die Stadt nutzt, wird wie bei einem Rally gewählt: höheres Fertigkeitslevel zuerst; gleiches Level → Reihenfolge des Beitritts.
+320	🍰 Wie die Punkte geteilt werden
+321	Jede Stadt vergibt pro Welle zwei feste Punktetöpfe. Kills entscheiden nur, wie der Topf der Verstärker geteilt wird.
+322	Welle
+323	Elite-Welle ×2
+324	🏠 Stadtbesitzer
+325	Fest, wenn die Welle komplett besiegt ist.
+326	🤝 Verstärker teilen sich
+327	Die Hälfte des Besitzers, geteilt nach Infanterie × Rang.
+329	Kills durch die eigenen Truppen des Besitzers: Dieser Teil des Verstärker-Topfs geht an niemanden.
+331	Eine Stadt ohne Verstärker: Niemand bekommt den Verstärker-Topf.
+333	Eine Stadt mit zu wenig Infanterie kann trotzdem Sieg anzeigen, obwohl Wikinger überleben. Ihre Punkte schrumpfen auf den getöteten Anteil.
+334	📏 Höherer Rang = größeres Stück
+335	Kills werden nach dem Rang deiner eigenen Truppen geteilt (das ist nicht das Level der Wikinger). Eine T10-TG3-Truppe = 1:
+336	1 TG3-Infanterie ≈ 1,17 TG1 ≈ 1,66 T9. Für Infanterie und Kavallerie gelten dieselben Verhältnisse.
+337	🤷 Ändert deine Punkte nicht
+339	In einer Stadt, die die Welle komplett besiegt: Angriffs- und Verteidigungs-Buffs und Begleittier-Schwächungen. Die Anteile waren mit und ohne gleich.
+341	Welche Helden du schickst, wie viele, oder ob du Garnisonskapitän bist.
+343	Wellen 10 und 20 greifen nur das Allianz-Hauptquartier an, nicht die Städte. Kills werden genauso geteilt, nach Infanterie × Rang, und die Punkte folgen den Kills.
+344	Aus den eigenen Kampfberichten von NXS erarbeitet. Keine offizielle Beschreibung des Spiels; nach einem Spiel-Update kann es sich ändern.

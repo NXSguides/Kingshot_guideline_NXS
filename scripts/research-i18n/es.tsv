@@ -1,0 +1,303 @@
+0	⚔️ Ataque Conjunto y Guarnición
+1	Un Ataque Conjunto usa los atributos del líder; una guarnición usa los de su defensor más fuerte.
+2	El mismo tipo de habilidad se suma; tipos distintos se multiplican.
+3	🔎 Lo que vimos
+4	Solo cuenta la habilidad de tu primer héroe: lleva un héroe 4★ con la habilidad en Lv5.
+5	Cacería del Oso: 2 Ataque (Amane, Margot) + 2 Letalidad (Chenko, Yeonwoo).
+6	Ataque Conjunto PvP y guarnición: 4 tipos distintos (p. ej. Amane + Chenko + Gordon + Howard).
+7	Bonificaciones de la Colonia: el líder del Ataque Conjunto, o el defensor más fuerte de una guarnición.
+8	Tras tomar un edificio: héroes de guarnición y Equipo Exclusivo de guarnición.
+9	💡 Sugerencias
+10	🔬 Nuestra investigación · actualizado {d}
+11	✅ seguro
+12	🟡 probable
+13	🦸 Las 4 habilidades de los que se unen
+14	Solo cuenta la habilidad de arriba a la derecha de tu primer héroe.
+15	Primero el nivel de habilidad más alto; mismo nivel → orden de llegada.
+16	Sin habilidades de combate
+17	Ataque 25 + Salud 25 + Letalidad 25
+18	Ataque 25 + Ataque 25 + Salud 25
+19	🛡️ Las habilidades defensivas cuentan tanto como el ataque
+20	Salud, Reducción de Daño y Reducción de Ataque de Tropas del Enemigo valen cada una aproximadamente ×(1 + X).
+21	Reducción de Ataque de Tropas del Enemigo también funciona contra monstruos.
+22	🎯 Qué héroes llevar al unirse
+23	⚔️🛡️ Ataque Conjunto PvP y guarnición
+24	🧮 Prueba 4 que se unen
+25	sin habilidad de combate
+28	Saul + Gordon + Howard + Fahd (todo defensa)
+30	Ejemplos (Lv5)
+31	👑 El líder / el defensor más fuerte
+32	Atributos del informe de batalla = (1 + % de tropas + % de escuadrón) × (1 + Bonificaciones de la Colonia + Equipo Exclusivo de Ataque Conjunto/guarnición) ÷ (1 + debilitación enemiga) − 1.
+33	Que los que se unen activen las Bonificaciones de la Colonia no sirve de nada.
+34	El Equipo Exclusivo de Ataque Conjunto solo funciona cuando tú lanzas el Ataque Conjunto; el de guarnición solo en una guarnición.
+35	🐻 Informe de la Cacería del Oso
+36	Las marchas de arqueros primero a los Ataques Conjuntos más fuertes; infantería y caballería a los siguientes.
+37	Sobre todo arqueros (aprox. 1 : 25 : 74), pero no envíes cero de ningún tipo de tropa.
+38	Únete con un héroe de Ataque o Letalidad en el primer puesto.
+39	Líderes: vale la pena llevar a Petra y Amadeus; Bonificaciones de la Colonia activadas; habilidades de los que se unen 2 Ataque + 2 Letalidad.
+42	🏹 Los arqueros son los que más cuentan
+43	Mejor mezcla:
+44	🧮 Prueba tu mezcla
+45	Cantidad de {t}
+46	{p}% de la mejor mezcla para {n} tropas
+47	🚩 Lo más importante es a qué Ataque Conjunto te unes
+48	La misma marcha de arqueros: unos 50–60M en un Ataque Conjunto fuerte, unos 20M en uno débil.
+49	Líder débil
+50	Líder fuerte
+51	👑 Qué hace fuerte a un Ataque Conjunto
+52	El Ataque y la Letalidad de arqueros del líder
+53	Las Bonificaciones de la Colonia del líder
+54	Habilidades de los que se unen (4 puestos, primero el nivel de habilidad más alto)
+55	Los tres héroes del líder: cambian mucho el Ataque Conjunto (ver abajo)
+56	Habilidades de los que se unen: mezcla Ataque y Letalidad
+57	🎲 Suerte
+58	Mismas tropas = misma puntuación.
+59	Los Ataques Conjuntos de un mismo líder varían un 10–25%; compara líderes a lo largo de 3–4 Ataques Conjuntos.
+60	{n} jugadores
+61	🌟 Valora (Maestro)
+62	Instinto de cazador se suma a tu propia puntuación de daño:
+63	Danza de la cacería: capacidad del Ataque Conjunto +30,000 por nivel. Ventaja salvaje: tu propia capacidad de marcha +3,000 por nivel.
+64	🩹 Bajas en batalla
+67	Las tropas que caen siguen uno de tres caminos: heridos leves (fuera de este combate, pero se quedan con la marcha y pueden volver a luchar; excepto al defender un edificio como un Santuario, un Puesto de Avanzada o el Castillo del Rey: allí se envían a casa, sin necesidad de curación, así que la guarnición se reduce con cada ataque), heridos (en la Enfermería, se pueden curar) o perdidos (desaparecen).
+68	En cualquier batalla, cuando tu Enfermería está llena, los heridos que no caben se pierden. Aparte de eso, solo se pierden tropas cuando atacas la Ciudad de alguien (35% de las tropas que caen) o luchas por un Puesto de Avanzada Lv. 4 (10%).
+69	Cuando el lado defensor de un informe muestra pérdidas, su Enfermería estaba llena.
+71	Antes de que puedan atacarte, cura a tus heridos para que la Enfermería tenga sitio.
+72	Mantener un edificio: rellena la guarnición entre ataques; los heridos leves se han ido a casa.
+73	Antes de atacar una Ciudad, cuenta con que el 35% de las tropas caídas no volverá.
+74	A dónde van las tropas caídas
+75	Ambos lados
+76	Defensor
+77	Perdidos
+78	Heridos leves
+79	Atacar una Ciudad
+80	Atacar a recolectores o tropas en el mapa
+81	Ataque Conjunto a un edificio, o guarnición
+82	Puesto de Avanzada Lv. 1
+83	Puesto de Avanzada Lv. 2
+84	Puesto de Avanzada Lv. 3
+85	Puesto de Avanzada Lv. 4
+86	Santuario, Fuerte
+87	un informe
+88	Casi todos heridos leves.
+89	Además
+90	Puestos de Avanzada: cuanto más alto el nivel, más heridos (10%, 20%, 30%); solo el Lv. 4 también pierde tropas.
+91	Asesinatos = perdidos + heridos del otro lado. Los heridos leves no cuentan.
+92	Las tropas heridas entran en la Enfermería desde el rango más alto hacia abajo.
+93	Una Ciudad sin tropas dentro: no hay batalla, nadie sale herido.
+94	En un Ataque Conjunto o una guarnición, la parte de cada persona en las tropas caídas sigue su parte de ese tipo de tropa.
+95	Los ataques golpean primero la primera línea: infantería, luego caballería, luego arqueros; por eso la infantería cae primero y la caballería casi nunca. A veces caen arqueros antes de que desaparezca la infantería: es el Emboscador de la caballería enemiga (desde T7, el 20% de sus ataques se salta a la infantería).
+96	🦣 Ataques Conjuntos de Terror
+97	El Poder recomendado es para todo el Ataque Conjunto.
+98	Poder del Ataque Conjunto ≈ poder por tropa del líder × todas las tropas del Ataque Conjunto.
+99	Las tropas golpeadas son casi todas solo heridos leves.
+100	Todo el Ataque Conjunto debería alcanzar el Poder recomendado.
+101	1× gana; 1.5× para pocos heridos; por debajo de la mitad, no empieces.
+112	📋 Los niveles
+114	Tropas (inf / cab / arq)
+115	Rango
+116	Todos los atributos
+117	Poder del Ataque Conjunto ≈ poder de marcha del líder ÷ capacidad de marcha del líder × todas las tropas del Ataque Conjunto
+118	Los dos números de arriba en la página de marcha del líder (3 héroes, marcha llena).
+119	📏 Poder del Ataque Conjunto ÷ Poder recomendado
+120	1.5× o más: fácil; menos del 10% golpeado
+121	aprox. 1×: ganas, 20–30% golpeado
+122	aprox. 0.7×: ganas por poco, cerca de la mitad golpeada
+123	menos de 0.5×: pierdes
+124	fácil
+125	victoria
+126	por poco
+127	derrota
+128	🧮 Prueba un Ataque Conjunto
+129	Poder de marcha del líder (M)
+130	Capacidad de marcha del líder
+131	Todas las tropas del Ataque Conjunto
+132	Poder del Ataque Conjunto ≈ {p}
+134	× Recomendado
+135	📊 ¿Qué tan lleno debe estar el Ataque Conjunto?
+136	Tropas del Ataque Conjunto, como múltiplo de la capacidad de marcha del propio líder, para alcanzar 1× el Poder recomendado:
+137	Poder de marcha del líder
+139	Cuenta
+140	Tropas del Ataque Conjunto
+142	Golpeados
+143	Resultado
+144	perdido — bestia −{g}%
+145	🎓 Maestros
+147	💡 Sugerencias: a quién subir primero
+148	Sobre todo haces
+149	Primero
+150	Después
+151	Sin prisa
+152	Liderar Ataques Conjuntos o guarniciones
+153	Liderar Ataques Conjuntos de la Cacería del Oso
+154	Unirte a Ataques Conjuntos
+155	Jugar en la Arena
+156	Desarrollar y recolectar
+157	Habilidades de Cassia: primero Comando y Movilización inspiradora; sube las tres habilidades de combate a Lv5–10 cada una antes de ir más alto.
+158	Avance de relación: los 3 primeros de Roman son los más baratos; los 2 primeros de Cassia también valen la pena, a partir del 3.º se encarece.
+160	Los atributos de un maestro solo cuentan cuando se usan tus propios atributos: tus propias marchas, y los Ataques Conjuntos y guarniciones que lideras. En el Ataque Conjunto de otra persona solo ayuda el límite del tamaño de escuadrón.
+161	Cada 1% de Cassia añade 3–4 veces el Poder de un Talismán del Gobernador: el Poder crece mucho más que la fuerza real.
+162	🎓 Los cuatro maestros
+163	Expedición, máx.
+164	Efecto real, todo al máximo
+165	Letalidad, Salud +20%
+166	Ataque, Defensa +10% · Letalidad, Salud +10% · Capacidad del Ataque Conjunto +100,000 · límite del tamaño de escuadrón +10,000 · 600 soldados gratis al día
+167	Líder de Oso / Terror +20–30% · líder de Ataque Conjunto PvP +20–25%
+168	Ataque, Defensa +15%
+169	Todo en la Arena
+170	Líder de Oso +2% · líder de Ataque Conjunto PvP +4%
+171	Ataque +15%
+172	Todo en la Cacería del Oso: capacidad del Ataque Conjunto +300,000 · tu propio límite del tamaño de escuadrón +30,000 · Instinto de cazador (hasta +30% a tu propia puntuación) · Martillos de Forja y EXP de mejora en cada cacería
+173	Atributos +2% · unos 75 Martillos de Forja y 7,500 EXP de mejora al mes
+174	Defensa +15%
+175	Todo fuera de combate: cofres de reserva, Misiones de Inteligencia, Vigor de Líder, Construcción más rápida
+176	Líder de Ataque Conjunto PvP +2% · Cacería del Oso 0
+177	Dónde ayuda cada uno
+178	Líder de Ataque Conjunto (PvP)
+179	Liderar guarnición
+180	Líder de Oso
+181	Unirse a Ataques Conjuntos / Oso
+182	Desarrollo
+183	✅ mucho · ⚠️ un poco · — nada
+184	💎 Avance de relación: gemas por 1%
+185	Avance
+188	1% de Letalidad o Salud vale aproximadamente 1.3 veces 1% de Ataque o Defensa. Las cantidades de emblemas son de la web.
+189	🧭 Conocerlos
+190	Conoces a los cuatro en la Travesía por el reino; cada uno se instala al llegar a 1,000 de Afinidad.
+191	Orden: Valora → Pan → Roman → Cassia.
+192	Valora se instala tras unas 25 paradas. Los siguientes dan +50, +100 o +200 por encuentro, con muchas paradas entre medias.
+193	Pan: unos 8–9 días después de conocerlo. Cassia: 350 tras unas 55 paradas.
+194	Habilidades de Cassia: gemas por 1%
+195	Habilidad
+196	Manuscritos hasta el máximo
+197	Comando (Letalidad + Salud)
+198	Potencia de fuego ganadora (Ataque + Defensa)
+199	Movilización inspiradora (capacidad del Ataque Conjunto)
+200	Reclutador jefe (soldados gratis)
+201	🧭 Ataque vs Defensa
+202	Lo más importante
+203	Capacidad del Ataque Conjunto: uno grande vence a dos pequeños
+204	Capacidad de guarnición: cuántas tropas pueden mantener el edificio
+205	De quién cuentan los atributos
+206	Los del líder del Ataque Conjunto
+207	Los de la persona más fuerte dentro
+208	Tipo de Complemento
+209	Ofensivo (Ataque Conjunto)
+210	Defensivo (guarnición)
+211	Proporción de tropas
+212	50:20:30 · Infantería ≥ 40%
+213	Mucha infantería (la infantería es el muro)
+214	Habilidades de los que se unen
+215	Las primeras 4 personas con héroe: 2 Ataque + 2 Letalidad
+216	Hasta 4: mejor de tipos distintos; 2 Gordon + 2 Howard también va bien → 🛡️ Los que se unen a la guarnición
+217	Táctica / bajas
+218	Objetivo fuerte: primero los Ataques Conjuntos prescindibles, el líder más fuerte al final
+219	Quien lidera sufre ~32% más bajas: Enfermería lista
+220	Bonificación
+221	Los Complementos defensivos también funcionan cuando atacan tu propia ciudad
+222	🛡️ Los que se unen a la guarnición
+223	Cuentan hasta 4: el primer héroe de cada uno, solo la habilidad de arriba a la derecha
+224	Quién cuenta: primero el nivel de habilidad más alto; mismo nivel → quien se unió primero. Quien lidera la guarnición y los R4/R5 pueden cambiar el orden
+225	El mismo tipo de bonificación se suma (cada extra da menos); tipos distintos se multiplican → lo mejor son 4 tipos distintos
+226	Habilidades de probabilidad (Jabel, Helga): la misma solo cuenta una vez
+227	Los que se unen
+228	vs el mejor
+229	mejor
+230	de pago
+231	gasto alto
+232	gratis
+233	🐻 Líder de Oso
+234	🃏 Cada héroe, valorado para cada papel → Cartas de héroe
+235	🦸 Comparación de héroes (Gen 1–5)
+236	⚔️ Líder de Ataque Conjunto PvP
+237	🛡️ Liderar guarnición
+239	Mejor
+240	Cara a cara
+241	Por qué
+242	Veredicto
+243	Petra +12% (su Complemento de Ataque Conjunto)
+244	casi igual (Margot −1%)
+245	Margot +30% (Complemento de guarnición, mayor bonificación de tropas)
+246	¿Ya tienes a Petra? Consérvala para Ataques Conjuntos y el Oso; cambia a Margot solo para una caballería de guarnición.
+248	igual que guarnición
+249	los tres son flojos aquí: Amadeus es la mejor infantería (Alcar −31%, Long Fei −41%, Eric −54%)
+250	La ventaja de Long Fei = mayor bonificación de tropas (generación más nueva). El extra de Alcar = daño de infantería +100% y +60% acumulable; aún sin confirmar.
+251	Infantería de guarnición: Alcar > Long Fei > Eric.
+254	Jaeger +10% (ambos flojos aquí: usa a Vivian / Rosa)
+255	Arquero en guarnición: Jaeger, claramente.
+257	Marlin → Rosa +28%, → Vivian +38%; Rosa → Vivian solo +8%
+259	Vivian compensa sobre todo para el Oso; para PvP y guarniciones Rosa es casi igual de buena.
+260	⚖️ Comparar dos héroes
+261	Lv del Complemento
+262	casi igual
+263	🎯 Segundos usos: unirse y tareas secundarias
+264	Para qué
+265	Bonificación fija (primera opción)
+266	Con probabilidad (segunda opción)
+267	⚔️🐻 Para unirse con daño (Oso, Ataques Conjuntos PvP)
+268	🛡️ Para unirse a guarnición
+269	❌ No sirve para unirse
+270	Atq
+271	Let
+272	Def
+273	Salud
+274	Daño que recibe el enemigo
+275	Def enemiga
+276	Daño recibido
+277	Daño enemigo
+278	Atq enemigo
+279	Let enemiga
+280	Golpe extra cada 4 rondas
+281	Guarnición: elige 4 tipos distintos (el mismo tipo se suma dando cada vez menos, tipos distintos se multiplican). P. ej. 1 reducción de daño (Howard) + Saul + Hilde + 1 Letalidad (Chenko).
+282	Las habilidades dos-en-uno de arriba a la derecha (Saul, Hilde) son muy buenas: un puesto, dos atributos; multiplicados, mejor que un solo +25%.
+283	Cuando NOSOTROS hacemos Ataque Conjunto a una guarnición, los defensivos que se unen también ayudan: la guarnición contraataca, y Atq enemigo −20% (Eric), Daño recibido −20% (Howard, Quinn) reducen nuestras bajas.
+284	Héroe por héroe
+285	Flojo como líder de arqueros, pero uno de los mejores para unirse a guarnición (Def + Salud). Habilidad verde: velocidad de construcción +15%, coste −15%. Abajo a la derecha Letalidad +25% cuando lidera.
+286	Arriba a la derecha Salud +25% → para unirse a guarnición. Como líder también funciona su habilidad del medio Ataque +25%.
+287	Arriba a la derecha Ataque + Defensa → para unirse a guarnición y PvP (contra el Oso solo ayuda la mitad de Ataque).
+288	Baratos para unirse a guarnición con reducción de daño: Howard, Quinn (Daño recibido −20%), Fahd (Daño enemigo −20%). Habilidad verde de Fahd: velocidad de marcha en solitario contra bestias +100%.
+289	Medio Ataque +25% (fijo) → útil como líder, incluso en el puesto de infantería del Oso. Para unirse, solo una habilidad de probabilidad.
+290	Gratis, Complemento de tipo guarnición → ayuda a todos cuando atacan su propia ciudad. Abajo a la derecha Letalidad +25%.
+291	Habilidad verde: Vel. Curación de la Enfermería +50%.
+292	Habilidad verde: Velocidad de Investigación +15% (puede ayudar el día de investigación del KvK).
+293	Sin uso en combate: vigor −20%, velocidad de marcha contra bestias +100% → solo para cazar bestias.
+294	Héroes R (Forrest, Seth, Edwin, Olive): Velocidad de Recolección +25% → solo para marchas de recolección.
+295	Las habilidades verdes (desarrollo) funcionan solas una vez desbloqueadas; no hace falta poner al héroe en ningún sitio. Para la velocidad de recolección y de marcha contra bestias, puede que el héroe tenga que ir en esa marcha.
+296	🪓 Informe vikingo
+297	Vista previa: esta página aún no está enlazada desde el sitio.
+298	🔬 Investigación de NXS
+299	Nuestros informes de batalla
+300	Dicho en línea
+301	Cada oleada tiene un número fijo de vikingos.
+302	Si la ciudad aguanta, mueren todos. Así que la cuestión no es lo fuerte que golpeas, sino cuánta de la infantería de la ciudad es tuya.
+304	Refuerza con tu infantería de rango más alto.
+305	Dueños de ciudad: deja solo arqueros en casa.
+306	Cada ciudad necesita un refuerzo.
+307	Reparte la infantería entre varias ciudades.
+308	¿No puedes enviarlo todo? Primero la infantería.
+309	Las ciudades con poca infantería reciben infantería primero.
+310	⚔️ Quién lucha
+311	Casi todos los asesinatos.
+312	Solo cuando se activa Emboscador, y aun así puede ser 0.
+313	Arqueros de refuerzo: 0.
+315	Los asesinatos de las habilidades de héroe no se los queda el dueño del héroe. Entran en el total y se reparten por tropas × rango como cualquier otro.
+317	Con la misma fuerza, la caballería ganó aproximadamente una cuarta parte de lo que ganó la infantería.
+319	Qué 4 habilidades de refuerzos usa la ciudad se elige como en un Ataque Conjunto: primero el nivel de habilidad más alto; mismo nivel → orden de llegada.
+320	🍰 Cómo se reparten los puntos
+321	Cada ciudad reparte dos montones fijos de puntos por oleada. Los asesinatos solo deciden cómo se corta el montón de los refuerzos.
+322	Oleada
+323	Oleada de élite ×2
+324	🏠 Dueño de la ciudad
+325	Fijo cuando se elimina toda la oleada.
+326	🤝 Los refuerzos se reparten
+327	La mitad del del dueño, repartido por infantería × rango.
+329	Asesinatos de las tropas del propio dueño: esa parte del montón de los refuerzos no va a nadie.
+331	Una ciudad sin refuerzos: nadie recibe el montón de los refuerzos.
+333	Una ciudad sin suficiente infantería puede mostrar Victoria con vikingos aún vivos. Sus puntos se reducen a la parte eliminada.
+334	📏 Mayor rango = porción más grande
+335	Los asesinatos se reparten según el rango de tus propias tropas (no es el nivel de los vikingos). Una tropa T10 TG3 = 1:
+336	1 infantería TG3 ≈ 1.17 TG1 ≈ 1.66 T9. Infantería y caballería siguen las mismas proporciones.
+337	🤷 No cambia tus puntos
+339	En una ciudad que elimina toda la oleada: bonificaciones de ataque y defensa y debilitaciones de mascotas. Las partes fueron iguales con y sin ellas.
+341	Qué héroes envías, cuántos, o ser el capitán de la guarnición.
+343	Las oleadas 10 y 20 solo atacan el Cuartel general de la Alianza, no las ciudades. Los asesinatos se reparten igual, por infantería × rango, y los puntos siguen a los asesinatos.
+344	Elaborado a partir de los propios informes de batalla de NXS. No es una descripción oficial del juego; puede cambiar tras una actualización.
