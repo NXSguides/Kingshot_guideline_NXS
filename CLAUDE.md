@@ -9,6 +9,7 @@
   may open (Discord login + the 👥 table). A new tab or new officer data → tag it, never leave it untagged.
 - Guide text: edit `data/content.js`, then `node scripts/split-content.js` and `node scripts/build-ai-context.js`.
 - `node scripts/check-lang.js` (in CI and the smoke test) fails when a guide text is not in its own language, a title was copied from another language, or an English officer text has Chinese in it. `--all` also lists softer notes (missing languages, different block counts).
+- Public research preview (`research-x7k2p9.html`, `css/research.css`) is generated from the officer page: after changing officer styles or a public report's section markup run `node scripts/build-research.js`. It runs the officer report code and hides what is not for members (🟡 not-known cards and lines, 🔢 how-we-worked-it-out, videos, name notes). Not linked from the site until Sherry opens it.
 - Every change: bump `CACHE` in `sw.js`, run `node scripts/smoke.mjs` (and `bash scripts/worker-test.sh` if the Worker changed).
 - Never put a `// comment` in the middle of a line that has more code after it: everything behind `//` stops running (found 2026-11-18: three such lines, one had been dropping event reminder times since 2026-11-02). Comment at the end of the line or on its own line; `scripts/check-help.js` fails on it.
 - Never commit plaintext officer or member data; never put secrets (VAPID private key, DISCORD_CLIENT_SECRET, OFFICER_PASSWORD) anywhere but Cloudflare / GitHub secrets.
