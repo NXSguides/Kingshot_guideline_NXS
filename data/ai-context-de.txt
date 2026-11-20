@@ -1795,6 +1795,7 @@ Alliance Banner = Allianzbanner
 Durability = Haltbarkeit
 Garrisoned Governor = Besetzter Gouverneur
 Not garrisoned = Nicht besetzt
+Garrison = Besetzen
 Defender Squad = Verteidigerschwadron
 No reinforcements to show = Keine Verstärkungen zum Anzeigen
 Dispatch Troops = Schwadron entsenden

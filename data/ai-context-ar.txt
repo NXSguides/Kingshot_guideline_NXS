@@ -1872,6 +1872,7 @@ Alliance Banner = لافتة التحالف
 Durability = قوة التحمل
 Garrisoned Governor = حامية الحاكم
 Not garrisoned = غير حامية
+Garrison = الحامية
 Defender Squad = فرقة الدفاع
 No reinforcements to show = لا توجد تعزيزات لإظهارها
 Dispatch Troops = إرسال القوات

@@ -1807,6 +1807,7 @@ Alliance Banner = İttifak Sancağı
 Durability = Sağlamlık
 Garrisoned Governor = Garnizondaki Şef
 Not garrisoned = Garnizonda değil
+Garrison = Garnizona ekle
 Defender Squad = Savunmacı Ekip
 No reinforcements to show = Takviye birlikler yok
 Dispatch Troops = Birlik Gönder

@@ -1843,6 +1843,7 @@ Alliance Banner = Стяг альянса
 Durability = Прочность
 Garrisoned Governor = Губернатор гарнизона
 Not garrisoned = Без гарнизона
+Garrison = Гарнизон
 Defender Squad = Защитные войска
 No reinforcements to show = Нет подкреплений для просмотра
 Dispatch Troops = Отправить войска

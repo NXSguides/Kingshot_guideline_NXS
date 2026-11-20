@@ -1899,6 +1899,7 @@ Alliance Banner = 연맹 깃발
 Durability = 내구도
 Garrisoned Governor = 방어 영주
 Not garrisoned = 미방어
+Garrison = 수비
 Defender Squad = 방어 부대
 No reinforcements to show = 지원군이 없습니다
 Dispatch Troops = 부대 파견

@@ -1880,6 +1880,7 @@ Alliance Banner = 聯盟旗幟
 Durability = 耐久度
 Garrisoned Governor = 駐守指揮官
 Not garrisoned = 未駐防
+Garrison = 駐防
 Defender Squad = 駐守部隊
 No reinforcements to show = 暫無援軍
 Dispatch Troops = 派遣部隊

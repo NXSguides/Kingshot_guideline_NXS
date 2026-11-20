@@ -1804,6 +1804,7 @@ Alliance Banner = Bannière d'Alliance
 Durability = Durabilité
 Garrisoned Governor = Chef en Garnison
 Not garrisoned = Pas en garnison
+Garrison = Placer en Garnison
 Defender Squad = Escouade défensive
 No reinforcements to show = Aucun renfort à afficher
 Dispatch Troops = Envoyer des Troupes
