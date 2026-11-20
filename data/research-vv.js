@@ -1,4 +1,4 @@
-/* Public version of the 🪓 Viking report (PREVIEW — 2026-11-20). en zh pt ar ko live here; de fr es tr id ru th come from data/research-i18n.js.
+/* Public version of the 🪓 Viking report (🔬 Research Reports on the site, opened 2026-11-21). en zh pt ar ko live here; de fr es tr id ru th come from data/research-i18n.js.
    Rules for this file: no member names, no data counts or dates, no "not known yet" list, no formulas, no private data source.
    Each finding says where it comes from: "ours" = our own battle reports, "web" = said online, not tested by us. */
 const RESEARCH_VV = {

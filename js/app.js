@@ -859,6 +859,19 @@ const GUIDE_GROUPS = {
   growth: { emoji: "🌱", name: { en:"Growth Guides", zh:"養成指南", ko:"육성 가이드", de:"Aufbau-Guides", fr:"Guides de progression", pt:"Guias de evolução", tr:"Gelişim Rehberleri", id:"Panduan Pengembangan", ru:"Гайды по развитию", th:"คู่มือพัฒนา", ar:"أدلة التطوير", es:"Guías de progreso" },
     guides: ["formations-rally-tips", "f2p-heroes", "hero-cards", "master-academy", "pet", "general-tips"] },
 };
+/* 🔬 Research reports (Sherry 2026-11-21): a third group in the top row, same level as 🔰 New here?. Its chips are links to the
+   public research pages (research.html?r=… and research-viking.html), which open in the language the site is in. */
+const RESEARCH_GROUP = { emoji: "🔬", name: { en:"Research Reports", zh:"研究報告", ko:"연구 보고서", de:"Forschungsberichte", fr:"Rapports de recherche", pt:"Relatórios de pesquisa", tr:"Araştırma Raporları", id:"Laporan Riset", ru:"Отчёты исследований", th:"รายงานวิจัย", ar:"تقارير الأبحاث", es:"Informes de investigación" } };
+const RESEARCH_PAGES = [
+  { r: "vv", emoji: "🪓", name: {"en": "Viking report", "zh": "維京研究", "ko": "바이킹 연구", "de": "Wikinger-Bericht", "fr": "Rapport Viking", "pt": "Estudo Viking", "es": "Informe vikingo", "tr": "Viking raporu", "id": "Laporan Viking", "ru": "Отчёт о викингах", "th": "รายงานไวกิ้ง", "ar": "دراسة الفايكنغ"} },
+  { r: "rg", emoji: "⚔️", name: {"en": "Rally & Garrison", "zh": "集結與駐防", "ko": "집결과 방어", "de": "Rally & Garnison", "fr": "Ralliement & Garnison", "pt": "Rally e Guarnição", "es": "Ataque Conjunto y Guarnición", "tr": "Seferberlik ve Garnizon", "id": "Reli & Garnisun", "ru": "Рейд и гарнизон", "th": "ทีมระดมพลและทหารคุ้มกัน", "ar": "الحشد والحامية"} },
+  { r: "bh", emoji: "🐻", name: {"en": "Bear Hunt report", "zh": "狩獵巨熊研究", "ko": "자이언트 베어 사냥 연구", "de": "Bärenjagd-Bericht", "fr": "Rapport Chasse à l'Ours", "pt": "Estudo da Caça ao Urso", "es": "Informe de la Cacería del Oso", "tr": "Ayı Avı raporu", "id": "Laporan Bear Hunt", "ru": "Отчёт об Охоте на медведя", "th": "รายงานล่าหมี", "ar": "دراسة صيد الدببة"} },
+  { r: "ls", emoji: "🩹", name: {"en": "Battle losses", "zh": "戰鬥與損兵", "ko": "전투와 손실", "de": "Kampfverluste", "fr": "Pertes au combat", "pt": "Perdas em batalha", "es": "Bajas en batalla", "tr": "Savaş kayıpları", "id": "Kerugian pertempuran", "ru": "Боевые потери", "th": "ความสูญเสียในการต่อสู้", "ar": "خسائر المعارك"} },
+  { r: "tb", emoji: "🦣", name: {"en": "Terror rallies", "zh": "巨獸集結", "ko": "괴수 집결", "de": "Terror-Rallys", "fr": "Ralliements de Terreur", "pt": "Rallies de Terror", "es": "Ataques Conjuntos de Terror", "tr": "Dehşet seferberlikleri", "id": "Reli Terror", "ru": "Рейды на Ужас", "th": "ทีมระดมพลอสูรร้าย", "ar": "حشود الوحوش العملاقة"} },
+  { r: "hr", emoji: "🦸", name: {"en": "Heroes", "zh": "英雄", "ko": "영웅", "de": "Helden", "fr": "Héros", "pt": "Heróis", "es": "Héroes", "tr": "Kahramanlar", "id": "Pahlawan", "ru": "Герои", "th": "ฮีโร่", "ar": "الأبطال"} },
+  { r: "ma", emoji: "🎓", name: {"en": "Masters", "zh": "大師", "ko": "거장", "de": "Meister", "fr": "Experts", "pt": "Mestres", "es": "Maestros", "tr": "Ustalar", "id": "Master", "ru": "Мастера", "th": "มาสเตอร์", "ar": "المتخصصون"} },
+];
+const researchHref = (r) => (r === "vv" ? "research-viking.html?lang=" : `research.html?r=${r}&lang=`) + currentLang;
 let openGuideGroup = null;
 
 function guideGroupOf(key) {
@@ -895,8 +908,14 @@ function renderGuideRow() {
       <span class="emoji">${grp.emoji}</span><span dir="auto">${escapeHtml(t(grp.name))}</span>
       <span class="gg-n">(${members[id].length})</span>${cur}<span class="gg-arrow">${isOpen ? "▴" : "▾"}</span></button>`;
   }
+  { const isOpen = openGuideGroup === "research";
+    html += `<button type="button" id="ggResearch" class="guide-chip guide-group-btn${isOpen ? " open" : ""}" onclick="toggleGuideGroup('research')" aria-expanded="${isOpen}">
+      <span class="emoji">${RESEARCH_GROUP.emoji}</span><span dir="auto">${escapeHtml(t(RESEARCH_GROUP.name))}</span>
+      <span class="gg-n">(${RESEARCH_PAGES.length})</span><span class="gg-arrow">${isOpen ? "▴" : "▾"}</span></button>`; }
   html += `</div>`;
-  if (openGuideGroup && members[openGuideGroup].length) {
+  if (openGuideGroup === "research") {
+    html += `<div class="guide-group-panel">${RESEARCH_PAGES.map((p) => `<a class="guide-chip" href="${researchHref(p.r)}" style="text-decoration:none"><span class="emoji">${p.emoji}</span><span dir="auto">${escapeHtml(t(p.name))}</span></a>`).join("")}</div>`;
+  } else if (openGuideGroup && members[openGuideGroup].length) {
     html += `<div class="guide-group-panel">${members[openGuideGroup].map(guideChipHtml).join("")}</div>`;
   }
   row.innerHTML = html;

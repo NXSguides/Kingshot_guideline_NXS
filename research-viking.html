@@ -8,8 +8,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-  /* Public version of the 🪓 Viking report — PREVIEW, not linked from anywhere until Sherry opens it (2026-11-20).
-     Same look as the officer tab (styles copied from officer-x7k2p9.html); the text lives in data/research-vv.js. */
+  /* Public version of the 🪓 Viking report — under 🔬 Research Reports on the site (opened 2026-11-21).
+     Same look as the officer tab; the text lives in data/research-vv.js. */
   body { padding: 16px 16px 60px; }
   .wrap { max-width: 900px; margin: 0 auto; }
   h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
@@ -18,7 +18,7 @@
   .rs-do { border: 1px solid var(--accent); } .rs-do h3 { margin: 0 0 6px; }
   .vvp-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
   .vvp-top select { padding: 6px 8px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--text); font: inherit; }
-  .vvp-lock { border: 1px dashed var(--rule); border-radius: 10px; padding: 8px 12px; margin: 12px 0 0; font-size: 13px; color: var(--text-muted); }
+  .vvp-back { font-size: 14px; text-decoration: none; display: inline-block; margin-bottom: 6px; } .vvp-back::before { content: "‹ "; } [dir=rtl] .vvp-back::before { content: "› "; }
   .vvp .vv-find { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; font-size: 14px; line-height: 1.55; }
   .vvp .vv-tag { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 1px 9px; border-radius: 99px; margin-inline-end: 8px; vertical-align: 1px; white-space: nowrap; }
   .vvp .vv-tag.ours { color: var(--vv-inf); background: color-mix(in srgb, var(--vv-inf) 14%, transparent); }
@@ -63,8 +63,7 @@
 </head>
 <body>
 <div class="wrap vvp">
-  <div class="vvp-top"><div><h1 id="vv_title">🪓</h1></div><select id="vv_lang" aria-label="Language"></select></div>
-  <div class="vvp-lock" id="vv_lock"></div>
+  <div class="vvp-top"><div><a class="vvp-back" id="vv_back" href="index.html"></a><h1 id="vv_title">🪓</h1></div><select id="vv_lang" aria-label="Language"></select></div>
   <div id="vv_root"></div>
 </div>
 <script src="data/research-i18n.js"></script>
@@ -72,6 +71,7 @@
 <script>
 (function () {
   const G = RESEARCH_VV;
+  const BACK = {"en": "NXS Guides", "zh": "NXS 攻略", "ko": "NXS 가이드", "de": "NXS-Guides", "fr": "Guides NXS", "pt": "Guias NXS", "es": "Guías NXS", "tr": "NXS Rehberleri", "id": "Panduan NXS", "ru": "Гайды NXS", "th": "คู่มือ NXS", "ar": "أدلة NXS"};
   { const NAMES = { de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย" }, add = ((window.RESEARCH_T || {}).vv || {}).T || {};
     const deep = (base, x) => { if (x === null || typeof x !== "object") return x; const o = Array.isArray(base) ? base.slice() : { ...(base || {}) }; for (const k of Object.keys(x)) o[k] = deep(base ? base[k] : undefined, x[k]); return o; };
     for (const l in add) { G.T[l] = deep(G.T.en, add[l]); G.T[l].langName = NAMES[l] || l; } }
@@ -98,7 +98,7 @@
   }
   function render() {
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr"; document.title = t("title").replace(/^\S+\s/, "");
-    $("vv_title").textContent = t("title"); $("vv_lock").textContent = t("lock");
+    $("vv_title").textContent = t("title"); $("vv_back").textContent = BACK[lang] || BACK.en; $("vv_back").href = "index.html#/" + lang + "/recent-events";
     $("vv_lang").innerHTML = CODES.map((c) => `<option value="${c}"${c === lang ? " selected" : ""}>${esc(G.T[c].langName)}</option>`).join("");
     const max = Math.max(...G.TIERS.map((x) => x[1]));
     $("vv_root").innerHTML = `
