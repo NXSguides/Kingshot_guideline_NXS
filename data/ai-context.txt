@@ -998,12 +998,11 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Read the NAP rules ›
-❌ No attacks on NAP troops that are gathering
+❌ No attacks on resource gathering nodes (NAP troops that are gathering)
 ❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
 ✅ You can attack NAP troops in tents (encampments)
 ✅ You can attack players outside of NAP.
 If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.
-You can gather in the wild: NAP members may not attack troops that are gathering.
 Rule breakers will be dealt with according to alliance/NAP agreements.
 ⚔️ Before You Hit a City
 Attacking a city always costs you troops, even when you win big. The troops that fall in a fight are always split the same way:

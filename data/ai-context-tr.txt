@@ -999,12 +999,11 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 NAP kurallarını oku ›
-❌ Kaynak toplayan NAP birliklerine saldırı yok
+❌ Kaynak toplama noktalarına (kaynak toplayan NAP birliklerine) saldırı yok
 ❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok
 ✅ Çadırlardaki (kamplardaki) NAP birliklerine saldırabilirsiniz
 ✅ NAP dışındaki oyunculara saldırabilirsiniz.
 Şatonuza bir NAP üyesi tarafından saldırılırsa misilleme yapmayın — R4/R5'e bildirin.
-Yabanda kaynak toplayabilirsiniz: NAP üyeleri kaynak toplayan birliklere saldıramaz.
 Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir.
 ⚔️ Bir şehre saldırmadan önce
 Şehre saldırmak, büyük bir zafer kazansan bile her zaman asker kaybettirir. Savaşta düşen askerler her zaman aynı şekilde bölünür:

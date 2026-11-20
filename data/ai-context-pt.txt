@@ -999,12 +999,11 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Ler as regras do NAP ›
-❌ Nenhum ataque a tropas do NAP que estão coletando
+❌ Nenhum ataque a pontos de coleta (tropas do NAP que estão coletando)
 ❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras)
 ✅ Você pode atacar tropas do NAP em tendas (acampamentos)
 ✅ Você pode atacar jogadores fora do NAP.
 Se seu castelo for atacado por um membro do NAP, não revide — avise o R4/R5.
-Você pode coletar no mapa aberto: membros do NAP não podem atacar tropas que estão coletando.
 Quem infringir as regras será tratado conforme os acordos da aliança/NAP.
 ⚔️ Antes de atacar uma cidade
 Atacar uma cidade sempre custa tropas, mesmo com uma grande vitória. As tropas que caem na batalha são sempre divididas do mesmo jeito:

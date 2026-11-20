@@ -1001,12 +1001,11 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 NAP-Regeln lesen ›
-❌ Keine Angriffe auf sammelnde NAP-Truppen
+❌ Keine Angriffe auf Ressourcenfelder (sammelnde NAP-Truppen)
 ❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)
 ✅ Ihr könnt NAP-Truppen in Zelten (Lagern) angreifen
 ✅ Ihr könnt Spieler außerhalb der NAP angreifen.
 Wenn euer Schloss von einem NAP-Mitglied angegriffen wird, nicht zurückschlagen — meldet es R4/R5.
-Ihr könnt in der Wildnis sammeln: NAP-Mitglieder dürfen sammelnde Truppen nicht angreifen.
 Regelverstöße werden gemäß den Allianz-/NAP-Vereinbarungen geahndet.
 ⚔️ Bevor du eine Stadt angreifst
 Ein Angriff auf eine Stadt kostet immer Truppen, auch bei einem klaren Sieg. Gefallene Truppen werden immer gleich aufgeteilt:

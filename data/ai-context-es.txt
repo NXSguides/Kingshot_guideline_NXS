@@ -999,12 +999,11 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Leer las reglas del NAP ›
-❌ No atacar a tropas del NAP que están recolectando
+❌ No atacar puntos de recolección (tropas del NAP que están recolectando)
 ❌ No atacar castillos ni edificios de alianza (cuarteles generales, puestos avanzados, estandartes)
 ✅ Puedes atacar a tropas del NAP en tiendas (campamentos)
 ✅ Puedes atacar a jugadores fuera del NAP.
 Si tu castillo es atacado por un miembro del NAP, no tomes represalias — informa a R4/R5.
-Puedes recolectar en zona salvaje: los miembros del NAP no pueden atacar a las tropas que recolectan.
 Quien infrinja las reglas será tratado según los acuerdos de alianza/NAP.
 ⚔️ Antes de atacar una ciudad
 Atacar una ciudad siempre cuesta tropas, aunque ganes por mucho. Las tropas que caen en combate siempre se reparten igual:

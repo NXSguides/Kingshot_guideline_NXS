@@ -1000,12 +1000,11 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Lire les règles du NAP ›
-❌ Aucune attaque contre les troupes NAP en train de récolter
+❌ Aucune attaque contre les points de récolte (troupes NAP en train de récolter)
 ❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)
 ✅ Vous pouvez attaquer les troupes NAP dans des tentes (campements)
 ✅ Vous pouvez attaquer les joueurs en dehors du NAP.
 Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.
-Vous pouvez récolter en pleine nature : les membres du NAP n'ont pas le droit d'attaquer les troupes qui récoltent.
 Les contrevenants seront traités conformément aux accords d'alliance/NAP.
 ⚔️ Avant d'attaquer une ville
 Attaquer une ville coûte toujours des troupes, même avec une large victoire. Les troupes tombées au combat sont toujours réparties de la même façon :

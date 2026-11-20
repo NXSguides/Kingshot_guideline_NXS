@@ -999,12 +999,11 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Baca aturan NAP ›
-❌ Dilarang menyerang pasukan NAP yang sedang mengumpulkan
+❌ Dilarang menyerang titik pengumpulan (pasukan NAP yang sedang mengumpulkan)
 ❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)
 ✅ Anda boleh menyerang pasukan NAP di tenda (perkemahan)
 ✅ Anda boleh menyerang pemain di luar NAP.
 Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.
-Anda boleh mengumpulkan di area liar: anggota NAP tidak boleh menyerang pasukan yang sedang mengumpulkan.
 Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP.
 ⚔️ Sebelum menyerang kota
 Menyerang kota selalu membuatmu kehilangan pasukan, bahkan saat menang besar. Pasukan yang tumbang dalam pertempuran selalu dibagi dengan cara yang sama:

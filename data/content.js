@@ -9539,14 +9539,13 @@ const GUIDES = {
         { type: "nap", text: "❌ No attacks on NAP 5 including their farms/academies", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Read the NAP rules ›" },
         { type: "list", items: [
-          "❌ **No attacks on NAP troops that are gathering**",
+          "❌ **No attacks on resource gathering nodes (NAP troops that are gathering)**",
                     "❌ No attacks on castles or alliance buildings (HQs, outposts, banners)",
           "✅ You can attack NAP troops in tents (encampments)",
           "✅ You can attack players outside of NAP."
         ]},
         { type: "list", items: [
           "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "You can gather in the wild: NAP members may not attack troops that are gathering.",
           "Rule breakers will be dealt with according to alliance/NAP agreements."
         ]},
         { type: "h", text: "⚔️ Before You Hit a City" },
@@ -9563,14 +9562,13 @@ const GUIDES = {
         { type: "nap", text: "❌ 禁止攻擊 NAP 5 成員，包含他們的農場／學院", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "看 NAP 規則 ›" },
         { type: "list", items: [
-          "❌ **不可以攻擊正在採集的 NAP 部隊**",
+          "❌ **不可以攻擊資源採集點（正在採集的 NAP 部隊）**",
                     "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）",
           "✅ 可以攻擊 NAP 成員在帳篷裡的部隊",
           "✅ 可以攻擊 NAP 以外的玩家。"
         ]},
         { type: "list", items: [
           "如果你的城堡被 NAP 成員攻擊，請勿報復，回報 R4/R5。",
-          "可以在野外採集：NAP 成員不可以攻擊正在採集的部隊。",
           "違規者將依聯盟／NAP 協議處理。"
         ]},
         { type: "h", text: "⚔️ 攻擊城市之前" },
@@ -9587,14 +9585,13 @@ const GUIDES = {
         { type: "nap", text: "❌ NAP 5 멤버 공격 금지, 농장/아카데미 포함", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "NAP 규칙 보기 ›" },
         { type: "list", items: [
-          "❌ **채집 중인 NAP 부대는 공격 금지**",
+          "❌ **자원 채집지(채집 중인 NAP 부대) 공격 금지**",
                     "❌ 성이나 연맹 건물(본부, 전초기지, 깃발) 공격 금지",
           "✅ 야영지(텐트)에 있는 NAP 부대는 공격 가능합니다",
           "✅ NAP 이외의 플레이어는 공격 가능합니다."
         ]},
         { type: "list", items: [
           "NAP 멤버에게 성을 공격당했다면 보복하지 말고 R4/R5에게 알리세요.",
-          "야생에서 채집해도 됩니다: NAP 멤버는 채집 중인 부대를 공격할 수 없습니다.",
           "규칙 위반자는 연맹/NAP 협약에 따라 처리됩니다."
         ]},
         { type: "h", text: "⚔️ 도시를 공격하기 전에" },
@@ -9611,14 +9608,13 @@ const GUIDES = {
         { type: "nap", text: "❌ Keine Angriffe auf NAP 5, einschließlich ihrer Farmen/Akademien", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "NAP-Regeln lesen ›" },
         { type: "list", items: [
-          "❌ **Keine Angriffe auf sammelnde NAP-Truppen**",
+          "❌ **Keine Angriffe auf Ressourcenfelder (sammelnde NAP-Truppen)**",
                     "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)",
           "✅ Ihr könnt NAP-Truppen in Zelten (Lagern) angreifen",
           "✅ Ihr könnt Spieler außerhalb der NAP angreifen."
         ]},
         { type: "list", items: [
           "Wenn euer Schloss von einem NAP-Mitglied angegriffen wird, nicht zurückschlagen — meldet es R4/R5.",
-          "Ihr könnt in der Wildnis sammeln: NAP-Mitglieder dürfen sammelnde Truppen nicht angreifen.",
           "Regelverstöße werden gemäß den Allianz-/NAP-Vereinbarungen geahndet."
         ]},
         { type: "h", text: "⚔️ Bevor du eine Stadt angreifst" },
@@ -9635,14 +9631,13 @@ const GUIDES = {
         { type: "nap", text: "❌ Aucune attaque contre le NAP 5, y compris leurs fermes/académies", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Lire les règles du NAP ›" },
         { type: "list", items: [
-          "❌ **Aucune attaque contre les troupes NAP en train de récolter**",
+          "❌ **Aucune attaque contre les points de récolte (troupes NAP en train de récolter)**",
                     "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)",
           "✅ Vous pouvez attaquer les troupes NAP dans des tentes (campements)",
           "✅ Vous pouvez attaquer les joueurs en dehors du NAP."
         ]},
         { type: "list", items: [
           "Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.",
-          "Vous pouvez récolter en pleine nature : les membres du NAP n'ont pas le droit d'attaquer les troupes qui récoltent.",
           "Les contrevenants seront traités conformément aux accords d'alliance/NAP."
         ]},
         { type: "h", text: "⚔️ Avant d'attaquer une ville" },
@@ -9659,14 +9654,13 @@ const GUIDES = {
         { type: "nap", text: "❌ Nenhum ataque ao NAP 5, incluindo suas fazendas/academias", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Ler as regras do NAP ›" },
         { type: "list", items: [
-          "❌ **Nenhum ataque a tropas do NAP que estão coletando**",
+          "❌ **Nenhum ataque a pontos de coleta (tropas do NAP que estão coletando)**",
                     "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras)",
           "✅ Você pode atacar tropas do NAP em tendas (acampamentos)",
           "✅ Você pode atacar jogadores fora do NAP."
         ]},
         { type: "list", items: [
           "Se seu castelo for atacado por um membro do NAP, não revide — avise o R4/R5.",
-          "Você pode coletar no mapa aberto: membros do NAP não podem atacar tropas que estão coletando.",
           "Quem infringir as regras será tratado conforme os acordos da aliança/NAP."
         ]},
         { type: "h", text: "⚔️ Antes de atacar uma cidade" },
@@ -9683,14 +9677,13 @@ const GUIDES = {
         { type: "nap", text: "❌ No atacar a miembros del NAP 5, incluidas sus granjas/academias", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Leer las reglas del NAP ›" },
         { type: "list", items: [
-          "❌ **No atacar a tropas del NAP que están recolectando**",
+          "❌ **No atacar puntos de recolección (tropas del NAP que están recolectando)**",
                     "❌ No atacar castillos ni edificios de alianza (cuarteles generales, puestos avanzados, estandartes)",
           "✅ Puedes atacar a tropas del NAP en tiendas (campamentos)",
           "✅ Puedes atacar a jugadores fuera del NAP."
         ]},
         { type: "list", items: [
           "Si tu castillo es atacado por un miembro del NAP, no tomes represalias — informa a R4/R5.",
-          "Puedes recolectar en zona salvaje: los miembros del NAP no pueden atacar a las tropas que recolectan.",
           "Quien infrinja las reglas será tratado según los acuerdos de alianza/NAP."
         ]},
         { type: "h", text: "⚔️ Antes de atacar una ciudad" },
@@ -9707,14 +9700,13 @@ const GUIDES = {
         { type: "nap", text: "❌ NAP 5 üyelerine, çiftlikleri/akademileri dahil saldırı yok", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "NAP kurallarını oku ›" },
         { type: "list", items: [
-          "❌ **Kaynak toplayan NAP birliklerine saldırı yok**",
+          "❌ **Kaynak toplama noktalarına (kaynak toplayan NAP birliklerine) saldırı yok**",
                     "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok",
           "✅ Çadırlardaki (kamplardaki) NAP birliklerine saldırabilirsiniz",
           "✅ NAP dışındaki oyunculara saldırabilirsiniz."
         ]},
         { type: "list", items: [
           "Şatonuza bir NAP üyesi tarafından saldırılırsa misilleme yapmayın — R4/R5'e bildirin.",
-          "Yabanda kaynak toplayabilirsiniz: NAP üyeleri kaynak toplayan birliklere saldıramaz.",
           "Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir."
         ]},
         { type: "h", text: "⚔️ Bir şehre saldırmadan önce" },
@@ -9731,14 +9723,13 @@ const GUIDES = {
         { type: "nap", text: "❌ Dilarang menyerang anggota NAP 5, termasuk farm/akademi mereka", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Baca aturan NAP ›" },
         { type: "list", items: [
-          "❌ **Dilarang menyerang pasukan NAP yang sedang mengumpulkan**",
+          "❌ **Dilarang menyerang titik pengumpulan (pasukan NAP yang sedang mengumpulkan)**",
                     "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)",
           "✅ Anda boleh menyerang pasukan NAP di tenda (perkemahan)",
           "✅ Anda boleh menyerang pemain di luar NAP."
         ]},
         { type: "list", items: [
           "Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.",
-          "Anda boleh mengumpulkan di area liar: anggota NAP tidak boleh menyerang pasukan yang sedang mengumpulkan.",
           "Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP."
         ]},
         { type: "h", text: "⚔️ Sebelum menyerang kota" },
@@ -9755,14 +9746,13 @@ const GUIDES = {
         { type: "nap", text: "❌ Не атаковать членов NAP 5, включая их фермы/академии", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Правила NAP ›" },
         { type: "list", items: [
-          "❌ **Нельзя атаковать войска NAP, которые собирают ресурсы**",
+          "❌ **Нельзя атаковать точки сбора ресурсов (войска NAP, которые собирают ресурсы)**",
                     "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна)",
           "✅ Можно атаковать войска NAP в палатках (лагерях)",
           "✅ Можно атаковать игроков вне NAP."
         ]},
         { type: "list", items: [
           "Если ваш замок атаковал участник NAP, не мстите — сообщите R4/R5.",
-          "Можно собирать ресурсы в дикой местности: участникам NAP нельзя атаковать войска, которые собирают ресурсы.",
           "Нарушители правил будут обработаны согласно соглашениям альянса/NAP."
         ]},
         { type: "h", text: "⚔️ Прежде чем атаковать город" },
@@ -9779,14 +9769,13 @@ const GUIDES = {
         { type: "nap", text: "❌ ห้ามโจมตีสมาชิก NAP 5 รวมถึงฟาร์ม/อาคาเดมีของพวกเขา", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "อ่านกฎ NAP ›" },
         { type: "list", items: [
-          "❌ **ห้ามโจมตีกองทัพ NAP ที่กำลังเก็บทรัพยากร**",
+          "❌ **ห้ามโจมตีจุดเก็บทรัพยากร (กองทัพ NAP ที่กำลังเก็บทรัพยากร)**",
                     "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง)",
           "✅ สามารถโจมตีกองทัพ NAP ที่อยู่ในเต็นท์ (ค่ายพัก) ได้",
           "✅ สามารถโจมตีผู้เล่นที่อยู่นอก NAP ได้"
         ]},
         { type: "list", items: [
           "หากปราสาทของคุณถูกสมาชิก NAP โจมตี อย่าตอบโต้ ให้แจ้ง R4/R5",
-          "เก็บทรัพยากรในป่าได้: สมาชิก NAP ห้ามโจมตีกองทัพที่กำลังเก็บทรัพยากร",
           "ผู้ฝ่าฝืนกฎจะถูกดำเนินการตามข้อตกลงพันธมิตร/NAP"
         ]},
         { type: "h", text: "⚔️ ก่อนโจมตีเมือง" },
@@ -9803,14 +9792,13 @@ const GUIDES = {
         { type: "nap", text: "❌ ممنوع مهاجمة أعضاء NAP 5، بما في ذلك مزارعهم/أكاديمياتهم", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "اقرأ قواعد NAP ›" },
         { type: "list", items: [
-          "❌ **ممنوع مهاجمة قوات NAP التي تجمع الموارد**",
+          "❌ **ممنوع مهاجمة نقاط جمع الموارد (قوات NAP التي تجمع الموارد)**",
                     "❌ ممنوع مهاجمة القلاع أو مباني التحالف (المقرات، المخافر الأمامية، الرايات)",
           "✅ يمكنك مهاجمة قوات NAP الموجودة في الخيام (المعسكرات)",
           "✅ يمكنك مهاجمة اللاعبين خارج NAP."
         ]},
         { type: "list", items: [
           "إذا تعرضت قلعتك لهجوم من عضو NAP، لا تنتقم — أبلغ R4/R5.",
-          "يمكنك جمع الموارد في البرية: لا يحق لأعضاء NAP مهاجمة القوات التي تجمع الموارد.",
           "سيتم التعامل مع مخالفي القواعد وفقاً لاتفاقيات التحالف/NAP."
         ]},
         { type: "h", text: "⚔️ قبل أن تهاجم مدينة" },
