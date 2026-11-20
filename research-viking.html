@@ -11,6 +11,7 @@
   /* Public version of the 🪓 Viking report — under 🔬 Research Reports on the site (opened 2026-11-21).
      Same look as the officer tab; the text lives in data/research-vv.js. */
   body { padding: 16px 16px 60px; }
+  html.embed, html.embed body { background: transparent; } html.embed body { padding: 0; } html.embed .vvp-back, html.embed #vv_lang { display: none; }   /* shown inside the site (index.html) */
   .wrap { max-width: 900px; margin: 0 auto; }
   h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
   .muted { color: var(--text-muted); font-size: 13px; }
@@ -70,6 +71,7 @@
 <script src="data/research-vv.js"></script>
 <script>
 (function () {
+  try { if (new URLSearchParams(location.search).get("embed")) document.documentElement.classList.add("embed"); } catch (e) {}
   const G = RESEARCH_VV;
   const BACK = {"en": "NXS Guides", "zh": "NXS 攻略", "ko": "NXS 가이드", "de": "NXS-Guides", "fr": "Guides NXS", "pt": "Guias NXS", "es": "Guías NXS", "tr": "NXS Rehberleri", "id": "Panduan NXS", "ru": "Гайды NXS", "th": "คู่มือ NXS", "ar": "أدلة NXS"};
   { const NAMES = { de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย" }, add = ((window.RESEARCH_T || {}).vv || {}).T || {};

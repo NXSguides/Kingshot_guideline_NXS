@@ -872,6 +872,19 @@ const RESEARCH_PAGES = [
   { r: "ma", emoji: "🎓", name: {"en": "Masters", "zh": "大師", "ko": "거장", "de": "Meister", "fr": "Experts", "pt": "Mestres", "es": "Maestros", "tr": "Ustalar", "id": "Master", "ru": "Мастера", "th": "มาสเตอร์", "ar": "المتخصصون"} },
 ];
 const researchHref = (r) => (r === "vv" ? "research-viking.html?lang=" : `research.html?r=${r}&lang=`) + currentLang;
+/* Each report is a page of the site like any guide (#/zh/research-rg): same top row, language row, Little Sparrow and AI.
+   The report itself is drawn by its own file inside a frame (its styles are the officer page's and must not leak into the site);
+   the frame grows to the report's height and follows the site's light / dark setting. */
+RESEARCH_PAGES.forEach((p) => { GUIDES["research-" + p.r] = { emoji: p.emoji, name: p.name, hidden: true, research: p.r, sections: {} }; });
+function renderResearch(doc, guide) {
+  doc.innerHTML = `<iframe class="research-frame" title="${escapeHtml(t(guide.name))}" src="${researchHref(guide.research)}&embed=1" scrolling="no" style="display:block;width:100%;border:0;min-height:60vh;background:transparent"></iframe>`;
+  const f = doc.querySelector("iframe");
+  const fit = () => { try { const d = f.contentDocument; if (!d || !d.documentElement) return;
+    const th = document.documentElement.getAttribute("data-theme"); if (th) d.documentElement.setAttribute("data-theme", th); else d.documentElement.removeAttribute("data-theme");
+    const h = Math.ceil(d.documentElement.getBoundingClientRect().height); if (h > 0 && Math.abs(h - f.offsetHeight) > 1) f.style.height = h + "px"; } catch (e) {} };
+  f.addEventListener("load", () => { fit(); try { new ResizeObserver(fit).observe(f.contentDocument.documentElement); } catch (e) {}
+    try { new MutationObserver(fit).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] }); } catch (e) {} });
+}
 let openGuideGroup = null;
 
 function guideGroupOf(key) {
@@ -908,13 +921,14 @@ function renderGuideRow() {
       <span class="emoji">${grp.emoji}</span><span dir="auto">${escapeHtml(t(grp.name))}</span>
       <span class="gg-n">(${members[id].length})</span>${cur}<span class="gg-arrow">${isOpen ? "▴" : "▾"}</span></button>`;
   }
-  { const isOpen = openGuideGroup === "research";
-    html += `<button type="button" id="ggResearch" class="guide-chip guide-group-btn${isOpen ? " open" : ""}" onclick="toggleGuideGroup('research')" aria-expanded="${isOpen}">
+  { const isOpen = openGuideGroup === "research", here = !!(GUIDES[currentGuide] && GUIDES[currentGuide].research);
+    const cur = here && !isOpen ? `<span class="gg-cur"> · ${GUIDES[currentGuide].emoji} <span dir="auto">${escapeHtml(t(GUIDES[currentGuide].name))}</span></span>` : "";
+    html += `<button type="button" id="ggResearch" class="guide-chip guide-group-btn${here ? " active" : ""}${isOpen ? " open" : ""}" onclick="toggleGuideGroup('research')" aria-expanded="${isOpen}">
       <span class="emoji">${RESEARCH_GROUP.emoji}</span><span dir="auto">${escapeHtml(t(RESEARCH_GROUP.name))}</span>
-      <span class="gg-n">(${RESEARCH_PAGES.length})</span><span class="gg-arrow">${isOpen ? "▴" : "▾"}</span></button>`; }
+      <span class="gg-n">(${RESEARCH_PAGES.length})</span>${cur}<span class="gg-arrow">${isOpen ? "▴" : "▾"}</span></button>`; }
   html += `</div>`;
   if (openGuideGroup === "research") {
-    html += `<div class="guide-group-panel">${RESEARCH_PAGES.map((p) => `<a class="guide-chip" href="${researchHref(p.r)}" style="text-decoration:none"><span class="emoji">${p.emoji}</span><span dir="auto">${escapeHtml(t(p.name))}</span></a>`).join("")}</div>`;
+    html += `<div class="guide-group-panel">${RESEARCH_PAGES.map((p) => guideChipHtml("research-" + p.r)).join("")}</div>`;
   } else if (openGuideGroup && members[openGuideGroup].length) {
     html += `<div class="guide-group-panel">${members[openGuideGroup].map(guideChipHtml).join("")}</div>`;
   }
@@ -1372,6 +1386,7 @@ function todayCardHtml() {
 function renderDoc() {
   const doc = document.getElementById("doc");
   const guide = GUIDES[currentGuide];
+  if (guide.research) { renderResearch(doc, guide); return; }
   const s = guide.sections[currentLang];
 
   if (!s) {
