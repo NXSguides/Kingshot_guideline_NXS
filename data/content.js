@@ -1120,7 +1120,7 @@ const GUIDES = {
       zh: { title: "NAP 規則", blocks: [
         { type: "h", text: "🤝 NAP 規則（互不侵犯條約）" },
         { type: "nap", text: "❌ 不可攻擊或偵察 NAP 5 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊 NAP 成員在營帳裡的部隊。正在採集的 NAP 部隊不可以攻擊。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 5 共享或輪流使用。"] },
+        { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊 NAP 成員在帳篷裡的部隊。正在採集的 NAP 部隊不可以攻擊。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 5 共享或輪流使用。"] },
         { type: "sub", text: "⚠️ 違規處理" },
         { type: "list", items: ["第 1 次：幹部警告。","第 2 次（警告後再犯）：踢出聯盟。","第 3 次：列入所有受 NAP 保護聯盟的黑名單。"] },
       ]},
@@ -1241,7 +1241,7 @@ const GUIDES = {
         {"type": "list", "items": ["1. 保持活躍。要離開一陣子先告訴幹部。", "2. 遵守 NAP 5。被 NAP 成員攻擊時回報 R4/R5，不要反擊。", "3. 遵守活動規則。留意聯盟聊天、私訊、我們的網站和 Discord 的更新。", "4. 配合幹部、幫助盟友，大家一起團隊合作。", "5. 世界頻道保持友善，不要製造可能傷害聯盟的紛爭。"]},
         {"type": "h", "id": "first-day", "text": "✅ 第一天要知道的事"},
         {"type": "sub", "text": "🤝 NAP 5"},
-        {"type": "nap", "text": "❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*{allOut}期間可以攻擊營帳裡的部隊；正在採集的不可以。", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"]},
+        {"type": "nap", "text": "❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*{allOut}期間可以攻擊帳篷裡的部隊；正在採集的不可以。", "tags": ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"]},
         {"type": "p", "text": "⚠️ 違規：第 1 次警告 · 第 2 次踢出聯盟 · 第 3 次列入所有 NAP 聯盟的黑名單。"},
         {"type": "p", "text": "[[link:nap-rules]]"},
         {"type": "sub", "text": "🗺️ 各盟分配"},
@@ -9576,7 +9576,7 @@ const GUIDES = {
         { type: "list", items: [
                     "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）",
           "❌ 不可以攻擊正在採集的 NAP 部隊",
-          "✅ 可以攻擊 NAP 成員在營帳裡的部隊",
+          "✅ 可以攻擊 NAP 成員在帳篷裡的部隊",
           "✅ 可以攻擊 NAP 以外的玩家。"
         ]},
         { type: "list", items: [
