@@ -877,7 +877,7 @@ const researchHref = (r) => (r === "vv" ? "research-viking.html?lang=" : `resear
    the frame grows to the report's height and follows the site's light / dark setting. */
 RESEARCH_PAGES.forEach((p) => { GUIDES["research-" + p.r] = { emoji: p.emoji, name: p.name, hidden: true, research: p.r, sections: {} }; });
 function renderResearch(doc, guide) {
-  doc.innerHTML = `<iframe class="research-frame" title="${escapeHtml(t(guide.name))}" src="${researchHref(guide.research)}&embed=1" scrolling="no" style="display:block;width:100%;border:0;min-height:60vh;background:transparent"></iframe>`;
+  doc.innerHTML = `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(t(guide.name))}</span></div><iframe class="research-frame" title="${escapeHtml(t(guide.name))}" src="${researchHref(guide.research)}&embed=1" scrolling="no" style="display:block;width:100%;border:0;min-height:60vh;background:transparent"></iframe>`;
   const f = doc.querySelector("iframe");
   const fit = () => { try { const d = f.contentDocument; if (!d || !d.documentElement) return;
     const th = document.documentElement.getAttribute("data-theme"); if (th) d.documentElement.setAttribute("data-theme", th); else d.documentElement.removeAttribute("data-theme");

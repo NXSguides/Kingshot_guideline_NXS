@@ -11,7 +11,15 @@
   /* Public version of the 🪓 Viking report — under 🔬 Research Reports on the site (opened 2026-11-21).
      Same look as the officer tab; the text lives in data/research-vv.js. */
   body { padding: 16px 16px 60px; }
-  html.embed, html.embed body { background: transparent; } html.embed body { padding: 0; } html.embed .vvp-back, html.embed #vv_lang { display: none; }   /* shown inside the site (index.html) */
+  /* shown inside the site (index.html#/…/research-…): the site draws the title and the page card, so here the report's own
+     cards become plain sections of that page — no box inside a box, no second title */
+  html.embed, html.embed body { background: transparent; } html.embed body { padding: 0; } html.embed .wrap { padding: 0 !important; max-width: none; }
+  html.embed .card { background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0; padding: 0 !important; margin: 0 0 22px !important; }
+  html.embed .card + .card, html.embed .card + p + .card { border-top: 1px solid var(--rule) !important; padding-top: 18px !important; }
+  html.embed .card > h3 { font-family: "Oswald", "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", sans-serif; font-size: 18px; margin: 0 0 10px; }
+  html.embed .card.rs-do { background: var(--panel-2) !important; border-inline-start: 3px solid var(--accent) !important; border-radius: 8px; padding: 12px 14px !important; }
+  html.embed .card.rs-do + .card { border-top: 0 !important; padding-top: 0 !important; }
+  html.embed .vvp-top { display: none; } html.embed .vvp .vv-hero { margin-top: 0; }
   .wrap { max-width: 900px; margin: 0 auto; }
   h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
   .muted { color: var(--text-muted); font-size: 13px; }
