@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Viking report</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  /* Public version of the 🪓 Viking report — PREVIEW, not linked from anywhere until Sherry opens it (2026-11-20).
+     Same look as the officer tab (styles copied from officer-x7k2p9.html); the text lives in data/research-vv.js. */
+  body { padding: 16px 16px 60px; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .rs-do { border: 1px solid var(--accent); } .rs-do h3 { margin: 0 0 6px; }
+  .vvp-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+  .vvp-top select { padding: 6px 8px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--text); font: inherit; }
+  .vvp-lock { border: 1px dashed var(--rule); border-radius: 10px; padding: 8px 12px; margin: 12px 0 0; font-size: 13px; color: var(--text-muted); }
+  .vvp .vv-find { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; font-size: 14px; line-height: 1.55; }
+  .vvp .vv-tag { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 1px 9px; border-radius: 99px; margin-inline-end: 8px; vertical-align: 1px; white-space: nowrap; }
+  .vvp .vv-tag.ours { color: var(--vv-inf); background: color-mix(in srgb, var(--vv-inf) 14%, transparent); }
+  .vvp .vv-tag.web { color: var(--text-muted); background: var(--panel-2); border: 1px solid var(--rule); }
+  .vvp .vv-foot { margin: 16px 0 0; font-size: 12.5px; color: var(--text-muted); }
+  .vvp { --vv-inf: #2f6db3; --vv-oth: #9cbbe0; --vv-host: #c9962b; --vv-tb: #3d7fc4; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vvp { --vv-inf: #5d9be0; --vv-oth: #35506f; --vv-host: #e0b04a; --vv-tb: #5d9be0; } }
+  :root[data-theme="dark"] .vvp { --vv-inf: #5d9be0; --vv-oth: #35506f; --vv-host: #e0b04a; --vv-tb: #5d9be0; }
+  .vvp .card h3 { margin: 0 0 8px; } .vvp .vv-p { margin: 0 0 10px; font-size: 14px; line-height: 1.55; } .vvp .vv-small { font-size: 12px; line-height: 1.5; }
+  .vvp .vv-hero { position: relative; border-radius: 14px; overflow: hidden; background-size: cover; background-position: center 35%; min-height: 230px; display: flex; align-items: flex-end; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .vvp .vv-hero-in { width: 100%; padding: 18px 16px 16px; background: linear-gradient(to top, rgba(12,16,28,.92) 15%, rgba(12,16,28,.55) 65%, rgba(12,16,28,0)); color: #f3f1ea; }
+  .vvp .vv-hero h2 { margin: 8px 0 4px; font-size: 22px; line-height: 1.25; text-wrap: balance; } .vvp .vv-hero p { margin: 0; font-size: 14.5px; line-height: 1.5; max-width: 60ch; }
+  .vvp .vv-badge { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
+  .vvp .vv-trs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .vvp .vv-tr { margin: 0; display: flex; flex-direction: column; gap: 8px; padding: 10px; border-radius: 12px; border: 1px solid var(--rule); background: var(--panel-2); }
+  .vvp .vv-tr img { width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: cover; object-position: center 20%; border-radius: 10px; flex: none; }
+  .vvp .vv-tr figcaption { display: grid; gap: 3px; font-size: 13.5px; line-height: 1.45; } .vvp .vv-tr b { font-size: 15px; }
+  .vvp .vv-tr.on { border: 2px solid var(--vv-inf); } .vvp .vv-tr.off img { filter: grayscale(.75) brightness(.95); opacity: .75; }
+  @media (max-width: 560px) { .vvp .vv-trs { grid-template-columns: 1fr; } .vvp .vv-tr { flex-direction: row; align-items: center; } .vvp .vv-tr img { width: 92px; } .vvp .vv-hero { min-height: 260px; } }
+  .vvp .vv-note { margin: 10px 0 0; font-size: 13.5px; }
+  .vvp .vv-wave { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; font-size: 14px; } .vvp .vv-wave input { flex: 1 1 160px; accent-color: var(--vv-inf); } .vvp .vv-wave b { font-size: 18px; min-width: 2ch; font-variant-numeric: tabular-nums; }
+  .vvp .vv-waves { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px; margin: -4px 0 14px; }
+  .vvp .vv-wb { min-height: 40px; border-radius: 10px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font: inherit; font-weight: 700; font-variant-numeric: tabular-nums; cursor: pointer; }
+  .vvp .vv-wb.el { border-color: var(--vv-host); border-style: dashed; } .vvp .vv-wb.on { background: var(--vv-inf); border: 1px solid var(--vv-inf); color: #fff; }
+  .vvp .vv-elite { font-size: 12px; padding: 2px 8px; border-radius: 99px; background: color-mix(in srgb, var(--vv-host) 22%, transparent); }
+  .vvp .vv-piles { display: grid; gap: 14px; } .vvp .vv-pk { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .vvp .vv-bar { height: 26px; border-radius: 8px; background: var(--panel-2); display: flex; overflow: hidden; } .vvp .vv-bar.half { width: 50%; min-width: 150px; }
+  .vvp .vv-bar i { display: block; height: 100%; transition: width .25s; } .vvp i.host { background: var(--vv-host); } .vvp i.me { background: var(--vv-inf); } .vvp i.oth { background: var(--vv-oth); }
+  .vvp .vv-pv { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 4px; } .vvp .vv-ps { font-size: 12.5px; color: var(--text-muted); }
+  .vvp .vv-warn { margin: 12px 0 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.6; }
+  .vvp .vv-tiers { display: grid; gap: 6px; max-width: 520px; } .vvp .vv-tier { display: grid; grid-template-columns: 3.2em 1fr 2.5em; align-items: center; gap: 8px; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .vvp .vv-tb { height: 14px; border-radius: 4px; background: var(--panel-2); overflow: hidden; } .vvp .vv-tb i { display: block; height: 100%; background: var(--vv-tb); } .vvp .vv-tier b { text-align: end; }
+  .vvp .vv-ex { margin: 10px 0 4px; font-weight: 700; font-size: 14.5px; }
+  .vvp .vv-dos { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; } .vvp .vv-dos li { display: flex; gap: 12px; align-items: center; font-size: 14px; line-height: 1.5; padding: 6px; border-radius: 10px; background: var(--panel-2); }
+  .vvp .vv-ic { flex: 0 0 52px; height: 52px; border-radius: 10px; overflow: hidden; display: grid; place-items: center; font-size: 28px; background: var(--panel); } .vvp .vv-ic img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+  .vvp .vv-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; } @media (max-width: 620px) { .vvp .vv-two { grid-template-columns: 1fr; } }
+  .vvp .vv-ul { margin: 0; padding-inline-start: 1.2em; font-size: 13.5px; line-height: 1.55; } .vvp .vv-ul li { margin: 4px 0; }
+  .vvp .vv-num summary { cursor: pointer; font-weight: 700; } .vvp .vv-t { border-collapse: collapse; margin-top: 10px; font-size: 13px; min-width: 280px; }
+  .vvp .vv-t th, .vvp .vv-t td { padding: 5px 12px; border-bottom: 1px solid var(--rule); text-align: start; } .vvp .vv-t .n { text-align: end; font-variant-numeric: tabular-nums; } .vvp .vv-t tr.el td { font-weight: 700; }
+  .vvp .vv-tiers .vv-tier { grid-template-columns: 5.4em 1fr 2.5em; } .vvp .vv-tier span { white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="wrap vvp">
+  <div class="vvp-top"><div><h1 id="vv_title">🪓</h1></div><select id="vv_lang" aria-label="Language"></select></div>
+  <div class="vvp-lock" id="vv_lock"></div>
+  <div id="vv_root"></div>
+</div>
+<script src="data/research-vv.js"></script>
+<script>
+(function () {
+  const G = RESEARCH_VV, CODES = Object.keys(G.T);
+  let lang = (() => { let l = ""; try { l = new URLSearchParams(location.search).get("lang") || ""; } catch (e) {}
+    if (!CODES.includes(l)) { try { l = localStorage.getItem("ks-lang") || ""; } catch (e) {} } return CODES.includes(l) ? l : "en"; })();
+  const $ = (id) => document.getElementById(id);
+  const t = (k) => (G.T[lang] || G.T.en)[k] ?? G.T.en[k];
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const fmt = (n) => Math.round(n).toLocaleString("en-US");
+  const ELITE = [7, 14, 17], CITY_WAVES = Array.from({ length: 19 }, (_, i) => i + 1).filter((w) => w !== 10);
+  const hostPts = (w) => (ELITE.includes(w) ? 2 : 1) * (2700 + 1800 * w);
+  let wave = 9;
+  const troop = (img, name, line, cls) => `<figure class="vv-tr ${cls}"><img src="figures/vv/${img}.webp" alt="" loading="lazy"><figcaption><b>${esc(name)}</b><span>${esc(line)}</span></figcaption></figure>`;
+  const find = (rows) => `<ul class="vv-find">${rows.map(([src, txt]) => `<li><span class="vv-tag ${src}">${esc(t(src === "web" ? "tagWeb" : "tagOurs"))}</span>${esc(txt)}</li>`).join("")}</ul>`;
+  function cakeHtml() {
+    const h = hostPts(wave);
+    return `<div class="vv-wave"><span>${esc(t("wave"))}</span>${ELITE.includes(wave) ? `<span class="vv-elite">${esc(t("elite"))}</span>` : ""}</div>
+      <div class="vv-waves" role="group" aria-label="${esc(t("wave"))}">${CITY_WAVES.map((n) => `<button type="button" class="vv-wb${n === wave ? " on" : ""}${ELITE.includes(n) ? " el" : ""}" data-w="${n}">${n}</button>`).join("")}</div>
+      <div class="vv-piles">
+        <div class="vv-pile"><div class="vv-pk">${esc(t("host"))}</div><div class="vv-bar"><i class="host" style="width:100%"></i></div><div class="vv-pv">${fmt(h)}</div><div class="vv-ps">${esc(t("hostS"))}</div></div>
+        <div class="vv-pile"><div class="vv-pk">${esc(t("pool"))}</div><div class="vv-bar half"><i class="me" style="width:100%"></i></div><div class="vv-pv">${fmt(h / 2)}</div><div class="vv-ps">${esc(t("poolS"))}</div></div>
+      </div>`;
+  }
+  function render() {
+    document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang; document.title = t("title").replace(/^\S+\s/, "");
+    $("vv_title").textContent = t("title"); $("vv_lock").textContent = t("lock");
+    $("vv_lang").innerHTML = CODES.map((c) => `<option value="${c}"${c === lang ? " selected" : ""}>${esc(G.T[c].langName)}</option>`).join("");
+    const max = Math.max(...G.TIERS.map((x) => x[1]));
+    $("vv_root").innerHTML = `
+    <div class="vv-hero" style="background-image:url(figures/vv/viking.webp)"><div class="vv-hero-in">
+      <span class="vv-badge">${esc(t("badge"))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div></div>
+    <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ol class="vv-dos">${t("dos").map((d, i) => `<li><span class="vv-ic">${['<img src="figures/vv/inf.webp" alt="">', '<img src="figures/vv/arc.webp" alt="">', "🏰", "🗺️", '<img src="figures/vv/cav.webp" alt="">', "⚠️"][i]}</span><span>${esc(d)}</span></li>`).join("")}</ol></div>
+    <div class="card"><h3>${esc(t("whoH"))}</h3>
+      <div class="vv-trs">${troop("inf", t("inf"), t("infS"), "on")}${troop("cav", t("cav"), t("cavS"), "off")}${troop("arc", t("arc"), t("arcS"), "off")}</div>
+      ${find(t("who"))}</div>
+    <div class="card"><h3>${esc(t("cakeH"))}</h3><p class="vv-p">${esc(t("cakeP"))}</p><div id="vv_cake">${cakeHtml()}</div>${find(t("cake"))}</div>
+    <div class="card"><h3>${esc(t("tierH"))}</h3><p class="vv-p">${esc(t("tierP"))}</p>
+      <div class="vv-tiers">${G.TIERS.map(([k, v]) => `<div class="vv-tier"><span>${k}</span><div class="vv-tb"><i style="width:${(v / max * 100).toFixed(1)}%"></i></div><b>${(v / max).toFixed(2)}</b></div>`).join("")}</div>
+      <p class="vv-ex">${esc(t("tierEx"))}</p></div>
+    <div class="card"><h3>${esc(t("noH"))}</h3>${find(t("nos"))}</div>
+    <div class="card"><h3>${esc(t("hqH"))}</h3>${find(t("hq"))}</div>
+    <p class="vv-foot">${esc(t("foot"))}</p>`;
+    bind();
+  }
+  function bind() { document.querySelectorAll("#vv_cake [data-w]").forEach((b) => b.onclick = () => { wave = +b.dataset.w; $("vv_cake").innerHTML = cakeHtml(); bind(); }); }
+  $("vv_lang").onchange = (e) => { lang = e.target.value; render(); };
+  render();
+})();
+</script>
+</body>
+</html>
