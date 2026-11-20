@@ -1,12 +1,12 @@
-0	⚔️ Rally & Garnison
-1	Ein Rally nutzt die Werte des Rally-Kapitäns; eine Garnison die des stärksten Verteidigers.
+0	⚔️ Rally & Besetzung
+1	Ein Rally nutzt die Werte des Rally-Kapitäns; eine Besetzung die des stärksten Verteidigers.
 2	Gleiche Fertigkeitsart addiert sich; verschiedene Arten multiplizieren sich.
 3	🔎 Was wir gesehen haben
 4	Nur die Fertigkeit deines ersten Helden zählt: Bring einen 4★-Helden mit der Fertigkeit auf Lv5.
 5	Bärenjagd: 2 Angriff (Amane, Margot) + 2 Tödlichkeit (Chenko, Yeonwoo).
-6	PvP-Rally und Garnison: 4 verschiedene Arten (z. B. Amane + Chenko + Gordon + Howard).
-7	Stadts Bonus: der Rally-Kapitän bzw. der stärkste Verteidiger in einer Garnison.
-8	Nach der Einnahme eines Gebäudes: Garnisonshelden und Garnisons-Exklusive Ausrüstung.
+6	PvP-Rally und Besetzung: 4 verschiedene Arten (z. B. Amane + Chenko + Gordon + Howard).
+7	Stadts Bonus: der Rally-Kapitän bzw. der stärkste Verteidiger in einer Besetzung.
+8	Nach der Einnahme eines Gebäudes: Besetzungshelden und Besetzungs-Exklusive Ausrüstung.
 9	💡 Vorschläge
 10	🔬 Unsere Forschung · aktualisiert {d}
 11	✅ sicher
@@ -21,15 +21,15 @@
 20	Gesundheit, Reduktion des erlittenen Schadens und Feindlicher Trupp Angriffs-Reduktion wirken jeweils etwa ×(1 + X).
 21	Feindlicher Trupp Angriffs-Reduktion wirkt auch gegen Monster.
 22	🎯 Welche Beitretenden
-23	⚔️🛡️ PvP-Rally & Garnison
+23	⚔️🛡️ PvP-Rally & Besetzung
 24	🧮 4 Beitretende ausprobieren
 25	keine Kampffertigkeit
 28	Saul + Gordon + Howard + Fahd (alle defensiv)
 30	Beispiele (Lv5)
 31	👑 Der Rally-Kapitän / stärkste Verteidiger
-32	Werte im Kampfbericht = (1 + Truppen-% + Schwadron-%) × (1 + Stadts Bonus + Exklusive Ausrüstung für Rally/Garnison) ÷ (1 + feindliche Schwächung) − 1.
+32	Werte im Kampfbericht = (1 + Truppen-% + Schwadron-%) × (1 + Stadts Bonus + Exklusive Ausrüstung für Rally/Besetzung) ÷ (1 + feindliche Schwächung) − 1.
 33	Wenn Beitretende den Stadts Bonus einschalten, bringt das nichts.
-34	Rally-Exklusive Ausrüstung wirkt nur, wenn du den Rally startest; Garnisonsausrüstung nur in einer Garnison.
+34	Rally-Exklusive Ausrüstung wirkt nur, wenn du den Rally startest; Besetzungsausrüstung nur in einer Besetzung.
 35	🐻 Bärenjagd-Bericht
 36	Bogenschützen-Märsche zuerst in die stärksten Rallys; Infanterie und Kavallerie in die späteren.
 37	Vor allem Bogenschützen (etwa 1 : 25 : 74), aber schick von keiner Truppenart null.
@@ -58,11 +58,11 @@
 62	Jägerinstinkt erhöht deine eigenen Schadenspunkte:
 63	Tanz der Jagd: Rally-Kapazität +30.000 pro Level. Vorteil des Wilden: deine eigene Marschkapazität +3.000 pro Level.
 64	🩹 Kampfverluste
-67	Gefallene Truppen gehen einen von drei Wegen: leicht verletzt (raus aus diesem Kampf, bleiben aber beim Marsch und können wieder kämpfen – außer bei der Verteidigung eines Gebäudes wie Heiligtum, Außenposten oder Königliches Schloss: dort werden sie nach Hause geschickt – keine Heilung nötig –, sodass die Garnison mit jedem Angriff dünner wird), verletzt (in der Krankenstation, heilbar) oder verloren (weg).
+67	Gefallene Truppen gehen einen von drei Wegen: leicht verletzt (raus aus diesem Kampf, bleiben aber beim Marsch und können wieder kämpfen – außer bei der Verteidigung eines Gebäudes wie Heiligtum, Außenposten oder Königliches Schloss: dort werden sie nach Hause geschickt – keine Heilung nötig –, sodass die Besetzung mit jedem Angriff dünner wird), verletzt (in der Krankenstation, heilbar) oder verloren (weg).
 68	In jedem Kampf gilt: Ist deine Krankenstation voll, gehen die Verletzten, die nicht hineinpassen, verloren. Sonst gehen Truppen nur verloren, wenn du jemandes Stadt angreifst (35% der gefallenen Truppen) oder um einen Außenposten Lv. 4 kämpfst (10%).
 69	Zeigt die verteidigende Seite eines Berichts Verluste, war ihre Krankenstation voll.
 71	Bevor du angegriffen werden kannst, heile deine Verletzten, damit die Krankenstation Platz hat.
-72	Ein Gebäude halten: Fülle die Garnison zwischen den Angriffen auf – die leicht Verletzten sind nach Hause gegangen.
+72	Ein Gebäude halten: Fülle die Besetzung zwischen den Angriffen auf – die leicht Verletzten sind nach Hause gegangen.
 73	Vor dem Angriff auf eine Stadt: Rechne damit, dass 35% der gefallenen Truppen nicht zurückkommen.
 74	Wohin gefallene Truppen gehen
 75	Beide Seiten
@@ -71,7 +71,7 @@
 78	Leicht verletzt
 79	Angriff auf eine Stadt
 80	Angriff auf Sammler oder Truppen auf der Karte
-81	Rally auf ein Gebäude oder Garnison
+81	Rally auf ein Gebäude oder Besetzung
 82	Außenposten Lv. 1
 83	Außenposten Lv. 2
 84	Außenposten Lv. 3
@@ -84,7 +84,7 @@
 91	Kills = Verlorene + Verletzte der anderen Seite. Leicht Verletzte zählen nicht.
 92	Verletzte Truppen kommen vom höchsten Rang abwärts in die Krankenstation.
 93	Eine Stadt ohne Truppen: kein Kampf, niemand wird verletzt.
-94	In einem Rally oder einer Garnison entspricht der Anteil jeder Person an den Gefallenen ihrem Anteil an dieser Truppenart.
+94	In einem Rally oder einer Besetzung entspricht der Anteil jeder Person an den Gefallenen ihrem Anteil an dieser Truppenart.
 95	Angriffe treffen zuerst die vordere Reihe: Infanterie, dann Kavallerie, dann Bogenschützen – daher fällt Infanterie zuerst und Kavallerie fast nie. Manchmal fallen Bogenschützen, bevor die Infanterie weg ist: Das ist der Hinterhalt der feindlichen Kavallerie (ab T7 überspringen 20% ihrer Angriffe die Infanterie).
 96	🦣 Terror-Rallys
 97	Die Empfohlene Kraft gilt für den ganzen Rally.
@@ -127,14 +127,14 @@
 149	Zuerst
 150	Dann
 151	Keine Eile
-152	Rallys oder Garnisonen anführen
+152	Rallys oder Besetzungen anführen
 153	Bärenjagd-Rallys anführen
 154	Rallys beitreten
 155	Arena spielen
 156	Entwickeln und sammeln
 157	Cassias Fertigkeiten: zuerst Kommando und Ruf zu den Waffen; bring die drei Kampffertigkeiten jeweils auf Lv5–10, bevor du höher gehst.
 158	Beziehungs-fortschritt: Romans erste 3 sind am günstigsten; Cassias erste 2 lohnen sich auch, ab der 3. wird es teuer.
-160	Die Werte eines Meisters zählen nur, wenn deine eigenen Werte genutzt werden: deine eigenen Märsche sowie Rallys und Garnisonen, die du anführst. Im Rally eines anderen hilft nur das Schwadronen-Größenlimit.
+160	Die Werte eines Meisters zählen nur, wenn deine eigenen Werte genutzt werden: deine eigenen Märsche sowie Rallys und Besetzungen, die du anführst. Im Rally eines anderen hilft nur das Schwadronen-Größenlimit.
 161	Jedes 1% von Cassia bringt 3–4-mal so viel Kraft wie ein Gouverneur Talisman: Die Kraft wächst viel stärker als die echte Stärke.
 162	🎓 Die vier Meister
 163	Expedition, max.
@@ -153,7 +153,7 @@
 176	PvP-Rally-Kapitän +2% · Bärenjagd 0
 177	Wo jeder hilft
 178	Rally-Kapitän (PvP)
-179	Garnison anführen
+179	Besetzung anführen
 180	Bären-Kapitän
 181	Rallys / Bär beitreten
 182	Entwicklung
@@ -176,27 +176,27 @@
 201	🧭 Angriff vs. Verteidigung
 202	Am wichtigsten
 203	Rally-Kapazität – ein großer Rally schlägt zwei kleine
-204	Garnisonskapazität – wie viele Truppen das Gebäude halten können
+204	Besetzungskapazität – wie viele Truppen das Gebäude halten können
 205	Wessen Werte zählen
 206	Die des Rally-Kapitäns
 207	Die der stärksten Person darin
 208	Element-Art
 209	Offensiv (Rally)
-210	Defensiv (Garnison)
+210	Defensiv (Besetzung)
 211	Truppenverhältnis
 212	50:20:30 · Infanterie ≥ 40%
 213	Viel Infanterie (Infanterie ist die Mauer)
 214	Fertigkeiten der Beitretenden
 215	Die ersten 4 Personen mit Held: 2 Angriff + 2 Tödlichkeit
-216	Bis zu 4: verschiedene Arten am besten; 2 Gordon + 2 Howard auch gut → 🛡️ Garnisons-Beitretende
+216	Bis zu 4: verschiedene Arten am besten; 2 Gordon + 2 Howard auch gut → 🛡️ Besetzungs-Beitretende
 217	Taktik / Verluste
 218	Starkes Ziel: zuerst entbehrliche Rallys, der stärkste Kapitän zuletzt
 219	Wer anführt, hat ~32% mehr Verluste – Krankenstation bereithalten
 220	Bonus
 221	Defensive Elemente wirken auch, wenn deine eigene Stadt angegriffen wird
-222	🛡️ Garnisons-Beitretende
+222	🛡️ Besetzungs-Beitretende
 223	Bis zu 4 zählen – jeweils nur der erste Held, Fertigkeit oben rechts
-224	Wer zählt: höheres Fertigkeitslevel zuerst; gleiches Level → wer zuerst beigetreten ist. Wer die Garnison anführt und R4/R5 können die Reihenfolge ändern
+224	Wer zählt: höheres Fertigkeitslevel zuerst; gleiches Level → wer zuerst beigetreten ist. Wer die Besetzung anführt und R4/R5 können die Reihenfolge ändern
 225	Gleiche Bonusart addiert sich (jeder weitere bringt weniger); verschiedene Arten multiplizieren sich → 4 verschiedene Arten sind am besten
 226	Chance-Fertigkeiten (Jabel, Helga): dieselbe zählt nur einmal
 227	Beitretende
@@ -209,23 +209,23 @@
 234	🃏 Jeder Held, für jede Rolle bewertet → Heldenkarten
 235	🦸 Heldenvergleich (Gen 1–5)
 236	⚔️ PvP-Rally-Kapitän
-237	🛡️ Garnison anführen
+237	🛡️ Besetzung anführen
 239	Am besten
 240	Direkter Vergleich
 241	Warum
 242	Fazit
 243	Petra +12% (ihr Rally-Element)
 244	etwa gleich (Margot −1%)
-245	Margot +30% (Garnisons-Element, höherer Truppenbonus)
-246	Hast du Petra schon? Behalte sie für Rallys und den Bären; wechsle nur für eine Garnisons-Kavallerie zu Margot.
-248	wie Garnison
+245	Margot +30% (Besetzungs-Element, höherer Truppenbonus)
+246	Hast du Petra schon? Behalte sie für Rallys und den Bären; wechsle nur für eine Besetzungs-Kavallerie zu Margot.
+248	wie Besetzung
 249	alle drei sind hier schwach – Amadeus ist die beste Infanterie (Alcar −31%, Long Fei −41%, Eric −54%)
 250	Long Feis Vorsprung = höherer Truppenbonus (neuere Generation). Alcars Extra = Infanterieschaden +100% und +60% stapelbar – noch nicht bestätigt.
-251	Garnisons-Infanterie: Alcar > Long Fei > Eric.
+251	Besetzungs-Infanterie: Alcar > Long Fei > Eric.
 254	Jaeger +10% (beide hier schwach – nimm Vivian / Rosa)
-255	Bogenschütze in einer Garnison: eindeutig Jaeger.
+255	Bogenschütze in einer Besetzung: eindeutig Jaeger.
 257	Marlin → Rosa +28%, → Vivian +38%; Rosa → Vivian nur +8%
-259	Vivian lohnt sich am meisten für den Bären; für PvP und Garnisonen ist Rosa fast genauso gut.
+259	Vivian lohnt sich am meisten für den Bären; für PvP und Besetzungen ist Rosa fast genauso gut.
 260	⚖️ Zwei Helden vergleichen
 261	Element-Lv
 262	etwa gleich
@@ -234,7 +234,7 @@
 265	Fester Bonus (erste Wahl)
 266	Mit Chance (zweite Wahl)
 267	⚔️🐻 Schadens-Beitretender (Bär, PvP-Rallys)
-268	🛡️ Garnisons-Beitretender
+268	🛡️ Besetzungs-Beitretender
 269	❌ Als Beitretender nutzlos
 270	Angr
 271	Tödl
@@ -247,16 +247,16 @@
 278	Feind-Angr
 279	Feind-Tödl
 280	Zusatztreffer alle 4 Runden
-281	Garnison: wähle 4 verschiedene Arten (gleiche Art addiert sich mit immer weniger, verschiedene multiplizieren sich). Z. B. 1 Schadensreduktion (Howard) + Saul + Hilde + 1 Tödlichkeit (Chenko).
+281	Besetzung: wähle 4 verschiedene Arten (gleiche Art addiert sich mit immer weniger, verschiedene multiplizieren sich). Z. B. 1 Schadensreduktion (Howard) + Saul + Hilde + 1 Tödlichkeit (Chenko).
 282	Zwei-in-eins-Fertigkeiten oben rechts (Saul, Hilde) sind besonders gut: ein Platz, zwei Werte – multipliziert, besser als einmal +25%.
-283	Wenn WIR eine Garnison per Rally angreifen, helfen defensive Beitretende auch: Die Garnison schlägt zurück, und Feind-Angr −20% (Eric) sowie Erl. Schaden −20% (Howard, Quinn) senken unsere Verluste.
+283	Wenn WIR eine Besetzung per Rally angreifen, helfen defensive Beitretende auch: Die Besetzung schlägt zurück, und Feind-Angr −20% (Eric) sowie Erl. Schaden −20% (Howard, Quinn) senken unsere Verluste.
 284	Held für Held
-285	Schwach als Bogenschützen-Anführer, aber einer der besten Garnisons-Beitretenden (Vert + Ges). Grüne Fertigkeit: Bautempo +15%, Kosten −15%. Unten rechts Tödlichkeit +25%, wenn er anführt.
-286	Oben rechts Ges +25% → Garnisons-Beitretender. Als Anführer wirkt auch seine mittlere Fertigkeit Angriff +25%.
-287	Oben rechts Angriff + Verteidigung → Beitretender für Garnison und PvP (gegen den Bären hilft nur die Angriffs-Hälfte).
-288	Günstige Garnisons-Beitretende mit Schadensreduktion: Howard, Quinn (Erl. Schaden −20%), Fahd (Feind-Schaden −20%). Fahds grüne Fertigkeit: Marschtempo allein gegen Bestien +100%.
+285	Schwach als Bogenschützen-Anführer, aber einer der besten Besetzungs-Beitretenden (Vert + Ges). Grüne Fertigkeit: Bautempo +15%, Kosten −15%. Unten rechts Tödlichkeit +25%, wenn er anführt.
+286	Oben rechts Ges +25% → Besetzungs-Beitretender. Als Anführer wirkt auch seine mittlere Fertigkeit Angriff +25%.
+287	Oben rechts Angriff + Verteidigung → Beitretender für Besetzung und PvP (gegen den Bären hilft nur die Angriffs-Hälfte).
+288	Günstige Besetzungs-Beitretende mit Schadensreduktion: Howard, Quinn (Erl. Schaden −20%), Fahd (Feind-Schaden −20%). Fahds grüne Fertigkeit: Marschtempo allein gegen Bestien +100%.
 289	Mitte Angriff +25% (fest) → nützlich als Anführer, sogar auf dem Infanterie-Platz beim Bären. Als Beitretender nur eine Chance-Fertigkeit.
-290	Kostenlos, Garnisons-Element → hilft jedem, wenn die eigene Stadt getroffen wird. Unten rechts Tödlichkeit +25%.
+290	Kostenlos, Besetzungs-Element → hilft jedem, wenn die eigene Stadt getroffen wird. Unten rechts Tödlichkeit +25%.
 291	Grüne Fertigkeit: Heilungsgeschwindigkeit der Krankenstation +50%.
 292	Grüne Fertigkeit: Forschungstempo +15% (kann am KvK-Forschungstag helfen).
 293	Kein Kampfnutzen: Ausdauer −20%, Marschtempo gegen Bestien +100% → nur für die Bestienjagd.
@@ -298,6 +298,6 @@
 336	1 TG3-Infanterie ≈ 1,17 TG1 ≈ 1,66 T9. Für Infanterie und Kavallerie gelten dieselben Verhältnisse.
 337	🤷 Ändert deine Punkte nicht
 339	In einer Stadt, die die Welle komplett besiegt: Angriffs- und Verteidigungs-Buffs und Begleittier-Schwächungen. Die Anteile waren mit und ohne gleich.
-341	Welche Helden du schickst, wie viele, oder ob du Garnisonskapitän bist.
+341	Welche Helden du schickst, wie viele, oder ob du Besetzungskapitän bist.
 343	Wellen 10 und 20 greifen nur das Allianz-Hauptquartier an, nicht die Städte. Kills werden genauso geteilt, nach Infanterie × Rang, und die Punkte folgen den Kills.
 344	Aus den eigenen Kampfberichten von NXS erarbeitet. Keine offizielle Beschreibung des Spiels; nach einem Spiel-Update kann es sich ändern.
