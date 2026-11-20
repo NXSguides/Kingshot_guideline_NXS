@@ -877,13 +877,17 @@ const researchHref = (r) => (r === "vv" ? "research-viking.html?lang=" : `resear
    the frame grows to the report's height and follows the site's light / dark setting. */
 RESEARCH_PAGES.forEach((p) => { GUIDES["research-" + p.r] = { emoji: p.emoji, name: p.name, hidden: true, research: p.r, sections: {} }; });
 function renderResearch(doc, guide) {
-  doc.innerHTML = `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(t(guide.name))}</span></div><iframe class="research-frame" title="${escapeHtml(t(guide.name))}" src="${researchHref(guide.research)}&embed=1" scrolling="no" style="display:block;width:100%;border:0;min-height:60vh;background:transparent"></iframe>`;
+  doc.innerHTML = `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(t(guide.name))}</span></div><iframe class="research-frame" title="${escapeHtml(t(guide.name))}" src="${researchHref(guide.research)}&embed=1" scrolling="no" style="display:block;width:100%;border:0;height:60vh;background:transparent"></iframe>`;
   const f = doc.querySelector("iframe");
+  /* the frame is exactly as tall as the report: measured on the report's own wrapper (never on the frame's document, whose
+     height follows the frame), again every time the report changes size — a folded part, a calculator, the language */
   const fit = () => { try { const d = f.contentDocument; if (!d || !d.documentElement) return;
     const th = document.documentElement.getAttribute("data-theme"); if (th) d.documentElement.setAttribute("data-theme", th); else d.documentElement.removeAttribute("data-theme");
-    const h = Math.ceil(d.documentElement.getBoundingClientRect().height); if (h > 0 && Math.abs(h - f.offsetHeight) > 1) f.style.height = h + "px"; } catch (e) {} };
-  f.addEventListener("load", () => { fit(); try { new ResizeObserver(fit).observe(f.contentDocument.documentElement); } catch (e) {}
-    try { new MutationObserver(fit).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] }); } catch (e) {} });
+    const w = d.querySelector(".wrap"); if (!w) return;
+    const h = Math.ceil(w.getBoundingClientRect().bottom + (d.defaultView.scrollY || 0)) + 2; if (h > 2 && Math.abs(h - f.offsetHeight) > 1) f.style.height = h + "px"; } catch (e) {} };
+  f.addEventListener("load", () => { fit(); try { const d = f.contentDocument, ro = new ResizeObserver(fit); ro.observe(d.querySelector(".wrap")); d.querySelectorAll(".wrap > *").forEach((e) => ro.observe(e)); } catch (e) {}
+    try { new MutationObserver(fit).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] }); } catch (e) {}
+    [300, 1200, 3000].forEach((ms) => setTimeout(fit, ms)); });
 }
 let openGuideGroup = null;
 

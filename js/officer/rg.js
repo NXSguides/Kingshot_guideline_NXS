@@ -202,13 +202,14 @@ function mult(picks, mode) {   // same type adds, different types multiply
 const st = (c) => c === "mid" ? `<span class="rg-st ${c}">${esc(t("st")[c])}</span>` : "";
 const pts = (arr) => `<ul class="rg-ul">${arr.map(([c, x]) => `<li>${st(c)} ${esc(x)}</li>`).join("")}</ul>`;
 const chip = (k) => `<span class="rg-chip ${k}">${esc(t("types")[k])}</span>`;
+const pic = (h) => `<img class="rg-pic" src="figures/heroes/hero_${h}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'">`;
 const heroChips = (h) => { const s = Object.keys(HM[h] || {}); return s.length ? s.map(chip).join("") : chip("nil"); };
 
 function calcHtml() {
   const { x, sum } = mult(S.picks, S.mode);
   const used = Object.keys(sum).filter((k) => S.mode !== "bear" || OFF.includes(k));
   return `<div class="rg-in"><label>${esc(t("calcMode"))}<select class="inp" id="rg_mode">${["pvp", "bear"].map((m) => `<option value="${m}"${m === S.mode ? " selected" : ""}>${esc(t(m === "bear" ? "modeBear" : "modePvp"))}</option>`).join("")}</select></label></div>
-    <div class="rg-slots">${S.picks.map((h, i) => `<label class="rg-slot"><span class="muted">#${i + 1}</span><select class="inp" data-rgslot="${i}">${HEROES.map(([k]) => `<option value="${k}"${k === h ? " selected" : ""}>${esc(t("heroes")[k])}</option>`).join("")}</select><span class="rg-chips">${heroChips(h)}</span></label>`).join("")}</div>
+    <div class="rg-slots">${S.picks.map((h, i) => `<label class="rg-slot"><span class="rg-sp">${pic(h)}<span class="muted">#${i + 1}</span></span><select class="inp" data-rgslot="${i}">${HEROES.map(([k]) => `<option value="${k}"${k === h ? " selected" : ""}>${esc(t("heroes")[k])}</option>`).join("")}</select><span class="rg-chips">${heroChips(h)}</span></label>`).join("")}</div>
     <div class="rg-res">${esc(t("calcRes").replace("{x}", x.toFixed(2)))}</div>
     <div class="rg-sum">${used.map((k) => `<span class="rg-chip ${k}">${esc(t("types")[k])} +${sum[k]}%</span>`).join("")}</div>`;
 }
@@ -220,8 +221,8 @@ function render() {
   <div class="card rs-do"><h3>${esc(t("obsH"))}</h3><ul class="rs-dol">${t("obs").map((x) => `<li>${esc(x)}</li>`).join("")}</ul><h3 class="rs-h2">${esc(t("doH"))}</h3><ul class="rs-dol">${t("do").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <div class="card"><h3>${esc(t("pickH"))}</h3>
     <div class="rg-two">
-      <div class="rg-side b"><b>${esc(t("pickBear"))}</b><div class="rg-pick">${PRESET.bear.map((h) => `<span class="rg-ph">${esc(t("heroes")[h])}${heroChips(h)}</span>`).join("")}</div></div>
-      <div class="rg-side g"><b>${esc(t("pickPvp"))}</b><div class="rg-pick">${PRESET.pvp.map((h) => `<span class="rg-ph">${esc(t("heroes")[h])}${heroChips(h)}</span>`).join("")}</div></div>
+      <div class="rg-side b"><b>${esc(t("pickBear"))}</b><div class="rg-pick">${PRESET.bear.map((h) => `<span class="rg-ph">${pic(h)}<span class="rg-pn">${esc(t("heroes")[h])}${heroChips(h)}</span></span>`).join("")}</div></div>
+      <div class="rg-side g"><b>${esc(t("pickPvp"))}</b><div class="rg-pick">${PRESET.pvp.map((h) => `<span class="rg-ph">${pic(h)}<span class="rg-pn">${esc(t("heroes")[h])}${heroChips(h)}</span></span>`).join("")}</div></div>
     </div>
     <h4 class="rg-h4">${esc(t("exH"))}</h4><table class="rg-t"><tbody>${t("ex").map(([a, b]) => `<tr><td>${esc(a)}</td><td class="n">${esc(b)}</td></tr>`).join("")}</tbody></table></div>
   <div class="card"><h3>${esc(t("slotH"))}</h3>

@@ -13,7 +13,7 @@
   body { padding: 16px 16px 60px; }
   /* shown inside the site (index.html#/…/research-…): the site draws the title and the page card, so here the report's own
      cards become plain sections of that page — no box inside a box, no second title */
-  html.embed, html.embed body { background: transparent; } html.embed body { padding: 0; } html.embed .wrap { padding: 0 !important; max-width: none; }
+  html.embed, html.embed body { background: transparent; } html.embed body { padding: 0; min-height: 0 !important; height: auto !important; background-image: none; } html.embed { height: auto !important; min-height: 0 !important; } html.embed .wrap { padding: 0 !important; max-width: none; }   /* the site page sets the frame to the report's own height: nothing here may depend on the frame's height (body had min-height: 100vh, so the frame could grow but never shrink) */
   html.embed .card { background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0; padding: 0 !important; margin: 0 0 22px !important; }
   html.embed .card + .card, html.embed .card + p + .card { border-top: 1px solid var(--rule) !important; padding-top: 18px !important; }
   html.embed .card > h3 { font-family: "Oswald", "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", sans-serif; font-size: 18px; margin: 0 0 10px; }
