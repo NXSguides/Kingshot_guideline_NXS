@@ -1842,6 +1842,7 @@ Alliance Banner = ธงพันธมิตร
 Durability = ความคงทน
 Garrisoned Governor = ผู้นำทหารคุ้มกัน
 Not garrisoned = ไม่ได้รับการคุ้มกัน
+Garrison = คุ้มกัน
 Defender Squad = ทีมป้องกัน
 No reinforcements to show = ไม่มีกำลังเสริมให้แสดง
 Dispatch Troops = ส่งทีมออกไป

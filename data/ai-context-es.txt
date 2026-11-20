@@ -1814,6 +1814,7 @@ Alliance Banner = Estandarte de alianza
 Durability = Durabilidad
 Garrisoned Governor = Gobernador guarnecido
 Not garrisoned = No guarnecido
+Garrison = Guarnecer
 Defender Squad = Escuadrón Defensor
 No reinforcements to show = No hay refuerzos para mostrar
 Dispatch Troops = Enviar tropas

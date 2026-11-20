@@ -1765,6 +1765,7 @@ Alliance Banner = Spanduk Aliansi
 Durability = Daya Tahan
 Garrisoned Governor = Gubernur Berjaga
 Not garrisoned = Tidak ditempati
+Garrison = Garnisun
 Defender Squad = Skuad Bertahan
 No reinforcements to show = Tidak ada bala bantuan untuk ditampilkan
 Dispatch Troops = Kirim Pasukan
