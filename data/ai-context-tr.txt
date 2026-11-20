@@ -999,12 +999,12 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 NAP kurallarını oku ›
-❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok
 ❌ Kaynak toplayan NAP birliklerine saldırı yok
+❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok
 ✅ Çadırlardaki (kamplardaki) NAP birliklerine saldırabilirsiniz
 ✅ NAP dışındaki oyunculara saldırabilirsiniz.
 Şatonuza bir NAP üyesi tarafından saldırılırsa misilleme yapmayın — R4/R5'e bildirin.
-Yabanda kaynak toplamaktan kaçının, bunun yerine Korumalı İttifak Toplama Noktası kullanın.
+Yabanda kaynak toplayabilirsiniz: NAP üyeleri kaynak toplayan birliklere saldıramaz.
 Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir.
 ⚔️ Bir şehre saldırmadan önce
 Şehre saldırmak, büyük bir zafer kazansan bile her zaman asker kaybettirir. Savaşta düşen askerler her zaman aynı şekilde bölünür:
@@ -1012,15 +1012,6 @@ Normal savaşlar (arazi, Seferberlik, savunma): %35 ağır yaralı (Revir), %65 
 Birinin şehrine saldırmak: %35 kalıcı olarak ölür, %10 ağır yaralı, %55 hafif yaralı.
 Savunanın askerlerinin hepsi Revire gider, neredeyse hiç etkilenmez.
 Gerçek rapor: bir düşman 135 bin askerle üyemizin şehrine saldırdı ve yok edildi. 47.310 askeri kalıcı olarak öldü — üyemiz hiç kayıp vermedi, hepsi Revire gitti. Şehrini bölgemizde güçlü tut, saldıranlar bedel ödesin; sen de sadece değdiğinde şehre saldır.
-🏭 Güvenli Toplama Noktaları
-Topyekün etkinliği boyunca, güvenli toplama noktalarımızı 48 saat boyunca her 12 saatte bir değiştireceğiz.
-Bu, etkinlik aktifken herkese kaynak toplamak için korumalı bir alan sağlar.
-Rotasyon Programı (00:00 UTC sıfırlamasıyla başlar)
-Büyük Değirmen – 00:00 UTC - 12:00 UTC
-Büyük Odun Fabrikası – 12:00 UTC - 00:00 UTC
-Büyük Taş Ocağı – 00:00 UTC - 12:00 UTC
-Büyük Demir Madeni – 12:00 UTC - 00:00 UTC
-Etkinlik boyunca bu korumalı alanları kullanın. Güvende kalın ve akıllıca toplayın.
 
 ### GUIDE #hero-roulette — Kahraman Ruleti
 NE ZAMAN

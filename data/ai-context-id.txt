@@ -999,12 +999,12 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Baca aturan NAP ›
-❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)
 ❌ Dilarang menyerang pasukan NAP yang sedang mengumpulkan
+❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)
 ✅ Anda boleh menyerang pasukan NAP di tenda (perkemahan)
 ✅ Anda boleh menyerang pemain di luar NAP.
 Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.
-Hindari mengumpulkan sumber daya di area liar, gunakan Node Aliansi Aman sebagai gantinya.
+Anda boleh mengumpulkan di area liar: anggota NAP tidak boleh menyerang pasukan yang sedang mengumpulkan.
 Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP.
 ⚔️ Sebelum menyerang kota
 Menyerang kota selalu membuatmu kehilangan pasukan, bahkan saat menang besar. Pasukan yang tumbang dalam pertempuran selalu dibagi dengan cara yang sama:
@@ -1012,15 +1012,6 @@ Pertempuran biasa (lapangan, Reli, bertahan): 35% luka berat (Rumah Sakit), 65% 
 Menyerang kota orang lain: 35% mati permanen, 10% luka berat, 55% luka ringan.
 Pasukan pihak bertahan semuanya masuk Rumah Sakit, jadi mereka hampir tidak merasakannya.
 Laporan nyata: musuh menyerang kota anggota kami dengan 135 ribu pasukan dan hancur total. 47.310 pasukannya mati permanen — anggota kami tidak kehilangan satu pun, semua masuk Rumah Sakit. Jaga kotamu tetap kuat di wilayah kita dan biarkan penyerang yang rugi; serang kota hanya jika sepadan.
-🏭 Titik Pengumpulan Aman
-Selama event Serangan Penuh, kami akan merotasi titik pengumpulan aman setiap 12 jam selama 48 jam.
-Ini memberi semua orang tempat terlindungi untuk mengumpulkan sumber daya selama event berlangsung.
-Jadwal Rotasi (dimulai dari reset 00:00 UTC)
-Lumbung Besar – 00:00 UTC sampai 12:00 UTC
-Penggergajian Kayu Besar – 12:00 UTC sampai 00:00 UTC
-Tambang Batu Besar – 00:00 UTC sampai 12:00 UTC
-Tambang Besi Besar – 12:00 UTC sampai 00:00 UTC
-Gunakan titik-titik terlindungi ini selama event berlangsung. Tetap aman dan kumpulkan dengan cerdas.
 
 ### GUIDE #hero-roulette — Rolet Hero
 KAPAN

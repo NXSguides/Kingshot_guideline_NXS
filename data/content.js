@@ -1113,84 +1113,84 @@ const GUIDES = {
       en: { title: "NAP Rules", blocks: [
         { type: "h", text: "🤝 NAP RULES (NON-AGGRESSION PACT)" },
         { type: "nap", text: "❌ No attacking or scouting NAP 5 cities — this includes their protected academy/farm alliances with the approved tags", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Check nodes before gathering. If a node is occupied or shows a ⚔️ sword icon, don't send troops. If two players collide, the second one recalls.","🪖 During {allOut} (exception): NAP troops in tents (encampments) can be attacked. NAP troops that are gathering cannot.","🏳️ Outposts can be fought over — but no city burning, no hitting resource nodes, and no blocking access to an outpost zone.","🏛️ {sanctuary}s and Fortresses are shared or rotated among NAP 5."] },
+        { type: "list", items: ["🌾 Check nodes before gathering. If a node is occupied or shows a ⚔️ sword icon, don't send troops. If two players collide, the second one recalls.","🪖 During {allOut} (exception): NAP troops in tents (encampments) can be attacked. **NAP troops that are gathering cannot.**","🏳️ Outposts can be fought over — but no city burning, no hitting resource nodes, and no blocking access to an outpost zone.","🏛️ {sanctuary}s and Fortresses are shared or rotated among NAP 5."] },
         { type: "sub", text: "⚠️ VIOLATIONS" },
         { type: "list", items: ["1st: a warning from leadership.","2nd (another violation after a warning): kicked from the alliance.","3rd: blacklisted from all NAP-protected alliances."] },
       ]},
       zh: { title: "NAP 規則", blocks: [
         { type: "h", text: "🤝 NAP 規則（互不侵犯條約）" },
         { type: "nap", text: "❌ 不可攻擊或偵察 NAP 5 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊 NAP 成員在帳篷裡的部隊。正在採集的 NAP 部隊不可以攻擊。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 5 共享或輪流使用。"] },
+        { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊 NAP 成員在帳篷裡的部隊。**正在採集的 NAP 部隊不可以攻擊。**","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 5 共享或輪流使用。"] },
         { type: "sub", text: "⚠️ 違規處理" },
         { type: "list", items: ["第 1 次：幹部警告。","第 2 次（警告後再犯）：踢出聯盟。","第 3 次：列入所有受 NAP 保護聯盟的黑名單。"] },
       ]},
       ko: { title: "NAP 규칙", blocks: [
         { type: "h", text: "🤝 NAP 규칙 (불가침 조약)" },
         { type: "nap", text: "❌ NAP 5 도시 공격·정찰 금지 — 승인된 태그를 쓰는 보호 대상 아카데미/농장 연맹도 포함", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 채집 전에 자원지를 확인하세요. 누가 점령 중이거나 ⚔️ 칼 아이콘이 보이면 부대를 보내지 마세요. 두 사람이 겹치면 나중에 온 사람이 철수합니다.","🪖 {allOut} 기간 (예외): 야영지(텐트)에 있는 NAP 부대는 공격할 수 있습니다. 채집 중인 NAP 부대는 공격 금지입니다.","🏳️ 거점은 쟁탈할 수 있지만, 도시 불태우기, 자원지 공격, 거점 구역 통로 막기는 금지입니다.","🏛️ {sanctuary}과 요새는 NAP 5이 함께 쓰거나 돌아가며 씁니다."] },
+        { type: "list", items: ["🌾 채집 전에 자원지를 확인하세요. 누가 점령 중이거나 ⚔️ 칼 아이콘이 보이면 부대를 보내지 마세요. 두 사람이 겹치면 나중에 온 사람이 철수합니다.","🪖 {allOut} 기간 (예외): 야영지(텐트)에 있는 NAP 부대는 공격할 수 있습니다. **채집 중인 NAP 부대는 공격 금지입니다.**","🏳️ 거점은 쟁탈할 수 있지만, 도시 불태우기, 자원지 공격, 거점 구역 통로 막기는 금지입니다.","🏛️ {sanctuary}과 요새는 NAP 5이 함께 쓰거나 돌아가며 씁니다."] },
         { type: "sub", text: "⚠️ 위반 시" },
         { type: "list", items: ["1회: 운영진 경고.","2회 (경고 후 또 위반): 연맹에서 추방.","3회: NAP 보호 연맹 전체 블랙리스트."] },
       ]},
       de: { title: "NAP-Regeln", blocks: [
         { type: "h", text: "🤝 NAP-REGELN (NICHTANGRIFFSPAKT)" },
         { type: "nap", text: "❌ Kein Angriff und kein Ausspähen von Städten der NAP 5 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.","🪖 Während {allOut} (Ausnahme): NAP-Truppen in Zelten (Lagern) dürfen angegriffen werden. Sammelnde NAP-Truppen nicht.","🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.","🏛️ Heiligtümer und Festungen werden unter den NAP 5 geteilt oder abwechselnd genutzt."] },
+        { type: "list", items: ["🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.","🪖 Während {allOut} (Ausnahme): NAP-Truppen in Zelten (Lagern) dürfen angegriffen werden. **Sammelnde NAP-Truppen nicht.**","🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.","🏛️ Heiligtümer und Festungen werden unter den NAP 5 geteilt oder abwechselnd genutzt."] },
         { type: "sub", text: "⚠️ VERSTÖSSE" },
         { type: "list", items: ["1.: Verwarnung durch die Leitung.","2. (erneuter Verstoß nach Verwarnung): Rauswurf aus der Allianz.","3.: Schwarze Liste bei allen NAP-geschützten Allianzen."] },
       ]},
       fr: { title: "Règles du NAP", blocks: [
         { type: "h", text: "🤝 RÈGLES DU NAP (PACTE DE NON-AGRESSION)" },
         { type: "nap", text: "❌ Interdit d'attaquer ou d'espionner les villes des NAP 5 — y compris leurs alliances académie/ferme protégées avec les tags approuvés", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Vérifiez les points avant de récolter. Si un point est occupé ou affiche une icône ⚔️ épée, n'envoyez pas de troupes. En cas de collision, le second joueur rappelle ses troupes.","🪖 Pendant {allOut} (exception) : les troupes NAP dans des tentes (campements) peuvent être attaquées. Les troupes NAP en train de récolter, non.","🏳️ Les avant-postes peuvent être disputés — mais pas de ville brûlée, pas d'attaque sur les points de ressources, et pas de blocage de l'accès à une zone d'avant-poste.","🏛️ Les {sanctuary}s et les Forteresses sont partagés ou attribués à tour de rôle entre les NAP 5."] },
+        { type: "list", items: ["🌾 Vérifiez les points avant de récolter. Si un point est occupé ou affiche une icône ⚔️ épée, n'envoyez pas de troupes. En cas de collision, le second joueur rappelle ses troupes.","🪖 Pendant {allOut} (exception) : les troupes NAP dans des tentes (campements) peuvent être attaquées. **Les troupes NAP en train de récolter, non.**","🏳️ Les avant-postes peuvent être disputés — mais pas de ville brûlée, pas d'attaque sur les points de ressources, et pas de blocage de l'accès à une zone d'avant-poste.","🏛️ Les {sanctuary}s et les Forteresses sont partagés ou attribués à tour de rôle entre les NAP 5."] },
         { type: "sub", text: "⚠️ SANCTIONS" },
         { type: "list", items: ["1re : avertissement de la direction.","2e (nouvelle infraction après avertissement) : exclusion de l'alliance.","3e : liste noire de toutes les alliances protégées par le NAP."] },
       ]},
       pt: { title: "Regras do NAP", blocks: [
         { type: "h", text: "🤝 REGRAS DO NAP (PACTO DE NÃO AGRESSÃO)" },
         { type: "nap", text: "❌ Proibido atacar ou espionar cidades do NAP 5 — inclui as alianças academia/fazenda protegidas com as tags aprovadas", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Verifique os pontos antes de coletar. Se estiver ocupado ou mostrar o ícone ⚔️ de espada, não envie tropas. Se houver colisão, o segundo jogador recua.","🪖 Durante o {allOut} (exceção): tropas do NAP em tendas (acampamentos) podem ser atacadas. Tropas do NAP que estão coletando, não.","🏳️ Postos Avançados podem ser disputados — mas sem queimar cidades, sem atacar pontos de recursos e sem bloquear o acesso a uma zona de Posto Avançado.","🏛️ {sanctuary}s e Fortalezas são compartilhados ou revezados entre o NAP 5."] },
+        { type: "list", items: ["🌾 Verifique os pontos antes de coletar. Se estiver ocupado ou mostrar o ícone ⚔️ de espada, não envie tropas. Se houver colisão, o segundo jogador recua.","🪖 Durante o {allOut} (exceção): tropas do NAP em tendas (acampamentos) podem ser atacadas. **Tropas do NAP que estão coletando, não.**","🏳️ Postos Avançados podem ser disputados — mas sem queimar cidades, sem atacar pontos de recursos e sem bloquear o acesso a uma zona de Posto Avançado.","🏛️ {sanctuary}s e Fortalezas são compartilhados ou revezados entre o NAP 5."] },
         { type: "sub", text: "⚠️ PUNIÇÕES" },
         { type: "list", items: ["1ª: aviso da liderança.","2ª (nova violação após aviso): expulso da aliança.","3ª: lista negra em todas as alianças protegidas pelo NAP."] },
       ]},
       tr: { title: "NAP Kuralları", blocks: [
         { type: "h", text: "🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)" },
         { type: "nap", text: "❌ NAP 5 şehirlerine saldırmak veya gözetlemek yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.","🪖 {allOut} sırasında (istisna): çadırlardaki (kamplardaki) NAP birliklerine saldırılabilir. Kaynak toplayan NAP birliklerine saldırılamaz.","🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.","🏛️ {sanctuary}lar ve Kaleler NAP 5 arasında paylaşılır veya sırayla kullanılır."] },
+        { type: "list", items: ["🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.","🪖 {allOut} sırasında (istisna): çadırlardaki (kamplardaki) NAP birliklerine saldırılabilir. **Kaynak toplayan NAP birliklerine saldırılamaz.**","🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.","🏛️ {sanctuary}lar ve Kaleler NAP 5 arasında paylaşılır veya sırayla kullanılır."] },
         { type: "sub", text: "⚠️ İHLALLER" },
         { type: "list", items: ["1.: yönetimden uyarı.","2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.","3.: NAP korumasındaki tüm ittifaklarda kara liste."] },
       ]},
       id: { title: "Aturan NAP", blocks: [
         { type: "h", text: "🤝 ATURAN NAP (PAKTA NON-AGRESI)" },
         { type: "nap", text: "❌ Dilarang menyerang atau mengintai kota NAP 5 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.","🪖 Selama {allOut} (pengecualian): pasukan NAP di tenda (perkemahan) boleh diserang. Pasukan NAP yang sedang mengumpulkan tidak boleh.","🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.","🏛️ {sanctuary} dan Benteng dibagi atau digilir di antara NAP 5."] },
+        { type: "list", items: ["🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.","🪖 Selama {allOut} (pengecualian): pasukan NAP di tenda (perkemahan) boleh diserang. **Pasukan NAP yang sedang mengumpulkan tidak boleh.**","🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.","🏛️ {sanctuary} dan Benteng dibagi atau digilir di antara NAP 5."] },
         { type: "sub", text: "⚠️ PELANGGARAN" },
         { type: "list", items: ["Ke-1: peringatan dari pimpinan.","Ke-2 (melanggar lagi setelah diperingatkan): dikeluarkan dari aliansi.","Ke-3: masuk daftar hitam semua aliansi yang dilindungi NAP."] },
       ]},
       ru: { title: "Правила NAP", blocks: [
         { type: "h", text: "🤝 ПРАВИЛА NAP (ПАКТ О НЕНАПАДЕНИИ)" },
         { type: "nap", text: "❌ Нельзя атаковать и разведывать города NAP 5 — включая их защищённые альянсы-академии/фермы с одобренными тегами", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Перед сбором проверяйте точку. Если она занята или на ней значок ⚔️ меча, не отправляйте войска. При столкновении второй игрок отзывает отряд.","🪖 Во время «{allOut}» (исключение): войска NAP в палатках (лагерях) можно атаковать. Войска NAP, которые собирают ресурсы, — нельзя.","🏳️ За аванпосты можно сражаться — но нельзя сжигать города, бить точки ресурсов и перекрывать доступ к зоне аванпоста.","🏛️ Святилища и крепости делятся или передаются по очереди между NAP 5."] },
+        { type: "list", items: ["🌾 Перед сбором проверяйте точку. Если она занята или на ней значок ⚔️ меча, не отправляйте войска. При столкновении второй игрок отзывает отряд.","🪖 Во время «{allOut}» (исключение): войска NAP в палатках (лагерях) можно атаковать. **Войска NAP, которые собирают ресурсы, — нельзя.**","🏳️ За аванпосты можно сражаться — но нельзя сжигать города, бить точки ресурсов и перекрывать доступ к зоне аванпоста.","🏛️ Святилища и крепости делятся или передаются по очереди между NAP 5."] },
         { type: "sub", text: "⚠️ НАРУШЕНИЯ" },
         { type: "list", items: ["1-е: предупреждение от руководства.","2-е (повторное нарушение после предупреждения): исключение из альянса.","3-е: чёрный список во всех альянсах под защитой NAP."] },
       ]},
       th: { title: "กฎ NAP", blocks: [
         { type: "h", text: "🤝 กฎ NAP (สนธิสัญญาไม่รุกราน)" },
         { type: "nap", text: "❌ ห้ามโจมตีหรือสอดแนมเมืองของ NAP 5 — รวมถึงพันธมิตรอาคาเดมี/ฟาร์มที่ได้รับการคุ้มครองและใช้แท็กที่อนุมัติ", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 ตรวจจุดทรัพยากรก่อนเก็บ ถ้ามีคนอยู่หรือมีไอคอน ⚔️ ดาบ อย่าส่งทหาร ถ้าชนกัน คนที่มาทีหลังต้องถอนกลับ","🪖 ระหว่าง {allOut} (ข้อยกเว้น): โจมตีกองทัพ NAP ที่อยู่ในเต็นท์ (ค่ายพัก) ได้ แต่ห้ามโจมตีกองทัพ NAP ที่กำลังเก็บทรัพยากร","🏳️ ด่านหน้าแย่งชิงกันได้ — แต่ห้ามเผาเมือง ห้ามตีจุดทรัพยากร และห้ามขวางทางเข้าพื้นที่ด่านหน้า","🏛️ {sanctuary}และป้อมปราการใช้ร่วมกันหรือผลัดกันใช้ระหว่าง NAP 5"] },
+        { type: "list", items: ["🌾 ตรวจจุดทรัพยากรก่อนเก็บ ถ้ามีคนอยู่หรือมีไอคอน ⚔️ ดาบ อย่าส่งทหาร ถ้าชนกัน คนที่มาทีหลังต้องถอนกลับ","🪖 ระหว่าง {allOut} (ข้อยกเว้น): โจมตีกองทัพ NAP ที่อยู่ในเต็นท์ (ค่ายพัก) ได้ **แต่ห้ามโจมตีกองทัพ NAP ที่กำลังเก็บทรัพยากร**","🏳️ ด่านหน้าแย่งชิงกันได้ — แต่ห้ามเผาเมือง ห้ามตีจุดทรัพยากร และห้ามขวางทางเข้าพื้นที่ด่านหน้า","🏛️ {sanctuary}และป้อมปราการใช้ร่วมกันหรือผลัดกันใช้ระหว่าง NAP 5"] },
         { type: "sub", text: "⚠️ การละเมิด" },
         { type: "list", items: ["ครั้งที่ 1: ผู้นำตักเตือน","ครั้งที่ 2 (ละเมิดอีกหลังถูกเตือน): ถูกเตะออกจากพันธมิตร","ครั้งที่ 3: ขึ้นบัญชีดำของทุกพันธมิตรที่อยู่ใต้ NAP"] },
       ]},
       ar: { title: "قواعد NAP", blocks: [
         { type: "h", text: "🤝 قواعد NAP (اتفاقية عدم الاعتداء)" },
         { type: "nap", text: "❌ ممنوع مهاجمة مدن NAP 5 أو التجسس عليها — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 افحص النقطة قبل الجمع. إذا كانت مشغولة أو عليها أيقونة ⚔️ السيف فلا ترسل قوات. وإذا حدث تصادم، يسحب اللاعب الثاني قواته.","🪖 خلال {allOut} (استثناء): يمكن مهاجمة قوات NAP الموجودة في الخيام (المعسكرات). أما قوات NAP التي تجمع الموارد فلا.","🏳️ يمكن التنافس على المستوطنات — لكن دون حرق المدن، ودون ضرب نقاط الموارد، ودون سد الطريق إلى منطقة المستوطنة.","🏛️ {sanctuary} والحصون مشتركة أو بالتناوب بين NAP 5."] },
+        { type: "list", items: ["🌾 افحص النقطة قبل الجمع. إذا كانت مشغولة أو عليها أيقونة ⚔️ السيف فلا ترسل قوات. وإذا حدث تصادم، يسحب اللاعب الثاني قواته.","🪖 خلال {allOut} (استثناء): يمكن مهاجمة قوات NAP الموجودة في الخيام (المعسكرات). **أما قوات NAP التي تجمع الموارد فلا.**","🏳️ يمكن التنافس على المستوطنات — لكن دون حرق المدن، ودون ضرب نقاط الموارد، ودون سد الطريق إلى منطقة المستوطنة.","🏛️ {sanctuary} والحصون مشتركة أو بالتناوب بين NAP 5."] },
         { type: "sub", text: "⚠️ المخالفات" },
         { type: "list", items: ["الأولى: تحذير من القيادة.","الثانية (مخالفة جديدة بعد التحذير): الطرد من التحالف.","الثالثة: القائمة السوداء في كل التحالفات المحمية بـ NAP."] },
       ]},
       es: { title: "Reglas del NAP", blocks: [
         { type: "h", text: "🤝 REGLAS DEL NAP (PACTO DE NO AGRESIÓN)" },
         { type: "nap", text: "❌ Prohibido atacar o espiar ciudades del NAP 5 — incluye sus alianzas academia/granja protegidas con las etiquetas aprobadas", tags: ["NXS/nxs/nXs","NRD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN/idn"] },
-        { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): se puede atacar a las tropas del NAP en tiendas (campamentos). A las tropas del NAP que están recolectando, no.","🏳️ Los Puestos de Avanzada se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de Puesto de Avanzada.","🏛️ Los {sanctuary}s y los Fuertes se comparten o se rotan entre el NAP 5."] },
+        { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): se puede atacar a las tropas del NAP en tiendas (campamentos). **A las tropas del NAP que están recolectando, no.**","🏳️ Los Puestos de Avanzada se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de Puesto de Avanzada.","🏛️ Los {sanctuary}s y los Fuertes se comparten o se rotan entre el NAP 5."] },
         { type: "sub", text: "⚠️ SANCIONES" },
         { type: "list", items: ["1.ª: advertencia de los líderes.","2.ª (otra infracción tras la advertencia): expulsión de la alianza.","3.ª: lista negra en todas las alianzas protegidas por el NAP."] },
       ]},
@@ -9539,14 +9539,14 @@ const GUIDES = {
         { type: "nap", text: "❌ No attacks on NAP 5 including their farms/academies", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Read the NAP rules ›" },
         { type: "list", items: [
+          "❌ **No attacks on NAP troops that are gathering**",
                     "❌ No attacks on castles or alliance buildings (HQs, outposts, banners)",
-          "❌ No attacks on NAP troops that are gathering",
           "✅ You can attack NAP troops in tents (encampments)",
           "✅ You can attack players outside of NAP."
         ]},
         { type: "list", items: [
           "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
+          "You can gather in the wild: NAP members may not attack troops that are gathering.",
           "Rule breakers will be dealt with according to alliance/NAP agreements."
         ]},
         { type: "h", text: "⚔️ Before You Hit a City" },
@@ -9557,31 +9557,20 @@ const GUIDES = {
           "The defender's troops all go to their {infirmary}, so they barely feel it."
         ]},
         { type: "callout", text: "Real report: an enemy hit our member's city with 135k troops and was wiped out. **47,310 of his troops died for good** — our member lost none, everything went to the {infirmary}. Keep your city strong in our territory and let attackers pay; only hit cities yourself when it's worth it." },
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
-        ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
       ]},
       zh: { title: "全軍出擊", blocks: [
         { type: "h", text: "🪖 全軍出擊規則" },
         { type: "nap", text: "❌ 禁止攻擊 NAP 5 成員，包含他們的農場／學院", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "看 NAP 規則 ›" },
         { type: "list", items: [
+          "❌ **不可以攻擊正在採集的 NAP 部隊**",
                     "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）",
-          "❌ 不可以攻擊正在採集的 NAP 部隊",
           "✅ 可以攻擊 NAP 成員在帳篷裡的部隊",
           "✅ 可以攻擊 NAP 以外的玩家。"
         ]},
         { type: "list", items: [
           "如果你的城堡被 NAP 成員攻擊，請勿報復，回報 R4/R5。",
-          "請避免在野外採集資源，改用{securedAllianceNode}。",
+          "可以在野外採集：NAP 成員不可以攻擊正在採集的部隊。",
           "違規者將依聯盟／NAP 協議處理。"
         ]},
         { type: "h", text: "⚔️ 攻擊城市之前" },
@@ -9592,31 +9581,20 @@ const GUIDES = {
           "防守方的兵全部進{infirmary}，對他們幾乎沒影響。"
         ]},
         { type: "callout", text: "真實戰報：敵人帶 13.5 萬兵打我們成員的城，被全滅，**永久死亡 47,310 兵**；我們成員 0 死亡，全部進{infirmary}。把城留在領地內、兵力顧好，讓來打的人付代價；自己打城則要值得才打。" },
-        { type: "h", text: "🏭 安全採集點" },
-        { type: "p", text: "**{allOut}**活動期間，我們會每 12 小時輪替一次安全採集點，持續 48 小時。" },
-        { type: "p", text: "這讓每個人在活動期間都有一個受保護的地點可以採集資源。" },
-        { type: "sub", text: "輪替時間表（從 UTC 00:00 重置開始）" },
-        { type: "list", items: [
-          "{greatMill} – UTC 00:00 至 12:00",
-          "{greatSawmill} – UTC 12:00 至 00:00",
-          "{greatQuarry} – UTC 00:00 至 12:00",
-          "{greatIronMine} – UTC 12:00 至 00:00"
-        ]},
-        { type: "callout", text: "活動期間請善用這些受保護的採集點，安全且聰明地採集。" }
       ]},
       ko: { title: "전군 출격", blocks: [
         { type: "h", text: "🪖 전군 출격 규칙" },
         { type: "nap", text: "❌ NAP 5 멤버 공격 금지, 농장/아카데미 포함", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "NAP 규칙 보기 ›" },
         { type: "list", items: [
+          "❌ **채집 중인 NAP 부대는 공격 금지**",
                     "❌ 성이나 연맹 건물(본부, 전초기지, 깃발) 공격 금지",
-          "❌ 채집 중인 NAP 부대는 공격 금지",
           "✅ 야영지(텐트)에 있는 NAP 부대는 공격 가능합니다",
           "✅ NAP 이외의 플레이어는 공격 가능합니다."
         ]},
         { type: "list", items: [
           "NAP 멤버에게 성을 공격당했다면 보복하지 말고 R4/R5에게 알리세요.",
-          "야생에서 자원을 채집하지 말고 {securedAllianceNode}를 이용하세요.",
+          "야생에서 채집해도 됩니다: NAP 멤버는 채집 중인 부대를 공격할 수 없습니다.",
           "규칙 위반자는 연맹/NAP 협약에 따라 처리됩니다."
         ]},
         { type: "h", text: "⚔️ 도시를 공격하기 전에" },
@@ -9627,31 +9605,20 @@ const GUIDES = {
           "방어자의 병력은 모두 {infirmary}으로 가서 거의 피해가 없습니다."
         ]},
         { type: "callout", text: "실제 보고서: 적이 13.5만 병력으로 우리 멤버의 도시를 공격했다가 전멸했습니다. **47,310명이 영구 사망** — 우리 멤버는 사망 0, 전부 {infirmary}으로 갔습니다. 도시를 연맹 영지 안에 두고 튼튼히 지켜 공격자가 대가를 치르게 하세요. 직접 도시를 칠 때는 가치가 있을 때만." },
-        { type: "h", text: "🏭 안전 채집 포인트" },
-        { type: "p", text: "**{allOut}** 이벤트 기간 동안, 안전 채집 포인트를 12시간마다 48시간 동안 교대로 운영합니다." },
-        { type: "p", text: "이벤트가 진행되는 동안 모두에게 보호된 채집 장소를 제공합니다." },
-        { type: "sub", text: "교대 일정 (UTC 00:00 리셋부터 시작)" },
-        { type: "list", items: [
-          "{greatMill} – UTC 00:00 ~ 12:00",
-          "{greatSawmill} – UTC 12:00 ~ 00:00",
-          "{greatQuarry} – UTC 00:00 ~ 12:00",
-          "{greatIronMine} – UTC 12:00 ~ 00:00"
-        ]},
-        { type: "callout", text: "이벤트 기간 동안 이 보호된 장소를 이용하세요. 안전하게, 현명하게 채집하세요." }
       ]},
       de: { title: "Aufs Ganze", blocks: [
         { type: "h", text: "🪖 All-Out-Regeln" },
         { type: "nap", text: "❌ Keine Angriffe auf NAP 5, einschließlich ihrer Farmen/Akademien", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "NAP-Regeln lesen ›" },
         { type: "list", items: [
+          "❌ **Keine Angriffe auf sammelnde NAP-Truppen**",
                     "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)",
-          "❌ Keine Angriffe auf sammelnde NAP-Truppen",
           "✅ Ihr könnt NAP-Truppen in Zelten (Lagern) angreifen",
           "✅ Ihr könnt Spieler außerhalb der NAP angreifen."
         ]},
         { type: "list", items: [
           "Wenn euer Schloss von einem NAP-Mitglied angegriffen wird, nicht zurückschlagen — meldet es R4/R5.",
-          "Vermeidet das Sammeln in der Wildnis, nutzt stattdessen {securedAllianceNode}.",
+          "Ihr könnt in der Wildnis sammeln: NAP-Mitglieder dürfen sammelnde Truppen nicht angreifen.",
           "Regelverstöße werden gemäß den Allianz-/NAP-Vereinbarungen geahndet."
         ]},
         { type: "h", text: "⚔️ Bevor du eine Stadt angreifst" },
@@ -9662,31 +9629,20 @@ const GUIDES = {
           "Die Truppen des Verteidigers kommen alle in die {infirmary} – er spürt es kaum."
         ]},
         { type: "callout", text: "Echter Bericht: Ein Gegner griff die Stadt eines Mitglieds mit 135k Truppen an und wurde vernichtet. **47.310 seiner Truppen starben endgültig** – unser Mitglied verlor keine, alles kam in die {infirmary}. Halte deine Stadt stark in unserem Gebiet und lass Angreifer zahlen; greif selbst nur an, wenn es sich lohnt." },
-        { type: "h", text: "🏭 Gesicherte Sammelpunkte" },
-        { type: "p", text: "Während des Events **{allOut}** wechseln wir alle 12 Stunden für 48 Stunden unsere gesicherten Sammelpunkte." },
-        { type: "p", text: "So hat jeder während des Events einen geschützten Ort zum Sammeln von Ressourcen." },
-        { type: "sub", text: "Rotationsplan (beginnt mit dem 00:00-UTC-Reset)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 UTC bis 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC bis 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC bis 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC bis 00:00 UTC"
-        ]},
-        { type: "callout", text: "Nutzt diese geschützten Orte während des Events. Bleibt sicher und sammelt klug." }
       ]},
       fr: { title: "Tous dehors", blocks: [
         { type: "h", text: "🪖 Règles de Tous dehors" },
         { type: "nap", text: "❌ Aucune attaque contre le NAP 5, y compris leurs fermes/académies", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Lire les règles du NAP ›" },
         { type: "list", items: [
+          "❌ **Aucune attaque contre les troupes NAP en train de récolter**",
                     "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)",
-          "❌ Aucune attaque contre les troupes NAP en train de récolter",
           "✅ Vous pouvez attaquer les troupes NAP dans des tentes (campements)",
           "✅ Vous pouvez attaquer les joueurs en dehors du NAP."
         ]},
         { type: "list", items: [
           "Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.",
-          "Évitez de récolter des ressources en pleine nature, utilisez plutôt le {securedAllianceNode}.",
+          "Vous pouvez récolter en pleine nature : les membres du NAP n'ont pas le droit d'attaquer les troupes qui récoltent.",
           "Les contrevenants seront traités conformément aux accords d'alliance/NAP."
         ]},
         { type: "h", text: "⚔️ Avant d'attaquer une ville" },
@@ -9697,31 +9653,20 @@ const GUIDES = {
           "Les troupes du défenseur vont toutes à son {infirmary}, il ne le sent presque pas."
         ]},
         { type: "callout", text: "Rapport réel : un ennemi a attaqué la ville d'un membre avec 135k troupes et a été anéanti. **47 310 de ses troupes sont mortes définitivement** — notre membre n'a perdu personne, tout est allé à l'{infirmary}. Garde ta ville forte dans notre territoire et fais payer les attaquants ; n'attaque une ville que si ça vaut le coup." },
-        { type: "h", text: "🏭 Points de collecte sécurisés" },
-        { type: "p", text: "Pendant l'événement **{allOut}**, nous ferons tourner nos points de collecte sécurisés toutes les 12 heures pendant 48 heures." },
-        { type: "p", text: "Cela donne à chacun un endroit protégé pour récolter des ressources pendant que l'événement est actif." },
-        { type: "sub", text: "Programme de rotation (à partir de la réinitialisation de 00:00 UTC)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 UTC à 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC à 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC à 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC à 00:00 UTC"
-        ]},
-        { type: "callout", text: "Utilisez ces emplacements protégés pendant l'événement. Restez prudents et récoltez intelligemment." }
       ]},
       pt: { title: "Vai com Tudo", blocks: [
         { type: "h", text: "🪖 Regras do Vai com Tudo" },
         { type: "nap", text: "❌ Nenhum ataque ao NAP 5, incluindo suas fazendas/academias", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Ler as regras do NAP ›" },
         { type: "list", items: [
+          "❌ **Nenhum ataque a tropas do NAP que estão coletando**",
                     "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras)",
-          "❌ Nenhum ataque a tropas do NAP que estão coletando",
           "✅ Você pode atacar tropas do NAP em tendas (acampamentos)",
           "✅ Você pode atacar jogadores fora do NAP."
         ]},
         { type: "list", items: [
           "Se seu castelo for atacado por um membro do NAP, não revide — avise o R4/R5.",
-          "Evite coletar recursos no mapa aberto, use o {securedAllianceNode}.",
+          "Você pode coletar no mapa aberto: membros do NAP não podem atacar tropas que estão coletando.",
           "Quem infringir as regras será tratado conforme os acordos da aliança/NAP."
         ]},
         { type: "h", text: "⚔️ Antes de atacar uma cidade" },
@@ -9732,31 +9677,20 @@ const GUIDES = {
           "As tropas do defensor vão todas para a {infirmary} dele, então ele quase não sente."
         ]},
         { type: "callout", text: "Relatório real: um inimigo atacou a cidade de um membro com 135 mil tropas e foi aniquilado. **47.310 tropas dele morreram de vez** — nosso membro não perdeu nenhuma, tudo foi para a {infirmary}. Mantenha sua cidade forte no nosso território e faça os atacantes pagarem; só ataque cidades quando valer a pena." },
-        { type: "h", text: "🏭 Nós de coleta protegidos" },
-        { type: "p", text: "Durante o evento **{allOut}**, vamos revezar nossos nós de coleta protegidos a cada 12 horas, por 48 horas." },
-        { type: "p", text: "Isso dá a todos um local protegido para coletar recursos enquanto o evento estiver ativo." },
-        { type: "sub", text: "Cronograma de revezamento (começando no reset de 00:00 UTC)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 UTC às 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC às 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC às 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC às 00:00 UTC"
-        ]},
-        { type: "callout", text: "Use esses locais protegidos durante o evento. Fique seguro e colete com inteligência." }
       ]},
       es: { title: "Ataque Total", blocks: [
         { type: "h", text: "🪖 Reglas de Ataque Total" },
         { type: "nap", text: "❌ No atacar a miembros del NAP 5, incluidas sus granjas/academias", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Leer las reglas del NAP ›" },
         { type: "list", items: [
+          "❌ **No atacar a tropas del NAP que están recolectando**",
                     "❌ No atacar castillos ni edificios de alianza (cuarteles generales, puestos avanzados, estandartes)",
-          "❌ No atacar a tropas del NAP que están recolectando",
           "✅ Puedes atacar a tropas del NAP en tiendas (campamentos)",
           "✅ Puedes atacar a jugadores fuera del NAP."
         ]},
         { type: "list", items: [
           "Si tu castillo es atacado por un miembro del NAP, no tomes represalias — informa a R4/R5.",
-          "Evita recolectar recursos en zona salvaje, usa en su lugar el {securedAllianceNode}.",
+          "Puedes recolectar en zona salvaje: los miembros del NAP no pueden atacar a las tropas que recolectan.",
           "Quien infrinja las reglas será tratado según los acuerdos de alianza/NAP."
         ]},
         { type: "h", text: "⚔️ Antes de atacar una ciudad" },
@@ -9767,31 +9701,20 @@ const GUIDES = {
           "Las tropas del defensor van todas a su {infirmary}, así que casi no lo nota."
         ]},
         { type: "callout", text: "Informe real: un enemigo atacó la ciudad de un miembro con 135k tropas y fue aniquilado. **47.310 de sus tropas murieron para siempre** — nuestro miembro no perdió ninguna, todo fue a la {infirmary}. Mantén tu ciudad fuerte en nuestro territorio y haz pagar a los atacantes; ataca ciudades solo cuando valga la pena." },
-        { type: "h", text: "🏭 Puntos de Recolección Seguros" },
-        { type: "p", text: "Durante el evento **{allOut}**, rotaremos nuestros puntos de recolección seguros cada 12 horas durante 48 horas." },
-        { type: "p", text: "Esto le da a todos un lugar protegido para recolectar recursos mientras el evento está activo." },
-        { type: "sub", text: "Horario de rotación (comenzando con el reinicio de 00:00 UTC)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 UTC a 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC a 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC a 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC a 00:00 UTC"
-        ]},
-        { type: "callout", text: "Usa estos lugares protegidos durante el evento. Mantente seguro y recolecta con inteligencia." }
       ]},
       tr: { title: "Topyekün", blocks: [
         { type: "h", text: "🪖 Topyekün Kuralları" },
         { type: "nap", text: "❌ NAP 5 üyelerine, çiftlikleri/akademileri dahil saldırı yok", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "NAP kurallarını oku ›" },
         { type: "list", items: [
+          "❌ **Kaynak toplayan NAP birliklerine saldırı yok**",
                     "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok",
-          "❌ Kaynak toplayan NAP birliklerine saldırı yok",
           "✅ Çadırlardaki (kamplardaki) NAP birliklerine saldırabilirsiniz",
           "✅ NAP dışındaki oyunculara saldırabilirsiniz."
         ]},
         { type: "list", items: [
           "Şatonuza bir NAP üyesi tarafından saldırılırsa misilleme yapmayın — R4/R5'e bildirin.",
-          "Yabanda kaynak toplamaktan kaçının, bunun yerine {securedAllianceNode} kullanın.",
+          "Yabanda kaynak toplayabilirsiniz: NAP üyeleri kaynak toplayan birliklere saldıramaz.",
           "Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir."
         ]},
         { type: "h", text: "⚔️ Bir şehre saldırmadan önce" },
@@ -9802,31 +9725,20 @@ const GUIDES = {
           "Savunanın askerlerinin hepsi {infirmary}e gider, neredeyse hiç etkilenmez."
         ]},
         { type: "callout", text: "Gerçek rapor: bir düşman 135 bin askerle üyemizin şehrine saldırdı ve yok edildi. **47.310 askeri kalıcı olarak öldü** — üyemiz hiç kayıp vermedi, hepsi {infirmary}e gitti. Şehrini bölgemizde güçlü tut, saldıranlar bedel ödesin; sen de sadece değdiğinde şehre saldır." },
-        { type: "h", text: "🏭 Güvenli Toplama Noktaları" },
-        { type: "p", text: "**{allOut}** etkinliği boyunca, güvenli toplama noktalarımızı 48 saat boyunca her 12 saatte bir değiştireceğiz." },
-        { type: "p", text: "Bu, etkinlik aktifken herkese kaynak toplamak için korumalı bir alan sağlar." },
-        { type: "sub", text: "Rotasyon Programı (00:00 UTC sıfırlamasıyla başlar)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 UTC - 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC - 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC - 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC - 00:00 UTC"
-        ]},
-        { type: "callout", text: "Etkinlik boyunca bu korumalı alanları kullanın. Güvende kalın ve akıllıca toplayın." }
       ]},
       id: { title: "Serangan Penuh", blocks: [
         { type: "h", text: "🪖 Aturan Serangan Penuh" },
         { type: "nap", text: "❌ Dilarang menyerang anggota NAP 5, termasuk farm/akademi mereka", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Baca aturan NAP ›" },
         { type: "list", items: [
+          "❌ **Dilarang menyerang pasukan NAP yang sedang mengumpulkan**",
                     "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)",
-          "❌ Dilarang menyerang pasukan NAP yang sedang mengumpulkan",
           "✅ Anda boleh menyerang pasukan NAP di tenda (perkemahan)",
           "✅ Anda boleh menyerang pemain di luar NAP."
         ]},
         { type: "list", items: [
           "Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.",
-          "Hindari mengumpulkan sumber daya di area liar, gunakan {securedAllianceNode} sebagai gantinya.",
+          "Anda boleh mengumpulkan di area liar: anggota NAP tidak boleh menyerang pasukan yang sedang mengumpulkan.",
           "Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP."
         ]},
         { type: "h", text: "⚔️ Sebelum menyerang kota" },
@@ -9837,31 +9749,20 @@ const GUIDES = {
           "Pasukan pihak bertahan semuanya masuk {infirmary}, jadi mereka hampir tidak merasakannya."
         ]},
         { type: "callout", text: "Laporan nyata: musuh menyerang kota anggota kami dengan 135 ribu pasukan dan hancur total. **47.310 pasukannya mati permanen** — anggota kami tidak kehilangan satu pun, semua masuk {infirmary}. Jaga kotamu tetap kuat di wilayah kita dan biarkan penyerang yang rugi; serang kota hanya jika sepadan." },
-        { type: "h", text: "🏭 Titik Pengumpulan Aman" },
-        { type: "p", text: "Selama event **{allOut}**, kami akan merotasi titik pengumpulan aman setiap 12 jam selama 48 jam." },
-        { type: "p", text: "Ini memberi semua orang tempat terlindungi untuk mengumpulkan sumber daya selama event berlangsung." },
-        { type: "sub", text: "Jadwal Rotasi (dimulai dari reset 00:00 UTC)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 UTC sampai 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC sampai 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC sampai 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC sampai 00:00 UTC"
-        ]},
-        { type: "callout", text: "Gunakan titik-titik terlindungi ini selama event berlangsung. Tetap aman dan kumpulkan dengan cerdas." }
       ]},
       ru: { title: "Полный вперед", blocks: [
         { type: "h", text: "🪖 Правила события «Полный вперед»" },
         { type: "nap", text: "❌ Не атаковать членов NAP 5, включая их фермы/академии", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "Правила NAP ›" },
         { type: "list", items: [
+          "❌ **Нельзя атаковать войска NAP, которые собирают ресурсы**",
                     "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна)",
-          "❌ Нельзя атаковать войска NAP, которые собирают ресурсы",
           "✅ Можно атаковать войска NAP в палатках (лагерях)",
           "✅ Можно атаковать игроков вне NAP."
         ]},
         { type: "list", items: [
           "Если ваш замок атаковал участник NAP, не мстите — сообщите R4/R5.",
-          "Избегайте сбора ресурсов в дикой местности, используйте вместо этого {securedAllianceNode}.",
+          "Можно собирать ресурсы в дикой местности: участникам NAP нельзя атаковать войска, которые собирают ресурсы.",
           "Нарушители правил будут обработаны согласно соглашениям альянса/NAP."
         ]},
         { type: "h", text: "⚔️ Прежде чем атаковать город" },
@@ -9872,31 +9773,20 @@ const GUIDES = {
           "Войска защитника все уходят в его {infirmary}, так что он почти ничего не теряет."
         ]},
         { type: "callout", text: "Реальный отчёт: враг атаковал город нашего участника 135 тыс. войск и был уничтожен. **47 310 его воинов погибли навсегда** — наш участник не потерял никого, все ушли в {infirmary}. Держите город сильным на нашей территории — пусть платят нападающие; сами атакуйте города, только когда это того стоит." },
-        { type: "h", text: "🏭 Защищённые точки сбора" },
-        { type: "p", text: "Во время события **{allOut}** мы будем менять защищённые точки сбора каждые 12 часов в течение 48 часов." },
-        { type: "p", text: "Это даёт каждому защищённое место для сбора ресурсов, пока событие активно." },
-        { type: "sub", text: "Расписание ротации (начиная со сброса в 00:00 UTC)" },
-        { type: "list", items: [
-          "{greatMill} – с 00:00 до 12:00 UTC",
-          "{greatSawmill} – с 12:00 до 00:00 UTC",
-          "{greatQuarry} – с 00:00 до 12:00 UTC",
-          "{greatIronMine} – с 12:00 до 00:00 UTC"
-        ]},
-        { type: "callout", text: "Используйте эти защищённые места во время события. Будьте осторожны и собирайте с умом." }
       ]},
       th: { title: "ลุยเลย", blocks: [
         { type: "h", text: "🪖 กฎกิจกรรมลุยเลย" },
         { type: "nap", text: "❌ ห้ามโจมตีสมาชิก NAP 5 รวมถึงฟาร์ม/อาคาเดมีของพวกเขา", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "อ่านกฎ NAP ›" },
         { type: "list", items: [
+          "❌ **ห้ามโจมตีกองทัพ NAP ที่กำลังเก็บทรัพยากร**",
                     "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง)",
-          "❌ ห้ามโจมตีกองทัพ NAP ที่กำลังเก็บทรัพยากร",
           "✅ สามารถโจมตีกองทัพ NAP ที่อยู่ในเต็นท์ (ค่ายพัก) ได้",
           "✅ สามารถโจมตีผู้เล่นที่อยู่นอก NAP ได้"
         ]},
         { type: "list", items: [
           "หากปราสาทของคุณถูกสมาชิก NAP โจมตี อย่าตอบโต้ ให้แจ้ง R4/R5",
-          "หลีกเลี่ยงการเก็บทรัพยากรในป่า ให้ใช้{securedAllianceNode}แทน",
+          "เก็บทรัพยากรในป่าได้: สมาชิก NAP ห้ามโจมตีกองทัพที่กำลังเก็บทรัพยากร",
           "ผู้ฝ่าฝืนกฎจะถูกดำเนินการตามข้อตกลงพันธมิตร/NAP"
         ]},
         { type: "h", text: "⚔️ ก่อนโจมตีเมือง" },
@@ -9907,31 +9797,20 @@ const GUIDES = {
           "ทหารของฝ่ายป้องกันเข้า{infirmary}ทั้งหมด จึงแทบไม่เสียอะไร"
         ]},
         { type: "callout", text: "รายงานจริง: ศัตรูบุกเมืองสมาชิกเราด้วยทหาร 135k แล้วถูกกวาดเรียบ **ทหารเขาตายถาวร 47,310 นาย** — สมาชิกเราไม่เสียใครเลย ทั้งหมดเข้า{infirmary} รักษาเมืองให้แข็งแกร่งในอาณาเขตของเรา ให้ผู้บุกเป็นฝ่ายเสีย และโจมตีเมืองเองเฉพาะเมื่อคุ้มค่า" },
-        { type: "h", text: "🏭 จุดเก็บทรัพยากรที่ปลอดภัย" },
-        { type: "p", text: "ในช่วงกิจกรรม**{allOut}** เราจะสลับจุดเก็บทรัพยากรที่ปลอดภัยทุก 12 ชั่วโมง เป็นเวลา 48 ชั่วโมง" },
-        { type: "p", text: "สิ่งนี้ทำให้ทุกคนมีจุดที่ได้รับการป้องกันสำหรับเก็บทรัพยากรในช่วงที่กิจกรรมเปิดใช้งาน" },
-        { type: "sub", text: "ตารางการสลับ (เริ่มจากรีเซ็ต 00:00 UTC)" },
-        { type: "list", items: [
-          "{greatMill} – 00:00 น. ถึง 12:00 น. UTC",
-          "{greatSawmill} – 12:00 น. ถึง 00:00 น. UTC",
-          "{greatQuarry} – 00:00 น. ถึง 12:00 น. UTC",
-          "{greatIronMine} – 12:00 น. ถึง 00:00 น. UTC"
-        ]},
-        { type: "callout", text: "ใช้จุดที่ได้รับการป้องกันเหล่านี้ในช่วงกิจกรรม ปลอดภัยและเก็บทรัพยากรอย่างชาญฉลาด" }
       ]},
       ar: { title: "جميع القوات تهاجم", blocks: [
         { type: "h", text: "🪖 قواعد فعالية جميع القوات تهاجم" },
         { type: "nap", text: "❌ ممنوع مهاجمة أعضاء NAP 5، بما في ذلك مزارعهم/أكاديمياتهم", tags: ["NXS/nxs/nXs", "NRD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN/idn"] },
         { type: "goto", to: "nap-rules", text: "اقرأ قواعد NAP ›" },
         { type: "list", items: [
+          "❌ **ممنوع مهاجمة قوات NAP التي تجمع الموارد**",
                     "❌ ممنوع مهاجمة القلاع أو مباني التحالف (المقرات، المخافر الأمامية، الرايات)",
-          "❌ ممنوع مهاجمة قوات NAP التي تجمع الموارد",
           "✅ يمكنك مهاجمة قوات NAP الموجودة في الخيام (المعسكرات)",
           "✅ يمكنك مهاجمة اللاعبين خارج NAP."
         ]},
         { type: "list", items: [
           "إذا تعرضت قلعتك لهجوم من عضو NAP، لا تنتقم — أبلغ R4/R5.",
-          "تجنب جمع الموارد في البرية، واستخدم {securedAllianceNode} بدلاً من ذلك.",
+          "يمكنك جمع الموارد في البرية: لا يحق لأعضاء NAP مهاجمة القوات التي تجمع الموارد.",
           "سيتم التعامل مع مخالفي القواعد وفقاً لاتفاقيات التحالف/NAP."
         ]},
         { type: "h", text: "⚔️ قبل أن تهاجم مدينة" },
@@ -9942,17 +9821,6 @@ const GUIDES = {
           "جنود المدافع يذهبون كلهم إلى {infirmary}، فلا يكاد يشعر بشيء."
         ]},
         { type: "callout", text: "تقرير حقيقي: هاجم عدو مدينة أحد أعضائنا بـ 135 ألف جندي فأُبيد. **مات 47,310 من جنوده نهائيًا** — ولم يخسر عضونا أحدًا، ذهب الجميع إلى {infirmary}. أبقِ مدينتك قوية داخل أراضينا ودع المهاجمين يدفعون الثمن؛ ولا تهاجم المدن إلا إذا كان الأمر يستحق." },
-        { type: "h", text: "🏭 نقاط الجمع الآمنة" },
-        { type: "p", text: "خلال فعالية **{allOut}**، سنقوم بتبديل نقاط الجمع الآمنة كل 12 ساعة لمدة 48 ساعة." },
-        { type: "p", text: "هذا يمنح الجميع مكاناً محمياً لجمع الموارد أثناء نشاط الفعالية." },
-        { type: "sub", text: "جدول التبديل (يبدأ من إعادة التعيين الساعة 00:00 بتوقيت UTC)" },
-        { type: "list", items: [
-          "{greatMill} – من 00:00 إلى 12:00 بتوقيت UTC",
-          "{greatSawmill} – من 12:00 إلى 00:00 بتوقيت UTC",
-          "{greatQuarry} – من 00:00 إلى 12:00 بتوقيت UTC",
-          "{greatIronMine} – من 12:00 إلى 00:00 بتوقيت UTC"
-        ]},
-        { type: "callout", text: "استخدم هذه الأماكن المحمية خلال الفعالية. حافظ على سلامتك واجمع بذكاء." }
       ]}
     }
   },

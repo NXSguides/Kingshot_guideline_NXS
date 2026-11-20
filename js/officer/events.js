@@ -452,8 +452,8 @@ const TODO = {
               zh: "提醒大家：30 分鐘的個人活動。技能依序選 右／右／左／左／右；每分鐘派一隊進銅礦脈。" },
   ],
   "all-out": [
-    { due: -1, post: 1, en: "Post the All Out rules (NAP alliances, no attacks on castles or alliance buildings) and the secured gathering node rotation.",
-               zh: "公告全軍出擊規則（NAP 聯盟名單、不能打城堡和聯盟建築）和安全採集點的輪替時間。" },
+    { due: -1, post: 1, en: "Post the All Out rules (NAP alliances, no attacks on castles or alliance buildings).",
+               zh: "公告全軍出擊規則（NAP 聯盟名單、不能打城堡和聯盟建築）。" },
   ],
   "call-of-sovereign": [
     { due: -3, post: 1, en: "Remind everyone to SAVE Gold & Platinum Keys (90 Gold + 30 Platinum for max rewards) — copy the in-game message.",

@@ -998,12 +998,12 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Read the NAP rules ›
-❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
 ❌ No attacks on NAP troops that are gathering
+❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
 ✅ You can attack NAP troops in tents (encampments)
 ✅ You can attack players outside of NAP.
 If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.
-Avoid gathering resources in the wild, use the Secured Alliance Node instead.
+You can gather in the wild: NAP members may not attack troops that are gathering.
 Rule breakers will be dealt with according to alliance/NAP agreements.
 ⚔️ Before You Hit a City
 Attacking a city always costs you troops, even when you win big. The troops that fall in a fight are always split the same way:
@@ -1011,15 +1011,6 @@ Normal fights (field, Rally, defending): 35% badly wounded (Infirmary), 65% ligh
 Attacking someone's city: 35% die for good, 10% badly wounded, 55% lightly wounded.
 The defender's troops all go to their Infirmary, so they barely feel it.
 Real report: an enemy hit our member's city with 135k troops and was wiped out. 47,310 of his troops died for good — our member lost none, everything went to the Infirmary. Keep your city strong in our territory and let attackers pay; only hit cities yourself when it's worth it.
-🏭 Secured Gathering Nodes
-During the All Out event, we will be rotating our secured gathering nodes every 12 hours for 48 hours.
-This gives everyone a protected spot to collect resources while the event is active.
-Rotation Schedule (starting at 00:00 UTC reset)
-Great Mill – 00:00 UTC to 12:00 UTC
-Great Sawmill – 12:00 UTC to 00:00 UTC
-Great Quarry – 00:00 UTC to 12:00 UTC
-Great Iron Mine – 12:00 UTC to 00:00 UTC
-Use these protected spots during the event. Stay safe and gather smart.
 
 ### GUIDE #hero-roulette — Hero Roulette
 WHEN

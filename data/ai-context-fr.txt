@@ -1000,12 +1000,12 @@ RED/ReD
 ESA/EsA/UNI
 IDN/idn
 Lire les règles du NAP ›
-❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)
 ❌ Aucune attaque contre les troupes NAP en train de récolter
+❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)
 ✅ Vous pouvez attaquer les troupes NAP dans des tentes (campements)
 ✅ Vous pouvez attaquer les joueurs en dehors du NAP.
 Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.
-Évitez de récolter des ressources en pleine nature, utilisez plutôt le Point d'Alliance Sécurisé.
+Vous pouvez récolter en pleine nature : les membres du NAP n'ont pas le droit d'attaquer les troupes qui récoltent.
 Les contrevenants seront traités conformément aux accords d'alliance/NAP.
 ⚔️ Avant d'attaquer une ville
 Attaquer une ville coûte toujours des troupes, même avec une large victoire. Les troupes tombées au combat sont toujours réparties de la même façon :
@@ -1013,15 +1013,6 @@ Combats normaux (terrain, Ralliement, défense) : 35 % gravement blessées (Infi
 Attaquer la ville d'un joueur : 35 % meurent définitivement, 10 % gravement blessées, 55 % légèrement blessées.
 Les troupes du défenseur vont toutes à son Infirmerie, il ne le sent presque pas.
 Rapport réel : un ennemi a attaqué la ville d'un membre avec 135k troupes et a été anéanti. 47 310 de ses troupes sont mortes définitivement — notre membre n'a perdu personne, tout est allé à l'Infirmerie. Garde ta ville forte dans notre territoire et fais payer les attaquants ; n'attaque une ville que si ça vaut le coup.
-🏭 Points de collecte sécurisés
-Pendant l'événement Tous dehors, nous ferons tourner nos points de collecte sécurisés toutes les 12 heures pendant 48 heures.
-Cela donne à chacun un endroit protégé pour récolter des ressources pendant que l'événement est actif.
-Programme de rotation (à partir de la réinitialisation de 00:00 UTC)
-Grand Moulin – 00:00 UTC à 12:00 UTC
-Grande Scierie – 12:00 UTC à 00:00 UTC
-Grande Carrière – 00:00 UTC à 12:00 UTC
-Grande Mine de Fer – 12:00 UTC à 00:00 UTC
-Utilisez ces emplacements protégés pendant l'événement. Restez prudents et récoltez intelligemment.
 
 ### GUIDE #hero-roulette — Roulette des Héros
 QUAND
