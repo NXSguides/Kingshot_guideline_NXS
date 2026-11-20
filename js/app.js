@@ -477,7 +477,7 @@ const BLOCKS = {
       + (used.length ? `<div class="rt-legend">${used.map((k) => `<span><img class="it-ic" src="figures/items/${k}.png" alt=""> ${nameOf(k)}</span>`).join("")}</div>` : ""); },
   /* the NAP rule: its own card so it stands out (Armada asked), alliance tags as chips */
   nap: (b) => `<div class="nap-card"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div></div>`,
-  /* home page: the short NAP 6 card — tapping it opens the 🤝 NAP Rules guide */
+  /* home page: the short NAP card — tapping it opens the 🤝 NAP Rules guide */
   napHome: (b) => `<button type="button" class="nap-card nap-home" onclick="switchGuide('nap-rules')"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div><div class="nap-more">${escapeHtml(b.more || "")}</div></button>`,
   /* 📍 Where's my spot?: the live hive map (filled by spotInit below) */
   spot: () => `<div class="spot-app" id="spotApp"></div>`,

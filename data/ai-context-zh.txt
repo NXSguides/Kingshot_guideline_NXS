@@ -67,17 +67,16 @@
 
 ### GUIDE #nap-rules — NAP 規則
 🤝 NAP 規則（互不侵犯條約）
-❌ 不可攻擊或偵察 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟
+❌ 不可攻擊或偵察 NAP 5 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟
 NXS/nxs/nXs
 NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
-IDN
-KGb
+IDN/idn
 🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。
-🪖 全軍出擊期間（例外）：可以攻擊資源採集點（磨坊, 伐木場, 採石場, 鐵礦場）。
+🪖 全軍出擊期間（例外）：可以攻擊 NAP 成員在營帳裡的部隊。正在採集的 NAP 部隊不可以攻擊。
 🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。
-🏛️ 遺跡和要塞由 NAP 6 共享或輪流使用。
+🏛️ 遺跡和要塞由 NAP 5 共享或輪流使用。
 ⚠️ 違規處理
 第 1 次：幹部警告。
 第 2 次（警告後再犯）：踢出聯盟。
@@ -89,19 +88,18 @@ KGb
 在遊戲裡點訊息旁邊的雙箭頭 ⇄，就會翻成你的語言。
 📜 聯盟核心規則
 1. 保持活躍。要離開一陣子先告訴幹部。
-2. 遵守 NAP 6。被 NAP 成員攻擊時回報 R4/R5，不要反擊。
+2. 遵守 NAP 5。被 NAP 成員攻擊時回報 R4/R5，不要反擊。
 3. 遵守活動規則。留意聯盟聊天、私訊、我們的網站和 Discord 的更新。
 4. 配合幹部、幫助盟友，大家一起團隊合作。
 5. 世界頻道保持友善，不要製造可能傷害聯盟的紛爭。
 ✅ 第一天要知道的事
-🤝 NAP 6
-❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*全軍出擊期間可以攻擊採集點。
+🤝 NAP 5
+❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*全軍出擊期間可以攻擊營帳裡的部隊；正在採集的不可以。
 NXS/nxs/nXs
 NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
-IDN
-KGb
+IDN/idn
 ⚠️ 違規：第 1 次警告 · 第 2 次踢出聯盟 · 第 3 次列入所有 NAP 聯盟的黑名單。
 (see guide #nap-rules)
 🗺️ 各盟分配
@@ -993,16 +991,16 @@ KvK 積分：每人 22,247,410
 
 ### GUIDE #all-out — 全軍出擊
 🪖 全軍出擊規則
-❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院
+❌ 禁止攻擊 NAP 5 成員，包含他們的農場／學院
 NXS/nxs/nXs
 NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
-IDN
-KGb
+IDN/idn
 看 NAP 規則 ›
 ❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）
-✅ 可以攻擊資源採集點（磨坊、採石場、鐵礦場）
+❌ 不可以攻擊正在採集的 NAP 部隊
+✅ 可以攻擊 NAP 成員在營帳裡的部隊
 ✅ 可以攻擊 NAP 以外的玩家。
 如果你的城堡被 NAP 成員攻擊，請勿報復，回報 R4/R5。
 請避免在野外採集資源，改用聯盟安全採集點。
@@ -1399,8 +1397,8 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
 📅 This week card on the home page (short version, Sherry 2026-11-06): Now = full rows only for events with a guide, battle days (⚔️), repair days and days with something to do (📝); events that are just running sit on one "Also on:" line with their day (e.g. 🏆 Alliance Championship 5/7). Coming up = one line per day (tomorrow / in N days) with that day's events side by side; tap a guide's name to open it. 📝 = something to do today — Alliance Championship days 1–2 (Mon–Tue UTC): sign up & update your teams. The 📆 Calendar below no longer repeats today's list (it says today's events are in 📅 This week above); tap another day to see that day. ⚔️ only marks real battle days (Sanctuary Battle: day 4 = Friday; Tue–Thu are sign-up days).
 📚 Guide list — a small “Irregular” tag next to a guide name (Sherry 2026-11-11) = a one-off event with no fixed cycle (e.g. Wavebound Voyage, Fantasy Theater). 📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
-🔰 New here?: its own page — the 🔰 button right after 🏠 Home at the top (the home page: 📅 This week, ✅ daily checklist, 📆 calendar, then the 📢 Announcements board; the tab was called Recent Events before 2026-11-06) (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages in the game (tap ⇄ next to a message in the game); Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 6 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NRD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
-🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. (The home page has no NAP card any more — removed 2026-11-06; use the 🤝 button.)
+🔰 New here?: its own page — the 🔰 button right after 🏠 Home at the top (the home page: 📅 This week, ✅ daily checklist, 📆 calendar, then the 📢 Announcements board; the tab was called Recent Events before 2026-11-06) (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages in the game (tap ⇄ next to a message in the game); Nia's 5 core rules (stay active, respect NAP 5 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 5 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NRD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
+🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 5 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. (The home page has no NAP card any more — removed 2026-11-06; use the 🤝 button.)
 Language (12 languages): chosen once on the first screen when the site opens. After that, the 🌐 list at the top of every page switches the whole site in place — the same guide, the same announcement and about the same spot stay on screen; it does not go back to the language screen any more.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)

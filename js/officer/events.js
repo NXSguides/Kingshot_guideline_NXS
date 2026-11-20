@@ -124,29 +124,26 @@ Don't miss it, rewards are good.
 🔹 Peak of Eternity: Ignore if crowded` },
   ],
   "all-out": [
-    { title: "All-Out rules", text: `All-Out Rules
+    { title: "All-Out rules", text: `📢 NEW ALL-OUT RULES IN EFFECT
 
-❌ No attacks on NAP 6 (NXS, NRD, RED, ESA, IDN, KGb) including their farms/acad
-❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
-✅ You can attack resource gathering tiles (mills, quarry, mines)
-✅ You can attack players outside of NAP.
+1. Tent Attacks: Attacks on NAP member troops in tents are ALLOWED.
+2. Gatherers: Attacking NAP troops gathering resources is NOT ALLOWED!!!
+3. NAP Cities: No attacks on cities, farms, or academies belonging to the NAP 5 alliances.
 
-- If your castle gets attacked by a NAP member, do not retaliate inform R4/5
-- Avoid gathering resources in the wild, use the secured alliance resource node instead
-- Rule breakers will be dealt with according to alliance/NAP agreements` },
-    { title: "NAP list", text: `All Out event is here! Check amessages for rules. Ask if unsure. Use alliance’s secure gathering site.
+Check Alliance Chat or ask an R4 for the NAP member list.
 
-NAP 6
-DO NOT attack the cities of these alliances or their farms/academies:
+Non-NAP cities: All attacks allowed.` },
+    { title: "NAP list", text: `NAP 5
+
+Do NOT attack any of these alliances or their associated farms / academies.
 
 NXS/nxs/nXs
 NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
-IDN
-KGb
+IDN/idn
 
-*All Out exception: Gathering resource nodes may be attacked.` },
+*All Out exception: encampments (tents) can be attacked during event.` },
   ],
   "swordland-showdown": [
     { title: "Swordland map", text: `Swordland Showdown Map!
