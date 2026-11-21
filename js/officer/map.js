@@ -159,7 +159,7 @@ function renderInfo() {
   const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : b.kind === "hq" ? "[NXS]" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
-    (PLANNABLE(b) && ME() ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${eff(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "") +
+    (PLANNABLE(b) && ME() ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${(eff(b) === v && v) || (v === "target" && eff(b) === "reach" && handT(b)) ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "") +
     (b.kind === "outpost" && (EXB || OTB) ? (() => { const c = contesters(b); return `<div class="km-tm" style="flex-basis:100%">${c.length ? `${esc(ft("cont"))} <b>${c.map((n) => `<span style="color:${n === "NXS" ? "#2b6cc4" : n === fTag() ? "#2e9e4f" : n === SUB_TAG ? "#8d9560" : otCol(n)}">■</span> ${esc(n)}`).join("、")}</b>` : esc(ft("contNone"))}</div>`; })() : "") +
     (isOp(b) && st(b) === "conflict" ? `<div class="km-tm" style="flex-basis:100%;color:#c0473a">⚠️ ${esc(pt("conflictAuto"))}</div>` : "");
   const s = eff(b);
@@ -197,6 +197,7 @@ function renderInfo() {
   if (spR) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">🎁 ${esc(rt("special"))}: <b>${esc(iName(spR[0]))} ×${spR[1] ?? "?"}</b></div>`);
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   if (PMODE) { const cp = $("km_cp"); while (cp.nextSibling) cp.nextSibling.remove(); }
+  if (isOp(b) && (eff(b) === "reach" || eff(b) === "target")) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">${esc(rc(eff(b) === "reach" ? "reachN" : "tgN"))}</div>`);
   if (PMODE && isOp(b) && PWHO !== "o" && PE()) routeBox(b);   // 🧭 the banners still missing to reach this Outpost   // 🚩 Territory: only what the building is — its status, timer, priority and rewards are set on 🗺️ Map
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
@@ -396,11 +397,36 @@ const OR = () => (curW() !== "f" ? PLAN : (PLAN.farm && PLAN.farm.op) || OP0);
 const OW = () => { if (curW() !== "f") return PLAN; const f = farm(); f.op = f.op || {}; for (const k of ["o", "t", "h", "sp"]) f.op[k] = f.op[k] || {}; return f.op; };
 const pk = (b) => b.x + "," + b.y;
 const PLANNABLE = (b) => b && (b.kind === "outpost" || b.kind === "fortress" || b.kind === "sanctuary");
-/* 🎯 nXs (Sherry 2026-11-21): an Outpost that nXs's standing banners / HQs touch is a target by itself, until an officer marks it ✅ / ⚔️ by hand.
-   Worked out, never saved. AUTO_T is rebuilt when the banners change (rebuildOwn). */
-let AUTO_T = null;
-const autoT = (b) => { if (!PLAN || !PLAN.farm || !B.length) return false; if (!AUTO_T) { AUTO_T = new Set(); try { for (const x of B) if (isOp(x) && contesters(x).includes(fTag())) AUTO_T.add(pk(x)); } catch (e) {} } return AUTO_T.has(pk(b)); };
-const raw = (b) => (PLANNABLE(b) && OR().o[pk(b)]) || (isOp(b) && curW() === "f" && autoT(b) ? "target" : "");
+/* 🔗 Can take / 🎯 Target (Sherry 2026-11-21):
+   - "reach" (🔗 Can take) is worked out, never saved: an Outpost that the alliance's own standing banners / HQs touch (NXS and nXs alike).
+   - "target" (🎯) is set by hand and means "we are building banners toward it" — it is what 🚩 Territory plans routes for.
+   - When the banners get there, a 🎯 target shows as 🔗 Can take by itself (the saved mark stays "target"; nothing saved is rewritten).
+   - ✅ Ours / ⚔️ Vulnerable set by hand always win.
+   AUTO_T is rebuilt when the banners change (rebuildOwn), the alliance is switched or NXS's banner list arrives. */
+let AUTO_T = null, AUTO_K = "", OWN_V = 0;
+const autoT = (b) => { if (!PLAN || !B.length) return false; const w = curW(), k = w + (EXB ? 1 : 0);
+  if (!AUTO_T || AUTO_K !== k) { AUTO_T = new Set(); AUTO_K = k; const tag = w === "f" ? fTag() : "NXS"; try { for (const x of B) if (isOp(x) && contesters(x).includes(tag)) AUTO_T.add(pk(x)); } catch (err) {} }
+  return AUTO_T.has(pk(b)); };
+const handT = (b) => isOp(b) && OR().o[pk(b)] === "target";   // marked 🎯 by hand (also while it shows as 🔗)
+const raw = (b) => { const v = (PLANNABLE(b) && OR().o[pk(b)]) || ""; return isOp(b) && (!v || v === "target") && autoT(b) ? "reach" : v; };
+const RC_T = {
+  en: { reach: "🔗 Can take", reaches: "🔗 Can take — our banners touch it", reachN: "🔗 Can take: our banners touch this Outpost.", tgN: "🎯 Target: banners are being built toward it. It turns into 🔗 Can take by itself when they get there.",
+    tgH: "🎯 Targets to build toward ({n})", tgP: "Outposts marked 🎯 Target on 🗺️ Map that our banners do not touch yet. Tap one to plan the banner route.", tgNone: "No target waiting for banners. Mark an Outpost 🎯 Target (here or on 🗺️ Map) to plan a route to it.",
+    need: "{n} more banners", plan: "planned banners reach it", none: "no route", noLand: "no territory yet", set: "🎯 Set as target", unset: "🎯 Remove target" },
+  zh: { reach: "🔗 可佔領", reaches: "🔗 可佔領——我們的旗已經接到", reachN: "🔗 可佔領：我們的旗已經接到這個據點。", tgN: "🎯 目標：正在往這裡蓋旗。旗接到之後會自動變成 🔗 可佔領。",
+    tgH: "🎯 要蓋過去的目標（{n}）", tgP: "在 🗺️ 地圖頁標成 🎯 目標、但我們的旗還沒接到的據點。點一個就能規劃旗幟路線。", tgNone: "沒有等著蓋旗的目標。把據點標成 🎯 目標（這裡或 🗺️ 地圖頁）就能規劃路線。",
+    need: "還差 {n} 面旗", plan: "規劃的旗已經接到", none: "沒有路線", noLand: "還沒有領地", set: "🎯 設為目標", unset: "🎯 取消目標" },
+  pt: { reach: "🔗 Pode tomar", reaches: "🔗 Pode tomar — nossos estandartes já tocam nele", reachN: "🔗 Pode tomar: nossos estandartes tocam neste Posto Avançado.", tgN: "🎯 Alvo: estamos construindo estandartes até ele. Vira 🔗 Pode tomar sozinho quando chegarem.",
+    tgH: "🎯 Alvos para alcançar ({n})", tgP: "Postos Avançados marcados como 🎯 Alvo no 🗺️ Mapa que nossos estandartes ainda não tocam. Toque num deles para planejar a rota.", tgNone: "Nenhum alvo esperando estandartes. Marque um Posto Avançado como 🎯 Alvo (aqui ou no 🗺️ Mapa) para planejar a rota.",
+    need: "faltam {n} estandartes", plan: "os estandartes planejados chegam nele", none: "sem rota", noLand: "ainda sem território", set: "🎯 Marcar como alvo", unset: "🎯 Tirar o alvo" },
+  ar: { reach: "🔗 يمكن أخذها", reaches: "🔗 يمكن أخذها — راياتنا تلمسها", reachN: "🔗 يمكن أخذها: راياتنا تلمس هذه المستوطنة.", tgN: "🎯 هدف: نبني الرايات نحوها. تتحول تلقائيًا إلى 🔗 يمكن أخذها عندما تصل الرايات.",
+    tgH: "🎯 أهداف نبني نحوها ({n})", tgP: "مستوطنات وُضعت عليها علامة 🎯 هدف في 🗺️ الخريطة ولم تلمسها راياتنا بعد. اضغط على واحدة لتخطيط مسار الرايات.", tgNone: "لا يوجد هدف ينتظر الرايات. ضع علامة 🎯 هدف على مستوطنة (هنا أو في 🗺️ الخريطة) لتخطيط المسار.",
+    need: "ينقص {n} راية", plan: "الرايات المخططة تصل إليها", none: "لا يوجد مسار", noLand: "لا توجد أرض بعد", set: "🎯 تعيين كهدف", unset: "🎯 إزالة الهدف" },
+  ko: { reach: "🔗 점령 가능", reaches: "🔗 점령 가능 — 우리 깃발이 닿아 있어요", reachN: "🔗 점령 가능: 우리 깃발이 이 거점에 닿아 있어요.", tgN: "🎯 목표: 이 거점 쪽으로 깃발을 짓는 중이에요. 깃발이 닿으면 자동으로 🔗 점령 가능이 돼요.",
+    tgH: "🎯 깃발을 이어 갈 목표 ({n})", tgP: "🗺️ 지도에서 🎯 목표로 표시했지만 아직 우리 깃발이 닿지 않은 거점이에요. 누르면 깃발 경로를 계획해요.", tgNone: "깃발을 기다리는 목표가 없어요. 거점을 🎯 목표로 표시하면(여기 또는 🗺️ 지도) 경로를 계획할 수 있어요.",
+    need: "깃발 {n}개 더 필요", plan: "계획한 깃발이 닿아요", none: "경로 없음", noLand: "아직 영지 없음", set: "🎯 목표로 설정", unset: "🎯 목표 해제" },
+};
+const rc = (k) => (RC_T[lang] || RC_T.en)[k];
 /* eff = ✅ held / ⚔️ vuln after the timer (an old hand-set "conflict" counts as held) */
 /* 🏯 Fortress / Sanctuary: one Sanctuary Battle period = start…start+every days (the battle is its last day). A "held" one that was
    marked before the current period began belongs to the last period → shown as 🎯 target again. PLAN.h[xy] = when it was marked held. */
@@ -408,7 +434,7 @@ const sancStart = () => { let e = null; try { e = (OfficerData.cacheGet("events"
   const st = Date.parse(((e && e.start) || "2026-10-06") + "T00:00:00Z"), ev = ((e && e.every > 0 && e.every) || 7) * 864e5;
   return st + Math.floor((Date.now() - st) / ev) * ev; };
 const stale = (b) => !isOp(b) && raw(b) === "held" && (((OR().h || {})[pk(b)]) || Date.parse(PLAN.at || "") || 0) < sancStart();
-const eff = (b) => { if (stale(b)) return "target"; const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); return isOp(b) && OR().t[pk(b)] ? cycAt(r, OR().t[pk(b)], Date.now())[0] : r; };
+const eff = (b) => { if (stale(b)) return "target"; const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); if (r === "reach") return r; return isOp(b) && OR().t[pk(b)] ? cycAt(r, OR().t[pk(b)], Date.now())[0] : r; };
 const nextSw = (b) => isOp(b) && OR().t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), OR().t[pk(b)], Date.now())[1] : 0;
 /* start of its latest Protected phase (needs a timer) — the later one was taken later */
 /* when the next switch happens, as a clock time (Sherry 2026-11-19: "in brackets, what time that is — UTC and local"): "11/21 14:30 UTC · 11/21 22:30 UTC+8" */
@@ -513,6 +539,7 @@ function drawPlan() {
     return s === "held" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#3ddc84" stroke-width="4"/>`
       : s === "vuln" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ff6b4a" stroke-width="4"/>`
       : s === "conflict" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#f5a623" stroke-width="4" stroke-dasharray="2 3"/>`
+      : s === "reach" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#5ac8fa" stroke-width="3.5"/>`
       : `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("")
     // ⭐ priority badge (gold circle with the number) at the top-right of a Sanctuary / Fortress
     + B.filter((b) => PRIOABLE(b) && SP(b).p).map((b) => { const [X, Y] = P(b.x, b.y), o = b.kind === "fortress" ? 20 : 15;
@@ -575,7 +602,7 @@ function gainHtml(L) {
     <div class="muted" style="font-size:12px;margin-top:4px">${esc(rwe("gainNote"))}</div></div>`;
 }
 function renderPlan() {
-  const now = totals(["held"]), after = totals(["held", "vuln", "conflict", "target"]);
+  const now = totals(["held"]), after = totals(["held", "vuln", "conflict", "target", "reach"]);
   const fmt = (n) => n ? "+" + n + "%" : "—";
   const rows = G.types.map(([k]) => `<tr><td><span class="sw" style="background:${TY[k].c};display:inline-block;vertical-align:-2px;margin-right:6px"></span>${esc(typeName(k))}</td><td class="muted">${esc(buffName(k))}</td><td class="n">${fmt(now[k])}</td><td class="n${(after[k] || 0) > (now[k] || 0) ? " up" : ""}">${fmt(after[k])}</td></tr>`).join("");
   /* in-game "增益衝突": a second Outpost we hold with the same type + level as another one we hold */
@@ -605,6 +632,7 @@ function renderPlan() {
     ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:10px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(LOCALE(lang), { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
     <table class="pl-tbl"><tr><th>${esc(pt("type"))}</th><th>${esc(pt("buff"))}</th><th style="text-align:right">${esc(pt("now"))}</th><th style="text-align:right">${esc(pt("after"))}</th></tr>${rows}</table>
     <div class="muted" style="font-size:12px;margin-top:6px">${esc(pt("nowNote"))}</div>
+    <div class="pl-sub">${esc(rc("reaches"))} (${cnt("reach")})</div>${list("reach")}
     <div class="pl-sub">${esc(pt("targets"))} (${cnt("target")})</div>${list("target")}
     <div class="pl-sub">${esc(pt("helds"))} (${cnt("held")})</div>${list("held")}
     <div class="pl-sub">${esc(pt("vulns"))} (${cnt("vuln")})</div>${list("vuln")}
@@ -815,7 +843,7 @@ const farmLv = (k, x, y) => ((PLAN.farm || {}).lv || {})[k + ":" + x + "," + y] 
 /* OV = what the 🚩 planner reads: 0 free · 1 ours · 2 not ours (the branch, or another alliance while its layer is on). When the branch builds first,
    its planned banners are already "not ours" for our planned ones. */
 function rebuildOwn() {
-  AUTO_T = null; ownBuild(); OV = new Uint8Array(FN * FN); for (let t = 0; t < FN * FN; t++) { const o = OWN_A[t]; OV[t] = o === 1 ? 1 : o ? 2 : 0; }
+  AUTO_T = null; OWN_V++; ownBuild(); OV = new Uint8Array(FN * FN); for (let t = 0; t < FN * FN; t++) { const o = OWN_A[t]; OV[t] = o === 1 ? 1 : o ? 2 : 0; }
   const f = PLAN.farm || {}; for (const [x, y] of f.fl || []) if (farmLv("fl", x, y) === 1) for (let j = Math.max(0, y - FR); j <= Math.min(FN - 1, y + FR); j++) for (let i = Math.max(0, x - FR); i <= Math.min(FN - 1, x + FR); i++) if (!OV[j * FN + i]) OV[j * FN + i] = 2;
 }
 /* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
@@ -856,7 +884,7 @@ function drawOt() {
   g.innerHTML = otOn && OTB ? otList().map(([n, x, y]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/>`).join("")
     + otHq().map(([n, x, y]) => { const [X, Y] = P(x + 1.5, y + 1.5); return `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/><polygon points="${pts([[x, y], [x + 3, y], [x + 3, y + 3], [x, y + 3]])}" fill="#1b1b1b" fill-opacity=".75" stroke="#fff" stroke-width=".4"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="3" font-weight="800" fill="#fff">HQ</text>`; }).join("") : "";
 }
-async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); memRefresh(); }
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); memRefresh(); try { refreshPlan(); } catch (e) {} }   // 🎯 the Outposts our banners touch are targets: redraw the marks once the banner list is here
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
@@ -996,7 +1024,7 @@ function routeTo(b, who) {
 }
 function routeBox(b) {
   const who = PWHO === "f" ? 2 : 1, a = who === 2 ? fTag() : "NXS", r = ROUTE && ROUTE.id === b.id && ROUTE.who === who ? ROUTE : null;
-  let h = `<div class="km-tm" id="km_route" style="flex-basis:100%"><button type="button" class="btn small" id="km_rt">${esc(rox("go", { a }))}</button>`;
+  let h = `<div class="km-tm" id="km_route" style="flex-basis:100%"><button type="button" class="btn small" id="km_rt">${esc(rox("go", { a }))}</button> ${eff(b) === "held" || eff(b) === "vuln" || eff(b) === "conflict" ? "" : `<button type="button" class="btn small" id="km_tgb">${esc(rc(handT(b) ? "unset" : "set"))}</button>`}`;
   if (r) { const n = r.list.length, t = r.nS + r.nP + n;
     h += r.state !== "ok" ? `<div style="margin-top:6px">${esc(rox(r.state, { a }))}</div>`
       : `<div style="margin-top:6px"><b>${esc(rox("need", { n }))}</b></div><div class="muted" style="font-size:12.5px">${esc(rox("sum", { s: r.nS, p: r.nP, n, t, l: RO_LIMIT }))}${t > RO_LIMIT ? ` <b style="color:#c0473a">${esc(rox("over", { l: RO_LIMIT }))}</b>` : ""}</div>
@@ -1004,6 +1032,7 @@ function routeBox(b) {
         <div class="muted" style="font-size:12px;margin-top:4px">${esc(rox("note"))}</div>`; }
   $("km_info").insertAdjacentHTML("beforeend", h + "</div>");
   $("km_rt").onclick = () => { ROUTE = routeTo(b, who); drawFlags(); renderInfo(); };
+  if ($("km_tgb")) $("km_tgb").onclick = () => { if (!PE()) return; if (handT(b)) delete OW().o[pk(b)]; else OW().o[pk(b)] = "target"; delete OW().t[pk(b)]; planMsg = ""; refreshPlan(); };
   if ($("km_rtno")) $("km_rtno").onclick = () => { ROUTE = null; drawFlags(); renderInfo(); };
   if ($("km_rtok")) $("km_rtok").onclick = () => { const L = r.list.map(([x, y]) => [x, y]); if (who === 2) farm().fl.push(...L); else { PLAN.fl = PLAN.fl || []; PLAN.fl.push(...L); }
     ROUTE = null; flagsChanged(); try { drawFarm(); renderFarm(); } catch (e) {} renderInfo(); };
@@ -1085,7 +1114,21 @@ function drawSub() {
   subL("b").forEach(([x, y], i) => { h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="rgba(150,160,110,.3)" stroke="#c9cf9a" stroke-width=".35" stroke-dasharray="2 1.2"/><polygon points="${tilePts(x, y)}" fill="#6d7446"${sel("b", i)}/>`; });
   g.innerHTML = h;
 }
+/* 🎯 Targets on 🚩 Territory (Sherry 2026-11-21: "sync the targets to the banner plan — the point is to plan the route"):
+   the Outposts marked 🎯 by hand that the alliance's banners do not touch yet, each with what the route planner says (banners still missing).
+   Tap one → it is selected on the map and its route is worked out, ready for "➕ Add to the plan". Route summaries are cached per banner change. */
+let TG_C = { v: -1, m: {} };
+function tgRoute(b, who) { if (TG_C.v !== OWN_V) TG_C = { v: OWN_V, m: {} }; const k = who + ":" + b.id; if (!TG_C.m[k]) { try { TG_C.m[k] = routeTo(b, who); } catch (e) { TG_C.m[k] = { state: "none", list: [] }; } } return TG_C.m[k]; }
+function renderTg() {
+  const el = $("km_tg"); if (!el) return; if (!PMODE || PWHO === "o" || !PLAN || !B.length) { el.innerHTML = ""; return; }
+  const who = PWHO === "f" ? 2 : 1, L = B.filter((b) => handT(b) && !autoT(b));
+  el.innerHTML = `<div class="km-pd" style="border-color:#ffe14d"><b>${esc(rc("tgH").replace("{n}", L.length))}</b><div class="muted" style="font-size:12.5px;margin-top:3px">${esc(rc(L.length ? "tgP" : "tgNone"))}</div>`
+    + (L.length ? `<div style="display:grid;gap:6px;margin-top:8px">${L.map((b) => { const r = tgRoute(b, who), t = r.state === "ok" ? rc("need").replace("{n}", r.list.length) : r.state === "have" ? rc("plan") : rc(r.state === "noLand" ? "noLand" : "none");
+        return `<button type="button" class="btn small" data-tg="${b.id}" style="text-align:left;justify-content:flex-start"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;margin-right:6px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y} — <b>${esc(t)}</b></button>`; }).join("")}</div>` : "") + `</div>`;
+  el.querySelectorAll("[data-tg]").forEach((x) => x.onclick = () => { const b = BY[x.dataset.tg]; if (!b) return; select(b.id, true); if (PE()) { ROUTE = routeTo(b, who); drawFlags(); renderInfo(); } });
+}
 function renderSub() {
+  try { renderTg(); } catch (e) {}
   const el = $("km_sub"); if (!el) return; const ed = PE(); if ((!ed && !subAny()) || (PMODE && PWHO === "o")) { el.innerHTML = ""; return; }
   const it = SUB_SEL && subL(SUB_SEL.k)[SUB_SEL.i];
   el.innerHTML = `<div class="km-pd" style="border-color:#8d9560"><b>${esc(sbt("h"))}</b> <span class="muted" style="font-size:12.5px">${esc(sbt("n").replace("{b}", subL("b").length).replace("{h}", subL("hq").length))}</span><div class="muted" style="font-size:12.5px;margin-top:3px">${esc(sbt("p"))}</div>`
@@ -1342,6 +1385,7 @@ function renderFlags() {
   if ($("fl_dl2")) $("fl_dl2").onclick = dlOthers;
   drawRes();   // ours / switched-off marks follow the territory
   drawFarm(); renderFarm(); drawSub(); renderSub();   // nXs and 🌾 the farm follow every change too
+  try { drawPlan(); } catch (e) {}   // 🎯 the marks follow the banners (not renderPlan: it calls this function)
 }
 /* ⬇️ every banner as the map shows it now (file + officers' edits), in Kingshot Mapper CSV (type,X,Y,label,#color,seq):
    NXS = checked in game, NXS? = estimated from the territory picture, plan = 🚩 planned, not built yet */

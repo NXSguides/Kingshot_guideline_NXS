@@ -112,6 +112,7 @@ const FEATURES = [
   ["Move: changed Bear Trap group, spot on the other side", /🐝 Hive → CHANGED GROUP/, /{ s: "#mv_btmis", k: "mv26" }/],
   ["Move: NXS / nXs hive plans + BT3", /🐝 Hive → NXS \/ nXs switch/, /{ s: "#whoTop \.who-top", k: "mv20" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
+  ["Territory: 🎯 Targets to build toward (synced with the Map's targets) + 🔗 Can take", /🎯 TARGETS ON 🚩 TERRITORY \(2026-11-21\)/, /{ s: "#km_tg", k: "mp62", e: 1 }/],
   ["Territory: 🌾 nxs (our farm) — banners kept on the map, not planned", /🌾 nxs IS OUR FARM, nXs IS THE SECOND ALLIANCE \(2026-11-21/, /{ s: "#km_sub", k: "mp61", e: 1 }/],
   ["Map: 🏫 Academy (second alliance on the map), first come first served", /🏫 ACADEMY \(2026-11-14/, /{ s: "#km_farm", k: "mp40", e: 1 }/],
   ["Map: 🌾 our resource nodes now, switching a node off", /🌾 OUR RESOURCE NODES NOW \+ SWITCHING A NODE OFF \(2026-11-14/, /{ s: "#kp_res", k: "mp39", e: 1 }/],
