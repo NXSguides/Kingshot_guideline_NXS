@@ -396,7 +396,11 @@ const OR = () => (curW() !== "f" ? PLAN : (PLAN.farm && PLAN.farm.op) || OP0);
 const OW = () => { if (curW() !== "f") return PLAN; const f = farm(); f.op = f.op || {}; for (const k of ["o", "t", "h", "sp"]) f.op[k] = f.op[k] || {}; return f.op; };
 const pk = (b) => b.x + "," + b.y;
 const PLANNABLE = (b) => b && (b.kind === "outpost" || b.kind === "fortress" || b.kind === "sanctuary");
-const raw = (b) => (PLANNABLE(b) && OR().o[pk(b)]) || "";
+/* 🎯 nXs (Sherry 2026-11-21): an Outpost that nXs's standing banners / HQs touch is a target by itself, until an officer marks it ✅ / ⚔️ by hand.
+   Worked out, never saved. AUTO_T is rebuilt when the banners change (rebuildOwn). */
+let AUTO_T = null;
+const autoT = (b) => { if (!PLAN || !PLAN.farm || !B.length) return false; if (!AUTO_T) { AUTO_T = new Set(); try { for (const x of B) if (isOp(x) && contesters(x).includes(fTag())) AUTO_T.add(pk(x)); } catch (e) {} } return AUTO_T.has(pk(b)); };
+const raw = (b) => (PLANNABLE(b) && OR().o[pk(b)]) || (isOp(b) && curW() === "f" && autoT(b) ? "target" : "");
 /* eff = ✅ held / ⚔️ vuln after the timer (an old hand-set "conflict" counts as held) */
 /* 🏯 Fortress / Sanctuary: one Sanctuary Battle period = start…start+every days (the battle is its last day). A "held" one that was
    marked before the current period began belongs to the last period → shown as 🎯 target again. PLAN.h[xy] = when it was marked held. */
@@ -632,7 +636,7 @@ async function loadPlan() {
   if (OFFICER.token) { try { const f = await gh("GET", PLAN_PATH); d = f ? await OfficerData.open(JSON.parse(b64u8(f.content))) : null; } catch (e) {} }
   if (!d) { try { d = await OfficerData.fetchJson(PLAN_PATH); } catch (e) {} }
   PLAN = d && d.o ? d : { o: {}, t: {} }; if (!PLAN.t) PLAN.t = {};
-  farmSplit();
+  farmSplit(); AUTO_T = null;
   if (PLAN.ot) for (const k of ["add", "hq"]) for (const r of PLAN.ot[k] || []) if (AL_REN[r[0]]) r[0] = AL_REN[r[0]]; if (PLAN.ot && PLAN.ot.off) PLAN.ot.off = PLAN.ot.off.map((k) => { const i = String(k).indexOf(":"), n = String(k).slice(0, i); return AL_REN[n] ? AL_REN[n] + String(k).slice(i) : k; });   // an alliance that renamed itself: saved corrections follow the new tag (written back at the next save)
   SAVED = snap(); PLAN_READ = true;
 }
@@ -811,7 +815,7 @@ const farmLv = (k, x, y) => ((PLAN.farm || {}).lv || {})[k + ":" + x + "," + y] 
 /* OV = what the 🚩 planner reads: 0 free · 1 ours · 2 not ours (the branch, or another alliance while its layer is on). When the branch builds first,
    its planned banners are already "not ours" for our planned ones. */
 function rebuildOwn() {
-  ownBuild(); OV = new Uint8Array(FN * FN); for (let t = 0; t < FN * FN; t++) { const o = OWN_A[t]; OV[t] = o === 1 ? 1 : o ? 2 : 0; }
+  AUTO_T = null; ownBuild(); OV = new Uint8Array(FN * FN); for (let t = 0; t < FN * FN; t++) { const o = OWN_A[t]; OV[t] = o === 1 ? 1 : o ? 2 : 0; }
   const f = PLAN.farm || {}; for (const [x, y] of f.fl || []) if (farmLv("fl", x, y) === 1) for (let j = Math.max(0, y - FR); j <= Math.min(FN - 1, y + FR); j++) for (let i = Math.max(0, x - FR); i <= Math.min(FN - 1, x + FR); i++) if (!OV[j * FN + i]) OV[j * FN + i] = 2;
 }
 /* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
