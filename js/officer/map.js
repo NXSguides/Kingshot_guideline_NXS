@@ -1066,15 +1066,15 @@ const subAny = () => subL("hq").length + subL("b").length > 0;
 const subEd = () => { const f = farm(); f.sub = f.sub || {}; f.sub.hq = f.sub.hq || []; f.sub.b = f.sub.b || []; return f.sub; };
 let SUB_SEL = null;
 const SUB_T = {
-  en: { opH: "Outposts nxs is connected to ({n})", opK: "🔵 NXS is connected too · 🟢 nXs is connected too", opNone: "nxs is not connected to any Outpost.", h: "🌾 nxs (our farm)", p: "Its banners and HQs stay on the map and keep their tiles. Nothing is planned for it.", n: "{b} banners · {h} HQ", b: "🏳️ Banner", add: "Add", del: "🗑 Remove", sel: "Selected:", tap: "Tap one of its banners on the map to select it." },
-  zh: { opH: "nxs 相連的據點（{n}）", opK: "🔵 NXS 也相連 · 🟢 nXs 也相連", opNone: "nxs 沒有相連的據點。", h: "🌾 nxs（我們的農場）", p: "它的旗幟和總部留在地圖上，照樣佔格子；不替它做規劃。", n: "{b} 面旗幟 · {h} 個總部", b: "🏳️ 旗幟", add: "新增", del: "🗑 移除", sel: "選到的：", tap: "在地圖上點它的旗幟就能選取。" },
-  pt: { opH: "Postos avançados ligados à nxs ({n})", opK: "🔵 a NXS também está ligada · 🟢 a nXs também", opNone: "A nxs não está ligada a nenhum posto avançado.", h: "🌾 nxs (nossa fazenda)", p: "Os estandartes e as sedes dela ficam no mapa e continuam ocupando as casas. Nada é planejado para ela.", n: "{b} estandartes · {h} sede(s)", b: "🏳️ Estandarte", add: "Adicionar", del: "🗑 Remover", sel: "Selecionado:", tap: "Toque num estandarte dela no mapa para selecionar." },
-  ar: { opH: "المستوطنات المتصلة بـ nxs ({n})", opK: "🔵 NXS متصل أيضًا · 🟢 nXs متصل أيضًا", opNone: "nxs غير متصل بأي مستوطنة.", h: "🌾 nxs (مزرعتنا)", p: "راياتها ومقراتها تبقى على الخريطة وتحتفظ بمربعاتها. لا يُخطَّط لها شيء.", n: "{b} راية · {h} مقر", b: "🏳️ راية", add: "إضافة", del: "🗑 إزالة", sel: "المحدد:", tap: "اضغط على إحدى راياتها في الخريطة لتحديدها." },
-  ko: { opH: "nxs와 연결된 거점 ({n})", opK: "🔵 NXS도 연결됨 · 🟢 nXs도 연결됨", opNone: "nxs와 연결된 거점이 없어.", h: "🌾 nxs (우리 농장)", p: "깃발과 본부는 지도에 그대로 남아 칸을 차지해. 계획은 세우지 않아.", n: "깃발 {b}개 · 본부 {h}개", b: "🏳️ 깃발", add: "추가", del: "🗑 제거", sel: "선택됨:", tap: "지도에서 깃발을 누르면 선택돼." },
+  en: { opH: "Outposts {t} is connected to ({n})", opK: "🔵 NXS is connected too · 🟢 nXs is connected too", opK2: "🔵 NXS is connected too · 🌾 nxs is connected too · ⏳ only after the planned banners are built", opNone: "{t} is not connected to any Outpost.", h: "🌾 nxs (our farm)", p: "Its banners and HQs stay on the map and keep their tiles. Nothing is planned for it.", n: "{b} banners · {h} HQ", b: "🏳️ Banner", add: "Add", del: "🗑 Remove", sel: "Selected:", tap: "Tap one of its banners on the map to select it." },
+  zh: { opH: "{t} 相連的據點（{n}）", opK: "🔵 NXS 也相連 · 🟢 nXs 也相連", opK2: "🔵 NXS 也相連 · 🌾 nxs 也相連 · ⏳ 要蓋的旗蓋好後才相連", opNone: "{t} 沒有相連的據點。", h: "🌾 nxs（我們的農場）", p: "它的旗幟和總部留在地圖上，照樣佔格子；不替它做規劃。", n: "{b} 面旗幟 · {h} 個總部", b: "🏳️ 旗幟", add: "新增", del: "🗑 移除", sel: "選到的：", tap: "在地圖上點它的旗幟就能選取。" },
+  pt: { opH: "Postos avançados ligados à {t} ({n})", opK: "🔵 a NXS também está ligada · 🟢 a nXs também", opK2: "🔵 a NXS também está ligada · 🌾 a nxs também · ⏳ só depois de construir os estandartes planejados", opNone: "A {t} não está ligada a nenhum posto avançado.", h: "🌾 nxs (nossa fazenda)", p: "Os estandartes e as sedes dela ficam no mapa e continuam ocupando as casas. Nada é planejado para ela.", n: "{b} estandartes · {h} sede(s)", b: "🏳️ Estandarte", add: "Adicionar", del: "🗑 Remover", sel: "Selecionado:", tap: "Toque num estandarte dela no mapa para selecionar." },
+  ar: { opH: "المستوطنات المتصلة بـ {t} ({n})", opK: "🔵 NXS متصل أيضًا · 🟢 nXs متصل أيضًا", opK2: "🔵 NXS متصل أيضًا · 🌾 nxs متصل أيضًا · ⏳ فقط بعد بناء الرايات المخططة", opNone: "{t} غير متصل بأي مستوطنة.", h: "🌾 nxs (مزرعتنا)", p: "راياتها ومقراتها تبقى على الخريطة وتحتفظ بمربعاتها. لا يُخطَّط لها شيء.", n: "{b} راية · {h} مقر", b: "🏳️ راية", add: "إضافة", del: "🗑 إزالة", sel: "المحدد:", tap: "اضغط على إحدى راياتها في الخريطة لتحديدها." },
+  ko: { opH: "{t}와 연결된 거점 ({n})", opK: "🔵 NXS도 연결됨 · 🟢 nXs도 연결됨", opK2: "🔵 NXS도 연결됨 · 🌾 nxs도 연결됨 · ⏳ 계획한 깃발을 지은 뒤에만 연결됨", opNone: "{t}와 연결된 거점이 없어.", h: "🌾 nxs (우리 농장)", p: "깃발과 본부는 지도에 그대로 남아 칸을 차지해. 계획은 세우지 않아.", n: "깃발 {b}개 · 본부 {h}개", b: "🏳️ 깃발", add: "추가", del: "🗑 제거", sel: "선택됨:", tap: "지도에서 깃발을 누르면 선택돼." },
 };
 const sbt = (k) => (SUB_T[lang] || SUB_T.en)[k];
 function drawSub() {
-  const g = $("km_subG"); if (!g) return; if (!subAny() || !SHOWP()) { g.innerHTML = ""; return; }
+  const g = $("km_subG"); if (!g) return; if (!subAny()) { g.innerHTML = ""; return; }
   const sq = (x0, y0, x1, y1) => pts([[x0, y0], [x1 + 1, y0], [x1 + 1, y1 + 1], [x0, y1 + 1]]), sel = (k, i) => SUB_SEL && SUB_SEL.k === k && SUB_SEL.i === i ? ' stroke="#ffe24a" stroke-width="1"' : ' stroke="#fff" stroke-width=".3"';
   let h = "";
   subL("hq").forEach(([x, y], i) => { const [X, Y] = P(x + 1.5, y + 1.5); h += `<polygon points="${sq(x - 6, y - 6, x + 8, y + 8)}" fill="rgba(150,160,110,.3)" stroke="#c9cf9a" stroke-width=".5" stroke-dasharray="2 1.2"/><polygon points="${sq(x, y, x + 2, y + 2)}" fill="#6d7446"${sel("hq", i)}/><text x="${X}" y="${Y + 1.1}" text-anchor="middle" font-family="Arial" font-size="3.2" font-weight="800" fill="#fff" stroke="#123" stroke-width=".4" paint-order="stroke">[${SUB_TAG}]</text>`; });
@@ -1082,12 +1082,11 @@ function drawSub() {
   g.innerHTML = h;
 }
 function renderSub() {
-  const el = $("km_sub"); if (!el) return; const ed = PE(); if ((!ed && !subAny()) || PWHO === "o" || !PMODE) { el.innerHTML = ""; return; }
+  const el = $("km_sub"); if (!el) return; const ed = PE(); if ((!ed && !subAny()) || (PMODE && PWHO === "o")) { el.innerHTML = ""; return; }
   const it = SUB_SEL && subL(SUB_SEL.k)[SUB_SEL.i];
   el.innerHTML = `<div class="km-pd" style="border-color:#8d9560"><b>${esc(sbt("h"))}</b> <span class="muted" style="font-size:12.5px">${esc(sbt("n").replace("{b}", subL("b").length).replace("{h}", subL("hq").length))}</span><div class="muted" style="font-size:12.5px;margin-top:3px">${esc(sbt("p"))}</div>`
     + (it ? `<div class="row" style="gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px"><span>${esc(sbt("sel"))} <b>${esc(SUB_SEL.k === "hq" ? "🏯 " + ft(it[2] === 2 ? "hqB" : "hqP") : sbt("b"))}</b> <span class="xy">X:${it[0]} Y:${it[1]}</span></span>${ed ? `<button type="button" class="btn small" id="sb_del">${esc(sbt("del"))}</button>` : ""}</div>` : subAny() ? `<div class="muted" style="font-size:12px;margin-top:6px">${esc(sbt("tap"))}</div>` : "")
-    + (subAny() ? (() => { const L = B.map((b, i) => [b, i]).filter(([b]) => isOp(b)).map(([b, i]) => [b, i, contesters(b)]).filter(([, , c]) => c.includes(SUB_TAG));
-        return `<div style="margin-top:10px"><b style="font-size:13px">${esc(sbt("opH").replace("{n}", L.length))}</b>` + (L.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${L.map(([b, i, c]) => `<button type="button" class="btn small" data-sgo="${i}">${esc(nm(b))} Lv.${b.lv}${c.includes("NXS") ? " 🔵" : ""}${c.includes(fTag()) ? " 🟢" : ""}</button>`).join("")}</div><div class="muted" style="font-size:12px;margin-top:4px">${esc(sbt("opK"))}</div>` : `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(sbt("opNone"))}</div>`) + `</div>`; })() : "")
+    + (subAny() ? opLinksHtml(SUB_TAG) : "")
     + (ed ? `<div class="row km-fl-add" style="gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px"><select class="btn" id="sb_kind" style="height:36px">${["b", "hq", "hqb"].map((k) => `<option value="${k}">${esc(k === "b" ? sbt("b") : "🏯 " + ft(k === "hqb" ? "hqB" : "hqP"))}</option>`).join("")}</select><label>X <input id="sb_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="sb_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn primary" id="sb_add">➕ ${esc(sbt("add"))}</button></div>` : "") + `</div>`;
   el.querySelectorAll("[data-sgo]").forEach((x) => x.onclick = () => { const b = B[+x.dataset.sgo]; if (b) centerOn(b, true); });
   if ($("sb_del")) $("sb_del").onclick = () => { if (!PE() || !SUB_SEL) return; const u = subEd(); u[SUB_SEL.k].splice(SUB_SEL.i, 1); SUB_SEL = null; flagsChanged(); };
@@ -1163,9 +1162,29 @@ const FW = { hq: 3, b: 1, fl: 1, bt: 3, btp: 3, c: 2 };   // tiles each Academy 
 function farmFlagCalc() { return bannerCheck((PLAN.farm || {}).fl || [], 2); }
 const farmFlagBad = (c) => !c.conn || c.onOther || c.ob || c.node || c.zone;
 function farmBlocked() { const f = PLAN.farm || {}, out = []; for (const k of FK) (f[k] || []).forEach((it, i) => { const r = blockOf(it[0], it[1], FW[k]); if (r) out.push({ k, i, x: it[0], y: it[1], r }); }); return out; }
+/* 🗺️ Map with "show this plan on the Map" off: only what already stands — nXs's HQs, banners (also the plan banners ticked as built) and Bear Traps. */
+function farmStand() {
+  const g = $("km_farmG"), f = PLAN && PLAN.farm; if (!g || !f) return;
+  const sq = (x0, y0, x1, y1) => pts([[x0, y0], [x1 + 1, y0], [x1 + 1, y1 + 1], [x0, y1 + 1]]); let h = "";
+  const txt = (x, y, t, sz) => { const [X, Y] = P(x, y); return `<text x="${X}" y="${Y + sz * .35}" text-anchor="middle" font-family="Arial" font-size="${sz}" font-weight="800" fill="#fff" stroke="#123" stroke-width=".4" paint-order="stroke">${esc(t)}</text>`; };
+  (f.hq || []).forEach(([x, y, n]) => { h += `<polygon points="${sq(x - 6, y - 6, x + 8, y + 8)}" fill="rgba(60,190,90,.35)" stroke="#9be7a8" stroke-width=".5"/><polygon points="${sq(x, y, x + 2, y + 2)}" fill="#1f7a3a" stroke="#fff" stroke-width=".4"/>` + txt(x + 1.5, y + 1.5, "[" + fTag().replace(/[\[\]]/g, "").trim() + "] " + hqName({ n: n === 2 ? 2 : 1 }), 3.2); });
+  for (const [x, y] of fbAll()) h += `<polygon points="${sq(x - FR, y - FR, x + FR, y + FR)}" fill="rgba(60,190,90,.38)" stroke="#9be7a8" stroke-width=".35"/><polygon points="${tilePts(x, y)}" fill="#1f7a3a" stroke="#fff" stroke-width=".3"/>`;
+  (f.bt || []).forEach(([x, y]) => { h += `<polygon points="${sq(x, y, x + 2, y + 2)}" fill="#8d5a2b" stroke="#fff" stroke-width=".4"/>` + txt(x + 1.5, y + 1.5, "🐻", 3); });
+  g.innerHTML = h;
+}
+/* 🔗 Outposts an alliance is connected to: touched by its standing banners / HQs; for nXs also ⏳ = only after its planned banners are built. */
+function opLinks(tag) {
+  const f = PLAN.farm || {}, fl = tag === SUB_TAG ? [] : f.fl || [], L = [];
+  B.forEach((b, i) => { if (!isOp(b)) return; const c = contesters(b), sq = opSq(b), now = c.includes(tag), later = !now && fl.some(([x, y]) => rTouch(sq, [x - FR, y - FR, x + FR, y + FR])); if (now || later) L.push([b, i, c, later]); });
+  return L;
+}
+function opLinksHtml(tag) {
+  const L = opLinks(tag), nxs = tag === SUB_TAG, oth = nxs ? fTag() : SUB_TAG;
+  return `<div style="margin-top:10px"><b style="font-size:13px">${esc(sbt("opH").replace("{t}", tag).replace("{n}", L.length))}</b>` + (L.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">${L.map(([b, i, c, later]) => `<button type="button" class="btn small" data-sgo="${i}"${later ? ' style="border-style:dashed"' : ""}>${later ? "⏳ " : ""}${esc(nm(b))} Lv.${b.lv}${c.includes("NXS") ? " 🔵" : ""}${c.includes(oth) ? (nxs ? " 🟢" : " 🌾") : ""}</button>`).join("")}</div><div class="muted" style="font-size:12px;margin-top:4px">${esc(sbt(nxs ? "opK" : "opK2"))}</div>` : `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(sbt("opNone").replace("{t}", tag))}</div>`) + `</div>`;
+}
 function drawFarm() {
   const clr = () => { for (const id of ["km_farmG", "km_hdlG", "km_topG"]) if ($(id)) $(id).innerHTML = ""; };
-  drawOwn(); if (!SHOWP()) { clr(); return; }
+  drawOwn(); if (!SHOWP()) { clr(); farmStand(); return; }
   const g = $("km_farmG"); if (!g) return; const f = PLAN.farm; if (!f || !farmAny()) { clr(); return; }
   const rm = new Set(f.rm || []), sq = (x0, y0, x1, y1) => pts([[x0, y0], [x1 + 1, y0], [x1 + 1, y1 + 1], [x0, y1 + 1]]), sel = (k, i) => FARM_SEL && FARM_SEL.k === k && FARM_SEL.i === i ? ' stroke="#ffe24a" stroke-width="1"' : "";
   const txt = (x, y, t, sz, col) => { const [X, Y] = P(x, y); return `<text x="${X}" y="${Y + sz * .35}" text-anchor="middle" font-family="Arial" font-size="${sz}" font-weight="800" fill="${col || "#fff"}" stroke="#123" stroke-width=".4" paint-order="stroke">${esc(t)}</text>`; };
@@ -1225,7 +1244,8 @@ function renderFarm() {
   if (n("bt") || n("btp")) h += `<div style="margin-top:6px;font-size:12.5px">${n("bt") ? `<div>${esc(fmt("k").bt)}: ${trap(f.bt, c.bt, "bt")}</div>` : ""}${n("btp") ? `<div>${esc(fmt("k").btp)} (${esc(fmt("after"))}): ${trap(f.btp, c.btp, "btp")}</div>` : ""}</div>`;
   if (RESD) { const rows = RES_K.map(([k, ic], i) => [ic + " " + (RES_T[lang] || RES_T.en)[i + 1], c.a[k], c.b[k]]); rows.push([fmt("tot"), rows.reduce((x, r) => x + r[1], 0), rows.reduce((x, r) => x + r[2], 0)]); const cs = fmt("cols");
     if (0) hr += `<div class="km-pd"><b>${esc(fmt("res"))}</b><div style="overflow-x:auto;margin-top:6px"><table><thead><tr><th></th><th>${esc(cs[0])}</th><th>${esc(cs[1])}</th><th>${esc(cs[2])}</th><th>${esc(cs[3])}</th></tr></thead><tbody>${rows.map((r, i) => { const df = r[2] - r[1]; return `<tr${i === rows.length - 1 ? ' class="tot"' : ""}><td>${esc(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td><td class="${df > 0 ? "up" : df < 0 ? "dn" : ""}">${sg(df)}</td><td>${(r[2] * 3600).toLocaleString("en-US")}</td></tr>`; }).join("")}</tbody></table></div></div>`; }
-  el.innerHTML = h + `<div class="muted" style="font-size:12px;margin-top:8px">${esc(fmt("lg"))}</div></div>`; put(); bindFarm();
+  el.innerHTML = h + opLinksHtml(fTag()) + `<div class="muted" style="font-size:12px;margin-top:8px">${esc(fmt("lg"))}</div></div>`; put(); bindFarm();
+  el.querySelectorAll("[data-sgo]").forEach((x) => x.onclick = () => { const b = B[+x.dataset.sgo]; if (b) centerOn(b, true); });
 }
 function farmAddAt(x, y) { if (!PE() || !farmKind) return; const f = farm(), L = fList(farmKind); const i = f[L].findIndex(([a, b]) => a === x && b === y); if (i >= 0) FARM_SEL = { k: L, i }; else { f[L].push(fMake(farmKind, x, y)); FARM_SEL = { k: L, i: f[L].length - 1 }; } centerOn({ x, y }, true); flagsChanged(); }
 function bindFarm() {
