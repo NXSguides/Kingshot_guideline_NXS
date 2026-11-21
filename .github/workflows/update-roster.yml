@@ -31,8 +31,8 @@ jobs:
       - run: |
           git config user.name "roster-bot"
           git config user.email "actions@github.com"
-          [ -f data/academy-x7k2p9.json ] && git add data/academy-x7k2p9.json
-          [ -f data/watch-nxs-x7k2p9.json ] && git add data/watch-nxs-x7k2p9.json
+          [ -f data/n2-roster-x7k2p9.json ] && git add data/n2-roster-x7k2p9.json
+          [ -f data/watch-n2-x7k2p9.json ] && git add data/watch-n2-x7k2p9.json
           git add data/roster-x7k2p9.json data/watch-x7k2p9.json data/ai-officer.json
           git diff --cached --quiet && exit 0
           git commit -m "Update roster"

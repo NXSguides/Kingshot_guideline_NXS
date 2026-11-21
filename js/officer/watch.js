@@ -60,14 +60,14 @@ const T = { ko: {"title": "NXS 관찰 명단", "home": "홈", "export": "Google 
     errBusy: "剛好有人也在存備註，請再試一次。", errNet: "連不上 GitHub，請檢查網路後再試一次。",
   },
 };
-/* 🏰 one alliance per page load (the one picked in the top bar; a change reloads the page): nxs has its own roster and its own member history
-   (data/watch-nxs-x7k2p9.json); the other alliances' lists, the records and the notes (kept by player ID) are the same for both */
+/* 🏰 one alliance per page load (the one picked in the top bar; a change reloads the page): nXs has its own roster and its own member history
+   (data/watch-n2-x7k2p9.json); the other alliances' lists, the records and the notes (kept by player ID) are the same for both */
 const WF = OFFICER.who() === "f"; OFFICER.whoLoaded.watch = OFFICER.who();
-const KID = 2189, TAG = WF ? "nxs" : "NXS", ROSTER_URL = OFFICER.rosterUrl();
+const KID = 2189, TAG = WF ? "nXs" : "NXS", ROSTER_URL = OFFICER.rosterUrl();
 const watchGet = async (fast, cb) => {
   const main = fast ? await OfficerData.fetchJsonFast("data/watch-x7k2p9.json", WF ? () => {} : cb) : await OfficerData.fetchJson("data/watch-x7k2p9.json");
   if (!WF) return main;
-  let n = null; try { n = await OfficerData.fetchJson("data/watch-nxs-x7k2p9.json"); } catch (e) {}
+  let n = null; try { n = await OfficerData.fetchJson("data/watch-n2-x7k2p9.json"); } catch (e) {}
   return main ? { ...main, started: (n && n.started) || new Date().toISOString().slice(0, 10), members: (n && n.members) || {}, left: (n && n.left) || [], updated: (n && n.updated) || main.updated } : null;
 };
 const LS = OFFICER.wKey("nxs-watch-v1");
@@ -77,7 +77,7 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 let lang = OFFICER.lang;
 let newDays = store.newDays || 14;
 let rivals = (store.rivals ?? "RED, ESA, NRD").replace(/\bNBD\b/g, "NRD");   // the alliance NBD renamed itself NRD (2026-11-15) — a saved list follows
-let farms = store.farms ?? (WF ? "NXS, VZP" : "nxs, VZP");   // 🏰 for NXS, nxs is its Academy; for nxs, NXS is its main alliance (VZP = NXS's old tag)
+let farms = store.farms ?? (WF ? "NXS, nxs, VZP" : "nXs, nxs, VZP");   // 🏰 for NXS, nXs is its Academy; for nXs, NXS is its main alliance (VZP = NXS's old tag)
 const tagList = (s) => String(s).split(/[,\s]+/).map((x) => x.trim()).filter(Boolean);
 const tagOf = (t) => t.replace(/ \(#\d+\)$/, "");
 let sortKey = "flags", sortDir = -1;
@@ -86,7 +86,7 @@ let roster = null, watch = null, records = null, rows = [];
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
 const FARMS_L = { m: { en: "Our Academy / sister alliances:", zh: "我們的學院／分盟：", pt: "Nossa Academia / alianças irmãs:", ar: "أكاديميتنا / التحالفات الشقيقة:", ko: "우리 아카데미 / 자매 연맹:" },
   f: { en: "Our main alliance:", zh: "我們的主盟：", pt: "Nossa aliança principal:", ar: "تحالفنا الرئيسي:", ko: "우리 본 연맹:" } };
-const tr = (k, v = {}) => { if (k === "farmsL") return FARMS_L[WF ? "f" : "m"][lang] || FARMS_L[WF ? "f" : "m"].en; const s = String((T[lang] && T[lang][k]) ?? T.en[k] ?? k); return (WF ? s.replace(/NXS/g, "nxs") : s).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m); };
+const tr = (k, v = {}) => { if (k === "farmsL") return FARMS_L[WF ? "f" : "m"][lang] || FARMS_L[WF ? "f" : "m"].en; const s = String((T[lang] && T[lang][k]) ?? T.en[k] ?? k); return (WF ? s.replace(/NXS/g, "nXs") : s).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m); };
 const esc = OFFICER.util.esc;
 const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
 const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[亗卍〆『』「」【】〖〗★☆♛♚♕✿❀•·]/g, "").replace(/[^\p{L}\p{N}]/gu, "");

@@ -81,11 +81,11 @@ function luckHtml() {
       <span class="bp-lk-b"><span class="bp-kt"><i class="bp-kf" style="width:${(x[1] * 100).toFixed(1)}%;background:var(--bp-main)"></i></span><b>${x[1].toFixed(2)}</b></span><span class="bp-lk-w"></span></div>`).join("")}
     <ul class="bp-ul" style="margin-top:10px">${L.n.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`;
 }
-const NONE_F = { en: "No Bear Hunt data for nxs yet.", zh: "還沒有 nxs 的狩獵巨熊資料。", pt: "Ainda não há dados da Caça ao Urso da nxs.", ar: "لا توجد بيانات صيد الدببة لـ nxs بعد.", ko: "아직 nxs의 자이언트 베어 사냥 데이터가 없어요." };
+const NONE_F = { en: "No Bear Hunt data for nXs yet.", zh: "還沒有 nXs 的狩獵巨熊資料。", pt: "Ainda não há dados da Caça ao Urso da nXs.", ar: "لا توجد بيانات صيد الدببة لـ nXs بعد.", ko: "아직 nXs의 자이언트 베어 사냥 데이터가 없어요." };
 function analysisHtml() {
   const r0 = RV, num = (v) => (v == null ? "—" : (+v).toFixed(0));
-  /* 🏰 leader cards and growth tables belong to one alliance (Sherry 2026-11-17): side "f" = nxs only · "s" = the trap both alliances share (NXS's
-     Trap 3 = nxs's Trap 1: ONE card, shown on both sides, titleF = its title on the nxs side) · none = NXS only. All in the same file. */
+  /* 🏰 leader cards and growth tables belong to one alliance (Sherry 2026-11-17): side "f" = nXs only · "s" = the trap both alliances share (NXS's
+     Trap 3 = nXs's Trap 1: ONE card, shown on both sides, titleF = its title on the nXs side) · none = NXS only. All in the same file. */
   const W = OFFICER.who ? OFFICER.who() : "m", mine = (g) => g && (g.side === "s" || (W === "f" ? g.side === "f" : g.side !== "f"));
   const sided = (a) => [].concat(a || []).filter(mine).map((g) => (W === "f" && g.titleF ? { ...g, title: g.titleF } : g));
   const r = { ...r0, leaders: sided(r0.leaders), growth: sided(r0.growth) };
@@ -113,7 +113,7 @@ function analysisHtml() {
     <tbody>${r.detail.rows.map((x) => `<tr>${x.map((v, i) => `<td${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${i === 0 ? `<bdi>${esc(v)}</bdi>` : esc(dtr(v, lang))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     ${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</details>` : "",
   };
-  // nxs: only its own cards (the rest of the page — what we saw, suggestions, the detail table — was worked out from NXS's rallies)
+  // nXs: only its own cards (the rest of the page — what we saw, suggestions, the detail table — was worked out from NXS's rallies)
   if (W === "f") return (r.leaders.length ? B.leaders() : "") + B.growth() || `<div class="card muted">${esc((NONE_F[lang] || NONE_F.en))}</div>`;
   const data = r.data ? `<div class="muted" style="font-size:12.5px;margin:2px 0 8px">${esc(LL(r.data.txt))}</div>` : "";
   if (Array.isArray(r.reports) && r.reports.length) {   // 🐻 one Bear page, several short reports: 🔎 what we saw → 💡 suggestions → the numbers behind it (Sherry 2026-11-11)
@@ -414,7 +414,7 @@ function dtr(v, lang) {
   return s.replace(/\s{2,}/g, " ").replace(/ \)/g, ")").trim();
 }
 
-/* 🏰 a leader card / growth table may carry side: "f" (nxs only) or "s" (the shared trap, with titleF = its title on the nxs side); none = NXS.
+/* 🏰 a leader card / growth table may carry side: "f" (nXs only) or "s" (the shared trap, with titleF = its title on the nXs side); none = NXS.
    📥 patch: [{op:"set", path:"leaders.0", value}, {op:"report", id, obs, sug}, {op:"detailRow", row}, {op:"growthCol", match:"2", date, values:{name: n}}, {op:"leaders", match:"Trap 1", value}, {op:"replaceText", pairs:[[from, to]]}] */
 function applyPatch(base, ops) {
   const d = JSON.parse(JSON.stringify(base)), lc = (v) => String(v).toLowerCase();   // names match whatever the capitals (Scervany = scervany)
@@ -469,6 +469,6 @@ async function init() {
 }
 function applyTexts() { if ($("bp_title")) { $("bp_title").textContent = t("title"); $("bp_intro").textContent = t("intro"); } }
 function setLang(l) { lang = l; applyTexts(); if (ST !== "load") render(); }
-window.addEventListener("nxs-who", () => { if (ST !== "load" && $("bp_root")) render(); });   // 🏰 the top-bar NXS | nxs switch
+window.addEventListener("nxs-who", () => { if (ST !== "load" && $("bp_root")) render(); });   // 🏰 the top-bar NXS | nXs switch
 OFFICER_PAGES.bearplan = { init, applyTexts, setLang, onShow: () => { if (ST !== "load") render(); } };
 })();

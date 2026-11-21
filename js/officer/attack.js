@@ -203,7 +203,7 @@ function liveLine() {
   return `<div class="muted" style="font-size:12.5px;margin:-4px 0 8px">${esc(fill(t("kvL"), { t: hm(LIVE.made), c: cap ? hm(cap) : "?", x: t(LIVE.changed ? "kvNew" : "kvSame") }))}</div>`;
 }
 const sOf = (p) => p && B3.every((b) => p.b[b] != null) ? B3.reduce((s, b) => s + p.b[b] / 1e6, 0) : (p && p.sEst) || null;   // sEst: a player known only from a fetched alliance / a plan (S ≈ from Power)
-const ours = (p) => /^nxs$/i.test(p.al || "");
+const ours = (p) => /^nXs$/i.test(p.al || "");
 
 /* ≫ ＞ ≈ ＜ ≪ against one person (Sherry 2026-11-18: "a ranking that says who is greater than whom, who is about equal" — ≈ = luck and buffs
    decide, ＞ = only overwhelming troop numbers win, ≫ (two gaps or more) = no way to win). Same cut-offs as ⚖️ Super compare: under 10% apart = ≈,
@@ -244,7 +244,7 @@ function boardsCard() {   // 📊 one list, everyone together (Sherry 2026-11-04
 const OPEN = new Set();   // which ▸ sections stay open across re-renders
 let rosterQ = "";   // 🔍 search text in their roster (kept across re-renders)
 OFFICER.whoLoaded.attack = OFFICER.who();
-const W_BODY = OFFICER.wBody(), US_ROSTER = OFFICER.rosterUrl(), US_TAG = OFFICER.who() === "f" ? "nxs" : "NXS";   // 🏰 our side on the 🗡️ Swordland card = the alliance picked in the top bar (its roster, its plans)
+const W_BODY = OFFICER.wBody(), US_ROSTER = OFFICER.rosterUrl(), US_TAG = OFFICER.who() === "f" ? "nXs" : "NXS";   // 🏰 our side on the 🗡️ Swordland card = the alliance picked in the top bar (its roster, its plans)
 let SAFE_IDS = new Set(), ROSTER = null, PLANS = null, plansErr = "", SSD = null, ssMsg = "", ssBusy = false;
 /* 💾 fetched opponents stay on this device until deleted (Sherry 2026-11-02: "the data I fetched is gone" — it used to live only in this tab) */
 const SV_LS = "nxs-ss-saved", svKey = (d) => `${+d.kid}:${String(d.tag || "").toLowerCase()}`;

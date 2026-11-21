@@ -63,15 +63,15 @@ for (const [l, o] of Object.entries({
 })) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
 for (const [l, o] of Object.entries({
-  en: { rsb: "Bread", rsq: "Stone", rsi: "Iron", rsw: "Wood", rsSum: "🌾 Resources inside the plan's territory: {n} ({l}) — a node counts when ≥ 75% (3 of its 4 tiles) is our territory.", rsYes: "ours", rsNo: "not ours", rsCov: "{c}/4 tiles in the plan's territory", pngB: "🖼️ Save as image (PNG)", pngWait: "Making the image…", pubOn: "🌐 Show the public page", pubOff: "🙈 Hide the public page", pubT: "📍 Public page “Where's my spot?”: {s}", pubYes: "shown", pubNo: "hidden", pubN: "Members see their new spot there. Opening / hiding takes a few minutes to reach everyone.", pubSaving: "Saving…", swapB: "⇄ Swap BT1 / BT2", swapOk: "Bear Trap 1 and 2 swapped on the plan.", expB: "📤 Export CSV (Kingshot Mapper)", expN: "The plan with the members on their spots, as a Kingshot Mapper CSV — open it in ksmapper.pages.dev for the next move, or load it here again.", tipFree: "empty spot", tipBt: "Bear Trap", btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btShared: "🤝 Shared Bear Trap (NXS BT3 = nxs BT1)", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
-  zh: { rsb: "麵包", rsq: "石材", rsi: "鐵礦", rsw: "木材", rsSum: "🌾 計畫領地內的資源：{n} 個（{l}）——4 格裡至少 3 格（75%）在領地內才算我們的。", rsYes: "算我們的", rsNo: "不算", rsCov: "{c}/4 格在計畫的領地內", pngB: "🖼️ 存成圖片（PNG）", pngWait: "圖片製作中…", pubOn: "🌐 公開這一頁", pubOff: "🙈 隱藏這一頁", pubT: "📍 公開網站「我的新位置在哪？」：{s}", pubYes: "公開中", pubNo: "隱藏中", pubN: "成員在那裡看自己的新位置。打開或隱藏後，大約幾分鐘所有人才會看到變化。", pubSaving: "儲存中…", swapB: "⇄ 對調 BT1 / BT2", swapOk: "計畫裡的熊陷阱 1 和 2 已對調。", expB: "📤 匯出 CSV（Kingshot Mapper）", expN: "把計畫連同分配好的成員，匯出成 Kingshot Mapper 的 CSV——下次搬家可以丟回 ksmapper.pages.dev 改，或再匯入這裡。", tipFree: "空位", tipBt: "熊陷阱", btNo: "還沒分 BT", colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btShared: "🤝 共用熊陷阱（NXS BT3 ＝ nxs BT1）", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
-  pt: { rsb: "Pão", rsq: "Pedra", rsi: "Ferro", rsw: "Madeira", rsSum: "🌾 Recursos dentro do território do plano: {n} ({l}) — um nó conta com ≥ 75% (3 de 4 casas) no nosso território.", rsYes: "nosso", rsNo: "não é nosso", rsCov: "{c}/4 casas no território do plano", pngB: "🖼️ Salvar como imagem (PNG)", pngWait: "Gerando a imagem…", pubOn: "🌐 Mostrar a página pública", pubOff: "🙈 Esconder a página pública", pubT: "📍 Página pública “Onde fica meu lugar?”: {s}", pubYes: "visível", pubNo: "escondida", pubN: "Os membros veem o novo lugar lá. Abrir / esconder leva alguns minutos para chegar a todos.", pubSaving: "Salvando…", swapB: "⇄ Trocar BT1 / BT2", swapOk: "Armadilhas de Urso 1 e 2 trocadas no plano.", expB: "📤 Exportar CSV (Kingshot Mapper)", expN: "O plano com os membros nos lugares, como CSV do Kingshot Mapper — abra no ksmapper.pages.dev na próxima mudança ou carregue aqui de novo.", tipFree: "lugar vazio", tipBt: "Armadilha de Urso", btNo: "Sem marca BT", colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btShared: "🤝 Armadilha de Urso compartilhada (NXS BT3 = nxs BT1)", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
-  ar: { rsb: "خبز", rsq: "حجر", rsi: "حديد", rsw: "خشب", rsSum: "🌾 الموارد داخل إقليم الخطة: {n} ({l}) — تُحسب العقدة إذا كان ≥ 75% (3 من 4 مربعات) في إقليمنا.", rsYes: "لنا", rsNo: "ليست لنا", rsCov: "{c}/4 مربعات داخل إقليم الخطة", pngB: "🖼️ حفظ كصورة (PNG)", pngWait: "جارٍ إنشاء الصورة…", pubOn: "🌐 إظهار الصفحة العامة", pubOff: "🙈 إخفاء الصفحة العامة", pubT: "📍 الصفحة العامة «أين مكاني؟»: {s}", pubYes: "ظاهرة", pubNo: "مخفية", pubN: "يرى الأعضاء مكانهم الجديد هناك. يحتاج الإظهار / الإخفاء بضع دقائق ليصل للجميع.", pubSaving: "جارٍ الحفظ…", swapB: "⇄ تبديل BT1 / BT2", swapOk: "تم تبديل فخ الدب 1 و2 في الخطة.", expB: "📤 تصدير CSV (Kingshot Mapper)", expN: "الخطة مع الأعضاء في أماكنهم، كملف CSV لـ Kingshot Mapper — افتحه في ksmapper.pages.dev للانتقال القادم أو حمّله هنا مجددًا.", tipFree: "مكان فارغ", tipBt: "فخ الدب", btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btShared: "🤝 فخ الدب المشترك (NXS BT3 = nxs BT1)", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
-  ko: { rsb: "빵", rsq: "석재", rsi: "철", rsw: "목재", rsSum: "🌾 계획 영지 안의 자원: {n}개 ({l}) — 4칸 중 3칸 이상(75%)이 영지 안이어야 우리 것이에요.", rsYes: "우리 것", rsNo: "아님", rsCov: "계획 영지 안 {c}/4칸", pngB: "🖼️ 이미지로 저장 (PNG)", pngWait: "이미지 만드는 중…", pubOn: "🌐 공개 페이지 보이기", pubOff: "🙈 공개 페이지 숨기기", pubT: "📍 공개 페이지 “내 자리는 어디?”: {s}", pubYes: "공개 중", pubNo: "숨김", pubN: "연맹원이 거기서 새 자리를 확인해요. 열기 / 숨기기는 모두에게 반영되기까지 몇 분 걸려요.", pubSaving: "저장 중…", swapB: "⇄ BT1 / BT2 바꾸기", swapOk: "계획의 곰 함정 1과 2를 바꿨어요.", expB: "📤 CSV 내보내기 (Kingshot Mapper)", expN: "연맹원이 배치된 계획을 Kingshot Mapper CSV로 — 다음 이사 때 ksmapper.pages.dev에서 열거나 여기서 다시 불러오세요.", tipFree: "빈 자리", tipBt: "곰 함정", btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btShared: "🤝 공용 곰 함정 (NXS BT3 = nxs BT1)", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
+  en: { rsb: "Bread", rsq: "Stone", rsi: "Iron", rsw: "Wood", rsSum: "🌾 Resources inside the plan's territory: {n} ({l}) — a node counts when ≥ 75% (3 of its 4 tiles) is our territory.", rsYes: "ours", rsNo: "not ours", rsCov: "{c}/4 tiles in the plan's territory", pngB: "🖼️ Save as image (PNG)", pngWait: "Making the image…", pubOn: "🌐 Show the public page", pubOff: "🙈 Hide the public page", pubT: "📍 Public page “Where's my spot?”: {s}", pubYes: "shown", pubNo: "hidden", pubN: "Members see their new spot there. Opening / hiding takes a few minutes to reach everyone.", pubSaving: "Saving…", swapB: "⇄ Swap BT1 / BT2", swapOk: "Bear Trap 1 and 2 swapped on the plan.", expB: "📤 Export CSV (Kingshot Mapper)", expN: "The plan with the members on their spots, as a Kingshot Mapper CSV — open it in ksmapper.pages.dev for the next move, or load it here again.", tipFree: "empty spot", tipBt: "Bear Trap", btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btShared: "🤝 Shared Bear Trap (NXS BT3 = nXs BT1)", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
+  zh: { rsb: "麵包", rsq: "石材", rsi: "鐵礦", rsw: "木材", rsSum: "🌾 計畫領地內的資源：{n} 個（{l}）——4 格裡至少 3 格（75%）在領地內才算我們的。", rsYes: "算我們的", rsNo: "不算", rsCov: "{c}/4 格在計畫的領地內", pngB: "🖼️ 存成圖片（PNG）", pngWait: "圖片製作中…", pubOn: "🌐 公開這一頁", pubOff: "🙈 隱藏這一頁", pubT: "📍 公開網站「我的新位置在哪？」：{s}", pubYes: "公開中", pubNo: "隱藏中", pubN: "成員在那裡看自己的新位置。打開或隱藏後，大約幾分鐘所有人才會看到變化。", pubSaving: "儲存中…", swapB: "⇄ 對調 BT1 / BT2", swapOk: "計畫裡的熊陷阱 1 和 2 已對調。", expB: "📤 匯出 CSV（Kingshot Mapper）", expN: "把計畫連同分配好的成員，匯出成 Kingshot Mapper 的 CSV——下次搬家可以丟回 ksmapper.pages.dev 改，或再匯入這裡。", tipFree: "空位", tipBt: "熊陷阱", btNo: "還沒分 BT", colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btShared: "🤝 共用熊陷阱（NXS BT3 ＝ nXs BT1）", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
+  pt: { rsb: "Pão", rsq: "Pedra", rsi: "Ferro", rsw: "Madeira", rsSum: "🌾 Recursos dentro do território do plano: {n} ({l}) — um nó conta com ≥ 75% (3 de 4 casas) no nosso território.", rsYes: "nosso", rsNo: "não é nosso", rsCov: "{c}/4 casas no território do plano", pngB: "🖼️ Salvar como imagem (PNG)", pngWait: "Gerando a imagem…", pubOn: "🌐 Mostrar a página pública", pubOff: "🙈 Esconder a página pública", pubT: "📍 Página pública “Onde fica meu lugar?”: {s}", pubYes: "visível", pubNo: "escondida", pubN: "Os membros veem o novo lugar lá. Abrir / esconder leva alguns minutos para chegar a todos.", pubSaving: "Salvando…", swapB: "⇄ Trocar BT1 / BT2", swapOk: "Armadilhas de Urso 1 e 2 trocadas no plano.", expB: "📤 Exportar CSV (Kingshot Mapper)", expN: "O plano com os membros nos lugares, como CSV do Kingshot Mapper — abra no ksmapper.pages.dev na próxima mudança ou carregue aqui de novo.", tipFree: "lugar vazio", tipBt: "Armadilha de Urso", btNo: "Sem marca BT", colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btShared: "🤝 Armadilha de Urso compartilhada (NXS BT3 = nXs BT1)", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
+  ar: { rsb: "خبز", rsq: "حجر", rsi: "حديد", rsw: "خشب", rsSum: "🌾 الموارد داخل إقليم الخطة: {n} ({l}) — تُحسب العقدة إذا كان ≥ 75% (3 من 4 مربعات) في إقليمنا.", rsYes: "لنا", rsNo: "ليست لنا", rsCov: "{c}/4 مربعات داخل إقليم الخطة", pngB: "🖼️ حفظ كصورة (PNG)", pngWait: "جارٍ إنشاء الصورة…", pubOn: "🌐 إظهار الصفحة العامة", pubOff: "🙈 إخفاء الصفحة العامة", pubT: "📍 الصفحة العامة «أين مكاني؟»: {s}", pubYes: "ظاهرة", pubNo: "مخفية", pubN: "يرى الأعضاء مكانهم الجديد هناك. يحتاج الإظهار / الإخفاء بضع دقائق ليصل للجميع.", pubSaving: "جارٍ الحفظ…", swapB: "⇄ تبديل BT1 / BT2", swapOk: "تم تبديل فخ الدب 1 و2 في الخطة.", expB: "📤 تصدير CSV (Kingshot Mapper)", expN: "الخطة مع الأعضاء في أماكنهم، كملف CSV لـ Kingshot Mapper — افتحه في ksmapper.pages.dev للانتقال القادم أو حمّله هنا مجددًا.", tipFree: "مكان فارغ", tipBt: "فخ الدب", btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btShared: "🤝 فخ الدب المشترك (NXS BT3 = nXs BT1)", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
+  ko: { rsb: "빵", rsq: "석재", rsi: "철", rsw: "목재", rsSum: "🌾 계획 영지 안의 자원: {n}개 ({l}) — 4칸 중 3칸 이상(75%)이 영지 안이어야 우리 것이에요.", rsYes: "우리 것", rsNo: "아님", rsCov: "계획 영지 안 {c}/4칸", pngB: "🖼️ 이미지로 저장 (PNG)", pngWait: "이미지 만드는 중…", pubOn: "🌐 공개 페이지 보이기", pubOff: "🙈 공개 페이지 숨기기", pubT: "📍 공개 페이지 “내 자리는 어디?”: {s}", pubYes: "공개 중", pubNo: "숨김", pubN: "연맹원이 거기서 새 자리를 확인해요. 열기 / 숨기기는 모두에게 반영되기까지 몇 분 걸려요.", pubSaving: "저장 중…", swapB: "⇄ BT1 / BT2 바꾸기", swapOk: "계획의 곰 함정 1과 2를 바꿨어요.", expB: "📤 CSV 내보내기 (Kingshot Mapper)", expN: "연맹원이 배치된 계획을 Kingshot Mapper CSV로 — 다음 이사 때 ksmapper.pages.dev에서 열거나 여기서 다시 불러오세요.", tipFree: "빈 자리", tipBt: "곰 함정", btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btShared: "🤝 공용 곰 함정 (NXS BT3 = nXs BT1)", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
 })) Object.assign(T[l], o);
-for (const [l, o] of Object.entries({"en": {"bt3": "🐻 BT3", "btNote3": "Tick BT1 / BT2 / BT3 for each member (more than one is fine). BT3 = the Bear Trap shared with nxs (their BT1): BT3 people stay here and go over for it.", "btNoteF": "nxs's Bear Traps: BT1 = the one shared with us (our BT3), BT2 = their own. These marks are nxs's, kept apart from NXS's.", "fNote": "nxs (2189 nxs): positions come from the daily nxs roster (look only); this hive plan, its spots and BT marks are nxs's own, apart from NXS's. Import their layout (cities y ≥ 705) with 📥 below.", "fNoRoster": "The nxs roster isn't here yet (it comes with the daily roster update)."}, "zh": {"bt3": "🐻 BT3", "btNote3": "每個人勾 BT1／BT2／BT3（可以多選）。BT3 = 跟 nxs 共用的熊陷阱（她們的 BT1）：勾 BT3 的人平常住這邊，時間到再過去打。", "btNoteF": "nxs 的熊陷阱：BT1 = 跟我們共用的那個（我們的 BT3），BT2 = 她們自己的。這裡的勾選是 nxs 的，跟 NXS 分開。", "fNote": "nxs（2189 nxs）：目前位置來自每天抓的 nxs 名冊（只能看）；這份蜂巢計畫、位置和 BT 勾選都是 nxs 自己的，跟 NXS 分開。用下面的 📥 匯入她們的布局（y ≥ 705 的城）。", "fNoRoster": "nxs 名冊還沒進來（每天名冊更新時一起抓）。"}, "pt": {"bt3": "🐻 BT3", "btNote3": "Marque BT1 / BT2 / BT3 para cada membro (pode marcar mais de um). BT3 = a Armadilha dividida com a nxs (o BT1 delas): quem tem BT3 mora aqui e vai lá na hora.", "btNoteF": "Armadilhas da nxs: BT1 = a dividida conosco (nosso BT3), BT2 = a delas. Estas marcas são da nxs, separadas das da NXS.", "fNote": "nxs (2189 nxs): as posições vêm do roster diário da nxs (só ver); este plano de colmeia, os lugares e as marcas BT são da nxs, separados da NXS. Importe o layout delas (cidades y ≥ 705) com 📥 abaixo.", "fNoRoster": "O roster da nxs ainda não chegou (vem com a atualização diária)."}, "ar": {"bt3": "🐻 BT3", "btNote3": "ضع علامة BT1 / BT2 / BT3 لكل عضو (يمكن أكثر من واحدة). BT3 = مصيدة الدب المشتركة مع nxs (BT1 الخاصة بهم): أصحاب BT3 يسكنون هنا ويذهبون إليها في وقتها.", "btNoteF": "مصائد nxs: BT1 = المشتركة معنا (BT3 عندنا)، BT2 = الخاصة بهم. هذه العلامات لـ nxs، منفصلة عن NXS.", "fNote": "nxs (2189 nxs): المواقع من قائمة nxs اليومية (للعرض فقط)؛ خطة الخلية هذه وأماكنها وعلامات BT خاصة بـ nxs ومنفصلة عن NXS. استورد مخططهم (المدن y ≥ 705) بزر 📥 أدناه.", "fNoRoster": "قائمة nxs لم تصل بعد (تأتي مع التحديث اليومي)."}, "ko": {"bt3": "🐻 BT3", "btNote3": "연맹원마다 BT1 / BT2 / BT3 체크 (여러 개 가능). BT3 = nxs와 같이 쓰는 곰 함정(그쪽 BT1): BT3인 사람은 여기 살다가 시간에 맞춰 가요.", "btNoteF": "nxs 곰 함정: BT1 = 우리와 같이 쓰는 것(우리 BT3), BT2 = 그쪽 것. 여기 체크는 nxs 것이고 NXS와 따로예요.", "fNote": "nxs (2189 nxs): 위치는 매일 받는 nxs 명단에서 와요(보기만). 이 하이브 계획, 자리, BT 체크는 nxs 것이라 NXS와 따로예요. 아래 📥로 그쪽 배치(y ≥ 705 도시)를 불러오세요.", "fNoRoster": "nxs 명단이 아직 없어요(매일 명단 업데이트 때 같이 와요)."}})) Object.assign(T[l], o);   // 🐝 nxs plan + BT3 (2026-11-15)
+for (const [l, o] of Object.entries({"en": {"bt3": "🐻 BT3", "btNote3": "Tick BT1 / BT2 / BT3 for each member (more than one is fine). BT3 = the Bear Trap shared with nXs (their BT1): BT3 people stay here and go over for it.", "btNoteF": "nXs's Bear Traps: BT1 = the one shared with us (our BT3), BT2 = their own. These marks are nXs's, kept apart from NXS's.", "fNote": "nXs (2189 nXs): positions come from the daily nXs roster (look only); this hive plan, its spots and BT marks are nXs's own, apart from NXS's. Import their layout (cities y ≥ 705) with 📥 below.", "fNoRoster": "The nXs roster isn't here yet (it comes with the daily roster update)."}, "zh": {"bt3": "🐻 BT3", "btNote3": "每個人勾 BT1／BT2／BT3（可以多選）。BT3 = 跟 nXs 共用的熊陷阱（她們的 BT1）：勾 BT3 的人平常住這邊，時間到再過去打。", "btNoteF": "nXs 的熊陷阱：BT1 = 跟我們共用的那個（我們的 BT3），BT2 = 她們自己的。這裡的勾選是 nXs 的，跟 NXS 分開。", "fNote": "nXs（2189 nXs）：目前位置來自每天抓的 nXs 名冊（只能看）；這份蜂巢計畫、位置和 BT 勾選都是 nXs 自己的，跟 NXS 分開。用下面的 📥 匯入她們的布局（y ≥ 705 的城）。", "fNoRoster": "nXs 名冊還沒進來（每天名冊更新時一起抓）。"}, "pt": {"bt3": "🐻 BT3", "btNote3": "Marque BT1 / BT2 / BT3 para cada membro (pode marcar mais de um). BT3 = a Armadilha dividida com a nXs (o BT1 delas): quem tem BT3 mora aqui e vai lá na hora.", "btNoteF": "Armadilhas da nXs: BT1 = a dividida conosco (nosso BT3), BT2 = a delas. Estas marcas são da nXs, separadas das da NXS.", "fNote": "nXs (2189 nXs): as posições vêm do roster diário da nXs (só ver); este plano de colmeia, os lugares e as marcas BT são da nXs, separados da NXS. Importe o layout delas (cidades y ≥ 705) com 📥 abaixo.", "fNoRoster": "O roster da nXs ainda não chegou (vem com a atualização diária)."}, "ar": {"bt3": "🐻 BT3", "btNote3": "ضع علامة BT1 / BT2 / BT3 لكل عضو (يمكن أكثر من واحدة). BT3 = مصيدة الدب المشتركة مع nXs (BT1 الخاصة بهم): أصحاب BT3 يسكنون هنا ويذهبون إليها في وقتها.", "btNoteF": "مصائد nXs: BT1 = المشتركة معنا (BT3 عندنا)، BT2 = الخاصة بهم. هذه العلامات لـ nXs، منفصلة عن NXS.", "fNote": "nXs (2189 nXs): المواقع من قائمة nXs اليومية (للعرض فقط)؛ خطة الخلية هذه وأماكنها وعلامات BT خاصة بـ nXs ومنفصلة عن NXS. استورد مخططهم (المدن y ≥ 705) بزر 📥 أدناه.", "fNoRoster": "قائمة nXs لم تصل بعد (تأتي مع التحديث اليومي)."}, "ko": {"bt3": "🐻 BT3", "btNote3": "연맹원마다 BT1 / BT2 / BT3 체크 (여러 개 가능). BT3 = nXs와 같이 쓰는 곰 함정(그쪽 BT1): BT3인 사람은 여기 살다가 시간에 맞춰 가요.", "btNoteF": "nXs 곰 함정: BT1 = 우리와 같이 쓰는 것(우리 BT3), BT2 = 그쪽 것. 여기 체크는 nXs 것이고 NXS와 따로예요.", "fNote": "nXs (2189 nXs): 위치는 매일 받는 nXs 명단에서 와요(보기만). 이 하이브 계획, 자리, BT 체크는 nXs 것이라 NXS와 따로예요. 아래 📥로 그쪽 배치(y ≥ 705 도시)를 불러오세요.", "fNoRoster": "nXs 명단이 아직 없어요(매일 명단 업데이트 때 같이 와요)."}})) Object.assign(T[l], o);   // 🐝 nXs plan + BT3 (2026-11-15)
 for (const [l, o] of Object.entries({"en": {"impKept": "{n} names kept on their spots from the old plan.", "impLost": "{n} people had a spot that isn't in the new layout — they're back in “not placed yet”: {l}."}, "zh": {"impKept": "舊計畫裡 {n} 個人留在原本的位置。", "impLost": "{n} 個人原本的位置不在新布局裡，回到「還沒分配」：{l}。"}, "pt": {"impKept": "{n} nomes ficaram nos lugares do plano antigo.", "impLost": "{n} pessoas tinham um lugar que não está no novo layout — voltaram para “ainda sem lugar”: {l}."}, "ar": {"impKept": "بقي {n} اسمًا في أماكنهم من الخطة القديمة.", "impLost": "{n} أشخاص كان مكانهم غير موجود في المخطط الجديد — عادوا إلى «بلا مكان بعد»: {l}."}, "ko": {"impKept": "예전 계획에서 {n}명이 원래 자리에 남았어요.", "impLost": "{n}명의 자리가 새 배치에 없어서 “아직 자리 없음”으로 돌아갔어요: {l}."}})) Object.assign(T[l], o);   // 📥 keep placed names on a new layout
-for (const [l, o] of Object.entries({"en": {"mpHowF": "Press “Update Map” for 2189 on MightPulse first (it only knows new spots after that), then 📍: nxs's positions are used here right away — nothing to save. The daily roster also brings them once a day.", "mpMovedF": "{n} nxs members have a new position."}, "zh": {"mpHowF": "先在 MightPulse 按 2189 的「Update Map」（按過它才知道新位置），再按 📍：nxs 的位置會立刻用在這裡，不用儲存。每天的名冊更新也會帶一次。", "mpMovedF": "{n} 個 nxs 成員位置有變。"}, "pt": {"mpHowF": "Primeiro aperte “Update Map” do 2189 no MightPulse (só depois ele sabe as posições novas), depois 📍: as posições da nxs são usadas aqui na hora — nada para salvar. O roster diário também traz uma vez por dia.", "mpMovedF": "{n} membros da nxs têm posição nova."}, "ar": {"mpHowF": "اضغط أولًا «Update Map» لـ 2189 في MightPulse (لا يعرف المواقع الجديدة إلا بعدها)، ثم 📍: تُستخدم مواقع nxs هنا فورًا — لا حاجة للحفظ. القائمة اليومية تجلبها أيضًا مرة في اليوم.", "mpMovedF": "{n} من أعضاء nxs لديهم موقع جديد."}, "ko": {"mpHowF": "먼저 MightPulse에서 2189의 “Update Map”을 누르고(그 뒤에야 새 위치를 알아요) 📍를 누르세요: nxs 위치가 바로 여기 반영돼요 — 저장할 것 없음. 매일 명단 업데이트 때도 하루 한 번 받아와요.", "mpMovedF": "nxs 연맹원 {n}명 위치가 바뀌었어요."}})) Object.assign(T[l], o);   // 📍 nxs positions
+for (const [l, o] of Object.entries({"en": {"mpHowF": "Press “Update Map” for 2189 on MightPulse first (it only knows new spots after that), then 📍: nXs's positions are used here right away — nothing to save. The daily roster also brings them once a day.", "mpMovedF": "{n} nXs members have a new position."}, "zh": {"mpHowF": "先在 MightPulse 按 2189 的「Update Map」（按過它才知道新位置），再按 📍：nXs 的位置會立刻用在這裡，不用儲存。每天的名冊更新也會帶一次。", "mpMovedF": "{n} 個 nXs 成員位置有變。"}, "pt": {"mpHowF": "Primeiro aperte “Update Map” do 2189 no MightPulse (só depois ele sabe as posições novas), depois 📍: as posições da nXs são usadas aqui na hora — nada para salvar. O roster diário também traz uma vez por dia.", "mpMovedF": "{n} membros da nXs têm posição nova."}, "ar": {"mpHowF": "اضغط أولًا «Update Map» لـ 2189 في MightPulse (لا يعرف المواقع الجديدة إلا بعدها)، ثم 📍: تُستخدم مواقع nXs هنا فورًا — لا حاجة للحفظ. القائمة اليومية تجلبها أيضًا مرة في اليوم.", "mpMovedF": "{n} من أعضاء nXs لديهم موقع جديد."}, "ko": {"mpHowF": "먼저 MightPulse에서 2189의 “Update Map”을 누르고(그 뒤에야 새 위치를 알아요) 📍를 누르세요: nXs 위치가 바로 여기 반영돼요 — 저장할 것 없음. 매일 명단 업데이트 때도 하루 한 번 받아와요.", "mpMovedF": "nXs 연맹원 {n}명 위치가 바뀌었어요."}})) Object.assign(T[l], o);   // 📍 nXs positions
 /* ↕️ sort the moving table (and the "Not placed yet" names) by TC / TG, Power or name — Nia 2026-11-05: sort by TG high → low while placing people */
 let MSORT = (() => { try { return JSON.parse(localStorage.getItem("nxs-mv-sort")) || { k: "", d: -1 }; } catch (e) { return { k: "", d: -1 }; } })();
 const msortKeep = () => { try { localStorage.setItem("nxs-mv-sort", JSON.stringify(MSORT)); } catch (e) {} };
@@ -91,13 +91,13 @@ let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = 
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
 let MV_PATH = "data/move-plan-x7k2p9.json";
 let MV = { plan: null, done: [], st: {} }, MV_SAVED = "", mvMsg = "";
-/* 🐝 NXS / nxs (Sherry 2026-11-15): nxs (2189 nxs) gets its own hive plan, planned the same way as ours. "nxs" swaps the whole state:
-   positions = the daily nxs roster (read only), its own plan file, its own 🐻 BT1 / BT2 marks (their BT1 = our BT3). The 🗺️ / 🚩 maps keep reading NXS. */
-const MV_PATH_M = "data/move-plan-x7k2p9.json", MV_PATH_F = "data/move-plan-nxs-x7k2p9.json";
-const SPLIT_Y = 704;   // NXS / nxs border in a shared layout
+/* 🐝 NXS / nXs (Sherry 2026-11-15): nXs (2189 nXs) gets its own hive plan, planned the same way as ours. "nXs" swaps the whole state:
+   positions = the daily nXs roster (read only), its own plan file, its own 🐻 BT1 / BT2 marks (their BT1 = our BT3). The 🗺️ / 🚩 maps keep reading NXS. */
+const MV_PATH_M = "data/move-plan-x7k2p9.json", MV_PATH_F = "data/move-plan-n2-x7k2p9.json";
+const SPLIT_Y = 704;   // NXS / nXs border in a shared layout
 let WHO = "m"; const SLOT = { m: null, f: null };
 const BTX = () => (WHO === "f" ? OFFICER.BTF : OFFICER.BT);
-const BTK = () => (WHO === "f" ? ["1", "2"] : ["1", "2", "3"]);   // the Bear Trap boxes: NXS has BT3 (the trap shared with nxs)
+const BTK = () => (WHO === "f" ? ["1", "2"] : ["1", "2", "3"]);   // the Bear Trap boxes: NXS has BT3 (the trap shared with nXs)
 const MED = () => OFFICER.can("move", "edit");
 const mvSnap = () => JSON.stringify({ plan: MV.plan, done: MV.done, st: MV.st || {} });
 
@@ -158,7 +158,7 @@ function mpDiff() {
   const stamp = eid.map((id, i) => id && !D.m[i][3] ? [i, id] : null).filter(Boolean);
   for (const r of Object.values(MP.rows)) {
     if (!r.ok || r.x == null || r.y == null) { fail.push(r.name); continue; }
-    if (r.alliance && !/^nxs$/i.test(r.alliance)) continue;   // left the alliance
+    if (r.alliance && !/^nXs$/i.test(r.alliance)) continue;   // left the alliance
     const i = byId[String(r.id)];
     const name = i != null ? D.m[i][0] : r.name, from = i != null ? [D.m[i][1], D.m[i][2]] : null;
     if (from && from[0] === r.x && from[1] === r.y) continue;
@@ -201,11 +201,11 @@ async function mpApply() {
     await save((by || "MightPulse").replace(/( · 📍)+$/, "") + " · 📍"); mpMsg = msg === savedT() ? t("mpUsed").replace("{n}", n) : msg; renderMove();
 }
 /* 🚩 banners ticked by hand in 🧭 Move steps count as standing on 🗺️ Map too (and Map's own ✅ Built shows here by itself) */
-const NX = () => (WHO === "m" || !SLOT.m ? { D, MV } : SLOT.m);   // NXS's own data even while 🐝 shows nxs
+const NX = () => (WHO === "m" || !SLOT.m ? { D, MV } : SLOT.m);   // NXS's own data even while 🐝 shows nXs
 function ticked() { const MV = NX().MV; const set = new Set(((MV && MV.st) || {}).b || []); return ((MV && MV.plan && MV.plan.b) || []).filter(([x, y]) => set.has(x + "," + y)).map(([x, y]) => [x, y]); }
 const mapSync = () => { if (WHO !== "f") { try { hqFollow(); } catch (e) {} } try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
 const t = (k) => (T[lang] || T.en)[k] || T.en[k];
-const ED = () => WHO === "m" && OFFICER.can("map", "edit");   // nxs positions come from their roster: look only
+const ED = () => WHO === "m" && OFFICER.can("map", "edit");   // nXs positions come from their roster: look only
 const norm = (s) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 const snap = () => JSON.stringify({ m: D.m, bt: D.bt });
 const BT0 = [[401, 676], [401, 660]];   // BT1, BT2
@@ -256,14 +256,14 @@ const fmtPw = (n) => n >= 1e9 ? (n / 1e9).toFixed(2) + "B" : n >= 1e6 ? (n / 1e6
    (planned city spots, road / stage banners, new HQ, Bear Traps, banners of other alliances to take down) + what is done */
 const TAGC = { R: "#222222", P: "#6a3d9a", S1: "#d4a017", S2: "#e07b39" };
 const tagKind = (tag) => !tag ? "" : /^S1-/i.test(tag) ? "S1" : /^S2-/i.test(tag) ? "S2" : tag[0].toUpperCase();
-/* the banners that really stand, for the alliance 🐝 shows: NXS's banner list, or nxs's standing list from 🚩 Territory
-   (2026-11-18: nxs's move steps were checked against NXS's banners, so nothing of nxs ever showed as built by itself) */
+/* the banners that really stand, for the alliance 🐝 shows: NXS's banner list, or nXs's standing list from 🚩 Territory
+   (2026-11-18: nXs's move steps were checked against NXS's banners, so nothing of nXs ever showed as built by itself) */
 function ownSet() { const KS = window.KM_SHARED; return new Set((WHO === "f" ? (KS && KS.farmB ? KS.farmB() : []) : KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1])).map(([x, y]) => x + "," + y)); }
 /* where we are now = our Alliance HQ (from 🗺️ Map); without it, the median X and Y of the members' cities */
 let JUMP = {};
-/* nxs for the banner check and the 🐝 map (Sherry 2026-11-18: "it starts from the Wilderness HQ, not the Plains HQ, and treats our hive's
-   banners as useless"): the 🚩 Map's hand-drawn nxs cities were the only cities the check knew, and its first HQ was simply the one drawn
-   first. Now nxs's hive comes from 🐝 itself — members' cities now + the move plan's spots + its Bear Traps — home is the middle of the
+/* nXs for the banner check and the 🐝 map (Sherry 2026-11-18: "it starts from the Wilderness HQ, not the Plains HQ, and treats our hive's
+   banners as useless"): the 🚩 Map's hand-drawn nXs cities were the only cities the check knew, and its first HQ was simply the one drawn
+   first. Now nXs's hive comes from 🐝 itself — members' cities now + the move plan's spots + its Bear Traps — home is the middle of the
    plan's spots (else the Bear Trap, else the cities), and the HQ nearest to home comes first (the Plains HQ is the one the hive stands on). */
 const nxsSrc = () => (WHO === "f" ? { D, MV } : SLOT.f || BGF || null);
 function nxsHive() {
@@ -283,10 +283,10 @@ function blockMid() { const h = hqNow()[0]; if (h) return [h[0] + 1, h[1] + 1];
   if (c.length) return [med(c.map((r) => r[1])), med(c.map((r) => r[2]))];
   const t0 = (D && D.bt && D.bt[0]) || [400, 660]; return [t0[0], t0[1]]; }
 const far = ([, x, y], mx, my) => Math.abs(x - mx) > 60 || Math.abs(y - my) > 60;
-/* 🏰 the other alliance, faint, behind ours (Sherry 2026-11-16: NXS and nxs are planned apart but share a border at Y 704 and one Bear Trap).
+/* 🏰 the other alliance, faint, behind ours (Sherry 2026-11-16: NXS and nXs are planned apart but share a border at Y 704 and one Bear Trap).
    Its plan when it has one, otherwise where its cities are now. Looking only — nothing of it can be tapped or changed from here. */
-/* 🐻 nxs's Bear Traps on 🚩 Territory are in the order they were put on the map, not by number (Sherry 2026-11-17: nxs's BT1 — the trap shared with
-   NXS — showed as BT2 because the other trap had been entered first). When nxs has a move plan, a trap standing where the plan has one takes the
+/* 🐻 nXs's Bear Traps on 🚩 Territory are in the order they were put on the map, not by number (Sherry 2026-11-17: nXs's BT1 — the trap shared with
+   NXS — showed as BT2 because the other trap had been entered first). When nXs has a move plan, a trap standing where the plan has one takes the
    plan's number; the others fill the numbers that are left, in their own order. Without a plan the order is kept. */
 function btOrderF(now, plan) {
   const pb = (plan && plan.bt) || []; if (!pb.length || !now.length) return now;
@@ -295,36 +295,36 @@ function btOrderF(now, plan) {
   const out = []; for (let i = 0; out.length < now.length && i < now.length + pb.length; i++) { if (at[i]) out.push(at[i]); else if (rest.length) out.push(rest.shift()); }
   return out;
 }
-/* nxs's move plan wherever it is held: the view itself, the nxs slot, or the copy read for the NXS view */
+/* nXs's move plan wherever it is held: the view itself, the nXs slot, or the copy read for the NXS view */
 const MVF = () => (WHO === "f" ? MV : SLOT.f ? SLOT.f.MV : BGF && BGF.MV) || null;
 const planF = () => { const m = MVF(); return m && m.plan ? { b: (m.plan.b || []).map(([x, y]) => [x, y]), st: new Set(((m.st || {}).b) || []) } : null; };
-const tickedF = () => { const p = planF(); return p ? p.b.filter(([x, y]) => p.st.has(x + "," + y)) : []; };   // nxs plan banners ticked as built in nxs's move steps (the mirror of ticked())
-let BGF = null;   // nxs, read once for the NXS view (the nxs view has NXS in SLOT.m already)
+const tickedF = () => { const p = planF(); return p ? p.b.filter(([x, y]) => p.st.has(x + "," + y)) : []; };   // nXs plan banners ticked as built in nXs's move steps (the mirror of ticked())
+let BGF = null;   // nXs, read once for the NXS view (the nXs view has NXS in SLOT.m already)
 async function bgLoad() {
   if (BGF || !(OFFICER.can("move", "view") || OFFICER.can("plan", "view"))) return;
-  let r = null, p = null; try { r = await OfficerData.fetchJson("data/academy-x7k2p9.json"); } catch (e) {} try { p = await OfficerData.fetchJson(MV_PATH_F); } catch (e) {}
+  let r = null, p = null; try { r = await OfficerData.fetchJson("data/n2-roster-x7k2p9.json"); } catch (e) {} try { p = await OfficerData.fetchJson(MV_PATH_F); } catch (e) {}
   const KS = window.KM_SHARED, f = KS && KS.farmPL ? KS.farmPL() : { bt: [] };
   BGF = { roster: r && Array.isArray(r.members) ? r : { members: [] }, D: { m: ((r && r.members) || []).filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: btOrderF((f.bt || []).map((b) => b.slice(0, 2)), p && p.plan) }, MV: { plan: p && p.plan ? p.plan : null, st: (p && p.st) || {} } };
-  try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {}   // 🚩 Territory: nxs's ticked plan banners count as standing
+  try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {}   // 🚩 Territory: nXs's ticked plan banners count as standing
   try { if (OFFICER.can("move", "view")) await OFFICER.BTF.load(); } catch (e) {}
   if (WHO === "m" && D) { draw(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); }
 }
-/* 🤝 the one trap both alliances use: NXS marks it BT3, nxs marks it BT1 — one list with both, each side by power */
+/* 🤝 the one trap both alliances use: NXS marks it BT3, nXs marks it BT1 — one list with both, each side by power */
 function sharedBt() {
   const rm = WHO === "m" ? roster : SLOT.m && SLOT.m.roster, rf = WHO === "f" ? roster : SLOT.f ? SLOT.f.roster : BGF && BGF.roster;
   const pick = (r, BT, k) => ((r && r.members) || []).filter((m) => BT.has(m.id, k)).sort((p, q) => (+q.power || 0) - (+p.power || 0)).map((m) => m.name);
   return { m: pick(rm, OFFICER.BT, "3"), f: pick(rf, OFFICER.BTF, "1") };
 }
 function sharedBtHtml() { const L = sharedBt(), row = (n, a) => `<div style="margin-top:4px;line-height:1.5;word-break:break-word"><b>${n}</b> (${a.length})：${a.length ? a.map((x) => `<bdi>${esc(x)}</bdi>`).join(" · ") : "—"}</div>`;
-  return `<div class="mm-btl b3 mm-shared" style="margin-top:8px"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(t("btShared"))} (${L.m.length + L.f.length})</b><button type="button" class="btn small" data-btcopy="s">${esc(t("btCopy"))}</button></div>${row("NXS", L.m)}${row("nxs", L.f)}</div>`; }
+  return `<div class="mm-btl b3 mm-shared" style="margin-top:8px"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(t("btShared"))} (${L.m.length + L.f.length})</b><button type="button" class="btn small" data-btcopy="s">${esc(t("btCopy"))}</button></div>${row("NXS", L.m)}${row("nXs", L.f)}</div>`; }
 function otherLayer() {
   const o = WHO === "m" ? "f" : "m", d = SLOT[o] || (o === "f" ? BGF : null); if (!d || !d.D) return null;
   const PL = d.MV && d.MV.plan, xy = (a) => a.map((v) => [v[v.length > 2 && typeof v[0] !== "number" ? 1 : 0], v[v.length > 2 && typeof v[0] !== "number" ? 2 : 1]]);
-  return PL ? { o, n: o === "f" ? "nxs" : "NXS", c: xy(PL.c || []), b: xy(PL.b || []), hq: xy(PL.hq || []), bt: xy(PL.bt || []) }
-    : { o, n: o === "f" ? "nxs" : "NXS", c: xy(d.D.m || []), b: [], hq: [], bt: xy(d.D.bt || []) };
+  return PL ? { o, n: o === "f" ? "nXs" : "NXS", c: xy(PL.c || []), b: xy(PL.b || []), hq: xy(PL.hq || []), bt: xy(PL.bt || []) }
+    : { o, n: o === "f" ? "nXs" : "NXS", c: xy(d.D.m || []), b: [], hq: [], bt: xy(d.D.bt || []) };
 }
 function draw(boxId = "mm_map") {
-  const KSx = window.KM_SHARED, ctx0 = KSx ? KSx.ctx : "m"; if (KSx) KSx.ctx = WHO;   // nxs: their banners / planned banners; ours show as another alliance
+  const KSx = window.KM_SHARED, ctx0 = KSx ? KSx.ctx : "m"; if (KSx) KSx.ctx = WHO;   // nXs: their banners / planned banners; ours show as another alliance
   try { drawIn(boxId); } finally { if (KSx) KSx.ctx = ctx0; }
 }
 function drawIn(boxId) {
@@ -350,16 +350,16 @@ function drawIn(boxId) {
   { const T = planTerr(PL);
     RESN.forEach(([k, rx, ry], ri) => { if (!inB(rx, ry)) return; const c = PL ? rsCov(T, rx, ry) : 0, ok = c >= 3, [cx, cy] = P(rx + 1, ry + 1);
       s.push(`<g class="mm-r" data-r="${ri}"><polygon points="${poly(rx, ry, 2)}" fill="${RS_COL[k] || "#ccc"}" fill-opacity="${ok || !PL ? 1 : .55}" stroke="${ok ? "#2e7d32" : "#ffffffaa"}" stroke-width="${ok ? 2.4 : 1}" stroke-dasharray="${ok || !PL ? "" : "3 2"}"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font-size:11px;pointer-events:none">${RS_ICON[k] || ""}</text></g>`); }); }
-  /* 🏰 NXS ↔ nxs: the border (cities on Y 704 and above it are NXS) and the other alliance's layout, faint */
-  { const OL = otherLayer(), yb = SPLIT_Y + 1;   // the line sits right after row Y 704 (Sherry 2026-11-17: nxs probably starts at 705; was 706)
+  /* 🏰 NXS ↔ nXs: the border (cities on Y 704 and above it are NXS) and the other alliance's layout, faint */
+  { const OL = otherLayer(), yb = SPLIT_Y + 1;   // the line sits right after row Y 704 (Sherry 2026-11-17: nXs probably starts at 705; was 706)
     if (OL) { const g = [], sq = (x, y, n, extra) => `<polygon points="${poly(x, y, n)}" fill="#ffffff" fill-opacity=".16" stroke="#ffffff" stroke-opacity=".55" stroke-width="1" stroke-dasharray="2 2"${extra || ""}/>`;
       for (const [x, y] of OL.c) if (inB(x, y)) g.push(sq(x, y, 2));
       for (const [x, y] of OL.b) if (inB(x, y)) g.push(sq(x, y, 1));
       for (const [x, y] of OL.hq) if (inB(x, y)) { const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.n} HQ</text>`); }
-      OL.bt.forEach(([x, y], i) => { if (!inB(x, y)) return; const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.o === "f" && i === 0 ? "BT3" : OL.n + " BT" + (i + 1)}</text>`); });   // nxs's BT1 is the trap shared with NXS = NXS's BT3 (Sherry 2026-11-17: show it under our name for it)
+      OL.bt.forEach(([x, y], i) => { if (!inB(x, y)) return; const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.o === "f" && i === 0 ? "BT3" : OL.n + " BT" + (i + 1)}</text>`); });   // nXs's BT1 is the trap shared with NXS = NXS's BT3 (Sherry 2026-11-17: show it under our name for it)
       if (g.length) s.push(`<g class="mm-oa" style="pointer-events:none"><title>${OL.n}</title>${g.join("")}</g>`);
       if (yb > y1 && yb < y2) { const a = P(x1, yb), b = P(x2, yb), [lx, ly] = P(x1 + 1.5, yb);
-        s.push(`<g class="mm-oa" style="pointer-events:none"><line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="#ffde4a" stroke-opacity=".8" stroke-width="1.6" stroke-dasharray="8 5"/><text x="${lx.toFixed(1)}" y="${(ly - 5).toFixed(1)}" class="mm-bl" style="fill:#ffde4a;opacity:.9">NXS ┄ Y ${SPLIT_Y} ┄ nxs</text></g>`); } } }
+        s.push(`<g class="mm-oa" style="pointer-events:none"><line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="#ffde4a" stroke-opacity=".8" stroke-width="1.6" stroke-dasharray="8 5"/><text x="${lx.toFixed(1)}" y="${(ly - 5).toFixed(1)}" class="mm-bl" style="fill:#ffde4a;opacity:.9">NXS ┄ Y ${SPLIT_Y} ┄ nXs</text></g>`); } } }
   /* 🏴 other alliances: their 7×7 territory shaded, the banner on top */
   const oth = KS ? KS.others().filter(([, bx, by]) => bx >= x1 - 3 && bx <= x2 + 3 && by >= y1 - 3 && by <= y2 + 3) : [];
   for (const [, bx, by, col] of oth) s.push(`<polygon points="${poly(bx - 3, by - 3, 7)}" fill="${esc(col)}" fill-opacity=".18" stroke="none"/>`);
@@ -486,7 +486,7 @@ const bSq = ([x, y]) => [x - 3, y - 3, x + 3, y + 3], hSq = ([x, y]) => [x - 6, 
 const sqTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => p0 <= x1 + 1 && x0 - 1 <= p1 && q0 <= y1 + 1 && y0 - 1 <= q1;   // overlap, a shared edge or just a corner (Sherry 2026-11-12, seen in game: territories that meet only at a corner are linked)
 const curHq = () => ((G && G.hq) || []).map((h) => [h[0], h[1]]);   // our HQs as the 🗺️ Map has them now
 function optCheck(maxAdd, now, sub) {   // sub = { drop: Set of "x,y" } — the same layout without one far line, only the extra banners are worked out   // now = the kingdom as it stands (our HQs, standing banners, members' cities, Bear Traps) instead of the moving plan
-  const KS = window.KM_SHARED, { D, MV } = NX(), PL = now ? (KS && KS.ctx === "f" ? nxsHive() : D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan;   // NXS's cities even while 🐝 shows nxs (2026-11-15 fix)
+  const KS = window.KM_SHARED, { D, MV } = NX(), PL = now ? (KS && KS.ctx === "f" ? nxsHive() : D && KS ? { hq: curHq(), c: D.m || [], bt: D.bt || [], b: [] } : null) : MV.plan;   // NXS's cities even while 🐝 shows nXs (2026-11-15 fix)
   if (!PL || !(PL.hq || []).length) return null;   // (2026-11-18: this stood behind the comment above since 2026-11-15 and never ran)
   const oth = new Uint8Array(OPT_N * OPT_N), occ = new Uint8Array(OPT_N * OPT_N);
   const fill = (g, [x0, y0, x1, y1], v) => { for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) g[oK(i, j)] = v; };
@@ -751,7 +751,7 @@ function reshCard() {
     ${ed && newN ? `<div class="row" style="gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap"><span>${esc(ot("rsDo"))}</span><input class="inp" id="kn_rk" type="number" min="${o.skel + 1}" max="${last.n}" value="${Math.min(last.n, Math.max(o.nAll, o.skel + 1))}" style="width:76px;height:36px;box-sizing:border-box"><span>${esc(ot("rsDo2"))}</span><button type="button" class="btn small primary" id="kn_rdo" style="height:36px">OK</button></div>` : ""}
     <p class="muted" style="font-size:12.5px;margin:8px 0 0">${esc(ot("rsLg"))}</p></div>`;
 }
-/* the kingdom-now check runs for the alliance picked on 🚩 Territory: NXS, or nxs (its own HQ, banners, cities, Bear Traps; NXS then counts as another alliance) */
+/* the kingdom-now check runs for the alliance picked on 🚩 Territory: NXS, or nXs (its own HQ, banners, cities, Bear Traps; NXS then counts as another alliance) */
 function optNowRun(sub) { const KS = window.KM_SHARED; if (KS) KS.ctx = KS.who ? KS.who() : "m"; try { return optCheck(optMax, true, sub); } finally { if (KS) KS.ctx = "m"; } }
 function renderOptNow() {
   const el = $("km_opt"); if (!el) return; el.innerHTML = optCard(true) + reshCard();
@@ -940,11 +940,11 @@ function csvPlan(text) {
       if (m && m[1] && !/^label$/i.test(m[1])) rows.push({ t: "city", x: +m[2], y: +m[3], n: m[1].replace(/[,;\t]+$/, "").trim(), c: "", s: null }); }
   }
   const cities = rows.filter((r) => r.t === "city"); if (!cities.length) return null;
-  /* NXS + nxs in one layout (same colour, Sherry 2026-11-15): the line is Y 704 — Y ≤ 704 is NXS, 705 and up nxs; a Bear Trap labelled "nxs" is
-     nxs's BT1 (our BT3, it sits on the line) */
-  if (cities.some((r) => r.n === "NXS") && cities.some((r) => r.n === "nxs")) {
-    const side = (r) => (r.t === "beartrap" && r.n === "nxs") ? "f" : r.y <= SPLIT_Y ? "m" : "f", mine = (r) => side(r) === WHO;
-    const num = (r) => r.n === "nxs" ? 0 : +((r.n.match(/\d+/) || [9])[0]);
+  /* NXS + nXs in one layout (same colour, Sherry 2026-11-15): the line is Y 704 — Y ≤ 704 is NXS, 705 and up nXs; a Bear Trap labelled "nXs" is
+     nXs's BT1 (our BT3, it sits on the line) */
+  if (cities.some((r) => r.n === "NXS") && cities.some((r) => r.n === "nXs")) {
+    const side = (r) => (r.t === "beartrap" && r.n === "nXs") ? "f" : r.y <= SPLIT_Y ? "m" : "f", mine = (r) => side(r) === WHO;
+    const num = (r) => r.n === "nXs" ? 0 : +((r.n.match(/\d+/) || [9])[0]);
     return { c: cities.filter(mine).map((r) => r.s != null ? ["", r.x, r.y, r.s] : ["", r.x, r.y]),
       bt: rows.filter((r) => r.t === "beartrap" && mine(r)).sort((p, q) => num(p) - num(q)).map((r) => [r.x, r.y]),
       hq: rows.filter((r) => r.t === "hq" && mine(r)).map((r) => [r.x, r.y]), b: rows.filter((r) => r.t === "banner" && mine(r)).map((r) => [r.x, r.y]), k: [] };
@@ -1212,7 +1212,7 @@ async function init(map) {
   OfficerData.fetchJsonFast("data/watch-x7k2p9.json", (w) => { WATCH = w; again(); }).then((w) => { if (w) { WATCH = w; again(); } }).catch(() => {});
   OfficerData.fetchJsonFast("data/records-x7k2p9.json", (r) => { RECS = r; again(); }).then((r) => { if (r) { RECS = r; again(); } }).catch(() => {});
   render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove();   // the moving table needs the roster too (TC, Power, 🐻 BT boxes) — 2026-11-05: it was drawn before the roster came
-  bgLoad();   // 🚩 Territory needs nxs's move plan too (its ticked banners, and plan banners listed as standing)
+  bgLoad();   // 🚩 Territory needs nXs's move plan too (its ticked banners, and plan banners listed as standing)
 }
 /* 🧭 the move step by step, read from the blueprint labels: ✅ comes by itself when the map already shows it
    (our banner standing there, the HQ / a Bear Trap at its new X Y, a member at their new spot); officers with the edit right tick the rest */
@@ -1270,7 +1270,7 @@ function adoptList() {
   const who = (n) => { const m = n && idx[norm(n)]; return m ? "id:" + m.id : "n:" + norm(n); };   // same roster member = same person, even if the name is written a bit differently
   /* where everyone is NOW: 👥 positions, overridden by the latest 📍 look-up (even before ✅ Use these positions is pressed) */
   const cur = D.m.map(([n, x, y], i) => gone.has(i) ? null : { n, x, y }), eid = entryIds(), byId = {}; eid.forEach((id, i) => { if (id && cur[i]) byId[id] = cur[i]; });
-  const MP = MPv(); if (MP) for (const r of Object.values(MP.rows)) { if (!r.ok || r.x == null || r.y == null || (r.alliance && !/^nxs$/i.test(r.alliance))) continue;
+  const MP = MPv(); if (MP) for (const r of Object.values(MP.rows)) { if (!r.ok || r.x == null || r.y == null || (r.alliance && !/^nXs$/i.test(r.alliance))) continue;
     const c = byId[String(r.id)]; if (c) { c.x = r.x; c.y = r.y; } else cur.push({ n: r.name, x: r.x, y: r.y }); }
   /* Sherry 2026-11-11: the hive's layout never changes — the same city spots, same X:Y, same number. Only NAMES move:
      everyone who HAS a planned spot and whose castle is now on the hive (overlaps a planned spot) gets the spot they sit on
@@ -1323,7 +1323,7 @@ function btSide(c) {
   if (pt.length < 2) return out;
   for (const [n, x, y] of c) { const m = n && idx[norm(n)]; if (!m) continue;
     const k = Math.hypot(x + 1 - (pt[0][0] + 1.5), y + 1 - (pt[0][1] + 1.5)) <= Math.hypot(x + 1 - (pt[1][0] + 1.5), y + 1 - (pt[1][1] + 1.5)) ? "1" : "2", o = k === "1" ? "2" : "1";
-    const h1 = BTX().has(m.id, k), h2 = BTX().has(m.id, o); if (BTX().has(m.id, "3")) continue;   // BT3 people go to nxs for it — the spot doesn't change their marks
+    const h1 = BTX().has(m.id, k), h2 = BTX().has(m.id, o); if (BTX().has(m.id, "3")) continue;   // BT3 people go to nXs for it — the spot doesn't change their marks
     if (h1 && h2) continue; if (h1 && !h2) continue;
     out.push({ id: String(m.id), n, k, o, had: h2 ? o : "", x, y }); }
   return out;
@@ -1433,7 +1433,7 @@ async function loadMove() {
   MV = d && d.plan ? { plan: d.plan, done: d.done || [], st: d.st || {}, by: d.by, at: d.at } : { plan: null, done: [], st: {} };
   MV_SAVED = mvSnap();
 }
-/* 📍 nxs positions (Sherry 2026-11-15: "the same button as NXS"): the same look-up for nxs's roster; their positions aren't a saved
+/* 📍 nXs positions (Sherry 2026-11-15: "the same button as NXS"): the same look-up for nXs's roster; their positions aren't a saved
    file, so newer X Y are used right away (nothing to ✅ / save). Without a press: the last look-up if it is newer than the daily roster. */
 let POSF = null, posfBusy = false, posfMsg = "";
 function fPosUse(live) {
@@ -1452,9 +1452,9 @@ function mpCardF() {
     ${posfMsg ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(posfMsg)}</div>` : ""}</div>`;
 }
 function bindMpF(el) {
-  /* 🔄 Update roster now, for nxs too (Sherry 2026-11-17: nxs had no button). The same job refreshes both rosters; when it is done nxs's own roster is read again. */
+  /* 🔄 Update roster now, for nXs too (Sherry 2026-11-17: nXs had no button). The same job refreshes both rosters; when it is done nXs's own roster is read again. */
   if (OFFICER.rosterNow && el.querySelector("#mp_rnf")) OFFICER.rosterNow.bind(el.querySelector("#mp_rnf"), () => roster && roster.updated, async () => { if (WHO !== "f") return;
-    try { const r = await OfficerData.fetchJson("data/academy-x7k2p9.json"); if (r && Array.isArray(r.members)) { roster = r; D.m = r.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]); SAVED = snap(); } } catch (e) {}
+    try { const r = await OfficerData.fetchJson("data/n2-roster-x7k2p9.json"); if (r && Array.isArray(r.members)) { roster = r; D.m = r.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]); SAVED = snap(); } } catch (e) {}
     render(); renderMove(); });
   const b = el.querySelector("#mp_posf"); if (!b) return;
   b.onclick = async () => { posfBusy = true; posfMsg = ""; renderMove();
@@ -1462,11 +1462,11 @@ function bindMpF(el) {
     if (live) { POSF = live; const n = fPosUse(live); posfMsg = t("mpMovedF").replace("{n}", n); } else posfMsg = t("mpErr");
     render(); renderMove(); };
 }
-/* 🐝 NXS / nxs switch (top of 👥 positions) */
+/* 🐝 NXS / nXs switch (top of 👥 positions) */
 const sideOf = () => (OFFICER.side ? OFFICER.side() : "");   // 🏰 an officer set to one alliance on 👥 sees that alliance only (no switch)
 /* 🏰 which alliance is being planned, always in sight on the pages that are split by alliance (Sherry 2026-11-17: "very clear which side is being
-   acted on" — but only here; the rest of the site never mentions the split). NXS = brown, nxs = teal; the map gets the same colour frame. */
-const whoName = () => (WHO === "f" ? "nxs" : "NXS");
+   acted on" — but only here; the rest of the site never mentions the split). NXS = brown, nXs = teal; the map gets the same colour frame. */
+const whoName = () => (WHO === "f" ? "nXs" : "NXS");
 function whoNow() { return `<div class="who-now who-${WHO}">🏰 ${esc(t("whoNow"))} <b>${whoName()}</b></div>`; }
 const savedT = () => t("saved") + " · 🏰 " + whoName();   // a save says which alliance's plan it went to
 function whoBar() { return ""; }   // the switch moved to the top bar (one for the whole page, 2026-11-17)
@@ -1474,7 +1474,7 @@ function bindWho(el) { el.querySelectorAll("[data-hw]").forEach((b) => b.onclick
 const keepSlot = () => ({ D, SAVED, MV, MV_SAVED, roster, mvMsg, msg, MV_PATH });
 function useSlot(o) { ({ D, SAVED, MV, MV_SAVED, roster, mvMsg, msg, MV_PATH } = o); SEL = null; SPOT = null; NOWAT = null; }
 async function loadF() {
-  let r = null; try { r = await OfficerData.fetchJson("data/academy-x7k2p9.json"); } catch (e) {}
+  let r = null; try { r = await OfficerData.fetchJson("data/n2-roster-x7k2p9.json"); } catch (e) {}
   roster = r && Array.isArray(r.members) ? r : { members: [] };
   const KS = window.KM_SHARED, f = KS && KS.farmPL ? KS.farmPL() : { bt: [] };
   D = { m: roster.members.filter((m) => m.x != null && m.y != null && m.x !== "" && m.y !== "").map((m) => [m.name, +m.x, +m.y]), bt: (f.bt || []).map((b) => b.slice(0, 2)) }; SAVED = snap();
