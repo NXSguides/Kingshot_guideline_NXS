@@ -111,7 +111,7 @@ const outpostPart = (PO, pre, who) => {
   out.push("Sanctuary Battle — Fortresses/Sanctuaries we hold: " + rl("held"), "Fortress/Sanctuary targets: " + rl("target"),
     `Season points per phase (Sanctuary 1, Fortress 2): now ${rp(["held"])}, with targets ${rp(["held", "target"])}`);
 };
-if (plan) { outpostPart(plan, "", "NXS"); outpostPart(plan.farm && plan.farm.g === 2 && plan.farm.op, "nXs ", "nXs"); }   // g: 2 = saved since nXs became the second alliance (before that the set was the old nxs's; it is kept in farm.sub)
+if (plan) { outpostPart(plan, "", "NXS"); outpostPart(plan.farm && plan.farm.g >= 2 && plan.farm.op, "nXs ", "nXs"); }   // g: 2 / 3 = saved since nXs became the second alliance (before that the set was the old nxs's; it is kept in farm.sub)
 
 const text = out.join("\n");
 writeData("data/ai-officer.json", { built: new Date().toISOString(), text });

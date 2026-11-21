@@ -1093,7 +1093,16 @@ const FK = ["hq", "b", "fl", "bt", "btp", "c"], FK_ICON = { hq: "🏯", b: "🏳
 /* 🌾 nxs is our farm since 2026-11-21 (Sherry): the second alliance is now nXs and starts empty. Everything saved for nxs until then
    (PLAN.farm without g: 2) is kept whole in PLAN.farm.sub. Its HQs and standing banners are still drawn and still hold their tiles, and can be
    added / removed by hand, but nothing is planned for it. It sits inside PLAN.farm so that older copies of the page keep it when they save. */
-function farmSplit() { const f = PLAN.farm; if (!f || f.g === 2) return; PLAN.farm = { g: 2, sub: f }; }
+function farmSplit() {
+  let f = PLAN.farm; if (!f) return;
+  if (f.g !== 2 && f.g !== 3) PLAN.farm = f = { g: 2, sub: f };
+  /* Sherry 2026-11-22: "nxs's hive plan is to be reused for nXs" — the plan parts of the old nxs set (banners to build, Bear Traps, planned Bear Traps,
+     city spots) are copied over to nXs once (g: 2 → 3), next to whatever was already entered for nXs. nxs's standing HQs and banners stay the farm's. */
+  if (f.g === 2) { const u = f.sub || {};
+    for (const k of ["fl", "bt", "btp", "c"]) { const have = new Set((f[k] || []).map(([x, y]) => x + "," + y)), add = (u[k] || []).filter(([x, y]) => !have.has(x + "," + y));
+      if (add.length) f[k] = (f[k] || []).concat(add.map((a) => a.slice())); }
+    f.g = 3; }
+}
 const SUB_TAG = "nxs", sub = () => (PLAN.farm && PLAN.farm.sub) || null, subL = (k) => { const u = sub(); return (u && u[k]) || []; };
 const subAny = () => subL("hq").length + subL("b").length > 0;
 const subEd = () => { const f = farm(); f.sub = f.sub || {}; f.sub.hq = f.sub.hq || []; f.sub.b = f.sub.b || []; return f.sub; };
@@ -1140,7 +1149,7 @@ function renderSub() {
   if ($("sb_add")) $("sb_add").onclick = () => { if (!PE()) return; const x = parseInt($("sb_x").value, 10), y = parseInt($("sb_y").value, 10), k = $("sb_kind").value; if (!(x >= 0 && y >= 0 && x < FN && y < FN)) return;
     const u = subEd(), L = k === "b" ? "b" : "hq"; let i = u[L].findIndex(([a, b]) => a === x && b === y); if (i < 0) { u[L].push(k === "hqb" ? [x, y, 2] : [x, y]); i = u[L].length - 1; } SUB_SEL = { k: L, i }; centerOn({ x, y }, true); flagsChanged(); };
 }
-const farm = () => (PLAN.farm = PLAN.farm || { g: 2 }, FK.forEach((k) => { PLAN.farm[k] = PLAN.farm[k] || []; }), PLAN.farm.rm = PLAN.farm.rm || [], PLAN.farm);
+const farm = () => (PLAN.farm = PLAN.farm || { g: 3 }, FK.forEach((k) => { PLAN.farm[k] = PLAN.farm[k] || []; }), PLAN.farm.rm = PLAN.farm.rm || [], PLAN.farm);
 /* 🐝 nXs plan banners ticked as built in nXs's move steps count as standing nXs banners — the mirror of what exList() does for NXS */
 const fTick = () => { const f = PLAN.farm || {}, have = new Set((f.b || []).map(([x, y]) => x + "," + y)); try { return window.MemberMap && MemberMap.tickedF ? MemberMap.tickedF().filter(([x, y]) => !have.has(x + "," + y)) : []; } catch (e) { return []; } };
 const fbAll = () => ((PLAN.farm || {}).b || []).concat(fTick());
