@@ -367,6 +367,8 @@ const EVENTS = {
     note: "Mon 00:00 – Sun 12:00 UTC · be in the alliance at Sun 23:00 UTC the day before (matching) to count", noteZh: "週一 00:00 – 週日 12:00 UTC · 前一天週日 UTC 23:00 配對時要在聯盟內才算" },
   "finders-fortune":    { emoji: "🔍", en: "Finder's Fortune", zh: "尋物奇緣", noGuide: true, start: "2026-10-11", every: 28, days: 3,
     note: "Hidden-object game: find every item in the scene before time runs out · 60 Buttery Bones at the start · Focusbells = Extra Time", noteZh: "找東西小遊戲：時間內找出畫面裡所有目標物品 · 開始時給 60 個美味骨頭 · 專注鈴鐺可以加時" },   // every 28 days (10/11, 11/08) — Sherry 2026-11-06
+  "champagne-fair":     { emoji: "🥂", en: "Champagne Fair", zh: "香檳市集", noGuide: true, start: "2026-11-23", every: 28, days: 2,
+    note: "Exchange items you do not need for Fair Vouchers and spend them in the fair · shards of heroes that are not at max stars cannot be exchanged", noteZh: "把用不到的道具換成市集商券，再到市集兌換 · 還沒滿星的英雄，碎片不能拿去換" },   // 2026-11-23 00:00 – 11-24 24:00 UTC (game calendar); every 28 days — Sherry 2026-11-22
   "merchant-empire":    { emoji: "🐫", en: "Merchant Empire", zh: "貿易復興", noGuide: true, start: "2026-10-12", every: 28, days: 7,
     note: "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only", noteZh: "同時最多護送 2 輛貨車 · 最後 4 小時（到週日 UTC 04:00）只能掠奪" },
   // the week after Alliance Brawl in the 4-week cycle (Brawl → Strongest Governor → Mobilization → KvK prep); 2026-10-19 – 10-25 from Sherry

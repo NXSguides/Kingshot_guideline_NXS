@@ -343,6 +343,7 @@ const NOTE_EVENTS = [
   // Castle Battle is every other Saturday, 5 h; on KvK weeks it's the cross-kingdom one (KvK's day 6: 10/10, 11/7 …), so ours comes every 28 days
   { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", every: 28, days: 1, h: [12, 17], fight: true },   // in-game calendar: 10/24 12:00 – 17:00 UTC
   { name: "Finder's Fortune", emoji: "🔍", start: "2026-10-11", every: 28, days: 3 },
+  { name: "Champagne Fair", emoji: "🥂", start: "2026-11-23", every: 28, days: 2 },   // Mon 00:00 – Tue 24:00 UTC (game calendar 2026-11-22); every 28 days — Sherry 2026-11-22
   // weekly / 28-day events from the officer calendar with no guide page (Sherry 2026-11-06: put them on the home calendar too)
   { name: "Sanctuary Battle", emoji: "🏯", start: "2026-10-06", every: 7, days: 4, fight: 4 },        // Tue – Fri, contest at the voted slot
   { name: "Alliance Championship", emoji: "🏆", start: "2026-09-28", every: 7, days: 7, todo: [1, 2] },   // 📝 day 1–2: sign up + update your teams (Sherry 2026-11-06)
