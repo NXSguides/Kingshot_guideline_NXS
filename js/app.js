@@ -1300,6 +1300,26 @@ function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on t
   }
   return out;
 }
+const SOON_TXT = {
+  title: { en:"👑 Coming to our kingdom", zh:"👑 王國即將開放", ko:"👑 왕국에 곧 열리는 것", de:"👑 Kommt bald in unser Königreich", fr:"👑 Bientôt dans notre royaume", pt:"👑 Chegando ao nosso reino", es:"👑 Próximamente en nuestro reino", tr:"👑 Krallığımıza yakında geliyor", id:"👑 Segera hadir di kerajaan kita", ru:"👑 Скоро в нашем королевстве", th:"👑 เร็ว ๆ นี้ในอาณาจักรของเรา", ar:"👑 قريبًا في مملكتنا" },
+  sub: { en:"New things that unlock before the 3rd KvK from now ({d}). Dates in UTC.", zh:"從現在算起第 3 次 KvK（{d}）之前會開放的新內容。日期為 UTC。", ko:"지금부터 3번째 KvK({d}) 전에 열리는 새로운 것들. 날짜는 UTC.", de:"Neues, das vor dem 3. KvK ab jetzt ({d}) freigeschaltet wird. Daten in UTC.", fr:"Les nouveautés qui se débloquent avant le 3e KvK à partir de maintenant ({d}). Dates en UTC.", pt:"Novidades que desbloqueiam antes do 3º KvK a partir de agora ({d}). Datas em UTC.", es:"Novedades que se desbloquean antes del 3.er KvK a partir de ahora ({d}). Fechas en UTC.", tr:"Şu andan itibaren 3. KvK'dan ({d}) önce açılacak yenilikler. Tarihler UTC.", id:"Hal baru yang terbuka sebelum KvK ke-3 dari sekarang ({d}). Tanggal dalam UTC.", ru:"Новое, что откроется до 3-го KvK от сегодняшнего дня ({d}). Даты по UTC.", th:"สิ่งใหม่ที่จะปลดล็อกก่อน KvK ครั้งที่ 3 นับจากนี้ ({d}) วันที่เป็น UTC", ar:"الجديد الذي يُفتح قبل ثالث KvK من الآن ({d}). التواريخ بتوقيت UTC." },
+  inDays: { en:"in {n} days", zh:"{n} 天後", ko:"{n}일 후", de:"in {n} Tagen", fr:"dans {n} jours", pt:"em {n} dias", es:"en {n} días", tr:"{n} gün sonra", id:"{n} hari lagi", ru:"через {n} дн.", th:"อีก {n} วัน", ar:"بعد {n} يوم" },
+  today: { en:"today", zh:"今天", ko:"오늘", de:"heute", fr:"aujourd'hui", pt:"hoje", es:"hoy", tr:"bugün", id:"hari ini", ru:"сегодня", th:"วันนี้", ar:"اليوم" },
+  none: { en:"Nothing new before then.", zh:"那之前沒有新內容。", ko:"그 전에 새로 열리는 것이 없어요.", de:"Bis dahin nichts Neues.", fr:"Rien de nouveau d'ici là.", pt:"Nada novo até lá.", es:"Nada nuevo hasta entonces.", tr:"O zamana kadar yeni bir şey yok.", id:"Belum ada hal baru sampai saat itu.", ru:"До тех пор ничего нового.", th:"ยังไม่มีสิ่งใหม่ก่อนถึงตอนนั้น", ar:"لا جديد قبل ذلك." },
+};
+/* 👑 Coming to our kingdom (Sherry + the R5, 2026-11-22): everything on the kingdom timeline (data/kingdom-timeline.js) that unlocks before the
+   3rd KvK battle day from today, so members can plan about two months ahead. The window moves on by itself after each KvK. */
+function kingdomSoonHtml() {
+  const DAY = 86400000, today = Math.floor(Date.now() / DAY) * DAY, sc = EVENT_SCHEDULES["kvk"], list = window.KINGDOM_TIMELINE;
+  if (!sc || !Array.isArray(list)) return "";
+  const first = sc.anchor + ((FIGHT_DAY["kvk"] || 6) - 1) * DAY, per = sc.periodDays * DAY;
+  const lim = first + (Math.max(0, Math.ceil((today - first) / per)) + 2) * per;   // battle day of the 3rd KvK from today
+  const loc = HTML_LANG[currentLang] || currentLang, yr = new Date(today).getUTCFullYear();
+  const fmt = (x) => new Date(x).toLocaleDateString(loc, { month: "short", day: "numeric", timeZone: "UTC", ...(new Date(x).getUTCFullYear() !== yr ? { year: "numeric" } : {}) });
+  const rows = list.map((m) => ({ t: Date.parse(m.d + "T00:00:00Z"), l: m[currentLang] || m.en })).filter((m) => m.t >= today && m.t < lim)
+    .map((m) => { const n = Math.round((m.t - today) / DAY); return `<div class="ks-row"><span class="ks-d"><b>${escapeHtml(fmt(m.t))}</b><small>${escapeHtml(n ? t(SOON_TXT.inDays).replace("{n}", n) : t(SOON_TXT.today))}</small></span><span class="ks-l" dir="auto">${m.l.map((x) => `<span>${escapeHtml(x)}</span>`).join("")}</span></div>`; }).join("");
+  return `<div id="kingdomSoon"><div class="td-h">${escapeHtml(t(SOON_TXT.title))}</div><div class="ks-sub">${escapeHtml(t(SOON_TXT.sub).replace("{d}", fmt(lim)))}</div>${rows || `<div class="td-none">${escapeHtml(t(SOON_TXT.none))}</div>`}</div>`;
+}
 function monthCalHtml() {
   const DAY = 86400000, today = Math.floor(Date.now() / DAY) * DAY, td = new Date(today);
   const first = Date.UTC(td.getUTCFullYear(), td.getUTCMonth() + calShift, 1), fd = new Date(first), nDays = new Date(Date.UTC(fd.getUTCFullYear(), fd.getUTCMonth() + 1, 0)).getUTCDate();
@@ -1319,7 +1339,7 @@ function monthCalHtml() {
   const rows = pick === today && currentGuide === HOME_GUIDE ? `<div class="td-none">${escapeHtml(t(TODAY_TXT.above))}</div>` : list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.note ? "" : it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}${it.todo ? " 📝" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.todo ? " · " + escapeHtml(t(TODAY_TXT.signup)) : it.fight || it.plain ? "" : " · " + escapeHtml(t(it.repair ? CAL_TXT.repair : it.prep ? CAL_TXT.prepPhase : CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
     : `<div class="td-none">${escapeHtml(t(CAL_TXT.none))}</div>`;
   return `<div class="td-title cal-head"><span>${escapeHtml(t(CAL_TXT.title))}</span><span class="cal-nav"><button type="button" onclick="calShift--;calPick=null;renderCal()">‹</button><b>${escapeHtml(fd.toLocaleDateString(loc, { month: "long", year: "numeric", timeZone: "UTC" }))}</b><button type="button" onclick="calShift++;calPick=null;renderCal()">›</button>${calShift !== 0 || pick !== today ? `<button type="button" class="cal-todaybtn" onclick="calShift=0;calPick=null;renderCal()">⤺ ${escapeHtml(t(TODAY_TXT.today))}</button>` : ""}</span></div>
-    <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}`;
+    <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}${kingdomSoonHtml()}`;
 }
 function renderCal() { const el = document.getElementById("monthCal"); if (el) el.innerHTML = monthCalHtml(); }
 /* ⏰ timers are still a test (js/timers.js): the bear calculator link shows where they are on. To open it to everyone: return true */

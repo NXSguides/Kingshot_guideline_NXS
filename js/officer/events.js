@@ -855,22 +855,7 @@ window.addEventListener("nxs-perms", () => { try { renderAi(); } catch (e) {} })
 /* ===== calendar: one continuous strip of days (2 weeks back, 10 ahead), scrolls sideways; one bar per event run ===== */
 const CAL_BACK = 14, CAL_AHEAD = 70, COLW = 44;
 /* 👑 Kingdom #2189 milestones (server-age unlocks, dates in UTC; English only). Shown as one row on the calendar strip. */
-const MILESTONES = [
-  ["2026-09-28", ["Gen 3 Heroes & Pets", "Masters unlocked (Valora, Pan, Roman)", "Gov Gear Material Exchange"]],
-  ["2026-11-09", ["Truegold 5", "Gov Charm Material Exchange", "4th Master (Cassia)"]],
-  ["2026-11-30", ["Governor Charm cap raised (Lv.12+)"]],
-  ["2026-12-21", ["Gen 4 Heroes (Alcar, Margot, Rosa)", "Gen 4 Pets", "5th & 6th Masters (Guinevere, Wilson)"]],
-  ["2027-01-18", ["War Academy (T11 troops)"]],
-  ["2027-03-15", ["Gen 5 Heroes (Long Fei, Thrud, Vivian)", "Gen 5 Pets", "7th & 8th Masters (Isnor, Aena)"]],
-  ["2027-04-26", ["Truegold 8"]],
-  ["2027-06-07", ["Gen 6 Heroes (Triton, Sophia, Yang)", "Gen 6 Pets"]],
-  ["2027-08-01", ["First Flamedragon Tyrant Competition"]],
-  ["2027-08-30", ["Gen 7 Heroes (Charles, Ava, Wee & Woo)", "Gen 7 Pets"]],
-  ["2027-10-11", ["Advanced Truegold Research"]],
-  ["2027-11-22", ["Gen 8 Heroes"]],
-  ["2028-02-14", ["Gen 9 Heroes (predicted)"]],
-  ["2028-03-27", ["Truegold 10"]],
-].map(([d, l]) => ({ t: dayMs(d), l }));
+const MILESTONES = (window.KINGDOM_TIMELINE || []).map((m) => ({ t: dayMs(m.d), l: m.en }));   // data/kingdom-timeline.js (also the public "👑 Coming to our kingdom" list)
 function renderMilestones() {
   const box = $("msList"); if (!box) return;
   const today = utcDay(Date.now()), next = MILESTONES.filter((m) => m.t >= today);

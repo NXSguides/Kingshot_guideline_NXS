@@ -53,6 +53,7 @@ const FEATURES = [
   ["Site: 🔬 Research Reports (public research pages)", /🔬 Research Reports: a button in the top row/, /🔬 Research Reports: what our own battle reports show/],
   ["Site: 🔰 New here? (onboarding page)", /🔰 New here\?: its own page/, /🔰 New here\? Read this page once/],
   ["Site: 📍 Where's my spot? (public hive map)", /📍 Where's my spot\?: its own page/, /📍 Where's my spot\?: type your name/],
+  ["Site: 👑 Coming to our kingdom (timeline before the 3rd KvK)", /👑 Coming to our kingdom \(home page, under the 📆 calendar/, /\{ s: "#kingdomSoon", k: "h03k" \}/],
   ["Site: 📅 This week short lines + 📝 to-do days", /📅 This week card on the home page \(short version/, /📝 = something to do today/],
   ["Site: ⏰ KvK battle-day game reminders (10:00 / 12:00 UTC)", /KvK city attacks \(10:00 UTC\)/, /KvK city attacks \(10:00 UTC\)/],
   ["Scout: ⚡ Opponents now (battle-time fetch, batches, find by name, download)", /⚡ OPPONENTS NOW/, /ak08: "⚡ Opponents now/],

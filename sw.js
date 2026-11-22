@@ -3,7 +3,7 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v984";
+const CACHE = "nxs-v985";
 const INBOX = "nxs-inbox", INBOX_KEY = "./__inbox";   // reminders that arrived, for the red badge + the "🔔 missed" card
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
@@ -14,6 +14,7 @@ const SHELL = [
   "data/content-core.js",
   "data/highlights.js",
   "data/event-names.js",
+  "data/kingdom-timeline.js",
   "js/app.js",
   "js/ann-themes.js",
   "js/battle-table.js",
