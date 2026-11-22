@@ -490,14 +490,15 @@ AI ASSISTANT
 - ⚡ OPPONENTS NOW (戰時抓對手, card at the bottom of 🔭 Scout; Sherry 2026-11-07, for the analysis chat): during a battle, fetch other kingdoms' players from MightPulse right away. Type kingdoms (default: Scout kingdoms marked "update daily"), pick the batch (positions 1–5 first, then 6–20, 21–50, 51–100 — the next batch is pre-selected after each run), rank by personal_power + troop_power (or tick gov_gear / hero_equip / master_power), extra player IDs, and alliance member lists ("kingdom:TAG" — gives every member's ID). ⚡ Fetch now sends an ENCRYPTED request → GitHub job (scripts/opp-now.js, 1–3 min) saves one encrypted file per UTC day (data/opp/, added to by every batch): 11 boards top 100 per kingdom (re-fetched only after 3 h), each player's base / ranks / heroes (hero stars, hero gear), alliance lists. Anyone already fetched today is skipped. Next to the button: the calls this batch needs (~1.15 s each + ~45 s start) and today's use; daily allowance ~5,000 calls shared with roster / Scout / history (MightPulse may report what is left; if not, the card says so). ⬇️ Download: latest batch (JSON), its CSV summary (kid, alliance, name, ID, personal / troop / pet / gov gear / charm / hero gear / master / research / migrant, top 6 heroes with stars, captured_at), or everything today. 🔎 Find by name: searches today's batches and alliance lists, today's / yesterday's MightPulse history and Scout — MightPulse has no name search, so fetch the alliance list if someone isn't found; "+ add" puts the ID into the extra list. Limit: kingdom top 100 only. The daily history (20:45 UTC) still saves the Scout "update daily" kingdoms every day.
 
 @ws
-🗂️ MY WORKSPACE (我的工作區, officer-x7k2p9.html#ws; added 2026-11-22) — a private page for each admin: things to follow up, people to remind, questions to look up. Each person has their own; it is stored apart from all other officer data.
-- PRIVATE: only the person themself can see and change their page. Sparrow can also open another person's page, read only, to check that it works. You (the AI) are NEVER given what is written on anyone's page, and Little Sparrow does not read it either — if someone asks what is on their page or on someone else's, say you cannot see it and that they can open the 🗂️ My workspace tab.
-- Four kinds of item: 🔁 every day; 📅 with an event (an event from 📅 Events + which day of it + an optional UTC time — it comes back on every run of that event); 📌 one time (optional date); ❓ to look up (a question with an answer box and a "Found" tick, so the answer stays on the page). Every item has: what, for whom (empty = me; names typed before are offered again), a note, and a tick. Daily ticks start again at 00:00 UTC.
-- "Today" card: today's items in time order (late one-time items are marked), open questions, then today and the next 2 days from the shared calendar: events with "Day a of b" and our times, ⏰ officer to-dos that have an exact time (for example a registration that closes at 23:00), and 📝 your own items for those days. All times are UTC.
-- 📣 "Coming on the kingdom timeline" card: every timeline item (the 👑 Kingdom milestones on 📅 Events) that arrives before the 3rd KvK from now, with a tick for "announced" — so members hear about new things about two months ahead (the R5's rule).
-- 📋 Briefing card: pick a person → "Copy briefing" makes English text with today's and tomorrow's events, timed to-dos, the unticked items marked for that person, and the questions for them with their answers.
-- "All items": ✏️ edit, 🗑 delete (press twice), + Add.
-- For Sparrow only: "📤 For Claude" on 📅 Events also carries her own workspace items ("Sparrow personal"), and an NXS-PATCH may hold "personal": { "set": [...], "delete": [ids] } to add or change them; they are shown for checking and saved only after ✅.
+🗂️ MY WORKSPACE (我的工作區, officer-x7k2p9.html#ws; added 2026-11-22, replanned 2026-11-23) — a private page for each admin, built around what that person is responsible for. Each person has their own; it is stored apart from all other officer data.
+- PRIVATE: only the person themself can see their page. Sparrow can also open another person's page, read only, to check that it works. You (the AI) are NEVER given what is written on anyone's page, and Little Sparrow does not read it either — if someone asks what is on their page or on someone else's, say you cannot see it and that they can open the 🗂️ My workspace tab.
+- 🎯 My events (top card, nothing to type): the events this person is responsible for that are running now or start within 2 days — "Day a of b" or "starts in n d", our times, and that event's officer to-dos for today and tomorrow (⏰ = has an exact UTC time). If none: the next one coming. Below, one line with the other events on today. "✏️ Choose my events" ticks which events are theirs (taken from the officers' responsibility sheet; Sparrow can set it for another person while looking at their page).
+  For Alliance Championship the card also says whether Bear Hunt falls on the registration deadline day (the last day of the run) or only the day before — the two cases for using the bear buffs before updating the registration.
+- 📨 From Sparrow: things Sparrow sent to this person. They tick an item when it is done; under a question they type the answer. On Sparrow's own page the same card is "📨 For <person>": she writes an item (optionally marked as a question), sees "waiting / done / answered" and the answer, can delete it (press 🗑 twice), and "📋 Copy as a message" makes English text (that person's events today and tomorrow + what is still open for them) to send outside the site as well.
+- 📣 Coming on the kingdom timeline: every timeline item that arrives before the 3rd KvK from now, with a tick for "announced" (members see the same list under the home calendar as 👑 Coming to our kingdom).
+- 📝 My notes: type and press Enter to add, tick when done, ✏️ edit, 🗑 delete (press twice).
+- Sparrow's own page has more cards: "Today" (her repeating items — 🔁 every day, or 📅 tied to an event day, added with "+ Repeating item"; daily ticks start again at 00:00 UTC), 🚧 Ongoing (work in progress with a next step), ❓ To look up (a question with an answer box under it), 📝 My own.
+  For her only, "📤 For Claude" on 📅 Events also carries these items ("Sparrow personal"), and an NXS-PATCH may hold "personal": { "set": [...], "delete": [ids] }; they are shown for checking and saved only after ✅.
 
 @research
 🔬 RESEARCH (研究報告) — one main tab on the officer page holding our research reports as small sub-tabs; ONE 👥 permission "🔬 Research" opens all of them (Sherry 2026-11-04). All of it is Sherry's own testing, not official rules, and it keeps changing.
@@ -1900,7 +1901,7 @@ const wsStr = (v, n) => String(v == null ? "" : v).replace(/\r/g, "").trim().sli
 function wsClean(w) {
   const out = { v: 1, items: [], done: {}, ann: {}, targets: [] };
   for (const x of (Array.isArray(w.items) ? w.items : []).slice(0, 300)) {
-    if (!x || !/^[\w-]{1,24}$/.test(String(x.id)) || !["daily", "event", "once", "q"].includes(x.k)) continue;
+    if (!x || !/^[\w-]{1,24}$/.test(String(x.id)) || !["daily", "event", "once", "q", "proj"].includes(x.k)) continue;
     const it = { id: String(x.id), k: x.k, text: wsStr(x.text, 500) }; if (!it.text) continue;
     if (wsStr(x.who, 40)) it.who = wsStr(x.who, 40);
     if (wsStr(x.note, 800)) it.note = wsStr(x.note, 800);
@@ -1908,7 +1909,7 @@ function wsClean(w) {
     if (x.k === "event") { if (!/^[a-z0-9][a-z0-9-]{0,39}$/.test(String(x.ev))) continue; it.ev = String(x.ev); it.due = Math.max(-7, Math.min(30, Math.round(+x.due || 0))); }
     if (x.k === "once" && /^\d{4}-\d{2}-\d{2}$/.test(String(x.date))) it.date = String(x.date);
     if (x.k === "q" && wsStr(x.ans, 1500)) it.ans = wsStr(x.ans, 1500);
-    if ((x.k === "q" || x.k === "once") && x.done) it.done = true;
+    if ((x.k === "q" || x.k === "once" || x.k === "proj") && x.done) it.done = true;
     out.items.push(it);
   }
   for (const k of Object.keys(w.done && typeof w.done === "object" ? w.done : {}).slice(0, 1500)) if (/^[\w-]{1,24}\|\d{4}-\d{2}-\d{2}$/.test(k)) out.done[k] = 1;
@@ -1916,16 +1917,55 @@ function wsClean(w) {
   out.targets = [...new Set((Array.isArray(w.targets) ? w.targets : []).map((x) => wsStr(x, 40)).filter(Boolean))].slice(0, 30);
   return out;
 }
+/* shared parts of the workspace (2026-11-23):
+   "ws-owners" = { <discord id>: [event ids] } — who owns which event (from the officers' responsibility sheet; ids only, never names);
+   "ws-msg:<id>" = { rev, items } — things Sparrow sends to that person; they tick them and answer the questions. Only Sparrow and that person read it. */
+const wsAdmins = (perms) => [...new Set([...ADMIN_IDS, ...Object.keys((perms && perms.users) || {}).filter((id) => perms.users[id] && perms.users[id].role === "admin")])];
+const wsName = (perms, id) => (perms.users && perms.users[id] && perms.users[id].name) || id;
 async function wsRoute(stub, user, body, token, role, perms) {
   if (role !== "admin") return json({ error: "no_access" }, 403);
-  const op = String(body.op || "get"), owner = user.id === ADMIN_IDS[0];
+  const op = String(body.op || "get"), owner = user.id === ADMIN_IDS[0], isId = (v) => /^\d{15,21}$/.test(String(v));
   if (op === "get") {
-    const uid = body.uid && /^\d{15,21}$/.test(String(body.uid)) ? String(body.uid) : user.id;
+    const uid = isId(body.uid) ? String(body.uid) : user.id;
     if (uid !== user.id && !owner) return json({ error: "no_access" }, 403);
-    const out = { ok: true, token, ws: (await stub.kvGet("ws:" + uid)) || null };
-    if (owner && uid === user.id) { const idx = (await stub.kvGet("ws-index")) || {}; out.others = Object.keys(idx).filter((id) => id !== user.id).map((id) => ({ id, name: (perms.users && perms.users[id] && perms.users[id].name) || id })); }
+    const owners = (await stub.kvGet("ws-owners")) || {};
+    const out = { ok: true, token, ws: (await stub.kvGet("ws:" + uid)) || null, mine: owners[uid] || [] };
+    if (!owner || uid !== user.id) out.inbox = ((await stub.kvGet("ws-msg:" + uid)) || {}).items || [];
+    if (owner && uid === user.id) {
+      const idx = (await stub.kvGet("ws-index")) || {}, ppl = wsAdmins(perms).filter((id) => id !== user.id);
+      out.others = Object.keys(idx).filter((id) => id !== user.id).map((id) => ({ id, name: wsName(perms, id) }));
+      out.people = ppl.map((id) => ({ id, name: wsName(perms, id) })); out.owners = owners; out.out = {};
+      for (const id of ppl) out.out[id] = ((await stub.kvGet("ws-msg:" + id)) || {}).items || [];
+    }
     return json(out);
   }
+  try {
+    if (op === "owners") {   // which events a person owns: Sparrow sets anyone's, everyone else only their own
+      const uid = isId(body.uid) ? String(body.uid) : user.id; if (uid !== user.id && !owner) return json({ error: "no_access" }, 403);
+      const owners = (await stub.kvGet("ws-owners")) || {};
+      owners[uid] = [...new Set((Array.isArray(body.ev) ? body.ev : []).map(String).filter((x) => /^[a-z0-9][a-z0-9-]{0,39}$/.test(x)))].slice(0, 80);
+      await stub.kvSet("ws-owners", owners); return json({ ok: true, token, mine: owners[uid] });
+    }
+    if (op === "send" || op === "unsend") {   // Sparrow → one admin
+      if (!owner) return json({ error: "no_access" }, 403);
+      const to = String(body.to || ""); if (!isId(to) || to === user.id || !wsAdmins(perms).includes(to)) return json({ error: "bad request" }, 400);
+      const box = (await stub.kvGet("ws-msg:" + to)) || { items: [] };
+      if (op === "unsend") box.items = box.items.filter((x) => x.id !== String(body.id));
+      else { const text = wsStr(body.text, 600); if (!text) return json({ error: "bad request" }, 400);
+        const id = String(body.id || ""), cur = box.items.find((x) => x.id === id);
+        if (cur) { cur.text = text; cur.q = !!body.q; }
+        else { if (box.items.length >= 100) return json({ error: "too_big" }, 413); box.items.push({ id: "m" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), text, ...(body.q ? { q: true } : {}), at: Date.now() }); } }
+      await stub.kvSet("ws-msg:" + to, box); return json({ ok: true, token, items: box.items });
+    }
+    if (op === "reply") {   // the person it was sent to: tick it, answer it
+      const box = (await stub.kvGet("ws-msg:" + user.id)) || { items: [] }, it = box.items.find((x) => x.id === String(body.id));
+      if (!it) return json({ error: "gone", token, items: box.items }, 404);
+      if (body.done !== undefined) { if (body.done) it.done = true; else delete it.done; }
+      if (body.ans !== undefined) { const a = wsStr(body.ans, 1500); if (a) it.ans = a; else delete it.ans; }
+      it.rat = Date.now();
+      await stub.kvSet("ws-msg:" + user.id, box); return json({ ok: true, token, items: box.items });
+    }
+  } catch (e) { return json({ error: "db" }, 503); }
   if (op !== "save") return json({ error: "bad request" }, 400);
   if (!body.ws || typeof body.ws !== "object") return json({ error: "bad request" }, 400);
   const old = await stub.kvGet("ws:" + user.id);
