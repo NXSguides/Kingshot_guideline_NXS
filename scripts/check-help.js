@@ -144,6 +144,7 @@ const FEATURES = [
   ["Ranking: ② sort by ranking (③ Ranking merged into ②)", /"Sort by ranking" \(依排名排序/, /rk09: [^\n]*Sort by ranking/],
   ["Ranking: 📋 Copy list (who / columns / text, Sheets table or Discord table)", /"📋 Copy list" \(複製名單\)/, /rk12: [^\n]*Google Sheets/],
   ["Map: 🎁 What we'd get (rewards of the targets)", /"🎁 What we'd get" \(拿到的話可以得到\)/, /mp18g:/],
+  ["Map: 🏛️ Sanctuary split proposal (page for the NAP)", /"🏛️ Sanctuary split proposal" \(遺跡分配提案/, /mp18s:/],
   ["Map: ✏️ Update rewards (rewards rotate)", /"✏️ Update rewards" \(更新獎勵/, /mp18e:/],
   ["Attendance: ① Registration (replies from the Ranking plan)", /① Registration \(lists made from a plan/, /at06r:/],
   ["Ranking: shared plans saved on the Worker + save box (✅ / ⏳ / ⚠️)", /saved on the Worker \(Discord login/, /rk03s:/],

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sanctuary split</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  /* 🏛️ Sanctuary split for the NAP (Sherry 2026-11-22). Opened by link only (officer 🗺️ Map → 🎁 rewards card); not in the site menu.
+     Everything is worked out on the page from the reward table below, so anyone can change the split or what counts and see the result. */
+  body { padding: 16px 16px 60px; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  h3 { margin: 0 0 8px; font-size: 17px; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+  .top select, .ss-own { padding: 5px 6px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--text); font: inherit; font-size: 13px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border: 1px solid var(--rule); border-radius: 999px; background: var(--panel-2); font-size: 13px; cursor: pointer; user-select: none; }
+  .chip input { margin: 0; accent-color: var(--accent); }
+  .chip.on { border-color: var(--accent); }
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .btn2 { padding: 7px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel-2); color: var(--text); font: inherit; font-size: 13px; cursor: pointer; }
+  .btn2.on { border-color: var(--accent); color: var(--accent); }
+  .tw { overflow-x: auto; margin: 0 -4px; padding: 0 4px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { padding: 6px 7px; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: middle; white-space: nowrap; }
+  thead th { color: var(--text-muted); font-weight: 600; font-size: 12px; }
+  td.num, th.num { text-align: end; font-variant-numeric: tabular-nums; }
+  .bar { display: inline-block; width: 74px; height: 8px; border-radius: 4px; background: var(--panel-2); border: 1px solid var(--rule); vertical-align: middle; margin-inline-start: 6px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--accent); }
+  .cal th, .cal td { text-align: center; padding: 5px 4px; }
+  .cal td:first-child, .cal th:first-child { text-align: start; position: sticky; inset-inline-start: 0; background: var(--panel); z-index: 1; }
+  .cell { display: inline-block; min-width: 56px; padding: 4px 4px; border-radius: 7px; border: 1px solid transparent; line-height: 1.25; font-size: 11.5px; color: var(--text-muted); }
+  .cell b { display: block; font-size: 15px; font-weight: 400; line-height: 1.2; }
+  .cell.w { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: color-mix(in srgb, var(--accent) 55%, transparent); color: var(--text); }
+  .grp td { background: var(--panel-2); font-weight: 600; text-align: start !important; position: static !important; }
+  .now { outline: 2px solid var(--brass); outline-offset: -2px; }
+  ul.plain { margin: 6px 0 0; padding-inline-start: 1.2em; display: grid; gap: 5px; font-size: 14px; }
+  .tag { display: inline-block; font-size: 11.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--rule); color: var(--text-muted); margin-inline-start: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><h1 id="t_h"></h1><div class="muted" id="t_sub"></div></div>
+    <select id="lang" aria-label="Language"><option value="en">English</option><option value="zh">中文</option></select>
+  </div>
+
+  <div class="card"><h3 id="t_wantH"></h3><div class="muted" id="t_wantP"></div><div class="chips" id="want"></div></div>
+
+  <div class="card"><h3 id="t_splitH"></h3><div class="muted" id="t_splitP"></div>
+    <div class="btns" id="views"></div>
+    <div class="tw" style="margin-top:10px"><table id="split"></table></div>
+    <div class="muted" id="t_splitN" style="margin-top:8px"></div>
+  </div>
+
+  <div class="card"><h3 id="t_calH"></h3><div class="muted" id="t_calP"></div>
+    <div class="tw" style="margin-top:10px"><table class="cal" id="cal"></table></div>
+  </div>
+
+  <div class="card" id="movesCard"><h3 id="t_movH"></h3><ul class="plain" id="moves"></ul></div>
+
+  <div class="card"><h3 id="t_fortH"></h3><div class="muted" id="t_fortP"></div>
+    <div class="tw" style="margin-top:10px"><table class="cal" id="fort"></table></div>
+  </div>
+
+  <div class="card"><h3 id="t_noteH"></h3><ul class="plain" id="notes"></ul></div>
+</div>
+<script>
+(() => {
+  "use strict";
+  /* Reward of each Sanctuary / Fortress in phases 1–8 of a season (the same table as the officer 🗺️ Map page, js/officer/map.js RW_WIKI):
+     Kingshot Wiki table, read off the game screen for phases 3 (2026-10-15), 5 (2026-10-30) and 8 (2026-11-22). */
+  const S = { 1: "JS HB SU TP ES HB SU XP", 2: "TP JS HB XP XP ES HB SU", 3: "SU TP JS HB SU XP ES HB", 4: "HB SU TP CB TP SU XP ES", 5: "JS DB SU EM ES DB SU XP", 6: "TP JS DB SU XP ES DB SU",
+    7: "SU TP JS TP SU XP ES DB", 8: "DB SU TP XP TP SU XP ES", 9: "JS DP SU DB ES DP SU XP", 10: "TP JS DP CB XP ES DP SU", 11: "SU TP JS EM SU XP ES DP", 12: "DP SU TP SU TP SU XP ES" };
+  const F = { 1: "SS EX EM JS SS EX EM JS", 2: "CB SS EX CB CB SS EX CB", 3: "EM CB SS EX EM CB CB EX", 4: "EX EM CB SS EX EM SS SS" };
+  for (const k in S) S[k] = S[k].split(" "); for (const k in F) F[k] = F[k].split(" ");
+  const ITEM = {
+    SU: { i: "⏩", q: 400, en: "1h speedup", zh: "1 小時加速", full: { en: "1h General Speedup", zh: "1 小時通用加速" } },
+    TP: { i: "🧭", q: 90, en: "Teleport", zh: "高級遷城", full: { en: "Advanced Teleporter", zh: "高級遷城" } },
+    HB: { i: "💚", q: 60, en: "Health buff", zh: "生命增益", full: { en: "Troops Health Up II (12hrs)", zh: "部隊生命值提升II（12小時）" } },
+    DB: { i: "⚔️", q: 60, en: "Damage buff", zh: "傷害增益", full: { en: "Troops Damage Up II (12hrs)", zh: "部隊傷害提升II（12小時）" } },
+    DP: { i: "🚩", q: 60, en: "Deploy buff", zh: "出征增益", full: { en: "Deployment Capacity Boost II (12hrs)", zh: "出征部隊數量提升II（12小時）" } },
+    ES: { i: "🎁", q: 300, en: "Epic chest", zh: "史詩箱", full: { en: "Custom Epic Hero Shard Chest", zh: "史詩英雄碎片客製化箱子" } },
+    XP: { i: "🧪", q: 300, en: "Hero XP", zh: "英雄經驗", full: { en: "10,000 Hero XP", zh: "10,000點英雄經驗值" } },
+    JS: { i: "🧩", q: 200, qf: 420, en: "Jabel", zh: "潔貝爾", full: { en: "Jabel Shard", zh: "潔貝爾碎片" } },
+    SS: { i: "🧩", q: 420, en: "Saul", zh: "薩洛", full: { en: "Saul Shard", zh: "薩洛碎片" } },
+    CB: { i: "📕", q: 600, en: "Conquest", zh: "討伐書", full: { en: "Mythic Conquest Skill Book", zh: "傳說討伐技能書" } },
+    EM: { i: "📘", q: 600, en: "Expedition", zh: "遠征書", full: { en: "Mythic Expedition Skill Manual", zh: "傳說遠征技能書" } },
+    EX: { i: "🔧", q: 500, en: "Gear XP", zh: "強化經驗", full: { en: "100 Enhancement XP Part", zh: "100點強化經驗部件" } },
+  };
+  const KINDS = ["SU", "TP", "HB", "DB", "DP", "ES", "XP", "JS", "CB", "EM"];   // what a Sanctuary can give
+  const GROUPS = ["NXS", "RED", "NRD", "ESA", "IDN"], FFA = "—";
+  const FORT = { NXS: 2, RED: 3, NRD: 4, ESA: 1 };
+  const PLAN = { 6: "NXS", 12: "NXS", 1: "RED", 3: "RED", 7: "NRD", 9: "NRD", 2: "ESA", 8: "ESA", 4: "IDN", 10: "IDN", 5: FFA, 11: FFA };
+  const NOW = { 1: "NXS", 6: "NXS", 2: "RED", 3: "RED", 10: "NRD", 11: "NRD", 5: "ESA", 12: "ESA", 4: "IDN", 7: FFA, 8: FFA, 9: FFA };
+  const T = {
+    en: { h: "🏛️ Sanctuary split", sub: "Kingdom 2189 · NAP 5 · proposal for the next season",
+      wantH: "What counts as a useful reward", wantP: "Ticked rewards are the ones we want for Kingdom of Power. Change the ticks and every number below follows.",
+      splitH: "The split", splitP: "Two Sanctuaries per group, in NAP order, two left free for all. \"Useful\" = how many of the group's 16 rewards in a season (2 Sanctuaries × 8 phases) are ticked above.",
+      vPlan: "Proposed", vNow: "Now", vOwn: "Your own", group: "Group", sanc: "Sanctuaries", fort: "Fortress", useful: "Useful", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
+      splitN: "You can try another split: change the owner of a Sanctuary in the table below.",
+      calH: "Phase by phase", calP: "Highlighted = useful. The number is how many the alliance gets to hand out.", ph: "Phase", s: "Sanctuary", owner: "Owner",
+      movH: "What changes from now", stay: "{g} keeps Sanctuary {a}.", take: "{g} takes Sanctuary {a} (now {o}).", takeF: "{g} takes Sanctuary {a} (nobody holds it now).", free: "Sanctuary {a} becomes free for all (now {o}).", same: "Nothing changes.",
+      fortH: "Fortresses", fortP: "Not part of this proposal — they stay as they are. Their special rewards are shards, books and Gear XP in every phase.", f: "Fortress",
+      noteH: "Notes", notes: ["The reward table is the same one as last season. Phases 3, 5 and 8 were checked against the game; the others are from the Kingshot Wiki.", "Each alliance can sign up for one Sanctuary and one Fortress per phase; a Sanctuary it already holds is signed up automatically.", "Buffs last 12 hours: Health and Damage are +20%, Deployment Capacity +20%."] },
+    zh: { h: "🏛️ 遺跡分配", sub: "王國 2189 · NAP 5 · 下一個賽季的提案",
+      wantH: "哪些算有用的獎勵", wantP: "打勾的是最強王國用得到的。改勾選，下面所有數字都會跟著變。",
+      splitH: "分配", splitP: "每個集團 2 座遺跡，照 NAP 順序，剩 2 座自由搶。「有用」＝這個集團整季 16 個獎勵（2 座 × 8 期）裡，有幾個是上面打勾的。",
+      vPlan: "提案", vNow: "現在", vOwn: "自己排", group: "集團", sanc: "遺跡", fort: "要塞", useful: "有用", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
+      splitN: "想試別的分法：在下面的表改某一座遺跡的擁有者。",
+      calH: "每一期拿什麼", calP: "有底色＝有用。數字是聯盟可以分配的數量。", ph: "第", s: "遺跡", owner: "擁有者",
+      movH: "跟現在比要動的", stay: "{g} 保留 {a} 號遺跡。", take: "{g} 接 {a} 號遺跡（現在是 {o}）。", takeF: "{g} 接 {a} 號遺跡（現在沒人）。", free: "{a} 號遺跡改成自由搶（現在是 {o}）。", same: "沒有變動。",
+      fortH: "要塞", fortP: "不在這次提案裡，維持現狀。要塞的特殊獎勵每一期都是碎片、技能書、強化經驗。", f: "要塞",
+      noteH: "備註", notes: ["獎勵表跟上一季是同一張。第 3、5、8 期對過遊戲，其他期來自 Kingshot Wiki。", "每個聯盟每期可以報名 1 座遺跡和 1 座要塞；已經佔有的遺跡會自動報名。", "增益都是 12 小時：生命、傷害 +20%，出征數量 +20%。"] },
+  };
+  let lang = "en"; try { const l = localStorage.getItem("ks-lang"); if (l && l.startsWith("zh")) lang = "zh"; } catch (e) {}
+  const q = new URLSearchParams(location.search); if (T[q.get("lang")]) lang = q.get("lang");
+  const t = (k) => T[lang][k], $ = (id) => document.getElementById(id), esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  let want = new Set(["SU", "TP", "HB", "DB", "DP"]), view = "plan", own = { ...PLAN };
+  const A = () => (view === "now" ? NOW : view === "plan" ? PLAN : own);
+  const of = (g) => Object.keys(S).map(Number).filter((k) => A()[k] === g);
+  const stat = (g) => { const L = of(g); let n = 0; const gap = [];
+    for (let p = 0; p < 8; p++) { const c = L.filter((k) => want.has(S[k][p])).length; n += c; if (!c && L.length) gap.push(p + 1); } return { L, n, tot: L.length * 8, gap }; };
+  const cell = (c, fort) => { const it = ITEM[c]; return `<span class="cell${want.has(c) ? " w" : ""}" title="${esc(it.full[lang])}"><b>${it.i}</b>${esc(it[lang])}<br>×${fort && it.qf ? it.qf : it.q}</span>`; };
+
+  function render() {
+    document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en"; document.title = t("h").replace(/^\S+\s/, "");
+    for (const k of ["h", "sub", "wantH", "wantP", "splitH", "splitP", "splitN", "calH", "calP", "movH", "fortH", "fortP", "noteH"]) $("t_" + k).textContent = t(k);
+    $("want").innerHTML = KINDS.map((c) => `<label class="chip${want.has(c) ? " on" : ""}"><input type="checkbox" data-w="${c}"${want.has(c) ? " checked" : ""}>${ITEM[c].i} ${esc(ITEM[c].full[lang])}</label>`).join("");
+    $("views").innerHTML = [["plan", "vPlan"], ["now", "vNow"], ["own", "vOwn"]].map(([v, k]) => `<button type="button" class="btn2${view === v ? " on" : ""}" data-v="${v}">${esc(t(k))}</button>`).join("");
+    $("split").innerHTML = `<thead><tr><th>${esc(t("group"))}</th><th>${esc(t("sanc"))}</th><th>${esc(t("fort"))}</th><th class="num">${esc(t("useful"))}</th><th>${esc(t("gap"))}</th></tr></thead><tbody>`
+      + GROUPS.concat([FFA]).map((g) => { const s = stat(g); return `<tr><td><b>${g === FFA ? esc(t("ffa")) : g}</b></td><td>${s.L.join(", ") || "—"}</td><td>${FORT[g] || "—"}</td>
+        <td class="num">${s.tot ? `${s.n} / ${s.tot}<span class="bar"><i style="width:${Math.round(100 * s.n / s.tot)}%"></i></span>` : "—"}</td><td>${g === FFA || !s.tot ? "—" : s.gap.length ? s.gap.join(", ") : esc(t("none"))}</td></tr>`; }).join("") + `</tbody>`;
+    const head = `<thead><tr><th>${esc(t("s"))}</th>${[1, 2, 3, 4, 5, 6, 7, 8].map((p) => `<th>${lang === "zh" ? `${t("ph")} ${p} 期` : `${t("ph")} ${p}`}</th>`).join("")}</tr></thead>`;
+    $("cal").innerHTML = head + `<tbody>` + GROUPS.concat([FFA]).map((g) => { const L = of(g); if (!L.length) return "";
+      return `<tr class="grp"><td colspan="9">${g === FFA ? esc(t("ffa")) : g}</td></tr>` + L.map((k) => `<tr><td><b>${k}</b> ${view === "own" ? `<select class="ss-own" data-o="${k}">${GROUPS.concat([FFA]).map((x) => `<option value="${x}"${A()[k] === x ? " selected" : ""}>${x === FFA ? esc(t("ffa")) : x}</option>`).join("")}</select>` : ""}</td>${S[k].map((c) => `<td>${cell(c)}</td>`).join("")}</tr>`).join(""); }).join("") + `</tbody>`;
+    $("fort").innerHTML = head.replace(esc(t("s")), esc(t("f"))) + `<tbody>` + [1, 2, 3, 4].map((k) => `<tr><td><b>${k}</b><span class="tag">${Object.keys(FORT).find((g) => FORT[g] === k) || ""}</span></td>${F[k].map((c) => `<td>${cell(c, true)}</td>`).join("")}</tr>`).join("") + `</tbody>`;
+    const M = []; if (view !== "now") for (const g of GROUPS) for (const k of of(g)) { const o = NOW[k]; if (o === g) M.push(t("stay").replace("{g}", g).replace("{a}", k)); else M.push(t(o === FFA ? "takeF" : "take").replace("{g}", g).replace("{a}", k).replace("{o}", o)); }
+    if (view !== "now") for (const k of of(FFA)) if (NOW[k] !== FFA) M.push(t("free").replace("{a}", k).replace("{o}", NOW[k]));
+    $("movesCard").hidden = view === "now"; $("moves").innerHTML = (M.length ? M : [t("same")]).map((x) => `<li>${esc(x)}</li>`).join("");
+    $("notes").innerHTML = t("notes").map((x) => `<li>${esc(x)}</li>`).join("");
+    document.querySelectorAll("[data-w]").forEach((x) => x.onchange = () => { x.checked ? want.add(x.dataset.w) : want.delete(x.dataset.w); render(); });
+    document.querySelectorAll("[data-v]").forEach((x) => x.onclick = () => { if (x.dataset.v === "own" && view !== "own") own = { ...A() }; view = x.dataset.v; render(); });
+    document.querySelectorAll("[data-o]").forEach((x) => x.onchange = () => { own[+x.dataset.o] = x.value; render(); });
+  }
+  $("lang").value = lang; $("lang").onchange = () => { lang = $("lang").value; render(); };
+  render();
+})();
+</script>
+</body>
+</html>

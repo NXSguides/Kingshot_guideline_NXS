@@ -232,7 +232,7 @@ const RW_CODE = { JS: "jabel", SS: "saul", EX: "enhxp", EM: "expbook", CB: "conq
 /* amounts: the game screens (phases 3 and 5) and the Wiki's icon table (sanctuary books in phase 4 ×600). The Wiki shows the
    sanctuary Jabel Shard as ×420, the game showed ×200 (10-15 and Sparrow's list) — the game wins until a screen says otherwise. */
 const RW_QTY = { sanctuary: { gen1h: 400, hp2: 60, dmg2: 60, deploy2: 60, jabel: 200, teleport: 90, epicchest: 300, heroxp10k: 300, conqbook: 600, expbook: 600 }, fortress: { expbook: 600, conqbook: 600, saul: 420, enhxp: 500, jabel: 420 } };   // fortress Jabel ×420: the Wiki's icon table (Sparrow, 10-30)
-const RW_CHECKED = { 3: "2026-10-15", 5: "2026-10-30" };   // phases whose built-in list was read off the game screen
+const RW_CHECKED = { 3: "2026-10-15", 5: "2026-10-30", 8: "2026-11-22" };   // phases whose built-in list was read off the game screen
 const RW_P1 = Date.UTC(2026, 8, 26), RW_WK = 7 * 864e5;   // Season 3 Phase 1 began Sat 2026-09-26 00:00 UTC (Phase 5 ended 10-31 00:00 UTC)
 const rwNow = () => { const w = Math.floor((Date.now() - RW_P1) / RW_WK); return { season: 3 + Math.floor(w / 8), phase: ((w % 8) + 8) % 8 + 1 }; };
 let RW_SAVED = {}, RW_PHASE = rwNow().phase;   // RW_SAVED[phase] = { special, season, by, at } from the Worker
@@ -321,7 +321,7 @@ function rewardsHtml() {
   const opt = (p) => `<option value="${p}"${p === RW_PHASE ? " selected" : ""}>${esc(rwe("phaseL", { s: seasonOf(p), p }))}${p === nw.phase ? " · " + esc(rwe("now")) : p === nw.phase % 8 + 1 ? " · " + esc(rwe("next")) : ""}</option>`;
   const src = r.src === "game" ? rwe("srcGame", { who: r.by || "?", d: new Date(r.at).toISOString().slice(0, 10) }) : r.src === "built" ? rwe("srcBuilt", { d: r.d }) : rwe("srcWiki");
   const when = `<label style="font-size:13px">${esc(rwe("phaseSel"))} <select class="inp km-rwsel" data-rwphase="1">${[1, 2, 3, 4, 5, 6, 7, 8].map(opt).join("")}</select></label><div class="muted" style="font-size:12px;margin-top:4px">${esc(src)} ${esc(rwe("estNote"))}</div>`;
-  return `<div class="km-c km-rw" style="grid-column:1/-1"><div class="hd"><b>${esc(rt("title"))}</b>${ME() ? `<button type="button" class="btn small" data-rwedit="1">${esc(rwe("edit"))}</button>` : ""}</div><div style="margin:4px 0">${when}</div><div class="km-rw3">${["k1", "k2", "k3"].map((k) => `<div>${esc(rt(k))}</div>`).join("")}</div>${block("fortress", "◆", "#7a4a24")}${block("sanctuary", "●", "#5d6876")}</div>`;
+  return `<div class="km-c km-rw" style="grid-column:1/-1"><div class="hd"><b>${esc(rt("title"))}</b>${ME() ? `<button type="button" class="btn small" data-rwedit="1">${esc(rwe("edit"))}</button>` : ""}</div><div style="margin:4px 0">${when}</div><div style="margin:2px 0 6px"><a class="btn small" id="km_split" href="sanctuary-split.html?lang=${lang === "zh" ? "zh" : "en"}" target="_blank" rel="noopener">${esc({ zh: "🏛️ 遺跡分配提案（給 NAP 看的頁面）", ko: "🏛️ 유적 분배 제안 (NAP용 페이지)", pt: "🏛️ Proposta de divisão dos Santuários (página para o NAP)", ar: "🏛️ اقتراح تقسيم المآوي (صفحة لـ NAP)" }[lang] || "🏛️ Sanctuary split proposal (page for the NAP)")}</a></div><div class="km-rw3">${["k1", "k2", "k3"].map((k) => `<div>${esc(rt(k))}</div>`).join("")}</div>${block("fortress", "◆", "#7a4a24")}${block("sanctuary", "●", "#5d6876")}</div>`;
 }
 function renderList() {
   const pr = B.filter((b) => PRIOABLE(b) && SP(b).p).sort((a, b) => SP(a).p - SP(b).p);
