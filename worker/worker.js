@@ -62,7 +62,7 @@ async function handle(req, env, ctx) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed" || path === "/secret") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed" || path === "/secret" || path === "/ws") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -489,6 +489,16 @@ AI ASSISTANT
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
 - ⚡ OPPONENTS NOW (戰時抓對手, card at the bottom of 🔭 Scout; Sherry 2026-11-07, for the analysis chat): during a battle, fetch other kingdoms' players from MightPulse right away. Type kingdoms (default: Scout kingdoms marked "update daily"), pick the batch (positions 1–5 first, then 6–20, 21–50, 51–100 — the next batch is pre-selected after each run), rank by personal_power + troop_power (or tick gov_gear / hero_equip / master_power), extra player IDs, and alliance member lists ("kingdom:TAG" — gives every member's ID). ⚡ Fetch now sends an ENCRYPTED request → GitHub job (scripts/opp-now.js, 1–3 min) saves one encrypted file per UTC day (data/opp/, added to by every batch): 11 boards top 100 per kingdom (re-fetched only after 3 h), each player's base / ranks / heroes (hero stars, hero gear), alliance lists. Anyone already fetched today is skipped. Next to the button: the calls this batch needs (~1.15 s each + ~45 s start) and today's use; daily allowance ~5,000 calls shared with roster / Scout / history (MightPulse may report what is left; if not, the card says so). ⬇️ Download: latest batch (JSON), its CSV summary (kid, alliance, name, ID, personal / troop / pet / gov gear / charm / hero gear / master / research / migrant, top 6 heroes with stars, captured_at), or everything today. 🔎 Find by name: searches today's batches and alliance lists, today's / yesterday's MightPulse history and Scout — MightPulse has no name search, so fetch the alliance list if someone isn't found; "+ add" puts the ID into the extra list. Limit: kingdom top 100 only. The daily history (20:45 UTC) still saves the Scout "update daily" kingdoms every day.
 
+@ws
+🗂️ MY WORKSPACE (我的工作區, officer-x7k2p9.html#ws; added 2026-11-22) — a private page for each admin: things to follow up, people to remind, questions to look up. Each person has their own; it is stored apart from all other officer data.
+- PRIVATE: only the person themself can see and change their page. Sparrow can also open another person's page, read only, to check that it works. You (the AI) are NEVER given what is written on anyone's page, and Little Sparrow does not read it either — if someone asks what is on their page or on someone else's, say you cannot see it and that they can open the 🗂️ My workspace tab.
+- Four kinds of item: 🔁 every day; 📅 with an event (an event from 📅 Events + which day of it + an optional UTC time — it comes back on every run of that event); 📌 one time (optional date); ❓ to look up (a question with an answer box and a "Found" tick, so the answer stays on the page). Every item has: what, for whom (empty = me; names typed before are offered again), a note, and a tick. Daily ticks start again at 00:00 UTC.
+- "Today" card: today's items in time order (late one-time items are marked), open questions, then today and the next 2 days from the shared calendar: events with "Day a of b" and our times, ⏰ officer to-dos that have an exact time (for example a registration that closes at 23:00), and 📝 your own items for those days. All times are UTC.
+- 📣 "Coming on the kingdom timeline" card: every timeline item (the 👑 Kingdom milestones on 📅 Events) that arrives before the 3rd KvK from now, with a tick for "announced" — so members hear about new things about two months ahead (the R5's rule).
+- 📋 Briefing card: pick a person → "Copy briefing" makes English text with today's and tomorrow's events, timed to-dos, the unticked items marked for that person, and the questions for them with their answers.
+- "All items": ✏️ edit, 🗑 delete (press twice), + Add.
+- For Sparrow only: "📤 For Claude" on 📅 Events also carries her own workspace items ("Sparrow personal"), and an NXS-PATCH may hold "personal": { "set": [...], "delete": [ids] } to add or change them; they are shown for checking and saved only after ✅.
+
 @research
 🔬 RESEARCH (研究報告) — one main tab on the officer page holding our research reports as small sub-tabs; ONE 👥 permission "🔬 Research" opens all of them (Sherry 2026-11-04). All of it is Sherry's own testing, not official rules, and it keeps changing.
 
@@ -763,7 +773,7 @@ async function isOfficer(body, env) {
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
 const RESEARCH_TABS = ["iv", "growth", "hr", "ms", "bh", "bearplan", "vv", "rg", "tb", "ls", "ma", "gn"];   // 🔬 all opened by the one "research" permission
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", plan: "🚩 Territory", move: "🐝 Hive", hunt: "🎯 Blacklist", attack: "⚖️ Compare", tr: "🧳 Transfer", growth: "🧭 Growth", hr: "🦸 Heroes", bearplan: "🐻 Bear analysis", vv: "🪓 Viking report", rg: "⚔️ Rally & Garrison", tb: "🦣 Terror rallies", ls: "🩹 Battle losses", ma: "🎓 Masters", gn: "📺 Guide notes", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", research: "🔬 Research", ranking: "📊 Roster", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watchlist", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", plan: "🚩 Territory", move: "🐝 Hive", hunt: "🎯 Blacklist", attack: "⚖️ Compare", tr: "🧳 Transfer", growth: "🧭 Growth", hr: "🦸 Heroes", bearplan: "🐻 Bear analysis", vv: "🪓 Viking report", rg: "⚔️ Rally & Garrison", tb: "🦣 Terror rallies", ls: "🩹 Battle losses", ma: "🎓 Masters", gn: "📺 Guide notes", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", research: "🔬 Research", ranking: "📊 Roster", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watchlist", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers", ws: "🗂️ My workspace" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)", plan: "[Territory](officer-x7k2p9.html#plan) (banner planning for NXS and the Academy, banner check, resource nodes, Academy roster)",
@@ -785,6 +795,7 @@ const AI_TAB_LINKS = {
   attack: "[Compare](officer-x7k2p9.html#attack) (⚖️ compare two players, today's strength list, KvK intel, scouting other kingdoms)",
   tr: "[Transfer](officer-x7k2p9.html#tr) (Kingdom Transfer list: players who want to move to #2189, MightPulse look-up, invites)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
+  ws: "[My workspace](officer-x7k2p9.html#ws) (the officer's own private notes and reminders — you cannot read what is in it)",
 };
 async function officerAccess(req, env, body) {
   if (!body || typeof body.token !== "string" || !body.token) return null;
@@ -1882,6 +1893,48 @@ async function plansRoute(env, stub, user, body, token, perms) {
 /* 🎁 /rewards — the Sanctuary Battle special rewards (they rotate between seasons): officers with ✏️ Map rights update them on the
    Map tab; everyone who may open the Map tab reads them. Stored in the DO (kv "rewards"), the last 20 versions in "rewards:hist".
    rewards = { phases: { "5": { special: { fortress: { "1": [itemId, qty] … }, sanctuary: { … } }, season, by, at } … }, items: { customId: { en, zh, … } } } */
+/* 🗂️ My workspace (Sherry 2026-11-22): one private page per admin, kept under their own Discord id ("ws:<id>"), apart from all officer data.
+   Only that person reads and writes it. The site owner (ADMIN_IDS[0]) may also READ another person's page, to check for problems — never write it.
+   Nothing here is ever given to the AI (no data part, no context). */
+const wsStr = (v, n) => String(v == null ? "" : v).replace(/\r/g, "").trim().slice(0, n);
+function wsClean(w) {
+  const out = { v: 1, items: [], done: {}, ann: {}, targets: [] };
+  for (const x of (Array.isArray(w.items) ? w.items : []).slice(0, 300)) {
+    if (!x || !/^[\w-]{1,24}$/.test(String(x.id)) || !["daily", "event", "once", "q"].includes(x.k)) continue;
+    const it = { id: String(x.id), k: x.k, text: wsStr(x.text, 500) }; if (!it.text) continue;
+    if (wsStr(x.who, 40)) it.who = wsStr(x.who, 40);
+    if (wsStr(x.note, 800)) it.note = wsStr(x.note, 800);
+    if (/^([01]\d|2[0-3]):[0-5]\d$/.test(String(x.at)) && x.k !== "q") it.at = String(x.at);
+    if (x.k === "event") { if (!/^[a-z0-9][a-z0-9-]{0,39}$/.test(String(x.ev))) continue; it.ev = String(x.ev); it.due = Math.max(-7, Math.min(30, Math.round(+x.due || 0))); }
+    if (x.k === "once" && /^\d{4}-\d{2}-\d{2}$/.test(String(x.date))) it.date = String(x.date);
+    if (x.k === "q" && wsStr(x.ans, 1500)) it.ans = wsStr(x.ans, 1500);
+    if ((x.k === "q" || x.k === "once") && x.done) it.done = true;
+    out.items.push(it);
+  }
+  for (const k of Object.keys(w.done && typeof w.done === "object" ? w.done : {}).slice(0, 1500)) if (/^[\w-]{1,24}\|\d{4}-\d{2}-\d{2}$/.test(k)) out.done[k] = 1;
+  for (const k of Object.keys(w.ann && typeof w.ann === "object" ? w.ann : {}).slice(0, 200)) if (/^\d{4}-\d{2}-\d{2}$/.test(k)) out.ann[k] = 1;
+  out.targets = [...new Set((Array.isArray(w.targets) ? w.targets : []).map((x) => wsStr(x, 40)).filter(Boolean))].slice(0, 30);
+  return out;
+}
+async function wsRoute(stub, user, body, token, role, perms) {
+  if (role !== "admin") return json({ error: "no_access" }, 403);
+  const op = String(body.op || "get"), owner = user.id === ADMIN_IDS[0];
+  if (op === "get") {
+    const uid = body.uid && /^\d{15,21}$/.test(String(body.uid)) ? String(body.uid) : user.id;
+    if (uid !== user.id && !owner) return json({ error: "no_access" }, 403);
+    const out = { ok: true, token, ws: (await stub.kvGet("ws:" + uid)) || null };
+    if (owner && uid === user.id) { const idx = (await stub.kvGet("ws-index")) || {}; out.others = Object.keys(idx).filter((id) => id !== user.id).map((id) => ({ id, name: (perms.users && perms.users[id] && perms.users[id].name) || id })); }
+    return json(out);
+  }
+  if (op !== "save") return json({ error: "bad request" }, 400);
+  if (!body.ws || typeof body.ws !== "object") return json({ error: "bad request" }, 400);
+  const old = await stub.kvGet("ws:" + user.id);
+  if (old && (+old.rev || 0) !== (+body.rev || 0)) return json({ error: "conflict", token, ws: old }, 409);   // changed on another device: the page reloads it
+  const w = wsClean(body.ws); w.rev = ((old && +old.rev) || 0) + 1; w.at = Date.now();
+  if (JSON.stringify(w).length > 200000) return json({ error: "too_big" }, 413);
+  try { await stub.kvSet("ws:" + user.id, w); const idx = (await stub.kvGet("ws-index")) || {}; if (!idx[user.id]) { idx[user.id] = w.at; await stub.kvSet("ws-index", idx); } } catch (e) { return json({ error: "db" }, 503); }
+  return json({ ok: true, token, rev: w.rev });
+}
 async function rewardsRoute(stub, user, body, token, perms) {
   const op = String(body.op || "get"), role = roleOf(perms, user.id);
   const u = perms && perms.users && perms.users[user.id];
@@ -2227,7 +2280,7 @@ async function authRoute(req, env, path, ctx) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed" || path === "/secret") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed" || path === "/secret" || path === "/ws") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);   // Discord login only (the officer password alone no longer opens anything)
@@ -2255,6 +2308,7 @@ async function authRoute(req, env, path, ctx) {
     if (path === "/plans") return plansRoute(env, stub, u, body, token, perms);
     if (path === "/rewards") return rewardsRoute(stub, u, body, token, perms);
     if (path === "/perms") return permsRoute(stub, u, body, token, role);
+    if (path === "/ws") return wsRoute(stub, s.u, body, token, role, perms);
     if (path === "/secret") return secretRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "post"));
     if (path === "/directed") {   // 👤 to-dos sent only to chosen officers (Events editor "Only remind"): the Worker sends them, no phone set-up needed
       if (!canEdit(perms, s.u.id, "events")) return json({ error: "view_only", token }, 403);

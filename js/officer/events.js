@@ -761,7 +761,8 @@ function applyPatch(raw) {
   const t = String(raw || ""), a = t.indexOf("{"), b = t.lastIndexOf("}");
   if (a < 0 || b < a) throw new Error(aiT("impBad"));
   let p; try { p = JSON.parse(t.slice(a, b + 1)); } catch (e) { throw new Error(aiT("impBad") + " (" + e.message + ")"); }
-  const evs = p && p.events; if (!evs || typeof evs !== "object") throw new Error(aiT("impBad"));
+  const personal = p && p.personal;   // 🗂️ Sparrow's own workspace items: checked and saved by js/officer/ws.js, apart from the events file
+  const evs = (p && p.events) || (personal ? {} : null); if (!evs || typeof evs !== "object") throw new Error(aiT("impBad"));
   const LANGS = ["en", "zh", "ko", "pt", "ar"], clean = (v) => String(v == null ? "" : v).replace(/\r/g, "").trim();
   let next = LIST.map((x) => x), html = "", ids = [];
   for (const [id, ch] of Object.entries(evs)) {
@@ -809,13 +810,14 @@ function applyPatch(raw) {
     ids.push(id); next = next.map((x) => (x.id === id ? e : x));
     html += `<div class="ev">${esc(evName(id))}</div>${parts.join("")}`;
   }
-  return { next, ids, html };
+  return { next, ids, html, personal };
 }
 function renderAi() {
   const el = $("ev_ai"); if (!el) return;
   // only Sparrow (the first built-in admin, OFFICER.ADMIN_IDS[0]) sees this card — Sherry 2026-11-02; hidden while previewing someone else
   const mine = !!OFFICER.user && OFFICER.user.id === OFFICER.ADMIN_IDS[0] && !OFFICER.previewAs;
   el.hidden = !mine; if (!mine) return;
+  try { OFFICER.ensure("ws"); } catch (e) {}   // 🗂️ her own workspace items are part of the text below
   if (!el.dataset.ok) {
     el.dataset.ok = 1;
     el.innerHTML = `<h2>${esc(aiT("h"))}</h2><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(aiT("sub"))}</div>
@@ -827,18 +829,21 @@ function renderAi() {
       <div class="imp-prev" id="ev_impPrev"></div>`);
     let pending = null;
     $("ev_impIn").oninput = () => { pending = null; $("ev_impSave").hidden = true; $("ev_impPrev").innerHTML = ""; $("ev_impMsg").textContent = ""; };
-    $("ev_impCheck").onclick = () => {
+    $("ev_impCheck").onclick = async () => {
       pending = null; $("ev_impSave").hidden = true; $("ev_impPrev").innerHTML = "";
-      try { const r = applyPatch($("ev_impIn").value); if (!r.html) throw new Error(aiT("impNothing")); pending = r; $("ev_impPrev").innerHTML = r.html; $("ev_impSave").hidden = !OFFICER.can("events", "edit"); $("ev_impMsg").textContent = OFFICER.can("events", "edit") ? aiT("impLook") : aiT("impNoEdit"); }
+      try { const r = applyPatch($("ev_impIn").value);
+        if (r.personal) { if (!OFFICER.ws) await OFFICER.ensure("ws"); r.ws = await OFFICER.ws.patch(r.personal); r.html += r.ws.html; }
+        if (!r.html) throw new Error(aiT("impNothing")); pending = r; $("ev_impPrev").innerHTML = r.html; $("ev_impSave").hidden = !OFFICER.can("events", "edit"); $("ev_impMsg").textContent = OFFICER.can("events", "edit") ? aiT("impLook") : aiT("impNoEdit"); }
       catch (err) { $("ev_impMsg").className = "msg warn"; $("ev_impMsg").textContent = "⚠️ " + err.message; return; }
       $("ev_impMsg").className = "msg";
     };
     $("ev_impSave").onclick = async () => {
       if (!pending) return;
-      if (await saveList(pending.next, `Claude edit: ${pending.ids.join(", ")}`)) { $("ev_impMsg").className = "msg okmsg"; $("ev_impMsg").textContent = aiT("impSaved"); $("ev_impIn").value = ""; $("ev_impPrev").innerHTML = ""; $("ev_impSave").hidden = true; pending = null; render(); renderList(); }
+      if ((!pending.ids.length || await saveList(pending.next, `Claude edit: ${pending.ids.join(", ")}`)) && (!pending.ws || !pending.ws.html || await pending.ws.apply())) { $("ev_impMsg").className = "msg okmsg"; $("ev_impMsg").textContent = aiT("impSaved"); $("ev_impIn").value = ""; $("ev_impPrev").innerHTML = ""; $("ev_impSave").hidden = true; pending = null; render(); renderList(); }
     };
     $("ev_aiCopy").onclick = async () => {
-      const t = aiText(), out = $("ev_aiOut"); out.value = t; out.hidden = false;
+      let mine = ""; try { mine = OFFICER.ws ? OFFICER.ws.forClaude() : ""; } catch (e) {}
+      const t = aiText() + mine, out = $("ev_aiOut"); out.value = t; out.hidden = false;
       try { await navigator.clipboard.writeText(t); $("ev_aiMsg").textContent = aiT("copied"); }
       catch (e) { out.focus(); out.select(); $("ev_aiMsg").textContent = aiT("sel"); }
     };
@@ -1374,6 +1379,7 @@ function seedTodos(list) {
 }
 
 OFFICER_PAGES.events = { init, applyTexts, setLang,
+  runs: (a, b) => (LIST ? runs(a, b) : []), evName, list: () => LIST || [], times: () => ET, milestones: () => MILESTONES,   // 🗂️ My workspace reads the calendar from here
   ingame: (id) => { try { const e = byId(id); if (e && e.ingame) return e.ingame.map((g) => ({ ...g, text: fillDates(id, g.text) })); } catch (x) {} return INGAME_DEFAULTS[id] || []; } };   // ⑤ battle table reads the Swordland chat map from here
 
 

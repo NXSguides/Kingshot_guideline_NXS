@@ -22,7 +22,7 @@ const server = createServer(async (req, res) => {
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const BASE = `http://127.0.0.1:${server.address().port}`;
 
-const TABS = ["events", "ranking", "post", "watch", "views", "map", "plan", "move", "hunt", "attack", "tr", "growth", "hr", "bearplan", "vv", "rg", "tb", "ls", "ma", "gn", "ms", "bh", "iv", "board", "attend", "perms"];
+const TABS = ["events", "ranking", "post", "watch", "views", "map", "plan", "move", "hunt", "attack", "tr", "growth", "hr", "bearplan", "vv", "rg", "tb", "ls", "ma", "gn", "ms", "bh", "iv", "board", "attend", "ws", "perms"];
 const errors = [];
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const ctx = await browser.newContext({ locale: "zh-TW" });
@@ -86,7 +86,7 @@ for (const t of TABS) {
   await page.waitForTimeout(250);
   const shown = await page.evaluate((t) => { const el = document.getElementById("pg-" + t); return el && !el.hidden; }, t);
   await align("officer #" + t);
-  if (!shown && t !== "perms") errors.push(`officer page: tab "${t}" did not open`);   // 👥 perms stays admin-only
+  if (!shown && t !== "perms" && t !== "ws") errors.push(`officer page: tab "${t}" did not open`);   // 👥 perms stays admin-only
 }
 
 await browser.close();

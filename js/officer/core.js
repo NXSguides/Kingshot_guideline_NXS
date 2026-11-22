@@ -285,7 +285,7 @@ function whoTop() {
 }
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
-  if (tab === "perms") return OFFICER.isAdmin();
+  if (tab === "perms" || tab === "ws") return OFFICER.isAdmin();   // 🗂️ ws: each admin's own private workspace
   if (OFFICER.PERMS_TRIAL) return true;                               // 🔓 until the login system is rolled out: every tab open to every officer (👥 stays admin-only)
   if (!uid) return false;                                             // only Discord logins get in now
   if (OFFICER.ADMINS.includes(uid) || OFFICER.ADMIN_IDS.includes(uid)) return true;
@@ -331,7 +331,7 @@ OFFICER.applyPerms = () => {
 };
 const OFFICER_PAGES = {};
 const GROUPS = { research: OFFICER.RESEARCH };   // 🔬 one main tab, sub-tabs inside (Sherry 2026-11-04: too many tabs)
-const TABS = ["events", "ranking", "post", "watch", "views", "map", "plan", "move", "hunt", "attack", "tr", "growth", "hr", "bearplan", "vv", "rg", "tb", "ls", "ma", "gn", "ms", "bh", "iv", "bt", "board", "attend", "perms"];
+const TABS = ["events", "ranking", "post", "watch", "views", "map", "plan", "move", "hunt", "attack", "tr", "growth", "hr", "bearplan", "vv", "rg", "tb", "ls", "ma", "gn", "ms", "bh", "iv", "bt", "board", "attend", "ws", "perms"];
 const inited = {};
 /* start another tab's module without showing it (the 👥 tab uses the Post tab's owner tools) */
 OFFICER.ensure = async (k) => { const p = OFFICER_PAGES[k]; if (!p) return; if (!inited[k]) inited[k] = p.init() || true; try { await inited[k]; } catch (e) { inited[k] = null; console.error(e); } };
@@ -491,7 +491,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|views|map|plan|move|hunt|attack|tr|growth|hr|bearplan|vv|rg|tb|ls|ma|gn|ms|bh|iv|bt|board|attend|perms)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|views|map|plan|move|hunt|attack|tr|growth|hr|bearplan|vv|rg|tb|ls|ma|gn|ms|bh|iv|bt|board|attend|ws|perms)/); return m ? m[1] : "events"; }
 let lastTab = null, keepY = 0, tabClick = false;
 addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".tabs a")) { keepY = window.scrollY; tabClick = true; } }, true);   // where we were before the hash changes
 async function showTab() {
