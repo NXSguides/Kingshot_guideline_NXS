@@ -13,11 +13,12 @@ const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
 const DAY = 86400000;
 let lang = OFFICER.lang || "en";
-let D = null, MINE = null, VIEW = "", OTHERS = [], PEOPLE = [], OUT = {}, OWNERS = {}, INBOX = [], MYEV = [], EDIT = null, PICK = false, TO = "", BUSY = false, ERR = "";
+let D = null, MINE = null, VIEW = "", OTHERS = [], PEOPLE = [], OUT = {}, OWNERS = {}, INBOX = [], MYEV = [], MYPARTS = {}, MYDUTY = [], EDIT = null, PICK = false, TO = "", BUSY = false, ERR = "";
 const T = {
   en: { title: "🗂️ My workspace", lead: "Only you can see this page. The site AI and Little Sparrow never read it.", leadO: "Sparrow can also open it (read only) to check that it works.",
     seeing: "Whose page", mine: "Mine", ro: "👁️ You are looking at {n}'s page. You can't change it.", utc: "UTC",
-    ev: "🎯 My events", evNone: "None of your events is running today or starts in the next 2 days.", evNext: "Next: {e} · {d}", evOther: "Also on today:", evPick: "✏️ Choose my events", evPickFor: "Tick the events this person is responsible for.", evNoPick: "No events chosen yet.",
+    ev: "🎯 My events", evNone: "None of your events is running today or starts in the next 2 days.", evLater: "Later", evOther: "Also on today:", evPick: "✏️ Choose my events", evPickFor: "Tick the events this person is responsible for.", evNoPick: "No events chosen yet.",
+    duty: "📌 Standing duties", partPh: "their part of it (optional)", dutyPh: "Standing duties that are not an event — one per line",
     day: "Day {a} of {b}", starts: "starts in {n} d · {d}", ours: "our times", today: "Today", tomorrow: "Tomorrow",
     bearOn: "{b} is on the registration deadline day ({d}, our times {t}).", bearBefore: "{b} is the day before the registration deadline ({d}, our times {t}); none on the deadline day itself.",
     box: "📨 From Sparrow", boxNone: "Nothing right now.", ansPh: "Your answer…", send: "Send", isQ: "It is a question (they can answer here)", boxFor: "📨 For", boxPh: "What do you want to tell or ask them?", copyMsg: "📋 Copy as a message", copied: "Copied ✓", sel: "Select the text and copy it.", noPeople: "No other admin yet.", answered: "answered", seen: "done", waiting: "waiting",
@@ -27,7 +28,8 @@ const T = {
     needText: "Write what it is first.", needEv: "Pick an event.", saved: "Saved ✓", saving: "Saving…", conflict: "This page was changed on another device. It has been reloaded — do the change again.", fail: "Could not save. Try again.", loadFail: "Could not load the page." },
   zh: { title: "🗂️ 我的工作區", lead: "這一頁只有你自己看得到。網站 AI 和小麻雀都不會讀這裡的內容。", leadO: "Sparrow 也能打開（只能看），用來確認有沒有問題。",
     seeing: "看誰的", mine: "我的", ro: "👁️ 你正在看 {n} 的頁面，不能修改。", utc: "UTC",
-    ev: "🎯 我負責的活動", evNone: "今天和未來 2 天沒有你負責的活動。", evNext: "下一個：{e} · {d}", evOther: "今天還有：", evPick: "✏️ 選擇我負責的活動", evPickFor: "勾選這個人負責的活動。", evNoPick: "還沒選活動。",
+    ev: "🎯 我負責的活動", evNone: "今天和未來 2 天沒有你負責的活動。", evLater: "之後", evOther: "今天還有：", evPick: "✏️ 選擇我負責的活動", evPickFor: "勾選這個人負責的活動。", evNoPick: "還沒選活動。",
+    duty: "📌 固定職責", partPh: "負責的部分（可不填）", dutyPh: "不屬於活動的固定職責，一行一項",
     day: "第 {a} 天／共 {b} 天", starts: "{n} 天後開始 · {d}", ours: "我們的時間", today: "今天", tomorrow: "明天",
     bearOn: "{b}在報名截止當天（{d}，我們的時間 {t}）。", bearBefore: "{b}在報名截止前一天（{d}，我們的時間 {t}）；截止當天沒有熊。",
     box: "📨 Sparrow 給我的事", boxNone: "目前沒有。", ansPh: "你的回答…", send: "送出", isQ: "這是一個問題（對方可以在這裡回答）", boxFor: "📨 給", boxPh: "想告訴他或問他什麼？", copyMsg: "📋 複製成訊息", copied: "已複製 ✓", sel: "請選取文字後複製。", noPeople: "還沒有其他管理員。", answered: "已回答", seen: "已完成", waiting: "等待中",
@@ -37,7 +39,8 @@ const T = {
     needText: "請先寫內容。", needEv: "請選一個活動。", saved: "已儲存 ✓", saving: "儲存中…", conflict: "這一頁在另一台裝置上改過，已重新載入，請再改一次。", fail: "儲存失敗，請再試一次。", loadFail: "讀取失敗。" },
   pt: { title: "🗂️ Meu espaço", lead: "Só você vê esta página. A IA do site e o Pardalzinho nunca leem o que está aqui.", leadO: "Sparrow também pode abrir (só leitura) para ver se funciona.",
     seeing: "Página de", mine: "Minha", ro: "👁️ Você está vendo a página de {n}. Não dá para mudar.", utc: "UTC",
-    ev: "🎯 Meus eventos", evNone: "Nenhum evento seu está ativo hoje nem começa nos próximos 2 dias.", evNext: "Próximo: {e} · {d}", evOther: "Hoje também:", evPick: "✏️ Escolher meus eventos", evPickFor: "Marque os eventos pelos quais esta pessoa é responsável.", evNoPick: "Nenhum evento escolhido ainda.",
+    ev: "🎯 Meus eventos", evNone: "Nenhum evento seu está ativo hoje nem começa nos próximos 2 dias.", evLater: "Depois", evOther: "Hoje também:", evPick: "✏️ Escolher meus eventos", evPickFor: "Marque os eventos pelos quais esta pessoa é responsável.", evNoPick: "Nenhum evento escolhido ainda.",
+    duty: "📌 Funções fixas", partPh: "a parte dela (opcional)", dutyPh: "Funções fixas que não são um evento — uma por linha",
     day: "Dia {a} de {b}", starts: "começa em {n} d · {d}", ours: "nossos horários", today: "Hoje", tomorrow: "Amanhã",
     bearOn: "{b} cai no dia do prazo de inscrição ({d}, nossos horários {t}).", bearBefore: "{b} é no dia antes do prazo de inscrição ({d}, nossos horários {t}); não há urso no dia do prazo.",
     box: "📨 De Sparrow", boxNone: "Nada no momento.", ansPh: "Sua resposta…", send: "Enviar", isQ: "É uma pergunta (a pessoa responde aqui)", boxFor: "📨 Para", boxPh: "O que você quer dizer ou perguntar?", copyMsg: "📋 Copiar como mensagem", copied: "Copiado ✓", sel: "Selecione o texto e copie.", noPeople: "Ainda não há outro admin.", answered: "respondido", seen: "feito", waiting: "aguardando",
@@ -47,7 +50,8 @@ const T = {
     needText: "Escreva o que é primeiro.", needEv: "Escolha um evento.", saved: "Salvo ✓", saving: "Salvando…", conflict: "Esta página foi mudada em outro aparelho. Ela foi recarregada — faça a mudança de novo.", fail: "Não deu para salvar. Tente de novo.", loadFail: "Não deu para carregar a página." },
   ar: { title: "🗂️ مساحتي", lead: "أنت فقط ترى هذه الصفحة. ذكاء الموقع والعصفور الصغير لا يقرآن ما فيها أبدًا.", leadO: "يستطيع Sparrow فتحها أيضًا (للعرض فقط) للتأكد من أنها تعمل.",
     seeing: "صفحة مَن", mine: "صفحتي", ro: "👁️ أنت تشاهد صفحة {n}. لا يمكنك تعديلها.", utc: "UTC",
-    ev: "🎯 أحداثي", evNone: "لا يوجد حدث من أحداثك اليوم ولا يبدأ خلال اليومين القادمين.", evNext: "التالي: {e} · {d}", evOther: "اليوم أيضًا:", evPick: "✏️ اختيار أحداثي", evPickFor: "ضع علامة على الأحداث التي يتولاها هذا الشخص.", evNoPick: "لم تُختر أحداث بعد.",
+    ev: "🎯 أحداثي", evNone: "لا يوجد حدث من أحداثك اليوم ولا يبدأ خلال اليومين القادمين.", evLater: "لاحقًا", evOther: "اليوم أيضًا:", evPick: "✏️ اختيار أحداثي", evPickFor: "ضع علامة على الأحداث التي يتولاها هذا الشخص.", evNoPick: "لم تُختر أحداث بعد.",
+    duty: "📌 مهام ثابتة", partPh: "الجزء الخاص به (اختياري)", dutyPh: "المهام الثابتة التي ليست حدثًا — واحدة في كل سطر",
     day: "اليوم {a} من {b}", starts: "يبدأ بعد {n} يوم · {d}", ours: "أوقاتنا", today: "اليوم", tomorrow: "غدًا",
     bearOn: "{b} في يوم انتهاء التسجيل ({d}، أوقاتنا {t}).", bearBefore: "{b} في اليوم السابق لانتهاء التسجيل ({d}، أوقاتنا {t})؛ لا دب في يوم الانتهاء.",
     box: "📨 من Sparrow", boxNone: "لا شيء الآن.", ansPh: "إجابتك…", send: "إرسال", isQ: "هذا سؤال (يمكنه الإجابة هنا)", boxFor: "📨 إلى", boxPh: "ماذا تريد أن تخبره أو تسأله؟", copyMsg: "📋 نسخ كرسالة", copied: "تم النسخ ✓", sel: "حدّد النص وانسخه.", noPeople: "لا يوجد مشرف آخر بعد.", answered: "تمت الإجابة", seen: "تم", waiting: "بانتظار",
@@ -57,7 +61,8 @@ const T = {
     needText: "اكتب ما هو أولًا.", needEv: "اختر حدثًا.", saved: "تم الحفظ ✓", saving: "جارٍ الحفظ…", conflict: "تم تعديل هذه الصفحة من جهاز آخر. أُعيد تحميلها — أعد التعديل.", fail: "تعذّر الحفظ. حاول مرة أخرى.", loadFail: "تعذّر تحميل الصفحة." },
   ko: { title: "🗂️ 내 작업 공간", lead: "이 페이지는 본인만 볼 수 있어요. 사이트 AI와 작은 참새는 여기 내용을 읽지 않아요.", leadO: "Sparrow도 열어 볼 수 있어요(보기 전용). 문제가 없는지 확인하려는 거예요.",
     seeing: "누구 페이지", mine: "내 것", ro: "👁️ {n}의 페이지를 보고 있어요. 수정할 수 없어요.", utc: "UTC",
-    ev: "🎯 내 담당 이벤트", evNone: "오늘과 앞으로 2일 동안 담당 이벤트가 없어요.", evNext: "다음: {e} · {d}", evOther: "오늘 다른 이벤트:", evPick: "✏️ 내 담당 이벤트 고르기", evPickFor: "이 사람이 담당하는 이벤트에 체크하세요.", evNoPick: "아직 고른 이벤트가 없어요.",
+    ev: "🎯 내 담당 이벤트", evNone: "오늘과 앞으로 2일 동안 담당 이벤트가 없어요.", evLater: "이후", evOther: "오늘 다른 이벤트:", evPick: "✏️ 내 담당 이벤트 고르기", evPickFor: "이 사람이 담당하는 이벤트에 체크하세요.", evNoPick: "아직 고른 이벤트가 없어요.",
+    duty: "📌 고정 담당", partPh: "맡은 부분 (선택)", dutyPh: "이벤트가 아닌 고정 담당 — 한 줄에 하나",
     day: "{b}일 중 {a}일차", starts: "{n}일 후 시작 · {d}", ours: "우리 시간", today: "오늘", tomorrow: "내일",
     bearOn: "{b}: 등록 마감일에 있어요 ({d}, 우리 시간 {t}).", bearBefore: "{b}: 등록 마감 전날에 있어요 ({d}, 우리 시간 {t}). 마감일에는 없어요.",
     box: "📨 Sparrow가 보낸 것", boxNone: "지금은 없어요.", ansPh: "답변…", send: "보내기", isQ: "질문이에요 (상대가 여기서 답할 수 있어요)", boxFor: "📨 받는 사람", boxPh: "무엇을 알리거나 묻고 싶나요?", copyMsg: "📋 메시지로 복사", copied: "복사됨 ✓", sel: "텍스트를 선택해 복사하세요.", noPeople: "아직 다른 관리자가 없어요.", answered: "답변함", seen: "완료", waiting: "대기 중",
@@ -84,7 +89,7 @@ async function api(op, extra = {}) {
 async function load(uid) {
   const j = await api("get", uid ? { uid } : {});
   if (!uid) { MINE = norm(j.ws); OTHERS = Array.isArray(j.others) ? j.others : []; PEOPLE = Array.isArray(j.people) ? j.people : []; OUT = j.out && typeof j.out === "object" ? j.out : {}; OWNERS = j.owners && typeof j.owners === "object" ? j.owners : {}; if (!TO || !PEOPLE.some((p) => p.id === TO)) TO = PEOPLE.length ? PEOPLE[0].id : ""; }
-  D = uid ? norm(j.ws) : MINE; VIEW = uid || ""; MYEV = Array.isArray(j.mine) ? j.mine : []; INBOX = Array.isArray(j.inbox) ? j.inbox : [];
+  D = uid ? norm(j.ws) : MINE; VIEW = uid || ""; MYEV = Array.isArray(j.mine) ? j.mine : []; MYPARTS = j.parts && typeof j.parts === "object" ? j.parts : {}; MYDUTY = Array.isArray(j.duties) ? j.duties : []; INBOX = Array.isArray(j.inbox) ? j.inbox : [];
   return D;
 }
 /* keep only the ticks that can still matter (daily and event ticks older than 45 days go) */
@@ -146,23 +151,27 @@ function evCard() {
   const today = utcDay(Date.now()), rs = near(MYEV), canPick = !RO() || isOwner();
   let h = `<div class="card" id="ws_mine"><h2>${esc(t("ev"))}</h2>`;
   if (PICK) {
-    h += `<div class="muted ws-sub">${esc(t("evPickFor"))}</div><div class="ws-pick">${evList().filter((e) => e.start && e.every > 0).map((e) => `<label><input type="checkbox" data-pk="${esc(e.id)}"${MYEV.includes(e.id) ? " checked" : ""}> ${esc(evName(e.id))}</label>`).join("")}</div>
+    h += `<div class="muted ws-sub">${esc(t("evPickFor"))}</div><div class="ws-pick">${evList().filter((e) => e.start && e.every > 0).map((e) => `<div class="ws-pr"><label><input type="checkbox" data-pk="${esc(e.id)}"${MYEV.includes(e.id) ? " checked" : ""}> ${esc(evName(e.id))}</label><input class="inp" data-pp="${esc(e.id)}" placeholder="${esc(t("partPh"))}" value="${esc(MYPARTS[e.id] || "")}"${MYEV.includes(e.id) ? "" : " hidden"}></div>`).join("")}</div>
+      <h3>${esc(t("duty"))}</h3><textarea class="inp" id="ws_pkDuty" rows="4" style="width:100%;box-sizing:border-box;font-size:16px" placeholder="${esc(t("dutyPh"))}">${esc(MYDUTY.join("\n"))}</textarea>
       <div class="row" style="gap:8px;margin-top:8px"><button type="button" class="btn primary" id="ws_pkSave">${esc(t("save"))}</button><button type="button" class="btn" id="ws_pkCancel">${esc(t("cancel"))}</button></div></div>`;
     return h;
   }
   for (const r of rs) {
     const n = Math.round((today - r.st) / DAY) + 1, tm = timesOf(r.k), bl = bearLine(r);
-    h += `<div class="ws-ev"><div class="ws-evh"><b>${esc(evName(r.k))}</b> <span class="muted">${esc(r.st <= today ? t("day").replace("{a}", n).replace("{b}", r.days) : t("starts").replace("{n}", Math.round((r.st - today) / DAY)).replace("{d}", md(r.st)))}${tm.length ? " · " + esc(t("ours")) + " " + esc(tm.join(", ")) : ""}</span></div>`;
+    h += `<div class="ws-ev"><div class="ws-evh"><b>${esc(evName(r.k))}</b> <span class="muted">${esc(r.st <= today ? t("day").replace("{a}", n).replace("{b}", r.days) : t("starts").replace("{n}", Math.round((r.st - today) / DAY)).replace("{d}", md(r.st)))}${tm.length ? " · " + esc(t("ours")) + " " + esc(tm.join(", ")) : ""}</span></div>${MYPARTS[r.k] ? `<div class="ws-part">${esc(MYPARTS[r.k])}</div>` : ""}`;
     for (let i = 0; i <= 1; i++) { const td = todosOn(r, today + i * DAY); if (!td.length) continue;
       h += `<div class="ws-evd"><span class="ws-k">${esc(i ? t("tomorrow") : t("today"))}</span>${td.map((x) => `<div>${x.at ? `⏰ <b>${esc(x.at)}</b> ` : "· "}${esc(x.txt)}</div>`).join("")}</div>`; }
     if (bl) h += `<div class="ws-evd">${esc(bl)}</div>`;
     h += `</div>`;
   }
-  if (!rs.length) { h += `<div class="muted">${esc(MYEV.length ? t("evNone") : t("evNoPick"))}</div>`;
-    const nx = runsOf(today, today + 60 * DAY).filter((r) => MYEV.includes(r.k) && r.st > today).sort((a, b) => a.st - b.st)[0];
-    if (nx) h += `<div class="muted">${esc(t("evNext").replace("{e}", evName(nx.k)).replace("{d}", md(nx.st)))}</div>`; }
+  if (!rs.length) h += `<div class="muted">${esc(MYEV.length ? t("evNone") : t("evNoPick"))}</div>`;
+  /* the person's other events: when each one comes next, with their part of it */
+  const seen = new Set(rs.map((r) => r.k)), later = [];
+  for (const r of runsOf(today, today + 70 * DAY).sort((a, b) => a.st - b.st)) if (MYEV.includes(r.k) && !seen.has(r.k) && r.st > today) { seen.add(r.k); later.push(r); }
+  if (later.length) h += `<h3>${esc(t("evLater"))}</h3>` + later.map((r) => `<div class="ws-du"><b>${esc(md(r.st))}</b> ${esc(evName(r.k))}${MYPARTS[r.k] ? `<div class="ws-part">${esc(MYPARTS[r.k])}</div>` : ""}</div>`).join("");
   const other = runsOf(today, today + DAY).filter((r) => r.st <= today && r.en > today && !MYEV.includes(r.k));
   if (other.length) h += `<div class="muted ws-other">${esc(t("evOther"))} ${esc([...new Set(other.map((r) => evName(r.k)))].join(" · "))}</div>`;
+  if (MYDUTY.length) h += `<div id="ws_duty"><h3>${esc(t("duty"))}</h3>${MYDUTY.map((x) => `<div class="ws-du">· ${esc(x)}</div>`).join("")}</div>`;
   if (canPick) h += `<div class="row" style="margin-top:8px"><button type="button" class="btn small" id="ws_pk">${esc(t("evPick"))}</button></div>`;
   return h + `</div>`;
 }
@@ -253,8 +262,11 @@ function wire(d) {
   /* 🎯 choose the events (Sparrow can do it for the person she is looking at) */
   if ($("ws_pk")) $("ws_pk").onclick = () => { PICK = true; render(); };
   if ($("ws_pkCancel")) $("ws_pkCancel").onclick = () => { PICK = false; render(); };
-  if ($("ws_pkSave")) $("ws_pkSave").onclick = async () => { const ev = [...root.querySelectorAll("input[data-pk]:checked")].map((el) => el.dataset.pk);
-    const j = await call("owners", VIEW ? { uid: VIEW, ev } : { ev }); if (j) { MYEV = j.mine || ev; if (VIEW) OWNERS[VIEW] = MYEV; PICK = false; } render(); };
+  root.querySelectorAll("input[data-pk]").forEach((el) => { el.onchange = () => { const p = root.querySelector(`input[data-pp="${el.dataset.pk}"]`); if (p) p.hidden = !el.checked; }; });
+  if ($("ws_pkSave")) $("ws_pkSave").onclick = async () => { const ev = [...root.querySelectorAll("input[data-pk]:checked")].map((el) => el.dataset.pk), parts = {};
+    for (const k of ev) { const p = root.querySelector(`input[data-pp="${k}"]`); if (p && p.value.trim()) parts[k] = p.value.trim(); }
+    const duties = $("ws_pkDuty").value.split("\n").map((x) => x.trim()).filter(Boolean);
+    const j = await call("owners", { ...(VIEW ? { uid: VIEW } : {}), ev, parts, duties }); if (j) { MYEV = j.mine || ev; MYPARTS = j.parts || parts; MYDUTY = j.duties || duties; if (VIEW) OWNERS[VIEW] = MYEV; PICK = false; } render(); };
   if (RO()) return;
   /* 📨 the person's side */
   on("input[data-mdone]", "onchange", async (el) => { const j = await call("reply", { id: el.dataset.mdone, done: el.checked }); if (j) INBOX = j.items; render(); });
@@ -304,14 +316,20 @@ function forClaude() {
   }
   if (!d.items.length) L.push("(no items yet)");
   for (const p of PEOPLE) { const list = OUT[p.id] || []; if (!list.length) continue; L.push(`\nSent to ${p.name} (shown on their workspace):`); for (const m of list) L.push(`${m.done ? "✅" : "⬜"} ${m.q ? "question: " : ""}${m.text}${m.ans ? " — their answer: " + m.ans : ""}`); }
-  L.push("\nPersonal data (JSON) — for NXS-PATCH \"personal\": { \"set\": [items; an item with a known id replaces it, without id it is added], \"delete\": [ids] }. k = daily | event | once (her own list) | proj (ongoing work) | q (question); event items need ev (event id) and due (0 = first day, -1 = the day before); at = HH:MM UTC; date = YYYY-MM-DD; note = note or next step; q items may carry ans; once / proj / q may carry done.\n" + JSON.stringify(d.items));
+  L.push("\nPersonal data (JSON) — for NXS-PATCH \"personal\": { \"set\": [items; an item with a known id replaces it, without id it is added], \"delete\": [ids] }. \"owners\": { \"me\" or \"<discord id>\": { \"parts\": { \"<event id>\": \"that person's part of the event (may be empty)\" }, \"duties\": [\"standing duty\", …] } } sets who is responsible for which events (replaces that person's whole list). k = daily | event | once (her own list) | proj (ongoing work) | q (question); event items need ev (event id) and due (0 = first day, -1 = the day before); at = HH:MM UTC; date = YYYY-MM-DD; note = note or next step; q items may carry ans; once / proj / q may carry done.\n" + JSON.stringify(d.items));
   return L.join("\n");
 }
 /* check a "personal" patch: returns { html, apply } or throws */
 async function patch(p) {
   if (!MINE) await load("");
   if (!p || typeof p !== "object") throw new Error("personal: not an object");
-  const bad = Object.keys(p).filter((k) => !["set", "delete"].includes(k)); if (bad.length) throw new Error("personal: unknown key " + bad.join(", "));
+  const bad = Object.keys(p).filter((k) => !["set", "delete", "owners"].includes(k)); if (bad.length) throw new Error("personal: unknown key " + bad.join(", "));
+  /* "owners": { "me" | "<discord id>": { "parts": { "<event id>": "their part" }, "duties": [...] } } — who is responsible for what (ids only, never names) */
+  const own = [], known = new Set(evList().map((e) => e.id));
+  if (p.owners !== undefined) { if (!p.owners || typeof p.owners !== "object" || Array.isArray(p.owners)) throw new Error("personal.owners must be an object");
+    for (const [who, v] of Object.entries(p.owners)) { if (who !== "me" && !/^\d{15,21}$/.test(who)) throw new Error("personal.owners: use \"me\" or a Discord id, not " + who);
+      const parts = (v && v.parts && typeof v.parts === "object" && v.parts) || {}, miss = Object.keys(parts).filter((k) => !known.has(k)); if (miss.length) throw new Error("personal.owners: no event " + miss.join(", "));
+      own.push({ who, ev: Object.keys(parts), parts, duties: Array.isArray(v && v.duties) ? v.duties.map(String) : [] }); } }
   for (const k of ["set", "delete"]) if (p[k] !== undefined && !Array.isArray(p[k])) throw new Error(`personal.${k} must be a list`);
   const next = MINE.items.map((x) => ({ ...x })), parts = [], s = (v) => String(v == null ? "" : v).replace(/\r/g, "").trim();
   for (const id of p.delete || []) { const i = next.findIndex((x) => x.id === String(id)); if (i < 0) throw new Error("personal.delete: no item " + id); parts.push(`<div class="del">− ${esc(next[i].text)}</div>`); next.splice(i, 1); }
@@ -330,8 +348,15 @@ async function patch(p) {
     parts.push(`<div class="add">${i >= 0 ? "✏️" : "+"} ${esc(t(k))}: ${esc(it.text)}${it.ans ? " — " + esc(it.ans) : ""}</div>`);
     if (i >= 0) next[i] = it; else next.push(it);
   }
+  for (const o of own) { const nm = o.who === "me" ? t("mine") : (PEOPLE.find((x) => x.id === o.who) || {}).name || o.who;
+    parts.push(`<div class="add">🎯 ${esc(nm)}: ${esc(o.ev.map(evName).join(" · "))}${o.duties.length ? `<br>📌 ${esc(o.duties.join(" · "))}` : ""}</div>`); }
+  const changed = parts.length - own.length > 0;
   return { html: parts.length ? `<div class="ev">🗂️ ${esc(t("title").replace(/^\S+\s/, ""))}</div>${parts.join("")}` : "",
-    apply: async () => { MINE.items = next; const ok = await save(); if (!VIEW) D = MINE; render(); return ok; } };
+    apply: async () => { let ok = true;
+      for (const o of own) { const j = await call("owners", { ...(o.who === "me" ? {} : { uid: o.who }), ev: o.ev, parts: Object.fromEntries(Object.entries(o.parts).map(([k, v]) => [k, String(v || "")])), duties: o.duties }); if (!j) ok = false; }
+      if (changed) { MINE.items = next; ok = (await save()) && ok; }
+      try { await load(VIEW); } catch (e) {}
+      render(); return ok; } };
 }
 OFFICER.ws = { forClaude, patch };
 

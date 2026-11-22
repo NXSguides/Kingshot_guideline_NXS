@@ -492,7 +492,7 @@ AI ASSISTANT
 @ws
 🗂️ MY WORKSPACE (我的工作區, officer-x7k2p9.html#ws; added 2026-11-22, replanned 2026-11-23) — a private page for each admin, built around what that person is responsible for. Each person has their own; it is stored apart from all other officer data.
 - PRIVATE: only the person themself can see their page. Sparrow can also open another person's page, read only, to check that it works. You (the AI) are NEVER given what is written on anyone's page, and Little Sparrow does not read it either — if someone asks what is on their page or on someone else's, say you cannot see it and that they can open the 🗂️ My workspace tab.
-- 🎯 My events (top card, nothing to type): the events this person is responsible for that are running now or start within 2 days — "Day a of b" or "starts in n d", our times, and that event's officer to-dos for today and tomorrow (⏰ = has an exact UTC time). If none: the next one coming. Below, one line with the other events on today. "✏️ Choose my events" ticks which events are theirs (taken from the officers' responsibility sheet; Sparrow can set it for another person while looking at their page).
+- 🎯 My events (top card, nothing to type): the events this person is responsible for that are running now or start within 2 days — "Day a of b" or "starts in n d", our times, and that event's officer to-dos for today and tomorrow (⏰ = has an exact UTC time). Under them, "Later": the person's other events with the date each one comes next and their part of it. Then one line with the other events on today. "✏️ Choose my events" ticks which events are theirs, with an optional line per event for THEIR part of it (for example "Rewards: criteria, participation records, distribution" — it shows under the event's name), and a list of 📌 Standing duties that are not events (shown at the bottom of the card). All of this comes from the officers' responsibility sheet; Sparrow can set it for another person while looking at their page.
   For Alliance Championship the card also says whether Bear Hunt falls on the registration deadline day (the last day of the run) or only the day before — the two cases for using the bear buffs before updating the registration.
 - 📨 From Sparrow: things Sparrow sent to this person. They tick an item when it is done; under a question they type the answer. On Sparrow's own page the same card is "📨 For <person>": she writes an item (optionally marked as a question), sees "waiting / done / answered" and the answer, can delete it (press 🗑 twice), and "📋 Copy as a message" makes English text (that person's events today and tomorrow + what is still open for them) to send outside the site as well.
 - 📣 Coming on the kingdom timeline: every timeline item that arrives before the 3rd KvK from now, with a tick for "announced" (members see the same list under the home calendar as 👑 Coming to our kingdom).
@@ -1921,6 +1921,8 @@ function wsClean(w) {
    "ws-owners" = { <discord id>: [event ids] } — who owns which event (from the officers' responsibility sheet; ids only, never names);
    "ws-msg:<id>" = { rev, items } — things Sparrow sends to that person; they tick them and answer the questions. Only Sparrow and that person read it. */
 const wsAdmins = (perms) => [...new Set([...ADMIN_IDS, ...Object.keys((perms && perms.users) || {}).filter((id) => perms.users[id] && perms.users[id].role === "admin")])];
+/* one person's responsibilities: { ev: [event ids], parts: { <event id>: "their part of it" }, duties: ["standing duty", …] } (an old plain list of ids still reads) */
+const wsOwn = (v) => { const o = Array.isArray(v) ? { ev: v } : v && typeof v === "object" ? v : {}; return { ev: Array.isArray(o.ev) ? o.ev : [], parts: o.parts && typeof o.parts === "object" ? o.parts : {}, duties: Array.isArray(o.duties) ? o.duties : [] }; };
 const wsName = (perms, id) => (perms.users && perms.users[id] && perms.users[id].name) || id;
 async function wsRoute(stub, user, body, token, role, perms) {
   if (role !== "admin") return json({ error: "no_access" }, 403);
@@ -1929,12 +1931,13 @@ async function wsRoute(stub, user, body, token, role, perms) {
     const uid = isId(body.uid) ? String(body.uid) : user.id;
     if (uid !== user.id && !owner) return json({ error: "no_access" }, 403);
     const owners = (await stub.kvGet("ws-owners")) || {};
-    const out = { ok: true, token, ws: (await stub.kvGet("ws:" + uid)) || null, mine: owners[uid] || [] };
+    const my = wsOwn(owners[uid]);
+    const out = { ok: true, token, ws: (await stub.kvGet("ws:" + uid)) || null, mine: my.ev, parts: my.parts, duties: my.duties };
     if (!owner || uid !== user.id) out.inbox = ((await stub.kvGet("ws-msg:" + uid)) || {}).items || [];
     if (owner && uid === user.id) {
       const idx = (await stub.kvGet("ws-index")) || {}, ppl = wsAdmins(perms).filter((id) => id !== user.id);
       out.others = Object.keys(idx).filter((id) => id !== user.id).map((id) => ({ id, name: wsName(perms, id) }));
-      out.people = ppl.map((id) => ({ id, name: wsName(perms, id) })); out.owners = owners; out.out = {};
+      out.people = ppl.map((id) => ({ id, name: wsName(perms, id) })); out.owners = Object.fromEntries(Object.keys(owners).map((id) => [id, wsOwn(owners[id]).ev])); out.out = {};
       for (const id of ppl) out.out[id] = ((await stub.kvGet("ws-msg:" + id)) || {}).items || [];
     }
     return json(out);
@@ -1943,8 +1946,11 @@ async function wsRoute(stub, user, body, token, role, perms) {
     if (op === "owners") {   // which events a person owns: Sparrow sets anyone's, everyone else only their own
       const uid = isId(body.uid) ? String(body.uid) : user.id; if (uid !== user.id && !owner) return json({ error: "no_access" }, 403);
       const owners = (await stub.kvGet("ws-owners")) || {};
-      owners[uid] = [...new Set((Array.isArray(body.ev) ? body.ev : []).map(String).filter((x) => /^[a-z0-9][a-z0-9-]{0,39}$/.test(x)))].slice(0, 80);
-      await stub.kvSet("ws-owners", owners); return json({ ok: true, token, mine: owners[uid] });
+      const ev = [...new Set((Array.isArray(body.ev) ? body.ev : []).map(String).filter((x) => /^[a-z0-9][a-z0-9-]{0,39}$/.test(x)))].slice(0, 80), parts = {};
+      for (const k of ev) { const v = wsStr(body.parts && body.parts[k], 240); if (v) parts[k] = v; }
+      const duties = (Array.isArray(body.duties) ? body.duties : []).map((x) => wsStr(x, 160)).filter(Boolean).slice(0, 30);
+      owners[uid] = { ev, parts, duties };
+      await stub.kvSet("ws-owners", owners); return json({ ok: true, token, mine: ev, parts, duties });
     }
     if (op === "send" || op === "unsend") {   // Sparrow → one admin
       if (!owner) return json({ error: "no_access" }, 403);
