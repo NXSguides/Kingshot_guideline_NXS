@@ -34,9 +34,14 @@
   .bar i { display: block; height: 100%; background: var(--accent); }
   .cal th, .cal td { text-align: center; padding: 5px 4px; }
   .cal td:first-child, .cal th:first-child { text-align: start; position: sticky; inset-inline-start: 0; background: var(--panel); z-index: 1; }
-  .cell { display: inline-block; min-width: 56px; padding: 4px 4px; border-radius: 7px; border: 1px solid transparent; line-height: 1.25; font-size: 11.5px; color: var(--text-muted); }
-  .cell b { display: block; font-size: 15px; font-weight: 400; line-height: 1.2; }
+  /* reward icons: cut from the game's own reward screen (Sherry's screenshots 2026-11-22); the amount sits on a strip over the icon's own number */
+  .ic { position: relative; display: block; width: 46px; height: 46px; margin: 0 auto 3px; border-radius: 9px; overflow: hidden; background: var(--panel-2); }
+  .ic img { display: block; width: 100%; height: 100%; }
+  .ic em { position: absolute; inset: auto 0 0 0; padding: 0 4px 1px; font-style: normal; font-size: 11px; font-weight: 700; line-height: 15px; text-align: end; color: #fff; background: rgba(20, 14, 8, .78); font-variant-numeric: tabular-nums; }
+  .cell { display: inline-block; min-width: 58px; padding: 4px 3px; border-radius: 9px; border: 1px solid transparent; line-height: 1.25; font-size: 11.5px; color: var(--text-muted); }
+  .cell:not(.w) .ic { opacity: .45; filter: grayscale(.6); }
   .cell.w { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: color-mix(in srgb, var(--accent) 55%, transparent); color: var(--text); }
+  .chip img { width: 22px; height: 22px; border-radius: 5px; display: block; }
   .grp td { background: var(--panel-2); font-weight: 600; text-align: start !important; position: static !important; }
   .now { outline: 2px solid var(--brass); outline-offset: -2px; }
   ul.plain { margin: 6px 0 0; padding-inline-start: 1.2em; display: grid; gap: 5px; font-size: 14px; }
@@ -80,18 +85,18 @@
   const F = { 1: "SS EX EM JS SS EX EM JS", 2: "CB SS EX CB CB SS EX CB", 3: "EM CB SS EX EM CB CB EX", 4: "EX EM CB SS EX EM SS SS" };
   for (const k in S) S[k] = S[k].split(" "); for (const k in F) F[k] = F[k].split(" ");
   const ITEM = {
-    SU: { i: "⏩", q: 400, en: "1h speedup", zh: "1 小時加速", full: { en: "1h General Speedup", zh: "1 小時通用加速" } },
-    TP: { i: "🧭", q: 90, en: "Teleport", zh: "高級遷城", full: { en: "Advanced Teleporter", zh: "高級遷城" } },
-    HB: { i: "💚", q: 60, en: "Health buff", zh: "生命增益", full: { en: "Troops Health Up II (12hrs)", zh: "部隊生命值提升II（12小時）" } },
-    DB: { i: "⚔️", q: 60, en: "Damage buff", zh: "傷害增益", full: { en: "Troops Damage Up II (12hrs)", zh: "部隊傷害提升II（12小時）" } },
-    DP: { i: "🚩", q: 60, en: "Deploy buff", zh: "出征增益", full: { en: "Deployment Capacity Boost II (12hrs)", zh: "出征部隊數量提升II（12小時）" } },
-    ES: { i: "🎁", q: 300, en: "Epic chest", zh: "史詩箱", full: { en: "Custom Epic Hero Shard Chest", zh: "史詩英雄碎片客製化箱子" } },
-    XP: { i: "🧪", q: 300, en: "Hero XP", zh: "英雄經驗", full: { en: "10,000 Hero XP", zh: "10,000點英雄經驗值" } },
-    JS: { i: "🧩", q: 200, qf: 420, en: "Jabel", zh: "潔貝爾", full: { en: "Jabel Shard", zh: "潔貝爾碎片" } },
-    SS: { i: "🧩", q: 420, en: "Saul", zh: "薩洛", full: { en: "Saul Shard", zh: "薩洛碎片" } },
-    CB: { i: "📕", q: 600, en: "Conquest", zh: "討伐書", full: { en: "Mythic Conquest Skill Book", zh: "傳說討伐技能書" } },
-    EM: { i: "📘", q: 600, en: "Expedition", zh: "遠征書", full: { en: "Mythic Expedition Skill Manual", zh: "傳說遠征技能書" } },
-    EX: { i: "🔧", q: 500, en: "Gear XP", zh: "強化經驗", full: { en: "100 Enhancement XP Part", zh: "100點強化經驗部件" } },
+    SU: { i: "gen1h", q: 400, en: "1h speedup", zh: "1 小時加速", full: { en: "1h General Speedup", zh: "1 小時通用加速" } },
+    TP: { i: "teleport", q: 90, en: "Teleport", zh: "高級遷城", full: { en: "Advanced Teleporter", zh: "高級遷城" } },
+    HB: { i: "hp2", q: 60, en: "Health buff", zh: "生命增益", full: { en: "Troops Health Up II (12hrs)", zh: "部隊生命值提升II（12小時）" } },
+    DB: { i: "dmg2", q: 60, en: "Damage buff", zh: "傷害增益", full: { en: "Troops Damage Up II (12hrs)", zh: "部隊傷害提升II（12小時）" } },
+    DP: { i: "deploy2", q: 60, en: "Deploy buff", zh: "出征增益", full: { en: "Deployment Capacity Boost II (12hrs)", zh: "出征部隊數量提升II（12小時）" } },
+    ES: { i: "epicchest", q: 300, en: "Epic chest", zh: "史詩箱", full: { en: "Custom Epic Hero Shard Chest", zh: "史詩英雄碎片客製化箱子" } },
+    XP: { i: "heroxp10k", q: 300, en: "Hero XP", zh: "英雄經驗", full: { en: "10,000 Hero XP", zh: "10,000點英雄經驗值" } },
+    JS: { i: "jabel", q: 200, qf: 420, en: "Jabel", zh: "潔貝爾", full: { en: "Jabel Shard", zh: "潔貝爾碎片" } },
+    SS: { i: "saul", q: 420, en: "Saul", zh: "薩洛", full: { en: "Saul Shard", zh: "薩洛碎片" } },
+    CB: { i: "conqbook", q: 600, en: "Conquest", zh: "討伐書", full: { en: "Mythic Conquest Skill Book", zh: "傳說討伐技能書" } },
+    EM: { i: "expbook", q: 600, en: "Expedition", zh: "遠征書", full: { en: "Mythic Expedition Skill Manual", zh: "傳說遠征技能書" } },
+    EX: { i: "enhxp", q: 500, en: "Gear XP", zh: "強化經驗", full: { en: "100 Enhancement XP Part", zh: "100點強化經驗部件" } },
   };
   const KINDS = ["SU", "TP", "HB", "DB", "DP", "ES", "XP", "JS", "CB", "EM"];   // what a Sanctuary can give
   const GROUPS = ["NXS", "RED", "NRD", "ESA", "IDN"], FFA = "—";
@@ -126,12 +131,13 @@
   const of = (g) => Object.keys(S).map(Number).filter((k) => A()[k] === g);
   const stat = (g) => { const L = of(g); let n = 0; const gap = [];
     for (let p = 0; p < 8; p++) { const c = L.filter((k) => want.has(S[k][p])).length; n += c; if (!c && L.length) gap.push(p + 1); } return { L, n, tot: L.length * 8, gap }; };
-  const cell = (c, fort) => { const it = ITEM[c]; return `<span class="cell${want.has(c) ? " w" : ""}" title="${esc(it.full[lang])}"><b>${it.i}</b>${esc(it[lang])}<br>×${fort && it.qf ? it.qf : it.q}</span>`; };
+  const pic = (c) => `<img src="figures/items/rw-${ITEM[c].i}.webp" alt="" loading="lazy">`;
+  const cell = (c, fort) => { const it = ITEM[c]; return `<span class="cell${want.has(c) ? " w" : ""}" title="${esc(it.full[lang])}"><span class="ic">${pic(c)}<em>×${fort && it.qf ? it.qf : it.q}</em></span>${esc(it[lang])}</span>`; };
 
   function render() {
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en"; document.title = t("h").replace(/^\S+\s/, "");
     for (const k of ["h", "sub", "wantH", "wantP", "splitH", "splitP", "splitN", "calH", "calP", "movH", "fortH", "fortP", "noteH"]) $("t_" + k).textContent = t(k);
-    $("want").innerHTML = KINDS.map((c) => `<label class="chip${want.has(c) ? " on" : ""}"><input type="checkbox" data-w="${c}"${want.has(c) ? " checked" : ""}>${ITEM[c].i} ${esc(ITEM[c].full[lang])}</label>`).join("");
+    $("want").innerHTML = KINDS.map((c) => `<label class="chip${want.has(c) ? " on" : ""}"><input type="checkbox" data-w="${c}"${want.has(c) ? " checked" : ""}>${pic(c)}${esc(ITEM[c].full[lang])}</label>`).join("");
     $("views").innerHTML = [["plan", "vPlan"], ["now", "vNow"], ["own", "vOwn"]].map(([v, k]) => `<button type="button" class="btn2${view === v ? " on" : ""}" data-v="${v}">${esc(t(k))}</button>`).join("");
     $("split").innerHTML = `<thead><tr><th>${esc(t("group"))}</th><th>${esc(t("sanc"))}</th><th>${esc(t("fort"))}</th><th class="num">${esc(t("useful"))}</th><th>${esc(t("gap"))}</th></tr></thead><tbody>`
       + GROUPS.concat([FFA]).map((g) => { const s = stat(g); return `<tr><td><b>${g === FFA ? esc(t("ffa")) : g}</b></td><td>${s.L.join(", ") || "—"}</td><td>${FORT[g] || "—"}</td>
