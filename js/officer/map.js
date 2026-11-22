@@ -586,9 +586,9 @@ async function exportOutposts(P) {
     if (!P) { if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) return false; P = await OfficerData.fetchJson(PLAN_PATH); }
     if (!P || !P.o) return !!P;
     await loadScripts(["data/kingdom-map.js"]);
-    // 🏰 each alliance's own Outposts: an officer set to one alliance on 👥 is reminded of that alliance's only; everyone else of both (nXs's are tagged)
+    // 🏰 each alliance's own Outposts: an officer set to one alliance on 👥 is reminded of that alliance's only; everyone else of both, whichever alliance the page is switched to, each with its alliance in brackets at the end (Sherry 2026-11-22)
     const sd = OFFICER.side ? OFFICER.side() : "", fo = P.farm && P.farm.op, both = !sd;
-    const mine = sd === "f" ? [] : opTimes(P, KINGDOM_MAP), theirs = sd === "m" || !fo ? [] : opTimes({ o: fo.o, t: fo.t, cyc: P.cyc }, KINGDOM_MAP).map((x) => ({ ...x, id: x.id + "-f", ...(both ? { al: "nXs" } : {}) }));
+    const mine = sd === "f" ? [] : opTimes(P, KINGDOM_MAP).map((x) => (both ? { ...x, al: "NXS" } : x)), theirs = sd === "m" || !fo ? [] : opTimes({ o: fo.o, t: fo.t, cyc: P.cyc }, KINGDOM_MAP).map((x) => ({ ...x, id: x.id + "-f", ...(both ? { al: "nXs" } : {}) }));
     localStorage.setItem("nxs-outpost-times", JSON.stringify({ updated: Date.now(), items: [...mine, ...theirs] }));
     if (window.NXSTimers && NXSTimers.setExt) NXSTimers.setExt("outposts", []);   // the old per-phone 🔔 switch is gone
     window.dispatchEvent(new Event("nxs-admin-todos")); return true;

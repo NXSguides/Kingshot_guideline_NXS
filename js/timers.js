@@ -277,7 +277,7 @@
     if (!adminOn() || !nf || (nf !== "all" && !nf.has("outposts")) || !d || !Array.isArray(d.items)) return [];
     const now = Date.now(), l = lang();
     return d.items.filter((x) => x.at - 600000 > now).map((x) => ({ id: String(x.id).slice(0, 40), at: x.at - 600000,
-      title: `📍 ${x.al ? x.al + " · " : ""}${(x.names && (x.names[l] || x.names.en)) || x.t} Lv.${x.lv} X${x.x} Y${x.y} · ${T("opV")} ${new Date(x.at).toISOString().slice(11, 16)} UTC`, body: T("opVBody") }))
+      title: `📍 ${(x.names && (x.names[l] || x.names.en)) || x.t} Lv.${x.lv} X${x.x} Y${x.y}${x.al ? " [" + x.al + "]" : ""} · ${T("opV")} ${new Date(x.at).toISOString().slice(11, 16)} UTC`, body: T("opVBody") }))
       .sort((a, b) => a.at - b.at);
   }
   function adminTimers() {
