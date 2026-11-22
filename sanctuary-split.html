@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <style>
   /* 🏛️ Sanctuary split for the NAP (Sherry 2026-11-22). Opened by link only (officer 🗺️ Map → 🎁 rewards card); not in the site menu.
-     Everything is worked out on the page from the reward table below, so anyone can change the split or what counts and see the result. */
+     2026-11-23: redone as a phase-by-phase route, because a held Sanctuary is signed up again automatically and only one more can be added per phase. */
   body { padding: 16px 16px 60px; }
   .wrap { max-width: 900px; margin: 0 auto; }
   h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
@@ -45,6 +45,8 @@
   .grp td { background: var(--panel-2); font-weight: 600; text-align: start !important; position: static !important; }
   .now { outline: 2px solid var(--brass); outline-offset: -2px; }
   ul.plain { margin: 6px 0 0; padding-inline-start: 1.2em; display: grid; gap: 5px; font-size: 14px; }
+  .two { display: inline-flex; gap: 3px; } .two .cell { min-width: 52px; } .sn { display: block; font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .ffa td { background: var(--panel-2); } .ffa td:first-child { background: var(--panel-2); }
   .tag { display: inline-block; font-size: 11.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--rule); color: var(--text-muted); margin-inline-start: 6px; }
 </style>
 </head>
@@ -101,58 +103,68 @@
   const KINDS = ["SU", "TP", "HB", "DB", "DP", "ES", "XP", "JS", "CB", "EM"];   // what a Sanctuary can give
   const GROUPS = ["NXS", "RED", "NRD", "ESA", "IDN"], FFA = "—";
   const FORT = { NXS: 2, RED: 3, NRD: 4, ESA: 1 };
-  const PLAN = { 6: "NXS", 12: "NXS", 1: "RED", 3: "RED", 7: "NRD", 9: "NRD", 2: "ESA", 8: "ESA", 4: "IDN", 10: "IDN", 5: FFA, 11: FFA };
-  const NOW = { 1: "NXS", 6: "NXS", 2: "RED", 3: "RED", 10: "NRD", 11: "NRD", 5: "ESA", 12: "ESA", 4: "IDN", 7: FFA, 8: FFA, 9: FFA };
+  /* How the game works (Sherry 2026-11-23): a Sanctuary an alliance held in the previous phase is signed up again automatically, and each
+     phase it can sign up for ONE more. So a group can change at most one Sanctuary per phase, and a Sanctuary is worth taking when it gives
+     something useful for several phases in a row. The proposal below is one route per group, phase by phase: [Sanctuary, Sanctuary, the new one or 0].
+     It starts from who holds what now (phase 8), keeps two per group, and was searched for the most useful rewards with few changes. */
+  const NOW = { NXS: [1, 6], RED: [2, 3], NRD: [10, 11], ESA: [5, 12], IDN: [4] };
+  const PLAN = {
+    NXS: [[1, 12, 12], [1, 12, 0], [1, 12, 0], [1, 12, 0], [1, 12, 0], [1, 12, 0], [1, 6, 6], [1, 6, 0]],
+    RED: [[2, 3, 0], [3, 9, 9], [3, 9, 0], [3, 9, 0], [3, 9, 0], [3, 9, 0], [3, 9, 0], [3, 9, 0]],
+    NRD: [[8, 10, 8], [8, 10, 0], [8, 10, 0], [8, 10, 0], [8, 10, 0], [8, 10, 0], [2, 10, 2], [2, 10, 0]],
+    ESA: [[5, 7, 7], [5, 7, 0], [5, 6, 6], [5, 6, 0], [5, 11, 11], [5, 11, 0], [5, 11, 0], [5, 11, 0]],
+    IDN: [[4, 11, 11], [4, 11, 0], [2, 4, 2], [4, 7, 7], [4, 7, 0], [4, 7, 0], [4, 7, 0], [4, 7, 0]] };
+  const KEEP = Object.fromEntries(GROUPS.map((g) => [g, Array.from({ length: 8 }, () => [...NOW[g], 0])]));   // nobody changes anything
   const T = {
     en: { h: "🏛️ Sanctuary split", sub: "Kingdom 2189 · NAP 5 · proposal for the next season",
       wantH: "What counts as a useful reward", wantP: "Ticked rewards are the ones we want for Kingdom of Power. Change the ticks and every number below follows.",
-      splitH: "The split", splitP: "Two Sanctuaries per group, in NAP order, two left free for all. \"Useful\" = how many of the group's 16 rewards in a season (2 Sanctuaries × 8 phases) are ticked above.",
-      vPlan: "Proposed", vNow: "Now", vOwn: "Your own", group: "Group", sanc: "Sanctuaries", fort: "Fortress", useful: "Useful", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
-      splitN: "You can try another split: change the owner of a Sanctuary in the table below.",
-      calH: "Phase by phase", calP: "Highlighted = useful. The number is how many the alliance gets to hand out.", ph: "Phase", s: "Sanctuary", owner: "Owner",
-      movH: "What changes from now", stay: "{g} keeps Sanctuary {a}.", take: "{g} takes Sanctuary {a} (now {o}).", takeF: "{g} takes Sanctuary {a} (nobody holds it now).", free: "Sanctuary {a} becomes free for all (now {o}).", same: "Nothing changes.",
+      splitH: "The split, phase by phase", splitP: "A Sanctuary a group held in the last phase is signed up again automatically, and each phase a group can sign up for one more. So a group changes at most one Sanctuary per phase — it is worth moving to one that stays useful for several phases. \"Useful\" = how many of the group's 16 rewards in the season are ticked above.",
+      vPlan: "Proposed", vNow: "If nobody changes", group: "Group", useful: "Useful", chg: "New sign-ups", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
+      calH: "Who holds what in each phase", calP: "Highlighted = useful. The small number is the Sanctuary; ★ = newly signed up in that phase. The amount is what the alliance gets to hand out.", ph: "Phase", s: "Sanctuary",
+      movH: "Who signs up for a new one", mv: "{g} → Sanctuary {a}", mvFrom: " (from {o})", mvNone: "no changes", same: "Nothing changes.",
       fortH: "Fortresses", fortP: "Not part of this proposal — they stay as they are. Their special rewards are shards, books and Gear XP in every phase.", f: "Fortress",
-      noteH: "Notes", notes: ["The reward table is the same one as last season. Phases 3, 5 and 8 were checked against the game; the others are from the Kingshot Wiki.", "Each alliance can sign up for one Sanctuary and one Fortress per phase; a Sanctuary it already holds is signed up automatically.", "Buffs last 12 hours: Health and Damage are +20%, Deployment Capacity +20%."] },
+      noteH: "Notes", notes: ["The reward table is the same one as last season. Phases 3, 5 and 8 were checked against the game; the others are from the Kingshot Wiki.", "Each phase has two Sanctuaries left free for all. A group that held one of them in the phase before is still signed up for it.", "Buffs last 12 hours: Health and Damage are +20%, Deployment Capacity +20%."] },
     zh: { h: "🏛️ 遺跡分配", sub: "王國 2189 · NAP 5 · 下一個賽季的提案",
       wantH: "哪些算有用的獎勵", wantP: "打勾的是最強王國用得到的。改勾選，下面所有數字都會跟著變。",
-      splitH: "分配", splitP: "每個集團 2 座遺跡，照 NAP 順序，剩 2 座自由搶。「有用」＝這個集團整季 16 個獎勵（2 座 × 8 期）裡，有幾個是上面打勾的。",
-      vPlan: "提案", vNow: "現在", vOwn: "自己排", group: "集團", sanc: "遺跡", fort: "要塞", useful: "有用", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
-      splitN: "想試別的分法：在下面的表改某一座遺跡的擁有者。",
-      calH: "每一期拿什麼", calP: "有底色＝有用。數字是聯盟可以分配的數量。", ph: "第", s: "遺跡", owner: "擁有者",
-      movH: "跟現在比要動的", stay: "{g} 保留 {a} 號遺跡。", take: "{g} 接 {a} 號遺跡（現在是 {o}）。", takeF: "{g} 接 {a} 號遺跡（現在沒人）。", free: "{a} 號遺跡改成自由搶（現在是 {o}）。", same: "沒有變動。",
+      splitH: "每一期的分配", splitP: "上一期拿到的遺跡，下一期會自動報名；每一期還可以再多報名一座。所以每個集團每期最多換一座——值得換過去的是接下來連續幾期都有用的那種。「有用」＝這個集團整季 16 個獎勵裡，有幾個是上面打勾的。",
+      vPlan: "提案", vNow: "如果都不換", group: "集團", useful: "有用", chg: "新報名次數", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
+      calH: "每一期誰拿哪一座", calP: "有底色＝有用。小數字是遺跡編號；★＝這一期新報名的。數量是聯盟可以分配的數量。", ph: "第", s: "遺跡",
+      movH: "每一期誰要新報名", mv: "{g} → {a} 號遺跡", mvFrom: "（原本 {o}）", mvNone: "不用換", same: "沒有變動。",
       fortH: "要塞", fortP: "不在這次提案裡，維持現狀。要塞的特殊獎勵每一期都是碎片、技能書、強化經驗。", f: "要塞",
-      noteH: "備註", notes: ["獎勵表跟上一季是同一張。第 3、5、8 期對過遊戲，其他期來自 Kingshot Wiki。", "每個聯盟每期可以報名 1 座遺跡和 1 座要塞；已經佔有的遺跡會自動報名。", "增益都是 12 小時：生命、傷害 +20%，出征數量 +20%。"] },
+      noteH: "備註", notes: ["獎勵表跟上一季是同一張。第 3、5、8 期對過遊戲，其他期來自 Kingshot Wiki。", "每一期有兩座遺跡自由搶。上一期拿過其中一座的集團，這一期仍然會自動報名那一座。", "增益都是 12 小時：生命、傷害 +20%，出征數量 +20%。"] },
   };
   let lang = "en"; try { const l = localStorage.getItem("ks-lang"); if (l && l.startsWith("zh")) lang = "zh"; } catch (e) {}
   const q = new URLSearchParams(location.search); if (T[q.get("lang")]) lang = q.get("lang");
   const t = (k) => T[lang][k], $ = (id) => document.getElementById(id), esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  let want = new Set(["SU", "TP", "HB", "DB", "DP"]), view = "plan", own = { ...PLAN };
-  const A = () => (view === "now" ? NOW : view === "plan" ? PLAN : own);
-  const of = (g) => Object.keys(S).map(Number).filter((k) => A()[k] === g);
-  const stat = (g) => { const L = of(g); let n = 0; const gap = [];
-    for (let p = 0; p < 8; p++) { const c = L.filter((k) => want.has(S[k][p])).length; n += c; if (!c && L.length) gap.push(p + 1); } return { L, n, tot: L.length * 8, gap }; };
+  let want = new Set(["SU", "TP", "HB", "DB", "DP"]), view = "plan";
+  const A = () => (view === "now" ? KEEP : PLAN), IDS = Object.keys(S).map(Number);
+  const held = (g, p) => A()[g][p].slice(0, 2).filter((k, i, a) => k && a.indexOf(k) === i);
+  const freeAt = (p) => { const used = new Set(GROUPS.flatMap((g) => held(g, p))); return IDS.filter((k) => !used.has(k)); };
+  const ownerBefore = (k, p) => (p ? GROUPS.find((g) => held(g, p - 1).includes(k)) : GROUPS.find((g) => NOW[g].includes(k))) || "";
+  const stat = (g) => { let n = 0, tot = 0, chg = 0; const gap = [];
+    for (let p = 0; p < 8; p++) { const L = held(g, p), c = L.filter((k) => want.has(S[k][p])).length; n += c; tot += L.length; if (!c) gap.push(p + 1); if (A()[g][p][2]) chg++; } return { n, tot, gap, chg }; };
   const pic = (c) => `<img src="figures/items/rw-${ITEM[c].i}.webp" alt="" loading="lazy">`;
-  const cell = (c, fort) => { const it = ITEM[c]; return `<span class="cell${want.has(c) ? " w" : ""}" title="${esc(it.full[lang])}"><span class="ic">${pic(c)}<em>×${fort && it.qf ? it.qf : it.q}</em></span>${esc(it[lang])}</span>`; };
+  const cell = (c, fort, k, isNew) => { const it = ITEM[c]; return `<span class="cell${want.has(c) ? " w" : ""}" title="${esc(it.full[lang])}">${k ? `<b class="sn">${k}${isNew ? " ★" : ""}</b>` : ""}<span class="ic">${pic(c)}<em>×${fort && it.qf ? it.qf : it.q}</em></span>${esc(it[lang])}</span>`; };
 
   function render() {
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en"; document.title = t("h").replace(/^\S+\s/, "");
-    for (const k of ["h", "sub", "wantH", "wantP", "splitH", "splitP", "splitN", "calH", "calP", "movH", "fortH", "fortP", "noteH"]) $("t_" + k).textContent = t(k);
+    for (const k of ["h", "sub", "wantH", "wantP", "splitH", "splitP", "calH", "calP", "movH", "fortH", "fortP", "noteH"]) $("t_" + k).textContent = t(k);
+    $("t_splitN").textContent = "";
     $("want").innerHTML = KINDS.map((c) => `<label class="chip${want.has(c) ? " on" : ""}"><input type="checkbox" data-w="${c}"${want.has(c) ? " checked" : ""}>${pic(c)}${esc(ITEM[c].full[lang])}</label>`).join("");
-    $("views").innerHTML = [["plan", "vPlan"], ["now", "vNow"], ["own", "vOwn"]].map(([v, k]) => `<button type="button" class="btn2${view === v ? " on" : ""}" data-v="${v}">${esc(t(k))}</button>`).join("");
-    $("split").innerHTML = `<thead><tr><th>${esc(t("group"))}</th><th>${esc(t("sanc"))}</th><th>${esc(t("fort"))}</th><th class="num">${esc(t("useful"))}</th><th>${esc(t("gap"))}</th></tr></thead><tbody>`
-      + GROUPS.concat([FFA]).map((g) => { const s = stat(g); return `<tr><td><b>${g === FFA ? esc(t("ffa")) : g}</b></td><td>${s.L.join(", ") || "—"}</td><td>${FORT[g] || "—"}</td>
-        <td class="num">${s.tot ? `${s.n} / ${s.tot}<span class="bar"><i style="width:${Math.round(100 * s.n / s.tot)}%"></i></span>` : "—"}</td><td>${g === FFA || !s.tot ? "—" : s.gap.length ? s.gap.join(", ") : esc(t("none"))}</td></tr>`; }).join("") + `</tbody>`;
-    const head = `<thead><tr><th>${esc(t("s"))}</th>${[1, 2, 3, 4, 5, 6, 7, 8].map((p) => `<th>${lang === "zh" ? `${t("ph")} ${p} 期` : `${t("ph")} ${p}`}</th>`).join("")}</tr></thead>`;
-    $("cal").innerHTML = head + `<tbody>` + GROUPS.concat([FFA]).map((g) => { const L = of(g); if (!L.length) return "";
-      return `<tr class="grp"><td colspan="9">${g === FFA ? esc(t("ffa")) : g}</td></tr>` + L.map((k) => `<tr><td><b>${k}</b> ${view === "own" ? `<select class="ss-own" data-o="${k}">${GROUPS.concat([FFA]).map((x) => `<option value="${x}"${A()[k] === x ? " selected" : ""}>${x === FFA ? esc(t("ffa")) : x}</option>`).join("")}</select>` : ""}</td>${S[k].map((c) => `<td>${cell(c)}</td>`).join("")}</tr>`).join(""); }).join("") + `</tbody>`;
-    $("fort").innerHTML = head.replace(esc(t("s")), esc(t("f"))) + `<tbody>` + [1, 2, 3, 4].map((k) => `<tr><td><b>${k}</b><span class="tag">${Object.keys(FORT).find((g) => FORT[g] === k) || ""}</span></td>${F[k].map((c) => `<td>${cell(c, true)}</td>`).join("")}</tr>`).join("") + `</tbody>`;
-    const M = []; if (view !== "now") for (const g of GROUPS) for (const k of of(g)) { const o = NOW[k]; if (o === g) M.push(t("stay").replace("{g}", g).replace("{a}", k)); else M.push(t(o === FFA ? "takeF" : "take").replace("{g}", g).replace("{a}", k).replace("{o}", o)); }
-    if (view !== "now") for (const k of of(FFA)) if (NOW[k] !== FFA) M.push(t("free").replace("{a}", k).replace("{o}", NOW[k]));
-    $("movesCard").hidden = view === "now"; $("moves").innerHTML = (M.length ? M : [t("same")]).map((x) => `<li>${esc(x)}</li>`).join("");
+    $("views").innerHTML = [["plan", "vPlan"], ["now", "vNow"]].map(([v, k]) => `<button type="button" class="btn2${view === v ? " on" : ""}" data-v="${v}">${esc(t(k))}</button>`).join("");
+    $("split").innerHTML = `<thead><tr><th>${esc(t("group"))}</th><th class="num">${esc(t("useful"))}</th><th class="num">${esc(t("chg"))}</th><th>${esc(t("gap"))}</th></tr></thead><tbody>`
+      + GROUPS.map((g) => { const s = stat(g); return `<tr><td><b>${g}</b></td><td class="num">${s.n} / ${s.tot}<span class="bar"><i style="width:${Math.round(100 * s.n / Math.max(1, s.tot))}%"></i></span></td><td class="num">${s.chg}</td><td>${s.gap.length ? s.gap.join(", ") : esc(t("none"))}</td></tr>`; }).join("") + `</tbody>`;
+    const head = `<thead><tr><th>${esc(t("group"))}</th>${[1, 2, 3, 4, 5, 6, 7, 8].map((p) => `<th>${lang === "zh" ? `${t("ph")} ${p} 期` : `${t("ph")} ${p}`}</th>`).join("")}</tr></thead>`;
+    $("cal").innerHTML = head + `<tbody>` + GROUPS.map((g) => `<tr><td><b>${g}</b></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => `<td><span class="two">${held(g, p).map((k) => cell(S[k][p], false, k, A()[g][p][2] === k)).join("")}</span></td>`).join("")}</tr>`).join("")
+      + `<tr class="ffa"><td><b>${esc(t("ffa"))}</b></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => `<td><span class="two">${freeAt(p).map((k) => cell(S[k][p], false, k)).join("")}</span></td>`).join("")}</tr></tbody>`;
+    $("fort").innerHTML = head.replace(esc(t("group")), esc(t("f"))) + `<tbody>` + [1, 2, 3, 4].map((k) => `<tr><td><b>${k}</b><span class="tag">${Object.keys(FORT).find((g) => FORT[g] === k) || ""}</span></td>${F[k].map((c) => `<td>${cell(c, true)}</td>`).join("")}</tr>`).join("") + `</tbody>`;
+    const M = [];
+    for (let p = 0; p < 8; p++) { const L = GROUPS.filter((g) => A()[g][p][2]).map((g) => { const k = A()[g][p][2], o = ownerBefore(k, p); return t("mv").replace("{g}", g).replace("{a}", k) + (o && o !== g ? t("mvFrom").replace("{o}", o) : ""); });
+      M.push(`<b>${lang === "zh" ? `${t("ph")} ${p + 1} 期` : `${t("ph")} ${p + 1}`}</b> — ${L.length ? L.map(esc).join(lang === "zh" ? "；" : "; ") : esc(t("mvNone"))}`); }
+    $("movesCard").hidden = view === "now"; $("moves").innerHTML = M.map((x) => `<li>${x}</li>`).join("");
     $("notes").innerHTML = t("notes").map((x) => `<li>${esc(x)}</li>`).join("");
     document.querySelectorAll("[data-w]").forEach((x) => x.onchange = () => { x.checked ? want.add(x.dataset.w) : want.delete(x.dataset.w); render(); });
-    document.querySelectorAll("[data-v]").forEach((x) => x.onclick = () => { if (x.dataset.v === "own" && view !== "own") own = { ...A() }; view = x.dataset.v; render(); });
-    document.querySelectorAll("[data-o]").forEach((x) => x.onchange = () => { own[+x.dataset.o] = x.value; render(); });
+    document.querySelectorAll("[data-v]").forEach((x) => x.onclick = () => { view = x.dataset.v; render(); });
   }
   $("lang").value = lang; $("lang").onchange = () => { lang = $("lang").value; render(); };
   render();
