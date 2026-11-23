@@ -69,6 +69,10 @@
     <div class="tw" style="margin-top:10px"><table class="cal" id="cal"></table></div>
   </div>
 
+  <div class="card"><h3 id="t_bufH"></h3><div class="muted" id="t_bufP"></div>
+    <div class="tw" style="margin-top:10px"><table class="cal" id="buf"></table></div>
+  </div>
+
   <div class="card" id="movesCard"><h3 id="t_movH"></h3><ul class="plain" id="moves"></ul></div>
 
   <div class="card"><h3 id="t_fortH"></h3><div class="muted" id="t_fortP"></div>
@@ -121,6 +125,7 @@
       splitH: "The split, phase by phase", splitP: "A Sanctuary a group held in the last phase is signed up again automatically, and each phase a group can sign up for one more. So a group changes at most one Sanctuary per phase — it is worth moving to one that stays useful for several phases. \"Useful\" = how many of the group's 16 rewards in the season are ticked above.",
       vPlan: "Proposed", vNow: "If nobody changes", group: "Group", useful: "Useful", chg: "New sign-ups", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
       calH: "Who holds what in each phase", calP: "Highlighted = useful. The small number is the Sanctuary; ★ = newly signed up in that phase. The amount is what the alliance gets to hand out.", ph: "Phase", s: "Sanctuary",
+      bufH: "Where the 12-hour buffs are", bufP: "The three combat buffs move to the next Sanctuary every phase (none in phase 5). The big number is the Sanctuary that gives the buff in that phase; under it, who holds it in this split.",
       movH: "Who signs up for a new one", mv: "{g} → Sanctuary {a}", mvFrom: " (from {o})", mvNone: "no changes", same: "Nothing changes.",
       fortH: "Fortresses", fortP: "Not part of this proposal — they stay as they are. Their special rewards are shards, books and Gear XP in every phase.", f: "Fortress",
       noteH: "Notes", notes: ["The reward table is the same one as last season. Phases 3, 5 and 8 were checked against the game; the others are from the Kingshot Wiki.", "Each phase has two Sanctuaries left free for all. A group that held one of them in the phase before is still signed up for it.", "Buffs last 12 hours: Health and Damage are +20%, Deployment Capacity +20%."] },
@@ -129,6 +134,7 @@
       splitH: "每一期的分配", splitP: "上一期拿到的遺跡，下一期會自動報名；每一期還可以再多報名一座。所以每個集團每期最多換一座——值得換過去的是接下來連續幾期都有用的那種。「有用」＝這個集團整季 16 個獎勵裡，有幾個是上面打勾的。",
       vPlan: "提案", vNow: "如果都不換", group: "集團", useful: "有用", chg: "新報名次數", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
       calH: "每一期誰拿哪一座", calP: "有底色＝有用。小數字是遺跡編號；★＝這一期新報名的。數量是聯盟可以分配的數量。", ph: "第", s: "遺跡",
+      bufH: "12 小時增益在哪一座", bufP: "三種戰鬥增益每一期都會移到下一座遺跡（第 5 期沒有）。大數字是那一期給這個增益的遺跡，下面是這個分配裡拿到它的集團。",
       movH: "每一期誰要新報名", mv: "{g} → {a} 號遺跡", mvFrom: "（原本 {o}）", mvNone: "不用換", same: "沒有變動。",
       fortH: "要塞", fortP: "不在這次提案裡，維持現狀。要塞的特殊獎勵每一期都是碎片、技能書、強化經驗。", f: "要塞",
       noteH: "備註", notes: ["獎勵表跟上一季是同一張。第 3、5、8 期對過遊戲，其他期來自 Kingshot Wiki。", "每一期有兩座遺跡自由搶。上一期拿過其中一座的集團，這一期仍然會自動報名那一座。", "增益都是 12 小時：生命、傷害 +20%，出征數量 +20%。"] },
@@ -148,7 +154,7 @@
 
   function render() {
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en"; document.title = t("h").replace(/^\S+\s/, "");
-    for (const k of ["h", "sub", "wantH", "wantP", "splitH", "splitP", "calH", "calP", "movH", "fortH", "fortP", "noteH"]) $("t_" + k).textContent = t(k);
+    for (const k of ["h", "sub", "wantH", "wantP", "splitH", "splitP", "calH", "calP", "bufH", "bufP", "movH", "fortH", "fortP", "noteH"]) $("t_" + k).textContent = t(k);
     $("t_splitN").textContent = "";
     $("want").innerHTML = KINDS.map((c) => `<label class="chip${want.has(c) ? " on" : ""}"><input type="checkbox" data-w="${c}"${want.has(c) ? " checked" : ""}>${pic(c)}${esc(ITEM[c].full[lang])}</label>`).join("");
     $("views").innerHTML = [["plan", "vPlan"], ["now", "vNow"]].map(([v, k]) => `<button type="button" class="btn2${view === v ? " on" : ""}" data-v="${v}">${esc(t(k))}</button>`).join("");
@@ -158,6 +164,8 @@
     $("cal").innerHTML = head + `<tbody>` + GROUPS.map((g) => `<tr><td><b>${g}</b></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => `<td><span class="two">${held(g, p).map((k) => cell(S[k][p], false, k, A()[g][p][2] === k)).join("")}</span></td>`).join("")}</tr>`).join("")
       + `<tr class="ffa"><td><b>${esc(t("ffa"))}</b></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => `<td><span class="two">${freeAt(p).map((k) => cell(S[k][p], false, k)).join("")}</span></td>`).join("")}</tr></tbody>`;
     $("fort").innerHTML = head.replace(esc(t("group")), esc(t("f"))) + `<tbody>` + [1, 2, 3, 4].map((k) => `<tr><td><b>${k}</b><span class="tag">${Object.keys(FORT).find((g) => FORT[g] === k) || ""}</span></td>${F[k].map((c) => `<td>${cell(c, true)}</td>`).join("")}</tr>`).join("") + `</tbody>`;
+    $("buf").innerHTML = head.replace(esc(t("group")), "") + `<tbody>` + ["HB", "DB", "DP"].map((c) => `<tr><td><span class="chip" style="cursor:default">${pic(c)}${esc(ITEM[c][lang])}</span></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => { const k = IDS.find((x) => S[x][p] === c), o = k ? GROUPS.find((g) => held(g, p).includes(k)) : "";
+      return `<td>${k ? `<b style="font-size:17px">${k}</b><br><span class="tag" style="margin:0">${o || esc(t("ffa"))}</span>` : "—"}</td>`; }).join("")}</tr>`).join("") + `</tbody>`;
     const M = [];
     for (let p = 0; p < 8; p++) { const L = GROUPS.filter((g) => A()[g][p][2]).map((g) => { const k = A()[g][p][2], o = ownerBefore(k, p); return t("mv").replace("{g}", g).replace("{a}", k) + (o && o !== g ? t("mvFrom").replace("{o}", o) : ""); });
       M.push(`<b>${lang === "zh" ? `${t("ph")} ${p + 1} 期` : `${t("ph")} ${p + 1}`}</b> — ${L.length ? L.map(esc).join(lang === "zh" ? "；" : "; ") : esc(t("mvNone"))}`); }
