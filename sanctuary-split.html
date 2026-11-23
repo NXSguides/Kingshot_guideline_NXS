@@ -110,43 +110,45 @@
   /* How the game works (Sherry 2026-11-23): a Sanctuary an alliance held in the previous phase is signed up again automatically, and each
      phase it can sign up for ONE more. So a group can change at most one Sanctuary per phase, and a Sanctuary is worth taking when it gives
      something useful for several phases in a row. The proposal below is one route per group, phase by phase: [Sanctuary, Sanctuary, the new one or 0].
-     It starts from who holds what now (phase 8), keeps two per group, and was searched for the most useful rewards with few changes. */
+     Two per group at most. */
   const NOW = { NXS: [1, 6], RED: [2, 3], NRD: [10, 11], ESA: [5, 12], IDN: [4] };
   /* "Buffs first" (Sherry 2026-11-23, the rule proposed in the NAP chat): every 12-hour combat buff goes to the top 3 (NXS, RED, NRD), which then
      also take as many of the other useful rewards as the one-new-sign-up-per-phase rule allows, each with a mix of the three buffs; ESA and IDN hold what is left. */
   const PLAN = {
-    NXS: [[4, 6, 4], [4, 9, 9], [2, 9, 2], [7, 9, 7], [4, 7, 4], [4, 5, 5], [5, 10, 10], [7, 10, 7]],
-    RED: [[2, 8, 8], [1, 8, 1], [1, 10, 10], [1, 3, 3], [3, 8, 8], [8, 9, 9], [6, 9, 6], [3, 6, 3]],
-    NRD: [[10, 12, 12], [5, 12, 5], [6, 12, 6], [6, 12, 0], [11, 12, 11], [1, 12, 1], [1, 2, 2], [2, 11, 11]],
-    ESA: [[3, 5, 3], [2, 3, 2], [3, 4, 4], [2, 4, 2], [1, 2, 1], [2, 3, 3], [3, 4, 4], [1, 4, 1]],
-    IDN: [[7, 0, 7], [7, 11, 11], [5, 11, 5], [5, 11, 0], [5, 6, 6], [6, 7, 7], [7, 8, 8], [5, 8, 5]] };
+    NXS: [[4, 0, 4], [4, 9, 9], [2, 9, 2], [7, 9, 7], [4, 7, 4], [4, 5, 5], [5, 10, 10], [7, 10, 7]],
+    RED: [[8, 0, 8], [1, 8, 1], [1, 10, 10], [1, 3, 3], [3, 8, 8], [8, 9, 9], [6, 9, 6], [3, 6, 3]],
+    NRD: [[12, 0, 12], [5, 12, 5], [6, 12, 6], [6, 12, 0], [11, 12, 11], [1, 12, 1], [1, 2, 2], [2, 11, 11]],
+    ESA: [[2, 0, 2], [2, 7, 7], [4, 7, 4], [2, 4, 2], [1, 2, 1], [2, 3, 3], [3, 4, 4], [1, 4, 1]],
+    IDN: [[3, 0, 3], [3, 11, 11], [5, 11, 5], [5, 11, 0], [5, 6, 6], [6, 7, 7], [7, 8, 8], [5, 8, 5]] };
   /* "Even" (the first draft): no group ends below what it has if nobody changes. */
   const EVEN = {
-    NXS: [[1, 12, 12], [1, 12, 0], [1, 12, 0], [1, 12, 0], [1, 12, 0], [1, 12, 0], [1, 6, 6], [1, 6, 0]],
-    RED: [[2, 3, 0], [3, 9, 9], [3, 9, 0], [3, 9, 0], [3, 9, 0], [3, 9, 0], [3, 9, 0], [3, 9, 0]],
-    NRD: [[8, 10, 8], [8, 10, 0], [8, 10, 0], [8, 10, 0], [8, 10, 0], [8, 10, 0], [2, 10, 2], [2, 10, 0]],
-    ESA: [[5, 7, 7], [5, 7, 0], [5, 6, 6], [5, 6, 0], [5, 11, 11], [5, 11, 0], [5, 11, 0], [5, 11, 0]],
-    IDN: [[4, 11, 11], [4, 11, 0], [2, 4, 2], [4, 7, 7], [4, 7, 0], [4, 7, 0], [4, 7, 0], [4, 7, 0]] };
-  const KEEP = Object.fromEntries(GROUPS.map((g) => [g, Array.from({ length: 8 }, () => [...NOW[g], 0])]));   // nobody changes anything
+    NXS: [[12, 0, 12], [9, 12, 9], [9, 12, 0], [9, 12, 0], [9, 12, 0], [9, 12, 0], [2, 9, 2], [2, 3, 3]],
+    RED: [[4, 0, 4], [1, 4, 1], [1, 4, 0], [1, 4, 0], [1, 4, 0], [1, 4, 0], [1, 6, 6], [1, 6, 0]],
+    NRD: [[8, 0, 8], [5, 8, 5], [5, 8, 0], [5, 8, 0], [5, 8, 0], [5, 8, 0], [5, 10, 10], [5, 10, 0]],
+    ESA: [[3, 0, 3], [3, 7, 7], [3, 10, 10], [3, 7, 7], [3, 7, 0], [3, 7, 0], [3, 7, 0], [4, 7, 4]],
+    IDN: [[2, 0, 2], [2, 11, 11], [2, 6, 6], [2, 6, 0], [2, 11, 11], [2, 11, 0], [8, 11, 8], [8, 11, 0]] };
+  /* a new season starts empty (Sherry 2026-11-23): nothing is signed up automatically in phase 1, so every group has ONE Sanctuary in phase 1 and two from phase 2 on */
+  const FIRST = { NXS: 6, RED: 2, NRD: 10, ESA: 12, IDN: 4 };
+  const KEEP = Object.fromEntries(GROUPS.map((g) => [g, Array.from({ length: 8 }, (_, p) => { const o = NOW[g].find((k) => k !== FIRST[g]) || 0; return p ? [FIRST[g], o, p === 1 ? o : 0] : [FIRST[g], 0, FIRST[g]]; })]));   // everyone takes back the ones it has now
   const T = {
     en: { h: "🏛️ Sanctuary split", sub: "Kingdom 2189 · NAP 5 · proposal for the next season",
       wantH: "What counts as a useful reward", wantP: "Ticked rewards are the ones we want for Kingdom of Power. Change the ticks and every number below follows.",
-      splitH: "The split, phase by phase", splitP: "A Sanctuary a group held in the last phase is signed up again automatically, and each phase a group can sign up for one more. So a group changes at most one Sanctuary per phase — the three combat buffs move to the next Sanctuary every phase, so following a buff takes that one sign-up. \"Buffs\" = how many of the season's 20 buff rewards the group gets; \"Useful\" = how many of its rewards in the season are ticked above.",
-      vPlan: "Buffs to the top 3", vEven: "Even split", vNow: "If nobody changes", group: "Group", useful: "Useful", bufN: "Buffs", chg: "New sign-ups", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
+      splitH: "The split, phase by phase", splitP: "A Sanctuary a group held in the last phase is signed up again automatically, and each phase a group can sign up for one more. A new season starts empty, so in phase 1 every group has one Sanctuary, and two from phase 2 on. A group changes at most one Sanctuary per phase — the three combat buffs move to the next Sanctuary every phase, so following a buff takes that one sign-up. \"Buffs\" = how many of the season's 20 buff rewards the group gets; \"Useful\" = how many of its rewards in the season are ticked above.",
+      vPlan: "Buffs to the top 3", vEven: "Even split", vNow: "Same as now", group: "Group", useful: "Useful", bufN: "Buffs", chg: "New sign-ups", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
       calH: "Who holds what in each phase", calP: "Highlighted = useful. The small number is the Sanctuary; ★ = newly signed up in that phase. The amount is what the alliance gets to hand out.", ph: "Phase", s: "Sanctuary",
       bufH: "Where the 12-hour buffs are", bufP: "The three combat buffs move to the next Sanctuary every phase (none in phase 5). The big number is the Sanctuary that gives the buff in that phase; under it, who holds it in this split.",
       movH: "Who signs up for a new one", mv: "{g} → Sanctuary {a}", mvFrom: " (from {o})", mvNone: "no changes", same: "Nothing changes.",
       fortH: "Fortresses", fortP: "Not part of this proposal — they stay as they are. Their special rewards are shards, books and Gear XP in every phase.", f: "Fortress",
-      noteH: "Notes", notes: ["The reward table is the same one as last season. Phases 3, 5 and 8 were checked against the game; the others are from the Kingshot Wiki.", "Each phase has two Sanctuaries left free for all. A group that held one of them in the phase before is still signed up for it.", "Buffs last 12 hours: Health and Damage are +20%, Deployment Capacity +20%."] },
+      noteH: "Notes", notes: ["The reward table is the same one as last season. Phases 3, 5 and 8 were checked against the game; the others are from the Kingshot Wiki.", "Sanctuaries no group holds in a phase are free for all: seven in phase 1, two from phase 2 on. A group that held one of them in the phase before is still signed up for it.", "Buffs last 12 hours: Health and Damage are +20%, Deployment Capacity +20%."] },
     zh: { h: "🏛️ 遺跡分配", sub: "王國 2189 · NAP 5 · 下一個賽季的提案",
       wantH: "哪些算有用的獎勵", wantP: "打勾的是最強王國用得到的。改勾選，下面所有數字都會跟著變。",
-      splitH: "每一期的分配", splitP: "上一期拿到的遺跡，下一期會自動報名；每一期還可以再多報名一座。所以每個集團每期最多換一座——三種戰鬥增益每一期都會移到下一座遺跡，所以要跟著增益走，就是用掉那一次報名。「增益」＝整季 20 個增益獎勵裡這個集團拿到幾個；「有用」＝它整季的獎勵裡有幾個是上面打勾的。",
-      vPlan: "增益給前三名", vEven: "平均分", vNow: "如果都不換", group: "集團", useful: "有用", bufN: "增益", chg: "新報名次數", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
+      splitH: "每一期的分配", splitP: "上一期拿到的遺跡，下一期會自動報名；每一期還可以再多報名一座。新賽季從零開始，所以第 1 期每個集團只有一座，第 2 期起才有兩座。每個集團每期最多換一座——三種戰鬥增益每一期都會移到下一座遺跡，所以要跟著增益走，就是用掉那一次報名。「增益」＝整季 20 個增益獎勵裡這個集團拿到幾個；「有用」＝它整季的獎勵裡有幾個是上面打勾的。",
+      vPlan: "增益給前三名", vEven: "平均分", vNow: "跟現在一樣", group: "集團", useful: "有用", bufN: "增益", chg: "新報名次數", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
       calH: "每一期誰拿哪一座", calP: "有底色＝有用。小數字是遺跡編號；★＝這一期新報名的。數量是聯盟可以分配的數量。", ph: "第", s: "遺跡",
       bufH: "12 小時增益在哪一座", bufP: "三種戰鬥增益每一期都會移到下一座遺跡（第 5 期沒有）。大數字是那一期給這個增益的遺跡，下面是這個分配裡拿到它的集團。",
       movH: "每一期誰要新報名", mv: "{g} → {a} 號遺跡", mvFrom: "（原本 {o}）", mvNone: "不用換", same: "沒有變動。",
       fortH: "要塞", fortP: "不在這次提案裡，維持現狀。要塞的特殊獎勵每一期都是碎片、技能書、強化經驗。", f: "要塞",
-      noteH: "備註", notes: ["獎勵表跟上一季是同一張。第 3、5、8 期對過遊戲，其他期來自 Kingshot Wiki。", "每一期有兩座遺跡自由搶。上一期拿過其中一座的集團，這一期仍然會自動報名那一座。", "增益都是 12 小時：生命、傷害 +20%，出征數量 +20%。"] },
+      noteH: "備註", notes: ["獎勵表跟上一季是同一張。第 3、5、8 期對過遊戲，其他期來自 Kingshot Wiki。", "沒有集團拿的遺跡就是自由搶：第 1 期有七座，第 2 期起每期兩座。上一期拿過其中一座的集團，這一期仍然會自動報名那一座。", "增益都是 12 小時：生命、傷害 +20%，出征數量 +20%。"] },
   };
   let lang = "en"; try { const l = localStorage.getItem("ks-lang"); if (l && l.startsWith("zh")) lang = "zh"; } catch (e) {}
   const q = new URLSearchParams(location.search); if (T[q.get("lang")]) lang = q.get("lang");
@@ -155,7 +157,7 @@
   const A = () => (view === "now" ? KEEP : view === "even" ? EVEN : PLAN), IDS = Object.keys(S).map(Number);
   const held = (g, p) => A()[g][p].slice(0, 2).filter((k, i, a) => k && a.indexOf(k) === i);
   const freeAt = (p) => { const used = new Set(GROUPS.flatMap((g) => held(g, p))); return IDS.filter((k) => !used.has(k)); };
-  const ownerBefore = (k, p) => (p ? GROUPS.find((g) => held(g, p - 1).includes(k)) : GROUPS.find((g) => NOW[g].includes(k))) || "";
+  const ownerBefore = (k, p) => (p ? GROUPS.find((g) => held(g, p - 1).includes(k)) : "") || "";
   const BUFF = ["HB", "DB", "DP"];
   const stat = (g) => { let n = 0, tot = 0, chg = 0, buf = 0; const gap = [];
     for (let p = 0; p < 8; p++) { const L = held(g, p), c = L.filter((k) => want.has(S[k][p])).length; n += c; tot += L.length; buf += L.filter((k) => BUFF.includes(S[k][p])).length; if (!c) gap.push(p + 1); if (A()[g][p][2]) chg++; } return { n, tot, gap, chg, buf }; };
