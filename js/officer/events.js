@@ -137,7 +137,7 @@ Non-NAP cities: All attacks allowed.` },
 
 Do NOT attack any of these alliances or their associated farms / academies.
 
-NXS/nxs/nXs
+NXS/nxs/nxs
 NRD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI

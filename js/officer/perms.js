@@ -44,7 +44,7 @@ const NT_EV = [["alliance-mobilization", "🔥", "Alliance Mobilization", "聯�
 const NT = { zh: { h: "🔔 提醒", all: "全部", none: "—", hint: "勾選要提醒這個人的活動：活動的幹部待辦到期那天，他的手機會收到通知（時間由他在 ⏰ 裡自己選）。管理員沒勾任何活動時會收到全部。", allBtn: "全部（預設）", clr: "清除" },
   en: { h: "🔔 Reminders", all: "All", none: "—", hint: "Pick the events this person is reminded of: on the day an officer to-do for that event is due, their phone gets a notification (they pick the hour in ⏰). Admins with nothing picked get every event.", allBtn: "All (default)", clr: "Clear" } };
 const nt = (k) => (NT[lang] || NT.en)[k];
-const SD = { zh: "🏰 聯盟", en: "🏰 Alliance", pt: "🏰 Aliança", ar: "🏰 التحالف", ko: "🏰 연맹" }, SD_BOTH = "NXS + nXs";
+const SD = { zh: "🏰 聯盟", en: "🏰 Alliance", pt: "🏰 Aliança", ar: "🏰 التحالف", ko: "🏰 연맹" }, SD_BOTH = "NXS + nxs";
 let ntOpen = null;
 const ntOf = (u) => Array.isArray(u.notify) ? u.notify : u.admin ? null : [];   // null = all
 function ntCell(id, u) {
@@ -90,7 +90,7 @@ function render() {
   $("pm_tbl").innerHTML = `${missingHtml()}<label class="pm-cfg" style="display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:14px;cursor:pointer"><input type="checkbox" id="pm_mReply"${cfg.mReply ? " checked" : ""}> ${esc(MR[lang] || MR.en)}</label><table class="pm-tbl"><thead><tr><th></th><th>${esc(SD[lang] || SD.en)}</th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
     const admin = !!u.admin, owner = id === OFFICER.OWNER;
     return `<tr${OFFICER.previewAs === id ? ' class="pv"' : ""}><th><div>${avHtml(id)}<input class="pm-name" data-nm="${esc(id)}" value="${esc(u.name)}" maxlength="40" dir="auto" title="${esc(t("rename"))}"> ${id === me ? `<span class="muted">${esc(t("you"))}</span>` : ""}</div>${seenHtml(id)}${admin ? `<span class="pm-adm">${esc(t("admin"))}</span> ` : ""}<span class="muted" style="font-weight:400;font-size:11px">${esc(id)}</span></th>
-      ${admin ? `<td class="muted">${SD_BOTH}</td>` : `<td><select class="btn pm-side" data-sd="${esc(id)}">${[["", SD_BOTH], ["m", "NXS"], ["f", "nXs"]].map(([v, n]) => `<option value="${v}"${(u.side || "") === v ? " selected" : ""}>${n}</option>`).join("")}</select></td>`}
+      ${admin ? `<td class="muted">${SD_BOTH}</td>` : `<td><select class="btn pm-side" data-sd="${esc(id)}">${[["", SD_BOTH], ["m", "NXS"], ["f", "nxs"]].map(([v, n]) => `<option value="${v}"${(u.side || "") === v ? " selected" : ""}>${n}</option>`).join("")}</select></td>`}
       ${TABS_P.map((k) => admin ? `<td class="muted">✏️</td>` : `<td><select class="btn pm-sel" data-u="${esc(id)}" data-t="${k}">${["edit", "view", "none"].map((l) => `<option value="${l}"${(k === "research" ? OFFICER.researchLevel(u.perms) : (u.perms[k] || "none")) === l ? " selected" : ""}>${esc(lv[l])}</option>`).join("")}</select></td>`).join("")}
       ${ntCell(id, u)}<td class="pm-acts">${id !== me ? `<button class="btn small" data-pv="${esc(id)}">${esc(OFFICER.previewAs === id ? t("previewOff") : t("preview"))}</button>` : ""}${owner || id === me ? "" : `<button class="btn small" data-adm="${esc(id)}">${esc(admin ? t("unAdmin") : t("mkAdmin"))}</button><button class="btn small" data-rm="${esc(id)}">${esc(t("remove"))}</button>`}</td></tr>${ntRow(id, u, TABS_P.length + 4)}`; }).join("")}</tbody></table>`;
   const pv = OFFICER.previewAs && PP().users[OFFICER.previewAs];
@@ -111,7 +111,7 @@ function init() {
     const nm = e.target.closest(".pm-name");   // ✏️ the name is only a label on this site (the Discord ID is what counts), so admins can change it
     if (nm) { const v = nm.value.trim().slice(0, 40), u = PP().users[nm.dataset.nm]; if (!u) return; if (!v) { nm.value = u.name; return; } if (v !== u.name) { u.name = v; changed(); } return; }
     if (e.target.id === "pm_mReply") { PP().cfg = { ...(PP().cfg || {}), mReply: e.target.checked }; changed(); return; }
-    const sd = e.target.closest(".pm-side");   // 🏰 NXS / nXs / both
+    const sd = e.target.closest(".pm-side");   // 🏰 NXS / nxs / both
     if (sd) { const u = PP().users[sd.dataset.sd]; if (!u) return; if (sd.value === "m" || sd.value === "f") u.side = sd.value; else delete u.side; changed(); return; }
     const s = e.target.closest(".pm-sel"); if (!s) return; const up = PP().users[s.dataset.u].perms; up[s.dataset.t] = s.value; if (s.dataset.t === "research") for (const k of OFFICER.RESEARCH) delete up[k]; changed(); });   // 🔬 old one-per-report keys go away once research is set
   ROOT.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.closest(".pm-name")) e.target.blur(); });

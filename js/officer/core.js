@@ -198,8 +198,8 @@ OFFICER.me = () => OFFICER.user || (OFFICER.pw ? (() => { const n = (officerStor
 OFFICER.authBody = () => { let tok = null; try { tok = localStorage.getItem(DISCORD_LS); } catch (e) {} return tok ? { token: tok } : OFFICER.pw ? { pw: OFFICER.pw, pwName: OFFICER.me().name } : {}; };
 OFFICER.isRealAdmin = () => !!OFFICER.user && (OFFICER.ADMINS.includes(OFFICER.user.id) || OFFICER.ADMIN_IDS.includes(OFFICER.user.id));
 OFFICER.isAdmin = () => OFFICER.isRealAdmin() && !OFFICER.previewAs;   // 👁️ while previewing, the page looks exactly like theirs (no 👥, no admin tools)
-/* 🏰 which alliance a non-admin officer belongs to (👥 table, users[id].side: "m" = NXS · "f" = nXs · none = both). On the pages that are split by
-   alliance (🚩 Territory, 🐝 Hive) the page opens on that alliance and the NXS | nXs switch is gone. Admins always have both. (Sherry 2026-11-16) */
+/* 🏰 which alliance a non-admin officer belongs to (👥 table, users[id].side: "m" = NXS · "f" = nxs · none = both). On the pages that are split by
+   alliance (🚩 Territory, 🐝 Hive) the page opens on that alliance and the NXS | nxs switch is gone. Admins always have both. (Sherry 2026-11-16) */
 OFFICER.side = () => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
   if (!uid || OFFICER.ADMINS.includes(uid) || OFFICER.ADMIN_IDS.includes(uid)) return "";
@@ -208,11 +208,11 @@ OFFICER.side = () => {
 };
 /* 🏰 ONE "current alliance" for the whole officer page (Sherry 2026-11-17: "when I work on NXS every page is NXS's plan"). The switch sits in the
    top bar; the pages split by alliance (SPLIT_TABS) follow it and no longer have a switch of their own. Tabs that will be split later but still
-   hold NXS's data only (NXS_ONLY_TABS) say so while nXs is picked; every other tab is shared and says "shared". */
+   hold NXS's data only (NXS_ONLY_TABS) say so while nxs is picked; every other tab is shared and says "shared". */
 OFFICER.SPLIT_TABS = ["plan", "move", "ranking", "attend", "bearplan", "map", "watch"];
 OFFICER.NXS_ONLY_TABS = [];
 /* 📊 Roster, 📋 Attendance and the 🗡️ Swordland card (⚔️) read everything of ONE alliance when they start — the roster file, this device's
-   settings, the plans and lists on the Worker ({ w: "f" } for nXs) — so nothing of the two alliances can meet on a page. Changing the alliance
+   settings, the plans and lists on the Worker ({ w: "f" } for nxs) — so nothing of the two alliances can meet on a page. Changing the alliance
    after one of them has started reloads the officer page (RELOAD_TABS); pages may hand in something to finish first (OFFICER.beforeWho). */
 OFFICER.whoLoaded = {};   // page → the alliance it started with (set by ranking.js, attend.js, attack.js)
 OFFICER.beforeWho = [];
@@ -235,7 +235,7 @@ OFFICER.gone = (() => { let p = null; return { load: () => p || (p = (async () =
   for (const [id, h] of Object.entries((hist && hist.members) || {})) put(id, h.names && h.names.length && h.names[h.names.length - 1][1]);
   for (const l of (hist && hist.left) || []) put(l.id, l.name);
   for (const a of Object.values((main && main.others) || {})) for (const [id, nm] of a.members || []) { put(id, nm); now.set(String(id), `${a.tag} (#${a.kid})`); }
-  for (const m of (other && other.members) || []) { put(m.id, m.name); now.set(String(m.id), w === "f" ? "NXS" : "nXs"); }
+  for (const m of (other && other.members) || []) { put(m.id, m.name); now.set(String(m.id), w === "f" ? "NXS" : "nxs"); }
   return { names, now };
 })()) }; })();
 OFFICER.wBody = () => (OFFICER.who() === "f" ? { w: "f" } : {});
@@ -272,7 +272,7 @@ function whoTop() {
   const L = { zh: ["兩邊共用", "這頁目前是 NXS 的資料", "目前聯盟"], en: ["Shared by both", "NXS data on this page for now", "Current alliance"], pt: ["Das duas alianças", "Por enquanto, dados da NXS nesta página", "Aliança atual"], ar: ["مشترك بين التحالفين", "بيانات NXS فقط في هذه الصفحة حاليًا", "التحالف الحالي"], ko: ["두 연맹 공용", "이 페이지는 아직 NXS 데이터예요", "현재 연맹"] }[OFFICER.lang] || ["Shared by both", "NXS data on this page for now", "Current alliance"];
   const split = OFFICER.SPLIT_TABS.includes(k), only = OFFICER.NXS_ONLY_TABS.includes(k);
   const chip = only ? (w === "f" ? L[1] : "") : split || sd ? "" : L[0];
-  const sw = sd ? "" : `<span class="who-top who-${w}" role="group" aria-label="${L[2]}" title="${L[2]}"><span aria-hidden="true">🏰</span><button type="button" data-wt="m" class="${w === "m" ? "on" : ""}">NXS</button><button type="button" data-wt="f" class="${w === "f" ? "on" : ""}">nXs</button></span>`;
+  const sw = sd ? "" : `<span class="who-top who-${w}" role="group" aria-label="${L[2]}" title="${L[2]}"><span aria-hidden="true">🏰</span><button type="button" data-wt="m" class="${w === "m" ? "on" : ""}">NXS</button><button type="button" data-wt="f" class="${w === "f" ? "on" : ""}">nxs</button></span>`;
   el.hidden = !sees || (!sw && !chip);
   el.innerHTML = sw + (chip ? `<span class="who-chip${only ? " warn" : ""}">${chip}</span>` : "");
   el.querySelectorAll("[data-wt]").forEach((b) => b.onclick = () => OFFICER.setWho(b.dataset.wt));
@@ -281,7 +281,7 @@ function whoTop() {
   const WN = { en: "Looking at:", zh: "現在看的是：", pt: "Vendo agora:", ar: "المعروض الآن:", ko: "지금 보는 연맹:" };
   for (const t of ["ranking", "attend", "bearplan", "map", "watch"]) { const pg = document.getElementById("pg-" + t); if (!pg) continue;
     let st = pg.querySelector(":scope > .who-now"); if (!st) { st = document.createElement("div"); pg.insertBefore(st, pg.firstChild); }
-    st.className = "who-now who-" + w; st.innerHTML = `🏰 ${WN[OFFICER.lang] || WN.en} <b>${w === "f" ? "nXs" : "NXS"}</b>`; }
+    st.className = "who-now who-" + w; st.innerHTML = `🏰 ${WN[OFFICER.lang] || WN.en} <b>${w === "f" ? "nxs" : "NXS"}</b>`; }
 }
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
@@ -576,9 +576,9 @@ function forgetOldPw() { try { const s = officerStore(); if (s.pw) { delete s.pw
 forgetOldPw();
 applyShared();
 /* 🐻 BT1 / BT2 marks (Nia, 2026-11-05): which Bear Trap each member is in — ONE list on the Worker, shown on 📊 Roster and 🐝 Hive.
-   OFFICER.BT.map[id] = digits "1" "2" "3" (any mix); OFFICER.BTF = the same for nXs. A change anywhere fires "nxs-bt" so the other tab redraws. */
+   OFFICER.BT.map[id] = digits "1" "2" "3" (any mix); OFFICER.BTF = the same for nxs. A change anywhere fires "nxs-bt" so the other tab redraws. */
 OFFICER.tcText = (lv) => lv == null || lv === "" ? "?" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) : String(lv);   // MightPulse level 35 = TG1, 40 = TG2 …
-/* 🐻 BT marks for nXs (2189 nXs, Sherry 2026-11-15): the same kind of list, kept apart on the Worker (w: "f"); their BT1 is our BT3 */
+/* 🐻 BT marks for nxs (2189 nxs, Sherry 2026-11-15): the same kind of list, kept apart on the Worker (w: "f"); their BT1 is our BT3 */
 const mkBT = (LSK, w) => {
   let map = {}; try { map = JSON.parse(localStorage.getItem(LSK)) || {}; } catch (e) { map = {}; }
   const keep = () => { try { localStorage.setItem(LSK, JSON.stringify(map)); } catch (e) {} };
@@ -598,5 +598,5 @@ const mkBT = (LSK, w) => {
   };
   return api;
 };
-OFFICER.BT = mkBT("nxs-bt-v1", "");      // NXS: "1" | "2" | "3" and any mix (BT3 = the Bear Trap shared with nXs — their BT1; 2026-11-15)
-OFFICER.BTF = mkBT("nxs-btf-v1", "f");   // nXs: "1" | "2" | "12"
+OFFICER.BT = mkBT("nxs-bt-v1", "");      // NXS: "1" | "2" | "3" and any mix (BT3 = the Bear Trap shared with nxs — their BT1; 2026-11-15)
+OFFICER.BTF = mkBT("nxs-btf-v1", "f");   // nxs: "1" | "2" | "12"

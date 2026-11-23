@@ -13,9 +13,9 @@ const KEY = process.env.MIGHTPULSE_API_KEY;
 const BASE = "https://api.mightpulse.com/v1";
 const KID = 2189, TAG = "NXS";
 const OUT = "data/roster-x7k2p9.json";
-const ACADEMY = "nXs", ACADEMY_OUT = "data/n2-roster-x7k2p9.json";   // tags are case-sensitive: "nXs" is the Academy, "NXS" is us
+const ACADEMY = "nxs", ACADEMY_OUT = "data/n2-roster-x7k2p9.json";   // tags are case-sensitive: "nxs" is the Academy, "NXS" is us
 const WATCH = "data/watch-x7k2p9.json";
-const WATCH_F = "data/watch-n2-x7k2p9.json";   // 🏰 nXs's own member history (first seen, names, power / kills, who left) for the 🕵️ Watchlist — other alliances' lists stay in WATCH
+const WATCH_F = "data/watch-n2-x7k2p9.json";   // 🏰 nxs's own member history (first seen, names, power / kills, who left) for the 🕵️ Watchlist — other alliances' lists stay in WATCH
 // Other alliances to keep a member list of: the top alliances (by power) of these kingdoms.
 // Add the KvK enemy kingdom number here, e.g. [2189, 2190]. Each alliance costs 1 request per day.
 const WATCH_KINGDOMS = [2189];
@@ -123,12 +123,12 @@ function findRows(o, depth = 0) {
     alliance: { kid: KID, tag: TAG, name: al.name || "", power: al.power ?? null, count: members.length },
     members: out,
   });
-  /* ---------- 🏫 the Academy (our second alliance, "nXs") — reference list for the 🚩 Territory tab; kept apart from the NXS roster ---------- */
+  /* ---------- 🏫 the Academy (our second alliance, "nxs") — reference list for the 🚩 Territory tab; kept apart from the NXS roster ---------- */
   let acadOut = null;
   try {
     const fa = await get(`/alliances/${KID}/${ACADEMY}?include=info,roster`);
     if (fa.status === 200 && fa.body?.members) {
-      // 🏰 the same fields as the NXS roster (2026-11-17: 📊 Roster, 📋 Attendance and the 🗡️ Swordland card work for nXs too). Still one request per
+      // 🏰 the same fields as the NXS roster (2026-11-17: 📊 Roster, 📋 Attendance and the 🗡️ Swordland card work for nxs too). Still one request per
       // player — only the include list grew, so it costs no extra calls.
       const fm = fa.body.members, fp = await getMany(fm.map((m) => `/players/${m.governor_id}?include=base,ranks,heroes`), "Academy");
       const fal = fa.body.alliance || {};
@@ -215,7 +215,7 @@ function findRows(o, depth = 0) {
   writeData(WATCH, w);
   console.log(`✅ Watch file: ${Object.keys(w.others || {}).length} other alliances · tracking since ${w.started}`);
 
-  /* ---------- 🏰 nXs's own history (same shape as the NXS part above) — only when its roster was read this run ---------- */
+  /* ---------- 🏰 nxs's own history (same shape as the NXS part above) — only when its roster was read this run ---------- */
   if (acadOut && acadOut.length) {
     try {
       let f = {};
@@ -233,7 +233,7 @@ function findRows(o, depth = 0) {
       for (const [id, h] of Object.entries(f.members)) if (!ids.has(id) && !h.leftOn) { h.leftOn = today; f.left.push({ id: Number(id), name: h.names[h.names.length - 1]?.[1] || "", leftOn: today }); }
       f.left = f.left.slice(-200); f.updated = new Date().toISOString();
       writeData(WATCH_F, f);
-      console.log(`✅ nXs watch file: tracking since ${f.started}`);
-    } catch (e) { if (e.code === "NOKEY") throw e; console.log("⚠️ nXs watch file failed"); }
+      console.log(`✅ nxs watch file: tracking since ${f.started}`);
+    } catch (e) { if (e.code === "NOKEY") throw e; console.log("⚠️ nxs watch file failed"); }
   }
 })();

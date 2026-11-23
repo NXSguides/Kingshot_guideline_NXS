@@ -12,8 +12,8 @@ const M = (n) => (n == null ? "?" : (n / 1e6).toFixed(1) + "M");
 const day = (s) => (s ? new Date(s * 1000).toISOString().slice(0, 10) : "?");
 const out = ["===== OFFICER DATA (officers only) ====="];
 
-/* 🏰 one ROSTER / WATCH part per alliance (2026-11-17): NXS's headings are "### ROSTER" / "### WATCH" as before, nXs's are "### nXs ROSTER" /
-   "### nXs WATCH" — the Worker hands an officer set to one alliance only that alliance's parts (worker.js officerDataFor) */
+/* 🏰 one ROSTER / WATCH part per alliance (2026-11-17): NXS's headings are "### ROSTER" / "### WATCH" as before, nxs's are "### nxs ROSTER" /
+   "### nxs WATCH" — the Worker hands an officer set to one alliance only that alliance's parts (worker.js officerDataFor) */
 function allianceParts(roster, watch, pre) {
   out.push(`### ${pre}ROSTER — ${roster.alliance?.name || ""} [${roster.alliance?.tag || ""}], updated ${String(roster.updated).slice(0, 10)}`,
     "name | rank | power | TC | kills | language");
@@ -39,7 +39,7 @@ allianceParts(roster, watch, "");
 { let fr = null, fw = null;
   try { fr = readData("data/n2-roster-x7k2p9.json"); } catch (e) {}
   try { fw = readData("data/watch-n2-x7k2p9.json"); } catch (e) {}
-  if (fr && Array.isArray(fr.members) && fr.members.length) allianceParts(fr, fw, "nXs "); }
+  if (fr && Array.isArray(fr.members) && fr.members.length) allianceParts(fr, fw, "nxs "); }
 if (watch) {
   const others = Object.values(watch.others || {}).map((a) =>
     `[${a.tag}] ${a.name} (#${a.kid}, ${a.asOf}): ${a.members.length} members; top: ` +
@@ -74,7 +74,7 @@ if (tr && Array.isArray(tr.players) && tr.players.length) {
 // Map tab: the officers' Outpost plan (data/outpost-plan-x7k2p9.json) with names/levels/buffs from data/kingdom-map.js
 let plan = null;
 try { plan = readData("data/outpost-plan-x7k2p9.json"); } catch (e) {}
-/* 🏰 who holds what is kept per alliance: NXS in plan.o / plan.t, nXs in plan.farm.op — "### OUTPOST PLAN" and "### nXs OUTPOST PLAN" */
+/* 🏰 who holds what is kept per alliance: NXS in plan.o / plan.t, nxs in plan.farm.op — "### OUTPOST PLAN" and "### nxs OUTPOST PLAN" */
 const outpostPart = (PO, pre, who) => {
   if (!PO || !PO.o || !Object.keys(PO.o).length) return;
   const fs = require("fs"), path = require("path");
@@ -111,7 +111,7 @@ const outpostPart = (PO, pre, who) => {
   out.push("Sanctuary Battle — Fortresses/Sanctuaries we hold: " + rl("held"), "Fortress/Sanctuary targets: " + rl("target"),
     `Season points per phase (Sanctuary 1, Fortress 2): now ${rp(["held"])}, with targets ${rp(["held", "target"])}`);
 };
-if (plan) { outpostPart(plan, "", "NXS"); outpostPart(plan.farm && plan.farm.g >= 2 && plan.farm.op, "nXs ", "nXs"); }   // g: 2 / 3 = saved since nXs became the second alliance (before that the set was the old nxs's; it is kept in farm.sub)
+if (plan) { outpostPart(plan, "", "NXS"); outpostPart(plan.farm && plan.farm.g >= 2 && plan.farm.op, "nxs ", "nxs"); }   // g: 2 / 3 = saved since nxs became the second alliance (before that the set was the old nXs's; it is kept in farm.sub)
 
 const text = out.join("\n");
 writeData("data/ai-officer.json", { built: new Date().toISOString(), text });

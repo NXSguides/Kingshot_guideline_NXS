@@ -117,7 +117,7 @@ const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nex
 function applyTexts() {
   document.documentElement.lang = HTML_LANG(lang);
   ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
-  if (OFFICER.who() === "f") { const h = ROOT.querySelector('h1[data-t="title"]'); if (h) h.textContent = h.textContent.replace("NXS", "nXs"); }   // 🏰 the title names the alliance this page was opened for
+  if (OFFICER.who() === "f") { const h = ROOT.querySelector('h1[data-t="title"]'); if (h) h.textContent = h.textContent.replace("NXS", "nxs"); }   // 🏰 the title names the alliance this page was opened for
   $("rk_q").placeholder = tr("search"); if ($("rk_byRankL")) $("rk_byRankL").textContent = rg("byRank"); $("rk_topN").value = topN || ""; $("rk_topN").placeholder = tr("topNAll");
   $("rk_mode").innerHTML = `<option value="sp">${esc(tr("modeSp"))}</option><option value="w">${esc(tr("modeW"))}</option>`; $("rk_mode").value = mode;
   $("rk_wRow").hidden = mode !== "w"; $("rk_spNote").hidden = mode === "w"; $("rk_wNote").hidden = mode !== "w";
