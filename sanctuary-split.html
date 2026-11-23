@@ -113,13 +113,14 @@
      Two per group at most. */
   const NOW = { NXS: [1, 6], RED: [2, 3], NRD: [10, 11], ESA: [5, 12], IDN: [4] };
   /* "Buffs first" (Sherry 2026-11-23, the rule proposed in the NAP chat): every 12-hour combat buff goes to the top 3 (NXS, RED, NRD), which then
-     also take as many of the other useful rewards as the one-new-sign-up-per-phase rule allows, each with a mix of the three buffs; ESA and IDN hold what is left. */
+     also take as many of the other useful rewards as the one-new-sign-up-per-phase rule allows, each with a mix of the three buffs; ESA and IDN hold what is left.
+     Distance only breaks ties (rewards come first): a group rallies from home when it can; otherwise it uses its one free Sanctuary Teleport and the second Sanctuary is reached from there or from home. */
   const PLAN = {
-    NXS: [[4, 0, 4], [4, 9, 9], [2, 9, 2], [7, 9, 7], [4, 7, 4], [4, 5, 5], [5, 10, 10], [7, 10, 7]],
-    RED: [[8, 0, 8], [1, 8, 1], [1, 10, 10], [1, 3, 3], [3, 8, 8], [8, 9, 9], [6, 9, 6], [3, 6, 3]],
-    NRD: [[12, 0, 12], [5, 12, 5], [6, 12, 6], [6, 12, 0], [11, 12, 11], [1, 12, 1], [1, 2, 2], [2, 11, 11]],
-    ESA: [[2, 0, 2], [2, 7, 7], [4, 7, 4], [2, 4, 2], [1, 2, 1], [2, 3, 3], [3, 4, 4], [1, 4, 1]],
-    IDN: [[3, 0, 3], [3, 11, 11], [5, 11, 5], [5, 11, 0], [5, 6, 6], [6, 7, 7], [7, 8, 8], [5, 8, 5]] };
+    NXS: [[12, 0, 12], [5, 12, 5], [2, 12, 2], [9, 12, 9], [11, 12, 11], [1, 12, 1], [1, 2, 2], [2, 11, 11]],
+    RED: [[4, 0, 4], [4, 9, 9], [4, 6, 6], [3, 6, 3], [3, 4, 4], [4, 5, 5], [5, 6, 6], [3, 6, 3]],
+    NRD: [[8, 0, 8], [1, 8, 1], [8, 10, 10], [7, 8, 7], [7, 8, 0], [8, 9, 9], [9, 10, 10], [7, 10, 7]],
+    ESA: [[11, 0, 11], [10, 11, 10], [1, 11, 1], [1, 11, 0], [1, 10, 10], [10, 11, 11], [11, 12, 12], [1, 12, 1]],
+    IDN: [[7, 0, 7], [3, 7, 3], [5, 7, 5], [5, 10, 10], [5, 6, 6], [6, 7, 7], [7, 8, 8], [8, 9, 9]] };
   /* "Even" (the first draft): no group ends below what it has if nobody changes. */
   const EVEN = {
     NXS: [[12, 0, 12], [9, 12, 9], [9, 12, 0], [9, 12, 0], [9, 12, 0], [9, 12, 0], [2, 9, 2], [2, 3, 3]],
@@ -134,8 +135,8 @@
     en: { h: "🏛️ Sanctuary split", sub: "Kingdom 2189 · NAP 5 · proposal for the next season",
       wantH: "What counts as a useful reward", wantP: "Ticked rewards are the ones we want for Kingdom of Power. Change the ticks and every number below follows.",
       splitH: "The split, phase by phase", splitP: "A Sanctuary a group held in the last phase is signed up again automatically, and each phase a group can sign up for one more. A new season starts empty, so in phase 1 every group has one Sanctuary, and two from phase 2 on. A group changes at most one Sanctuary per phase — the three combat buffs move to the next Sanctuary every phase, so following a buff takes that one sign-up. \"Buffs\" = how many of the season's 20 buff rewards the group gets; \"Useful\" = how many of its rewards in the season are ticked above.",
-      vPlan: "Buffs to the top 3", vEven: "Even split", vNow: "Same as now", group: "Group", useful: "Useful", bufN: "Buffs", chg: "New sign-ups", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
-      calH: "Who holds what in each phase", calP: "Highlighted = useful. The small number is the Sanctuary; ★ = newly signed up in that phase. The amount is what the alliance gets to hand out.", ph: "Phase", s: "Sanctuary",
+      vPlan: "Buffs to the top 3", vEven: "Even split", vNow: "Same as now", group: "Group", useful: "Useful", bufN: "Buffs", homeN: "Phases from home", chg: "New sign-ups", gap: "Phases with nothing useful", none: "none", ffa: "Free for all",
+      calH: "Who holds what in each phase", calP: "Highlighted = useful. The small number is the Sanctuary; ★ = newly signed up in that phase; ✈ = too far from the group's HQ to rally from home (over 350 km), so the free Sanctuary Teleport goes there — the other Sanctuary is then reached from there or from home. The amount is what the alliance gets to hand out.", ph: "Phase", s: "Sanctuary",
       bufH: "Where the 12-hour buffs are", bufP: "The three combat buffs move to the next Sanctuary every phase (none in phase 5). The big number is the Sanctuary that gives the buff in that phase; under it, who holds it in this split.",
       movH: "Who signs up for a new one", mv: "{g} → Sanctuary {a}", mvFrom: " (from {o})", mvNone: "no changes", same: "Nothing changes.",
       fortH: "Fortresses", fortP: "Not part of this proposal — they stay as they are. Their special rewards are shards, books and Gear XP in every phase.", f: "Fortress",
@@ -143,8 +144,8 @@
     zh: { h: "🏛️ 遺跡分配", sub: "王國 2189 · NAP 5 · 下一個賽季的提案",
       wantH: "哪些算有用的獎勵", wantP: "打勾的是最強王國用得到的。改勾選，下面所有數字都會跟著變。",
       splitH: "每一期的分配", splitP: "上一期拿到的遺跡，下一期會自動報名；每一期還可以再多報名一座。新賽季從零開始，所以第 1 期每個集團只有一座，第 2 期起才有兩座。每個集團每期最多換一座——三種戰鬥增益每一期都會移到下一座遺跡，所以要跟著增益走，就是用掉那一次報名。「增益」＝整季 20 個增益獎勵裡這個集團拿到幾個；「有用」＝它整季的獎勵裡有幾個是上面打勾的。",
-      vPlan: "增益給前三名", vEven: "平均分", vNow: "跟現在一樣", group: "集團", useful: "有用", bufN: "增益", chg: "新報名次數", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
-      calH: "每一期誰拿哪一座", calP: "有底色＝有用。小數字是遺跡編號；★＝這一期新報名的。數量是聯盟可以分配的數量。", ph: "第", s: "遺跡",
+      vPlan: "增益給前三名", vEven: "平均分", vNow: "跟現在一樣", group: "集團", useful: "有用", bufN: "增益", homeN: "從家裡打的期數", chg: "新報名次數", gap: "沒有有用獎勵的期", none: "無", ffa: "自由搶",
+      calH: "每一期誰拿哪一座", calP: "有底色＝有用。小數字是遺跡編號；★＝這一期新報名的；✈＝離該集團總部太遠（超過 350 公里），沒辦法從家裡集結，免費的遺跡遷城用在這一座，另一座再從那裡或從家裡過去。數量是聯盟可以分配的數量。", ph: "第", s: "遺跡",
       bufH: "12 小時增益在哪一座", bufP: "三種戰鬥增益每一期都會移到下一座遺跡（第 5 期沒有）。大數字是那一期給這個增益的遺跡，下面是這個分配裡拿到它的集團。",
       movH: "每一期誰要新報名", mv: "{g} → {a} 號遺跡", mvFrom: "（原本 {o}）", mvNone: "不用換", same: "沒有變動。",
       fortH: "要塞", fortP: "不在這次提案裡，維持現狀。要塞的特殊獎勵每一期都是碎片、技能書、強化經驗。", f: "要塞",
@@ -159,10 +160,16 @@
   const freeAt = (p) => { const used = new Set(GROUPS.flatMap((g) => held(g, p))); return IDS.filter((k) => !used.has(k)); };
   const ownerBefore = (k, p) => (p ? GROUPS.find((g) => held(g, p - 1).includes(k)) : "") || "";
   const BUFF = ["HB", "DB", "DP"];
-  const stat = (g) => { let n = 0, tot = 0, chg = 0, buf = 0; const gap = [];
-    for (let p = 0; p < 8; p++) { const L = held(g, p), c = L.filter((k) => want.has(S[k][p])).length; n += c; tot += L.length; buf += L.filter((k) => BUFF.includes(S[k][p])).length; if (!c) gap.push(p + 1); if (A()[g][p][2]) chg++; } return { n, tot, gap, chg, buf }; };
+  /* where everything is: Sanctuaries 1–12 and each group's Plains HQ (game map, 2026-11-23) */
+  const SP = [[237, 828], [237, 606], [237, 348], [366, 237], [588, 237], [846, 237], [957, 348], [957, 606], [957, 828], [846, 957], [606, 957], [366, 957]], HQ = { NXS: [445, 682], RED: [556, 447], NRD: [767, 726], ESA: [596, 760], IDN: [750, 548] }, FAR = 350;
+  const dh = (g, k) => Math.round(Math.hypot(SP[k - 1][0] - HQ[g][0], SP[k - 1][1] - HQ[g][1])), dss = (a, b) => Math.round(Math.hypot(SP[a - 1][0] - SP[b - 1][0], SP[a - 1][1] - SP[b - 1][1]));
+  /* which Sanctuary (if any) the group teleports to in a phase: none when everything is within FAR of home; otherwise the one that leaves the shortest way to the other */
+  const tele = (g, p) => { const L = held(g, p); if (!L.length || L.every((k) => dh(g, k) <= FAR)) return 0; if (L.length === 1) return L[0];
+    const [a, b] = L, viaA = Math.min(dss(a, b), dh(g, b)), viaB = Math.min(dss(a, b), dh(g, a)); return viaA <= viaB ? a : b; };
+  const stat = (g) => { let n = 0, tot = 0, chg = 0, buf = 0, home = 0; const gap = [];
+    for (let p = 0; p < 8; p++) { const L = held(g, p), c = L.filter((k) => want.has(S[k][p])).length; n += c; tot += L.length; buf += L.filter((k) => BUFF.includes(S[k][p])).length; if (!c) gap.push(p + 1); if (A()[g][p][2]) chg++; if (!tele(g, p)) home++; } return { n, tot, gap, chg, buf, home }; };
   const pic = (c) => `<img src="figures/items/rw-${ITEM[c].i}.webp" alt="" loading="lazy">`;
-  const cell = (c, fort, k, isNew) => { const it = ITEM[c]; return `<span class="cell${want.has(c) ? " w" : ""}" title="${esc(it.full[lang])}">${k ? `<b class="sn">${k}${isNew ? " ★" : ""}</b>` : ""}<span class="ic">${pic(c)}<em>×${fort && it.qf ? it.qf : it.q}</em></span>${esc(it[lang])}</span>`; };
+  const cell = (c, fort, k, isNew, g, tp) => { const it = ITEM[c]; return `<span class="cell${want.has(c) ? " w" : ""}" title="${esc(it.full[lang])}${g ? " · " + dh(g, k) + " km" : ""}">${k ? `<b class="sn">${k}${isNew ? " ★" : ""}${tp ? " ✈" : ""}</b>` : ""}<span class="ic">${pic(c)}<em>×${fort && it.qf ? it.qf : it.q}</em></span>${esc(it[lang])}</span>`; };
 
   function render() {
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en"; document.title = t("h").replace(/^\S+\s/, "");
@@ -170,10 +177,10 @@
     $("t_splitN").textContent = "";
     $("want").innerHTML = KINDS.map((c) => `<label class="chip${want.has(c) ? " on" : ""}"><input type="checkbox" data-w="${c}"${want.has(c) ? " checked" : ""}>${pic(c)}${esc(ITEM[c].full[lang])}</label>`).join("");
     $("views").innerHTML = [["plan", "vPlan"], ["even", "vEven"], ["now", "vNow"]].map(([v, k]) => `<button type="button" class="btn2${view === v ? " on" : ""}" data-v="${v}">${esc(t(k))}</button>`).join("");
-    $("split").innerHTML = `<thead><tr><th>${esc(t("group"))}</th><th class="num">${esc(t("bufN"))}</th><th class="num">${esc(t("useful"))}</th><th class="num">${esc(t("chg"))}</th><th>${esc(t("gap"))}</th></tr></thead><tbody>`
-      + GROUPS.map((g) => { const s = stat(g); return `<tr><td><b>${g}</b></td><td class="num">${s.buf}</td><td class="num">${s.n} / ${s.tot}<span class="bar"><i style="width:${Math.round(100 * s.n / Math.max(1, s.tot))}%"></i></span></td><td class="num">${s.chg}</td><td>${s.gap.length ? s.gap.join(", ") : esc(t("none"))}</td></tr>`; }).join("") + `</tbody>`;
+    $("split").innerHTML = `<thead><tr><th>${esc(t("group"))}</th><th class="num">${esc(t("bufN"))}</th><th class="num">${esc(t("useful"))}</th><th class="num">${esc(t("chg"))}</th><th class="num">${esc(t("homeN"))}</th><th>${esc(t("gap"))}</th></tr></thead><tbody>`
+      + GROUPS.map((g) => { const s = stat(g); return `<tr><td><b>${g}</b></td><td class="num">${s.buf}</td><td class="num">${s.n} / ${s.tot}<span class="bar"><i style="width:${Math.round(100 * s.n / Math.max(1, s.tot))}%"></i></span></td><td class="num">${s.chg}</td><td class="num">${s.home} / 8</td><td>${s.gap.length ? s.gap.join(", ") : esc(t("none"))}</td></tr>`; }).join("") + `</tbody>`;
     const head = `<thead><tr><th>${esc(t("group"))}</th>${[1, 2, 3, 4, 5, 6, 7, 8].map((p) => `<th>${lang === "zh" ? `${t("ph")} ${p} 期` : `${t("ph")} ${p}`}</th>`).join("")}</tr></thead>`;
-    $("cal").innerHTML = head + `<tbody>` + GROUPS.map((g) => `<tr><td><b>${g}</b></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => `<td><span class="two">${held(g, p).map((k) => cell(S[k][p], false, k, A()[g][p][2] === k)).join("")}</span></td>`).join("")}</tr>`).join("")
+    $("cal").innerHTML = head + `<tbody>` + GROUPS.map((g) => `<tr><td><b>${g}</b></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => `<td><span class="two">${held(g, p).map((k) => cell(S[k][p], false, k, A()[g][p][2] === k, g, tele(g, p) === k)).join("")}</span></td>`).join("")}</tr>`).join("")
       + `<tr class="ffa"><td><b>${esc(t("ffa"))}</b></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => `<td><span class="two">${freeAt(p).map((k) => cell(S[k][p], false, k)).join("")}</span></td>`).join("")}</tr></tbody>`;
     $("fort").innerHTML = head.replace(esc(t("group")), esc(t("f"))) + `<tbody>` + [1, 2, 3, 4].map((k) => `<tr><td><b>${k}</b><span class="tag">${Object.keys(FORT).find((g) => FORT[g] === k) || ""}</span></td>${F[k].map((c) => `<td>${cell(c, true)}</td>`).join("")}</tr>`).join("") + `</tbody>`;
     $("buf").innerHTML = head.replace(esc(t("group")), "") + `<tbody>` + ["HB", "DB", "DP"].map((c) => `<tr><td><span class="chip" style="cursor:default">${pic(c)}${esc(ITEM[c][lang])}</span></td>${[0, 1, 2, 3, 4, 5, 6, 7].map((p) => { const k = IDS.find((x) => S[x][p] === c), o = k ? GROUPS.find((g) => held(g, p).includes(k)) : "";
