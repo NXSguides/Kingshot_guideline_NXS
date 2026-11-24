@@ -206,13 +206,14 @@ function msgText(uid, evIds) {
 }
 /* 🔮 official event previews (Sparrow's page): data/sneak-peek.json is kept by a workflow — titles, dates and links only. A tick = read. */
 let PEEK = null;
+const PEEK_FROM = Date.UTC(2026, 10, 24);   // the card started on 2026-11-24: posts from before that day are shown as already read
 async function loadPeek() { try { const j = await (await fetch("data/sneak-peek.json?t=" + Math.floor(Date.now() / 3600000), { cache: "no-store" })).json(); PEEK = Array.isArray(j.items) ? j.items : []; } catch (e) { PEEK = []; } }
 function peekCard(d) {
   if (!PEEK) return "";
   const now = Date.now(), ok = (u) => /^https:\/\/kingshotwiki\.com\//.test(String(u || "")), lk = (u, n) => ok(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>` : "";
   const links = (x) => [lk(x.tw, "繁中"), lk(x.en, "EN"), lk(x.ko, "한국어")].filter(Boolean).join(" · ");
   const recent = PEEK.filter((x) => now - Date.parse(x.date) < 30 * DAY);
-  const rows = recent.map((x) => { const k = "peek|" + String(x.date).slice(0, 10), on = !!d.done[k];
+  const rows = recent.map((x) => { const k = "peek|" + String(x.date).slice(0, 10), on = !!d.done[k] || Date.parse(x.date) < PEEK_FROM;
     return `<label class="ws-row${on ? " done" : ""}"><input type="checkbox" data-peek="${esc(k)}"${on ? " checked" : ""}><span class="ws-tx"><b>${esc(String(x.date).slice(0, 10))}</b>${on ? "" : ` <span class="ws-tag">${esc(t("peekNew"))}</span>`} ${esc(x.title)}<br><span class="muted">${links(x)}</span></span></label>`; }).join("");
   const last = !recent.length && PEEK[0] ? `<div class="muted">${esc(t("peekNone"))} ${esc(t("peekLast"))} ${esc(String(PEEK[0].date).slice(0, 10))} ${esc(PEEK[0].title)} · ${links(PEEK[0])}</div>` : "";
   return `<div class="card" id="ws_peek"><h2>${esc(t("peek"))}</h2><div class="muted ws-sub">${esc(t("peekSub"))}</div>${rows || last || `<div class="muted">${esc(t("peekNone"))}</div>`}</div>`;
