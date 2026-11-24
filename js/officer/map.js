@@ -1652,6 +1652,7 @@ async function init() {
 window.KM_SHARED = {
   check: (list, who) => bannerCheck(list, who), hqs: () => (G.hq || []).map(([x, y]) => [x, y]),   // the shared 🚩 banner check (also used by tests)
   cityDraw: () => drawAc(),
+  ownAt: (x, y) => { if (!OWN_A) { if (!G || !PLAN) return 0; ownBuild(); } return x >= 0 && y >= 0 && x < FN && y < FN ? OWN_A[y * FN + x] : 0; },   // 🐝 Hive: who really holds a tile now (first built keeps it): 0 nobody · 1 NXS · 2 nxs · 3 someone else
   whoName: () => (PMODE && PWHO === "f" ? fTag() : "NXS"),
   ctx: "m", who: () => (PMODE && PWHO === "f" ? "f" : "m"),   // 🌾 banner check for nxs: who = the alliance picked on 🚩 Territory; ctx = "f" only while that check runs
   farmB: () => ((PLAN.farm || {}).b || []).map(([x, y]) => [x, y, 1]),   // nxs's standing banners as listed on 🚩 Territory (without its 🚚 Move ticks)
