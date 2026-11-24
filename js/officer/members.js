@@ -359,15 +359,14 @@ function drawIn(boxId) {
     RESN.forEach(([k, rx, ry], ri) => { if (!inB(rx, ry)) return; const c = PL ? rsCov(T, rx, ry) : 0, ok = c >= 3, [cx, cy] = P(rx + 1, ry + 1);
       s.push(`<g class="mm-r" data-r="${ri}"><polygon points="${poly(rx, ry, 2)}" fill="${RS_COL[k] || "#ccc"}" fill-opacity="${ok || !PL ? 1 : .55}" stroke="${ok ? "#2e7d32" : "#ffffffaa"}" stroke-width="${ok ? 2.4 : 1}" stroke-dasharray="${ok || !PL ? "" : "3 2"}"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font-size:11px;pointer-events:none">${RS_ICON[k] || ""}</text></g>`); }); }
   /* 🏰 NXS ↔ nxs: the border (cities on Y 704 and above it are NXS) and the other alliance's layout, faint */
-  { const OL = otherLayer(), yb = SPLIT_Y + 1;   // the line sits right after row Y 704 (Sherry 2026-11-17: nxs probably starts at 705; was 706)
+  { const OL = otherLayer();
     if (OL) { const g = [], sq = (x, y, n, extra) => `<polygon points="${poly(x, y, n)}" fill="#ffffff" fill-opacity=".16" stroke="#ffffff" stroke-opacity=".55" stroke-width="1" stroke-dasharray="2 2"${extra || ""}/>`;
       for (const [x, y] of OL.c) if (inB(x, y)) g.push(sq(x, y, 2));
       for (const [x, y] of OL.b) if (inB(x, y)) g.push(sq(x, y, 1));
       for (const [x, y] of OL.hq) if (inB(x, y)) { const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.n} HQ</text>`); }
       OL.bt.forEach(([x, y], i) => { if (!inB(x, y)) return; const [cx, cy] = P(x + 1.5, y + 1.5); g.push(sq(x, y, 3) + `<text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl" style="opacity:.7">${OL.o === "f" && i === 0 ? "BT3" : OL.n + " BT" + (i + 1)}</text>`); });   // nxs's BT1 is the trap shared with NXS = NXS's BT3 (Sherry 2026-11-17: show it under our name for it)
       if (g.length) s.push(`<g class="mm-oa" style="pointer-events:none"><title>${OL.n}</title>${g.join("")}</g>`);
-      if (yb > y1 && yb < y2) { const a = P(x1, yb), b = P(x2, yb), [lx, ly] = P(x1 + 1.5, yb);
-        s.push(`<g class="mm-oa" style="pointer-events:none"><line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="#ffde4a" stroke-opacity=".8" stroke-width="1.6" stroke-dasharray="8 5"/><text x="${lx.toFixed(1)}" y="${(ly - 5).toFixed(1)}" class="mm-bl" style="fill:#ffde4a;opacity:.9">NXS ┄ Y ${SPLIT_Y} ┄ nxs</text></g>`); } } }
+      /* the yellow "Y 704" border line is gone (Sherry 2026-11-24): since the tags were swapped nxs sits north of NXS and there is no such line any more */ } }
   /* 🏴 other alliances: their 7×7 territory shaded, the banner on top */
   const oth = KS ? KS.others().filter(([, bx, by]) => bx >= x1 - 3 && bx <= x2 + 3 && by >= y1 - 3 && by <= y2 + 3) : [];
   for (const [, bx, by, col] of oth) s.push(`<polygon points="${poly(bx - 3, by - 3, 7)}" fill="${esc(col)}" fill-opacity=".18" stroke="none"/>`);
