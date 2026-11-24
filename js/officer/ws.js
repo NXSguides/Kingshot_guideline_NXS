@@ -192,16 +192,32 @@ function outboxCard() {
     <div class="row" style="gap:8px;align-items:center;margin-top:10px"><button type="button" class="btn" id="ws_copy">${esc(t("copyMsg"))}</button><span class="msg" id="ws_cmsg"></span></div>
     <textarea class="inp" id="ws_cout" rows="8" readonly hidden style="width:100%;box-sizing:border-box;margin-top:8px;font-size:12.5px"></textarea></div>`;
 }
-/* the same content as an English message, for sending outside the site: that person's events (today, tomorrow) and what is still open for them */
+/* our set times of one run that fall on one day (📅 Events: a day per time, one day for all, or a one-day event; many slots over many days → not listed) */
+const sessOn = (r, day) => { let E = {}; try { E = (EV().times && EV().times()) || {}; } catch (e) {}
+  const T = Array.isArray(E[r.k]) ? E[r.k] : [], td = (E.timeDays || {})[r.k], fd = Number((E.days || {})[r.k]) || 0;
+  if (Array.isArray(td)) return T.filter((x, i) => x && r.st + ((Number(td[i]) || 1) - 1) * DAY === day);
+  return (fd > 0 || r.days === 1) && r.st + ((fd || 1) - 1) * DAY === day ? T.filter(Boolean) : []; };
+/* an English message for sending outside the site: what is left today (until 00:00 UTC), what is open for that person, and what tomorrow brings */
 function msgText(uid, evIds) {
-  const today = utcDay(Date.now()), L = [`${iso(today)} (all times UTC)`];
-  for (const r of near(evIds)) { const n = Math.round((today - r.st) / DAY) + 1, tm = timesOf(r.k);
-    L.push("", `${evEn(r.k)} — ${r.st <= today ? `day ${n} of ${r.days}` : `starts ${md(r.st)}`}${tm.length ? " · our times " + tm.join(", ") : ""}`);
-    for (let i = 0; i <= 1; i++) for (const x of todosOn(r, today + i * DAY, true)) L.push(`- ${i ? "Tomorrow" : "Today"}${x.at ? " " + x.at : ""}: ${x.txt}`);
-    const bl = bearLine(r, true); if (bl) L.push("- " + bl.replace(/^🐻\s*/, "")); }
+  const now = Date.now(), today = utcDay(now), tom = today + DAY, hm = new Date(now).toISOString().slice(11, 16);
+  const all = runsOf(today - 40 * DAY, today + 3 * DAY).filter((r) => r.en > today && r.st <= today + 2 * DAY).sort((a, b) => a.st - b.st);
+  const part = (day, from) => { const timed = [], rest = [];
+    for (const r of all) { const mine = evIds.includes(r.k), nm = evEn(r.k), inRun = day >= r.st && day < r.en;
+      if (inRun) for (const x of sessOn(r, day)) if (x > from) timed.push([x, `${x} ${nm}`]);
+      if (r.st === day && day > today) rest.push(`${nm} starts${r.days > 1 ? ` (${r.days} days)` : ""}`);
+      if (inRun && r.days > 1 && r.en - DAY === day) rest.push(`${nm}: last day (ends 00:00)`);
+      if (mine) for (const x of todosOn(r, day, true)) { if (x.at && x.at > from) timed.push([x.at, `${x.at} ${nm}: ${x.txt}`]); else if (!x.at) rest.push(`${nm}: ${x.txt}`); }
+      if (mine && day === today) { const bl = bearLine(r, true); if (bl) rest.push(bl.replace(/^🐻\s*/, "")); } }
+    return [...timed.sort((a, b) => a[0] < b[0] ? -1 : 1).map((x) => x[1]), ...rest].map((x) => "- " + x); };
+  const L = [`${iso(today)} · now ${hm} UTC (all times UTC)`, "", "Rest of today (until 00:00):"];
+  const a = part(today, hm); L.push(...(a.length ? a : ["- Nothing left on the calendar."]));
   const open = (OUT[uid] || []).filter((m) => !m.done && !(m.q && m.ans));
   if (open.some((m) => !m.q)) { L.push("", "For you:"); for (const m of open.filter((m) => !m.q)) L.push("- " + m.text); }
   if (open.some((m) => m.q)) { L.push("", "Questions:"); for (const m of open.filter((m) => m.q)) L.push("- " + m.text); }
+  const b = part(tom, "");
+  let ms = []; try { ms = EV().milestones ? EV().milestones() : []; } catch (e) {}
+  for (const m of ms) if (utcDay(m.t) === tom) b.push("- Kingdom timeline: " + m.l.join(" · "));
+  L.push("", `Tomorrow (${md(tom)}):`, ...(b.length ? b : ["- Nothing new on the calendar."]));
   return L.join("\n");
 }
 /* 🔮 official event previews (Sparrow's page): data/sneak-peek.json is kept by a workflow — titles, dates and links only. A tick = read. */
