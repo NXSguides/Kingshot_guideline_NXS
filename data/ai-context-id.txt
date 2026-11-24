@@ -1085,7 +1085,7 @@ Hidangan biasa memberi 40 Poin Pesta Pribadi dan 40 Poin Pesta Aliansi. Hidangan
 Hidangan Spesial berganti setiap hari pukul 00:00 UTC. Di hari terakhir tidak ada yang baru.
 Memasak: ketuk [Selesai] pada saat yang tepat. Ketukan sempurna membuka Masak Cepat untuk hidangan itu, sehingga proses memasak bisa dilewati setelahnya. Kalau meleset, hidangan gagal dan semua Bahan dikembalikan.
 Mengirim Bahan ke sekutu memberi Poin Pesta Pribadi. Permintaan punya batas harian.
-🧺 DARI MANA Kantong Bahan DIDAPAT (Supplies of Plenty)
+🧺 DARI MANA Kantong Bahan DIDAPAT (Persediaan Kelimpahan)
 Permata: setiap 1.000 yang dipakai memberi 1.
 Percepatan: setiap 7.200 detik (2 jam) yang dipakai memberi 1. Hanya item percepatan yang dihitung; menyelesaikan langsung dengan permata tidak dihitung.
 Mengumpulkan: setiap 3.600 detik (1 jam) memberi 1 atau 2, dengan peluang sama.
@@ -1104,7 +1104,7 @@ Kalau keluar saat pesta, bergabung lagi dengan Aliansi yang sama sebelum pesta s
 🎪 BAGIAN LAIN DARI EVENT (dari pratinjau resmi)
 Reli Panen: levelnya naik saat kamu memainkan Persiapan Pesta; tiap level punya hadiah, dan ada jalur berbayar.
 Pelindung Kelimpahan: misi dalam 7 fase, dengan hadiah fase dan peringkat.
-Autumn Anthem: misi berbentuk kotak-kotak. Satu baris atau kolom penuh membuka peti; menyelesaikan semuanya memberi hadiah utama.
+Anthem Musim Gugur: misi berbentuk kotak-kotak. Satu baris atau kolom penuh membuka peti; menyelesaikan semuanya memberi hadiah utama.
 Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
 Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
 📦 SAAT BERAKHIR
@@ -1569,6 +1569,9 @@ Ingredients = Bahan
 ingredients bag = Kantong Bahan
 Alliance Feast = Pesta Aliansi
 Lv.2 Custom Secured Resource Chest = Peti Sumber Daya Terlindung Kustom Lv.2
+Autumn Anthem = Anthem Musim Gugur
+Supplies of Plenty = Persediaan Kelimpahan
+Top-up Benefits = Bonus Isi Ulang
 Harvest Rally = Reli Panen
 Patron of Plenty = Pelindung Kelimpahan
 Seasonal Prize = Hadiah Musiman

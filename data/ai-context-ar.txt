@@ -1572,6 +1572,7 @@ Autumn Anthem = نشيد الخريف
 Supplies of Plenty = إمدادات وفيرة
 Pumpkin Smash = تحطيم اليقطين
 Lucky Cabin = كوخ محظوظ
+Top-up Benefits = مزايا شحن الرصيد
 Harvest Rally = حشد الحصاد
 Patron of Plenty = راعي الوفرة
 Seasonal Prize = جائزة موسمية

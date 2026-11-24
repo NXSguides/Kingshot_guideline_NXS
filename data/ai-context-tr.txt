@@ -1085,7 +1085,7 @@ Normal bir yemek 40 kişisel puan (Kişisel Ziyafet Puanı) ve 40 ittifak puanı
 Özel yemekler (Özel Yemekler) her gün 00:00 UTC'de değişir. Son gün yenisi gelmez.
 Pişirme: doğru anda [Bitir] düğmesine dokun. Mükemmel dokunuş o yemek için Hızlı Pişir özelliğini açar, sonrasında pişirme atlanabilir. Iskalarsan yemek başarısız olur ve bütün malzemeler geri gelir.
 Bir müttefike malzeme göndermek kişisel puan (Kişisel Ziyafet Puanı) kazandırır. İsteklerin günlük sınırı vardır.
-🧺 MALZEME POŞETLERİ NEREDEN GELİR (Supplies of Plenty)
+🧺 MALZEME POŞETLERİ NEREDEN GELİR (Bereket Erzakı)
 Elmas: harcanan her 1.000 elmas 1 poşet verir.
 Hızlandırma: kullanılan her 7.200 saniye (2 saat) 1 poşet verir. Yalnızca hızlandırma eşyaları sayılır; elmasla bitirmek sayılmaz.
 Toplama: her 3.600 saniye (1 saat) eşit şansla 1 veya 2 poşet verir.
@@ -1104,7 +1104,7 @@ Ziyafet sırasında ayrılırsan, bitmeden aynı ittifaka geri dönmek devam etm
 🎪 ETKİNLİĞİN DİĞER BÖLÜMLERİ (resmî ön izlemeden)
 Hasat Seferberliği: Ziyafet Hazırlıkları oynadıkça seviyesi yükselir; her seviyenin bir ödülü ve ayrıca ücretli bir ödül yolu vardır.
 Bereketin Efendisi: 7 aşamalı görevler, aşama ödülleri ve sıralama.
-Autumn Anthem: kare kare görevler. Tam bir satır ya da sütun bir sandık açar; hepsini bitirmek büyük ödülü verir.
+Sonbahar Şarkısı: kare kare görevler. Tam bir satır ya da sütun bir sandık açar; hepsini bitirmek büyük ödülü verir.
 Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
 Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
 📦 BİTTİĞİNDE
@@ -1569,6 +1569,9 @@ Ingredients = Malzemeler
 ingredients bag = malzeme poşeti
 Alliance Feast = İttifak Ziyafeti
 Lv.2 Custom Secured Resource Chest = Sv. 2 Özel Korumalı Kaynak Sandığı
+Autumn Anthem = Sonbahar Şarkısı
+Supplies of Plenty = Bereket Erzakı
+Top-up Benefits = Doldurma Avantajları
 Harvest Rally = Hasat Seferberliği
 Patron of Plenty = Bereketin Efendisi
 Seasonal Prize = Sezonluk

@@ -1085,7 +1085,7 @@ Um prato normal dá 40 Pontos de Banquete Individuais e 40 Pontos de Banquete da
 Os pratos especiais mudam todo dia às 00:00 UTC. No último dia não há novos.
 Cozinhar: toque em [Concluir] no momento certo. Um toque perfeito libera Cozinhar Rapidamente para aquele prato, e o cozimento pode ser pulado dali em diante. Se errar, o prato falha e todos os ingredientes voltam.
 Enviar ingredientes a um aliado dá Pontos de Banquete Individuais. Os pedidos têm limite diário.
-🧺 DE ONDE VÊM OS SACOS (Supplies of Plenty)
+🧺 DE ONDE VÊM OS SACOS (Suprimentos da Plenitude)
 Gemas: a cada 1.000 gastas, 1.
 Acelerações: a cada 7.200 segundos (2 horas) usados, 1. Só itens de aceleração contam; concluir com gemas não conta.
 Coleta: a cada 3.600 segundos (1 hora), 1 ou 2, com chances iguais.
@@ -1104,7 +1104,7 @@ Se você sair durante a festa, voltar para a mesma aliança antes do fim permite
 🎪 OUTRAS PARTES DO EVENTO (da prévia oficial)
 Rally da Colheita: o nível sobe conforme você joga Preparações para o Banquete; cada nível tem uma recompensa, e há uma trilha paga.
 Patrono da Plenitude: 7 fases de missões, com recompensas de fase e ranking.
-Autumn Anthem: uma grade de missões. Uma linha ou coluna completa abre um baú; terminar todas dá o prêmio principal.
+Hino do Outono: uma grade de missões. Uma linha ou coluna completa abre um baú; terminar todas dá o prêmio principal.
 Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
 Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
 📦 QUANDO TERMINA
@@ -1569,6 +1569,9 @@ Ingredients = ingredientes
 ingredients bag = saco de ingredientes
 Alliance Feast = Festa da Aliança
 Lv.2 Custom Secured Resource Chest = Baú de Recursos Protegidos Personalizados Nv.2
+Autumn Anthem = Hino do Outono
+Supplies of Plenty = Suprimentos da Plenitude
+Top-up Benefits = Benefícios de Recarga
 Harvest Rally = Rally da Colheita
 Patron of Plenty = Patrono da Plenitude
 Seasonal Prize = Prêmio de Temporada

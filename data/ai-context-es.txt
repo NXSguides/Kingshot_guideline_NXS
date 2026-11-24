@@ -1085,7 +1085,7 @@ Un plato normal da 40 Puntos de festín personales y 40 Puntos de festín de ali
 Los platos especiales cambian cada día a las 00:00 UTC. El último día no hay nuevos.
 Cocinar: toca [Parar] en el momento justo. Un toque perfecto desbloquea Cocinar rápido para ese plato, y la cocción se puede omitir desde entonces. Si fallas, el plato fracasa y vuelven todos los ingredientes.
 Enviar ingredientes a un aliado da Puntos de festín personales. Las solicitudes tienen un límite diario.
-🧺 DE DÓNDE SALEN LAS BOLSAS (Supplies of Plenty)
+🧺 DE DÓNDE SALEN LAS BOLSAS (Suministros festivos)
 Gemas: cada 1.000 gastadas dan 1.
 Aceleradores: cada 7.200 segundos (2 horas) usados dan 1. Solo cuentan los objetos de aceleración; terminar con gemas no cuenta.
 Recolección: cada 3.600 segundos (1 hora) dan 1 o 2, con la misma probabilidad.
@@ -1104,7 +1104,7 @@ Si sales durante el festín, volver a la misma alianza antes de que termine perm
 🎪 OTRAS PARTES DEL EVENTO (del avance oficial)
 Movilización de la Cosecha: su nivel sube al jugar Preparativos del Festín; cada nivel tiene una recompensa, y hay una ruta de pago.
 Patrón festivo: 7 fases de misiones, con recompensas de fase y clasificación.
-Autumn Anthem: una cuadrícula de misiones. Una fila o columna completa abre un cofre; terminarlas todas da el premio mayor.
+Himno otoñal: una cuadrícula de misiones. Una fila o columna completa abre un cofre; terminarlas todas da el premio mayor.
 Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
 Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
 📦 CUANDO TERMINA
@@ -1569,6 +1569,9 @@ Ingredients = ingredientes
 ingredients bag = bolsa de ingredientes
 Alliance Feast = festín de la alianza
 Lv.2 Custom Secured Resource Chest = Caja de Recursos Personalizada Asegurada Nv. 2
+Autumn Anthem = Himno otoñal
+Supplies of Plenty = Suministros festivos
+Top-up Benefits = Ventajas de recarga
 Harvest Rally = Movilización de la Cosecha
 Patron of Plenty = Patrón festivo
 Seasonal Prize = Premio de temporada

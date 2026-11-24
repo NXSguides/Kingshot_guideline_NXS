@@ -1599,6 +1599,7 @@ Autumn Anthem = 가을의 악장
 Supplies of Plenty = 풍요의 물자
 Pumpkin Smash = 호박 사격장
 Lucky Cabin = 행운의 오두막
+Top-up Benefits = 누적 충전 선물
 Harvest Rally = 수확 파티
 Patron of Plenty = 풍요의 영주
 Seasonal Prize = 이번 대상

@@ -1087,7 +1087,7 @@ Ein normales Gericht gibt 40 Persönliche Festmahlpunkte und 40 Allianz-Festmahl
 Die Spezialgerichte wechseln jeden Tag um 00:00 UTC. Am letzten Tag kommen keine neuen.
 Kochen: im richtigen Moment auf [Beenden] tippen. Ein perfekter Tipp schaltet für dieses Gericht Schnellkochen frei, danach lässt sich das Kochen überspringen. Bei einem Fehlversuch misslingt das Gericht, und alle Zutaten kommen zurück.
 Zutaten an Verbündete zu schicken gibt Persönliche Festmahlpunkte. Anfragen haben ein Tageslimit.
-🧺 WOHER DIE ZUTATENBEUTEL KOMMEN (Supplies of Plenty)
+🧺 WOHER DIE ZUTATENBEUTEL KOMMEN (In Hülle und Fülle)
 Edelsteine: je 1.000 ausgegebene geben 1.
 Beschleuniger: je 7.200 genutzte Sekunden (2 Stunden) geben 1. Nur Beschleuniger-Items zählen, das Fertigstellen mit Edelsteinen nicht.
 Sammeln: je 3.600 Sekunden (1 Stunde) geben 1 oder 2, mit gleicher Chance.
@@ -1106,7 +1106,7 @@ Wer während des Festmahls austritt, kann weitermachen, wenn er vor dem Ende der
 🎪 WEITERE TEILE DES EVENTS (aus der offiziellen Vorschau)
 Ernterally: Die Stufe steigt, wenn du Festmahlvorbereitungen spielst; jede Stufe hat eine Belohnung, dazu gibt es eine bezahlte Belohnungsreihe.
 Gönner im Überfluss: 7 Phasen mit Missionen, Phasenbelohnungen und einer Rangliste.
-Autumn Anthem: ein Raster aus Missionen. Eine volle Reihe oder Spalte öffnet eine Truhe; alle Missionen zusammen geben den Hauptpreis.
+Herbsthymne: ein Raster aus Missionen. Eine volle Reihe oder Spalte öffnet eine Truhe; alle Missionen zusammen geben den Hauptpreis.
 Pumpkin Smash: 25.11. 00:00 – 29.11. 24:00 UTC.
 Lucky Cabin: 25.11. 00:00 – 30.11. 24:00 UTC.
 📦 WENN ES ENDET
@@ -1571,6 +1571,9 @@ Ingredients = Zutaten
 ingredients bag = Beutel mit den Zutaten
 Alliance Feast = Allianz-Festmahl
 Lv.2 Custom Secured Resource Chest = Lv. 2 Benutzerdefinierte Gesicherte Ressourcenkiste
+Autumn Anthem = Herbsthymne
+Supplies of Plenty = In Hülle und Fülle
+Top-up Benefits = Top-Up Bonus
 Harvest Rally = Ernterally
 Patron of Plenty = Gönner im Überfluss
 Seasonal Prize = Saisonaler Preis
