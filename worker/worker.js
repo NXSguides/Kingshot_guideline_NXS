@@ -1964,7 +1964,7 @@ async function wsRoute(stub, user, body, token, role, perms) {
       const to = String(body.to || ""); if (!isId(to) || to === user.id || !wsAdmins(perms).includes(to)) return json({ error: "bad request" }, 400);
       const box = (await stub.kvGet("ws-msg:" + to)) || { items: [] };
       if (op === "unsend") box.items = box.items.filter((x) => x.id !== String(body.id));
-      else { const text = wsStr(body.text, 600); if (!text) return json({ error: "bad request" }, 400);
+      else { const text = wsStr(body.text, 3000);   /* a whole day's message with its line breaks (2026-11-25: 600 cut it off) */ if (!text) return json({ error: "bad request" }, 400);
         const id = String(body.id || ""), cur = box.items.find((x) => x.id === id);
         if (cur) { cur.text = text; cur.q = !!body.q; }
         else { if (box.items.length >= 100) return json({ error: "too_big" }, 413); box.items.push({ id: "m" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), text, ...(body.q ? { q: true } : {}), at: Date.now() }); } }
