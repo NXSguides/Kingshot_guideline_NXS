@@ -1078,41 +1078,40 @@ Gros payeurs : ne vise l'étage 7 que pour les Étoiles Fantaisies et le Fort Fa
 Ouvre aussi le coffre en haut à droite — il compte chaque Amulettes Fantaisies utilisée. Avant la fin, dépense tous tes 🪙 Fantasy Token (le reste devient des coffres de ressources Nv.1, guide d'un autre joueur).
 
 ### GUIDE #harvest-celebration — Célébration des Récoltes
-QUAND
-Événement ponctuel (on ne sait pas encore s'il reviendra). Préparatifs du Banquet : 24/11 00:00 UTC – 30/11 24:00 UTC. Banquet de l'Alliance : 1/12 (UTC), une heure.
-COMMENT ÇA MARCHE
+📅 CALENDRIER
+Préparatifs du Banquet et les événements principaux : 24/11 00:00 – 30/11 24:00 UTC.
+Pumpkin Smash : 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin : 25/11 00:00 – 30/11 24:00 UTC.
+Banquet de l'Alliance : 1/12 00:00 – 24:00 UTC. Chaque alliance choisit son heure.
+⚠️ LE PLUS IMPORTANT
+Tu es lié(e) à l'alliance où tu étais au début de l'événement. C'est en y restant que tes plats rapportent des Points de Banquet d'Alliance à l'alliance.
+🍳 COMMENT MARCHE L'ÉVÉNEMENT PRINCIPAL
+Les missions de l'événement donnent un sac d'ingrédients.
 Ouvre un sac d'ingrédients pour obtenir des Ingrédients, cuisine un plat, puis soumets-le.
-Un plat normal donne 40 Points de Banquet Individuels et 40 Points de Banquet d'Alliance. Un plat marqué 👍 (Conseillé) donne 50 et 50.
-Les Plats Spéciaux changent chaque jour à 00:00 UTC. Il n'y en a pas de nouveaux le dernier jour.
-Cuisine : appuie sur [Terminer] au bon moment. Un appui parfait débloque Cuisine Rapide pour ce plat, la cuisson peut ensuite être passée. Un appui raté fait échouer le plat, et tous les Ingrédients sont rendus.
+Soumettre un plat donne des Points de Banquet Individuels et, tant que tu es dans ton alliance liée, des Points de Banquet d'Alliance. Les Plats Spéciaux donnent des points bonus.
 Envoyer des Ingrédients à un allié donne des Points de Banquet Individuels. Les demandes ont une limite par jour.
-🧺 D'OÙ VIENNENT LES SACS (Provisions Abondantes)
-Gemmes : chaque tranche de 1 000 dépensées en donne 1.
-Accélérations : chaque tranche de 7 200 secondes (2 heures) utilisées en donne 1. Seuls les objets d'accélération comptent, pas la fin immédiate avec des gemmes.
-Récolte : chaque tranche de 3 600 secondes (1 heure) en donne 1 ou 2, à chances égales.
-Bêtes : chaque bête chassée en donne 1, 2 ou 3, à chances égales — 2 en moyenne.
-🔗 Fidélité à l'Alliance
+📌 RÈGLES CLÉS
 Tu es lié(e) à l'alliance où tu étais au début de l'événement (24/11 00:00 UTC).
 Tes plats donnent des Points de Banquet d'Alliance seulement tant que tu es dans cette alliance. Une nouvelle alliance ne reçoit rien de toi ; pareil si tu n'avais pas d'alliance au début.
-À garder en tête avant de changer d'alliance pendant l'événement.
-Pour participer au banquet (Banquet de l'Alliance), il faut être dans l'alliance à la fin de l'événement.
-🍽️ Banquet de l'Alliance · 1/12
-D'après l'écran du banquet dans le jeu.
+Le top 10 en Points de Banquet Individuels, ou atteindre l'objectif de points affiché dans le jeu, donne une apparence de ville permanente (d'après l'aperçu officiel).
+🏕️ Banquet de l'Alliance
 Les 10 premières alliances en Points de Banquet d'Alliance peuvent chacune organiser un banquet. Il dure 1 heure et ne peut pas être arrêté avant ; l'alliance choisit l'heure le 1/12 (UTC).
-Tables servies, de la meilleure qualité à la plus simple — 1re place : 6 / 10 / 24 / 30 · 2e–3e : 3 / 5 / 12 / 30 · 4e–10e : 1 / 2 / 12 / 30.
+La 1re place organise le plus grand banquet, les 2e–3e un banquet moyen, les 4e–10e un banquet normal.
 Les tables sont dressées autour du bâtiment du banquet à intervalles réguliers, puis retirées au bout d'un moment. Tu envoies une escouade à une table, et la récompense arrive par courrier. Seulement les tables de ta propre alliance, une fois par table.
-Meilleure table : 30% Gemmes 2,000 · 30% Caisse d'Équipement de Héros Chanceux · 26% Marteau de Forge ×2 · 10% Fragment Universel de Héros Mythique ×2 · 4% coffres de matériaux ×5. La table la plus simple donne surtout des ressources ou de courtes accélérations.
-Les membres qui peuvent participer peuvent acheter des tables en plus pour l'alliance ; elles restent jusqu'à 24 heures.
+Pour participer au banquet (Banquet de l'Alliance), il faut être dans l'alliance à la fin de l'événement.
 Si tu quittes l'alliance pendant le banquet, rejoindre la même alliance avant la fin permet de continuer.
-🎪 AUTRES PARTIES DE L'ÉVÉNEMENT (d'après l'aperçu officiel)
+🎪 AUTRES ÉVÉNEMENTS
 Ralliement des Récoltes : son niveau monte quand tu joues à Préparatifs du Banquet ; chaque niveau a une récompense, et il y a une piste payante.
 Donateur d'Abondance : 7 phases de missions, avec des récompenses de phase et un classement.
 Hymne Automnal : une grille de missions. Une ligne ou une colonne complète ouvre un coffre ; tout terminer donne le gros lot.
-Pumpkin Smash : 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin : 25/11 00:00 – 30/11 24:00 UTC.
-📦 À LA FIN
+Provisions Abondantes : récolter, chasser des bêtes, dépenser des gemmes et utiliser des accélérations peuvent donner un sac d'ingrédients.
+Pumpkin Smash : vise les citrouilles qui tournent et tire des flèches. Les briser donne des récompenses de réussite ; les défis en donnent d'autres.
+Lucky Cabin : les commissions ou les packs donnent des bons de vœu. Les vœux donnent des récompenses et des récompenses de palier, et parfois des marques de chance pour la boutique de la chance.
+Bonus de Rechargement : les points de rechargement cumulés pendant l'événement débloquent des récompenses de palier.
+🛍️ AUTRES OBJETS ET NOTES
+Deux packs sont en vente pendant l'événement ; le pack de décoration est disponible du 26/11 au 30/11.
 Le jeu convertit ce qui reste : chaque ingrédient ou sac d'ingrédients → 1 Caisse de Ressources Sécurisées Personnalisée Nv. 2 ; chaque plat → 4.
-Le top 10 en Points de Banquet Individuels, ou atteindre l'objectif de points affiché dans le jeu, donne une apparence de ville permanente (d'après l'aperçu officiel).
+Certaines récompenses varient selon la progression du serveur. L'objectif de points exact, les missions et le contenu des packs sont dans le jeu.
 
 ### GUIDE #wavebound-voyage — Voyage en Mer
 QUAND

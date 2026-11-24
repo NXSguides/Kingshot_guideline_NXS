@@ -1077,41 +1077,40 @@ Gastam muito: só vá ao Andar 7 se quiser Estrelas Fantasia e a Fortaleza Fanta
 Abra também o baú no canto superior direito — ele conta cada Amuletos Fantasia usado. Antes do fim, gaste todos os 🪙 Fantasy Token (o que sobrar vira baús de recursos Nv.1, guia de outro jogador).
 
 ### GUIDE #harvest-celebration — Celebração da Colheita
-QUANDO
-Evento irregular (ainda não sabemos se volta). Preparações para o Banquete: 24/11 00:00 UTC – 30/11 24:00 UTC. Banquete da Aliança: 1/12 (UTC), uma hora.
-COMO FUNCIONA
+📅 CALENDÁRIO
+Preparações para o Banquete e os eventos principais: 24/11 00:00 – 30/11 24:00 UTC.
+Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
+Banquete da Aliança: 1/12 00:00 – 24:00 UTC. Cada aliança escolhe a sua hora.
+⚠️ O MAIS IMPORTANTE
+Você fica vinculado à aliança em que estava quando o evento começou. É ficando nela que seus pratos rendem Pontos de Banquete da Aliança para a aliança.
+🍳 COMO FUNCIONA O EVENTO PRINCIPAL
+As missões do evento dão um saco de ingredientes.
 Abra um saco de ingredientes para ganhar ingredientes, cozinhe um prato e envie.
-Um prato normal dá 40 Pontos de Banquete Individuais e 40 Pontos de Banquete da Aliança. Um prato com 👍 (Indicado) dá 50 e 50.
-Os pratos especiais mudam todo dia às 00:00 UTC. No último dia não há novos.
-Cozinhar: toque em [Concluir] no momento certo. Um toque perfeito libera Cozinhar Rapidamente para aquele prato, e o cozimento pode ser pulado dali em diante. Se errar, o prato falha e todos os ingredientes voltam.
+Enviar um prato dá Pontos de Banquete Individuais e, enquanto você está na aliança vinculada, Pontos de Banquete da Aliança. Os pratos especiais dão pontos bônus.
 Enviar ingredientes a um aliado dá Pontos de Banquete Individuais. Os pedidos têm limite diário.
-🧺 DE ONDE VÊM OS SACOS (Suprimentos da Plenitude)
-Gemas: a cada 1.000 gastas, 1.
-Acelerações: a cada 7.200 segundos (2 horas) usados, 1. Só itens de aceleração contam; concluir com gemas não conta.
-Coleta: a cada 3.600 segundos (1 hora), 1 ou 2, com chances iguais.
-Feras: cada uma caçada dá 1, 2 ou 3, com chances iguais — 2 em média.
-🔗 Fidelidade à Aliança
+📌 REGRAS PRINCIPAIS
 Você fica vinculado à aliança em que estava quando o evento começou (24/11 00:00 UTC).
 Seus pratos só dão Pontos de Banquete da Aliança enquanto você está nessa aliança. Uma aliança nova não recebe nada de você; o mesmo vale se você não tinha aliança no início.
-Vale lembrar disso antes de trocar de aliança durante o evento.
-Para participar da festa (Banquete da Aliança), é preciso estar na aliança quando o evento terminar.
-🍽️ Banquete da Aliança · 1/12
-Da tela da festa no jogo.
+Ficar no top 10 em Pontos de Banquete Individuais, ou atingir a meta de pontos mostrada no jogo, dá uma skin de cidade permanente (da prévia oficial).
+🏕️ Banquete da Aliança
 As 10 melhores alianças em Pontos de Banquete da Aliança podem organizar uma festa cada. Dura 1 hora e não pode ser encerrada antes; a aliança escolhe a hora no dia 1/12 (UTC).
-Mesas servidas, da melhor qualidade à mais simples — 1º lugar: 6 / 10 / 24 / 30 · 2º–3º: 3 / 5 / 12 / 30 · 4º–10º: 1 / 2 / 12 / 30.
+O 1º lugar organiza o maior banquete, 2º–3º um médio, 4º–10º um normal.
 As mesas são postas ao redor do prédio da festa de tempos em tempos e recolhidas depois de um tempo. Você envia um esquadrão a uma mesa, e a recompensa chega por correio. Só mesas da sua própria aliança, uma vez por mesa.
-Melhor mesa: 30% Gemas 2,000 · 30% Baú de Equipamento da Sorte do Herói · 26% Martelo de forja ×2 · 10% Fragmento de Herói Geral Mítico ×2 · 4% baús de materiais ×5. A mesa mais simples dá principalmente recursos ou acelerações curtas.
-Membros que podem participar podem comprar mesas extras para a aliança; elas ficam por até 24 horas.
+Para participar da festa (Banquete da Aliança), é preciso estar na aliança quando o evento terminar.
 Se você sair durante a festa, voltar para a mesma aliança antes do fim permite continuar.
-🎪 OUTRAS PARTES DO EVENTO (da prévia oficial)
+🎪 OUTROS EVENTOS
 Rally da Colheita: o nível sobe conforme você joga Preparações para o Banquete; cada nível tem uma recompensa, e há uma trilha paga.
 Patrono da Plenitude: 7 fases de missões, com recompensas de fase e ranking.
 Hino do Outono: uma grade de missões. Uma linha ou coluna completa abre um baú; terminar todas dá o prêmio principal.
-Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
-📦 QUANDO TERMINA
+Suprimentos da Plenitude: coletar recursos, caçar feras, gastar gemas e usar acelerações podem dar um saco de ingredientes.
+Pumpkin Smash: mire nas abóboras girando e atire flechas. Quebrá-las dá recompensas de conclusão; os desafios dão recompensas extras.
+Lucky Cabin: comissões ou pacotes dão vales de desejo. Os desejos dão recompensas e recompensas de marco, e às vezes marcas da sorte para a loja da sorte.
+Benefícios de Recarga: os pontos de recarga acumulados durante o evento liberam recompensas de marco.
+🛍️ OUTROS ITENS E NOTAS
+Dois pacotes são vendidos durante o evento; o pacote de decoração fica disponível de 26/11 a 30/11.
 O jogo converte o que sobrar: cada ingrediente ou saco de ingredientes → 1 Baú de Recursos Protegidos Personalizados Nv.2; cada prato → 4.
-Ficar no top 10 em Pontos de Banquete Individuais, ou atingir a meta de pontos mostrada no jogo, dá uma skin de cidade permanente (da prévia oficial).
+Algumas recompensas variam conforme o progresso do servidor. A meta exata de pontos, as missões e o conteúdo dos pacotes estão no jogo.
 
 ### GUIDE #wavebound-voyage — Viagem Marítima
 QUANDO

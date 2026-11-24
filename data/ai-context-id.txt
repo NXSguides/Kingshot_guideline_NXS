@@ -1077,41 +1077,40 @@ Banyak belanja: naik ke Lantai 7 hanya untuk Fanstar dan Benteng Fantasi (perkir
 Buka juga peti di kanan atas — peti itu menghitung setiap Jimat Fantasi yang kamu pakai. Sebelum event berakhir, habiskan semua 🪙 Fantasy Token (sisanya jadi peti sumber daya Lv.1, dari panduan pemain lain).
 
 ### GUIDE #harvest-celebration — Perayaan Panen
-KAPAN
-Event tidak rutin (kami belum tahu apakah akan ada lagi). Persiapan Pesta: 24/11 00:00 UTC – 30/11 24:00 UTC. Pesta Aliansi: 1/12 (UTC), satu jam.
-CARA KERJANYA
+📅 JADWAL EVENT
+Persiapan Pesta dan event utama: 24/11 00:00 – 30/11 24:00 UTC.
+Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
+Pesta Aliansi: 1/12 00:00 – 24:00 UTC. Tiap Aliansi memilih 1 jamnya sendiri.
+⚠️ PALING PENTING
+Kamu terikat dengan Aliansi tempatmu berada saat event dimulai. Dengan tetap di sana, hidanganmu memberi Poin Pesta Aliansi untuk Aliansi.
+🍳 CARA KERJA EVENT UTAMA
+Misi event memberi Kantong Bahan.
 Buka Kantong Bahan untuk mendapat Bahan, masak hidangan, lalu kirim.
-Hidangan biasa memberi 40 Poin Pesta Pribadi dan 40 Poin Pesta Aliansi. Hidangan bertanda 👍 (Disarankan) memberi 50 dan 50.
-Hidangan Spesial berganti setiap hari pukul 00:00 UTC. Di hari terakhir tidak ada yang baru.
-Memasak: ketuk [Selesai] pada saat yang tepat. Ketukan sempurna membuka Masak Cepat untuk hidangan itu, sehingga proses memasak bisa dilewati setelahnya. Kalau meleset, hidangan gagal dan semua Bahan dikembalikan.
+Mengirim hidangan memberi Poin Pesta Pribadi dan, selama kamu di Aliansi yang terikat, Poin Pesta Aliansi. Hidangan Spesial memberi poin bonus.
 Mengirim Bahan ke sekutu memberi Poin Pesta Pribadi. Permintaan punya batas harian.
-🧺 DARI MANA Kantong Bahan DIDAPAT (Persediaan Kelimpahan)
-Permata: setiap 1.000 yang dipakai memberi 1.
-Percepatan: setiap 7.200 detik (2 jam) yang dipakai memberi 1. Hanya item percepatan yang dihitung; menyelesaikan langsung dengan permata tidak dihitung.
-Mengumpulkan: setiap 3.600 detik (1 jam) memberi 1 atau 2, dengan peluang sama.
-Binatang buas: setiap yang diburu memberi 1, 2, atau 3, dengan peluang sama — rata-rata 2.
-🔗 Kesetiaan Aliansi
+📌 ATURAN UTAMA
 Kamu terikat dengan Aliansi tempatmu berada saat event dimulai (24/11 00:00 UTC).
 Hidanganmu memberi Poin Pesta Aliansi hanya selama kamu berada di Aliansi itu. Aliansi baru tidak mendapat apa pun darimu; sama halnya kalau kamu tidak punya Aliansi saat event dimulai.
-Ini perlu diingat sebelum ganti Aliansi selama event.
-Untuk ikut Pesta Aliansi, kamu perlu berada di Aliansi saat event berakhir.
-🍽️ Pesta Aliansi · 1/12
-Dari layar pesta di dalam game.
+Masuk 10 besar Poin Pesta Pribadi, atau mencapai target poin yang ditampilkan di game, memberi skin kota permanen (dari pratinjau resmi).
+🏕️ Pesta Aliansi
 10 Aliansi teratas dalam Poin Pesta Aliansi masing-masing bisa mengadakan satu pesta. Berlangsung 1 jam dan tidak bisa dihentikan lebih awal; Aliansi memilih jamnya pada 1/12 (UTC).
-Meja yang disajikan, dari kualitas terbaik sampai paling sederhana — peringkat 1: 6 / 10 / 24 / 30 · peringkat 2–3: 3 / 5 / 12 / 30 · peringkat 4–10: 1 / 2 / 12 / 30.
+Peringkat 1 mengadakan pesta terbesar, peringkat 2–3 pesta sedang, peringkat 4–10 pesta biasa.
 Meja ditata di sekitar bangunan pesta secara berkala dan diangkat lagi setelah beberapa waktu. Kamu mengirim satu pasukan ke meja, dan hadiahnya dikirim lewat surat. Hanya meja Aliansimu sendiri, satu kali per meja.
-Meja terbaik: 30% Permata 2,000 · 30% Peti Gear Hero Keberuntungan · 26% Forgehammer ×2 · 10% Paket Chip Keberuntungan Mitos ×2 · 4% peti material ×5. Meja paling sederhana kebanyakan memberi sumber daya atau percepatan singkat.
-Anggota yang berhak ikut bisa membeli meja tambahan untuk Aliansi; meja itu bertahan sampai 24 jam.
+Untuk ikut Pesta Aliansi, kamu perlu berada di Aliansi saat event berakhir.
 Kalau keluar saat pesta, bergabung lagi dengan Aliansi yang sama sebelum pesta selesai membuatmu bisa lanjut.
-🎪 BAGIAN LAIN DARI EVENT (dari pratinjau resmi)
+🎪 EVENT LAIN
 Reli Panen: levelnya naik saat kamu memainkan Persiapan Pesta; tiap level punya hadiah, dan ada jalur berbayar.
 Pelindung Kelimpahan: misi dalam 7 fase, dengan hadiah fase dan peringkat.
 Anthem Musim Gugur: misi berbentuk kotak-kotak. Satu baris atau kolom penuh membuka peti; menyelesaikan semuanya memberi hadiah utama.
-Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
-📦 SAAT BERAKHIR
+Persediaan Kelimpahan: mengumpulkan sumber daya, berburu binatang buas, memakai permata, dan memakai percepatan bisa memberi Kantong Bahan.
+Pumpkin Smash: bidik labu yang berputar dan tembakkan panah. Menghancurkannya memberi hadiah penyelesaian; tantangan memberi hadiah tambahan.
+Lucky Cabin: komisi atau paket memberi voucher harapan. Harapan memberi hadiah dan hadiah pencapaian, kadang juga tanda keberuntungan untuk toko keberuntungan.
+Bonus Isi Ulang: poin isi ulang yang terkumpul selama event membuka hadiah pencapaian.
+🛍️ ITEM LAIN & CATATAN
+Dua paket dijual selama event; paket dekorasi tersedia dari 26/11 sampai 30/11.
 Game menukar sisa barang: setiap bahan atau Kantong Bahan → 1 Peti Sumber Daya Terlindung Kustom Lv.2; setiap hidangan → 4.
-Masuk 10 besar Poin Pesta Pribadi, atau mencapai target poin yang ditampilkan di game, memberi skin kota permanen (dari pratinjau resmi).
+Sebagian hadiah berbeda menurut progres server. Target poin, misi, dan isi paket yang pasti ada di layar game.
 
 ### GUIDE #wavebound-voyage — Pelayaran
 KAPAN

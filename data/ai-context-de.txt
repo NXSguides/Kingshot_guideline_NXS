@@ -1079,41 +1079,40 @@ Vielzahler: nur für Fan-Sterne und die Fantasy-Festung bis Etage 7 (andere Spie
 Öffne auch die Truhe oben rechts — sie zählt jedes benutzte Fantasy-Amulette. Vor Event-Ende alle 🪙 Fantasy Token ausgeben (Reste werden Lv.1-Ressourcentruhen, laut Guide eines anderen Spielers).
 
 ### GUIDE #harvest-celebration — Erntefeier
-WANN
-Einmaliges Event (ob es wiederkommt, wissen wir noch nicht). Festmahlvorbereitungen: 24.11. 00:00 UTC – 30.11. 24:00 UTC. Allianz-Festmahl: 1.12. (UTC), eine Stunde.
-SO FUNKTIONIERT ES
+📅 ZEITPLAN
+Festmahlvorbereitungen und die Haupt-Events: 24.11. 00:00 – 30.11. 24:00 UTC.
+Pumpkin Smash: 25.11. 00:00 – 29.11. 24:00 UTC.
+Lucky Cabin: 25.11. 00:00 – 30.11. 24:00 UTC.
+Allianz-Festmahl: 1.12. 00:00 – 24:00 UTC. Jede Allianz wählt ihre eigene Stunde.
+⚠️ DAS WICHTIGSTE
+Du bist mit der Allianz verbunden, in der du beim Start des Events warst. Nur solange du dort bleibst, bringen deine Gerichte der Allianz Allianz-Festmahlpunkte.
+🍳 SO FUNKTIONIERT DAS HAUPT-EVENT
+Event-Missionen geben Zutatenbeutel.
 Öffne einen Zutatenbeutel (Beutel mit den Zutaten) für Zutaten, koche ein Gericht und sende es ab.
-Ein normales Gericht gibt 40 Persönliche Festmahlpunkte und 40 Allianz-Festmahlpunkte. Ein Gericht mit 👍 (Empfehlen) gibt 50 und 50.
-Die Spezialgerichte wechseln jeden Tag um 00:00 UTC. Am letzten Tag kommen keine neuen.
-Kochen: im richtigen Moment auf [Beenden] tippen. Ein perfekter Tipp schaltet für dieses Gericht Schnellkochen frei, danach lässt sich das Kochen überspringen. Bei einem Fehlversuch misslingt das Gericht, und alle Zutaten kommen zurück.
+Ein abgesendetes Gericht gibt Persönliche Festmahlpunkte und, solange du in deiner verbundenen Allianz bist, Allianz-Festmahlpunkte. Spezialgerichte geben Bonuspunkte.
 Zutaten an Verbündete zu schicken gibt Persönliche Festmahlpunkte. Anfragen haben ein Tageslimit.
-🧺 WOHER DIE ZUTATENBEUTEL KOMMEN (In Hülle und Fülle)
-Edelsteine: je 1.000 ausgegebene geben 1.
-Beschleuniger: je 7.200 genutzte Sekunden (2 Stunden) geben 1. Nur Beschleuniger-Items zählen, das Fertigstellen mit Edelsteinen nicht.
-Sammeln: je 3.600 Sekunden (1 Stunde) geben 1 oder 2, mit gleicher Chance.
-Bestien: jede gejagte gibt 1, 2 oder 3, mit gleicher Chance – im Schnitt 2.
-🔗 Allianz-Treue
+📌 WICHTIGE REGELN
 Du bist mit der Allianz verbunden, in der du beim Start des Events warst (24.11. 00:00 UTC).
 Deine Gerichte geben nur Allianz-Festmahlpunkte, solange du in dieser Allianz bist. Eine neue Allianz bekommt nichts von dir; das gilt auch, wenn du beim Start keine Allianz hattest.
-Das ist wichtig, wenn du während des Events die Allianz wechseln möchtest.
-Für die Teilnahme am Festmahl (Allianz-Festmahl) musst du beim Ende des Events in der Allianz sein.
-🍽️ Allianz-Festmahl · 1.12.
-Vom Festmahl-Bildschirm im Spiel.
+Top 10 bei Persönliche Festmahlpunkte oder das Erreichen des im Spiel gezeigten Punkteziels gibt einen dauerhaften Stadt-Skin (aus der offiziellen Vorschau).
+🏕️ Allianz-Festmahl
 Die 10 besten Allianzen nach Allianz-Festmahlpunkte können je ein Festmahl ausrichten. Es dauert 1 Stunde und lässt sich nicht vorzeitig beenden; die Allianz wählt die Stunde am 1.12. (UTC).
-Servierte Tische, von der besten zur einfachsten Qualität – Platz 1: 6 / 10 / 24 / 30 · Platz 2–3: 3 / 5 / 12 / 30 · Platz 4–10: 1 / 2 / 12 / 30.
+Platz 1 richtet das größte Festmahl aus, Platz 2–3 ein mittleres, Platz 4–10 ein normales.
 Die Tische werden in Abständen rund um das Festgebäude aufgestellt und nach einer Weile abgeräumt. Du schickst einen Trupp zu einem Tisch, die Belohnung kommt per Post. Nur Tische der eigenen Allianz, jeder Tisch einmal.
-Bester Tisch: 30% Edelsteine 2,000 · 30% Glücksheld Ausrüstungskiste · 26% Schmiedehammer ×2 · 10% Mythisches Helden-Fragment ×2 · 4% Materialkisten ×5. Der einfachste Tisch gibt meist Ressourcen oder kurze Beschleuniger.
-Teilnahmeberechtigte Mitglieder können zusätzliche Tische für die Allianz kaufen; diese bleiben bis zu 24 Stunden stehen.
+Für die Teilnahme am Festmahl (Allianz-Festmahl) musst du beim Ende des Events in der Allianz sein.
 Wer während des Festmahls austritt, kann weitermachen, wenn er vor dem Ende derselben Allianz wieder beitritt.
-🎪 WEITERE TEILE DES EVENTS (aus der offiziellen Vorschau)
+🎪 WEITERE EVENTS
 Ernterally: Die Stufe steigt, wenn du Festmahlvorbereitungen spielst; jede Stufe hat eine Belohnung, dazu gibt es eine bezahlte Belohnungsreihe.
 Gönner im Überfluss: 7 Phasen mit Missionen, Phasenbelohnungen und einer Rangliste.
 Herbsthymne: ein Raster aus Missionen. Eine volle Reihe oder Spalte öffnet eine Truhe; alle Missionen zusammen geben den Hauptpreis.
-Pumpkin Smash: 25.11. 00:00 – 29.11. 24:00 UTC.
-Lucky Cabin: 25.11. 00:00 – 30.11. 24:00 UTC.
-📦 WENN ES ENDET
+In Hülle und Fülle: Sammeln, Bestien jagen, Edelsteine ausgeben und Beschleuniger nutzen können einen Zutatenbeutel geben.
+Pumpkin Smash: auf die drehenden Kürbisse zielen und Pfeile schießen. Zerschlagene Kürbisse geben Abschlussbelohnungen, Herausforderungen geben zusätzliche.
+Lucky Cabin: Aufträge oder Pakete geben Wunschgutscheine. Wünsche geben Belohnungen und Meilenstein-Belohnungen, manchmal auch Glücksmarken für den Glücksladen.
+Top-Up Bonus: Während des Events gesammelte Aufladepunkte schalten Meilenstein-Belohnungen frei.
+🛍️ WEITERE ITEMS & HINWEISE
+Während des Events werden zwei Pakete verkauft; das Deko-Paket gibt es vom 26.11. bis 30.11..
 Das Spiel tauscht Reste um: jede Zutat oder jeder Zutatenbeutel → 1 × Lv. 2 Benutzerdefinierte Gesicherte Ressourcenkiste; jedes Gericht → 4.
-Top 10 bei Persönliche Festmahlpunkte oder das Erreichen des im Spiel gezeigten Punkteziels gibt einen dauerhaften Stadt-Skin (aus der offiziellen Vorschau).
+Manche Belohnungen hängen vom Serverfortschritt ab. Das genaue Punkteziel, die Missionen und die Paketinhalte stehen im Spiel.
 
 ### GUIDE #wavebound-voyage — Seereise
 WANN

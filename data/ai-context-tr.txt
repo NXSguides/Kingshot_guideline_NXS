@@ -1077,41 +1077,40 @@ Az harcayanlar: aynı plan. Rüya Tılsımları'yı sadece Tiyatro Mağazası'nd
 Sağ üstteki sandığı da aç — kullandığın her Rüya Tılsımları'yı sayar. Etkinlik bitmeden tüm 🪙 Fantasy Token'leri harca (kalanlar Sv.1 kaynak sandığına dönüşür, başka bir oyuncunun rehberinden).
 
 ### GUIDE #harvest-celebration — Hasat Kutlaması
-NE ZAMAN
-Düzensiz etkinlik (tekrar gelip gelmeyeceğini henüz bilmiyoruz). Ziyafet Hazırlıkları: 24/11 00:00 UTC – 30/11 24:00 UTC. İttifak Ziyafeti: 1/12 (UTC), bir saat.
-NASIL ÇALIŞIR
+📅 ETKİNLİK TAKVİMİ
+Ziyafet Hazırlıkları ve ana etkinlikler: 24/11 00:00 – 30/11 24:00 UTC.
+Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
+İttifak Ziyafeti: 1/12 00:00 – 24:00 UTC. Her ittifak kendi 1 saatini seçer.
+⚠️ EN ÖNEMLİSİ
+Etkinlik başladığında bulunduğun ittifaka bağlanırsın. Yemeklerin ancak o ittifakta kaldığın sürece ittifaka puan (İttifak Ziyafet Puanı) kazandırır.
+🍳 ANA ETKİNLİK NASIL ÇALIŞIR
+Etkinlik görevleri malzeme poşeti verir.
 Bir malzeme poşeti (malzeme poşeti) aç, malzeme al, bir yemek pişir ve gönder.
-Normal bir yemek 40 kişisel puan (Kişisel Ziyafet Puanı) ve 40 ittifak puanı (İttifak Ziyafet Puanı) verir. 👍 (Önerilen) işaretli yemek 50 ve 50 verir.
-Özel yemekler (Özel Yemekler) her gün 00:00 UTC'de değişir. Son gün yenisi gelmez.
-Pişirme: doğru anda [Bitir] düğmesine dokun. Mükemmel dokunuş o yemek için Hızlı Pişir özelliğini açar, sonrasında pişirme atlanabilir. Iskalarsan yemek başarısız olur ve bütün malzemeler geri gelir.
+Bir yemek göndermek kişisel puan (Kişisel Ziyafet Puanı) verir; bağlı olduğun ittifaktaysan ittifak puanı (İttifak Ziyafet Puanı) da verir. Özel yemekler (Özel Yemekler) ek puan verir.
 Bir müttefike malzeme göndermek kişisel puan (Kişisel Ziyafet Puanı) kazandırır. İsteklerin günlük sınırı vardır.
-🧺 MALZEME POŞETLERİ NEREDEN GELİR (Bereket Erzakı)
-Elmas: harcanan her 1.000 elmas 1 poşet verir.
-Hızlandırma: kullanılan her 7.200 saniye (2 saat) 1 poşet verir. Yalnızca hızlandırma eşyaları sayılır; elmasla bitirmek sayılmaz.
-Toplama: her 3.600 saniye (1 saat) eşit şansla 1 veya 2 poşet verir.
-Canavarlar: avlanan her canavar eşit şansla 1, 2 veya 3 poşet verir; ortalama 2.
-🔗 İttifak Sadakati
+📌 TEMEL KURALLAR
 Etkinlik başladığında (24/11 00:00 UTC) bulunduğun ittifaka bağlanırsın.
 Yemeklerin yalnızca o ittifaktayken ittifak puanı (İttifak Ziyafet Puanı) verir. Yeni ittifak senden puan alamaz; başlangıçta ittifakın yoksa da durum aynıdır.
-Etkinlik sırasında ittifak değiştirmeden önce bunu akılda tutmakta fayda var.
-İttifak ziyafetine (İttifak Ziyafeti) katılmak için etkinlik bittiğinde ittifakta olmak gerekir.
-🍽️ İttifak Ziyafeti · 1/12
-Oyundaki ziyafet ekranından.
+Kişisel puanda (Kişisel Ziyafet Puanı) ilk 10'a girmek ya da oyunda gösterilen puan hedefine ulaşmak kalıcı bir şehir görünümü verir (resmî ön izlemeden).
+🏕️ İttifak Ziyafeti
 İttifak puanında (İttifak Ziyafet Puanı) ilk 10 ittifakın her biri bir ziyafet verebilir. 1 saat sürer ve erken bitirilemez; saati ittifak 1/12 (UTC) günü içinde seçer.
-Kurulan masa sayısı, en iyi kaliteden en sadeye — 1. sıra: 6 / 10 / 24 / 30 · 2.–3. sıra: 3 / 5 / 12 / 30 · 4.–10. sıra: 1 / 2 / 12 / 30.
+1. sıra en büyük ziyafeti, 2.–3. sıra orta boy, 4.–10. sıra normal ziyafet verir.
 Masalar belirli aralıklarla ziyafet binasının çevresine kurulur ve bir süre sonra kaldırılır. Bir masaya birlik gönderirsin, ödül postayla gelir. Yalnızca kendi ittifakının masaları, her masa bir kez.
-En iyi masa: 30% Elmas 2,000 · 30% Uğurlu Kahraman Donanımı Sandığı · 26% Demirci Çekici ×2 · 10% Mitik Genel Kahraman Parçası ×2 · 4% malzeme sandıkları ×5. En sade masa çoğunlukla kaynak veya kısa hızlandırma verir.
-Katılma hakkı olan üyeler ittifak için ek masa satın alabilir; bu masalar en fazla 24 saat kalır.
+İttifak ziyafetine (İttifak Ziyafeti) katılmak için etkinlik bittiğinde ittifakta olmak gerekir.
 Ziyafet sırasında ayrılırsan, bitmeden aynı ittifaka geri dönmek devam etmeni sağlar.
-🎪 ETKİNLİĞİN DİĞER BÖLÜMLERİ (resmî ön izlemeden)
+🎪 DİĞER ETKİNLİKLER
 Hasat Seferberliği: Ziyafet Hazırlıkları oynadıkça seviyesi yükselir; her seviyenin bir ödülü ve ayrıca ücretli bir ödül yolu vardır.
 Bereketin Efendisi: 7 aşamalı görevler, aşama ödülleri ve sıralama.
 Sonbahar Şarkısı: kare kare görevler. Tam bir satır ya da sütun bir sandık açar; hepsini bitirmek büyük ödülü verir.
-Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
-📦 BİTTİĞİNDE
+Bereket Erzakı: kaynak toplamak, canavar avlamak, elmas harcamak ve hızlandırma kullanmak malzeme poşeti verebilir.
+Pumpkin Smash: dönen balkabaklarına nişan alıp ok at. Onları parçalamak tamamlama ödülü, görevler ek ödül verir.
+Lucky Cabin: görevler veya paketler dilek kuponu verir. Dilekler ödül ve kilometre taşı ödülleri verir; bazen şans dükkânı için şans işareti de çıkar.
+Doldurma Avantajları: etkinlik boyunca biriken doldurma puanları kilometre taşı ödüllerini açar.
+🛍️ DİĞER EŞYALAR VE NOTLAR
+Etkinlik boyunca iki paket satılır; dekorasyon paketi 26/11 – 30/11 arasında satıştadır.
 Oyun kalanları dönüştürür: her malzeme veya malzeme poşeti → 1 adet Sv. 2 Özel Korumalı Kaynak Sandığı; her yemek → 4 adet.
-Kişisel puanda (Kişisel Ziyafet Puanı) ilk 10'a girmek ya da oyunda gösterilen puan hedefine ulaşmak kalıcı bir şehir görünümü verir (resmî ön izlemeden).
+Bazı ödüller sunucu ilerlemesine göre değişir. Kesin puan hedefi, görevler ve paket içerikleri oyun ekranlarındadır.
 
 ### GUIDE #wavebound-voyage — Deniz Yolculuğu
 NE ZAMAN

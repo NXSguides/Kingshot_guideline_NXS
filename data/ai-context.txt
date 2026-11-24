@@ -1076,41 +1076,40 @@ Big spenders: only push to Floor 7 if you want Fanstars and the Fantasy Fortress
 Also open the chest at the top right — it counts every Fantasy Amulets you use. Before the event ends, spend all Fantasy Tokens (leftovers become Lv.1 resource chests, from another player's guide).
 
 ### GUIDE #harvest-celebration — Harvest Celebration
-WHEN
-One-off event (we don't know yet whether it comes back). Feast Preparations: 11/24 00:00 UTC – 11/30 24:00 UTC. Alliance Feast: 12/1 (UTC), one hour.
-HOW IT WORKS
+📅 EVENT SCHEDULE
+Feast Preparations and the main events: 11/24 00:00 – 11/30 24:00 UTC.
+Pumpkin Smash: 11/25 00:00 – 11/29 24:00 UTC.
+Lucky Cabin: 11/25 00:00 – 11/30 24:00 UTC.
+Alliance Feast: 12/1 00:00 – 24:00 UTC. Each alliance picks its own 1-hour slot.
+⚠️ MOST IMPORTANT
+You are linked to the alliance you were in when the event started. Staying in it is how your dishes earn Alliance Feast Points for the alliance.
+🍳 HOW THE MAIN EVENT WORKS
+Event missions give an ingredients bag.
 Open an ingredients bag to get Ingredients, cook a dish, then submit it.
-A normal dish gives 40 Personal Feast Points and 40 Alliance Feast Points. A dish marked 👍 (Favored) gives 50 and 50.
-The Specials Dishes change every day at 00:00 UTC. There is no new set on the last day.
-Cooking: press [Finish] at the right moment. A perfect press unlocks Quick Cook for that dish, so the cooking can be skipped from then on. A miss fails the dish, and all the Ingredients come back.
+Submitting a dish gives Personal Feast Points and, while you are in your linked alliance, Alliance Feast Points. Specials Dishes give bonus points.
 Sending Ingredients to an ally gives Personal Feast Points. Asking for them has a daily limit.
-🧺 WHERE THE BAGS COME FROM (Supplies of Plenty)
-Gems: every 1,000 spent gives 1.
-Speedups: every 7,200 seconds (2 hours) used gives 1. Only Speedup items count; finishing with Gems does not.
-Gathering: every 3,600 seconds (1 hour) gives 1 or 2, with an even chance.
-Beasts: each one hunted gives 1, 2 or 3, with an even chance — 2 on average.
-🔗 Alliance Fealty
+📌 KEY RULES
 You are linked to the alliance you were in when the event started (11/24 00:00 UTC).
 Your dishes give Alliance Feast Points only while you are in that alliance. A new alliance gets nothing from you, and the same goes if you had no alliance at the start.
-Something to keep in mind before changing alliance during the event.
-To join the Alliance Feast, you need to be in the alliance when the event ends.
-🍽️ Alliance Feast · 12/1
-From the feast screen in the game.
+Top 10 on Personal Feast Points, or reaching the point target shown in the game, gives a permanent town skin (from the official preview).
+🏕️ Alliance Feast
 The top 10 alliances on Alliance Feast Points can each host one feast. It lasts 1 hour and cannot be ended early; the alliance picks the hour on 12/1 (UTC).
-Tables served, from the best quality to the plainest — 1st place: 6 / 10 / 24 / 30 · 2nd–3rd: 3 / 5 / 12 / 30 · 4th–10th: 1 / 2 / 12 / 30.
+1st place hosts the largest feast, 2nd–3rd a medium one, 4th–10th a normal one.
 Tables are set out around the feast building at intervals and taken away after a while. You send a squad to a table to dine, and the reward comes by mail. Only your own alliance's tables, once per table.
-Best table: 30% Gems 2,000 · 30% Lucky Hero Gear Chest · 26% Forgehammer ×2 · 10% Mythic General Hero Shard ×2 · 4% material chests ×5. The plainest table mostly gives resources or short Speedups.
-Members who can attend can buy extra tables for the alliance; those stay for up to 24 hours.
+To join the Alliance Feast, you need to be in the alliance when the event ends.
 If you leave during the feast, rejoining the same alliance before it ends lets you continue.
-🎪 OTHER PARTS OF THE EVENT (from the official preview)
+🎪 OTHER EVENTS
 Harvest Rally: its level goes up as you play Feast Preparations; each level has a reward, and there is a paid track.
 Patron of Plenty: 7 phases of missions, with phase rewards and a ranking.
 Autumn Anthem: a grid of missions. A full row or column opens a chest; finishing all of them gives the top prize.
-Pumpkin Smash: 11/25 00:00 – 11/29 24:00 UTC.
-Lucky Cabin: 11/25 00:00 – 11/30 24:00 UTC.
-📦 WHEN IT ENDS
+Supplies of Plenty: gathering, hunting Beasts, spending Gems and using Speedups can give an ingredients bag.
+Pumpkin Smash: aim at the spinning pumpkins and shoot arrows. Smashing them gives clearance rewards; challenges give extra ones.
+Lucky Cabin: commissions or packs give Wish Vouchers. Wishes give rewards and milestone rewards, and sometimes Lucky Marks for the Lucky Shop.
+Top-up Benefits: Top Up Points collected during the event unlock milestone rewards.
+🛍️ EXTRA ITEMS & NOTES
+Two packs are sold during the event; the decoration pack is available from 11/26 to 11/30.
 The game converts what is left: each ingredient or ingredients bag → 1 Lv.2 Custom Secured Resource Chest; each dish → 4.
-Top 10 on Personal Feast Points, or reaching the point target shown in the game, gives a permanent town skin (from the official preview).
+Some rewards differ by server progress. The game screens show the exact point target, missions and pack contents.
 
 ### GUIDE #wavebound-voyage — Voyage Event
 WHEN
