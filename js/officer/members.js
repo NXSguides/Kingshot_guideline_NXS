@@ -964,7 +964,12 @@ function csvPlan(text) {
   /* NXS + nxs in one layout (same colour, Sherry 2026-11-15): the line is Y 704 — Y ≤ 704 is NXS, 705 and up nxs; a Bear Trap labelled "nxs" is
      nxs's BT1 (our BT3, it sits on the line) */
   if (cities.some((r) => r.n === "NXS") && cities.some((r) => r.n === "nxs")) {
-    const side = (r) => (r.t === "beartrap" && r.n === "nxs") ? "f" : r.y <= SPLIT_Y ? "m" : "f", mine = (r) => side(r) === WHO;
+    /* 2026-11-24 (Sherry's layout after the names were swapped: nxs now sits north of NXS, so the Y 704 line no longer tells them apart): every row
+       that carries the tag goes by its tag — "nxs" exactly = the second alliance, "NXS" = the main one. A row with another label ("Bear Trap 1")
+       belongs to the alliance of the nearest tagged city. Only a file where no banner / HQ / trap carries a tag still uses the old line. */
+    const tagged = rows.some((r) => r.t !== "city" && (r.n === "NXS" || r.n === "nxs"));
+    const nearSide = (r) => { let best = "m", d = Infinity; for (const c of cities) { if (c.n !== "NXS" && c.n !== "nxs") continue; const q = Math.hypot(c.x - r.x, c.y - r.y); if (q < d) { d = q; best = c.n === "nxs" ? "f" : "m"; } } return best; };
+    const side = (r) => tagged ? (r.n === "nxs" ? "f" : r.n === "NXS" ? "m" : nearSide(r)) : (r.t === "beartrap" && r.n === "nxs") ? "f" : r.y <= SPLIT_Y ? "m" : "f", mine = (r) => side(r) === WHO;
     const num = (r) => r.n === "nxs" ? 0 : +((r.n.match(/\d+/) || [9])[0]);
     return { c: cities.filter(mine).map((r) => r.s != null ? ["", r.x, r.y, r.s] : ["", r.x, r.y]),
       bt: rows.filter((r) => r.t === "beartrap" && mine(r)).sort((p, q) => num(p) - num(q)).map((r) => [r.x, r.y]),

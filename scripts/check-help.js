@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Hive: a layout with both alliances is split by tag (NXS / nxs)", /📥 LAYOUT WITH BOTH ALLIANCES \(2026-11-24\)/, /split by the tag on each item \(NXS \/ nxs\)/],
   ["Hive: the real territory from 🚩 Territory (layers included) is shaded and used for spots and resources", /🐝 Hive → REAL TERRITORY \(2026-11-24/, /mv27: "🏳️ The shaded land on the map is the territory we really hold now/],
   ["Map: countdown until a 🎯 Target / 🔗 Can take Outpost turns Vulnerable", /⏱ TIMER ON A TARGET \(2026-11-24/, /A 🎯 Target or 🔗 Can take Outpost has a timer too/],
   ["Battle table: length of each game-chat message against the 512 limit", /shows its length as "N \/ 512"/, /Under each box is its length, N \/ 512/],
