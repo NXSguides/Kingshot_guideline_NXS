@@ -1088,7 +1088,7 @@ Mengirim Bahan ke sekutu memberi Poin Pesta Pribadi. Permintaan punya batas hari
 🔗 Kesetiaan Aliansi
 Kamu terikat dengan Aliansi tempatmu berada saat event dimulai (24/11 00:00 UTC).
 Hidanganmu memberi Poin Pesta Aliansi hanya selama kamu berada di Aliansi itu. Aliansi baru tidak mendapat apa pun darimu; sama halnya kalau kamu tidak punya Aliansi saat event dimulai.
-Pindah antara NXS dan nxs dihitung sebagai ganti Aliansi.
+Ini perlu diingat sebelum ganti Aliansi selama event.
 Untuk ikut Pesta Aliansi, kamu perlu berada di Aliansi saat event berakhir.
 🍽️ Pesta Aliansi · 1/12
 Dari pratinjau resmi, belum dicek di dalam game:

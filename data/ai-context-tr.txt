@@ -1088,7 +1088,7 @@ Bir müttefike malzeme göndermek kişisel puan (Kişisel Ziyafet Puanı) kazand
 🔗 İttifak Sadakati
 Etkinlik başladığında (24/11 00:00 UTC) bulunduğun ittifaka bağlanırsın.
 Yemeklerin yalnızca o ittifaktayken ittifak puanı (İttifak Ziyafet Puanı) verir. Yeni ittifak senden puan alamaz; başlangıçta ittifakın yoksa da durum aynıdır.
-NXS ile nxs arasında geçmek ittifak değiştirmek sayılır.
+Etkinlik sırasında ittifak değiştirmeden önce bunu akılda tutmakta fayda var.
 İttifak ziyafetine (İttifak Ziyafeti) katılmak için etkinlik bittiğinde ittifakta olmak gerekir.
 🍽️ İttifak Ziyafeti · 1/12
 Resmî ön izlemeden; oyunda henüz doğrulanmadı:

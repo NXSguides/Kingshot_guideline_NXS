@@ -1090,7 +1090,7 @@ Zutaten an Verbündete zu schicken gibt Persönliche Festmahlpunkte. Anfragen ha
 🔗 Allianz-Treue
 Du bist mit der Allianz verbunden, in der du beim Start des Events warst (24.11. 00:00 UTC).
 Deine Gerichte geben nur Allianz-Festmahlpunkte, solange du in dieser Allianz bist. Eine neue Allianz bekommt nichts von dir; das gilt auch, wenn du beim Start keine Allianz hattest.
-Ein Wechsel zwischen NXS und nxs zählt als Allianzwechsel.
+Das ist wichtig, wenn du während des Events die Allianz wechseln möchtest.
 Für die Teilnahme am Festmahl (Allianz-Festmahl) musst du beim Ende des Events in der Allianz sein.
 🍽️ Allianz-Festmahl · 1.12.
 Aus der offiziellen Vorschau, im Spiel noch nicht geprüft:

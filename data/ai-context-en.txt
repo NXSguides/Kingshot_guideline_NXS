@@ -1087,7 +1087,7 @@ Sending Ingredients to an ally gives Personal Feast Points. Asking for them has 
 🔗 Alliance Fealty
 You are linked to the alliance you were in when the event started (11/24 00:00 UTC).
 Your dishes give Alliance Feast Points only while you are in that alliance. A new alliance gets nothing from you, and the same goes if you had no alliance at the start.
-Moving between NXS and nxs counts as changing alliance.
+Something to keep in mind before changing alliance during the event.
 To join the Alliance Feast, you need to be in the alliance when the event ends.
 🍽️ Alliance Feast · 12/1
 From the official preview, not checked in the game yet:

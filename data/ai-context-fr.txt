@@ -1089,7 +1089,7 @@ Envoyer des Ingrédients à un allié donne des Points de Banquet Individuels. L
 🔗 Fidélité à l'Alliance
 Tu es lié(e) à l'alliance où tu étais au début de l'événement (24/11 00:00 UTC).
 Tes plats donnent des Points de Banquet d'Alliance seulement tant que tu es dans cette alliance. Une nouvelle alliance ne reçoit rien de toi ; pareil si tu n'avais pas d'alliance au début.
-Passer de NXS à nxs (ou l'inverse) compte comme un changement d'alliance.
+À garder en tête avant de changer d'alliance pendant l'événement.
 Pour participer au banquet (Banquet de l'Alliance), il faut être dans l'alliance à la fin de l'événement.
 🍽️ Banquet de l'Alliance · 1/12
 D'après l'aperçu officiel, pas encore vérifié dans le jeu :

@@ -1,0 +1,21 @@
+name: Sneak peek list
+on:
+  schedule:
+    - cron: "47 3,8,12 * * *"
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/sneak-peek.js
+      - run: |
+          git config user.name "sneak-peek-bot"
+          git config user.email "actions@github.com"
+          git add data/sneak-peek.json
+          git diff --cached --quiet || (git commit -m "Sneak peek list [skip ci]" && git pull --rebase origin main && git push origin HEAD:main)

@@ -1088,7 +1088,7 @@ Enviar ingredientes a um aliado dá Pontos de Banquete Individuais. Os pedidos t
 🔗 Fidelidade à Aliança
 Você fica vinculado à aliança em que estava quando o evento começou (24/11 00:00 UTC).
 Seus pratos só dão Pontos de Banquete da Aliança enquanto você está nessa aliança. Uma aliança nova não recebe nada de você; o mesmo vale se você não tinha aliança no início.
-Mudar entre NXS e nxs conta como troca de aliança.
+Vale lembrar disso antes de trocar de aliança durante o evento.
 Para participar da festa (Festa da Aliança), é preciso estar na aliança quando o evento terminar.
 🍽️ Festa da Aliança · 1/12
 Da prévia oficial, ainda não conferido no jogo:

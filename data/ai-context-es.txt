@@ -1088,7 +1088,7 @@ Enviar ingredientes a un aliado da Puntos de festín personales. Las solicitudes
 🔗 Lealtad de la alianza
 Quedas vinculado a la alianza en la que estabas cuando empezó el evento (24/11 00:00 UTC).
 Tus platos solo dan Puntos de festín de alianza mientras estás en esa alianza. Una alianza nueva no recibe nada de ti; lo mismo si no tenías alianza al inicio.
-Pasar de NXS a nxs (o al revés) cuenta como cambio de alianza.
+Conviene tenerlo en cuenta antes de cambiar de alianza durante el evento.
 Para participar en el festín (festín de la alianza) hay que estar en la alianza cuando termine el evento.
 🍽️ festín de la alianza · 1/12
 Del avance oficial, todavía sin comprobar en el juego:
