@@ -1090,6 +1090,8 @@ Du bist mit der Allianz verbunden, in der du beim Start des Events warst. Nur so
 Event-Missionen geben Zutatenbeutel.
 Öffne einen Zutatenbeutel (Beutel mit den Zutaten) für Zutaten, koche ein Gericht und sende es ab.
 Ein abgesendetes Gericht gibt Persönliche Festmahlpunkte und, solange du in deiner verbundenen Allianz bist, Allianz-Festmahlpunkte. Spezialgerichte geben Bonuspunkte.
+Ein normales Gericht gibt 40 Persönliche Festmahlpunkte und 40 Allianz-Festmahlpunkte. Ein Gericht mit 👍 (Empfehlen) gibt 50 und 50.
+Kochen: im richtigen Moment auf [Beenden] tippen. Ein perfekter Tipp schaltet für dieses Gericht Schnellkochen frei, danach lässt sich das Kochen überspringen. Bei einem Fehlversuch misslingt das Gericht, und alle Zutaten kommen zurück.
 Zutaten an Verbündete zu schicken gibt Persönliche Festmahlpunkte. Anfragen haben ein Tageslimit.
 📌 WICHTIGE REGELN
 Du bist mit der Allianz verbunden, in der du beim Start des Events warst (24.11. 00:00 UTC).

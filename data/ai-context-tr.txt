@@ -1088,6 +1088,8 @@ Etkinlik başladığında bulunduğun ittifaka bağlanırsın. Yemeklerin ancak 
 Etkinlik görevleri malzeme poşeti verir.
 Bir malzeme poşeti (malzeme poşeti) aç, malzeme al, bir yemek pişir ve gönder.
 Bir yemek göndermek kişisel puan (Kişisel Ziyafet Puanı) verir; bağlı olduğun ittifaktaysan ittifak puanı (İttifak Ziyafet Puanı) da verir. Özel yemekler (Özel Yemekler) ek puan verir.
+Normal bir yemek 40 kişisel puan (Kişisel Ziyafet Puanı) ve 40 ittifak puanı (İttifak Ziyafet Puanı) verir. 👍 (Önerilen) işaretli yemek 50 ve 50 verir.
+Pişirme: doğru anda [Bitir] düğmesine dokun. Mükemmel dokunuş o yemek için Hızlı Pişir özelliğini açar, sonrasında pişirme atlanabilir. Iskalarsan yemek başarısız olur ve bütün malzemeler geri gelir.
 Bir müttefike malzeme göndermek kişisel puan (Kişisel Ziyafet Puanı) kazandırır. İsteklerin günlük sınırı vardır.
 📌 TEMEL KURALLAR
 Etkinlik başladığında (24/11 00:00 UTC) bulunduğun ittifaka bağlanırsın.

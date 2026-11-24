@@ -1088,6 +1088,8 @@ Quedas vinculado a la alianza en la que estabas cuando empezó el evento. Solo s
 Las misiones del evento dan una bolsa de ingredientes.
 Abre una bolsa de ingredientes para conseguir ingredientes, cocina un plato y envíalo.
 Enviar un plato da Puntos de festín personales y, mientras estés en tu alianza vinculada, Puntos de festín de alianza. Los platos especiales dan puntos extra.
+Un plato normal da 40 Puntos de festín personales y 40 Puntos de festín de alianza. Un plato con 👍 (Para ti) da 50 y 50.
+Cocinar: toca [Parar] en el momento justo. Un toque perfecto desbloquea Cocinar rápido para ese plato, y la cocción se puede omitir desde entonces. Si fallas, el plato fracasa y vuelven todos los ingredientes.
 Enviar ingredientes a un aliado da Puntos de festín personales. Las solicitudes tienen un límite diario.
 📌 REGLAS CLAVE
 Quedas vinculado a la alianza en la que estabas cuando empezó el evento (24/11 00:00 UTC).

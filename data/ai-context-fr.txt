@@ -1089,6 +1089,8 @@ Tu es lié(e) à l'alliance où tu étais au début de l'événement. C'est en y
 Les missions de l'événement donnent un sac d'ingrédients.
 Ouvre un sac d'ingrédients pour obtenir des Ingrédients, cuisine un plat, puis soumets-le.
 Soumettre un plat donne des Points de Banquet Individuels et, tant que tu es dans ton alliance liée, des Points de Banquet d'Alliance. Les Plats Spéciaux donnent des points bonus.
+Un plat normal donne 40 Points de Banquet Individuels et 40 Points de Banquet d'Alliance. Un plat marqué 👍 (Conseillé) donne 50 et 50.
+Cuisine : appuie sur [Terminer] au bon moment. Un appui parfait débloque Cuisine Rapide pour ce plat, la cuisson peut ensuite être passée. Un appui raté fait échouer le plat, et tous les Ingrédients sont rendus.
 Envoyer des Ingrédients à un allié donne des Points de Banquet Individuels. Les demandes ont une limite par jour.
 📌 RÈGLES CLÉS
 Tu es lié(e) à l'alliance où tu étais au début de l'événement (24/11 00:00 UTC).

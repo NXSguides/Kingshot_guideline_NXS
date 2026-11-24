@@ -1088,6 +1088,8 @@ Kamu terikat dengan Aliansi tempatmu berada saat event dimulai. Dengan tetap di 
 Misi event memberi Kantong Bahan.
 Buka Kantong Bahan untuk mendapat Bahan, masak hidangan, lalu kirim.
 Mengirim hidangan memberi Poin Pesta Pribadi dan, selama kamu di Aliansi yang terikat, Poin Pesta Aliansi. Hidangan Spesial memberi poin bonus.
+Hidangan biasa memberi 40 Poin Pesta Pribadi dan 40 Poin Pesta Aliansi. Hidangan bertanda 👍 (Disarankan) memberi 50 dan 50.
+Memasak: ketuk [Selesai] pada saat yang tepat. Ketukan sempurna membuka Masak Cepat untuk hidangan itu, sehingga proses memasak bisa dilewati setelahnya. Kalau meleset, hidangan gagal dan semua Bahan dikembalikan.
 Mengirim Bahan ke sekutu memberi Poin Pesta Pribadi. Permintaan punya batas harian.
 📌 ATURAN UTAMA
 Kamu terikat dengan Aliansi tempatmu berada saat event dimulai (24/11 00:00 UTC).

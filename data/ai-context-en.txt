@@ -1087,6 +1087,8 @@ You are linked to the alliance you were in when the event started. Staying in it
 Event missions give an ingredients bag.
 Open an ingredients bag to get Ingredients, cook a dish, then submit it.
 Submitting a dish gives Personal Feast Points and, while you are in your linked alliance, Alliance Feast Points. Specials Dishes give bonus points.
+A normal dish gives 40 Personal Feast Points and 40 Alliance Feast Points. A dish marked 👍 (Favored) gives 50 and 50.
+Cooking: press [Finish] at the right moment. A perfect press unlocks Quick Cook for that dish, so the cooking can be skipped from then on. A miss fails the dish, and all the Ingredients come back.
 Sending Ingredients to an ally gives Personal Feast Points. Asking for them has a daily limit.
 📌 KEY RULES
 You are linked to the alliance you were in when the event started (11/24 00:00 UTC).

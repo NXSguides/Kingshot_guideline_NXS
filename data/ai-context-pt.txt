@@ -1088,6 +1088,8 @@ Você fica vinculado à aliança em que estava quando o evento começou. É fica
 As missões do evento dão um saco de ingredientes.
 Abra um saco de ingredientes para ganhar ingredientes, cozinhe um prato e envie.
 Enviar um prato dá Pontos de Banquete Individuais e, enquanto você está na aliança vinculada, Pontos de Banquete da Aliança. Os pratos especiais dão pontos bônus.
+Um prato normal dá 40 Pontos de Banquete Individuais e 40 Pontos de Banquete da Aliança. Um prato com 👍 (Indicado) dá 50 e 50.
+Cozinhar: toque em [Concluir] no momento certo. Um toque perfeito libera Cozinhar Rapidamente para aquele prato, e o cozimento pode ser pulado dali em diante. Se errar, o prato falha e todos os ingredientes voltam.
 Enviar ingredientes a um aliado dá Pontos de Banquete Individuais. Os pedidos têm limite diário.
 📌 REGRAS PRINCIPAIS
 Você fica vinculado à aliança em que estava quando o evento começou (24/11 00:00 UTC).
