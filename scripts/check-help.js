@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Map: countdown until a 🎯 Target / 🔗 Can take Outpost turns Vulnerable", /⏱ TIMER ON A TARGET \(2026-11-24/, /A 🎯 Target or 🔗 Can take Outpost has a timer too/],
   ["Battle table: length of each game-chat message against the 512 limit", /shows its length as "N \/ 512"/, /Under each box is its length, N \/ 512/],
   ["Compare: ≫ ＞ ≈ ＜ ≪ marks against one person on the Strength list", /📍 WHO IS STRONGER THAN WHOM \(2026-11-18\)/, /ak11: "📍 The Strength list now says/],
   ["Territory: banner route to an Outpost + one shared banner check", /🧭 BANNER ROUTE TO AN OUTPOST \(2026-11-18\)/, /rt01: "🧭 Tap an Outpost while planning/],
