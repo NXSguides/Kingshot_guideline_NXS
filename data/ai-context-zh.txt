@@ -1075,6 +1075,30 @@ KvK 備戰階段第 2、3 天，英雄轉盤每轉 8,000 分。所以幸運幣�
 大課：想要夢幻之星和夢幻城堡才衝第 7 層（其他玩家估計大約要 100–300 美元）。
 右上角的寶箱會記你用掉的夢幻護符數，記得打開。活動結束前把夢幻幣全部花完（沒花完的會變成 1 級資源寶箱，來自其他玩家的攻略）。
 
+### GUIDE #harvest-celebration — 豐收慶典
+開放時間
+不定期活動（還不知道之後會不會再開）。豐收盛宴籌備：11/24 00:00 UTC – 11/30 24:00 UTC。聯盟宴會：12/1（UTC），一小時。
+怎麼玩
+打開食材包拿食材，烹飪成菜餚，再送出。
+一般菜餚：個人籌備積分 40、聯盟籌備積分 40。有 👍（推薦）的菜餚：各 50。
+主推菜餚每天 00:00 UTC 更新，最後一天不再換新。
+烹飪：在對的時機按【結束】。時機完美會解鎖那道菜的快速烹飪，之後可以跳過烹飪過程。失敗的話食材全部退還。
+送食材給盟友會拿到個人籌備積分。請求食材每天有上限。
+🔗 聯盟綁定
+活動開始時（11/24 00:00 UTC）你在哪個聯盟，就綁定哪個聯盟。
+人在綁定的聯盟裡，送出菜餚才會給聯盟籌備積分。換到新聯盟後，新聯盟拿不到你的分數；開始時沒有聯盟也一樣。
+在 NXS 和 nxs 之間移動也算換聯盟。
+想參加聯盟宴會，活動結算時要在聯盟裡。
+🍽️ 聯盟宴會 · 12/1
+以下來自官方預告，還沒在遊戲裡確認：
+聯盟籌備積分排名前 10 的聯盟可以舉辦。第 1 名規模最大，第 2–3 名次之，第 4–10 名是普通規模。
+持續一小時，由聯盟在 12/1（UTC）當天自己選時間。
+派一支隊伍參加。每隔一段時間會上菜，領取就有獎勵。
+宴會中退出聯盟的話，在結束前回到同一個聯盟就能繼續。
+📦 活動結束時
+剩下的東西遊戲會自動換掉：每個食材或食材包 → 1 個2級安全資源客製化箱子；每道菜餚 → 4 個。
+個人籌備積分前 10 名，或達到遊戲裡顯示的指定分數，可以拿到永久的城鎮造型（來自官方預告）。
+
 ### GUIDE #wavebound-voyage — 航海之旅
 開放時間
 大約每 28 天一次（看過 10/20、11/17 兩期）。共 5 天，之後還有 1 天可以開啟或合成寶藏（不能再派隊）。遊戲每一期都換名字（踏浪之旅、沐光之旅），獎勵也跟著換。
@@ -1520,6 +1544,31 @@ Language (12 languages): chosen once on the first screen when the site opens. Af
 (see guide #swordland-showdown)
 
 ### GAME TERMS (English = official zh name)
+Harvest Celebration = 豐收慶典
+Feast Preparations = 豐收盛宴籌備
+Alliance Fealty = 聯盟綁定
+Personal Feast Points = 個人籌備積分
+Alliance Feast Points = 聯盟籌備積分
+Specials Dishes = 主推菜餚
+Favored = 推薦
+Finish = 結束
+Quick Cook = 快速烹飪
+Ingredients = 食材
+ingredients bag = 食材包
+Alliance Feast = 聯盟宴會
+Lv.2 Custom Secured Resource Chest = 2級安全資源客製化箱子
+Harvest Rally = 豐收大集結
+Patron of Plenty = 豐饒之主
+Seasonal Prize = 本期大獎
+linked = 綁定
+Daily Specials = 每日主推選單
+Cook = 烹飪
+Submit = 送出
+Dish = 菜餚
+Request = 請求食材
+Send Ingredients = 贈送食材
+Ingredient Recycle = 食物回收
+Cooking Techniques = 烹飪技巧
 Fantasy Theater = 夢幻劇場
 Theater = 劇場
 Theater Notes = 劇場小記

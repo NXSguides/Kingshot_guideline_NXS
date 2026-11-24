@@ -1078,6 +1078,30 @@ Wenigzahler: gleicher Plan. Fantasy-Amulette nur kaufen, wenn dir dann ein gewü
 Vielzahler: nur für Fan-Sterne und die Fantasy-Festung bis Etage 7 (andere Spieler schätzen etwa 100–300 US$).
 Öffne auch die Truhe oben rechts — sie zählt jedes benutzte Fantasy-Amulette. Vor Event-Ende alle 🪙 Fantasy Token ausgeben (Reste werden Lv.1-Ressourcentruhen, laut Guide eines anderen Spielers).
 
+### GUIDE #harvest-celebration — Erntefeier
+WANN
+Einmaliges Event (ob es wiederkommt, wissen wir noch nicht). Festmahlvorbereitungen: 24.11. 00:00 UTC – 30.11. 24:00 UTC. Allianz-Festmahl: 1.12. (UTC), eine Stunde.
+SO FUNKTIONIERT ES
+Öffne einen Zutatenbeutel (Beutel mit den Zutaten) für Zutaten, koche ein Gericht und sende es ab.
+Ein normales Gericht gibt 40 Persönliche Festmahlpunkte und 40 Allianz-Festmahlpunkte. Ein Gericht mit 👍 (Empfehlen) gibt 50 und 50.
+Die Spezialgerichte wechseln jeden Tag um 00:00 UTC. Am letzten Tag kommen keine neuen.
+Kochen: im richtigen Moment auf [Beenden] tippen. Ein perfekter Tipp schaltet für dieses Gericht Schnellkochen frei, danach lässt sich das Kochen überspringen. Bei einem Fehlversuch misslingt das Gericht, und alle Zutaten kommen zurück.
+Zutaten an Verbündete zu schicken gibt Persönliche Festmahlpunkte. Anfragen haben ein Tageslimit.
+🔗 Allianz-Treue
+Du bist mit der Allianz verbunden, in der du beim Start des Events warst (24.11. 00:00 UTC).
+Deine Gerichte geben nur Allianz-Festmahlpunkte, solange du in dieser Allianz bist. Eine neue Allianz bekommt nichts von dir; das gilt auch, wenn du beim Start keine Allianz hattest.
+Ein Wechsel zwischen NXS und nxs zählt als Allianzwechsel.
+Für die Teilnahme am Festmahl (Allianz-Festmahl) musst du beim Ende des Events in der Allianz sein.
+🍽️ Allianz-Festmahl · 1.12.
+Aus der offiziellen Vorschau, im Spiel noch nicht geprüft:
+Die 10 besten Allianzen nach Allianz-Festmahlpunkte können eines ausrichten. Platz 1 bekommt das größte Festmahl, Platz 2–3 ein mittleres, Platz 4–10 ein normales.
+Es dauert eine Stunde. Die Allianz wählt die Stunde am 1.12. (UTC).
+Du schickst einen Trupp zur Teilnahme. Gerichte werden in Abständen serviert, das Abholen gibt Belohnungen.
+Wer während des Festmahls austritt, kann weitermachen, wenn er vor dem Ende derselben Allianz wieder beitritt.
+📦 WENN ES ENDET
+Das Spiel tauscht Reste um: jede Zutat oder jeder Zutatenbeutel → 1 × Lv. 2 Benutzerdefinierte Gesicherte Ressourcenkiste; jedes Gericht → 4.
+Top 10 bei Persönliche Festmahlpunkte oder das Erreichen des im Spiel gezeigten Punkteziels gibt einen dauerhaften Stadt-Skin (aus der offiziellen Vorschau).
+
 ### GUIDE #wavebound-voyage — Seereise
 WANN
 Etwa alle 28 Tage (gesehen am 20.10. und 17.11.). 5 Tage, danach 1 weiterer Tag zum Öffnen oder Verschmelzen von Schätzen (keine neuen Reisen). Das Spiel gibt dem Event jedes Mal einen neuen Namen (Wellenwärtsreise, Reise des Lichts), und die Belohnungen ändern sich mit.
@@ -1523,6 +1547,31 @@ Bitte melde dich nur an, wenn du dir 100% sicher bist, dass du teilnehmen kannst
 (see guide #swordland-showdown)
 
 ### GAME TERMS (English = official de name)
+Harvest Celebration = Erntefeier
+Feast Preparations = Festmahlvorbereitungen
+Alliance Fealty = Allianz-Treue
+Personal Feast Points = Persönliche Festmahlpunkte
+Alliance Feast Points = Allianz-Festmahlpunkte
+Specials Dishes = Spezialgerichte
+Favored = Empfehlen
+Finish = Beenden
+Quick Cook = Schnellkochen
+Ingredients = Zutaten
+ingredients bag = Beutel mit den Zutaten
+Alliance Feast = Allianz-Festmahl
+Lv.2 Custom Secured Resource Chest = Lv. 2 Benutzerdefinierte Gesicherte Ressourcenkiste
+Harvest Rally = Ernterally
+Patron of Plenty = Gönner im Überfluss
+Seasonal Prize = Saisonaler Preis
+linked = verbunden
+Daily Specials = Tagesspezialitäten
+Cook = Kochen
+Submit = Absenden
+Dish = Gericht
+Request = Anfrage
+Send Ingredients = Zutaten versenden
+Ingredient Recycle = Zutaten wiederverwerten
+Cooking Techniques = Kochtechniken
 Fantasy Theater = Fantasy-Theater
 Theater Notes = Theater-Notizen
 Theater Shop = Theaterladen

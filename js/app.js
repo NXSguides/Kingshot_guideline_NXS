@@ -326,6 +326,7 @@ const EVENT_SCHEDULES = {
   "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 }, // last one ~9/19, this one 10/10–10/12 → every 3 weeks (check 10/31)
   "governor-duel": { anchor: Date.UTC(2026, 10, 15), periodDays: 100000, activeDays: 7 }, // first run 11/15 (Sun sign-up) – 11/21; one-off until we see it repeat (2026-11-16)
   "fantasy-theater": { anchor: Date.UTC(2026, 10, 10), periodDays: 100000, activeDays: 6 }, // one-off (irregular): 11/10 00:00 – 11/15 24:00 UTC (Sherry 2026-11-11)
+  "harvest-celebration": { anchor: Date.UTC(2026, 10, 24), periodDays: 100000, activeDays: 7 }, // one-off until we see it repeat: 11/24 00:00 – 11/30 24:00 UTC (in-game timer 2026-11-24); Alliance Feast on 12/1
   "wavebound-voyage": { anchor: Date.UTC(2026, 9, 20), periodDays: 28, activeDays: 5 }, // seen 10/20 and 11/17 (28 days apart), 5 days each; the game renames it every run
   "sanctuary-battle": { anchor: Date.UTC(2026, 9, 6), periodDays: 7, activeDays: 4 } // in-game calendar: Tue 00:00 – Fri 24:00 UTC every week (sign-up first, contest phase at the voted time slot)
 };
@@ -373,7 +374,7 @@ const REPAIR_DAYS = { "kvk": [7, 8] }, REPAIR_EMOJI = "💊";
 /* events whose prep days matter as much as the battle: prep keeps the guide emoji at full strength, the battle day gets its own */
 const PHASED = { "kvk": { fight: "💥" } };
 /* events with a guide but no battle: the calendar shows them without ⚔️ and without "not the battle day" (Sherry 2026-11-06) */
-const NO_FIGHT = new Set(["fishing-tournament", "hero-roulette", "wavebound-voyage", "fantasy-theater"]);
+const NO_FIGHT = new Set(["fishing-tournament", "hero-roulette", "wavebound-voyage", "fantasy-theater", "harvest-celebration"]);
 const isRepairDay = (k, dayIdx) => (REPAIR_DAYS[k] || []).includes(dayIdx + 1);
 /* times on different days of the run (event-times.json "timeDays": the n-th time → that day of the run, e.g. Viking: 13:00 on day 3, 22:00 on day 1) */
 const TIME_DAY = {};

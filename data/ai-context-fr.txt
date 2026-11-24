@@ -1077,6 +1077,30 @@ Petits payeurs : même plan. Achète des Amulettes Fantaisies seulement s'ils te
 Gros payeurs : ne vise l'étage 7 que pour les Étoiles Fantaisies et le Fort Fantaisie (d'autres joueurs estiment environ 100–300 $).
 Ouvre aussi le coffre en haut à droite — il compte chaque Amulettes Fantaisies utilisée. Avant la fin, dépense tous tes 🪙 Fantasy Token (le reste devient des coffres de ressources Nv.1, guide d'un autre joueur).
 
+### GUIDE #harvest-celebration — Célébration des Récoltes
+QUAND
+Événement ponctuel (on ne sait pas encore s'il reviendra). Préparatifs du Banquet : 24/11 00:00 UTC – 30/11 24:00 UTC. Banquet de l'Alliance : 1/12 (UTC), une heure.
+COMMENT ÇA MARCHE
+Ouvre un sac d'ingrédients pour obtenir des Ingrédients, cuisine un plat, puis soumets-le.
+Un plat normal donne 40 Points de Banquet Individuels et 40 Points de Banquet d'Alliance. Un plat marqué 👍 (Conseillé) donne 50 et 50.
+Les Plats Spéciaux changent chaque jour à 00:00 UTC. Il n'y en a pas de nouveaux le dernier jour.
+Cuisine : appuie sur [Terminer] au bon moment. Un appui parfait débloque Cuisine Rapide pour ce plat, la cuisson peut ensuite être passée. Un appui raté fait échouer le plat, et tous les Ingrédients sont rendus.
+Envoyer des Ingrédients à un allié donne des Points de Banquet Individuels. Les demandes ont une limite par jour.
+🔗 Fidélité à l'Alliance
+Tu es lié(e) à l'alliance où tu étais au début de l'événement (24/11 00:00 UTC).
+Tes plats donnent des Points de Banquet d'Alliance seulement tant que tu es dans cette alliance. Une nouvelle alliance ne reçoit rien de toi ; pareil si tu n'avais pas d'alliance au début.
+Passer de NXS à nxs (ou l'inverse) compte comme un changement d'alliance.
+Pour participer au banquet (Banquet de l'Alliance), il faut être dans l'alliance à la fin de l'événement.
+🍽️ Banquet de l'Alliance · 1/12
+D'après l'aperçu officiel, pas encore vérifié dans le jeu :
+Les 10 premières alliances en Points de Banquet d'Alliance peuvent en organiser un. La 1re a le plus grand banquet, les 2e–3e un banquet moyen, les 4e–10e un banquet normal.
+Il dure une heure. L'alliance choisit l'heure le 1/12 (UTC).
+Tu envoies une escouade pour y participer. Des plats sont servis à intervalles réguliers, les récupérer donne des récompenses.
+Si tu quittes l'alliance pendant le banquet, rejoindre la même alliance avant la fin permet de continuer.
+📦 À LA FIN
+Le jeu convertit ce qui reste : chaque ingrédient ou sac d'ingrédients → 1 Caisse de Ressources Sécurisées Personnalisée Nv. 2 ; chaque plat → 4.
+Le top 10 en Points de Banquet Individuels, ou atteindre l'objectif de points affiché dans le jeu, donne une apparence de ville permanente (d'après l'aperçu officiel).
+
 ### GUIDE #wavebound-voyage — Voyage en Mer
 QUAND
 Environ tous les 28 jours (vu le 20/10 et le 17/11). 5 jours, puis 1 jour de plus pour ouvrir ou fusionner les trésors (plus de nouveaux voyages). Le jeu lui donne un nouveau nom à chaque fois (Voyage au Fil des Vagues, Voyage de Lumière) et les récompenses changent aussi.
@@ -1522,6 +1546,31 @@ S'il vous plaît, ne vous inscrivez que si vous êtes sûr à 100 % de pouvoir v
 (see guide #swordland-showdown)
 
 ### GAME TERMS (English = official fr name)
+Harvest Celebration = Célébration des Récoltes
+Feast Preparations = Préparatifs du Banquet
+Alliance Fealty = Fidélité à l'Alliance
+Personal Feast Points = Points de Banquet Individuels
+Alliance Feast Points = Points de Banquet d'Alliance
+Specials Dishes = Plats Spéciaux
+Favored = Conseillé
+Finish = Terminer
+Quick Cook = Cuisine Rapide
+Ingredients = Ingrédients
+ingredients bag = sac d'ingrédients
+Alliance Feast = Banquet de l'Alliance
+Lv.2 Custom Secured Resource Chest = Caisse de Ressources Sécurisées Personnalisée Nv. 2
+Harvest Rally = Ralliement des Récoltes
+Patron of Plenty = Donateur d'Abondance
+Seasonal Prize = Prix Saisonnier
+linked = lié(e)
+Daily Specials = Plats du Jour
+Cook = Cuisiner
+Submit = Soumettre
+Dish = Plat
+Request = Demande
+Send Ingredients = Envoyer Ingrédients
+Ingredient Recycle = Recyclage d'Ingrédients
+Cooking Techniques = Techniques de Cuisine
 Fantasy Theater = Théâtre Fantaisie
 Theater = Théâtre
 Theater Notes = Notes Théâtrales

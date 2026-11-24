@@ -1076,6 +1076,30 @@ Gastan poco: mismo plan. Compra Amuletos de fantasía solo si te alcanza para un
 Gastan mucho: sube al piso 7 solo por las Estrellas de fantasía y la Fortaleza de fantasía (otros jugadores estiman unos US$100–300).
 Abre también el cofre de arriba a la derecha — cuenta cada Amuletos de fantasía que usas. Antes de que termine, gasta todos los 🪙 Fantasy Token (lo que sobre se convierte en cofres de recursos Nv.1, guía de otro jugador).
 
+### GUIDE #harvest-celebration — Celebración de la Cosecha
+CUÁNDO
+Evento irregular (aún no sabemos si volverá). Preparativos del Festín: 24/11 00:00 UTC – 30/11 24:00 UTC. festín de la alianza: 1/12 (UTC), una hora.
+CÓMO FUNCIONA
+Abre una bolsa de ingredientes para conseguir ingredientes, cocina un plato y envíalo.
+Un plato normal da 40 Puntos de festín personales y 40 Puntos de festín de alianza. Un plato con 👍 (Para ti) da 50 y 50.
+Los platos especiales cambian cada día a las 00:00 UTC. El último día no hay nuevos.
+Cocinar: toca [Parar] en el momento justo. Un toque perfecto desbloquea Cocinar rápido para ese plato, y la cocción se puede omitir desde entonces. Si fallas, el plato fracasa y vuelven todos los ingredientes.
+Enviar ingredientes a un aliado da Puntos de festín personales. Las solicitudes tienen un límite diario.
+🔗 Lealtad de la alianza
+Quedas vinculado a la alianza en la que estabas cuando empezó el evento (24/11 00:00 UTC).
+Tus platos solo dan Puntos de festín de alianza mientras estás en esa alianza. Una alianza nueva no recibe nada de ti; lo mismo si no tenías alianza al inicio.
+Pasar de NXS a nxs (o al revés) cuenta como cambio de alianza.
+Para participar en el festín (festín de la alianza) hay que estar en la alianza cuando termine el evento.
+🍽️ festín de la alianza · 1/12
+Del avance oficial, todavía sin comprobar en el juego:
+Las 10 mejores alianzas en Puntos de festín de alianza pueden organizar uno. El 1.º tiene el festín más grande, 2.º–3.º uno mediano, 4.º–10.º uno normal.
+Dura una hora. La alianza elige la hora el 1/12 (UTC).
+Envías un escuadrón para asistir. Se sirven platos cada cierto tiempo, y recogerlos da recompensas.
+Si sales durante el festín, volver a la misma alianza antes de que termine permite continuar.
+📦 CUANDO TERMINA
+El juego convierte lo que sobre: cada ingrediente o bolsa de ingredientes → 1 Caja de Recursos Personalizada Asegurada Nv. 2; cada plato → 4.
+Estar en el top 10 de Puntos de festín personales, o alcanzar la meta de puntos que muestra el juego, da una apariencia de ciudad permanente (del avance oficial).
+
 ### GUIDE #wavebound-voyage — Viaje Marítimo
 CUÁNDO
 Aproximadamente cada 28 días (visto el 20/10 y el 17/11). 5 días, y luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes). El juego le pone un nombre nuevo cada vez (Viaje Ligado a las Olas, Travesía de Luz) y las recompensas cambian con él.
@@ -1521,6 +1545,31 @@ Por favor, inscríbete solo si estás 100 % seguro de que podrás asistir. ¡Tra
 (see guide #swordland-showdown)
 
 ### GAME TERMS (English = official es name)
+Harvest Celebration = Celebración de la Cosecha
+Feast Preparations = Preparativos del Festín
+Alliance Fealty = Lealtad de la alianza
+Personal Feast Points = Puntos de festín personales
+Alliance Feast Points = Puntos de festín de alianza
+Specials Dishes = platos especiales
+Favored = Para ti
+Finish = Parar
+Quick Cook = Cocinar rápido
+Ingredients = ingredientes
+ingredients bag = bolsa de ingredientes
+Alliance Feast = festín de la alianza
+Lv.2 Custom Secured Resource Chest = Caja de Recursos Personalizada Asegurada Nv. 2
+Harvest Rally = Movilización de la Cosecha
+Patron of Plenty = Patrón festivo
+Seasonal Prize = Premio de temporada
+linked = vinculado/a
+Daily Specials = Especiales del Día
+Cook = Cocinar
+Submit = Enviar
+Dish = plato
+Request = Solicitud
+Send Ingredients = Enviar ingredientes
+Ingredient Recycle = Reciclaje de ingredientes
+Cooking Techniques = Técnicas de cocina
 Fantasy Theater = Teatro de fantasía
 Theater = teatro
 Theater Notes = Notas del Teatro

@@ -1076,6 +1076,30 @@ Gastam pouco: mesmo plano. Compre Amuletos Fantasia só se isso te der um item q
 Gastam muito: só vá ao Andar 7 se quiser Estrelas Fantasia e a Fortaleza Fantasia (outros jogadores estimam uns US$100–300).
 Abra também o baú no canto superior direito — ele conta cada Amuletos Fantasia usado. Antes do fim, gaste todos os 🪙 Fantasy Token (o que sobrar vira baús de recursos Nv.1, guia de outro jogador).
 
+### GUIDE #harvest-celebration — Celebração da Colheita
+QUANDO
+Evento irregular (ainda não sabemos se volta). Preparações para o Banquete: 24/11 00:00 UTC – 30/11 24:00 UTC. Festa da Aliança: 1/12 (UTC), uma hora.
+COMO FUNCIONA
+Abra um saco de ingredientes para ganhar ingredientes, cozinhe um prato e envie.
+Um prato normal dá 40 Pontos de Banquete Individuais e 40 Pontos de Banquete da Aliança. Um prato com 👍 (Indicado) dá 50 e 50.
+Os pratos especiais mudam todo dia às 00:00 UTC. No último dia não há novos.
+Cozinhar: toque em [Concluir] no momento certo. Um toque perfeito libera Cozinhar Rapidamente para aquele prato, e o cozimento pode ser pulado dali em diante. Se errar, o prato falha e todos os ingredientes voltam.
+Enviar ingredientes a um aliado dá Pontos de Banquete Individuais. Os pedidos têm limite diário.
+🔗 Fidelidade à Aliança
+Você fica vinculado à aliança em que estava quando o evento começou (24/11 00:00 UTC).
+Seus pratos só dão Pontos de Banquete da Aliança enquanto você está nessa aliança. Uma aliança nova não recebe nada de você; o mesmo vale se você não tinha aliança no início.
+Mudar entre NXS e nxs conta como troca de aliança.
+Para participar da festa (Festa da Aliança), é preciso estar na aliança quando o evento terminar.
+🍽️ Festa da Aliança · 1/12
+Da prévia oficial, ainda não conferido no jogo:
+As 10 melhores alianças em Pontos de Banquete da Aliança podem organizar uma. O 1º lugar tem a maior festa, 2º–3º uma média, 4º–10º uma normal.
+Dura uma hora. A aliança escolhe a hora no dia 1/12 (UTC).
+Você envia um esquadrão para participar. Pratos são servidos de tempos em tempos, e coletá-los dá recompensas.
+Se você sair durante a festa, voltar para a mesma aliança antes do fim permite continuar.
+📦 QUANDO TERMINA
+O jogo converte o que sobrar: cada ingrediente ou saco de ingredientes → 1 Baú de Recursos Protegidos Personalizados Nv.2; cada prato → 4.
+Ficar no top 10 em Pontos de Banquete Individuais, ou atingir a meta de pontos mostrada no jogo, dá uma skin de cidade permanente (da prévia oficial).
+
 ### GUIDE #wavebound-voyage — Viagem Marítima
 QUANDO
 Cerca de a cada 28 dias (visto em 20/10 e 17/11). 5 dias, depois mais 1 dia para abrir ou fundir tesouros (sem novas viagens). O jogo dá um nome novo a cada vez (Viagem das Ondas, Voyage da Luz) e as recompensas mudam junto.
@@ -1521,6 +1545,31 @@ Por favor, só se inscreva se tiver 100% de certeza de que poderá comparecer. V
 (see guide #swordland-showdown)
 
 ### GAME TERMS (English = official pt name)
+Harvest Celebration = Celebração da Colheita
+Feast Preparations = Preparações para o Banquete
+Alliance Fealty = Fidelidade à Aliança
+Personal Feast Points = Pontos de Banquete Individuais
+Alliance Feast Points = Pontos de Banquete da Aliança
+Specials Dishes = pratos especiais
+Favored = Indicado
+Finish = Concluir
+Quick Cook = Cozinhar Rapidamente
+Ingredients = ingredientes
+ingredients bag = saco de ingredientes
+Alliance Feast = Festa da Aliança
+Lv.2 Custom Secured Resource Chest = Baú de Recursos Protegidos Personalizados Nv.2
+Harvest Rally = Rally da Colheita
+Patron of Plenty = Patrono da Plenitude
+Seasonal Prize = Prêmio de Temporada
+linked = vinculado
+Daily Specials = Especiais Diários
+Cook = Cozinhar
+Submit = Enviar
+Dish = prato
+Request = Solicitação
+Send Ingredients = Enviar Ingredientes
+Ingredient Recycle = Reciclagem de Ingredientes
+Cooking Techniques = Técnicas de Cozinheiro
 Fantasy Theater = Teatro Fantasia
 Theater = Teatro
 Theater Notes = Notas do Teatro

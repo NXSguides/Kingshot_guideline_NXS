@@ -1075,6 +1075,30 @@ Light spenders: same plan. Buy Fantasy Amulets only if it gets you an item you w
 Big spenders: only push to Floor 7 if you want Fanstars and the Fantasy Fortress (other players estimate about US$100–300).
 Also open the chest at the top right — it counts every Fantasy Amulets you use. Before the event ends, spend all Fantasy Tokens (leftovers become Lv.1 resource chests, from another player's guide).
 
+### GUIDE #harvest-celebration — Harvest Celebration
+WHEN
+One-off event (we don't know yet whether it comes back). Feast Preparations: 11/24 00:00 UTC – 11/30 24:00 UTC. Alliance Feast: 12/1 (UTC), one hour.
+HOW IT WORKS
+Open an ingredients bag to get Ingredients, cook a dish, then submit it.
+A normal dish gives 40 Personal Feast Points and 40 Alliance Feast Points. A dish marked 👍 (Favored) gives 50 and 50.
+The Specials Dishes change every day at 00:00 UTC. There is no new set on the last day.
+Cooking: press [Finish] at the right moment. A perfect press unlocks Quick Cook for that dish, so the cooking can be skipped from then on. A miss fails the dish, and all the Ingredients come back.
+Sending Ingredients to an ally gives Personal Feast Points. Asking for them has a daily limit.
+🔗 Alliance Fealty
+You are linked to the alliance you were in when the event started (11/24 00:00 UTC).
+Your dishes give Alliance Feast Points only while you are in that alliance. A new alliance gets nothing from you, and the same goes if you had no alliance at the start.
+Moving between NXS and nxs counts as changing alliance.
+To join the Alliance Feast, you need to be in the alliance when the event ends.
+🍽️ Alliance Feast · 12/1
+From the official preview, not checked in the game yet:
+The top 10 alliances on Alliance Feast Points can host one. 1st place gets the largest feast, 2nd–3rd a medium one, 4th–10th a normal one.
+It lasts one hour. The alliance picks the hour on 12/1 (UTC).
+You send a squad to attend. Dishes are served at intervals, and claiming them gives rewards.
+If you leave during the feast, rejoining the same alliance before it ends lets you continue.
+📦 WHEN IT ENDS
+The game converts what is left: each ingredient or ingredients bag → 1 Lv.2 Custom Secured Resource Chest; each dish → 4.
+Top 10 on Personal Feast Points, or reaching the point target shown in the game, gives a permanent town skin (from the official preview).
+
 ### GUIDE #wavebound-voyage — Voyage Event
 WHEN
 About every 28 days (seen 10/20 and 11/17). 5 days, then 1 more day to open or merge treasures (no new voyages). The game gives it a new name each time — Wavebound Voyage, Voyage of Light — and the rewards change with it.

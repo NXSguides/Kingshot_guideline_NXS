@@ -1076,6 +1076,30 @@ Az harcayanlar: aynı plan. Rüya Tılsımları'yı sadece Tiyatro Mağazası'nd
 Çok harcayanlar: 7. Kata yalnızca Rüya Yıldızı ve Rüya Kalesi için çık (diğer oyuncuların tahmini yaklaşık 100–300 US$).
 Sağ üstteki sandığı da aç — kullandığın her Rüya Tılsımları'yı sayar. Etkinlik bitmeden tüm 🪙 Fantasy Token'leri harca (kalanlar Sv.1 kaynak sandığına dönüşür, başka bir oyuncunun rehberinden).
 
+### GUIDE #harvest-celebration — Hasat Kutlaması
+NE ZAMAN
+Düzensiz etkinlik (tekrar gelip gelmeyeceğini henüz bilmiyoruz). Ziyafet Hazırlıkları: 24/11 00:00 UTC – 30/11 24:00 UTC. İttifak Ziyafeti: 1/12 (UTC), bir saat.
+NASIL ÇALIŞIR
+Bir malzeme poşeti (malzeme poşeti) aç, malzeme al, bir yemek pişir ve gönder.
+Normal bir yemek 40 kişisel puan (Kişisel Ziyafet Puanı) ve 40 ittifak puanı (İttifak Ziyafet Puanı) verir. 👍 (Önerilen) işaretli yemek 50 ve 50 verir.
+Özel yemekler (Özel Yemekler) her gün 00:00 UTC'de değişir. Son gün yenisi gelmez.
+Pişirme: doğru anda [Bitir] düğmesine dokun. Mükemmel dokunuş o yemek için Hızlı Pişir özelliğini açar, sonrasında pişirme atlanabilir. Iskalarsan yemek başarısız olur ve bütün malzemeler geri gelir.
+Bir müttefike malzeme göndermek kişisel puan (Kişisel Ziyafet Puanı) kazandırır. İsteklerin günlük sınırı vardır.
+🔗 İttifak Sadakati
+Etkinlik başladığında (24/11 00:00 UTC) bulunduğun ittifaka bağlanırsın.
+Yemeklerin yalnızca o ittifaktayken ittifak puanı (İttifak Ziyafet Puanı) verir. Yeni ittifak senden puan alamaz; başlangıçta ittifakın yoksa da durum aynıdır.
+NXS ile nxs arasında geçmek ittifak değiştirmek sayılır.
+İttifak ziyafetine (İttifak Ziyafeti) katılmak için etkinlik bittiğinde ittifakta olmak gerekir.
+🍽️ İttifak Ziyafeti · 1/12
+Resmî ön izlemeden; oyunda henüz doğrulanmadı:
+İttifak puanında (İttifak Ziyafet Puanı) ilk 10 ittifak ziyafet verebilir. 1. sıra en büyük ziyafeti, 2.–3. sıra orta boy, 4.–10. sıra normal ziyafet verir.
+Bir saat sürer. Saati ittifak 1/12 (UTC) günü içinde seçer.
+Katılmak için bir birlik gönderirsin. Yemekler belirli aralıklarla servis edilir, almak ödül verir.
+Ziyafet sırasında ayrılırsan, bitmeden aynı ittifaka geri dönmek devam etmeni sağlar.
+📦 BİTTİĞİNDE
+Oyun kalanları dönüştürür: her malzeme veya malzeme poşeti → 1 adet Sv. 2 Özel Korumalı Kaynak Sandığı; her yemek → 4 adet.
+Kişisel puanda (Kişisel Ziyafet Puanı) ilk 10'a girmek ya da oyunda gösterilen puan hedefine ulaşmak kalıcı bir şehir görünümü verir (resmî ön izlemeden).
+
 ### GUIDE #wavebound-voyage — Deniz Yolculuğu
 NE ZAMAN
 Yaklaşık 28 günde bir (20/10 ve 17/11'de görüldü). 5 gün sürer, ardından hazineleri açmak veya birleştirmek için 1 gün daha vardır (yeni yolculuk yok). Oyun her seferinde yeni bir ad verir (Dalgalara Karşı Yolculuk, Işık Yolculuğu) ve ödüller de değişir.
@@ -1521,6 +1545,31 @@ Lütfen yalnızca katılabileceğinizden %100 eminseniz kaydolun. Adil eşleşme
 (see guide #swordland-showdown)
 
 ### GAME TERMS (English = official tr name)
+Harvest Celebration = Hasat Kutlaması
+Feast Preparations = Ziyafet Hazırlıkları
+Alliance Fealty = İttifak Sadakati
+Personal Feast Points = Kişisel Ziyafet Puanı
+Alliance Feast Points = İttifak Ziyafet Puanı
+Specials Dishes = Özel Yemekler
+Favored = Önerilen
+Finish = Bitir
+Quick Cook = Hızlı Pişir
+Ingredients = Malzemeler
+ingredients bag = malzeme poşeti
+Alliance Feast = İttifak Ziyafeti
+Lv.2 Custom Secured Resource Chest = Sv. 2 Özel Korumalı Kaynak Sandığı
+Harvest Rally = Hasat Seferberliği
+Patron of Plenty = Bereketin Efendisi
+Seasonal Prize = Sezonluk
+linked = bağlı
+Daily Specials = Günlük Spesiyaller
+Cook = Pişir
+Submit = Gönder
+Dish = Yemek
+Request = İste
+Send Ingredients = Malzeme Gönder
+Ingredient Recycle = Malzeme Geri Dönüşümü
+Cooking Techniques = Pişirme Teknikleri
 Fantasy Theater = Rüya Tiyatrosu
 Theater = Tiyatro
 Theater Notes = Tiyatro Notları

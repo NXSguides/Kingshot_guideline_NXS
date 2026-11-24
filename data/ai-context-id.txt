@@ -1076,6 +1076,30 @@ Sedikit belanja: rencana sama. Beli Jimat Fantasi hanya kalau cukup untuk item y
 Banyak belanja: naik ke Lantai 7 hanya untuk Fanstar dan Benteng Fantasi (perkiraan pemain lain sekitar US$100–300).
 Buka juga peti di kanan atas — peti itu menghitung setiap Jimat Fantasi yang kamu pakai. Sebelum event berakhir, habiskan semua 🪙 Fantasy Token (sisanya jadi peti sumber daya Lv.1, dari panduan pemain lain).
 
+### GUIDE #harvest-celebration — Perayaan Panen
+KAPAN
+Event tidak rutin (kami belum tahu apakah akan ada lagi). Persiapan Pesta: 24/11 00:00 UTC – 30/11 24:00 UTC. Pesta Aliansi: 1/12 (UTC), satu jam.
+CARA KERJANYA
+Buka Kantong Bahan untuk mendapat Bahan, masak hidangan, lalu kirim.
+Hidangan biasa memberi 40 Poin Pesta Pribadi dan 40 Poin Pesta Aliansi. Hidangan bertanda 👍 (Disarankan) memberi 50 dan 50.
+Hidangan Spesial berganti setiap hari pukul 00:00 UTC. Di hari terakhir tidak ada yang baru.
+Memasak: ketuk [Selesai] pada saat yang tepat. Ketukan sempurna membuka Masak Cepat untuk hidangan itu, sehingga proses memasak bisa dilewati setelahnya. Kalau meleset, hidangan gagal dan semua Bahan dikembalikan.
+Mengirim Bahan ke sekutu memberi Poin Pesta Pribadi. Permintaan punya batas harian.
+🔗 Kesetiaan Aliansi
+Kamu terikat dengan Aliansi tempatmu berada saat event dimulai (24/11 00:00 UTC).
+Hidanganmu memberi Poin Pesta Aliansi hanya selama kamu berada di Aliansi itu. Aliansi baru tidak mendapat apa pun darimu; sama halnya kalau kamu tidak punya Aliansi saat event dimulai.
+Pindah antara NXS dan nxs dihitung sebagai ganti Aliansi.
+Untuk ikut Pesta Aliansi, kamu perlu berada di Aliansi saat event berakhir.
+🍽️ Pesta Aliansi · 1/12
+Dari pratinjau resmi, belum dicek di dalam game:
+10 Aliansi teratas dalam Poin Pesta Aliansi bisa mengadakannya. Peringkat 1 mendapat pesta terbesar, peringkat 2–3 pesta sedang, peringkat 4–10 pesta biasa.
+Berlangsung satu jam. Aliansi memilih jamnya pada 1/12 (UTC).
+Kamu mengirim satu pasukan untuk hadir. Hidangan disajikan secara berkala, dan mengambilnya memberi hadiah.
+Kalau keluar saat pesta, bergabung lagi dengan Aliansi yang sama sebelum pesta selesai membuatmu bisa lanjut.
+📦 SAAT BERAKHIR
+Game menukar sisa barang: setiap bahan atau Kantong Bahan → 1 Peti Sumber Daya Terlindung Kustom Lv.2; setiap hidangan → 4.
+Masuk 10 besar Poin Pesta Pribadi, atau mencapai target poin yang ditampilkan di game, memberi skin kota permanen (dari pratinjau resmi).
+
 ### GUIDE #wavebound-voyage — Pelayaran
 KAPAN
 Sekitar setiap 28 hari (terlihat pada 20/10 dan 17/11). 5 hari, lalu 1 hari lagi untuk membuka atau menggabungkan harta (tidak ada pelayaran baru). Game memberi nama baru setiap kali (Pelayaran Ombak, Pelayaran Cahaya) dan hadiahnya ikut berubah.
@@ -1521,6 +1545,31 @@ Harap hanya mendaftar jika kamu 100% yakin bisa hadir. Mari bekerja sama untuk m
 (see guide #swordland-showdown)
 
 ### GAME TERMS (English = official id name)
+Harvest Celebration = Perayaan Panen
+Feast Preparations = Persiapan Pesta
+Alliance Fealty = Kesetiaan Aliansi
+Personal Feast Points = Poin Pesta Pribadi
+Alliance Feast Points = Poin Pesta Aliansi
+Specials Dishes = Hidangan Spesial
+Favored = Disarankan
+Finish = Selesai
+Quick Cook = Masak Cepat
+Ingredients = Bahan
+ingredients bag = Kantong Bahan
+Alliance Feast = Pesta Aliansi
+Lv.2 Custom Secured Resource Chest = Peti Sumber Daya Terlindung Kustom Lv.2
+Harvest Rally = Reli Panen
+Patron of Plenty = Pelindung Kelimpahan
+Seasonal Prize = Hadiah Musiman
+linked = terikat
+Daily Specials = Hidangan Spesial Harian
+Cook = Masak
+Submit = Kirim
+Dish = Hidangan
+Request = Permintaan
+Send Ingredients = Kirim Bahan Mentah
+Ingredient Recycle = Daur Ulang Bahan
+Cooking Techniques = Teknik Memasak
 Fantasy Theater = Teater Fantasi
 Theater = Teater
 Theater Notes = Catatan Teater
