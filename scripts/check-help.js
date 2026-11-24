@@ -75,6 +75,7 @@ const FEATURES = [
   ["Viking report tab (🪓 research)", /🪓 VIKING REPORT tab/, /vv: \[\{ s: "#vv_title", k: "vv01" \}/],
   ["Rally & Garrison report (⚔️ research)", /⚔️ RALLY & GARRISON report/, /rg: \[\{ s: "#rg_title", k: "rg01" \}\]/],
   ["Masters report (🎓 research)", /🎓 MASTERS report/, /ma: \[\{ s: "#ma_title", k: "ma01" \}\]/],
+  ["Workspace 🔮 Sneak peek card (official event previews)", /🔮 Sneak peek \(Sparrow's page only\)/, /\{ s: "#ws_peek", k: "ws06" \}/],
   ["My workspace tab (🗂️ private page per admin)", /🗂️ MY WORKSPACE \(我的工作區/, /ws: \[\{ s: "#ws_title", k: "ws01" \}/],
   ["Guide notes tab (📺 research)", /📺 GUIDE NOTES \(🔬 Research sub-tab/, /gn: \[\{ s: "#gn_title", k: "gn01" \}\]/],
   ["📺 From guide videos cards on research pages", /📺 From guide videos card \(added 2026-11-12/, /Most research pages also have a 📺 From guide videos card/],

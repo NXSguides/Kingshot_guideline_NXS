@@ -498,6 +498,7 @@ AI ASSISTANT
 - 📣 Coming on the kingdom timeline: every timeline item that arrives before the 3rd KvK from now, with a tick for "announced" (members see the same list under the home calendar as 👑 Coming to our kingdom).
 - 📝 My notes: type and press Enter to add, tick when done, ✏️ edit, 🗑 delete (press twice).
 - Sparrow's own page has more cards: "Today" (her repeating items — 🔁 every day, or 📅 tied to an event day, added with "+ Repeating item"; daily ticks start again at 00:00 UTC), 🚧 Ongoing (work in progress with a next step), ❓ To look up (a question with an answer box under it), 📝 My own.
+- 🔮 Sneak peek (Sparrow's page only): the official previews of coming events posted on the Kingshot Wiki — date, title and links to the Traditional Chinese / English / Korean versions, newest first, for the last 30 days. A workflow checks the wiki three times a day; a new post is marked "new" until she ticks it as read. The list holds titles and links only; you are not given it.
   For her only, "📤 For Claude" on 📅 Events also carries these items ("Sparrow personal"), and an NXS-PATCH may hold "personal": { "set": [...], "delete": [ids] }; they are shown for checking and saved only after ✅.
 
 @research

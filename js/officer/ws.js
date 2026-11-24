@@ -23,7 +23,7 @@ const T = {
     bearOn: "{b} is on the registration deadline day ({d}, our times {t}).", bearBefore: "{b} is the day before the registration deadline ({d}, our times {t}); none on the deadline day itself.",
     box: "📨 From Sparrow", boxNone: "Nothing right now.", ansPh: "Your answer…", send: "Send", isQ: "It is a question (they can answer here)", boxFor: "📨 For", boxPh: "What do you want to tell or ask them?", copyMsg: "📋 Copy as a message", copied: "Copied ✓", sel: "Select the text and copy it.", noPeople: "No other admin yet.", answered: "answered", seen: "done", waiting: "waiting",
     ann: "📣 Coming on the kingdom timeline", annSub: "Everything that arrives before the 3rd KvK from now ({d}). Tick it once it has been announced.", annDone: "announced", annNone: "Nothing new before then.", inDays: "in {n} days",
-    todayC: "Today", none: "Nothing for today.", late: "late", rep: "+ Repeating item", daily: "🔁 Every day", event: "📅 With an event", once: "📝 My own", q: "❓ To look up", proj: "🚧 Ongoing", notes: "📝 My notes",
+    peek: "🔮 Sneak peek", peekSub: "Official previews of coming events, from the Kingshot Wiki. Checked three times a day. Tick one once you have read it.", peekNew: "new", peekNone: "No preview in the last 30 days.", peekLast: "Last one:", todayC: "Today", none: "Nothing for today.", late: "late", rep: "+ Repeating item", daily: "🔁 Every day", event: "📅 With an event", once: "📝 My own", q: "❓ To look up", proj: "🚧 Ongoing", notes: "📝 My notes",
     addPh: "Add… (Enter)", save: "💾 Save", cancel: "Cancel", del: "🗑", edit: "✏️", kind: "Kind", text: "What", note: "Note / next step", evF: "Event", dayN: "Day of the event (1 = first day, 0 = the day before)", at: "Time (UTC, optional)", date: "Date (optional)", ans: "Answer", found: "Found",
     needText: "Write what it is first.", needEv: "Pick an event.", saved: "Saved ✓", saving: "Saving…", conflict: "This page was changed on another device. It has been reloaded — do the change again.", fail: "Could not save. Try again.", loadFail: "Could not load the page." },
   zh: { title: "🗂️ 我的工作區", lead: "這一頁只有你自己看得到。網站 AI 和小麻雀都不會讀這裡的內容。", leadO: "Sparrow 也能打開（只能看），用來確認有沒有問題。",
@@ -34,7 +34,7 @@ const T = {
     bearOn: "{b}在報名截止當天（{d}，我們的時間 {t}）。", bearBefore: "{b}在報名截止前一天（{d}，我們的時間 {t}）；截止當天沒有熊。",
     box: "📨 Sparrow 給我的事", boxNone: "目前沒有。", ansPh: "你的回答…", send: "送出", isQ: "這是一個問題（對方可以在這裡回答）", boxFor: "📨 給", boxPh: "想告訴他或問他什麼？", copyMsg: "📋 複製成訊息", copied: "已複製 ✓", sel: "請選取文字後複製。", noPeople: "還沒有其他管理員。", answered: "已回答", seen: "已完成", waiting: "等待中",
     ann: "📣 王國時間表上即將開放的內容", annSub: "從現在算起第 3 次 KvK（{d}）之前會開放的所有內容。公告過就打勾。", annDone: "已公告", annNone: "那之前沒有新內容。", inDays: "{n} 天後",
-    todayC: "今天要做的", none: "今天沒有項目。", late: "逾期", rep: "＋ 重複的項目", daily: "🔁 每天", event: "📅 跟著活動", once: "📝 我自己的事", q: "❓ 待查問題", proj: "🚧 進行中的事", notes: "📝 我的筆記",
+    peek: "🔮 活動搶先看", peekSub: "官方的活動預告，來源是 Kingshot Wiki，每天檢查三次。看過就打勾。", peekNew: "新", peekNone: "最近 30 天沒有新的預告。", peekLast: "上一篇：", todayC: "今天要做的", none: "今天沒有項目。", late: "逾期", rep: "＋ 重複的項目", daily: "🔁 每天", event: "📅 跟著活動", once: "📝 我自己的事", q: "❓ 待查問題", proj: "🚧 進行中的事", notes: "📝 我的筆記",
     addPh: "新增…（Enter）", save: "💾 儲存", cancel: "取消", del: "🗑", edit: "✏️", kind: "種類", text: "內容", note: "備註／下一步", evF: "活動", dayN: "活動的第幾天（1＝第一天，0＝前一天）", at: "時間（UTC，可不填）", date: "日期（可不填）", ans: "答案", found: "已查到",
     needText: "請先寫內容。", needEv: "請選一個活動。", saved: "已儲存 ✓", saving: "儲存中…", conflict: "這一頁在另一台裝置上改過，已重新載入，請再改一次。", fail: "儲存失敗，請再試一次。", loadFail: "讀取失敗。" },
   pt: { title: "🗂️ Meu espaço", lead: "Só você vê esta página. A IA do site e o Pardalzinho nunca leem o que está aqui.", leadO: "Sparrow também pode abrir (só leitura) para ver se funciona.",
@@ -45,7 +45,7 @@ const T = {
     bearOn: "{b} cai no dia do prazo de inscrição ({d}, nossos horários {t}).", bearBefore: "{b} é no dia antes do prazo de inscrição ({d}, nossos horários {t}); não há urso no dia do prazo.",
     box: "📨 De Sparrow", boxNone: "Nada no momento.", ansPh: "Sua resposta…", send: "Enviar", isQ: "É uma pergunta (a pessoa responde aqui)", boxFor: "📨 Para", boxPh: "O que você quer dizer ou perguntar?", copyMsg: "📋 Copiar como mensagem", copied: "Copiado ✓", sel: "Selecione o texto e copie.", noPeople: "Ainda não há outro admin.", answered: "respondido", seen: "feito", waiting: "aguardando",
     ann: "📣 Chegando na linha do tempo do reino", annSub: "Tudo o que chega antes do 3º KvK a partir de agora ({d}). Marque quando já foi anunciado.", annDone: "anunciado", annNone: "Nada novo até lá.", inDays: "em {n} dias",
-    todayC: "Hoje", none: "Nada para hoje.", late: "atrasado", rep: "+ Item que se repete", daily: "🔁 Todo dia", event: "📅 Com um evento", once: "📝 Minhas coisas", q: "❓ Para pesquisar", proj: "🚧 Em andamento", notes: "📝 Minhas notas",
+    peek: "🔮 Prévia de eventos", peekSub: "Prévias oficiais dos próximos eventos, da Kingshot Wiki. Verificado três vezes por dia. Marque quando tiver lido.", peekNew: "novo", peekNone: "Nenhuma prévia nos últimos 30 dias.", peekLast: "A última:", todayC: "Hoje", none: "Nada para hoje.", late: "atrasado", rep: "+ Item que se repete", daily: "🔁 Todo dia", event: "📅 Com um evento", once: "📝 Minhas coisas", q: "❓ Para pesquisar", proj: "🚧 Em andamento", notes: "📝 Minhas notas",
     addPh: "Adicionar… (Enter)", save: "💾 Salvar", cancel: "Cancelar", del: "🗑", edit: "✏️", kind: "Tipo", text: "O quê", note: "Nota / próximo passo", evF: "Evento", dayN: "Dia do evento (1 = primeiro dia, 0 = dia anterior)", at: "Hora (UTC, opcional)", date: "Data (opcional)", ans: "Resposta", found: "Encontrado",
     needText: "Escreva o que é primeiro.", needEv: "Escolha um evento.", saved: "Salvo ✓", saving: "Salvando…", conflict: "Esta página foi mudada em outro aparelho. Ela foi recarregada — faça a mudança de novo.", fail: "Não deu para salvar. Tente de novo.", loadFail: "Não deu para carregar a página." },
   ar: { title: "🗂️ مساحتي", lead: "أنت فقط ترى هذه الصفحة. ذكاء الموقع والعصفور الصغير لا يقرآن ما فيها أبدًا.", leadO: "يستطيع Sparrow فتحها أيضًا (للعرض فقط) للتأكد من أنها تعمل.",
@@ -56,7 +56,7 @@ const T = {
     bearOn: "{b} في يوم انتهاء التسجيل ({d}، أوقاتنا {t}).", bearBefore: "{b} في اليوم السابق لانتهاء التسجيل ({d}، أوقاتنا {t})؛ لا دب في يوم الانتهاء.",
     box: "📨 من Sparrow", boxNone: "لا شيء الآن.", ansPh: "إجابتك…", send: "إرسال", isQ: "هذا سؤال (يمكنه الإجابة هنا)", boxFor: "📨 إلى", boxPh: "ماذا تريد أن تخبره أو تسأله؟", copyMsg: "📋 نسخ كرسالة", copied: "تم النسخ ✓", sel: "حدّد النص وانسخه.", noPeople: "لا يوجد مشرف آخر بعد.", answered: "تمت الإجابة", seen: "تم", waiting: "بانتظار",
     ann: "📣 قادم في الجدول الزمني للمملكة", annSub: "كل ما يصل قبل ثالث KvK من الآن ({d}). ضع علامة بعد الإعلان عنه.", annDone: "أُعلن", annNone: "لا جديد قبل ذلك.", inDays: "بعد {n} يوم",
-    todayC: "اليوم", none: "لا شيء لليوم.", late: "متأخر", rep: "+ بند متكرر", daily: "🔁 كل يوم", event: "📅 مع حدث", once: "📝 أموري", q: "❓ للبحث عنه", proj: "🚧 قيد العمل", notes: "📝 ملاحظاتي",
+    peek: "🔮 معاينة الفعاليات", peekSub: "المعاينات الرسمية للفعاليات القادمة، من Kingshot Wiki. يتم التحقق ثلاث مرات يوميًا. ضع علامة بعد قراءتها.", peekNew: "جديد", peekNone: "لا توجد معاينة في آخر 30 يومًا.", peekLast: "آخر واحدة:", todayC: "اليوم", none: "لا شيء لليوم.", late: "متأخر", rep: "+ بند متكرر", daily: "🔁 كل يوم", event: "📅 مع حدث", once: "📝 أموري", q: "❓ للبحث عنه", proj: "🚧 قيد العمل", notes: "📝 ملاحظاتي",
     addPh: "أضف… (Enter)", save: "💾 حفظ", cancel: "إلغاء", del: "🗑", edit: "✏️", kind: "النوع", text: "ماذا", note: "ملاحظة / الخطوة التالية", evF: "الحدث", dayN: "يوم الحدث (1 = اليوم الأول، 0 = اليوم السابق)", at: "الوقت (UTC، اختياري)", date: "التاريخ (اختياري)", ans: "الإجابة", found: "وُجدت",
     needText: "اكتب ما هو أولًا.", needEv: "اختر حدثًا.", saved: "تم الحفظ ✓", saving: "جارٍ الحفظ…", conflict: "تم تعديل هذه الصفحة من جهاز آخر. أُعيد تحميلها — أعد التعديل.", fail: "تعذّر الحفظ. حاول مرة أخرى.", loadFail: "تعذّر تحميل الصفحة." },
   ko: { title: "🗂️ 내 작업 공간", lead: "이 페이지는 본인만 볼 수 있어요. 사이트 AI와 작은 참새는 여기 내용을 읽지 않아요.", leadO: "Sparrow도 열어 볼 수 있어요(보기 전용). 문제가 없는지 확인하려는 거예요.",
@@ -67,7 +67,7 @@ const T = {
     bearOn: "{b}: 등록 마감일에 있어요 ({d}, 우리 시간 {t}).", bearBefore: "{b}: 등록 마감 전날에 있어요 ({d}, 우리 시간 {t}). 마감일에는 없어요.",
     box: "📨 Sparrow가 보낸 것", boxNone: "지금은 없어요.", ansPh: "답변…", send: "보내기", isQ: "질문이에요 (상대가 여기서 답할 수 있어요)", boxFor: "📨 받는 사람", boxPh: "무엇을 알리거나 묻고 싶나요?", copyMsg: "📋 메시지로 복사", copied: "복사됨 ✓", sel: "텍스트를 선택해 복사하세요.", noPeople: "아직 다른 관리자가 없어요.", answered: "답변함", seen: "완료", waiting: "대기 중",
     ann: "📣 왕국 타임라인에 곧 열리는 것", annSub: "지금부터 3번째 KvK({d}) 전에 열리는 모든 것. 공지했으면 체크하세요.", annDone: "공지함", annNone: "그 전에 새로 열리는 것이 없어요.", inDays: "{n}일 후",
-    todayC: "오늘 할 일", none: "오늘 항목이 없어요.", late: "지남", rep: "+ 반복 항목", daily: "🔁 매일", event: "📅 이벤트와 함께", once: "📝 내 일", q: "❓ 알아볼 것", proj: "🚧 진행 중", notes: "📝 내 메모",
+    peek: "🔮 이벤트 미리보기", peekSub: "다가오는 이벤트의 공식 예고예요 (Kingshot Wiki). 하루 세 번 확인해요. 읽었으면 체크하세요.", peekNew: "새 글", peekNone: "최근 30일 동안 새 예고가 없어요.", peekLast: "지난 글:", todayC: "오늘 할 일", none: "오늘 항목이 없어요.", late: "지남", rep: "+ 반복 항목", daily: "🔁 매일", event: "📅 이벤트와 함께", once: "📝 내 일", q: "❓ 알아볼 것", proj: "🚧 진행 중", notes: "📝 내 메모",
     addPh: "추가… (Enter)", save: "💾 저장", cancel: "취소", del: "🗑", edit: "✏️", kind: "종류", text: "내용", note: "메모 / 다음 단계", evF: "이벤트", dayN: "이벤트 며칠째 (1 = 첫날, 0 = 전날)", at: "시간 (UTC, 선택)", date: "날짜 (선택)", ans: "답", found: "찾음",
     needText: "내용을 먼저 적어 주세요.", needEv: "이벤트를 고르세요.", saved: "저장됨 ✓", saving: "저장 중…", conflict: "다른 기기에서 이 페이지가 바뀌었어요. 다시 불러왔으니 한 번 더 고쳐 주세요.", fail: "저장하지 못했어요. 다시 해 보세요.", loadFail: "페이지를 불러오지 못했어요." } };
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -204,6 +204,19 @@ function msgText(uid, evIds) {
   if (open.some((m) => m.q)) { L.push("", "Questions:"); for (const m of open.filter((m) => m.q)) L.push("- " + m.text); }
   return L.join("\n");
 }
+/* 🔮 official event previews (Sparrow's page): data/sneak-peek.json is kept by a workflow — titles, dates and links only. A tick = read. */
+let PEEK = null;
+async function loadPeek() { try { const j = await (await fetch("data/sneak-peek.json?t=" + Math.floor(Date.now() / 3600000), { cache: "no-store" })).json(); PEEK = Array.isArray(j.items) ? j.items : []; } catch (e) { PEEK = []; } }
+function peekCard(d) {
+  if (!PEEK) return "";
+  const now = Date.now(), ok = (u) => /^https:\/\/kingshotwiki\.com\//.test(String(u || "")), lk = (u, n) => ok(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>` : "";
+  const links = (x) => [lk(x.tw, "繁中"), lk(x.en, "EN"), lk(x.ko, "한국어")].filter(Boolean).join(" · ");
+  const recent = PEEK.filter((x) => now - Date.parse(x.date) < 30 * DAY);
+  const rows = recent.map((x) => { const k = "peek|" + String(x.date).slice(0, 10), on = !!d.done[k];
+    return `<label class="ws-row${on ? " done" : ""}"><input type="checkbox" data-peek="${esc(k)}"${on ? " checked" : ""}><span class="ws-tx"><b>${esc(String(x.date).slice(0, 10))}</b>${on ? "" : ` <span class="ws-tag">${esc(t("peekNew"))}</span>`} ${esc(x.title)}<br><span class="muted">${links(x)}</span></span></label>`; }).join("");
+  const last = !recent.length && PEEK[0] ? `<div class="muted">${esc(t("peekNone"))} ${esc(t("peekLast"))} ${esc(String(PEEK[0].date).slice(0, 10))} ${esc(PEEK[0].title)} · ${links(PEEK[0])}</div>` : "";
+  return `<div class="card" id="ws_peek"><h2>${esc(t("peek"))}</h2><div class="muted ws-sub">${esc(t("peekSub"))}</div>${rows || last || `<div class="muted">${esc(t("peekNone"))}</div>`}</div>`;
+}
 function annCard(d) {
   const a = announce(), today = utcDay(Date.now()); if (!a.lim) return "";
   const rows = a.list.map((m) => { const k = iso(m.t), on = !!d.ann[k];
@@ -248,7 +261,7 @@ function render() {
   if (RO()) h += `<div class="card msg">${esc(t("ro").replace("{n}", ([...PEOPLE, ...OTHERS].find((o) => o.id === VIEW) || {}).name || VIEW))}</div>`;
   h += `<div class="msg ${ERR ? "warn" : ""}" id="ws_msg">${esc(ERR)}</div>`;
   if (EDIT) h += formHtml();
-  else if (FULL()) h += evCard() + todayCard(d) + outboxCard() + listCard(d, "proj", "ws_proj", t("proj")) + listCard(d, "q", "ws_q", t("q")) + listCard(d, "once", "ws_all", t("once")) + annCard(d);
+  else if (FULL()) h += evCard() + peekCard(d) + todayCard(d) + outboxCard() + listCard(d, "proj", "ws_proj", t("proj")) + listCard(d, "q", "ws_q", t("q")) + listCard(d, "once", "ws_all", t("once")) + annCard(d);
   else h += evCard() + inboxCard() + annCard(d) + listCard(d, "once", "ws_all", t("notes"), true);
   root.innerHTML = h; ERR = "";
   wire(d);
@@ -281,6 +294,7 @@ function wire(d) {
   on("input[data-tick]", "onchange", async (el) => { const key = el.dataset.tick, it = MINE.items.find((x) => x.id === el.dataset.id);
     if (key) { if (el.checked) MINE.done[key] = 1; else delete MINE.done[key]; } else if (it) { if (el.checked) it.done = true; else delete it.done; }
     await save(); render(); });
+  on("input[data-peek]", "onchange", async (el) => { if (el.checked) MINE.done[el.dataset.peek] = 1; else delete MINE.done[el.dataset.peek]; await save(); render(); });
   on("input[data-ann]", "onchange", async (el) => { if (el.checked) MINE.ann[el.dataset.ann] = 1; else delete MINE.ann[el.dataset.ann]; await save(); render(); });
   on("textarea[data-qans]", "onchange", async (el) => { const it = MINE.items.find((x) => x.id === el.dataset.qans); if (!it) return; const a = el.value.trim(); if (a) it.ans = a; else delete it.ans; await save(); });
   root.querySelectorAll("input[data-add]").forEach((el) => { el.onkeydown = async (e) => { if (e.key !== "Enter" || e.isComposing) return; const text = el.value.trim(); if (!text) return; MINE.items.push({ id: newId(), k: el.dataset.add, text }); await save(); render(); const again = root.querySelector(`input[data-add="${el.dataset.add}"]`); if (again) again.focus(); }; });
@@ -366,6 +380,7 @@ async function init() {
   try { await OFFICER.ensure("events"); } catch (e) {}
   try { await load(""); } catch (e) { ERR = t("loadFail"); }
   render();
+  if (isOwner()) { await loadPeek(); if (D && !EDIT && !PICK && !BUSY) render(); }
 }
 function setLang(l) { lang = l; applyTexts(); render(); }
 OFFICER_PAGES.ws = { init, applyTexts, setLang, onShow: () => { if (D && !EDIT && !PICK && !BUSY) render(); } };
