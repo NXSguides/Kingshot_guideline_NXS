@@ -1085,17 +1085,28 @@ Um prato normal dá 40 Pontos de Banquete Individuais e 40 Pontos de Banquete da
 Os pratos especiais mudam todo dia às 00:00 UTC. No último dia não há novos.
 Cozinhar: toque em [Concluir] no momento certo. Um toque perfeito libera Cozinhar Rapidamente para aquele prato, e o cozimento pode ser pulado dali em diante. Se errar, o prato falha e todos os ingredientes voltam.
 Enviar ingredientes a um aliado dá Pontos de Banquete Individuais. Os pedidos têm limite diário.
+🧺 DE ONDE VÊM OS SACOS (Supplies of Plenty)
+Gemas: a cada 1.000 gastas, 1.
+Acelerações: a cada 7.200 segundos (2 horas) usados, 1. Só itens de aceleração contam; concluir com gemas não conta.
+Coleta: a cada 3.600 segundos (1 hora), 1 ou 2, com chances iguais.
+Feras: cada uma caçada dá 1, 2 ou 3, com chances iguais — 2 em média.
 🔗 Fidelidade à Aliança
 Você fica vinculado à aliança em que estava quando o evento começou (24/11 00:00 UTC).
 Seus pratos só dão Pontos de Banquete da Aliança enquanto você está nessa aliança. Uma aliança nova não recebe nada de você; o mesmo vale se você não tinha aliança no início.
 Vale lembrar disso antes de trocar de aliança durante o evento.
 Para participar da festa (Festa da Aliança), é preciso estar na aliança quando o evento terminar.
 🍽️ Festa da Aliança · 1/12
-Da prévia oficial, ainda não conferido no jogo:
+As posições e a data são da tela do jogo; os outros pontos são da prévia oficial.
 As 10 melhores alianças em Pontos de Banquete da Aliança podem organizar uma. O 1º lugar tem a maior festa, 2º–3º uma média, 4º–10º uma normal.
 Dura uma hora. A aliança escolhe a hora no dia 1/12 (UTC).
 Você envia um esquadrão para participar. Pratos são servidos de tempos em tempos, e coletá-los dá recompensas.
 Se você sair durante a festa, voltar para a mesma aliança antes do fim permite continuar.
+🎪 OUTRAS PARTES DO EVENTO (da prévia oficial)
+Rally da Colheita: o nível sobe conforme você joga Preparações para o Banquete; cada nível tem uma recompensa, e há uma trilha paga.
+Patrono da Plenitude: 7 fases de missões, com recompensas de fase e ranking.
+Autumn Anthem: uma grade de missões. Uma linha ou coluna completa abre um baú; terminar todas dá o prêmio principal.
+Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
 📦 QUANDO TERMINA
 O jogo converte o que sobrar: cada ingrediente ou saco de ingredientes → 1 Baú de Recursos Protegidos Personalizados Nv.2; cada prato → 4.
 Ficar no top 10 em Pontos de Banquete Individuais, ou atingir a meta de pontos mostrada no jogo, dá uma skin de cidade permanente (da prévia oficial).

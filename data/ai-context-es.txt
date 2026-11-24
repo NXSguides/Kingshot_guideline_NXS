@@ -1085,17 +1085,28 @@ Un plato normal da 40 Puntos de festín personales y 40 Puntos de festín de ali
 Los platos especiales cambian cada día a las 00:00 UTC. El último día no hay nuevos.
 Cocinar: toca [Parar] en el momento justo. Un toque perfecto desbloquea Cocinar rápido para ese plato, y la cocción se puede omitir desde entonces. Si fallas, el plato fracasa y vuelven todos los ingredientes.
 Enviar ingredientes a un aliado da Puntos de festín personales. Las solicitudes tienen un límite diario.
+🧺 DE DÓNDE SALEN LAS BOLSAS (Supplies of Plenty)
+Gemas: cada 1.000 gastadas dan 1.
+Aceleradores: cada 7.200 segundos (2 horas) usados dan 1. Solo cuentan los objetos de aceleración; terminar con gemas no cuenta.
+Recolección: cada 3.600 segundos (1 hora) dan 1 o 2, con la misma probabilidad.
+Bestias: cada una cazada da 1, 2 o 3, con la misma probabilidad — 2 de media.
 🔗 Lealtad de la alianza
 Quedas vinculado a la alianza en la que estabas cuando empezó el evento (24/11 00:00 UTC).
 Tus platos solo dan Puntos de festín de alianza mientras estás en esa alianza. Una alianza nueva no recibe nada de ti; lo mismo si no tenías alianza al inicio.
 Conviene tenerlo en cuenta antes de cambiar de alianza durante el evento.
 Para participar en el festín (festín de la alianza) hay que estar en la alianza cuando termine el evento.
 🍽️ festín de la alianza · 1/12
-Del avance oficial, todavía sin comprobar en el juego:
+Los puestos y la fecha son de la pantalla del juego; los demás puntos son del avance oficial.
 Las 10 mejores alianzas en Puntos de festín de alianza pueden organizar uno. El 1.º tiene el festín más grande, 2.º–3.º uno mediano, 4.º–10.º uno normal.
 Dura una hora. La alianza elige la hora el 1/12 (UTC).
 Envías un escuadrón para asistir. Se sirven platos cada cierto tiempo, y recogerlos da recompensas.
 Si sales durante el festín, volver a la misma alianza antes de que termine permite continuar.
+🎪 OTRAS PARTES DEL EVENTO (del avance oficial)
+Movilización de la Cosecha: su nivel sube al jugar Preparativos del Festín; cada nivel tiene una recompensa, y hay una ruta de pago.
+Patrón festivo: 7 fases de misiones, con recompensas de fase y clasificación.
+Autumn Anthem: una cuadrícula de misiones. Una fila o columna completa abre un cofre; terminarlas todas da el premio mayor.
+Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
 📦 CUANDO TERMINA
 El juego convierte lo que sobre: cada ingrediente o bolsa de ingredientes → 1 Caja de Recursos Personalizada Asegurada Nv. 2; cada plato → 4.
 Estar en el top 10 de Puntos de festín personales, o alcanzar la meta de puntos que muestra el juego, da una apariencia de ciudad permanente (del avance oficial).

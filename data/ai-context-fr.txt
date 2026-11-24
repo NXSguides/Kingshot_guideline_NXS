@@ -1086,17 +1086,28 @@ Un plat normal donne 40 Points de Banquet Individuels et 40 Points de Banquet d'
 Les Plats Spéciaux changent chaque jour à 00:00 UTC. Il n'y en a pas de nouveaux le dernier jour.
 Cuisine : appuie sur [Terminer] au bon moment. Un appui parfait débloque Cuisine Rapide pour ce plat, la cuisson peut ensuite être passée. Un appui raté fait échouer le plat, et tous les Ingrédients sont rendus.
 Envoyer des Ingrédients à un allié donne des Points de Banquet Individuels. Les demandes ont une limite par jour.
+🧺 D'OÙ VIENNENT LES SACS (Supplies of Plenty)
+Gemmes : chaque tranche de 1 000 dépensées en donne 1.
+Accélérations : chaque tranche de 7 200 secondes (2 heures) utilisées en donne 1. Seuls les objets d'accélération comptent, pas la fin immédiate avec des gemmes.
+Récolte : chaque tranche de 3 600 secondes (1 heure) en donne 1 ou 2, à chances égales.
+Bêtes : chaque bête chassée en donne 1, 2 ou 3, à chances égales — 2 en moyenne.
 🔗 Fidélité à l'Alliance
 Tu es lié(e) à l'alliance où tu étais au début de l'événement (24/11 00:00 UTC).
 Tes plats donnent des Points de Banquet d'Alliance seulement tant que tu es dans cette alliance. Une nouvelle alliance ne reçoit rien de toi ; pareil si tu n'avais pas d'alliance au début.
 À garder en tête avant de changer d'alliance pendant l'événement.
 Pour participer au banquet (Banquet de l'Alliance), il faut être dans l'alliance à la fin de l'événement.
 🍽️ Banquet de l'Alliance · 1/12
-D'après l'aperçu officiel, pas encore vérifié dans le jeu :
+Les rangs et la date viennent de l'écran du jeu ; les autres points viennent de l'aperçu officiel.
 Les 10 premières alliances en Points de Banquet d'Alliance peuvent en organiser un. La 1re a le plus grand banquet, les 2e–3e un banquet moyen, les 4e–10e un banquet normal.
 Il dure une heure. L'alliance choisit l'heure le 1/12 (UTC).
 Tu envoies une escouade pour y participer. Des plats sont servis à intervalles réguliers, les récupérer donne des récompenses.
 Si tu quittes l'alliance pendant le banquet, rejoindre la même alliance avant la fin permet de continuer.
+🎪 AUTRES PARTIES DE L'ÉVÉNEMENT (d'après l'aperçu officiel)
+Ralliement des Récoltes : son niveau monte quand tu joues à Préparatifs du Banquet ; chaque niveau a une récompense, et il y a une piste payante.
+Donateur d'Abondance : 7 phases de missions, avec des récompenses de phase et un classement.
+Autumn Anthem : une grille de missions. Une ligne ou une colonne complète ouvre un coffre ; tout terminer donne le gros lot.
+Pumpkin Smash : 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin : 25/11 00:00 – 30/11 24:00 UTC.
 📦 À LA FIN
 Le jeu convertit ce qui reste : chaque ingrédient ou sac d'ingrédients → 1 Caisse de Ressources Sécurisées Personnalisée Nv. 2 ; chaque plat → 4.
 Le top 10 en Points de Banquet Individuels, ou atteindre l'objectif de points affiché dans le jeu, donne une apparence de ville permanente (d'après l'aperçu officiel).

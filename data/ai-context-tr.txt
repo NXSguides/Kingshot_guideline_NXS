@@ -1085,17 +1085,28 @@ Normal bir yemek 40 kişisel puan (Kişisel Ziyafet Puanı) ve 40 ittifak puanı
 Özel yemekler (Özel Yemekler) her gün 00:00 UTC'de değişir. Son gün yenisi gelmez.
 Pişirme: doğru anda [Bitir] düğmesine dokun. Mükemmel dokunuş o yemek için Hızlı Pişir özelliğini açar, sonrasında pişirme atlanabilir. Iskalarsan yemek başarısız olur ve bütün malzemeler geri gelir.
 Bir müttefike malzeme göndermek kişisel puan (Kişisel Ziyafet Puanı) kazandırır. İsteklerin günlük sınırı vardır.
+🧺 MALZEME POŞETLERİ NEREDEN GELİR (Supplies of Plenty)
+Elmas: harcanan her 1.000 elmas 1 poşet verir.
+Hızlandırma: kullanılan her 7.200 saniye (2 saat) 1 poşet verir. Yalnızca hızlandırma eşyaları sayılır; elmasla bitirmek sayılmaz.
+Toplama: her 3.600 saniye (1 saat) eşit şansla 1 veya 2 poşet verir.
+Canavarlar: avlanan her canavar eşit şansla 1, 2 veya 3 poşet verir; ortalama 2.
 🔗 İttifak Sadakati
 Etkinlik başladığında (24/11 00:00 UTC) bulunduğun ittifaka bağlanırsın.
 Yemeklerin yalnızca o ittifaktayken ittifak puanı (İttifak Ziyafet Puanı) verir. Yeni ittifak senden puan alamaz; başlangıçta ittifakın yoksa da durum aynıdır.
 Etkinlik sırasında ittifak değiştirmeden önce bunu akılda tutmakta fayda var.
 İttifak ziyafetine (İttifak Ziyafeti) katılmak için etkinlik bittiğinde ittifakta olmak gerekir.
 🍽️ İttifak Ziyafeti · 1/12
-Resmî ön izlemeden; oyunda henüz doğrulanmadı:
+Sıralar ve tarih oyun ekranından; diğer maddeler resmî ön izlemeden.
 İttifak puanında (İttifak Ziyafet Puanı) ilk 10 ittifak ziyafet verebilir. 1. sıra en büyük ziyafeti, 2.–3. sıra orta boy, 4.–10. sıra normal ziyafet verir.
 Bir saat sürer. Saati ittifak 1/12 (UTC) günü içinde seçer.
 Katılmak için bir birlik gönderirsin. Yemekler belirli aralıklarla servis edilir, almak ödül verir.
 Ziyafet sırasında ayrılırsan, bitmeden aynı ittifaka geri dönmek devam etmeni sağlar.
+🎪 ETKİNLİĞİN DİĞER BÖLÜMLERİ (resmî ön izlemeden)
+Hasat Seferberliği: Ziyafet Hazırlıkları oynadıkça seviyesi yükselir; her seviyenin bir ödülü ve ayrıca ücretli bir ödül yolu vardır.
+Bereketin Efendisi: 7 aşamalı görevler, aşama ödülleri ve sıralama.
+Autumn Anthem: kare kare görevler. Tam bir satır ya da sütun bir sandık açar; hepsini bitirmek büyük ödülü verir.
+Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
+Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
 📦 BİTTİĞİNDE
 Oyun kalanları dönüştürür: her malzeme veya malzeme poşeti → 1 adet Sv. 2 Özel Korumalı Kaynak Sandığı; her yemek → 4 adet.
 Kişisel puanda (Kişisel Ziyafet Puanı) ilk 10'a girmek ya da oyunda gösterilen puan hedefine ulaşmak kalıcı bir şehir görünümü verir (resmî ön izlemeden).
