@@ -905,7 +905,7 @@ function drawOt() {
   g.innerHTML = otOn && OTB ? otList().map(([n, x, y]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/>`).join("")
     + otHq().map(([n, x, y]) => { const [X, Y] = P(x + 1.5, y + 1.5); return `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/><polygon points="${pts([[x, y], [x + 3, y], [x + 3, y + 3], [x, y + 3]])}" fill="#1b1b1b" fill-opacity=".75" stroke="#fff" stroke-width=".4"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="3" font-weight="800" fill="#fff">HQ</text>`; }).join("") : "";
 }
-async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); memRefresh(); try { refreshPlan(); } catch (e) {} }   // 🎯 the Outposts our banners touch are targets: redraw the marks once the banner list is here
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); memRefresh(); try { refreshPlan(); } catch (e) {} try { renderLv(); } catch (e) {} }   // 🎯 the Outposts our banners touch are targets: redraw the marks once the banner list is here
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
@@ -1324,6 +1324,50 @@ function renderFarm() {
   el.innerHTML = h + opLinksHtml(fTag()) + `<div class="muted" style="font-size:12px;margin-top:8px">${esc(fmt("lg"))}</div></div>`; put(); bindFarm();
   el.querySelectorAll("[data-sgo]").forEach((x) => x.onclick = () => { const b = B[+x.dataset.sgo]; if (b) centerOn(b, true); });
 }
+/* 🗂️ Layer list (Sherry 2026-11-24: "too many things in the way, I can hardly set the layers on the map"): every banner / HQ of NXS and nxs whose
+   territory overlaps the other alliance's, one row each with the three layer buttons — no tapping on the map needed. Same keys as the map's own
+   layer buttons (f.lv: "e:" NXS standing, "p:" NXS planned, "hq:" / "b:" / "fl:" nxs). Each row also says who holds the shared tiles now. */
+const LV_T = {
+  en: ["🗂️ Layers — everything that overlaps the other alliance ({n})", "Set the layer here instead of tapping the map. ⬆ built first keeps the shared tiles, ⬇ built later gives them up. The line under each one says who holds the shared tiles with the layers as set now.", "standing", "planned", "shared tiles now:", "nobody else's", "No banner or HQ of NXS and nxs overlaps."],
+  zh: ["🗂️ 圖層清單——所有和另一個聯盟重疊的旗和總部（{n}）", "直接在這裡設圖層，不用點地圖。⬆ 先蓋的保留重疊的格子，⬇ 後蓋的讓出去。每一項下面那行是照現在的圖層，重疊的格子算誰的。", "已蓋", "規劃中", "重疊的格子現在：", "沒有重疊到", "NXS 和 nxs 沒有重疊的旗或總部。"],
+  pt: ["🗂️ Camadas — tudo o que se sobrepõe à outra aliança ({n})", "Defina a camada aqui, sem tocar no mapa. ⬆ construído primeiro fica com as casas em comum, ⬇ construído depois abre mão delas. A linha abaixo de cada um diz quem fica com as casas em comum com as camadas de agora.", "de pé", "planejado", "casas em comum agora:", "nenhuma", "Nenhum estandarte ou QG da NXS e da nxs se sobrepõe."],
+  ar: ["🗂️ الطبقات — كل ما يتداخل مع التحالف الآخر ({n})", "اضبط الطبقة هنا بدل الضغط على الخريطة. ⬆ ما بُني أولاً يحتفظ بالمربعات المشتركة، ⬇ ما بُني لاحقاً يتركها. السطر تحت كل عنصر يبيّن من يملك المربعات المشتركة بالطبقات الحالية.", "قائمة", "مخططة", "المربعات المشتركة الآن:", "لا شيء", "لا توجد راية أو مقر لـ NXS و nxs متداخلان."],
+  ko: ["🗂️ 레이어 — 다른 연맹과 겹치는 모든 것 ({n})", "지도를 누르지 않고 여기서 레이어를 정해요. ⬆ 먼저 세운 쪽이 겹치는 칸을 갖고, ⬇ 나중에 세운 쪽은 내줘요. 각 항목 아래 줄은 지금 레이어대로 겹치는 칸이 누구 것인지예요.", "세워짐", "계획", "겹치는 칸 지금:", "없음", "NXS와 nxs의 깃발이나 본부가 겹치지 않아요."],
+};
+function lvItems() {
+  const f = PLAN.farm || {}, bq = (x, y) => [x - FR, y - FR, x + FR, y + FR], hq = (x, y) => [x - 6, y - 6, x + 8, y + 8], hit = (a, b) => a[0] <= b[2] && b[0] <= a[2] && a[1] <= b[3] && b[1] <= a[3];
+  const M = [], F = [];
+  for (const [x, y] of G.hq || []) M.push({ w: 1, k: "", x, y, r: hq(x, y), hq: 1 });
+  for (const [x, y] of exList()) M.push({ w: 1, k: "e", x, y, r: bq(x, y) });
+  for (const [x, y] of PLAN.fl || []) M.push({ w: 1, k: "p", x, y, r: bq(x, y), pl: 1 });
+  for (const [x, y] of f.hq || []) F.push({ w: 2, k: "hq", x, y, r: hq(x, y), hq: 1 });
+  for (const [x, y] of f.b || []) F.push({ w: 2, k: "b", x, y, r: bq(x, y) });
+  for (const [x, y] of f.fl || []) F.push({ w: 2, k: "fl", x, y, r: bq(x, y), pl: 1 });
+  const out = [];
+  for (const [A, Bz] of [[M, F], [F, M]]) for (const a of A) { const ov = Bz.filter((b) => hit(a.r, b.r)); if (!ov.length || !a.k) continue;
+    /* shared tiles of this one, and who holds them (OWN_B: standing + planned, with the layers) */
+    let n = 0, mine = 0; if (!OWN_A) ownBuild();
+    for (let y = Math.max(0, a.r[1]); y <= Math.min(FN - 1, a.r[3]); y++) for (let x = Math.max(0, a.r[0]); x <= Math.min(FN - 1, a.r[2]); x++) { if (!ov.some((b) => x >= b.r[0] && x <= b.r[2] && y >= b.r[1] && y <= b.r[3])) continue; n++; if (OWN_B[y * FN + x] === a.w) mine++; }
+    out.push({ ...a, n, mine }); }
+  return out.sort((p, q) => p.y - q.y || p.x - q.x || p.w - q.w);
+}
+function lvListHtml(ed) {
+  let L = []; try { L = lvItems(); } catch (e) { return ""; }
+  const T = LV_T[lang] || LV_T.en, f = PLAN.farm || {}; if (!L.length) return farmAny() ? `<details class="km-pd" id="fm_lv"><summary><b>${esc(T[0].replace("{n}", 0))}</b></summary><div class="muted" style="font-size:12.5px;margin-top:4px">${esc(T[6])}</div></details>` : "";
+  const row = (a) => { const key = a.k + ":" + a.x + "," + a.y, v = (f.lv || {})[key] || 0, col = a.w === 1 ? "#2b6cc4" : "#2e9e4f", nm = a.w === 1 ? "NXS" : fTag(), ot = a.w === 1 ? fTag() : "NXS";
+    const bt = (n, t) => `<button type="button" class="btn small${v === n ? " primary" : ""}" data-lvk="${esc(key)}" data-lvv="${n}" style="height:34px">${esc(fmt(t))}</button>`;
+    return `<div style="padding:7px 0;border-top:1px solid var(--line, #0002)"><div class="row" style="gap:6px;flex-wrap:wrap;align-items:center"><b style="color:${col};min-width:150px">${esc(nm)} ${a.hq ? "🏯" : "🏳️"} X:${a.x} Y:${a.y}</b><span class="muted" style="font-size:12px">${esc(a.pl ? T[3] : T[2])}</span>${ed ? bt(1, "lvUp") + bt(0, "lvDef") + bt(-1, "lvDn") : `<b>${esc(fmt(v === 1 ? "lvUp" : v === -1 ? "lvDn" : "lvDef"))}</b>`}</div>
+      <div class="muted" style="font-size:12px;margin-top:2px">${esc(T[4])} ${esc(nm)} ${a.mine} · ${esc(ot)} ${a.n - a.mine}</div></div>`; };
+  return `<details class="km-pd" id="fm_lv"${LV_OPEN ? " open" : ""}><summary style="cursor:pointer"><b>${esc(T[0].replace("{n}", L.length))}</b></summary><div class="muted" style="font-size:12.5px;margin-top:4px">${esc(T[1])}</div>${L.map(row).join("")}</details>`;
+}
+let LV_OPEN = false;
+/* its own box under the cards, for NXS and for nxs alike (the nxs card itself only shows while nxs is picked) */
+function renderLv() {
+  const el = $("km_lv"); if (!el) return; if (!PMODE || PWHO === "o" || !G || !PLAN) { el.innerHTML = ""; return; }
+  el.innerHTML = lvListHtml(PE());
+  if ($("fm_lv")) $("fm_lv").ontoggle = () => { LV_OPEN = $("fm_lv").open; };
+  el.querySelectorAll("[data-lvk]").forEach((b) => b.onclick = () => { if (!PE()) return; const f = farm(), key = b.dataset.lvk, v = +b.dataset.lvv; f.lv = f.lv || {}; if (v) f.lv[key] = v; else delete f.lv[key]; if (!Object.keys(f.lv).length) delete f.lv; LV_OPEN = true; flagsChanged(); });
+}
 function farmAddAt(x, y) { if (!PE() || !farmKind) return; const f = farm(), L = fList(farmKind); const i = f[L].findIndex(([a, b]) => a === x && b === y); if (i >= 0) FARM_SEL = { k: L, i }; else { f[L].push(fMake(farmKind, x, y)); FARM_SEL = { k: L, i: f[L].length - 1 }; } centerOn({ x, y }, true); flagsChanged(); }
 function bindFarm() {
   const el = $("km_farm"); if (!el) return; const QA = (q) => [...el.querySelectorAll(q), ...($("kp_sel") ? $("kp_sel").querySelectorAll(q) : [])];
@@ -1375,7 +1419,7 @@ function renderTools() {
     + `<div class="row" style="margin-top:8px;gap:6px;flex-wrap:wrap;align-items:center">${tg("fl_obst", obstOn, ft("obst"))}${tg("fl_ex", exOn, ft("ex"))}${tg("fl_ot", otOn, ft("ot"))}${tg("fl_mc", mcOn, MC_T[lang] || MC_T.en)}${otOn && OTB ? `<span class="muted" style="font-size:12px">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`;
   el.querySelectorAll("[data-who]").forEach((b) => b.onclick = () => setWho(PWHO === "o" ? OFFICER.who() : "o"));   // 🏴 on / off; NXS | nxs is the top-bar switch
   // each alliance's own cards: only the one being planned / looked at
-  { const sh = (id, on) => { const e = $(id); if (e) e.hidden = !on; }; sh("km_flags", PWHO === "m"); sh("km_opt", PWHO !== "o"); sh("km_farm", PWHO === "f"); sh("kp_roster", PWHO === "f"); sh("kp_resCard", PWHO !== "o"); }
+  { const sh = (id, on) => { const e = $(id); if (e) e.hidden = !on; }; sh("km_flags", PWHO === "m"); sh("km_opt", PWHO !== "o"); sh("km_farm", PWHO === "f"); try { renderLv(); } catch (e) {} sh("kp_roster", PWHO === "f"); sh("kp_resCard", PWHO !== "o"); }
   $("fl_mc").onclick = () => { mcOn = !mcOn; try { localStorage.setItem("kp-mc", mcOn ? "1" : "0"); } catch (err) {} drawAc(); renderTools(); };
   $("fl_obst").onclick = () => { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); };
   $("fl_ex").onclick = () => { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); };
@@ -1443,7 +1487,7 @@ function saveCsv(rows, name) {
   a.download = `${name}-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
 }
-function flagsChanged() { planMsg = ""; ROUTE = null; renderPub(); rmClean(); rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); memRefresh(); }
+function flagsChanged() { planMsg = ""; ROUTE = null; renderPub(); rmClean(); rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); memRefresh(); try { renderLv(); } catch (e) {} }
 /* 🎯 tapped banner (planned or standing): shown in the info box under the map, where it can be moved, marked built / demolished or removed */
 let FSEL = null;
 const near = (list, x, y) => { let best = -1, bd = 3; list.forEach(([a, b], i) => { const d = Math.max(Math.abs(a - x), Math.abs(b - y)); if (d < bd) { bd = d; best = i; } }); return best; };
