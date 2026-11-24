@@ -424,7 +424,7 @@ const autoT = (b) => { if (!PLAN || !B.length) return false; const w = curW(), k
   if (!AUTO_T || AUTO_K !== k) { AUTO_T = new Set(); AUTO_K = k; const tag = w === "f" ? fTag() : "NXS"; try { for (const x of B) if (isOp(x) && contesters(x).includes(tag)) AUTO_T.add(pk(x)); } catch (err) {} }
   return AUTO_T.has(pk(b)); };
 const handT = (b) => isOp(b) && OR().o[pk(b)] === "target";   // marked 🎯 by hand (also while it shows as 🔗)
-const raw = (b) => { const v = (PLANNABLE(b) && OR().o[pk(b)]) || ""; return isOp(b) && (!v || v === "target") && autoT(b) ? "reach" : v; };
+const raw = (b) => { const v = (PLANNABLE(b) && (isOp(b) || OR().rs === ruinsNow()) && OR().o[pk(b)]) || ""; return isOp(b) && (!v || v === "target") && autoT(b) ? "reach" : v; };
 const RC_T = {
   en: { reach: "🔗 Can take", reaches: "🔗 Can take — our banners touch it", reachN: "🔗 Can take: our banners touch this Outpost.", tgN: "🎯 Target: banners are being built toward it. It turns into 🔗 Can take by itself when they get there.",
     tgH: "🎯 Targets to build toward ({n})", tgP: "Outposts marked 🎯 Target on 🗺️ Map that our banners do not touch yet. Tap one to plan the banner route.", tgNone: "No target waiting for banners. Mark an Outpost 🎯 Target (here or on 🗺️ Map) to plan a route to it.",
@@ -449,6 +449,12 @@ const rc = (k) => (RC_T[lang] || RC_T.en)[k];
 const sancStart = () => { let e = null; try { e = (OfficerData.cacheGet("events") || []).find((x) => x && x.id === "sanctuary-battle"); } catch (err) {}
   const st = Date.parse(((e && e.start) || "2026-10-06") + "T00:00:00Z"), ev = ((e && e.every > 0 && e.every) || 7) * 864e5;
   return st + Math.floor((Date.now() - st) / ev) * ev; };
+/* 🏛️ A new Sanctuary Battle season wipes the slate (Sherry 2026-11-25: "this week a new season starts — every Sanctuary and Fortress should have its
+   target cleared"): the 🎯 / ✅ marks on Sanctuaries and Fortresses belong to one season (rs = that season's number, kept beside the marks, per
+   alliance). In another season they read as "no mark"; the first new mark of the season throws the old ones away. Outposts are not touched. */
+const ruinsNow = () => rwNow().season;
+const ruinsFresh = () => { const W = OW(), cur = ruinsNow(); if (W.rs === cur) return; const ops = new Set(B.filter(isOp).map(pk));
+  for (const k of Object.keys(W.o || {})) if (!ops.has(k)) delete W.o[k]; for (const k of Object.keys(W.h || {})) if (!ops.has(k)) delete W.h[k]; W.rs = cur; };
 const stale = (b) => !isOp(b) && raw(b) === "held" && (((OR().h || {})[pk(b)]) || Date.parse(PLAN.at || "") || 0) < sancStart();
 const eff = (b) => { if (stale(b)) return "target"; const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); if (r === "reach") return r; return isOp(b) && OR().t[pk(b)] ? cycAt(r, OR().t[pk(b)], Date.now())[0] : r; };
 const nextSw = (b) => isOp(b) && OR().t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), OR().t[pk(b)], Date.now())[1] : 0;
@@ -477,7 +483,7 @@ function isConflict(b) {
 const st = (b) => { const e = eff(b); return e === "held" && isConflict(b) ? "conflict" : e; };
 const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
   return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
-const snap = () => JSON.stringify({ pub: PLAN.pub ? 1 : 0, o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null, ot: PLAN.ot || null, farm: PLAN.farm || null });
+const snap = () => JSON.stringify({ pub: PLAN.pub ? 1 : 0, o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, rs: PLAN.rs || 0, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null, ot: PLAN.ot || null, farm: PLAN.farm || null });
 /* ⭐ Sanctuary / Fortress priority: PLAN.sp["x,y"] = { p: 1…, r: "rewards", n: "note" } */
 const SP = (b) => (OR().sp && OR().sp[pk(b)]) || {};
 const PRIOABLE = (b) => b && (b.kind === "sanctuary" || b.kind === "fortress");
@@ -583,6 +589,7 @@ setInterval(() => {
 function setStatus(id, v) {
   if (!ME()) return;
   const b = BY[id]; if (!PLANNABLE(b)) return;
+  if (!isOp(b)) ruinsFresh();
   if (v) OW().o[pk(b)] = v; else delete OW().o[pk(b)];
   delete OW().t[pk(b)];   // a hand-set status starts without a timer — type the in-game countdown again
   if (!isOp(b)) { OW().h = OW().h || {}; if (v === "held") OW().h[pk(b)] = Date.now(); else delete OW().h[pk(b)]; }
@@ -676,7 +683,7 @@ function renderPlan() {
   for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) if ($(id)) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
   lastSig = sig();
   renderFlags();
-  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; PLAN.h = S.h || {}; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (PLAN.farm) { if (S.farm && S.farm.op) PLAN.farm.op = S.farm.op; else delete PLAN.farm.op; } if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; if (S.ot) PLAN.ot = S.ot; else delete PLAN.ot; drawOt(); rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; PLAN.h = S.h || {}; if (S.rs) PLAN.rs = S.rs; else delete PLAN.rs; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (PLAN.farm) { if (S.farm && S.farm.op) PLAN.farm.op = S.farm.op; else delete PLAN.farm.op; } if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; if (S.ot) PLAN.ot = S.ot; else delete PLAN.ot; drawOt(); rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 }
 const gh = (method, path, body, token = OFFICER.token) => OFFICER.gh(method, path, body, token);   // shared (js/officer/core.js)
 const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
@@ -719,7 +726,7 @@ async function savePlan() {
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
   for (const b of B) if (PLANNABLE(b) && !isOp(b) && raw(b) === "held" && !(OW().h || {})[pk(b)]) { OW().h = OW().h || {}; OW().h[pk(b)] = Date.parse(PLAN.at || "") || 0; }   // keep the old date, or saving would make last period's ones current again
-  const next = { ...(PLAN.pub ? { pub: 1 } : {}), o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length || (PLAN.ex.rm || []).length || (PLAN.ex.nx || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), ...(farmAny() ? { farm: PLAN.farm } : {}), by: by || "?", at: new Date().toISOString() };
+  const next = { ...(PLAN.pub ? { pub: 1 } : {}), o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.rs ? { rs: PLAN.rs } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length || (PLAN.ex.rm || []).length || (PLAN.ex.nx || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), ...(farmAny() ? { farm: PLAN.farm } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
