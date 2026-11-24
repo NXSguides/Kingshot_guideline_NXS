@@ -232,7 +232,7 @@ const RW_CODE = { JS: "jabel", SS: "saul", EX: "enhxp", EM: "expbook", CB: "conq
 /* amounts: the game screens (phases 3 and 5) and the Wiki's icon table (sanctuary books in phase 4 ×600). The Wiki shows the
    sanctuary Jabel Shard as ×420, the game showed ×200 (10-15 and Sparrow's list) — the game wins until a screen says otherwise. */
 const RW_QTY = { sanctuary: { gen1h: 400, hp2: 60, dmg2: 60, deploy2: 60, jabel: 200, teleport: 90, epicchest: 300, heroxp10k: 300, conqbook: 600, expbook: 600 }, fortress: { expbook: 600, conqbook: 600, saul: 420, enhxp: 500, jabel: 420 } };   // fortress Jabel ×420: the Wiki's icon table (Sparrow, 10-30)
-const RW_CHECKED = { 3: "2026-10-15", 5: "2026-10-30", 8: "2026-11-22" };   // phases whose built-in list was read off the game screen
+const RW_CHECKED = { 1: "2026-11-24", 3: "2026-10-15", 5: "2026-10-30", 8: "2026-11-22" };   // phases whose built-in list was read off the game screen
 const RW_P1 = Date.UTC(2026, 8, 26), RW_WK = 7 * 864e5;   // Season 3 Phase 1 began Sat 2026-09-26 00:00 UTC (Phase 5 ended 10-31 00:00 UTC)
 const rwNow = () => { const w = Math.floor((Date.now() - RW_P1) / RW_WK); return { season: 3 + Math.floor(w / 8), phase: ((w % 8) + 8) % 8 + 1 }; };
 let RW_SAVED = {}, RW_PHASE = rwNow().phase;   // RW_SAVED[phase] = { special, season, by, at } from the Worker
