@@ -1097,10 +1097,12 @@ Tes plats donnent des Points de Banquet d'Alliance seulement tant que tu es dans
 À garder en tête avant de changer d'alliance pendant l'événement.
 Pour participer au banquet (Banquet de l'Alliance), il faut être dans l'alliance à la fin de l'événement.
 🍽️ Banquet de l'Alliance · 1/12
-Les rangs et la date viennent de l'écran du jeu ; les autres points viennent de l'aperçu officiel.
-Les 10 premières alliances en Points de Banquet d'Alliance peuvent en organiser un. La 1re a le plus grand banquet, les 2e–3e un banquet moyen, les 4e–10e un banquet normal.
-Il dure une heure. L'alliance choisit l'heure le 1/12 (UTC).
-Tu envoies une escouade pour y participer. Des plats sont servis à intervalles réguliers, les récupérer donne des récompenses.
+D'après l'écran du banquet dans le jeu.
+Les 10 premières alliances en Points de Banquet d'Alliance peuvent chacune organiser un banquet. Il dure 1 heure et ne peut pas être arrêté avant ; l'alliance choisit l'heure le 1/12 (UTC).
+Tables servies, de la meilleure qualité à la plus simple — 1re place : 6 / 10 / 24 / 30 · 2e–3e : 3 / 5 / 12 / 30 · 4e–10e : 1 / 2 / 12 / 30.
+Les tables sont dressées autour du bâtiment du banquet à intervalles réguliers, puis retirées au bout d'un moment. Tu envoies une escouade à une table, et la récompense arrive par courrier. Seulement les tables de ta propre alliance, une fois par table.
+Meilleure table : 30% Gemmes 2,000 · 30% Caisse d'Équipement de Héros Chanceux · 26% Marteau de Forge ×2 · 10% Fragment Universel de Héros Mythique ×2 · 4% coffres de matériaux ×5. La table la plus simple donne surtout des ressources ou de courtes accélérations.
+Les membres qui peuvent participer peuvent acheter des tables en plus pour l'alliance ; elles restent jusqu'à 24 heures.
 Si tu quittes l'alliance pendant le banquet, rejoindre la même alliance avant la fin permet de continuer.
 🎪 AUTRES PARTIES DE L'ÉVÉNEMENT (d'après l'aperçu officiel)
 Ralliement des Récoltes : son niveau monte quand tu joues à Préparatifs du Banquet ; chaque niveau a une récompense, et il y a une piste payante.

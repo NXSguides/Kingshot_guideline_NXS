@@ -1096,10 +1096,12 @@ Yemeklerin yalnızca o ittifaktayken ittifak puanı (İttifak Ziyafet Puanı) ve
 Etkinlik sırasında ittifak değiştirmeden önce bunu akılda tutmakta fayda var.
 İttifak ziyafetine (İttifak Ziyafeti) katılmak için etkinlik bittiğinde ittifakta olmak gerekir.
 🍽️ İttifak Ziyafeti · 1/12
-Sıralar ve tarih oyun ekranından; diğer maddeler resmî ön izlemeden.
-İttifak puanında (İttifak Ziyafet Puanı) ilk 10 ittifak ziyafet verebilir. 1. sıra en büyük ziyafeti, 2.–3. sıra orta boy, 4.–10. sıra normal ziyafet verir.
-Bir saat sürer. Saati ittifak 1/12 (UTC) günü içinde seçer.
-Katılmak için bir birlik gönderirsin. Yemekler belirli aralıklarla servis edilir, almak ödül verir.
+Oyundaki ziyafet ekranından.
+İttifak puanında (İttifak Ziyafet Puanı) ilk 10 ittifakın her biri bir ziyafet verebilir. 1 saat sürer ve erken bitirilemez; saati ittifak 1/12 (UTC) günü içinde seçer.
+Kurulan masa sayısı, en iyi kaliteden en sadeye — 1. sıra: 6 / 10 / 24 / 30 · 2.–3. sıra: 3 / 5 / 12 / 30 · 4.–10. sıra: 1 / 2 / 12 / 30.
+Masalar belirli aralıklarla ziyafet binasının çevresine kurulur ve bir süre sonra kaldırılır. Bir masaya birlik gönderirsin, ödül postayla gelir. Yalnızca kendi ittifakının masaları, her masa bir kez.
+En iyi masa: 30% Elmas 2,000 · 30% Uğurlu Kahraman Donanımı Sandığı · 26% Demirci Çekici ×2 · 10% Mitik Genel Kahraman Parçası ×2 · 4% malzeme sandıkları ×5. En sade masa çoğunlukla kaynak veya kısa hızlandırma verir.
+Katılma hakkı olan üyeler ittifak için ek masa satın alabilir; bu masalar en fazla 24 saat kalır.
 Ziyafet sırasında ayrılırsan, bitmeden aynı ittifaka geri dönmek devam etmeni sağlar.
 🎪 ETKİNLİĞİN DİĞER BÖLÜMLERİ (resmî ön izlemeden)
 Hasat Seferberliği: Ziyafet Hazırlıkları oynadıkça seviyesi yükselir; her seviyenin bir ödülü ve ayrıca ücretli bir ödül yolu vardır.

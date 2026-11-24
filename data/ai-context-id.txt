@@ -1096,10 +1096,12 @@ Hidanganmu memberi Poin Pesta Aliansi hanya selama kamu berada di Aliansi itu. A
 Ini perlu diingat sebelum ganti Aliansi selama event.
 Untuk ikut Pesta Aliansi, kamu perlu berada di Aliansi saat event berakhir.
 🍽️ Pesta Aliansi · 1/12
-Peringkat dan tanggal berasal dari layar game; poin lainnya dari pratinjau resmi.
-10 Aliansi teratas dalam Poin Pesta Aliansi bisa mengadakannya. Peringkat 1 mendapat pesta terbesar, peringkat 2–3 pesta sedang, peringkat 4–10 pesta biasa.
-Berlangsung satu jam. Aliansi memilih jamnya pada 1/12 (UTC).
-Kamu mengirim satu pasukan untuk hadir. Hidangan disajikan secara berkala, dan mengambilnya memberi hadiah.
+Dari layar pesta di dalam game.
+10 Aliansi teratas dalam Poin Pesta Aliansi masing-masing bisa mengadakan satu pesta. Berlangsung 1 jam dan tidak bisa dihentikan lebih awal; Aliansi memilih jamnya pada 1/12 (UTC).
+Meja yang disajikan, dari kualitas terbaik sampai paling sederhana — peringkat 1: 6 / 10 / 24 / 30 · peringkat 2–3: 3 / 5 / 12 / 30 · peringkat 4–10: 1 / 2 / 12 / 30.
+Meja ditata di sekitar bangunan pesta secara berkala dan diangkat lagi setelah beberapa waktu. Kamu mengirim satu pasukan ke meja, dan hadiahnya dikirim lewat surat. Hanya meja Aliansimu sendiri, satu kali per meja.
+Meja terbaik: 30% Permata 2,000 · 30% Peti Gear Hero Keberuntungan · 26% Forgehammer ×2 · 10% Paket Chip Keberuntungan Mitos ×2 · 4% peti material ×5. Meja paling sederhana kebanyakan memberi sumber daya atau percepatan singkat.
+Anggota yang berhak ikut bisa membeli meja tambahan untuk Aliansi; meja itu bertahan sampai 24 jam.
 Kalau keluar saat pesta, bergabung lagi dengan Aliansi yang sama sebelum pesta selesai membuatmu bisa lanjut.
 🎪 BAGIAN LAIN DARI EVENT (dari pratinjau resmi)
 Reli Panen: levelnya naik saat kamu memainkan Persiapan Pesta; tiap level punya hadiah, dan ada jalur berbayar.

@@ -1096,10 +1096,12 @@ Tus platos solo dan Puntos de festín de alianza mientras estás en esa alianza.
 Conviene tenerlo en cuenta antes de cambiar de alianza durante el evento.
 Para participar en el festín (festín de la alianza) hay que estar en la alianza cuando termine el evento.
 🍽️ festín de la alianza · 1/12
-Los puestos y la fecha son de la pantalla del juego; los demás puntos son del avance oficial.
-Las 10 mejores alianzas en Puntos de festín de alianza pueden organizar uno. El 1.º tiene el festín más grande, 2.º–3.º uno mediano, 4.º–10.º uno normal.
-Dura una hora. La alianza elige la hora el 1/12 (UTC).
-Envías un escuadrón para asistir. Se sirven platos cada cierto tiempo, y recogerlos da recompensas.
+De la pantalla del festín en el juego.
+Las 10 mejores alianzas en Puntos de festín de alianza pueden organizar un festín cada una. Dura 1 hora y no se puede terminar antes; la alianza elige la hora el 1/12 (UTC).
+Mesas servidas, de la mejor calidad a la más sencilla — 1.er puesto: 6 / 10 / 24 / 30 · 2.º–3.º: 3 / 5 / 12 / 30 · 4.º–10.º: 1 / 2 / 12 / 30.
+Las mesas se colocan alrededor del edificio del festín cada cierto tiempo y se retiran al cabo de un rato. Envías un escuadrón a una mesa y la recompensa llega por correo. Solo mesas de tu propia alianza, una vez por mesa.
+Mejor mesa: 30% Gemas 2,000 · 30% Caja de equipo de héroe de la suerte · 26% Martillo de Forja ×2 · 10% Fragmento de héroe General Mítico ×2 · 4% cofres de materiales ×5. La mesa más sencilla da sobre todo recursos o aceleradores cortos.
+Los miembros que pueden asistir pueden comprar mesas extra para la alianza; esas duran hasta 24 horas.
 Si sales durante el festín, volver a la misma alianza antes de que termine permite continuar.
 🎪 OTRAS PARTES DEL EVENTO (del avance oficial)
 Movilización de la Cosecha: su nivel sube al jugar Preparativos del Festín; cada nivel tiene una recompensa, y hay una ruta de pago.

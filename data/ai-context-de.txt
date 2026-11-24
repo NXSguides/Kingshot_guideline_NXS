@@ -1098,10 +1098,12 @@ Deine Gerichte geben nur Allianz-Festmahlpunkte, solange du in dieser Allianz bi
 Das ist wichtig, wenn du während des Events die Allianz wechseln möchtest.
 Für die Teilnahme am Festmahl (Allianz-Festmahl) musst du beim Ende des Events in der Allianz sein.
 🍽️ Allianz-Festmahl · 1.12.
-Die Plätze und das Datum stammen vom Spielbildschirm, die anderen Punkte aus der offiziellen Vorschau.
-Die 10 besten Allianzen nach Allianz-Festmahlpunkte können eines ausrichten. Platz 1 bekommt das größte Festmahl, Platz 2–3 ein mittleres, Platz 4–10 ein normales.
-Es dauert eine Stunde. Die Allianz wählt die Stunde am 1.12. (UTC).
-Du schickst einen Trupp zur Teilnahme. Gerichte werden in Abständen serviert, das Abholen gibt Belohnungen.
+Vom Festmahl-Bildschirm im Spiel.
+Die 10 besten Allianzen nach Allianz-Festmahlpunkte können je ein Festmahl ausrichten. Es dauert 1 Stunde und lässt sich nicht vorzeitig beenden; die Allianz wählt die Stunde am 1.12. (UTC).
+Servierte Tische, von der besten zur einfachsten Qualität – Platz 1: 6 / 10 / 24 / 30 · Platz 2–3: 3 / 5 / 12 / 30 · Platz 4–10: 1 / 2 / 12 / 30.
+Die Tische werden in Abständen rund um das Festgebäude aufgestellt und nach einer Weile abgeräumt. Du schickst einen Trupp zu einem Tisch, die Belohnung kommt per Post. Nur Tische der eigenen Allianz, jeder Tisch einmal.
+Bester Tisch: 30% Edelsteine 2,000 · 30% Glücksheld Ausrüstungskiste · 26% Schmiedehammer ×2 · 10% Mythisches Helden-Fragment ×2 · 4% Materialkisten ×5. Der einfachste Tisch gibt meist Ressourcen oder kurze Beschleuniger.
+Teilnahmeberechtigte Mitglieder können zusätzliche Tische für die Allianz kaufen; diese bleiben bis zu 24 Stunden stehen.
 Wer während des Festmahls austritt, kann weitermachen, wenn er vor dem Ende derselben Allianz wieder beitritt.
 🎪 WEITERE TEILE DES EVENTS (aus der offiziellen Vorschau)
 Ernterally: Die Stufe steigt, wenn du Festmahlvorbereitungen spielst; jede Stufe hat eine Belohnung, dazu gibt es eine bezahlte Belohnungsreihe.

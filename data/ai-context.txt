@@ -1095,10 +1095,12 @@ Your dishes give Alliance Feast Points only while you are in that alliance. A ne
 Something to keep in mind before changing alliance during the event.
 To join the Alliance Feast, you need to be in the alliance when the event ends.
 🍽️ Alliance Feast · 12/1
-The ranks and the date are from the game screen; the other points are from the official preview.
-The top 10 alliances on Alliance Feast Points can host one. 1st place gets the largest feast, 2nd–3rd a medium one, 4th–10th a normal one.
-It lasts one hour. The alliance picks the hour on 12/1 (UTC).
-You send a squad to attend. Dishes are served at intervals, and claiming them gives rewards.
+From the feast screen in the game.
+The top 10 alliances on Alliance Feast Points can each host one feast. It lasts 1 hour and cannot be ended early; the alliance picks the hour on 12/1 (UTC).
+Tables served, from the best quality to the plainest — 1st place: 6 / 10 / 24 / 30 · 2nd–3rd: 3 / 5 / 12 / 30 · 4th–10th: 1 / 2 / 12 / 30.
+Tables are set out around the feast building at intervals and taken away after a while. You send a squad to a table to dine, and the reward comes by mail. Only your own alliance's tables, once per table.
+Best table: 30% Gems 2,000 · 30% Lucky Hero Gear Chest · 26% Forgehammer ×2 · 10% Mythic General Hero Shard ×2 · 4% material chests ×5. The plainest table mostly gives resources or short Speedups.
+Members who can attend can buy extra tables for the alliance; those stay for up to 24 hours.
 If you leave during the feast, rejoining the same alliance before it ends lets you continue.
 🎪 OTHER PARTS OF THE EVENT (from the official preview)
 Harvest Rally: its level goes up as you play Feast Preparations; each level has a reward, and there is a paid track.
