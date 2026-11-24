@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Hive: fine-tune planned spots — move, delete, snap to where a member sits, make a city a spot", /🎯 FINE-TUNE THE SPOTS \(2026-11-24/, /mv28: "🎯 Fine-tune the spots: tap a planned spot/],
   ["Territory: 🧼 Territory only — flat colours, no frames or names", /🧼 TERRITORY ONLY \(2026-11-24/, /mp64: "🧼 Territory only: hides everything else/],
   ["Territory: layer list — set built-first / built-later without tapping the map", /🗂️ LAYER LIST \(2026-11-24/, /mp63: "🗂️ Layer list: every banner and HQ/],
   ["Hive: a layout with both alliances is split by tag (NXS / nxs)", /📥 LAYOUT WITH BOTH ALLIANCES \(2026-11-24\)/, /split by the tag on each item \(NXS \/ nxs\)/],
