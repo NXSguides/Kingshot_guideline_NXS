@@ -1078,7 +1078,7 @@ Abre también el cofre de arriba a la derecha — cuenta cada Amuletos de fantas
 
 ### GUIDE #harvest-celebration — Celebración de la Cosecha
 CUÁNDO
-Evento irregular (aún no sabemos si volverá). Preparativos del Festín: 24/11 00:00 UTC – 30/11 24:00 UTC. festín de la alianza: 1/12 (UTC), una hora.
+Evento irregular (aún no sabemos si volverá). Preparativos del Festín: 24/11 00:00 UTC – 30/11 24:00 UTC. Festín de Alianza: 1/12 (UTC), una hora.
 CÓMO FUNCIONA
 Abre una bolsa de ingredientes para conseguir ingredientes, cocina un plato y envíalo.
 Un plato normal da 40 Puntos de festín personales y 40 Puntos de festín de alianza. Un plato con 👍 (Para ti) da 50 y 50.
@@ -1094,8 +1094,8 @@ Bestias: cada una cazada da 1, 2 o 3, con la misma probabilidad — 2 de media.
 Quedas vinculado a la alianza en la que estabas cuando empezó el evento (24/11 00:00 UTC).
 Tus platos solo dan Puntos de festín de alianza mientras estás en esa alianza. Una alianza nueva no recibe nada de ti; lo mismo si no tenías alianza al inicio.
 Conviene tenerlo en cuenta antes de cambiar de alianza durante el evento.
-Para participar en el festín (festín de la alianza) hay que estar en la alianza cuando termine el evento.
-🍽️ festín de la alianza · 1/12
+Para participar en el festín (Festín de Alianza) hay que estar en la alianza cuando termine el evento.
+🍽️ Festín de Alianza · 1/12
 De la pantalla del festín en el juego.
 Las 10 mejores alianzas en Puntos de festín de alianza pueden organizar un festín cada una. Dura 1 hora y no se puede terminar antes; la alianza elige la hora el 1/12 (UTC).
 Mesas servidas, de la mejor calidad a la más sencilla — 1.er puesto: 6 / 10 / 24 / 30 · 2.º–3.º: 3 / 5 / 12 / 30 · 4.º–10.º: 1 / 2 / 12 / 30.
@@ -1569,11 +1569,21 @@ Finish = Parar
 Quick Cook = Cocinar rápido
 Ingredients = ingredientes
 ingredients bag = bolsa de ingredientes
-Alliance Feast = festín de la alianza
+Alliance Feast = Festín de Alianza
 Lv.2 Custom Secured Resource Chest = Caja de Recursos Personalizada Asegurada Nv. 2
 Autumn Anthem = Himno otoñal
 Supplies of Plenty = Suministros festivos
+Grand Feast Hall = Gran Salón del Festín
+Plenty Pavilion = Pabellón Festivo
+Chow Corner = Rincón del Buen Comer
 Top-up Benefits = Ventajas de recarga
+Lavish Table = Mesa lujosa
+Elegant Table = Mesa elegante
+Classic Table = Mesa clásica
+Rustic Table = Mesa rústica
+Extra Courses = Platos extra
+Feast Overview = Resumen del Festín
+Table Reward = Recompensa de la mesa
 Harvest Rally = Movilización de la Cosecha
 Patron of Plenty = Patrón festivo
 Seasonal Prize = Premio de temporada

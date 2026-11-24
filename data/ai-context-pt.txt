@@ -1078,7 +1078,7 @@ Abra também o baú no canto superior direito — ele conta cada Amuletos Fantas
 
 ### GUIDE #harvest-celebration — Celebração da Colheita
 QUANDO
-Evento irregular (ainda não sabemos se volta). Preparações para o Banquete: 24/11 00:00 UTC – 30/11 24:00 UTC. Festa da Aliança: 1/12 (UTC), uma hora.
+Evento irregular (ainda não sabemos se volta). Preparações para o Banquete: 24/11 00:00 UTC – 30/11 24:00 UTC. Banquete da Aliança: 1/12 (UTC), uma hora.
 COMO FUNCIONA
 Abra um saco de ingredientes para ganhar ingredientes, cozinhe um prato e envie.
 Um prato normal dá 40 Pontos de Banquete Individuais e 40 Pontos de Banquete da Aliança. Um prato com 👍 (Indicado) dá 50 e 50.
@@ -1094,8 +1094,8 @@ Feras: cada uma caçada dá 1, 2 ou 3, com chances iguais — 2 em média.
 Você fica vinculado à aliança em que estava quando o evento começou (24/11 00:00 UTC).
 Seus pratos só dão Pontos de Banquete da Aliança enquanto você está nessa aliança. Uma aliança nova não recebe nada de você; o mesmo vale se você não tinha aliança no início.
 Vale lembrar disso antes de trocar de aliança durante o evento.
-Para participar da festa (Festa da Aliança), é preciso estar na aliança quando o evento terminar.
-🍽️ Festa da Aliança · 1/12
+Para participar da festa (Banquete da Aliança), é preciso estar na aliança quando o evento terminar.
+🍽️ Banquete da Aliança · 1/12
 Da tela da festa no jogo.
 As 10 melhores alianças em Pontos de Banquete da Aliança podem organizar uma festa cada. Dura 1 hora e não pode ser encerrada antes; a aliança escolhe a hora no dia 1/12 (UTC).
 Mesas servidas, da melhor qualidade à mais simples — 1º lugar: 6 / 10 / 24 / 30 · 2º–3º: 3 / 5 / 12 / 30 · 4º–10º: 1 / 2 / 12 / 30.
@@ -1569,11 +1569,21 @@ Finish = Concluir
 Quick Cook = Cozinhar Rapidamente
 Ingredients = ingredientes
 ingredients bag = saco de ingredientes
-Alliance Feast = Festa da Aliança
+Alliance Feast = Banquete da Aliança
 Lv.2 Custom Secured Resource Chest = Baú de Recursos Protegidos Personalizados Nv.2
 Autumn Anthem = Hino do Outono
 Supplies of Plenty = Suprimentos da Plenitude
+Grand Feast Hall = Salão do Grande Banquete
+Plenty Pavilion = Pavilhão da Plenitude
+Chow Corner = Cantinho da Comida
 Top-up Benefits = Benefícios de Recarga
+Lavish Table = Mesa Luxuosa
+Elegant Table = Mesa Elegante
+Classic Table = Mesa Clássica
+Rustic Table = Mesa Rústica
+Extra Courses = Pratos Extras
+Feast Overview = Resumo do Banquete
+Table Reward = Recompensa da Mesa
 Harvest Rally = Rally da Colheita
 Patron of Plenty = Patrono da Plenitude
 Seasonal Prize = Prêmio de Temporada
