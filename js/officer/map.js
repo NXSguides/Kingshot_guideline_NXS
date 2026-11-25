@@ -555,18 +555,16 @@ Object.assign(PT.ko, {"gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목
    earliest first. The times are typed here only for this text: kept on this device, never saved in the plan. */
 let GM_T = {}; try { GM_T = JSON.parse(localStorage.getItem("nxs-ruins-times") || "{}") || {}; } catch (e) {}
 const gmName = (b) => (b.kind === "fortress" ? "F" : "S") + b.n;   // Sherry 2026-11-25: "S2, F12 is enough"; distance in km, as the game shows it (1 tile = 1 km)
-/* March time (measured by Sherry 2026-11-25 from her city, March Speed bonus 25%; Project doc claude/march-time-2026-11-25.md):
-   time = (82.6 s + 1.907 s × km) ÷ (1 + bonus) — a fixed part plus a part per km; bonuses add up. Two gathering marches define it (148 km 4:52,
-   401 km 11:18); a solo beast march fits within 0.4%, and a march on an alliance building (233 km, 7:14 — the same for 集結 and for a solo attack)
-   comes out 3% longer than the formula. So the text gives whole minutes, rounded up, with only the bonus every member has: alliance tech 5% +
-   the Frontier Lodges marked ✅ Ours. Not yet measured on a Sanctuary / Fortress itself. */
-const GM_FIX = 82.6, GM_SPK = 1.907, GM_TECH = 5;
+/* March time (measured by Sherry 2026-11-25 on two accounts, March Speed bonus 25% and 10%; Project doc claude/march-time-2026-11-25.md):
+   time = 5.07 s × km^0.854 ÷ (1 + bonus) — a curve, short marches take longer per km; bonuses add up. Six marches from 49 to 401 km (gathering out
+   and back, a solo beast march, an alliance building) fit within 3%; on a building 集結 and a solo attack take the same time. Beast rallies are
+   faster and do not follow it. Not yet measured on a Sanctuary / Fortress itself.
+   A range, not one number (Sherry: "work out a range — a bit faster and a bit slower"): slow end = only the bonus every member has (alliance tech 5%
+   + the Frontier Lodges marked ✅ Ours), plus 3%; fast end = 5 points more of one's own (the island gives 5 on both accounts).
+   Whole minutes: slow end rounded up, fast end rounded down. */
+const GM_K = 5.07, GM_P = 0.854, GM_TECH = 5, GM_OWN = 5, GM_SLOW = 1.03;
 const gmBonus = () => (GM_TECH + (totals(["held"]).lodge || 0)) / 100;
-/* A range, not one number (Sherry 2026-11-25: "work out a range — a bit faster and a bit slower"):
-   slow end = only the alliance-wide bonus, plus the 3% the building march came out longer; fast end = a member with 10 points more of their own
-   (her island alone gives 5). Whole minutes: slow end rounded up, fast end rounded down. */
-const GM_OWN = 10, GM_SLOW = 1.03;
-const gmMarch = (km) => { const base = GM_FIX + km * GM_SPK, hi = Math.ceil(base * GM_SLOW / (1 + gmBonus()) / 60), lo = Math.max(1, Math.floor(base / (1 + gmBonus() + GM_OWN / 100) / 60));
+const gmMarch = (km) => { const base = GM_K * Math.pow(km, GM_P), hi = Math.ceil(base * GM_SLOW / (1 + gmBonus()) / 60), lo = Math.max(1, Math.floor(base / (1 + gmBonus() + GM_OWN / 100) / 60));
   return (lo < hi ? lo + "-" + hi : "~" + hi) + " min"; };
 const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
   .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km, march ${gmMarch(d)})` : ""}`; }).join("\n");
