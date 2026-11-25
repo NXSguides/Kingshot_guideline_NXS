@@ -545,6 +545,29 @@ const PT = { ko: {"tgLeft": "게임에서 쟁탈 가능 상태까지 남은 시�
         cyc: "循環：", cycNote: "設了計時，頁面會自己切換 保護 ⇄ 可爭奪。據點被打掉的話，請手動重新標示。" },
 };
 const pt = (k) => (PT[lang] || PT.en)[k];
+Object.assign(PT.en, {"gmT": "📣 Text for the game chat (UTC)", "gmHow": "Type each target's battle time; the text below is ready to paste in the game.", "gmCopy": "Copy"});
+Object.assign(PT.zh, {"gmT": "📣 貼到遊戲裡的文字（UTC）", "gmHow": "輸入每個目標的爭奪時間，下面的文字可以直接複製貼到遊戲裡。", "gmCopy": "複製"});
+Object.assign(PT.pt, {"gmT": "📣 Texto para o chat do jogo (UTC)", "gmHow": "Digite a hora da batalha de cada alvo; o texto abaixo está pronto para colar no jogo.", "gmCopy": "Copiar"});
+Object.assign(PT.ar, {"gmT": "📣 نص لدردشة اللعبة (UTC)", "gmHow": "اكتب وقت المعركة لكل هدف؛ النص أدناه جاهز للصق في اللعبة.", "gmCopy": "نسخ"});
+Object.assign(PT.ko, {"gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목표마다 쟁탈 시간을 입력하면 아래 문구를 게임에 바로 붙여 넣을 수 있어요.", "gmCopy": "복사"});
+/* 📣 text for the game chat (Sherry 2026-11-25): "I tick this phase's targets, type the time, and get: the time, which Fortress, and in brackets how far
+   it is from our HQ — all UTC, simple, to paste in the game." One line per 🎯 Sanctuary / Fortress target, always in English (the game translates),
+   earliest first. The times are typed here only for this text: kept on this device, never saved in the plan. */
+let GM_T = {}; try { GM_T = JSON.parse(localStorage.getItem("nxs-ruins-times") || "{}") || {}; } catch (e) {}
+const gmName = (b) => (b.kind === "fortress" ? "Fortress " : "Sanctuary ") + b.n;
+const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
+  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} tiles from HQ)` : ""}`; }).join("\n");
+const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))}</div>
+  ${L.map((b) => `<label style="display:flex;gap:8px;align-items:center;margin-top:6px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span><input type="time" data-gm="${b.id}" value="${esc(GM_T[b.id] || "")}"></label>`).join("")}
+  <pre id="km_gmOut" dir="ltr" style="white-space:pre-wrap;margin:8px 0 6px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;user-select:all">${esc(gmText(L))}</pre>
+  <button type="button" class="btn small" id="km_gmCp">${esc(pt("gmCopy"))}</button></div>`;
+function gmWire(L) {
+  if (!$("km_gm")) return;
+  $("km_gm").querySelectorAll("[data-gm]").forEach((el) => el.oninput = () => { if (el.value) GM_T[el.dataset.gm] = el.value; else delete GM_T[el.dataset.gm];
+    try { localStorage.setItem("nxs-ruins-times", JSON.stringify(GM_T)); } catch (e) {}
+    $("km_gmOut").textContent = gmText(L); });
+  $("km_gmCp").onclick = () => { try { navigator.clipboard.writeText(gmText(L)).then(() => { $("km_gmCp").textContent = T("copied"); setTimeout(() => { if ($("km_gmCp")) $("km_gmCp").textContent = pt("gmCopy"); }, 1500); }, () => {}); } catch (e) {} };
+}
 /* total % per type for a set of statuses — one count per (type, level) */
 function totals(states) {
   const seen = new Set(), sum = {};
@@ -652,7 +675,7 @@ function renderPlan() {
     <table class="pl-tbl"><tr><th></th><th style="text-align:right">${esc(pt("ptsNow"))}</th><th style="text-align:right">${esc(pt("ptsAfter"))}</th></tr>
       <tr><td>${esc(pt("ptsRow"))}</td><td class="n">${ptsOf(rHeld)}</td><td class="n${rTgt.length ? " up" : ""}">${ptsOf(rHeld) + ptsOf(rTgt)}</td></tr></table>
     ${tooMany ? `<div style="color:#c0473a;font-size:12.5px;margin-top:6px">⚠️ ${esc(pt("tooMany"))}</div>` : ""}
-    <div class="pl-sub">${esc(pt("targets"))} (${rTgt.length})</div>${rchips(rTgt)}
+    <div class="pl-sub">${esc(pt("targets"))} (${rTgt.length})</div>${rchips(rTgt)}${gmHtml(rTgt)}
     <div class="pl-sub">${esc(pt("heldR"))} (${rHeld.length})</div>${rchips(rHeld)}
     ${gainHtml(rTgt)}
     <div id="km_sb" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)"></div>`;
@@ -677,6 +700,7 @@ function renderPlan() {
     sb.hidden = !show;
     if (show) { sb.innerHTML = `${dirty() ? `<button class="btn primary" id="pl_save2" type="button">${esc(pt("save"))}</button>` : ""}<span class="muted" style="font-size:12.5px">${esc(planMsg || pt("unsaved"))}</span>`;
       if ($("pl_save2")) $("pl_save2").onclick = savePlan; } }
+  gmWire(rTgt);
   renderSB();   // the Sanctuary Battle sign-up drawing sits under the Fortress/Sanctuary part of the plan
   $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
   if ($("pl_save")) $("pl_save").onclick = savePlan;

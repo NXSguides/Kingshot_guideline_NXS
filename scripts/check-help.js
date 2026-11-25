@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Map: text for the game chat — time, target, tiles from HQ", /📣 TEXT FOR THE GAME CHAT \(2026-11-25/, /mp65: "📣 Text for the game chat/],
   ["Map: a new Sanctuary Battle season clears the Sanctuary / Fortress marks", /🏛️ NEW SEASON = CLEAN SLATE \(2026-11-25/, /A new season wipes these marks/],
   ["Hive: fine-tune planned spots — move, delete, snap to where a member sits, make a city a spot", /🎯 FINE-TUNE THE SPOTS \(2026-11-24/, /mv28: "🎯 Fine-tune the spots: tap a planned spot/],
   ["Territory: 🧼 Territory only — flat colours, no frames or names", /🧼 TERRITORY ONLY \(2026-11-24/, /mp64: "🧼 Territory only: hides everything else/],
