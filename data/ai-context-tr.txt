@@ -1079,8 +1079,8 @@ Sağ üstteki sandığı da aç — kullandığın her Rüya Tılsımları'yı s
 ### GUIDE #harvest-celebration — Hasat Kutlaması
 📅 ETKİNLİK TAKVİMİ
 Ziyafet Hazırlıkları ve ana etkinlikler: 24/11 00:00 – 30/11 24:00 UTC.
-Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
+Bal Kabağı Parçalama: 25/11 00:00 – 29/11 24:00 UTC.
+Şanslı Kabin: 25/11 00:00 – 30/11 24:00 UTC.
 İttifak Ziyafeti: 1/12 00:00 – 24:00 UTC. Her ittifak kendi 1 saatini seçer.
 ⚠️ EN ÖNEMLİSİ
 Etkinlik başladığında bulunduğun ittifaka bağlanırsın. Yemeklerin ancak o ittifakta kaldığın sürece ittifaka puan (İttifak Ziyafet Puanı) kazandırır.
@@ -1106,8 +1106,8 @@ Hasat Seferberliği: Ziyafet Hazırlıkları oynadıkça seviyesi yükselir; her
 Bereketin Efendisi: 7 aşamalı görevler, aşama ödülleri ve sıralama.
 Sonbahar Şarkısı: kare kare görevler. Tam bir satır ya da sütun bir sandık açar; hepsini bitirmek büyük ödülü verir.
 Bereket Erzakı: kaynak toplamak, canavar avlamak, elmas harcamak ve hızlandırma kullanmak malzeme poşeti verebilir.
-Pumpkin Smash: dönen balkabaklarına nişan alıp ok at. Onları parçalamak tamamlama ödülü, görevler ek ödül verir.
-Lucky Cabin: görevler veya paketler dilek kuponu verir. Dilekler ödül ve kilometre taşı ödülleri verir; bazen şans dükkânı için şans işareti de çıkar.
+Bal Kabağı Parçalama: dönen balkabaklarına nişan alıp ok at. Onları parçalamak tamamlama ödülü, görevler ek ödül verir.
+Şanslı Kabin: görevler veya paketler dilek kuponu verir. Dilekler ödül ve kilometre taşı ödülleri verir; bazen şans dükkânı için şans işareti de çıkar.
 Doldurma Avantajları: etkinlik boyunca biriken doldurma puanları kilometre taşı ödüllerini açar.
 🛍️ DİĞER EŞYALAR VE NOTLAR
 Etkinlik boyunca iki paket satılır; dekorasyon paketi 26/11 – 30/11 arasında satıştadır.
@@ -1574,6 +1574,15 @@ Alliance Feast = İttifak Ziyafeti
 Lv.2 Custom Secured Resource Chest = Sv. 2 Özel Korumalı Kaynak Sandığı
 Autumn Anthem = Sonbahar Şarkısı
 Supplies of Plenty = Bereket Erzakı
+Pumpkin Smash = Bal Kabağı Parçalama
+Lucky Cabin = Şanslı Kabin
+Lucky Shop = Şanslı Dükkan
+Commissions = Komisyonlar
+Make a Wish = Bir Dilek tut
+Wishes Made = Tutulan Dilekler
+Skip Animation = Animasyonu atla
+Challenge Missions = Mücadele Görevleri
+How to Play = Nasıl Oynanır
 Grand Feast Hall = Büyük Ziyafet Salonu
 Plenty Pavilion = Bolluk Köşkü
 Chow Corner = Yemek Köşesi

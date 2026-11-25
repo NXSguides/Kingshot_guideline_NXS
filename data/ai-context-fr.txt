@@ -1080,8 +1080,8 @@ Ouvre aussi le coffre en haut à droite — il compte chaque Amulettes Fantaisie
 ### GUIDE #harvest-celebration — Célébration des Récoltes
 📅 CALENDRIER
 Préparatifs du Banquet et les événements principaux : 24/11 00:00 – 30/11 24:00 UTC.
-Pumpkin Smash : 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin : 25/11 00:00 – 30/11 24:00 UTC.
+Éclate citrouille : 25/11 00:00 – 29/11 24:00 UTC.
+Cabane Porte-Bonheur : 25/11 00:00 – 30/11 24:00 UTC.
 Banquet de l'Alliance : 1/12 00:00 – 24:00 UTC. Chaque alliance choisit son heure.
 ⚠️ LE PLUS IMPORTANT
 Tu es lié(e) à l'alliance où tu étais au début de l'événement. C'est en y restant que tes plats rapportent des Points de Banquet d'Alliance à l'alliance.
@@ -1107,8 +1107,8 @@ Ralliement des Récoltes : son niveau monte quand tu joues à Préparatifs du Ba
 Donateur d'Abondance : 7 phases de missions, avec des récompenses de phase et un classement.
 Hymne Automnal : une grille de missions. Une ligne ou une colonne complète ouvre un coffre ; tout terminer donne le gros lot.
 Provisions Abondantes : récolter, chasser des bêtes, dépenser des gemmes et utiliser des accélérations peuvent donner un sac d'ingrédients.
-Pumpkin Smash : vise les citrouilles qui tournent et tire des flèches. Les briser donne des récompenses de réussite ; les défis en donnent d'autres.
-Lucky Cabin : les commissions ou les packs donnent des bons de vœu. Les vœux donnent des récompenses et des récompenses de palier, et parfois des marques de chance pour la boutique de la chance.
+Éclate citrouille : vise les citrouilles qui tournent et tire des flèches. Les briser donne des récompenses de réussite ; les défis en donnent d'autres.
+Cabane Porte-Bonheur : les commissions ou les packs donnent des bons de vœu. Les vœux donnent des récompenses et des récompenses de palier, et parfois des marques de chance pour la boutique de la chance.
 Bonus de Rechargement : les points de rechargement cumulés pendant l'événement débloquent des récompenses de palier.
 🛍️ AUTRES OBJETS ET NOTES
 Deux packs sont en vente pendant l'événement ; le pack de décoration est disponible du 26/11 au 30/11.
@@ -1575,6 +1575,14 @@ Alliance Feast = Banquet de l'Alliance
 Lv.2 Custom Secured Resource Chest = Caisse de Ressources Sécurisées Personnalisée Nv. 2
 Autumn Anthem = Hymne Automnal
 Supplies of Plenty = Provisions Abondantes
+Pumpkin Smash = Éclate citrouille
+Lucky Cabin = Cabane Porte-Bonheur
+Lucky Shop = Boutique de Chance
+Make a Wish = Fais un Vœu
+Wishes Made = Vœux réalisés
+Skip Animation = Ignorer l’Animation
+Challenge Missions = Missions de défi
+How to Play = Comment Jouer
 Grand Feast Hall = Grande Salle de Banquet
 Plenty Pavilion = Pavillon d’Abondance
 Chow Corner = Coin Chow
