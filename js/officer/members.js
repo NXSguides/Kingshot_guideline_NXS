@@ -1360,15 +1360,20 @@ function btMisHtml() {
   return `<div class="mm-rs" id="mv_btmis">${l.length ? `<b>${esc(t("misT").replace("{n}", l.length))}</b> ${l.map((b) => `<span class="mm-chip" style="border:1.5px solid ${MISC}"><bdi>${esc(b.n)}</bdi> · BT${b.had}</span>`).join(" ")}` : esc(t("misNone"))}</div>`;
 }
 /* 🐻 after 📌: BT1 / BT2 follow the side of the plan each member's spot is on (closer to the plan's Bear Trap 1 or 2 — Sherry,
-   2026-11-11). Members ticked for both are left as they are. */
+   2026-11-11; for NXS also BT3, the trap shared with nxs). Members ticked for both are left as they are. */
 function btSide(c) {
   const pt = (MV.plan && MV.plan.bt) || [], idx = rosterIndex(), out = [];
   if (pt.length < 2) return out;
+  /* NXS: the trap shared with nxs is our BT3 (Sherry 2026-11-25: "some should have gone to BT3 and were put in another group") — a spot
+     nearest to it is a BT3 spot, not BT1 / BT2. Its place comes from nxs's plan (or nxs's traps on 🚩 Territory). */
+  const traps = [["1", pt[0]], ["2", pt[1]]];
+  if (WHO === "m") { const OL = otherLayer(), sh = OL && OL.o === "f" && OL.bt[F_SHARED_I]; if (sh) traps.push(["3", sh]); }
   for (const [n, x, y] of c) { const m = n && idx[norm(n)]; if (!m) continue;
-    const k = Math.hypot(x + 1 - (pt[0][0] + 1.5), y + 1 - (pt[0][1] + 1.5)) <= Math.hypot(x + 1 - (pt[1][0] + 1.5), y + 1 - (pt[1][1] + 1.5)) ? "1" : "2", o = k === "1" ? "2" : "1";
-    const h1 = BTX().has(m.id, k), h2 = BTX().has(m.id, o); if (BTX().has(m.id, "3")) continue;   // BT3 people go to nxs for it — the spot doesn't change their marks
-    if (h1 && h2) continue; if (h1 && !h2) continue;
-    out.push({ id: String(m.id), n, k, o, had: h2 ? o : "", x, y }); }
+    let k = "1", best = Infinity; for (const [key, q] of traps) { const d = Math.hypot(x + 1 - (q[0] + 1.5), y + 1 - (q[1] + 1.5)); if (d < best) { best = d; k = key; } }
+    if (BTX().has(m.id, "3")) continue;   // already BT3: the spot doesn't change their marks
+    const marks = ["1", "2"].filter((q) => BTX().has(m.id, q));
+    if (marks.length > 1 || marks[0] === k) continue;
+    out.push({ id: String(m.id), n, k, o: marks[0] || (k === "1" ? "2" : "1"), had: marks[0] || "", x, y }); }
   return out;
 }
 async function adoptGo() {
