@@ -555,8 +555,16 @@ Object.assign(PT.ko, {"gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목
    earliest first. The times are typed here only for this text: kept on this device, never saved in the plan. */
 let GM_T = {}; try { GM_T = JSON.parse(localStorage.getItem("nxs-ruins-times") || "{}") || {}; } catch (e) {}
 const gmName = (b) => (b.kind === "fortress" ? "F" : "S") + b.n;   // Sherry 2026-11-25: "S2, F12 is enough"; distance in km, as the game shows it (1 tile = 1 km)
+/* March time (measured by Sherry 2026-11-25 from her city, March Speed bonus 25%; Project doc claude/march-time-2026-11-25.md):
+   time = (82.6 s + 1.907 s × km) ÷ (1 + bonus) — a fixed part plus a part per km; bonuses add up. Two gathering marches define it (148 km 4:52,
+   401 km 11:18); a solo beast march fits within 0.4%, and a march on an alliance building (233 km, 7:14 — the same for 集結 and for a solo attack)
+   comes out 3% longer than the formula. So the text gives whole minutes, rounded up, with only the bonus every member has: alliance tech 5% +
+   the Frontier Lodges marked ✅ Ours. Not yet measured on a Sanctuary / Fortress itself. */
+const GM_FIX = 82.6, GM_SPK = 1.907, GM_TECH = 5;
+const gmBonus = () => (GM_TECH + (totals(["held"]).lodge || 0)) / 100;
+const gmMarch = (km) => Math.ceil((GM_FIX + km * GM_SPK) / (1 + gmBonus()) / 60) + " min";
 const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
-  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km)` : ""}`; }).join("\n");
+  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km, march ~${gmMarch(d)})` : ""}`; }).join("\n");
 const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))}</div>
   ${L.map((b) => `<label style="display:flex;gap:8px;align-items:center;margin-top:6px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span><input type="time" data-gm="${b.id}" value="${esc(GM_T[b.id] || "")}"></label>`).join("")}
   <pre id="km_gmOut" dir="ltr" style="white-space:pre-wrap;margin:8px 0 6px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;user-select:all">${esc(gmText(L))}</pre>
