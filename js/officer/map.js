@@ -555,8 +555,15 @@ Object.assign(PT.ko, {"gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목
    earliest first. The times are typed here only for this text: kept on this device, never saved in the plan. */
 let GM_T = {}; try { GM_T = JSON.parse(localStorage.getItem("nxs-ruins-times") || "{}") || {}; } catch (e) {}
 const gmName = (b) => (b.kind === "fortress" ? "F" : "S") + b.n;   // Sherry 2026-11-25: "S2, F12 is enough"; distance in km, as the game shows it (1 tile = 1 km)
+/* March time (measured by Sherry 2026-11-25, two marches from her city, her March Speed bonus 25% = alliance tech 5 + Outposts 15 + her own 5):
+   312 km took 8:20 → 1.6 s per km = 2.0 ÷ 1.25. A rally with a war buff on took 129 km in 2:45 = a further ÷ 1.25 (that buff is not counted here).
+   So time = 2.0 s × km ÷ (1 + bonus). The text uses the bonus every member has — alliance tech 5% + the Frontier Lodges marked ✅ Ours — so it is
+   the slowest case; anyone with their own bonus arrives sooner. */
+const GM_SPK = 2.0, GM_TECH = 5;
+const gmBonus = () => (GM_TECH + (totals(["held"]).lodge || 0)) / 100;
+const gmMarch = (km) => { const s = Math.round(km * GM_SPK / (1 + gmBonus())); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
-  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km)` : ""}`; }).join("\n");
+  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km, march ~${gmMarch(d)})` : ""}`; }).join("\n");
 const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))}</div>
   ${L.map((b) => `<label style="display:flex;gap:8px;align-items:center;margin-top:6px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span><input type="time" data-gm="${b.id}" value="${esc(GM_T[b.id] || "")}"></label>`).join("")}
   <pre id="km_gmOut" dir="ltr" style="white-space:pre-wrap;margin:8px 0 6px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;user-select:all">${esc(gmText(L))}</pre>
