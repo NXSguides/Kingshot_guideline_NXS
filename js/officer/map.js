@@ -562,9 +562,14 @@ const gmName = (b) => (b.kind === "fortress" ? "F" : "S") + b.n;   // Sherry 202
    the Frontier Lodges marked ✅ Ours. Not yet measured on a Sanctuary / Fortress itself. */
 const GM_FIX = 82.6, GM_SPK = 1.907, GM_TECH = 5;
 const gmBonus = () => (GM_TECH + (totals(["held"]).lodge || 0)) / 100;
-const gmMarch = (km) => Math.ceil((GM_FIX + km * GM_SPK) / (1 + gmBonus()) / 60) + " min";
+/* A range, not one number (Sherry 2026-11-25: "work out a range — a bit faster and a bit slower"):
+   slow end = only the alliance-wide bonus, plus the 3% the building march came out longer; fast end = a member with 10 points more of their own
+   (her island alone gives 5). Whole minutes: slow end rounded up, fast end rounded down. */
+const GM_OWN = 10, GM_SLOW = 1.03;
+const gmMarch = (km) => { const base = GM_FIX + km * GM_SPK, hi = Math.ceil(base * GM_SLOW / (1 + gmBonus()) / 60), lo = Math.max(1, Math.floor(base / (1 + gmBonus() + GM_OWN / 100) / 60));
+  return (lo < hi ? lo + "-" + hi : "~" + hi) + " min"; };
 const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
-  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km, march ~${gmMarch(d)})` : ""}`; }).join("\n");
+  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km, march ${gmMarch(d)})` : ""}`; }).join("\n");
 const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))}</div>
   ${L.map((b) => `<label style="display:flex;gap:8px;align-items:center;margin-top:6px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span><input type="time" data-gm="${b.id}" value="${esc(GM_T[b.id] || "")}"></label>`).join("")}
   <pre id="km_gmOut" dir="ltr" style="white-space:pre-wrap;margin:8px 0 6px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;user-select:all">${esc(gmText(L))}</pre>
