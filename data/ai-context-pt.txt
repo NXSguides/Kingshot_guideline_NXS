@@ -1079,8 +1079,8 @@ Abra também o baú no canto superior direito — ele conta cada Amuletos Fantas
 ### GUIDE #harvest-celebration — Celebração da Colheita
 📅 CALENDÁRIO
 Preparações para o Banquete e os eventos principais: 24/11 00:00 – 30/11 24:00 UTC.
-Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
+Esmaga-Abóbora: 25/11 00:00 – 29/11 24:00 UTC.
+Cabana da Sorte: 25/11 00:00 – 30/11 24:00 UTC.
 Banquete da Aliança: 1/12 00:00 – 24:00 UTC. Cada aliança escolhe a sua hora.
 ⚠️ O MAIS IMPORTANTE
 Você fica vinculado à aliança em que estava quando o evento começou. É ficando nela que seus pratos rendem Pontos de Banquete da Aliança para a aliança.
@@ -1106,8 +1106,8 @@ Rally da Colheita: o nível sobe conforme você joga Preparações para o Banque
 Patrono da Plenitude: 7 fases de missões, com recompensas de fase e ranking.
 Hino do Outono: uma grade de missões. Uma linha ou coluna completa abre um baú; terminar todas dá o prêmio principal.
 Suprimentos da Plenitude: coletar recursos, caçar feras, gastar gemas e usar acelerações podem dar um saco de ingredientes.
-Pumpkin Smash: mire nas abóboras girando e atire flechas. Quebrá-las dá recompensas de conclusão; os desafios dão recompensas extras.
-Lucky Cabin: comissões ou pacotes dão vales de desejo. Os desejos dão recompensas e recompensas de marco, e às vezes marcas da sorte para a loja da sorte.
+Esmaga-Abóbora: mire nas abóboras girando e atire flechas. Quebrá-las dá recompensas de conclusão; os desafios dão recompensas extras.
+Cabana da Sorte: comissões ou pacotes dão vales de desejo. Os desejos dão recompensas e recompensas de marco, e às vezes marcas da sorte para a loja da sorte.
 Benefícios de Recarga: os pontos de recarga acumulados durante o evento liberam recompensas de marco.
 🛍️ OUTROS ITENS E NOTAS
 Dois pacotes são vendidos durante o evento; o pacote de decoração fica disponível de 26/11 a 30/11.
@@ -1574,6 +1574,15 @@ Alliance Feast = Banquete da Aliança
 Lv.2 Custom Secured Resource Chest = Baú de Recursos Protegidos Personalizados Nv.2
 Autumn Anthem = Hino do Outono
 Supplies of Plenty = Suprimentos da Plenitude
+Pumpkin Smash = Esmaga-Abóbora
+Lucky Cabin = Cabana da Sorte
+Lucky Shop = Loja da Sorte
+Commissions = Comissões
+Make a Wish = Faça um Desejo
+Wishes Made = Desejos Realizados
+Skip Animation = Pular Animação
+Challenge Missions = Missões de Desafio
+How to Play = Como Jogar
 Grand Feast Hall = Salão do Grande Banquete
 Plenty Pavilion = Pavilhão da Plenitude
 Chow Corner = Cantinho da Comida

@@ -1079,8 +1079,8 @@ Buka juga peti di kanan atas — peti itu menghitung setiap Jimat Fantasi yang k
 ### GUIDE #harvest-celebration — Perayaan Panen
 📅 JADWAL EVENT
 Persiapan Pesta dan event utama: 24/11 00:00 – 30/11 24:00 UTC.
-Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
+Hancurkan Labu: 25/11 00:00 – 29/11 24:00 UTC.
+Kabin Keberuntungan: 25/11 00:00 – 30/11 24:00 UTC.
 Pesta Aliansi: 1/12 00:00 – 24:00 UTC. Tiap Aliansi memilih 1 jamnya sendiri.
 ⚠️ PALING PENTING
 Kamu terikat dengan Aliansi tempatmu berada saat event dimulai. Dengan tetap di sana, hidanganmu memberi Poin Pesta Aliansi untuk Aliansi.
@@ -1106,8 +1106,8 @@ Reli Panen: levelnya naik saat kamu memainkan Persiapan Pesta; tiap level punya 
 Pelindung Kelimpahan: misi dalam 7 fase, dengan hadiah fase dan peringkat.
 Anthem Musim Gugur: misi berbentuk kotak-kotak. Satu baris atau kolom penuh membuka peti; menyelesaikan semuanya memberi hadiah utama.
 Persediaan Kelimpahan: mengumpulkan sumber daya, berburu binatang buas, memakai permata, dan memakai percepatan bisa memberi Kantong Bahan.
-Pumpkin Smash: bidik labu yang berputar dan tembakkan panah. Menghancurkannya memberi hadiah penyelesaian; tantangan memberi hadiah tambahan.
-Lucky Cabin: komisi atau paket memberi voucher harapan. Harapan memberi hadiah dan hadiah pencapaian, kadang juga tanda keberuntungan untuk toko keberuntungan.
+Hancurkan Labu: bidik labu yang berputar dan tembakkan panah. Menghancurkannya memberi hadiah penyelesaian; tantangan memberi hadiah tambahan.
+Kabin Keberuntungan: komisi atau paket memberi voucher harapan. Harapan memberi hadiah dan hadiah pencapaian, kadang juga tanda keberuntungan untuk toko keberuntungan.
 Bonus Isi Ulang: poin isi ulang yang terkumpul selama event membuka hadiah pencapaian.
 🛍️ ITEM LAIN & CATATAN
 Dua paket dijual selama event; paket dekorasi tersedia dari 26/11 sampai 30/11.
@@ -1574,6 +1574,15 @@ Alliance Feast = Pesta Aliansi
 Lv.2 Custom Secured Resource Chest = Peti Sumber Daya Terlindung Kustom Lv.2
 Autumn Anthem = Anthem Musim Gugur
 Supplies of Plenty = Persediaan Kelimpahan
+Pumpkin Smash = Hancurkan Labu
+Lucky Cabin = Kabin Keberuntungan
+Lucky Shop = Toko Keberuntungan
+Commissions = Komisi
+Make a Wish = Buat Permohonan
+Wishes Made = Permohonan Dibuat
+Skip Animation = Lewati Animasi
+Challenge Missions = Misi Tantangan
+How to Play = Cara Bermain
 Grand Feast Hall = Aula Pesta Besar
 Plenty Pavilion = Paviliun Kelimpahan
 Chow Corner = Pojok Santapan

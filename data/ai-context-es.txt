@@ -1079,8 +1079,8 @@ Abre también el cofre de arriba a la derecha — cuenta cada Amuletos de fantas
 ### GUIDE #harvest-celebration — Celebración de la Cosecha
 📅 CALENDARIO
 Preparativos del Festín y los eventos principales: 24/11 00:00 – 30/11 24:00 UTC.
-Pumpkin Smash: 25/11 00:00 – 29/11 24:00 UTC.
-Lucky Cabin: 25/11 00:00 – 30/11 24:00 UTC.
+Rompecalabazas: 25/11 00:00 – 29/11 24:00 UTC.
+Cabaña de la Suerte: 25/11 00:00 – 30/11 24:00 UTC.
 Festín de Alianza: 1/12 00:00 – 24:00 UTC. Cada alianza elige su hora.
 ⚠️ LO MÁS IMPORTANTE
 Quedas vinculado a la alianza en la que estabas cuando empezó el evento. Solo si sigues en ella tus platos dan Puntos de festín de alianza a la alianza.
@@ -1106,8 +1106,8 @@ Movilización de la Cosecha: su nivel sube al jugar Preparativos del Festín; ca
 Patrón festivo: 7 fases de misiones, con recompensas de fase y clasificación.
 Himno otoñal: una cuadrícula de misiones. Una fila o columna completa abre un cofre; terminarlas todas da el premio mayor.
 Suministros festivos: recolectar recursos, cazar bestias, gastar gemas y usar aceleradores pueden dar una bolsa de ingredientes.
-Pumpkin Smash: apunta a las calabazas que giran y dispara flechas. Romperlas da recompensas de superación; los desafíos dan recompensas extra.
-Lucky Cabin: los encargos o los paquetes dan vales de deseo. Los deseos dan recompensas y recompensas por hitos, y a veces marcas de la suerte para la tienda de la suerte.
+Rompecalabazas: apunta a las calabazas que giran y dispara flechas. Romperlas da recompensas de superación; los desafíos dan recompensas extra.
+Cabaña de la Suerte: los encargos o los paquetes dan vales de deseo. Los deseos dan recompensas y recompensas por hitos, y a veces marcas de la suerte para la tienda de la suerte.
 Ventajas de recarga: los puntos de recarga acumulados durante el evento desbloquean recompensas por hitos.
 🛍️ OTROS OBJETOS Y NOTAS
 Durante el evento se venden dos paquetes; el paquete de decoración está disponible del 26/11 al 30/11.
@@ -1574,6 +1574,15 @@ Alliance Feast = Festín de Alianza
 Lv.2 Custom Secured Resource Chest = Caja de Recursos Personalizada Asegurada Nv. 2
 Autumn Anthem = Himno otoñal
 Supplies of Plenty = Suministros festivos
+Pumpkin Smash = Rompecalabazas
+Lucky Cabin = Cabaña de la Suerte
+Lucky Shop = Tienda de la Suerte
+Commissions = Encargos
+Make a Wish = Pide un Deseo
+Wishes Made = Deseos Realizados
+Skip Animation = Omitir animación
+Challenge Missions = Misiones de desafío
+How to Play = Cómo jugar
 Grand Feast Hall = Gran Salón del Festín
 Plenty Pavilion = Pabellón Festivo
 Chow Corner = Rincón del Buen Comer
