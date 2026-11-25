@@ -173,9 +173,9 @@ function renderInfo() {
     if ($("tm_set")) $("tm_set").onclick = () => {
       const v = (id) => Math.max(0, parseInt($(id).value, 10) || 0), ms = ((v("tm_d") * 24 + v("tm_h")) * 60 + v("tm_m")) * 6e4;
       if (!ms) return;
-      OW().o[pk(b)] = s; OW().t[pk(b)] = Date.now() + ms; planMsg = ""; refreshPlan();
+      OW().o[pk(b)] = s; OW().t[pk(b)] = Date.now() + ms; tmSync(b); planMsg = ""; refreshPlan();
     };
-    if ($("tm_clr")) $("tm_clr").onclick = () => { OW().o[pk(b)] = s; delete OW().t[pk(b)]; planMsg = ""; refreshPlan(); };
+    if ($("tm_clr")) $("tm_clr").onclick = () => { OW().o[pk(b)] = s; delete OW().t[pk(b)]; tmSync(b); planMsg = ""; refreshPlan(); };
   }
   else if (isOp(b) && (s === "target" || s === "reach")) {
     const g = tgSw(b);
@@ -187,9 +187,9 @@ function renderInfo() {
     if ($("tm_set")) $("tm_set").onclick = () => {
       const v = (id) => Math.max(0, parseInt($(id).value, 10) || 0), ms = ((v("tm_d") * 24 + v("tm_h")) * 60 + v("tm_m")) * 6e4;
       if (!ms) return;
-      OW().t[pk(b)] = Date.now() + ms; planMsg = ""; refreshPlan();
+      OW().t[pk(b)] = Date.now() + ms; tmSync(b); planMsg = ""; refreshPlan();
     };
-    if ($("tm_clr")) $("tm_clr").onclick = () => { delete OW().t[pk(b)]; planMsg = ""; refreshPlan(); };
+    if ($("tm_clr")) $("tm_clr").onclick = () => { delete OW().t[pk(b)]; tmSync(b); planMsg = ""; refreshPlan(); };
   }
   else if (isOp(b) && ME()) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
   if (PRIOABLE(b) && !ME()) {
@@ -463,6 +463,19 @@ const nextSw = (b) => isOp(b) && OR().t[pk(b)] ? cycAt(raw(b) === "conflict" ? "
 const tgSw = (b) => { const e = isOp(b) && OR().t[pk(b)], s = e ? eff(b) : ""; if (!e || (s !== "target" && s !== "reach")) return null;
   const now = Date.now(), c = cycAt("held", e, now); return { v: c[0] === "vuln", n: c[1], est: now >= e }; };
 const anySw = (b) => nextSw(b) || (tgSw(b) || {}).n || 0;
+/* 🔁 one clock per Outpost (Sherry 2026-11-26: "NXS and nxs overlap — when I change the time on NXS's Outpost, the other side should show how long
+   its target has left; sometimes both have it as a target, but the time is the same"). An Outpost's countdown is a fact about the building, so
+   setting or clearing it on one alliance writes it to the other alliance's marks too. What is copied is the moment Protected ends: an alliance
+   that has the Outpost as ⚔️ Vulnerable keeps "when Vulnerable ends" (= that moment + the Vulnerable hours). Marks and statuses are not copied. */
+const otherW = () => { if (curW() === "f") return PLAN; if (!PLAN.farm) return null; const f = farm(); f.op = f.op || {}; for (const k of ["o", "t", "h", "sp"]) f.op[k] = f.op[k] || {}; return f.op; };
+function tmSync(b) { const O = otherW(); if (!O || !isOp(b)) return; const k = pk(b), t0 = OW().t[k]; O.t = O.t || {};
+  if (!t0) { delete O.t[k]; return; }
+  const V = CYC().v * 36e5, p = OW().o[k] === "vuln" ? t0 - V : t0;
+  O.t[k] = (O.o || {})[k] === "vuln" ? p + V : p; }
+/* …and the other way round: an Outpost newly marked 🎯 Target takes the clock the other alliance already has for it (a target mark says nothing
+   about the clock, so nothing is lost; a hand-set ✅ / ⚔️ still starts without one, as before). */
+function tmPull(b) { const O = otherW(); if (!O || !isOp(b)) return; const k = pk(b), t1 = (O.t || {})[k]; if (!t1) return;
+  OW().t[k] = (O.o || {})[k] === "vuln" ? t1 - CYC().v * 36e5 : t1; }
 /* start of its latest Protected phase (needs a timer) — the later one was taken later */
 /* when the next switch happens, as a clock time (Sherry 2026-11-19: "in brackets, what time that is — UTC and local"): "11/21 14:30 UTC · 11/21 22:30 UTC+8" */
 const swAt = (n) => { const d = new Date(n), z = (v) => String(v).padStart(2, "0"), off = -d.getTimezoneOffset(), a = Math.abs(off);
@@ -657,6 +670,7 @@ function setStatus(id, v) {
   if (!isOp(b)) ruinsFresh();
   if (v) OW().o[pk(b)] = v; else delete OW().o[pk(b)];
   delete OW().t[pk(b)];   // a hand-set status starts without a timer — type the in-game countdown again
+  if (v === "target") tmPull(b);
   if (!isOp(b)) { OW().h = OW().h || {}; if (v === "held") OW().h[pk(b)] = Date.now(); else delete OW().h[pk(b)]; }
   planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan();
 }
@@ -1128,7 +1142,7 @@ function routeBox(b) {
         <div class="muted" style="font-size:12px;margin-top:4px">${esc(rox("note"))}</div>`; }
   $("km_info").insertAdjacentHTML("beforeend", h + "</div>");
   $("km_rt").onclick = () => { ROUTE = routeTo(b, who); drawFlags(); renderInfo(); };
-  if ($("km_tgb")) $("km_tgb").onclick = () => { if (!PE()) return; if (handT(b)) delete OW().o[pk(b)]; else OW().o[pk(b)] = "target"; delete OW().t[pk(b)]; planMsg = ""; refreshPlan(); };
+  if ($("km_tgb")) $("km_tgb").onclick = () => { if (!PE()) return; const was = handT(b); if (was) delete OW().o[pk(b)]; else OW().o[pk(b)] = "target"; delete OW().t[pk(b)]; if (!was) tmPull(b); planMsg = ""; refreshPlan(); };
   if ($("km_rtno")) $("km_rtno").onclick = () => { ROUTE = null; drawFlags(); renderInfo(); };
   if ($("km_rtok")) $("km_rtok").onclick = () => { const L = r.list.map(([x, y]) => [x, y]); if (who === 2) farm().fl.push(...L); else { PLAN.fl = PLAN.fl || []; PLAN.fl.push(...L); }
     ROUTE = null; flagsChanged(); try { drawFarm(); renderFarm(); } catch (e) {} renderInfo(); };

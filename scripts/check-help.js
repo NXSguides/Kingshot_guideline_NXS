@@ -27,6 +27,7 @@ const FEATURES = [
   ["Territory: layer list — set built-first / built-later without tapping the map", /🗂️ LAYER LIST \(2026-11-24/, /mp63: "🗂️ Layer list: every banner and HQ/],
   ["Hive: a layout with both alliances is split by tag (NXS / nxs)", /📥 LAYOUT WITH BOTH ALLIANCES \(2026-11-24\)/, /split by the tag on each item \(NXS \/ nxs\)/],
   ["Hive: the real territory from 🚩 Territory (layers included) is shaded and used for spots and resources", /🐝 Hive → REAL TERRITORY \(2026-11-24/, /mv27: "🏳️ The shaded land on the map is the territory we really hold now/],
+  ["Map: NXS and nxs share one countdown per Outpost", /🔁 ONE CLOCK PER OUTPOST FOR NXS AND nxs \(2026-11-26/, /NXS and nxs share one clock per Outpost/],
   ["Map: countdown until a 🎯 Target / 🔗 Can take Outpost turns Vulnerable", /⏱ TIMER ON A TARGET \(2026-11-24/, /A 🎯 Target or 🔗 Can take Outpost has a timer too/],
   ["Battle table: length of each game-chat message against the 512 limit", /shows its length as "N \/ 512"/, /Under each box is its length, N \/ 512/],
   ["Compare: ≫ ＞ ≈ ＜ ≪ marks against one person on the Strength list", /📍 WHO IS STRONGER THAN WHOM \(2026-11-18\)/, /ak11: "📍 The Strength list now says/],
