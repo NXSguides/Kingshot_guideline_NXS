@@ -103,14 +103,17 @@ IDN/idn
 ⚠️ Infractions : 1re avertissement · 2e exclusion de l'alliance · 3e liste noire de toutes les alliances du NAP.
 (see guide #nap-rules)
 🗺️ Qui tient quoi
-Les Sanctuaires et Forteresses du royaume sont attribués aux 6 premières alliances du NAP. Chaque vendredi, il y a une bataille pour eux — ne te bats jamais pour un bâtiment attribué à une autre alliance. C'est une grave infraction au NAP.
-NXS: Sanctuaire 1, 6 · Forteresse 2
-NRD: Sanctuaire 10, 11 · Forteresse 4
-RED: Sanctuaire 2, 3 · Forteresse 3
-ESA: Sanctuaire 5, 12 · Forteresse 1
-IDN: Sanctuaire 4
-KGb: Sanctuaire 8
-7 et 9 ne sont pas attribués — on se bat pour eux. Chaque alliance peut avoir le 7 ou le 9, pas les deux.
+Les Sanctuaires et Forteresses du royaume sont attribués aux 5 premières alliances du NAP. Chaque vendredi, il y a une bataille pour eux — ne te bats jamais pour un bâtiment attribué à une autre alliance. C'est une grave infraction au NAP.
+C'est la liste de cette semaine. Elle change chaque semaine : vérifie-la avant chaque bataille. Les Forteresses ne changent pas.
+Phase 1 of season 4 began 2026-11-21 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.
+Saison … · Phase 1/8: NXS Sanctuaire 12 + Forteresse 2; NRD Sanctuaire 4 + Forteresse 4; RED Sanctuaire 8 + Forteresse 3; ESA Sanctuaire 11 + Forteresse 1; IDN Sanctuaire 7
+Saison … · Phase 2/8: NXS Sanctuaire 5, 12 + Forteresse 2; NRD Sanctuaire 1, 4 + Forteresse 4; RED Sanctuaire 8, 9 + Forteresse 3; ESA Sanctuaire 10, 11 + Forteresse 1; IDN Sanctuaire 3, 7
+Saison … · Phase 3/8: NXS Sanctuaire 10, 12 + Forteresse 2; NRD Sanctuaire 1, 2 + Forteresse 4; RED Sanctuaire 6, 8 + Forteresse 3; ESA Sanctuaire 9, 11 + Forteresse 1; IDN Sanctuaire 5, 7
+Saison … · Phase 4/8: NXS Sanctuaire 9, 12 + Forteresse 2; NRD Sanctuaire 1, 7 + Forteresse 4; RED Sanctuaire 3, 6 + Forteresse 3; ESA Sanctuaire 10, 11 + Forteresse 1; IDN Sanctuaire 5, 8
+Saison … · Phase 5/8: NXS Sanctuaire 11, 12 + Forteresse 2; NRD Sanctuaire 7, 8 + Forteresse 4; RED Sanctuaire 3, 4 + Forteresse 3; ESA Sanctuaire 1, 10 + Forteresse 1; IDN Sanctuaire 5, 6
+Saison … · Phase 6/8: NXS Sanctuaire 9, 12 + Forteresse 2; NRD Sanctuaire 1, 8 + Forteresse 4; RED Sanctuaire 4, 5 + Forteresse 3; ESA Sanctuaire 10, 11 + Forteresse 1; IDN Sanctuaire 6, 7
+Saison … · Phase 7/8: NXS Sanctuaire 9, 10 + Forteresse 2; NRD Sanctuaire 1, 2 + Forteresse 4; RED Sanctuaire 5, 6 + Forteresse 3; ESA Sanctuaire 11, 12 + Forteresse 1; IDN Sanctuaire 7, 8
+Saison … · Phase 8/8: NXS Sanctuaire 7, 10 + Forteresse 2; NRD Sanctuaire 2, 3 + Forteresse 4; RED Sanctuaire 6, 11 + Forteresse 3; ESA Sanctuaire 1, 12 + Forteresse 1; IDN Sanctuaire 8, 9
 🏰 Règles Sanctuaire & Forteresse
 🔴 Pas d'attaque en solo : ne lance jamais une attaque sur un Sanctuaire ou une Forteresse. Rejoins les ralliements des R4/R5.
 🔵 Envoie exactement les troupes et héros indiqués dans le chat d'alliance ou les marqueurs.
@@ -139,6 +142,7 @@ Copier
 🔗 Liens
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+[sanc] 2026-11-21
 
 ### GUIDE #my-spot — Où est ma place ?
 Avant de te téléporter pour un déménagement de ruche, cherche ton nom ici et vérifie ton nouveau X:Y. C'est la même carte que celle des officiers, toujours à jour.

@@ -103,14 +103,17 @@ IDN/idn
 ⚠️ Punições: 1ª aviso · 2ª expulso da aliança · 3ª lista negra em todas as alianças do NAP.
 (see guide #nap-rules)
 🗺️ Quem fica com qual
-Os Santuários e Fortalezas do reino são distribuídos entre as 6 maiores alianças do NAP. Toda sexta-feira tem batalha por eles — nunca dispute um que é de outra aliança. Isso é uma quebra grave do NAP.
-NXS: Santuário 1, 6 · Fortaleza 2
-NRD: Santuário 10, 11 · Fortaleza 4
-RED: Santuário 2, 3 · Fortaleza 3
-ESA: Santuário 5, 12 · Fortaleza 1
-IDN: Santuário 4
-KGb: Santuário 8
-7 e 9 não são de ninguém — são disputados. Cada aliança pode ficar com o 7 ou o 9, não os dois.
+Os Santuários e Fortalezas do reino são distribuídos entre as 5 maiores alianças do NAP. Toda sexta-feira tem batalha por eles — nunca dispute um que é de outra aliança. Isso é uma quebra grave do NAP.
+Esta é a lista desta semana. Ela muda toda semana — confira de novo antes de cada batalha. As Fortalezas continuam as mesmas.
+Phase 1 of season 4 began 2026-11-21 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.
+Temporada … · Fase 1/8: NXS Santuário 12 + Fortaleza 2; NRD Santuário 4 + Fortaleza 4; RED Santuário 8 + Fortaleza 3; ESA Santuário 11 + Fortaleza 1; IDN Santuário 7
+Temporada … · Fase 2/8: NXS Santuário 5, 12 + Fortaleza 2; NRD Santuário 1, 4 + Fortaleza 4; RED Santuário 8, 9 + Fortaleza 3; ESA Santuário 10, 11 + Fortaleza 1; IDN Santuário 3, 7
+Temporada … · Fase 3/8: NXS Santuário 10, 12 + Fortaleza 2; NRD Santuário 1, 2 + Fortaleza 4; RED Santuário 6, 8 + Fortaleza 3; ESA Santuário 9, 11 + Fortaleza 1; IDN Santuário 5, 7
+Temporada … · Fase 4/8: NXS Santuário 9, 12 + Fortaleza 2; NRD Santuário 1, 7 + Fortaleza 4; RED Santuário 3, 6 + Fortaleza 3; ESA Santuário 10, 11 + Fortaleza 1; IDN Santuário 5, 8
+Temporada … · Fase 5/8: NXS Santuário 11, 12 + Fortaleza 2; NRD Santuário 7, 8 + Fortaleza 4; RED Santuário 3, 4 + Fortaleza 3; ESA Santuário 1, 10 + Fortaleza 1; IDN Santuário 5, 6
+Temporada … · Fase 6/8: NXS Santuário 9, 12 + Fortaleza 2; NRD Santuário 1, 8 + Fortaleza 4; RED Santuário 4, 5 + Fortaleza 3; ESA Santuário 10, 11 + Fortaleza 1; IDN Santuário 6, 7
+Temporada … · Fase 7/8: NXS Santuário 9, 10 + Fortaleza 2; NRD Santuário 1, 2 + Fortaleza 4; RED Santuário 5, 6 + Fortaleza 3; ESA Santuário 11, 12 + Fortaleza 1; IDN Santuário 7, 8
+Temporada … · Fase 8/8: NXS Santuário 7, 10 + Fortaleza 2; NRD Santuário 2, 3 + Fortaleza 4; RED Santuário 6, 11 + Fortaleza 3; ESA Santuário 1, 12 + Fortaleza 1; IDN Santuário 8, 9
 🏰 Regras de Santuário e Fortaleza
 🔴 Sem ataque solo: nunca comece um ataque a um Santuário ou Fortaleza. Entre nos rallies dos R4/R5.
 🔵 Envie exatamente as tropas e os heróis pedidos no chat da aliança ou nas marcações.
@@ -139,6 +142,7 @@ Copiar
 🔗 Links
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+[sanc] 2026-11-21
 
 ### GUIDE #my-spot — Onde fica meu lugar?
 Antes de teletransportar numa mudança de colmeia, procure seu nome aqui e confira seu novo X:Y. É o mesmo mapa que os oficiais usam, então está sempre atualizado.

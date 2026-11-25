@@ -103,14 +103,17 @@ IDN/idn
 ⚠️ Verstöße: 1. Verwarnung · 2. Rauswurf aus der Allianz · 3. Schwarze Liste bei allen NAP-Allianzen.
 (see guide #nap-rules)
 🗺️ Wer hält was
-Die Heiligtümer und Festungen im Königreich sind den Top-6-Allianzen der NAP zugeteilt. Jeden Freitag wird um sie gekämpft — kämpf nie um eins, das einer anderen Allianz gehört. Das ist ein schwerer NAP-Verstoß.
-NXS: Heiligtum 1, 6 · Festung 2
-NRD: Heiligtum 10, 11 · Festung 4
-RED: Heiligtum 2, 3 · Festung 3
-ESA: Heiligtum 5, 12 · Festung 1
-IDN: Heiligtum 4
-KGb: Heiligtum 8
-7 und 9 sind nicht zugeteilt — um sie wird gekämpft. Jede Allianz kann 7 oder 9 halten, nicht beide.
+Die Heiligtümer und Festungen im Königreich sind den Top-5-Allianzen der NAP zugeteilt. Jeden Freitag wird um sie gekämpft — kämpf nie um eins, das einer anderen Allianz gehört. Das ist ein schwerer NAP-Verstoß.
+Das ist die Liste für diese Woche. Sie ändert sich jede Woche — schau vor jedem Kampf noch einmal nach. Die Festungen bleiben gleich.
+Phase 1 of season 4 began 2026-11-21 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.
+Saison … · Phase 1/8: NXS Heiligtum 12 + Festung 2; NRD Heiligtum 4 + Festung 4; RED Heiligtum 8 + Festung 3; ESA Heiligtum 11 + Festung 1; IDN Heiligtum 7
+Saison … · Phase 2/8: NXS Heiligtum 5, 12 + Festung 2; NRD Heiligtum 1, 4 + Festung 4; RED Heiligtum 8, 9 + Festung 3; ESA Heiligtum 10, 11 + Festung 1; IDN Heiligtum 3, 7
+Saison … · Phase 3/8: NXS Heiligtum 10, 12 + Festung 2; NRD Heiligtum 1, 2 + Festung 4; RED Heiligtum 6, 8 + Festung 3; ESA Heiligtum 9, 11 + Festung 1; IDN Heiligtum 5, 7
+Saison … · Phase 4/8: NXS Heiligtum 9, 12 + Festung 2; NRD Heiligtum 1, 7 + Festung 4; RED Heiligtum 3, 6 + Festung 3; ESA Heiligtum 10, 11 + Festung 1; IDN Heiligtum 5, 8
+Saison … · Phase 5/8: NXS Heiligtum 11, 12 + Festung 2; NRD Heiligtum 7, 8 + Festung 4; RED Heiligtum 3, 4 + Festung 3; ESA Heiligtum 1, 10 + Festung 1; IDN Heiligtum 5, 6
+Saison … · Phase 6/8: NXS Heiligtum 9, 12 + Festung 2; NRD Heiligtum 1, 8 + Festung 4; RED Heiligtum 4, 5 + Festung 3; ESA Heiligtum 10, 11 + Festung 1; IDN Heiligtum 6, 7
+Saison … · Phase 7/8: NXS Heiligtum 9, 10 + Festung 2; NRD Heiligtum 1, 2 + Festung 4; RED Heiligtum 5, 6 + Festung 3; ESA Heiligtum 11, 12 + Festung 1; IDN Heiligtum 7, 8
+Saison … · Phase 8/8: NXS Heiligtum 7, 10 + Festung 2; NRD Heiligtum 2, 3 + Festung 4; RED Heiligtum 6, 11 + Festung 3; ESA Heiligtum 1, 12 + Festung 1; IDN Heiligtum 8, 9
 🏰 Regeln für Heiligtum & Festung
 🔴 Keine Solo-Angriffe: Starte nie selbst einen Angriff auf ein Heiligtum oder eine Festung. Tritt den Rallys von R4/R5 bei.
 🔵 Schick genau die Truppen und Helden, die im Allianz-Chat oder in den Markierungen stehen.
@@ -139,6 +142,7 @@ Kopieren
 🔗 Links
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+[sanc] 2026-11-21
 
 ### GUIDE #my-spot — Wo ist mein Platz?
 Bevor du für einen Hive-Umzug teleportierst: Such hier deinen Namen und prüf dein neues X:Y. Es ist dieselbe Karte wie bei den Offizieren, also immer aktuell.

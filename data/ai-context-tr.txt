@@ -103,14 +103,17 @@ IDN/idn
 ⚠️ İhlal: 1. uyarı · 2. ittifaktan atılma · 3. tüm NAP ittifaklarında kara liste.
 (see guide #nap-rules)
 🗺️ Hangisi kimin
-Krallıktaki tapınaklar ve kaleler NAP'ın ilk 6 ittifakına ayrılmıştır. Her cuma onlar için savaş olur — başka bir ittifaka ayrılmış olan için asla savaşma. Bu ciddi bir NAP ihlalidir.
-NXS: Tapınak 1, 6 · Kale 2
-NRD: Tapınak 10, 11 · Kale 4
-RED: Tapınak 2, 3 · Kale 3
-ESA: Tapınak 5, 12 · Kale 1
-IDN: Tapınak 4
-KGb: Tapınak 8
-7 ve 9 kimseye ayrılmadı — onlar için savaşılır. Her ittifak 7 ya da 9'u alabilir, ikisini birden değil.
+Krallıktaki tapınaklar ve kaleler NAP'ın ilk 5 ittifakına ayrılmıştır. Her cuma onlar için savaş olur — başka bir ittifaka ayrılmış olan için asla savaşma. Bu ciddi bir NAP ihlalidir.
+Bu, bu haftanın listesi. Her hafta değişir; her savaştan önce tekrar bak. Kaleler aynı kalır.
+Phase 1 of season 4 began 2026-11-21 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.
+Sezon … · Evre 1/8: NXS Tapınak 12 + Kale 2; NRD Tapınak 4 + Kale 4; RED Tapınak 8 + Kale 3; ESA Tapınak 11 + Kale 1; IDN Tapınak 7
+Sezon … · Evre 2/8: NXS Tapınak 5, 12 + Kale 2; NRD Tapınak 1, 4 + Kale 4; RED Tapınak 8, 9 + Kale 3; ESA Tapınak 10, 11 + Kale 1; IDN Tapınak 3, 7
+Sezon … · Evre 3/8: NXS Tapınak 10, 12 + Kale 2; NRD Tapınak 1, 2 + Kale 4; RED Tapınak 6, 8 + Kale 3; ESA Tapınak 9, 11 + Kale 1; IDN Tapınak 5, 7
+Sezon … · Evre 4/8: NXS Tapınak 9, 12 + Kale 2; NRD Tapınak 1, 7 + Kale 4; RED Tapınak 3, 6 + Kale 3; ESA Tapınak 10, 11 + Kale 1; IDN Tapınak 5, 8
+Sezon … · Evre 5/8: NXS Tapınak 11, 12 + Kale 2; NRD Tapınak 7, 8 + Kale 4; RED Tapınak 3, 4 + Kale 3; ESA Tapınak 1, 10 + Kale 1; IDN Tapınak 5, 6
+Sezon … · Evre 6/8: NXS Tapınak 9, 12 + Kale 2; NRD Tapınak 1, 8 + Kale 4; RED Tapınak 4, 5 + Kale 3; ESA Tapınak 10, 11 + Kale 1; IDN Tapınak 6, 7
+Sezon … · Evre 7/8: NXS Tapınak 9, 10 + Kale 2; NRD Tapınak 1, 2 + Kale 4; RED Tapınak 5, 6 + Kale 3; ESA Tapınak 11, 12 + Kale 1; IDN Tapınak 7, 8
+Sezon … · Evre 8/8: NXS Tapınak 7, 10 + Kale 2; NRD Tapınak 2, 3 + Kale 4; RED Tapınak 6, 11 + Kale 3; ESA Tapınak 1, 12 + Kale 1; IDN Tapınak 8, 9
 🏰 Tapınak ve Kale kuralları
 🔴 Tek başına saldırı yok: bir Tapınak veya Kaleye asla kendin saldırı başlatma. R4/R5'in seferberliklerine katıl.
 🔵 İttifak sohbetinde veya işaretlerde yazan asker sayısını ve kahramanları tam olarak gönder.
@@ -139,6 +142,7 @@ Kopyala
 🔗 Bağlantılar
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+[sanc] 2026-11-21
 
 ### GUIDE #my-spot — Yerim nerede?
 Kovan taşınması için ışınlanmadan önce adını burada bul ve yeni X:Y'ni kontrol et. Subayların kullandığı haritanın aynısı, yani hep güncel.

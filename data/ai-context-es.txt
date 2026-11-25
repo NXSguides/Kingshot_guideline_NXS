@@ -103,14 +103,17 @@ IDN/idn
 ⚠️ Sanciones: 1.ª advertencia · 2.ª expulsión de la alianza · 3.ª lista negra en todas las alianzas del NAP.
 (see guide #nap-rules)
 🗺️ Quién tiene cuál
-Los santuarios y fuertes del reino están asignados a las 6 alianzas principales del NAP. Cada viernes hay una batalla por ellos — nunca luches por uno asignado a otra alianza. Es una falta grave al NAP.
-NXS: santuario 1, 6 · Fuerte 2
-NRD: santuario 10, 11 · Fuerte 4
-RED: santuario 2, 3 · Fuerte 3
-ESA: santuario 5, 12 · Fuerte 1
-IDN: santuario 4
-KGb: santuario 8
-7 y 9 no están asignados — se luchan. Cada alianza puede tener el 7 o el 9, no los dos.
+Los santuarios y fuertes del reino están asignados a las 5 alianzas principales del NAP. Cada viernes hay una batalla por ellos — nunca luches por uno asignado a otra alianza. Es una falta grave al NAP.
+Esta es la lista de esta semana. Cambia cada semana: revísala antes de cada batalla. Los fuertes no cambian.
+Phase 1 of season 4 began 2026-11-21 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.
+Temporada … · Fase 1/8: NXS santuario 12 + Fuerte 2; NRD santuario 4 + Fuerte 4; RED santuario 8 + Fuerte 3; ESA santuario 11 + Fuerte 1; IDN santuario 7
+Temporada … · Fase 2/8: NXS santuario 5, 12 + Fuerte 2; NRD santuario 1, 4 + Fuerte 4; RED santuario 8, 9 + Fuerte 3; ESA santuario 10, 11 + Fuerte 1; IDN santuario 3, 7
+Temporada … · Fase 3/8: NXS santuario 10, 12 + Fuerte 2; NRD santuario 1, 2 + Fuerte 4; RED santuario 6, 8 + Fuerte 3; ESA santuario 9, 11 + Fuerte 1; IDN santuario 5, 7
+Temporada … · Fase 4/8: NXS santuario 9, 12 + Fuerte 2; NRD santuario 1, 7 + Fuerte 4; RED santuario 3, 6 + Fuerte 3; ESA santuario 10, 11 + Fuerte 1; IDN santuario 5, 8
+Temporada … · Fase 5/8: NXS santuario 11, 12 + Fuerte 2; NRD santuario 7, 8 + Fuerte 4; RED santuario 3, 4 + Fuerte 3; ESA santuario 1, 10 + Fuerte 1; IDN santuario 5, 6
+Temporada … · Fase 6/8: NXS santuario 9, 12 + Fuerte 2; NRD santuario 1, 8 + Fuerte 4; RED santuario 4, 5 + Fuerte 3; ESA santuario 10, 11 + Fuerte 1; IDN santuario 6, 7
+Temporada … · Fase 7/8: NXS santuario 9, 10 + Fuerte 2; NRD santuario 1, 2 + Fuerte 4; RED santuario 5, 6 + Fuerte 3; ESA santuario 11, 12 + Fuerte 1; IDN santuario 7, 8
+Temporada … · Fase 8/8: NXS santuario 7, 10 + Fuerte 2; NRD santuario 2, 3 + Fuerte 4; RED santuario 6, 11 + Fuerte 3; ESA santuario 1, 12 + Fuerte 1; IDN santuario 8, 9
 🏰 Reglas de santuario y Fuerte
 🔴 Nada de ataques en solitario: nunca inicies un ataque a un santuario o Fuerte. Únete a los ataques de R4/R5.
 🔵 Envía exactamente las tropas y los héroes que piden en el chat de la alianza o en las marcas.
@@ -139,6 +142,7 @@ Copiar
 🔗 Enlaces
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+[sanc] 2026-11-21
 
 ### GUIDE #my-spot — ¿Dónde está mi lugar?
 Antes de teletransportarte en una mudanza de colmena, busca tu nombre aquí y revisa tu nuevo X:Y. Es el mismo mapa que usan los oficiales, siempre al día.

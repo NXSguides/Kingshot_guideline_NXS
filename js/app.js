@@ -465,6 +465,14 @@ const BLOCKS = {
   sub: (b) => `<h4 class="sub-h">${rich(b.text)}</h4>`,
   p: (b) => `<p>${rich(b.text)}</p>`,
   list: (b) => ul(b.items),
+  /* 🏛️ this week's Sanctuary split (Sherry 2026-11-25): the list changes with the phase — one a week, from Sat 00:00 UTC — so the page works out
+     the phase from the date and shows that week's row of GUIDES["new-here"].sanc, with the dates it is for. Fortresses are the same every week. */
+  sancweek: (b) => { const S = (GUIDES["new-here"] || {}).sanc; if (!S) return "";
+    const wk = 7 * 864e5, t0 = Date.parse(S.p1 + "T00:00:00Z"), w = Math.floor((Date.now() - t0) / wk), p = ((w % 8) + 8) % 8;
+    const md = (ms) => new Date(ms).toISOString().slice(5, 10), from = t0 + w * wk;
+    const fill = (s, o) => String(s || "").replace(/\{(\w)\}/g, (m, k) => (k in o ? o[k] : m));
+    const rows = Object.keys(S.plan).map((g) => `${g}: {sanctuary} ${S.plan[g][p].join(", ")}${S.fort[g] ? ` · ${b.fort} ${S.fort[g]}` : ""}`);
+    return `<div class="nap-card"><div class="nap-t">🗓️ ${rich(fill(b.phase, { s: S.s1 + Math.floor(w / 8), p: p + 1 }))}</div>${ul(rows)}<p>⚠️ ${rich(fill(b.note, { a: md(from), b: md(from + wk - 864e5) }))}</p></div>`; },
   callout: (b) => `<div class="callout flat">${rich(b.text)}</div>`,
   /* 🎁 reward comparison table (Sherry 2026-11-17: the voyage event's rewards per run, side by side, with the item pictures).
      A cell can name an item as ::termKey:: → its picture (figures/items/<key>.png) when we have one, otherwise the item's name;

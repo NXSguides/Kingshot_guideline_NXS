@@ -52,6 +52,12 @@ function build(lang) {
       const c = clean(v);
       if (c) out.push(D.HEROES[c] ? pick(D.HEROES[c]) : c);
     } else if (Array.isArray(v)) v.forEach((x) => walk(x, out, key));
+    else if (v && v.type === "sancweek") {   // the weekly Sanctuary split: the page shows one week, the AI gets all 8 phases and the rule to find the current one
+      const S = D.GUIDES["new-here"].sanc, sw = pick(D.GLOSSARY.sanctuary);
+      out.push(clean(v.note.replace(/\s*[（(]\{a\}[^）)]*[）)]/, "")));
+      out.push(`Phase 1 of season ${S.s1} began ${S.p1} 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.`);
+      for (let p = 0; p < 8; p++) out.push(v.phase.replace("{s}", "…").replace("{p}", p + 1) + ": " + Object.keys(S.plan).map((g) => `${g} ${sw} ${S.plan[g][p].join(", ")}${S.fort[g] ? ` + ${v.fort} ${S.fort[g]}` : ""}`).join("; "));
+    }
     else if (v && v.type === "rtable") { const nm = v.names || {}, row = (r) => r.map((c) => clean(String(c).replace(/::gems:: ×/g, "100 {gems} ×").replace(/::(\w+?)\+?::/g, (m, k) => (nm[k] != null ? nm[k] : m)))).join(" | "); out.push(row(v.head || [])); for (const r of v.rows || []) out.push(row(r)); }   // one line per table row
     else if (v && typeof v === "object") for (const k in v) walk(v[k], out, k);
   };

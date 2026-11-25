@@ -103,14 +103,17 @@ IDN/idn
 ⚠️ Breaking it: 1st a warning · 2nd kicked from the alliance · 3rd blacklisted by all NAP alliances.
 (see guide #nap-rules)
 🗺️ Who holds which
-The Sanctuaries and Fortresses around the kingdom are assigned to the top 6 alliances in NAP. Every Friday there is a battle for them — never fight for one that is assigned to another alliance. That is a big NAP rule break.
-NXS: Sanctuary 1, 6 · Fortress 2
-NRD: Sanctuary 10, 11 · Fortress 4
-RED: Sanctuary 2, 3 · Fortress 3
-ESA: Sanctuary 5, 12 · Fortress 1
-IDN: Sanctuary 4
-KGb: Sanctuary 8
-7 and 9 are not assigned — they are fought for. Each alliance can hold 7 or 9, not both.
+The Sanctuaries and Fortresses around the kingdom are assigned to the top 5 alliances in NAP. Every Friday there is a battle for them — never fight for one that is assigned to another alliance. That is a big NAP rule break.
+This is this week's list. It changes every week, so check again before each battle. The Fortresses stay the same.
+Phase 1 of season 4 began 2026-11-21 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.
+Season … · Phase 1/8: NXS Sanctuary 12 + Fortress 2; NRD Sanctuary 4 + Fortress 4; RED Sanctuary 8 + Fortress 3; ESA Sanctuary 11 + Fortress 1; IDN Sanctuary 7
+Season … · Phase 2/8: NXS Sanctuary 5, 12 + Fortress 2; NRD Sanctuary 1, 4 + Fortress 4; RED Sanctuary 8, 9 + Fortress 3; ESA Sanctuary 10, 11 + Fortress 1; IDN Sanctuary 3, 7
+Season … · Phase 3/8: NXS Sanctuary 10, 12 + Fortress 2; NRD Sanctuary 1, 2 + Fortress 4; RED Sanctuary 6, 8 + Fortress 3; ESA Sanctuary 9, 11 + Fortress 1; IDN Sanctuary 5, 7
+Season … · Phase 4/8: NXS Sanctuary 9, 12 + Fortress 2; NRD Sanctuary 1, 7 + Fortress 4; RED Sanctuary 3, 6 + Fortress 3; ESA Sanctuary 10, 11 + Fortress 1; IDN Sanctuary 5, 8
+Season … · Phase 5/8: NXS Sanctuary 11, 12 + Fortress 2; NRD Sanctuary 7, 8 + Fortress 4; RED Sanctuary 3, 4 + Fortress 3; ESA Sanctuary 1, 10 + Fortress 1; IDN Sanctuary 5, 6
+Season … · Phase 6/8: NXS Sanctuary 9, 12 + Fortress 2; NRD Sanctuary 1, 8 + Fortress 4; RED Sanctuary 4, 5 + Fortress 3; ESA Sanctuary 10, 11 + Fortress 1; IDN Sanctuary 6, 7
+Season … · Phase 7/8: NXS Sanctuary 9, 10 + Fortress 2; NRD Sanctuary 1, 2 + Fortress 4; RED Sanctuary 5, 6 + Fortress 3; ESA Sanctuary 11, 12 + Fortress 1; IDN Sanctuary 7, 8
+Season … · Phase 8/8: NXS Sanctuary 7, 10 + Fortress 2; NRD Sanctuary 2, 3 + Fortress 4; RED Sanctuary 6, 11 + Fortress 3; ESA Sanctuary 1, 12 + Fortress 1; IDN Sanctuary 8, 9
 🏰 Sanctuary & Fortress rules
 🔴 No solo attacks: never start an attack on a Sanctuary or Fortress. Join the rallies led by R4/R5.
 🔵 Send exactly the troops and heroes given in alliance chat or labels.
@@ -139,6 +142,7 @@ Copy
 🔗 Links
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+[sanc] 2026-11-21
 
 ### GUIDE #my-spot — Where's my spot?
 Before you teleport for a hive move, find your name here and check your new X:Y. The map is the same one the officers use, so it is always up to date.

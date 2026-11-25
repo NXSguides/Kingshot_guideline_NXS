@@ -103,14 +103,17 @@ IDN/idn
 ⚠️ Pelanggaran: ke-1 peringatan · ke-2 dikeluarkan dari aliansi · ke-3 daftar hitam semua aliansi NAP.
 (see guide #nap-rules)
 🗺️ Siapa memegang yang mana
-Sanctuary dan Benteng di seluruh kerajaan dibagikan ke 6 aliansi teratas NAP. Setiap Jumat ada pertempuran untuk merebutnya — jangan pernah merebut yang sudah dibagikan ke aliansi lain. Itu pelanggaran NAP yang berat.
-NXS: Sanctuary 1, 6 · Benteng 2
-NRD: Sanctuary 10, 11 · Benteng 4
-RED: Sanctuary 2, 3 · Benteng 3
-ESA: Sanctuary 5, 12 · Benteng 1
-IDN: Sanctuary 4
-KGb: Sanctuary 8
-7 dan 9 tidak dibagikan — harus diperebutkan. Tiap aliansi hanya boleh memegang 7 atau 9, tidak keduanya.
+Sanctuary dan Benteng di seluruh kerajaan dibagikan ke 5 aliansi teratas NAP. Setiap Jumat ada pertempuran untuk merebutnya — jangan pernah merebut yang sudah dibagikan ke aliansi lain. Itu pelanggaran NAP yang berat.
+Ini daftar untuk minggu ini. Daftarnya berubah setiap minggu — cek lagi sebelum tiap pertempuran. Benteng tetap sama.
+Phase 1 of season 4 began 2026-11-21 00:00 UTC; a phase lasts 7 days; after phase 8 the list starts again from phase 1.
+Season … · Fase 1/8: NXS Sanctuary 12 + Benteng 2; NRD Sanctuary 4 + Benteng 4; RED Sanctuary 8 + Benteng 3; ESA Sanctuary 11 + Benteng 1; IDN Sanctuary 7
+Season … · Fase 2/8: NXS Sanctuary 5, 12 + Benteng 2; NRD Sanctuary 1, 4 + Benteng 4; RED Sanctuary 8, 9 + Benteng 3; ESA Sanctuary 10, 11 + Benteng 1; IDN Sanctuary 3, 7
+Season … · Fase 3/8: NXS Sanctuary 10, 12 + Benteng 2; NRD Sanctuary 1, 2 + Benteng 4; RED Sanctuary 6, 8 + Benteng 3; ESA Sanctuary 9, 11 + Benteng 1; IDN Sanctuary 5, 7
+Season … · Fase 4/8: NXS Sanctuary 9, 12 + Benteng 2; NRD Sanctuary 1, 7 + Benteng 4; RED Sanctuary 3, 6 + Benteng 3; ESA Sanctuary 10, 11 + Benteng 1; IDN Sanctuary 5, 8
+Season … · Fase 5/8: NXS Sanctuary 11, 12 + Benteng 2; NRD Sanctuary 7, 8 + Benteng 4; RED Sanctuary 3, 4 + Benteng 3; ESA Sanctuary 1, 10 + Benteng 1; IDN Sanctuary 5, 6
+Season … · Fase 6/8: NXS Sanctuary 9, 12 + Benteng 2; NRD Sanctuary 1, 8 + Benteng 4; RED Sanctuary 4, 5 + Benteng 3; ESA Sanctuary 10, 11 + Benteng 1; IDN Sanctuary 6, 7
+Season … · Fase 7/8: NXS Sanctuary 9, 10 + Benteng 2; NRD Sanctuary 1, 2 + Benteng 4; RED Sanctuary 5, 6 + Benteng 3; ESA Sanctuary 11, 12 + Benteng 1; IDN Sanctuary 7, 8
+Season … · Fase 8/8: NXS Sanctuary 7, 10 + Benteng 2; NRD Sanctuary 2, 3 + Benteng 4; RED Sanctuary 6, 11 + Benteng 3; ESA Sanctuary 1, 12 + Benteng 1; IDN Sanctuary 8, 9
 🏰 Aturan Sanctuary & Benteng
 🔴 Tidak boleh serang sendiri: jangan memulai serangan ke Sanctuary atau Benteng. Ikut reli yang dipimpin R4/R5.
 🔵 Kirim tepat jumlah pasukan dan hero yang diminta di chat aliansi atau label.
@@ -139,6 +142,7 @@ Salin
 🔗 Tautan
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+[sanc] 2026-11-21
 
 ### GUIDE #my-spot — Di mana tempatku?
 Sebelum teleport untuk pindahan sarang, cari namamu di sini dan cek X:Y barumu. Ini peta yang sama dengan yang dipakai para officer, jadi selalu terbaru.
