@@ -554,9 +554,9 @@ Object.assign(PT.ko, {"gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목
    it is from our HQ — all UTC, simple, to paste in the game." One line per 🎯 Sanctuary / Fortress target, always in English (the game translates),
    earliest first. The times are typed here only for this text: kept on this device, never saved in the plan. */
 let GM_T = {}; try { GM_T = JSON.parse(localStorage.getItem("nxs-ruins-times") || "{}") || {}; } catch (e) {}
-const gmName = (b) => (b.kind === "fortress" ? "Fortress " : "Sanctuary ") + b.n;
+const gmName = (b) => (b.kind === "fortress" ? "F" : "S") + b.n;   // Sherry 2026-11-25: "S2, F12 is enough"; distance in km, as the game shows it (1 tile = 1 km)
 const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
-  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} tiles from HQ)` : ""}`; }).join("\n");
+  .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km)` : ""}`; }).join("\n");
 const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))}</div>
   ${L.map((b) => `<label style="display:flex;gap:8px;align-items:center;margin-top:6px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span><input type="time" data-gm="${b.id}" value="${esc(GM_T[b.id] || "")}"></label>`).join("")}
   <pre id="km_gmOut" dir="ltr" style="white-space:pre-wrap;margin:8px 0 6px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;user-select:all">${esc(gmText(L))}</pre>
