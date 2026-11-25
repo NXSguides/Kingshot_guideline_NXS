@@ -553,7 +553,37 @@ Object.assign(PT.ko, {"gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목
 /* 📣 text for the game chat (Sherry 2026-11-25): "I tick this phase's targets, type the time, and get: the time, which Fortress, and in brackets how far
    it is from our HQ — all UTC, simple, to paste in the game." One line per 🎯 Sanctuary / Fortress target, always in English (the game translates),
    earliest first. The times are typed here only for this text: kept on this device, never saved in the plan. */
-let GM_T = {}; try { GM_T = JSON.parse(localStorage.getItem("nxs-ruins-times") || "{}") || {}; } catch (e) {}
+Object.assign(PT.en, {"gmDay": "Battle day: {d} (UTC)", "gmRmOk": "⏰ Saved as reminders, 10 minutes before each: {l}", "gmRmWait": "⏰ Saving the reminders…", "gmRmErr": "⚠️ The reminders were not saved. Open 📅 Events → ⏱️ and add them there.", "gmRmOff": "⏰ No reminder: no time typed yet, or the time has passed.", "gmHopT": "🧭 From one target to the next", "gmHq": "from HQ", "gmStay": "staying there is closer", "gmHome": "from home is closer", "gmEven": "about the same"});
+Object.assign(PT.zh, {"gmDay": "爭奪日：{d}（UTC）", "gmRmOk": "⏰ 已自動存成提醒，各提前 10 分鐘：{l}", "gmRmWait": "⏰ 正在存成提醒…", "gmRmErr": "⚠️ 提醒沒有存成功。請到 📅 活動 → ⏱️ 手動加。", "gmRmOff": "⏰ 沒有提醒：還沒輸入時間，或時間已經過了。", "gmHopT": "🧭 從上一個目標到下一個", "gmHq": "從總部", "gmStay": "留在原地比較近", "gmHome": "從家裡出發比較近", "gmEven": "差不多"});
+Object.assign(PT.pt, {"gmDay": "Dia da batalha: {d} (UTC)", "gmRmOk": "⏰ Salvo como lembretes, 10 minutos antes de cada: {l}", "gmRmWait": "⏰ Salvando os lembretes…", "gmRmErr": "⚠️ Os lembretes não foram salvos. Abra 📅 Eventos → ⏱️ e adicione lá.", "gmRmOff": "⏰ Sem lembrete: nenhuma hora digitada ainda, ou a hora já passou.", "gmHopT": "🧭 De um alvo ao seguinte", "gmHq": "do QG", "gmStay": "ficar lá é mais perto", "gmHome": "sair de casa é mais perto", "gmEven": "quase igual"});
+Object.assign(PT.ar, {"gmDay": "يوم المعركة: {d} (UTC)", "gmRmOk": "⏰ حُفظت كتذكيرات، قبل كل واحد بـ 10 دقائق: {l}", "gmRmWait": "⏰ جارٍ حفظ التذكيرات…", "gmRmErr": "⚠️ لم تُحفظ التذكيرات. افتح 📅 الفعاليات ← ⏱️ وأضفها هناك.", "gmRmOff": "⏰ لا تذكير: لم يُكتب وقت بعد، أو أن الوقت قد مضى.", "gmHopT": "🧭 من هدف إلى الذي يليه", "gmHq": "من المقر", "gmStay": "البقاء هناك أقرب", "gmHome": "الانطلاق من المدينة أقرب", "gmEven": "متقاربان"});
+Object.assign(PT.ko, {"gmDay": "쟁탈일: {d} (UTC)", "gmRmOk": "⏰ 알림으로 저장됨, 각각 10분 전: {l}", "gmRmWait": "⏰ 알림 저장 중…", "gmRmErr": "⚠️ 알림이 저장되지 않았어요. 📅 이벤트 → ⏱️에서 직접 추가하세요.", "gmRmOff": "⏰ 알림 없음: 아직 시간을 입력하지 않았거나 시간이 지났어요.", "gmHopT": "🧭 한 목표에서 다음 목표로", "gmHq": "본부에서", "gmStay": "거기 남는 쪽이 더 가까워요", "gmHome": "집에서 출발하는 쪽이 더 가까워요", "gmEven": "거의 같아요"});
+/* The times are for this phase's battle day only (the Friday of the phase week), so they are kept with the week they were typed in and dropped
+   when the next phase starts — otherwise last week's times would turn into reminders for this week. */
+const gmWeek = () => Math.floor((Date.now() - RW_P1) / RW_WK), gmDay = () => RW_P1 + gmWeek() * RW_WK + 6 * 864e5;   // Sat-based phase week → its Friday, 00:00 UTC
+let GM_T = {}; try { const v = JSON.parse(localStorage.getItem("nxs-ruins-times") || "{}") || {}; GM_T = v && v.t ? (v.w === gmWeek() ? v.t : {}) : v; } catch (e) {}
+const gmAt = (b) => { const m = /^(\d\d):(\d\d)$/.exec(GM_T[b.id] || ""); return m ? gmDay() + (+m[1] * 60 + +m[2]) * 60000 : 0; };
+const gmSorted = (L) => L.filter((b) => GM_T[b.id]).sort((p, q) => (GM_T[p.id] < GM_T[q.id] ? -1 : GM_T[p.id] > GM_T[q.id] ? 1 : 0));
+/* ⏰ the times become ⏱️ timed reminders by themselves (Sherry 2026-11-25: "once I type the start time, make it a reminder — not something I have
+   to enter again"). The Events tab owns those reminders, so it is loaded and handed the list (OFFICER.timedFrom): ours carry src "map", are
+   replaced as a set, and the ones typed by hand on 📅 Events are left alone. One save, a few seconds after the last change. Needs ✏️ on Events. */
+let gmRmTimer = 0, gmRmState = "";
+const gmRmText = (L) => { const S2 = gmSorted(L).filter((b) => gmAt(b) > Date.now());
+  return gmRmState === "wait" ? pt("gmRmWait") : gmRmState === "err" ? pt("gmRmErr") : gmRmState === "ok" ? (S2.length ? pt("gmRmOk").replace("{l}", S2.map((b) => GM_T[b.id] + " " + gmName(b)).join(", ")) : pt("gmRmOff")) : ""; };
+function gmRemind(L) {
+  if (!OFFICER.can("events", "edit")) return;
+  clearTimeout(gmRmTimer); gmRmState = "wait"; if ($("km_gmRm")) $("km_gmRm").textContent = gmRmText(L);
+  gmRmTimer = setTimeout(async () => { let r = "error";
+    try { await OFFICER.ensure("events"); if (OFFICER.timedFrom) r = await OFFICER.timedFrom("map", L.filter((b) => gmAt(b)).map((b) => ({ key: b.id, ev: "sanctuary-battle", label: gmName(b), at: gmAt(b) }))); } catch (e) { r = "error"; }
+    gmRmState = r === "error" ? "err" : "ok"; if ($("km_gmRm")) $("km_gmRm").textContent = gmRmText(L); }, 2500);
+}
+/* 🧭 from one target to the next, in time order (Sherry 2026-11-25: "work out the distance between the Sanctuaries too, in time order — so we know,
+   if we teleport there, whether to do the next one from that spot or teleport home first"). Shown on the page only, not in the text for the game. */
+const gmHops = (L) => { const S2 = gmSorted(L), out = [];
+  for (let i = 1; i < S2.length; i++) { const a = S2[i - 1], b = S2[i], d = Math.round(Math.hypot(a.x - b.x, a.y - b.y)), h = hqDist(b);
+    out.push(`${gmName(a)} → ${gmName(b)}: ${d} km (${gmMarch(d)})` + (h != null ? ` · ${pt("gmHq")} ${h} km (${gmMarch(h)}) → ${Math.abs(d - h) <= 5 ? pt("gmEven") : d < h ? pt("gmStay") : pt("gmHome")}` : "")); }
+  return out; };
+const gmHopHtml = (L) => { const H = gmHops(L); return H.length ? `<div class="pl-sub" style="margin-top:10px">${esc(pt("gmHopT"))}</div>${H.map((x) => `<div class="muted" dir="ltr" style="font-size:13px">${esc(x)}</div>`).join("")}` : ""; };
 const gmName = (b) => (b.kind === "fortress" ? "F" : "S") + b.n;   // Sherry 2026-11-25: "S2, F12 is enough"; distance in km, as the game shows it (1 tile = 1 km)
 /* March time (measured by Sherry 2026-11-25 on two accounts, March Speed bonus 25% and 10%; Project doc claude/march-time-2026-11-25.md):
    time = 5.07 s × km^0.854 ÷ (1 + bonus) — a curve, short marches take longer per km; bonuses add up. Six marches from 49 to 401 km (gathering out
@@ -568,15 +598,16 @@ const gmMarch = (km) => { const base = GM_K * Math.pow(km, GM_P), hi = Math.ceil
   return (lo < hi ? lo + "-" + hi : "~" + hi) + " min"; };
 const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
   .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km, march ${gmMarch(d)})` : ""}`; }).join("\n");
-const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))}</div>
+const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))} ${esc(pt("gmDay").replace("{d}", new Date(gmDay()).toISOString().slice(5, 10)))}</div>
   ${L.map((b) => `<label style="display:flex;gap:8px;align-items:center;margin-top:6px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span><input type="time" data-gm="${b.id}" value="${esc(GM_T[b.id] || "")}"></label>`).join("")}
   <pre id="km_gmOut" dir="ltr" style="white-space:pre-wrap;margin:8px 0 6px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;user-select:all">${esc(gmText(L))}</pre>
-  <button type="button" class="btn small" id="km_gmCp">${esc(pt("gmCopy"))}</button></div>`;
+  <button type="button" class="btn small" id="km_gmCp">${esc(pt("gmCopy"))}</button>
+  <div class="muted" id="km_gmRm" style="font-size:12px;margin-top:6px">${esc(gmRmText(L))}</div><div id="km_gmHop">${gmHopHtml(L)}</div></div>`;
 function gmWire(L) {
   if (!$("km_gm")) return;
   $("km_gm").querySelectorAll("[data-gm]").forEach((el) => el.oninput = () => { if (el.value) GM_T[el.dataset.gm] = el.value; else delete GM_T[el.dataset.gm];
-    try { localStorage.setItem("nxs-ruins-times", JSON.stringify(GM_T)); } catch (e) {}
-    $("km_gmOut").textContent = gmText(L); });
+    try { localStorage.setItem("nxs-ruins-times", JSON.stringify({ w: gmWeek(), t: GM_T })); } catch (e) {}
+    $("km_gmOut").textContent = gmText(L); $("km_gmHop").innerHTML = gmHopHtml(L); gmRemind(L); });
   $("km_gmCp").onclick = () => { try { navigator.clipboard.writeText(gmText(L)).then(() => { $("km_gmCp").textContent = T("copied"); setTimeout(() => { if ($("km_gmCp")) $("km_gmCp").textContent = pt("gmCopy"); }, 1500); }, () => {}); } catch (e) {} };
 }
 /* total % per type for a set of statuses — one count per (type, level) */

@@ -637,6 +637,20 @@ function renderTimed() {
   if ($("td_save")) $("td_save").onclick = async () => { if (!LIST) return; const ok = await saveList(LIST, "Timed reminders"); if (ok) { timedDirty = false; timedMsg = tt2("saved"); try { localStorage.setItem(TIMED_LS, JSON.stringify(TIMED)); } catch (e) {} } renderTimed(); };
   el.querySelectorAll("[data-tdel]").forEach((b) => b.onclick = () => { TIMED = TIMED.filter((t) => t.id !== b.dataset.tdel); timedDirty = true; timedMsg = ""; renderTimed(); exportAdmin(); });
 }
+/* 🏛️ another tab hands over a set of timed reminders (the Map tab: the battle times typed for its 🎯 Sanctuary / Fortress targets — Sherry 2026-11-25,
+   "once I type the time it should become a reminder by itself"). The set carries a source; it replaces the earlier set from that source and leaves
+   the reminders typed here alone. Saved at once, like 💾 Save. Returns "saved", "same" or "error". */
+OFFICER.timedFrom = async (src, items) => {
+  if (!OFFICER.can("events", "edit") || !LIST) return "error";
+  const now = Date.now(), mine = (items || []).filter((x) => x.at > now).map((x) => ({ id: "m-" + src + "-" + x.key, ev: x.ev, label: String(x.label || "").slice(0, 60), at: x.at, src }));
+  const sig = (a) => JSON.stringify(a.map((t) => [t.id, t.ev, t.label, t.at]).sort());
+  if (sig(TIMED.filter((t) => t.src === src && t.at > now)) === sig(mine)) return "same";
+  const before = TIMED; TIMED = [...TIMED.filter((t) => t.src !== src), ...mine];
+  const ok = await saveList(LIST, "Timed reminders (" + src + ")");
+  if (!ok) { TIMED = before; return "error"; }
+  try { localStorage.setItem(TIMED_LS, JSON.stringify(TIMED)); } catch (e) {}
+  renderTimed(); exportAdmin(); return "saved";
+};
 /* a link like #events?timed=sanctuary-battle@2026-10-16T13:00Z~S1%20S9 pre-fills timed reminders (not saved until Save is pressed) */
 function importTimed() {
   if (!OFFICER.can("events", "edit")) return;
