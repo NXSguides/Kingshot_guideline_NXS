@@ -1081,8 +1081,8 @@ Vielzahler: nur für Fan-Sterne und die Fantasy-Festung bis Etage 7 (andere Spie
 ### GUIDE #harvest-celebration — Erntefeier
 📅 ZEITPLAN
 Festmahlvorbereitungen und die Haupt-Events: 24.11. 00:00 – 30.11. 24:00 UTC.
-Pumpkin Smash: 25.11. 00:00 – 29.11. 24:00 UTC.
-Lucky Cabin: 25.11. 00:00 – 30.11. 24:00 UTC.
+Kürbis-Zerschmettern: 25.11. 00:00 – 29.11. 24:00 UTC.
+Glückshütte: 25.11. 00:00 – 30.11. 24:00 UTC.
 Allianz-Festmahl: 1.12. 00:00 – 24:00 UTC. Jede Allianz wählt ihre eigene Stunde.
 ⚠️ DAS WICHTIGSTE
 Du bist mit der Allianz verbunden, in der du beim Start des Events warst. Nur solange du dort bleibst, bringen deine Gerichte der Allianz Allianz-Festmahlpunkte.
@@ -1108,8 +1108,8 @@ Ernterally: Die Stufe steigt, wenn du Festmahlvorbereitungen spielst; jede Stufe
 Gönner im Überfluss: 7 Phasen mit Missionen, Phasenbelohnungen und einer Rangliste.
 Herbsthymne: ein Raster aus Missionen. Eine volle Reihe oder Spalte öffnet eine Truhe; alle Missionen zusammen geben den Hauptpreis.
 In Hülle und Fülle: Sammeln, Bestien jagen, Edelsteine ausgeben und Beschleuniger nutzen können einen Zutatenbeutel geben.
-Pumpkin Smash: auf die drehenden Kürbisse zielen und Pfeile schießen. Zerschlagene Kürbisse geben Abschlussbelohnungen, Herausforderungen geben zusätzliche.
-Lucky Cabin: Aufträge oder Pakete geben Wunschgutscheine. Wünsche geben Belohnungen und Meilenstein-Belohnungen, manchmal auch Glücksmarken für den Glücksladen.
+Kürbis-Zerschmettern: auf die drehenden Kürbisse zielen und Pfeile schießen. Zerschlagene Kürbisse geben Abschlussbelohnungen, Herausforderungen geben zusätzliche.
+Glückshütte: Aufträge oder Pakete geben Wunschgutscheine. Wünsche geben Belohnungen und Meilenstein-Belohnungen, manchmal auch Glücksmarken für den Glücksladen.
 Top-Up Bonus: Während des Events gesammelte Aufladepunkte schalten Meilenstein-Belohnungen frei.
 🛍️ WEITERE ITEMS & HINWEISE
 Während des Events werden zwei Pakete verkauft; das Deko-Paket gibt es vom 26.11. bis 30.11..
@@ -1576,6 +1576,15 @@ Alliance Feast = Allianz-Festmahl
 Lv.2 Custom Secured Resource Chest = Lv. 2 Benutzerdefinierte Gesicherte Ressourcenkiste
 Autumn Anthem = Herbsthymne
 Supplies of Plenty = In Hülle und Fülle
+Pumpkin Smash = Kürbis-Zerschmettern
+Lucky Cabin = Glückshütte
+Lucky Shop = Glücksladen
+Commissions = Aufträge
+Make a Wish = Wünsch dir was
+Wishes Made = Geäußerte Wünsche
+Skip Animation = Animation überspringen
+Challenge Missions = Herausforderungsmissionen
+How to Play = Spielanleitung
 Grand Feast Hall = Große Festhalle
 Plenty Pavilion = Überfluss-Pavillon
 Chow Corner = Futterecke
