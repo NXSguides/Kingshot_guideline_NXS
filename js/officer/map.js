@@ -203,8 +203,8 @@ function renderInfo() {
       <div class="km-prn">${Array.from({ length: max }, (_, i) => `<button type="button" data-p="${i + 1}" class="${sp.p === i + 1 ? "on" : ""}">${i + 1}</button>`).join("")}<button type="button" data-p="" class="${sp.p ? "" : "on"}">${esc(pt("prioNone"))}</button></div>
       <label class="km-prf">${esc(pt("rewards"))}<textarea id="sp_r" rows="2" maxlength="300" placeholder="${esc(pt("rewardsPh"))}">${esc(sp.r || "")}</textarea></label>
       <label class="km-prf">${esc(pt("note"))}<input id="sp_n" maxlength="120" placeholder="${esc(pt("notePh"))}" value="${esc(sp.n || "")}"></label>
-      ${st(b) === "target" ? `<label class="km-prf" id="sp_gmL">${esc(pt("gmHere").replace("{d}", new Date(gmDay()).toISOString().slice(5, 10)))}<input type="time" id="sp_gm" value="${esc(GM_T[b.id] || "")}" style="max-width:150px"></label>` : ""}</div>`);
-    if ($("sp_gm")) $("sp_gm").oninput = () => gmSet(b.id, $("sp_gm").value);   // same time as in 📋 the plan's 📣 card (Sherry 2026-11-26: she looked for it here, on the Sanctuary itself)
+      ${st(b) === "target" ? `<div class="km-prf" id="sp_gmL">${esc(pt("gmHere").replace("{d}", new Date(gmDay()).toISOString().slice(5, 10)))}${gmPick(b.id)}</div>` : ""}</div>`);
+    gmPickWire();   // same time as in 📋 the plan's 📣 card (Sherry 2026-11-26: she looked for it here, on the Sanctuary itself)
     $("km_info").querySelectorAll(".km-prn button").forEach((x) => x.onclick = () => { setSP(b, "p", x.dataset.p ? +x.dataset.p : ""); refreshPlan(); });
     const save = (id, k) => { const el = $(id); el.onchange = () => { setSP(b, k, el.value.trim()); drawPlan(); renderList(); renderPlan(); }; };
     save("sp_r", "r"); save("sp_n", "n");
@@ -560,11 +560,11 @@ const PT = { ko: {"tgLeft": "게임에서 쟁탈 가능 상태까지 남은 시�
         cyc: "循環：", cycNote: "設了計時，頁面會自己切換 保護 ⇄ 可爭奪。據點被打掉的話，請手動重新標示。" },
 };
 const pt = (k) => (PT[lang] || PT.en)[k];
-Object.assign(PT.en, {"gmHere": "📣 Battle time this phase ({d}, UTC)", "gmT": "📣 Text for the game chat (UTC)", "gmHow": "Type each target's battle time; the text below is ready to paste in the game.", "gmCopy": "Copy"});
-Object.assign(PT.zh, {"gmHere": "📣 這一期的爭奪時間（{d}，UTC）", "gmT": "📣 貼到遊戲裡的文字（UTC）", "gmHow": "輸入每個目標的爭奪時間，下面的文字可以直接複製貼到遊戲裡。", "gmCopy": "複製"});
-Object.assign(PT.pt, {"gmHere": "📣 Hora da batalha nesta fase ({d}, UTC)", "gmT": "📣 Texto para o chat do jogo (UTC)", "gmHow": "Digite a hora da batalha de cada alvo; o texto abaixo está pronto para colar no jogo.", "gmCopy": "Copiar"});
-Object.assign(PT.ar, {"gmHere": "📣 وقت المعركة في هذه المرحلة ({d}، UTC)", "gmT": "📣 نص لدردشة اللعبة (UTC)", "gmHow": "اكتب وقت المعركة لكل هدف؛ النص أدناه جاهز للصق في اللعبة.", "gmCopy": "نسخ"});
-Object.assign(PT.ko, {"gmHere": "📣 이번 회 쟁탈 시간 ({d}, UTC)", "gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목표마다 쟁탈 시간을 입력하면 아래 문구를 게임에 바로 붙여 넣을 수 있어요.", "gmCopy": "복사"});
+Object.assign(PT.en, {"gmIn": "in {t}", "gmPast": "passed", "gmOther": "Other", "gmHere": "📣 Battle time this phase ({d}, UTC)", "gmT": "📣 Text for the game chat (UTC)", "gmHow": "Pick each target's battle hour (the countdown next to it is what the game shows); the text below is ready to paste in the game.", "gmCopy": "Copy"});
+Object.assign(PT.zh, {"gmIn": "倒數 {t}", "gmPast": "已過", "gmOther": "其他", "gmHere": "📣 這一期的爭奪時間（{d}，UTC）", "gmT": "📣 貼到遊戲裡的文字（UTC）", "gmHow": "選每個目標的爭奪時間（旁邊的倒數就是遊戲裡顯示的），下面的文字可以直接複製貼到遊戲裡。", "gmCopy": "複製"});
+Object.assign(PT.pt, {"gmIn": "em {t}", "gmPast": "já passou", "gmOther": "Outra", "gmHere": "📣 Hora da batalha nesta fase ({d}, UTC)", "gmT": "📣 Texto para o chat do jogo (UTC)", "gmHow": "Escolha a hora da batalha de cada alvo (a contagem ao lado é a que o jogo mostra); o texto abaixo está pronto para colar no jogo.", "gmCopy": "Copiar"});
+Object.assign(PT.ar, {"gmIn": "بعد {t}", "gmPast": "انتهى", "gmOther": "آخر", "gmHere": "📣 وقت المعركة في هذه المرحلة ({d}، UTC)", "gmT": "📣 نص لدردشة اللعبة (UTC)", "gmHow": "اختر ساعة المعركة لكل هدف (العد التنازلي بجانبها هو ما تعرضه اللعبة)؛ النص أدناه جاهز للصق في اللعبة.", "gmCopy": "نسخ"});
+Object.assign(PT.ko, {"gmIn": "{t} 후", "gmPast": "지남", "gmOther": "기타", "gmHere": "📣 이번 회 쟁탈 시간 ({d}, UTC)", "gmT": "📣 게임 채팅용 문구 (UTC)", "gmHow": "목표마다 쟁탈 시간을 고르면(옆의 카운트다운이 게임에 나오는 값이에요) 아래 문구를 게임에 바로 붙여 넣을 수 있어요.", "gmCopy": "복사"});
 /* 📣 text for the game chat (Sherry 2026-11-25): "I tick this phase's targets, type the time, and get: the time, which Fortress, and in brackets how far
    it is from our HQ — all UTC, simple, to paste in the game." One line per 🎯 Sanctuary / Fortress target, always in English (the game translates),
    earliest first. The times are typed here only for this text: kept on this device, never saved in the plan. */
@@ -614,20 +614,29 @@ const gmMarch = (km) => { const base = GM_K * Math.pow(km, GM_P), hi = Math.ceil
 const gmText = (L) => L.map((b, i) => [GM_T[b.id] || "~", i, b]).sort((p, q) => (p[0] < q[0] ? -1 : p[0] > q[0] ? 1 : p[1] - q[1]))
   .map(([t, , b]) => { const d = hqDist(b); return `${t !== "~" ? t + " UTC " : ""}${gmName(b)}${d != null ? ` (${d} km, march ${gmMarch(d)})` : ""}`; }).join("\n");
 const gmHtml = (L) => !L.length ? "" : `<div id="km_gm" style="margin-top:10px"><div class="pl-sub">${esc(pt("gmT"))}</div><div class="muted" style="font-size:12px">${esc(pt("gmHow"))} ${esc(pt("gmDay").replace("{d}", new Date(gmDay()).toISOString().slice(5, 10)))}</div>
-  ${L.map((b) => `<label style="display:flex;gap:8px;align-items:center;margin-top:6px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span><input type="time" data-gm="${b.id}" value="${esc(GM_T[b.id] || "")}"></label>`).join("")}
+  ${L.map((b) => `<div style="margin-top:8px"><span>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))}</span>${gmPick(b.id)}</div>`).join("")}
   <pre id="km_gmOut" dir="ltr" style="white-space:pre-wrap;margin:8px 0 6px;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font:inherit;user-select:all">${esc(gmText(L))}</pre>
   <button type="button" class="btn small" id="km_gmCp">${esc(pt("gmCopy"))}</button>
   <div class="muted" id="km_gmRm" style="font-size:12px;margin-top:6px">${esc(gmRmText(L))}</div><div id="km_gmHop">${gmHopHtml(L)}</div></div>`;
 const gmPut = (id, v) => { if (v) GM_T[id] = v; else delete GM_T[id]; try { localStorage.setItem("nxs-ruins-times", JSON.stringify({ w: gmWeek(), t: GM_T })); } catch (e) {} };
 /* the time typed on the Sanctuary / Fortress itself (its own panel): same store, the 📣 card is redrawn and the reminders follow */
-function gmSet(id, v) { gmPut(id, v); const L = B.filter((x) => !isOp(x) && st(x) === "target"), el = $("km_gm") && $("km_gm").querySelector(`[data-gm="${id}"]`);
-  if (el) { el.value = v; $("km_gmOut").textContent = gmText(L); $("km_gmHop").innerHTML = gmHopHtml(L); }
+function gmSet(id, v) { gmPut(id, v); const L = B.filter((x) => !isOp(x) && st(x) === "target");
+  document.querySelectorAll(`[data-gmp="${id}"]`).forEach((el) => { el.outerHTML = gmPick(id); }); gmPickWire();
+  if ($("km_gmOut")) { $("km_gmOut").textContent = gmText(L); $("km_gmHop").innerHTML = gmHopHtml(L); }
   gmRemind(L); }
+/* The game offers fixed battle hours and shows only a countdown (Sherry 2026-11-26: "the five sign-up times are 3, 9, 13, 14, 17 … the game only
+   shows how long is left, so say that next to each hour"). One tap picks the hour; tapping it again clears it. The box is for any other time. */
+const GM_SLOTS = ["03:00", "09:00", "13:00", "14:00", "17:00"];
+const gmLeft = (hm) => { const ms = gmDay() + (+hm.slice(0, 2) * 60 + +hm.slice(3)) * 60000 - Date.now(); if (ms <= 0) return pt("gmPast");
+  const m = Math.floor(ms / 60000), d = Math.floor(m / 1440); return pt("gmIn").replace("{t}", (d ? d + pt("dd") + " " : "") + String(Math.floor(m % 1440 / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0")); };
+const gmPick = (id) => `<div data-gmp="${id}" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;align-items:center">${GM_SLOTS.map((x) => `<button type="button" data-s="${x}" style="border:1px solid ${GM_T[id] === x ? "#b8860b" : "var(--rule)"};background:${GM_T[id] === x ? "#ffd34d" : "var(--panel-2)"};color:${GM_T[id] === x ? "#3d2a00" : "var(--text)"};border-radius:8px;padding:5px 9px;font:inherit;font-size:13px;cursor:pointer"><b>${x}</b> <span data-hm="${x}" style="opacity:.75;font-size:12px">${esc(gmLeft(x))}</span></button>`).join("")}<label style="display:flex;gap:4px;align-items:center;font-size:12px" class="muted">${esc(pt("gmOther"))}<input type="time" data-gmo value="${esc(GM_T[id] && !GM_SLOTS.includes(GM_T[id]) ? GM_T[id] : "")}" style="max-width:120px"></label></div>`;
+function gmPickWire() { document.querySelectorAll("[data-gmp]").forEach((el) => { const id = el.dataset.gmp;
+  el.querySelectorAll("[data-s]").forEach((x) => x.onclick = () => gmSet(id, GM_T[id] === x.dataset.s ? "" : x.dataset.s));
+  const o = el.querySelector("[data-gmo]"); if (o) o.onchange = () => gmSet(id, o.value); }); }
+setInterval(() => document.querySelectorAll("[data-gmp] [data-hm]").forEach((x) => { x.textContent = gmLeft(x.dataset.hm); }), 30000);
 function gmWire(L) {
   if (!$("km_gm")) return;
-  $("km_gm").querySelectorAll("[data-gm]").forEach((el) => el.oninput = () => { gmPut(el.dataset.gm, el.value);
-    if ($("sp_gm") && SEL === el.dataset.gm) $("sp_gm").value = el.value;
-    $("km_gmOut").textContent = gmText(L); $("km_gmHop").innerHTML = gmHopHtml(L); gmRemind(L); });
+  gmPickWire();
   $("km_gmCp").onclick = () => { try { navigator.clipboard.writeText(gmText(L)).then(() => { $("km_gmCp").textContent = T("copied"); setTimeout(() => { if ($("km_gmCp")) $("km_gmCp").textContent = pt("gmCopy"); }, 1500); }, () => {}); } catch (e) {} };
 }
 /* total % per type for a set of statuses — one count per (type, level) */
