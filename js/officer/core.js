@@ -386,9 +386,9 @@ let loginMsg = "";
   history.replaceState(null, "", location.pathname + location.search + (m[3] ? "#" + decodeURIComponent(m[3]) : ""));
 })();
 const discordStart = () => AUTH_API + "/auth/discord/start?r=" + encodeURIComponent(location.origin + location.pathname + location.hash);
-async function discordMe(tok) {
+async function discordMe(tok, extra) {
   try {
-    const r = await fetch(AUTH_API + "/auth/me", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: tok }) });
+    const r = await fetch(AUTH_API + "/auth/me", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: tok, ...(extra || {}) }) });
     return await r.json();
   } catch (e) { return { error: "discord" }; }
 }
@@ -540,7 +540,8 @@ async function officerGate() {
     const r = await discordMe(dtok);
     if (r.ok) {
       try { localStorage.setItem(DISCORD_LS, r.token); } catch (e) {}
-      OFFICER.user = r.user;
+      OFFICER.user = r.user; OFFICER.msgRead = !!r.mr;   // 💌 Little Sparrow's personal message was already shown to this person (kept with the login, for every device)
+      OFFICER.msgSeen = () => { OFFICER.msgRead = true; let t = null; try { t = localStorage.getItem(DISCORD_LS); } catch (e) {} if (t) discordMe(t, { msgRead: true }); };
       try { localStorage.setItem("nxs-discord-user", JSON.stringify(r.user || {})); } catch (e) {}   // ⏰ the timer panel reads who this is (🛠️ reminders picked on the 👥 tab)
       const s = officerStore(); if (!s.author) { s.author = r.user.name; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
       if (r.role === "viewer") { if (r.dk) return okView(r.dk); loginMsg = "setup"; }

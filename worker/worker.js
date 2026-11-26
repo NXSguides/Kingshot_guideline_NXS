@@ -2354,12 +2354,16 @@ async function authRoute(req, env, path, ctx) {
       try { const seen = (await stub.kvGet("seen")) || {}; const now = Date.now(); if (!seen[s.u.id] || now - seen[s.u.id] > 3600000) { seen[s.u.id] = now; await stub.kvSet("seen", seen); } } catch (e) {}
       try { await stub.boardUser({ id: s.u.id, name: s.u.name, avatar: s.u.avatar || "" }, null); } catch (e) {}   // 🖼️ Discord picture (written only when it changes)
     }
+    /* 💌 Little Sparrow's personal message: "already shown" is kept here by Discord id, not only in the browser (the browser's own memory gets
+       cleared or is another device, and the message came back — a member, 2026-11-27). Only an id → 1 map; nothing of the message itself. */
+    let mr = false;
+    if (path === "/auth/me" && stub && role) { try { const R = (await stub.kvGet("msgread")) || {}; if (body.msgRead === true && !R[s.u.id]) { R[s.u.id] = 1; await stub.kvSet("msgread", R); } mr = !!R[s.u.id]; } catch (e) {} }
     if (path === "/auth/me") {
       if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: u }, 503);
       if (!role) return json({ error: "no_access", user: u }, 403);
       // 👁️ viewers never get the password (it also opens the GitHub key for saving): only the data key, to read
-      if (role === "viewer") { const dk = stub ? await stub.kvGet("dk") : null; return json({ ok: true, user: u, role, dk: dk && dk.k || null, token }); }
-      return json({ ok: true, user: u, role, pw: String(env.OFFICER_PASSWORD).trim(), token, needDk: !!stub && !(await stub.kvGet("dk")) });
+      if (role === "viewer") { const dk = stub ? await stub.kvGet("dk") : null; return json({ ok: true, user: u, role, dk: dk && dk.k || null, token, mr }); }
+      return json({ ok: true, user: u, role, pw: String(env.OFFICER_PASSWORD).trim(), token, mr, needDk: !!stub && !(await stub.kvGet("dk")) });
     }
     if (!stub) return json({ error: "push_not_set_up" }, 503);
     if (path === "/board") return boardRoute(env, ctx, stub, u, body, token, canEdit(perms, s.u.id, "board"), perms);

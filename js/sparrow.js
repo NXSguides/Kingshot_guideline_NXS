@@ -2988,7 +2988,10 @@
     await new Promise((r) => { const tick = setInterval(() => { if ((!gate || gate.hidden) && OFFICER.user) { clearInterval(tick); r(); } }, 500); });
     root.hidden = false; pos = perchPoint(); place(); faceIn(); state = "menu";   // (not "off": the resize re-perch and the watchdog only run for a live bird)
     const u = OFFICER.user, m = messageFor(u);
-    if (m && !isRead(m)) { await playMessage(m); return; }
+    // 💌 shown once per person, not once per browser: the login remembers it too (a browser that forgot, or another device, used to play it again)
+    if (m && OFFICER.msgRead && !isRead(m)) markRead(m);
+    if (m && isRead(m) && !OFFICER.msgRead && OFFICER.msgSeen) OFFICER.msgSeen();
+    if (m && !isRead(m)) { if (OFFICER.msgSeen) OFFICER.msgSeen(); await playMessage(m); return; }
     if (sessionStorage.getItem("nxs-sparrow-greeted")) { await play("idle", { squash: false }); return; }
     try { sessionStorage.setItem("nxs-sparrow-greeted", "1"); } catch (e) {}
     const c = play("hi"); say(esc(t("oGreet").replace("{name}", u.name || "")), { foot: false }); await c;
