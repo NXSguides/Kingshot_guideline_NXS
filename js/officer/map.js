@@ -648,6 +648,9 @@ function drawPlan() {
       : s === "conflict" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#f5a623" stroke-width="4" stroke-dasharray="2 3"/>`
       : s === "reach" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#5ac8fa" stroke-width="3.5"/>`
       : `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("")
+    // ⚔️ a 🎯 Target / 🔗 Can take Outpost that is Vulnerable right now (by its countdown): an orange outer ring and a ⚔ tag, so it stands out from the ones still Protected
+    + B.filter((b) => { const g2 = tgSw(b); return g2 && g2.v; }).map((b) => { const [X, Y] = P(b.x, b.y);
+      return `<g data-id="${b.id}" class="pl-mk" style="transform-origin:${X}px ${Y}px"><circle cx="${X}" cy="${Y}" r="23" fill="none" stroke="#ff6b4a" stroke-width="3"/><circle cx="${X + 17}" cy="${Y - 17}" r="10" fill="#ff6b4a" stroke="#3d1206" stroke-width="2"/><text x="${X + 17}" y="${Y - 12.5}" text-anchor="middle" font-size="12">⚔</text></g>`; }).join("")
     // ⭐ priority badge (gold circle with the number) at the top-right of a Sanctuary / Fortress
     + B.filter((b) => PRIOABLE(b) && SP(b).p).map((b) => { const [X, Y] = P(b.x, b.y), o = b.kind === "fortress" ? 20 : 15;
       const w = SP(b).p >= 10 ? 34 : 27, x0 = X + o + 3;   // gold "★n" tag to the right, clear of the name above
@@ -680,13 +683,16 @@ function opTimes(P, K) {
   const cy = { p: (P.cyc && P.cyc.p) || 72, v: (P.cyc && P.cyc.v) || 24 }, PP = cy.p * 36e5, V = cy.v * 36e5, L = PP + V, now = Date.now(), out = [];
   for (const [t, lv, x, y] of K.outposts) {
     const k = x + "," + y, end = P.t && P.t[k]; let r = P.o && P.o[k]; if (r === "conflict") r = "held";
+    /* 🎯 a hand-marked Target with a countdown is told too (Sherry 2026-11-26: "a special mark for targets that can be contested — and a reminder"):
+       its timer is "the holder's protection ends at…", so it runs like a ✅ Protected one and the item carries tg. */
+    const tg = r === "target"; if (tg) r = "held";
     if ((r !== "held" && r !== "vuln") || !end) continue;
     let st = r, nx = end;
     if (now >= end) { const e = now - end, base = end + Math.floor(e / L) * L, tt = e % L, first = r === "held" ? V : PP;
       if (tt < first) { st = r === "held" ? "vuln" : "held"; nx = base + first; } else nx = base + L; }
     const names = { en: ((K.types || []).find((a) => a[0] === t) || [])[1] || t };
     for (const l of Object.keys(K)) if (K[l] && K[l].types && K[l].types[t]) names[l] = K[l].types[t][0];
-    out.push({ id: `op-${x}-${y}`, at: st === "held" ? nx : nx + PP, t, lv, x, y, names });
+    out.push({ id: `op-${x}-${y}`, at: st === "held" ? nx : nx + PP, t, lv, x, y, names, ...(tg ? { tg: 1 } : {}) });
   }
   return out;
 }
