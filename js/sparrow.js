@@ -1823,6 +1823,7 @@
   async function greet() {
     busy = true; clearTarget(); sleepZ(false);
     await goHome(); const hi = play("hi");
+    if (ls.get("nxs-sparrow-toured")) { state = "menu"; busy = false; armIdle(); if (await hi) play("idle", { squash: false }); return; }   // tour already done here: just a wave, no question
     // 1️⃣ "Hi! Want a quick tour of this page?" → 👀 Yes = page tour · No thanks = the help menu below
     const ask = () => say(`<b>${esc(t("tourQ"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="ptour">${esc(t("tourYes"))}</button><button type="button" data-a="pno">${esc(t("tourNo"))}</button></div>`);
     ask(); redraw = ask;
@@ -1981,6 +1982,7 @@
       const g = (location.hash.match(/^#\/[\w-]+\/([\w-]+)/) || [])[1], home = !g || g === "recent-events";
       try { window.scrollTo({ top: 0 }); } catch (e) {} await wait(250);
       const r = await walk(home ? HOME_STEPS : GUIDE_STEPS, (st) => tt(st.k)); await end();
+      if (!r.stopped) ls.set("nxs-sparrow-toured", "1");   // finished once on this device → the greeting stops offering it (a member, 2026-11-27: "I have completed it, she still asks"); tapping the sparrow still does
       if (!r.stopped) helpMenu("tourDone");   // tour done → straight on to the menu: 🔎 Find a page · 🎓 How do I use… · 🤔 Neither
       return;
     }
@@ -2719,7 +2721,8 @@
   };   // the booking and squad guides are plain step-by-step pictures: nothing to explain, so no tour there
   async function runToolTour(only) {
     if (busy || !PAGE) return; busy = true; hush(); clearTarget(); tour = PAGE; ["point", "fly", "idle"].forEach(preload);
-    await walk(only || TOOL_STEPS[PAGE] || [], (st) => tl(st.k));
+    const r = await walk(only || TOOL_STEPS[PAGE] || [], (st) => tl(st.k));
+    if (!only && !(r && r.stopped)) ls.set("nxs-sparrow-tool-" + PAGE, "1");   // whole tour of this tool page finished once → not offered again by itself
     clearTarget(); tour = null; busy = false; await goHome(); hush();
   }
   if (IS_TOOL) setInterval(() => { if (root.hidden || !TOOL_STEPS[PAGE]) return; try { callButtonsFor(TOOL_STEPS[PAGE], (sub) => runToolTour(sub)); } catch (e) {} }, 1500);
@@ -2731,7 +2734,7 @@
     booted = true;
     if (ls.get(LS) === "off") { showToggle(true); return; }
     root.hidden = false; pos = perchPoint(); place(); faceIn(); await play("idle", { squash: false }); state = "menu";
-    if (TOOL_STEPS[PAGE] && !sessionStorage.getItem("nxs-sparrow-tool-" + PAGE)) { try { sessionStorage.setItem("nxs-sparrow-tool-" + PAGE, "1"); } catch (e) {} const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); }
+    if (TOOL_STEPS[PAGE] && !ls.get("nxs-sparrow-tool-" + PAGE) && !sessionStorage.getItem("nxs-sparrow-tool-" + PAGE)) { try { sessionStorage.setItem("nxs-sparrow-tool-" + PAGE, "1"); } catch (e) {} const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); }
   }
   bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=ttour], button[data-a=tno]"); if (!b) return; hush(); if (b.dataset.a === "ttour") runToolTour(); });
   /* 🤕 the All Out pop-up gag — its own little actor, separate from the regular sparrow: the pop-up is an extra, and the bird that
