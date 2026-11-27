@@ -1404,6 +1404,18 @@ const TERMS = [
    ["Sleep Quality", "睡眠品質", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Bar under Health Condition."],
    ["Comfort", "舒適值", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Bar under Happiness. Festivities gives +30."],
    ["Mood", "心情值", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Bar under Happiness. Urgent Mobilization and Productivity Day give -10 each, Festivities +50."],
+   ["Overview (resources panel)", "分配總覽", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Panel with the Schedule / Resource Production / Task List tabs. Same English word as the Status tab header. EN + ZH screens 2026-11-27."],
+   ["Schedule", "作息表", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab: the residents' day (sleep, rest, work, meals) in resident time."],
+   ["Resource Production", "資源生產", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab: output of each resource and how much is owned."],
+   ["Task List", "待辦事項", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab."],
+   ["Resources / Output / Owns", "資源 / 產量 / 擁有", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Column headers of the Resource Production tab."],
+   ["/harvest", "/次", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Output unit of bread and coins (per harvest); wood, stone and iron are per minute (/min, /分)."],
+   ["Furniture (tab)", "家具", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab of a city building: its workbenches and other furniture."],
+   ["Residents (tab)", "居民", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab of a city building."],
+   ["Time / Production", "時間 / 生產", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Furniture stats: seconds per round and amount per round."],
+   ["Workbench", "工作台", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Work furniture of the Sawmill and the Mill (6 per building)."],
+   ["Sorting Station", "分揀工作台", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Work furniture of the Quarry."],
+   ["Anvil", "鐵砧", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Work furniture of the Iron Mine."],
    ["Clinic", "診所", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City building in the Status tab list."],
    ["Kitchen (city)", "廚房", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City building in the Status tab list."]
   ]
