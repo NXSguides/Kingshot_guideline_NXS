@@ -1,0 +1,14 @@
+{
+ "alg": "RSA-OAEP-256",
+ "jwk": {
+  "alg": "RSA-OAEP-256",
+  "e": "AQAB",
+  "ext": true,
+  "key_ops": [
+   "encrypt"
+  ],
+  "kty": "RSA",
+  "n": "uPC31378sgrYz6SuDA-2_iOnpLcyLfLFgZP1g8WluAWm286OfDNZTK3pBI7SNBS81Fwmsu3JZXOaJpu-Mz-FXXtTifs7E-dQDAESWjduAkhmyeQOVyum2ELwg6krKQ9a7UJ5dxQUJVE1ReJjSRGXdq0BdsvdFofz-g53k_XQk8HbWzYlt1ItPOgLWdzgcsJpM3ELSrrBQl9ArHVmO4l7j3kNfcdManknJn2hQSAZFCOhan3eiFi8mWHEZLVTZu2wyvpKtVa5D6hDS3DX6YU6QUVtBi_VmaXNwaTouD5Tw14l_0ARY24djfS3XRfipVE_hSWi9d7RMloG1sMw4E02qw"
+ },
+ "at": "2026-11-27T08:56:10.512Z"
+}
