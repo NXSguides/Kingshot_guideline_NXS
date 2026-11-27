@@ -93,6 +93,7 @@ const FEATURES = [
   ["Battle losses report (🩹 research)", /🩹 BATTLE LOSSES report/, /ls: \[\{ s: "#ls_title", k: "ls01" \}\]/],
   ["Terror rallies report (🦣 research)", /🦣 TERROR RALLIES report/, /tb: \[\{ s: "#tb_title", k: "tb01" \}\]/],
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
+  ["Bear page: leaders only + automatic updates", /👑 LEADERS ONLY \+ 📬 AUTOMATIC UPDATES/, /\{ s: "#bp_root", k: "bp02" \}/],
   ["Bear analysis tab (🐻 measured, ex Bear plan)", /🐻 BEAR ANALYSIS tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}/],
   ["Bear analysis: leaders per trap, where marches score most, each player", /🚩 Where marches score most/, /🐻 Bear analysis: the officers' Bear reports/],
   ["Bear page: report chips (Scoring / Leaders / Sending troops / Joiners & heroes / Trend)", /one Bear page with 🐻 Bear Hunt report: chips at the top/, /The chips at the top switch between 👑 Leaders/],

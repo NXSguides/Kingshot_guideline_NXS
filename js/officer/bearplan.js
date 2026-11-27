@@ -82,6 +82,7 @@ function luckHtml() {
     <ul class="bp-ul" style="margin-top:10px">${L.n.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`;
 }
 const NONE_F = { en: "No Bear Hunt data for nxs yet.", zh: "還沒有 nxs 的狩獵巨熊資料。", pt: "Ainda não há dados da Caça ao Urso da nxs.", ar: "لا توجد بيانات صيد الدببة لـ nxs بعد.", ko: "아직 nxs의 자이언트 베어 사냥 데이터가 없어요." };
+const LEADERS_ONLY = true;
 function analysisHtml() {
   const r0 = RV, num = (v) => (v == null ? "—" : (+v).toFixed(0));
   /* 🏰 leader cards and growth tables belong to one alliance (Sherry 2026-11-17): side "f" = nxs only · "s" = the trap both alliances share (NXS's
@@ -113,9 +114,13 @@ function analysisHtml() {
     <tbody>${r.detail.rows.map((x) => `<tr>${x.map((v, i) => `<td${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${i === 0 ? `<bdi>${esc(v)}</bdi>` : esc(dtr(v, lang))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     ${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</details>` : "",
   };
+  const data = r.data ? `<div class="muted" style="font-size:12.5px;margin:2px 0 8px">${esc(LL(r.data.txt))}</div>` : "";
+  /* 👑 leaders only (Sherry 2026-11-27: "should the Bear page be only about how strong the leaders are? that is our point … so much
+     unneeded information"). What we saw / suggestions, the roster, where marches score, each player, hero sets, totals per hunt and the
+     full table are no longer drawn; their data stays in the file. Same for both alliances. */
+  if (LEADERS_ONLY) return r.leaders.length ? (W === "f" ? "" : data) + B.leaders() : `<div class="card muted">${esc(W === "f" ? (NONE_F[lang] || NONE_F.en) : t("none"))}</div>`;
   // nxs: only its own cards (the rest of the page — what we saw, suggestions, the detail table — was worked out from NXS's rallies)
   if (W === "f") return (r.leaders.length ? B.leaders() : "") + B.growth() || `<div class="card muted">${esc((NONE_F[lang] || NONE_F.en))}</div>`;
-  const data = r.data ? `<div class="muted" style="font-size:12.5px;margin:2px 0 8px">${esc(LL(r.data.txt))}</div>` : "";
   if (Array.isArray(r.reports) && r.reports.length) {   // 🐻 one Bear page, several short reports: 🔎 what we saw → 💡 suggestions → the numbers behind it (Sherry 2026-11-11)
     const cur = ((location.hash || "").match(/[?&]r=(\w+)/) || [])[1], rep = r.reports.find((x) => x.id === cur) || r.reports[0];
     const li = (arr) => (arr || []).map((x) => `<li>${esc(x)}</li>`).join("");
@@ -157,7 +162,7 @@ function reviewHtml() {
   ${D ? `<h3 class="bp-sec">${esc(rt("planH"))}</h3>` : ""}`;
 }
 const T = {
-  en: { title: "🐻 Bear analysis", intro: "",
+  en: { title: "🐻 Bear analysis", intro: "", boxOn: "📬 Automatic updates are on: the analysis chat sends new numbers by itself, nothing to paste.", boxOff: "📬 Automatic updates are off: every update has to be pasted here.", boxBtn: "🔑 Turn on (once)", boxOk: "✅ Automatic updates are on. From now on new numbers arrive by themselves.",
     s1k: "Rallies open at once", s1s: "follows turnout: about {cap} marches per rally", s2k: "Strongest rallies filled", s2s: "always; only the last rally changes with turnout",
     s3k: "Estimated damage per wave", s3s: "usual turnout ({n} marches), same people and troops",
     tlh: "One wave, side by side", tlp: "Each bar is one rally's 5-minute gather; the number is how full it was. Now: open times are rebuilt from screenshot countdowns (±10 s). Proposed: switch turnout to see what changes.",
@@ -187,7 +192,7 @@ const T = {
     foot: "Data: {src}", none: "No data yet. An admin adds it once with 📥 Update data below.", locked: "🔒 Log in first.", loading: "⏳ Loading…", loadErr: "⚠️ The latest Bear Hunt report did not load.", retry: "Try again",
     impT: "📥 Update data (admins)", impNote: "Paste a plan JSON or a hunt review JSON (from the analysis chat) — the page tells them apart. It is encrypted in this browser and saved for officers only.", impSave: "Encrypt & save",
     impOk: "✅ Saved — everyone with this tab sees it in a minute.", impBad: "⚠️ That isn't the plan JSON (needs now, order and rows).", impErr: "⚠️ Not saved: ", noTok: "⚠️ Saving needs the officer GitHub key (admin login)." },
-  zh: { title: "🐻 熊獵實測", intro: "",
+  zh: { title: "🐻 熊獵實測", intro: "", boxOn: "📬 自動更新已開啟：分析聊天會自己把新數字送進來，不用再貼上。", boxOff: "📬 自動更新還沒開：每次更新都要貼在這裡。", boxBtn: "🔑 開啟（只要一次）", boxOk: "✅ 自動更新已開啟。之後新的數字會自己進來。",
     s1k: "同時開的團數", s1s: "跟著人數走：大約每 {cap} 支部隊一團", s2k: "最強的團填滿率", s2s: "一定滿；只有最後一團隨人數變",
     s3k: "每波傷害估計", s3s: "一般人數（{n} 支部隊），同樣的人和兵",
     tlh: "同一波，前後對照", tlp: "每條是一團 5 分鐘的集結時間，數字是填滿率。現況的開團時間是從截圖倒數推回來的（±10 秒）。建議版可以切換人數看看差別。",
@@ -217,7 +222,7 @@ const T = {
     foot: "資料：{src}", none: "還沒有資料。管理員在下面的 📥 更新資料 加一次就好。", locked: "🔒 請先登入。", loading: "⏳ 讀取中…", loadErr: "⚠️ 最新的熊獵報告沒有讀到。", retry: "再試一次",
     impT: "📥 更新資料（管理員）", impNote: "貼上排團草稿或熊獵復盤的 JSON（分析聊天給的）——頁面會自己分辨。會在這個瀏覽器加密，只有幹部看得到。", impSave: "加密並儲存",
     impOk: "✅ 已儲存——有這個分頁的人大約一分鐘後就看得到。", impBad: "⚠️ 這不是規劃的 JSON（需要 now、order、rows）。", impErr: "⚠️ 沒有存到：", noTok: "⚠️ 儲存需要幹部的 GitHub 金鑰（管理員登入）。" },
-  pt: { title: "🐻 Análise do Urso", intro: "",
+  pt: { title: "🐻 Análise do Urso", intro: "", boxOn: "📬 Atualizações automáticas ativadas: o chat de análise envia os novos números sozinho, sem colar nada.", boxOff: "📬 Atualizações automáticas desativadas: cada atualização precisa ser colada aqui.", boxBtn: "🔑 Ativar (uma vez)", boxOk: "✅ Atualizações automáticas ativadas. A partir de agora os novos números chegam sozinhos.",
     s1k: "Rallies abertos ao mesmo tempo", s1s: "segue o número de pessoas: cerca de {cap} marchas por rally", s2k: "Rallies mais fortes cheios", s2s: "sempre; só o último rally muda com o número de pessoas",
     s3k: "Dano estimado por onda", s3s: "número normal de pessoas ({n} marchas), mesmas pessoas e tropas",
     tlh: "Uma onda, lado a lado", tlp: "Cada barra é a reunião de 5 minutos de um rally; o número mostra o quanto ficou cheio. Agora: os horários de abertura vêm das contagens regressivas nas capturas de tela (±10 s). Proposta: troque o número de pessoas para ver o que muda.",
@@ -247,7 +252,7 @@ const T = {
     foot: "Dados: {src}", none: "Ainda sem dados. Um admin adiciona uma vez com 📥 Atualizar dados abaixo.", locked: "🔒 Faça login primeiro.", loading: "⏳ Carregando…", loadErr: "⚠️ O relatório mais recente da Caça ao Urso não carregou.", retry: "Tentar de novo",
     impT: "📥 Atualizar dados (admins)", impNote: "Cole um JSON de plano ou um JSON de revisão de caçada (do chat de análise) — a página reconhece qual é. Ele é criptografado neste navegador e salvo só para oficiais.", impSave: "Criptografar e salvar",
     impOk: "✅ Salvo — todos com esta aba veem em um minuto.", impBad: "⚠️ Isso não é o JSON do plano (precisa de now, order e rows).", impErr: "⚠️ Não salvo: ", noTok: "⚠️ Para salvar, precisa da chave do GitHub dos oficiais (login de admin)." },
-  ar: { title: "🐻 تحليل الدب", intro: "",
+  ar: { title: "🐻 تحليل الدب", intro: "", boxOn: "📬 التحديث التلقائي مفعّل: محادثة التحليل ترسل الأرقام الجديدة بنفسها، دون لصق أي شيء.", boxOff: "📬 التحديث التلقائي غير مفعّل: يجب لصق كل تحديث هنا.", boxBtn: "🔑 تفعيل (مرة واحدة)", boxOk: "✅ تم تفعيل التحديث التلقائي. من الآن تصل الأرقام الجديدة بنفسها.",
     s1k: "الحشود المفتوحة معًا", s1s: "حسب عدد الحضور: نحو {cap} زحفًا لكل حشد", s2k: "امتلاء أقوى الحشود", s2s: "دائمًا؛ فقط الحشد الأخير يتغيّر مع عدد الحضور",
     s3k: "الضرر المقدّر لكل موجة", s3s: "حضور عادي ({n} زحفًا)، نفس الأشخاص والقوات",
     tlh: "موجة واحدة، جنبًا إلى جنب", tlp: "كل شريط هو تجمّع حشد واحد لمدة 5 دقائق؛ الرقم يبيّن نسبة امتلائه. الآن: أوقات الفتح مأخوذة من العدّ التنازلي في لقطات الشاشة (±10 s). المقترح: غيّر عدد الحضور لترى ما يتغيّر.",
@@ -277,7 +282,7 @@ const T = {
     foot: "البيانات: {src}", none: "لا توجد بيانات بعد. يضيفها مشرف مرة واحدة عبر 📥 تحديث البيانات في الأسفل.", locked: "🔒 سجّل الدخول أولًا.", loading: "⏳ جارٍ التحميل…", loadErr: "⚠️ لم يُحمَّل أحدث تقرير لصيد الدب.", retry: "حاول مجددًا",
     impT: "📥 تحديث البيانات (المشرفون)", impNote: "الصق JSON الخطة أو JSON مراجعة الصيد (من محادثة التحليل) — الصفحة تميّز بينهما. يُشفَّر في هذا المتصفح ويُحفظ للضباط فقط.", impSave: "تشفير وحفظ",
     impOk: "✅ تم الحفظ — كل من لديه هذا التبويب يراه خلال دقيقة.", impBad: "⚠️ هذا ليس JSON الخطة (يحتاج now وorder وrows).", impErr: "⚠️ لم يُحفظ: ", noTok: "⚠️ الحفظ يحتاج مفتاح GitHub الخاص بالضباط (دخول المشرف)." },
-  ko: { title: "🐻 곰 분석", intro: "",
+  ko: { title: "🐻 곰 분석", intro: "", boxOn: "📬 자동 업데이트가 켜져 있어요: 분석 채팅이 새 수치를 직접 보내서 붙여 넣을 필요가 없어요.", boxOff: "📬 자동 업데이트가 꺼져 있어요: 업데이트할 때마다 여기에 붙여 넣어야 해요.", boxBtn: "🔑 켜기 (한 번만)", boxOk: "✅ 자동 업데이트를 켰어요. 이제 새 수치가 알아서 들어와요.",
     s1k: "동시에 여는 집결 수", s1s: "참여 인원에 따라: 집결 1개당 약 {cap}개 부대", s2k: "가장 강한 집결 채움률", s2s: "항상 가득; 마지막 집결만 인원에 따라 바뀝니다",
     s3k: "웨이브당 예상 피해", s3s: "보통 인원 ({n}개 부대), 같은 사람과 병력",
     tlh: "같은 웨이브, 비교", tlp: "막대 하나 = 집결 하나의 5분 집결 시간, 숫자 = 채움률. 현재: 여는 시간은 스크린샷 카운트다운으로 다시 계산했습니다 (±10 s). 제안: 인원을 바꿔서 무엇이 달라지는지 보세요.",
@@ -359,7 +364,8 @@ function importBox() {
   if (!(OFFICER.isAdmin && OFFICER.isAdmin())) return "";
   return `<details class="card bp-imp"${D ? "" : " open"}><summary><b>${esc(t("impT"))}</b></summary><div class="muted" style="font-size:12.5px;margin:6px 0">${esc(t("impNote"))}</div>
     <textarea id="bp_json" rows="6" style="width:100%;box-sizing:border-box;font:12px ui-monospace,monospace"></textarea>
-    <div class="row" style="margin-top:6px;gap:8px;align-items:center"><button class="btn primary" id="bp_save">${esc(t("impSave"))}</button><span class="msg" id="bp_msg">${esc(msg)}</span></div></details>`;
+    <div class="row" style="margin-top:6px;gap:8px;align-items:center"><button class="btn primary" id="bp_save">${esc(t("impSave"))}</button><span class="msg" id="bp_msg">${esc(msg)}</span></div>
+    <div class="muted" style="font-size:12.5px;margin-top:10px;border-top:1px solid var(--rule);padding-top:8px">${BOX.pub ? esc(t("boxOn")) + (BOX.at ? " · " + esc(BOX.at.slice(0, 16).replace("T", " ")) + " UTC" : "") : `${esc(t("boxOff"))} <button class="btn small" id="bp_box" style="margin-left:6px">${esc(t("boxBtn"))}</button>`}</div></details>`;
 }
 function render() {
   const root = $("bp_root"); if (!root) return;
@@ -432,9 +438,50 @@ function applyPatch(base, ops) {
   if (tx.length) { let j = JSON.stringify(d); for (const o of tx) for (const [a, b] of o.pairs) if (a) j = j.split(JSON.stringify(a).slice(1, -1)).join(JSON.stringify(b).slice(1, -1)); return JSON.parse(j); }
   return d;
 }
+/* 📬 Updates without pasting (Sherry 2026-11-27: "can't it be you who updates? you have all the data"). The data file is sealed with the
+   officer data key, which the analysis chat does not have — so it uses a one-way mailbox instead:
+     · 🔑 once, an admin's browser makes a key pair: the public half goes to data/bear-inbox-pub.json (public, can only lock),
+       the private half is sealed with the officer data key into data/bear-inbox-key-x7k2p9.json (officers only).
+     · the chat locks an update with the public half (scripts/bear-box.js) and commits data/bear-inbox-x7k2p9.json.
+     · this page opens it with the private half and lays it over the saved report: { patch: [...] } (same ops as 📥) or a whole { review: 1, … }.
+   Names never reach the repo unencrypted; nobody has to paste or press save. */
+const BOX_PUB = "data/bear-inbox-pub.json", BOX_KEY = "data/bear-inbox-key-x7k2p9.json", BOX_IN = "data/bear-inbox-x7k2p9.json";
+const b64u = (b) => Uint8Array.from(atob(b), (c) => c.charCodeAt(0));
+let BOX = { pub: false, at: "" };
+async function boxRead() {
+  const plain = async (u) => { try { const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" }); return r.ok ? await r.json() : null; } catch (e) { return null; } };
+  BOX.pub = !!(await plain(BOX_PUB));
+  if (!BOX.pub || !RV) return;
+  const env = await plain(BOX_IN); if (!env || !env.box) return;
+  try {
+    const kf = await OfficerData.fetchJson(BOX_KEY); if (!kf || !kf.priv) return;
+    const priv = await crypto.subtle.importKey("jwk", kf.priv, { name: "RSA-OAEP", hash: "SHA-256" }, false, ["decrypt"]);
+    const raw = await crypto.subtle.decrypt({ name: "RSA-OAEP" }, priv, b64u(env.k));
+    const aes = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
+    let pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64u(env.iv) }, aes, b64u(env.data));
+    if (env.gz) pt = await new Response(new Blob([pt]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+    const d = JSON.parse(new TextDecoder().decode(pt));
+    if (d && d.review && (Array.isArray(d.rows) || d.analysis)) RV = d; else if (d && Array.isArray(d.patch)) RV = applyPatch(RV, d.patch);
+    BOX.at = env.at || "";
+  } catch (e) {}
+}
+async function boxSetup(m) {
+  if (!OFFICER.token) { m.textContent = t("noTok"); return; }
+  m.textContent = "⏳";
+  try {
+    const kp = await crypto.subtle.generateKey({ name: "RSA-OAEP", modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: "SHA-256" }, true, ["encrypt", "decrypt"]);
+    const pub = await crypto.subtle.exportKey("jwk", kp.publicKey), priv = await crypto.subtle.exportKey("jwk", kp.privateKey);
+    const put = async (P, obj, message) => { let sha; try { const f = await OFFICER.gh("GET", P, null, OFFICER.token); sha = f ? f.sha : undefined; } catch (e) {}
+      await OFFICER.gh("PUT", P, { message, content: u8b64(JSON.stringify(obj, null, 1) + "\n"), sha, branch: "main" }, OFFICER.token); };
+    await put(BOX_KEY, await OfficerData.seal({ priv, at: new Date().toISOString() }), "🐻 Bear inbox key (encrypted)");   // the private half first: a public half without it would lock updates nobody can open
+    await put(BOX_PUB, { alg: "RSA-OAEP-256", jwk: pub, at: new Date().toISOString() }, "🐻 Bear inbox public key");
+    BOX.pub = true; msg = t("boxOk"); render();
+  } catch (e) { m.textContent = t("impErr") + (e && e.message || e); }
+}
 const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 function bind() {
   document.querySelectorAll("[data-bpn]").forEach((b) => b.onclick = () => { N = +b.dataset.bpn; render(); });
+  const bx = $("bp_box"); if (bx) bx.onclick = () => boxSetup($("bp_msg"));
   const sv = $("bp_save"); if (!sv) return;
   sv.onclick = async () => {
     const m = $("bp_msg"); let d = null;
@@ -461,6 +508,7 @@ async function load() {
     try { const r = await OfficerData.fetchJson(RPATH); if (r && r.review && (Array.isArray(r.rows) || r.analysis)) RV = r; ok = true; }
     catch (e) { await new Promise((z) => setTimeout(z, 1500)); }
   }
+  if (ok) await boxRead();
   ST = ok ? "ok" : "err"; render();
 }
 async function init() {
