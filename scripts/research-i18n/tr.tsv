@@ -301,3 +301,18 @@
 341	Hangi kahramanları gönderdiğin, kaç tane, ya da garnizon kaptanı olman.
 343	10. ve 20. dalgalar şehirlere değil, sadece İttifak Karargahına saldırır. Öldürmeler aynı şekilde, piyade × kademe oranında paylaşılır ve puanlar öldürmeleri izler.
 344	NXS'in kendi savaş raporlarından çıkarıldı. Oyunun resmi açıklaması değildir; oyun güncellemesinden sonra değişebilir.
+345	📄 4. Nesil — dışarıdan bir rehber ne diyor
+346	NXS dışında yazılmış bir rehberden; kendi savaş raporlarımızdan değil. Her maddede bizim rakamlarımızla nasıl karşılaştığı işaretli.
+347	✅ rakamlarımızla uyuşuyor
+348	❓ biz test etmedik
+349	↔️ rakamlarımız farklı
+350	Alcar ve Margot ile garnizonlar 60 : 40 : 0 düzenine geçiyor (piyade : süvari : okçu). Rehberin gerekçesi: süvari okçuları hızlı öldürür, daha fazla piyade de ön hattı daha uzun tutar.
+351	Saldıranlar 50 : 0 : 50 ile karşılık veriyor: çok sayıda okçu, piyade ağırlıklı bir savunmayı 50 : 20 : 30'dan daha hızlı deler.
+352	Hesaplar üç türe ayrılıyor: üç birlik türü birden, savunma (piyade + süvari) veya saldırı (piyade + okçu). İki birlik türü daha ucuza gelir ve aynı harcamada uzman kendi alanında kazanır. Risk: işe yarayan düzen ileride değişebilir.
+353	Alcar: rehbere göre garnizon yönetenler için şart. Bizim karşılaştırmamızda garnizon ve PvP seferberlik önderliğinde en iyi piyade o.
+354	Ayı'ya karşı Alcar: rehber, Amadeus'u olmayanlara Zoe yerine onu öneriyor. Bizim karşılaştırmamızda orada Zoe ondan önde.
+355	Margot: garnizonlar için. Petra'yı geliştirmiş olup savunma yapmayanlar onu atlayabilir — bizim «{H2H}» bölümümüzle aynı. Saldırı +%25'i onu katılan olarak da işe yarar yapıyor.
+356	Rosa: Ayı ve saldırı seferberlikleri için güçlü bir önder, ama Marlin'in yerini alması için aşağı yukarı onunla aynı yıldız ve Alet gerekir. Bizim karşılaştırmamızda en üst seviyede Marlin'den önde.
+357	Garnizonun üçüncü kahramanı olarak Saul (Alcar ve Margot ile): okçu olmayınca yalnızca yetenekleri sayılır, yani 5 yıldız gerekmez. Bizim karşılaştırmamız garnizonda okçu olduğunu varsayıyor, bu durumu kapsamıyor.
+358	Ücretsiz oynayanlar için katılanlar: seferberliklerde Chenko / Yeonwoo (Öldürücülük +%25) veya Amane (Saldırı +%25); garnizonlarda Gordon (Sağlık +%25) ve Saul (Savunma +%10, Sağlık +%15). Bizim «{SU}» bölümümüzle aynı.
+359	Alcar'ın fazlası = piyade hasarı +%100 ve +%60'ın üst üste binmesi — henüz doğrulanmadı.

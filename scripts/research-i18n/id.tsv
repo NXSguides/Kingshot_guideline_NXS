@@ -301,3 +301,18 @@
 341	Hero mana yang kamu kirim, berapa banyak, atau menjadi kapten garnisun.
 343	Gelombang 10 dan 20 hanya menyerang markas aliansi, bukan kota. Pembunuhan dibagi dengan cara yang sama, menurut infanteri × tier, dan poin mengikuti pembunuhan.
 344	Disusun dari laporan pertempuran NXS sendiri. Bukan penjelasan resmi dari game; bisa berubah setelah pembaruan game.
+345	📄 Generasi 4 — kata panduan dari luar
+346	Dari panduan yang ditulis di luar NXS, bukan dari laporan pertempuran kita. Tiap poin ditandai bagaimana perbandingannya dengan angka kita sendiri.
+347	✅ cocok dengan angka kita
+348	❓ belum kita uji
+349	↔️ angka kita berbeda
+350	Dengan {alcar} dan {margot}, garnisun beralih ke 60 : 40 : 0 (infanteri : kavaleri : pemanah). Alasan panduan itu: kavaleri cepat menghabisi pemanah, dan infanteri yang lebih banyak menahan garis depan lebih lama.
+351	Penyerang membalas dengan 50 : 0 : 50: banyak pemanah menembus pertahanan yang berat di infanteri lebih cepat daripada 50 : 20 : 30.
+352	Akun terbagi jadi tiga jenis: ketiga jenis pasukan, bertahan (infanteri + kavaleri), atau menyerang (infanteri + pemanah). Dua jenis pasukan lebih murah, dan dengan biaya yang sama spesialis menang di bidangnya. Risikonya: cara yang berhasil bisa berubah nanti.
+353	{alcar}: menurut panduan itu wajib bagi yang memimpin garnisun. Di perbandingan kita, dia infanteri terbaik untuk memimpin garnisun dan reli PvP.
+354	{alcar} melawan Bear: panduan itu menyarankannya sebagai pengganti {zoe} bagi yang tidak punya {amadeus}. Di perbandingan kita, {zoe} lebih unggul di sana.
+355	{margot}: untuk garnisun. Yang sudah membangun {petra} dan tidak bertahan boleh melewatinya — sama seperti bagian “{H2H}” kita. Attack +25% miliknya juga membuatnya bagus sebagai peserta.
+356	{rosa}: pemimpin yang kuat untuk Bear dan reli serangan, tapi butuh bintang dan Widget kira-kira setara {marlin} sebelum bisa menggantikannya. Di perbandingan kita, dia lebih unggul dari {marlin} saat maksimal.
+357	{saul} sebagai hero ketiga garnisun bersama {alcar} dan {margot}: tanpa pemanah hanya skill-nya yang dihitung, jadi tidak perlu bintang 5. Perbandingan kita mengandaikan ada pemanah di garnisun, jadi tidak mencakup kasus ini.
+358	Peserta untuk pemain gratis: {chenko} / {yeonwoo} (Lethality +25%) atau {amane} (Attack +25%) untuk reli; {gordon} (Health +25%) dan {saul} (Defense +10%, Health +15%) untuk garnisun. Sama seperti bagian “{SU}” kita.
+359	Kelebihan {alcar} = damage infanteri +100% dan +60% yang bertumpuk — belum dipastikan.

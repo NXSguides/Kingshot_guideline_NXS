@@ -301,3 +301,18 @@
 341	Quels héros tu envoies, combien, ou le fait d'être capitaine de garnison.
 343	Les vagues 10 et 20 n'attaquent que le QG d'Alliance, pas les villes. Les éliminations sont partagées de la même façon, selon infanterie × rang, et les points suivent les éliminations.
 344	Établi à partir des propres rapports de combat de NXS. Ce n'est pas une description officielle du jeu ; cela peut changer après une mise à jour.
+345	📄 Génération 4 — ce que dit un guide extérieur
+346	Tiré d'un guide écrit en dehors de NXS, pas de nos rapports de bataille. Chaque point indique comment il se compare à nos propres chiffres.
+347	✅ correspond à nos chiffres
+348	❓ pas testé par nous
+349	↔️ nos chiffres diffèrent
+350	Avec {alcar} et {margot}, les garnisons passent en 60 : 40 : 0 (infanterie : cavalerie : archers). Raison donnée par le guide : la cavalerie tue vite les archers, et plus d'infanterie tient la ligne de front plus longtemps.
+351	Les attaquants répondent avec 50 : 0 : 50 : beaucoup d'archers percent une défense chargée en infanterie plus vite que 50 : 20 : 30.
+352	Les comptes se répartissent en trois types : les trois types de troupes, défense (infanterie + cavalerie) ou attaque (infanterie + archers). Deux types de troupes coûtent moins cher, et à dépense égale le spécialiste gagne dans son domaine. Le risque : ce qui marche peut changer plus tard.
+353	{alcar} : le guide le dit indispensable pour ceux qui dirigent une garnison. Dans notre comparaison, c'est la meilleure infanterie pour diriger une garnison et un ralliement PvP.
+354	{alcar} contre l'Ours : le guide le propose à la place de {zoe} pour les joueurs sans {amadeus}. Dans notre comparaison, {zoe} est devant lui à cet endroit.
+355	{margot} : pour les garnisons. Ceux qui ont monté {petra} et ne défendent pas peuvent s'en passer — comme dans notre « {H2H} ». Son Attaque +25% en fait aussi une participante.
+356	{rosa} : forte comme capitaine pour l'Ours et les ralliements d'attaque, mais il lui faut à peu près autant d'étoiles et de Composant que {marlin} avant de le remplacer. Dans notre comparaison, elle est devant {marlin} au maximum.
+357	{saul} comme troisième héros de garnison avec {alcar} et {margot} : sans archers, seules ses compétences comptent, il n'a donc pas besoin de 5 étoiles. Notre comparaison suppose des archers dans la garnison et ne couvre pas ce cas.
+358	Participants pour les joueurs gratuits : {chenko} / {yeonwoo} (Létalité +25%) ou {amane} (Attaque +25%) pour les ralliements ; {gordon} (Santé +25%) et {saul} (Défense +10%, Santé +15%) pour les garnisons. Comme dans notre « {SU} ».
+359	Le plus de {alcar} = dégâts d'infanterie +100% et +60% cumulés — pas encore confirmé.

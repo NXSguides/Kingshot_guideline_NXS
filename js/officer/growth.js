@@ -210,7 +210,7 @@ const CMP = {
 for (const [l, o] of Object.entries(CMP)) Object.assign(T[l], o);
 let cmpS = (() => { try { return JSON.parse(localStorage.getItem("nxs-gr-cmp")) || null; } catch (e) { return null; } })() || { t: "cav", a: "petra", b: "hilde", wa: 10, wb: 10 };
 function cmpHtml(L) {
-  const ids = Object.keys(HC_H).filter((id) => HC_H[id].t === cmpS.t);
+  const ids = Object.keys(HC_H).filter((id) => HC_H[id].t === cmpS.t && hrIn(id));
   if (!ids.includes(cmpS.a)) cmpS.a = ids[0]; if (!ids.includes(cmpS.b)) cmpS.b = ids.find((x) => x !== cmpS.a);   // the same hero twice is allowed: compares two Widget levels
   const sel = (k) => `<select class="inp" id="gr_c${k}">${ids.map((id) => `<option value="${id}"${id === cmpS[k] ? " selected" : ""}>${esc(hname(id))} (S${HC_H[id].g})</option>`).join("")}</select>`;
   const wl = (k) => `<label class="gr-cwl">${esc(L.hvWl)} <input class="inp" type="number" min="0" max="10" id="gr_cw${k}" value="${cmpS["w" + k]}"></label>`;
@@ -230,16 +230,53 @@ function cmpWire() {
   for (const k of ["a", "b"]) { $("gr_c" + k).onchange = (e) => { cmpS[k] = e.target.value; redo(); };
     $("gr_cw" + k).onchange = (e) => { cmpS["w" + k] = Math.max(0, Math.min(10, parseInt(e.target.value, 10) || 0)); redo(); }; }
 }
+/* 🦸 Heroes shows Gen 1–HR_MAXGEN only (Sherry 2026-11-28: "先放到第四代就好"). The Gen 5 data stays in this file and 🧭 Growth still shows it;
+   set HR_MAXGEN to 5 to bring Long Fei / Thrud / Vivian back here (the 📄 Generation 4 card then goes away). */
+const HR_MAXGEN = 4;
+const hrIn = (id) => !(HC_H[id] ? HC_H[id].g > HR_MAXGEN : GENS[id] > HR_MAXGEN);
+const hrGens = (s) => String(s).replace("1–5", "1–" + HR_MAXGEN);
+/* ranking without the hidden heroes: worked out again with the same model (hcScore gives exactly the RANK numbers when all 16 are in) */
+function hrRank(role, slot) {
+  if (HR_MAXGEN >= 5) return RANK[role][slot];
+  const l = RANK[role][slot].map(([id]) => id).filter(hrIn).map((id) => [id, hcScore(id, role, 10)]), top = Math.max(...l.map((x) => x[1]));
+  return l.map(([id, v]) => [id, Math.round((1 - v / top) * 100)]).sort((a, b) => a[1] - b[1]);
+}
+const hrUp = (a, b, role) => `${hname(a)} → ${hname(b)} +${Math.round((hcScore(b, role, 10) / hcScore(a, role, 10) - 1) * 100)}%`;
+/* 📄 Generation 4 — what an outside guide says (Sherry 2026-11-28; Project doc claude/gen4-outside-guide-2026-11-28.md). NOT our data: every point
+   carries a mark — ok = matches our numbers, un = not tested by us, no = our numbers differ. {id} = hero name, {H2H} / {SU} = the titles of those cards. */
+const G4_ROWS = ["un", "un", "un", "ok", "no", "ok", "ok", "un", "ok"];
+const G4 = {
+ "en": { "g4T": "📄 Generation 4 — what an outside guide says", "g4Note": "From a guide written outside NXS — not from our battle reports. Each point shows how it compares with our own numbers.", "g4K": { "ok": "✅ matches our numbers", "un": "❓ not tested by us", "no": "↔️ our numbers differ" }, "g4": [ "With {alcar} and {margot}, garrisons move to 60 : 40 : 0 (infantry : cavalry : archers). The guide's reason: cavalry kills archers fast, and more infantry holds the front longer.", "Attackers answer with 50 : 0 : 50: many archers cut through an infantry-heavy defense faster than 50 : 20 : 30 does.", "Accounts split into three kinds: all three troop types, defense (infantry + cavalry) or attack (infantry + archers). Two troop types cost less to build, and at equal spending the specialist wins in their own field. The risk: what works may change later.", "{alcar}: the guide calls him a must for garrison leaders. In our comparison he is the best infantry for both garrison and PvP rally lead.", "{alcar} against the Bear: the guide suggests him instead of {zoe} for players without {amadeus}. In our comparison {zoe} is ahead of him there.", "{margot}: for garrisons. Players who built {petra} and do not defend can skip her — the same as our head to head. Her Attack +25% also makes her a joiner.", "{rosa}: a strong lead for the Bear and for attack rallies, but she needs about the same stars and Widget as {marlin} before she replaces him. In our comparison she is ahead of {marlin} at max.", "{saul} as the third garrison hero next to {alcar} and {margot}: with no archers only his skills count, so he does not need 5 stars. Our comparison assumes archers are in the garrison, so it does not cover this.", "Free-to-play joiners: {chenko} / {yeonwoo} (Lethality +25%) or {amane} (Attack +25%) for rallies; {gordon} (Health +25%) and {saul} (Defense +10%, Health +15%) for garrisons. The same as our {SU}." ], "h2hWhy4": "{alcar}'s extra = infantry damage +100% and +60% stacking — not confirmed yet." },
+ "zh": { "g4T": "📄 第 4 代的變化：外部攻略的說法", "g4Note": "整理自 NXS 以外的一份攻略，不是我們的戰報。每一點都標出跟我們自己的數字比起來如何。", "g4K": { "ok": "✅ 跟我們的數字一致", "un": "❓ 我們還沒驗證", "no": "↔️ 跟我們的數字不同" }, "g4": [ "有了{alcar}和{margot}之後，駐防改用 60 : 40 : 0（步兵 : 騎兵 : 弓兵）。攻略的理由：騎兵打弓兵很快，步兵多則前排撐得久。", "進攻方改用 50 : 0 : 50 來應對：大量弓兵打步兵多的防守，比 50 : 20 : 30 快。", "帳號分成三種：三種兵都練、防守（步兵＋騎兵）、進攻（步兵＋弓兵）。只練兩種兵比較省，花費相同時，專精的在自己的領域會贏。風險是以後有效的打法可能改變。", "{alcar}：攻略說駐防帶頭的人必練。在我們的比較裡，他是駐防帶頭和 PvP 集結隊長最強的步兵。", "{alcar}打狩獵巨熊：攻略建議沒有{amadeus}的人用他取代{zoe}。在我們的比較裡，這個位置{zoe}比他強。", "{margot}：駐防用。已經練了{petra}又不守城的人可以跳過，跟我們的一對一比較一致。她的攻擊力 +25% 也能當加入者。", "{rosa}：狩獵巨熊和進攻集結的強力隊長，但星級和零件要練到跟{marlin}差不多才能取代他。在我們的比較裡，滿級時她比{marlin}強。", "{saul}當駐防的第三位英雄（搭配{alcar}和{margot}）：沒有弓兵時只看他的技能，所以不用五星。我們的比較假設駐防裡有弓兵，沒有涵蓋這個情況。", "免費玩家的加入者：集結用{chenko}／{yeonwoo}（殺傷力 +25%）或{amane}（攻擊力 +25%）；駐防用{gordon}（生命值 +25%）和{saul}（防禦力 +10%、生命值 +15%）。跟我們的「{SU}」一致。" ], "h2hWhy4": "{alcar}多出來的來自步兵傷害 +100% 和 +60% 相乘——還沒確認。" },
+ "pt": { "g4T": "📄 Geração 4 — o que diz um guia de fora", "g4Note": "De um guia escrito fora da NXS, não dos nossos relatórios de batalha. Cada ponto mostra como ele se compara com os nossos números.", "g4K": { "ok": "✅ bate com os nossos números", "un": "❓ ainda não testamos", "no": "↔️ os nossos números são diferentes" }, "g4": [ "Com {alcar} e {margot}, as guarnições passam para 60 : 40 : 0 (infantaria : cavalaria : arqueiros). O motivo do guia: a cavalaria mata arqueiros rápido e mais infantaria segura a frente por mais tempo.", "Quem ataca responde com 50 : 0 : 50: muitos arqueiros atravessam uma defesa cheia de infantaria mais rápido do que 50 : 20 : 30.", "As contas se dividem em três tipos: os três tipos de tropa, defesa (infantaria + cavalaria) ou ataque (infantaria + arqueiros). Dois tipos de tropa custam menos, e com o mesmo gasto o especialista vence na própria área. O risco: o que funciona pode mudar depois.", "{alcar}: o guia diz que é obrigatório para quem lidera guarnição. Na nossa comparação ele é a melhor infantaria para líder de guarnição e de rally PvP.", "{alcar} contra o Urso: o guia sugere usá-lo no lugar de {zoe} para quem não tem {amadeus}. Na nossa comparação {zoe} fica à frente dele ali.", "{margot}: para guarnições. Quem já evoluiu {petra} e não defende pode pular — igual ao nosso frente a frente. O Ataque +25% dela também serve para participar.", "{rosa}: líder forte para o Urso e para rallies de ataque, mas precisa de estrelas e Ferramenta parecidas com as de {marlin} para substituí-lo. Na nossa comparação ela fica à frente de {marlin} no máximo.", "{saul} como terceiro herói da guarnição, com {alcar} e {margot}: sem arqueiros só contam as habilidades dele, então não precisa de 5 estrelas. A nossa comparação supõe arqueiros na guarnição, por isso não cobre esse caso.", "Participantes para quem joga de graça: {chenko} / {yeonwoo} (Letalidade +25%) ou {amane} (Ataque +25%) em rallies; {gordon} (Vida +25%) e {saul} (Defesa +10%, Vida +15%) em guarnições. Igual ao nosso {SU}." ], "h2hWhy4": "O extra de {alcar} = dano de infantaria +100% e +60% acumulando — ainda não confirmado." },
+ "ar": { "g4T": "📄 الجيل 4 — ما يقوله دليل خارجي", "g4Note": "من دليل كُتب خارج NXS، وليس من تقارير معاركنا. كل نقطة تبيّن مقارنتها بأرقامنا.", "g4K": { "ok": "✅ يطابق أرقامنا", "un": "❓ لم نختبره بعد", "no": "↔️ أرقامنا مختلفة" }, "g4": [ "مع {alcar} و{margot} تتحول الحاميات إلى 60 : 40 : 0 (مشاة : فرسان : رماة). سبب الدليل: الفرسان يقضون على الرماة بسرعة، وزيادة المشاة تجعل الصف الأمامي يصمد أطول.", "المهاجمون يردّون بـ 50 : 0 : 50: كثرة الرماة تخترق دفاعًا مليئًا بالمشاة أسرع من 50 : 20 : 30.", "تنقسم الحسابات إلى ثلاثة أنواع: الأنواع الثلاثة من القوات، أو الدفاع (مشاة + فرسان)، أو الهجوم (مشاة + رماة). نوعان من القوات أقل تكلفة، وعند الإنفاق نفسه يفوز المتخصص في مجاله. الخطر: ما ينجح الآن قد يتغير لاحقًا.", "{alcar}: يقول الدليل إنه ضروري لمن يقود الحامية. في مقارنتنا هو أفضل مشاة لقيادة الحامية ولقيادة حشد PvP.", "{alcar} ضد الدب: يقترح الدليل استخدامه بدل {zoe} لمن لا يملك {amadeus}. في مقارنتنا {zoe} تتقدم عليه هناك.", "{margot}: للحاميات. من طوّر {petra} ولا يدافع يمكنه تخطيها — كما في قسم «{H2H}» عندنا. هجومها +25% يجعلها منضمة جيدة أيضًا.", "{rosa}: قائدة قوية للدب ولحشود الهجوم، لكنها تحتاج نجومًا وأجزاء قريبة من {marlin} قبل أن تحل محله. في مقارنتنا تتقدم على {marlin} عند الحد الأقصى.", "{saul} كبطل ثالث في الحامية مع {alcar} و{margot}: بدون رماة تُحسب مهاراته فقط، فلا يحتاج 5 نجوم. مقارنتنا تفترض وجود رماة في الحامية، فلا تشمل هذه الحالة.", "منضمون للاعبين المجانيين: {chenko} / {yeonwoo} (فتك +25%) أو {amane} (هجوم +25%) للحشود؛ {gordon} (صحة +25%) و{saul} (دفاع +10%، صحة +15%) للحاميات. كما في قسم «{SU}» عندنا." ], "h2hWhy4": "زيادة {alcar} = ضرر المشاة +100% و+60% متراكمين — لم يتأكد بعد." },
+ "ko": { "g4T": "📄 4세대의 변화 — 외부 공략의 설명", "g4Note": "NXS 밖에서 쓴 공략을 정리한 것이고, 우리 전투 보고서가 아니에요. 항목마다 우리 수치와 비교한 결과를 표시했어요.", "g4K": { "ok": "✅ 우리 수치와 같음", "un": "❓ 우리가 아직 확인 못 함", "no": "↔️ 우리 수치와 다름" }, "g4": [ "알카와 마르고가 나오면 방어는 60 : 40 : 0 (보병 : 기병 : 궁병)으로 바뀌어요. 공략의 이유: 기병이 궁병을 빨리 잡고, 보병이 많으면 전열이 더 오래 버텨요.", "공격 쪽은 50 : 0 : 50으로 대응해요. 궁병이 많으면 보병 위주 방어를 50 : 20 : 30보다 빨리 뚫어요.", "계정은 세 가지로 나뉘어요: 세 병종 모두, 방어 (보병 + 기병), 공격 (보병 + 궁병). 두 병종만 키우면 비용이 덜 들고, 같은 비용이면 전문 계정이 자기 분야에서 이겨요. 위험: 나중에 통하는 방식이 바뀔 수 있어요.", "알카: 공략은 방어 대장에게 필수라고 해요. 우리 비교에서도 방어 대장과 PvP 집결 대장 보병 중 1위예요.", "곰 사냥의 알카: 공략은 아마데우스가 없으면 조이 대신 쓰라고 해요. 우리 비교에서는 이 자리에서 조이가 더 앞서요.", "마르고: 방어용. 리틀 페라를 키웠고 방어를 안 하면 건너뛰어도 돼요 — 우리 「{H2H}」와 같아요. 공격력 +25% 덕분에 참여자로도 쓸 수 있어요.", "로사: 곰 사냥과 공격 집결의 강한 대장이지만, 마린과 비슷한 성급과 부속품이 되어야 대체할 수 있어요. 우리 비교에서는 최대 기준으로 마린보다 앞서요.", "방어의 세 번째 영웅 살로 (알카, 마르고와 함께): 궁병이 없으면 스킬만 적용되니 5성이 필요 없어요. 우리 비교는 방어에 궁병이 있다고 가정해서 이 경우는 다루지 않아요.", "무과금 참여자: 집결은 첸코 / 연우 (파괴력 +25%) 또는 아마네 (공격력 +25%), 방어는 고든 (HP +25%)과 살로 (방어력 +10%, HP +15%). 우리 「{SU}」와 같아요." ], "h2hWhy4": "알카의 추가분 = 보병 피해 +100%와 +60%가 곱해지는 것 — 아직 확인 안 됨." }
+};
+for (const [l, o] of Object.entries(G4)) Object.assign(T[l], o);
+function g4Html(L) {
+  if (HR_MAXGEN !== 4 || !L.g4) return "";
+  const nm = (x) => String(x).replace(/\{(\w+)\}/g, (m, id) => id === "H2H" ? L.h2hT : id === "SU" ? L.suT.split(/[—–:：]/)[0].trim() : hname(id)), ic = { ok: "✅", un: "❓", no: "↔️" };
+  return `<div class="card" id="hr_g4"><h3>${esc(L.g4T)}</h3><div class="muted" style="font-size:12.5px">${esc(L.g4Note)}</div>
+    <div class="gr-tags" style="margin:6px 0">${["ok", "un", "no"].map((k) => `<span>${esc(L.g4K[k])}</span>`).join("")}</div>
+    <ul class="gr-ul">${G4_ROWS.map((k, i) => `<li dir="auto">${ic[k]} ${esc(nm(L.g4[i]))}</li>`).join("")}</ul></div>`;
+}
 function hcHtml(L) {
   const GEN = { amadeus: 1, helga: 1, jabel: 1, saul: 1, zoe: 2, hilde: 2, marlin: 2, eric: 3, petra: 3, jaeger: 3, alcar: 4, margot: 4, rosa: 4, longfei: 5, thrud: 5, vivian: 5 };
   /* the generation badge like the game's hero screen ("S4") */
   const pic = (id) => `<span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"><b class="gr-gen"><i>S</i>${GEN[id] || ""}</b></span>`;
-  const slot = (role, s) => `<div class="gr-slot"><div class="gr-slab">${esc(L.hcS[s])}</div><div class="gr-heroes">${RANK[role][s].map(([id, d]) =>
+  const slot = (role, s) => `<div class="gr-slot"><div class="gr-slab">${esc(L.hcS[s])}</div><div class="gr-heroes">${hrRank(role, s).map(([id, d]) =>
     `<div class="gr-hero${d ? "" : " top"}">${pic(id)}<b dir="auto">${esc(hname(id))}</b><span class="gr-gap">${d ? "−" + d + "%" : "👑 " + esc(L.best)}</span></div>`).join("")}</div></div>`;
-  return `<div class="card gr-hc"><h3>${esc(L.hcT)}</h3>
+  /* head to head without the hidden heroes: numbers from the model, the two sentences that named a Gen 5 hero are cut */
+  const nm = (x) => String(x).replace(/\{(\w+)\}/g, (m, id) => hname(id)), gap = (id, role, slot) => (hrRank(role, slot).find((x) => x[0] === id) || [0, 0])[1];
+  const h2h = H2H.map((ids, i) => { const it = L.h2h.items[i]; if (HR_MAXGEN >= 5) return [ids, it];
+    if (i === 1) return [["eric", "alcar"], { rows: [["gar", hrUp("eric", "alcar", "gar")], ["pvp", it.rows[1][1]], ["bear", `👑 ${hname("amadeus")} · ${hname("alcar")} −${gap("alcar", "bear", "inf")}% · ${hname("eric")} −${gap("eric", "bear", "inf")}%`], ["why", nm(L.h2hWhy4 || "")]], v: it.v.replace(/[>＞][^>＞]+(?=[>＞])/, "") }];
+    if (i === 2) return [ids, { rows: it.rows.map(([k, v]) => [k, v.replace(new RegExp(hname("vivian").replace(/[.*+?^$()|[\]\\]/g, "\\$&") + "\\s*[/／]\\s*"), "")]), v: it.v }];
+    if (i === 3) return [["marlin", "rosa"], { rows: ["bear", "pvp", "gar"].map((r) => [r, hrUp("marlin", "rosa", r)]), v: `${hname("rosa")} > ${hname("marlin")}` }];
+    return [ids, it]; });
+  return `<div class="card gr-hc"><h3>${esc(hrGens(L.hcT))}</h3>
     ${["pvp", "gar", "bear"].map((r) => `<h4 class="gr-h4">${esc(L.hcR[r])}</h4>${["inf", "cav", "arc"].map((s) => slot(r, s)).join("")}`).join("")}
     <h4 class="gr-h4">${esc(L.h2hT)}</h4>
-    ${H2H.map((ids, i) => { const it = L.h2h.items[i], lab = (k) => k === "why" ? L.h2h.why : L.hcR[k];
+    ${h2h.map(([ids, it]) => { const lab = (k) => k === "why" ? L.h2h.why : L.hcR[k];
       return `<div class="gr-vs"><div class="gr-vsp">${ids.map((id) => `<span>${pic(id)}<i dir="auto">${esc(hname(id))}</i></span>`).join('<em>vs</em>')}</div>
       <div class="gr-vsr">${it.rows.map(([k, v]) => `<div class="${k === "why" ? "why" : ""}"><b>${esc(lab(k))}</b><span dir="auto">${esc(v)}</span></div>`).join("")}</div>
       <div class="gr-vsv">✅ ${esc(L.h2h.verdict)}${lang === "zh" ? "：" : ": "}${esc(it.v)}</div></div>`; }).join("")}</div>`;
@@ -360,7 +397,7 @@ function suHtml(L) {
   const tag = (parts) => parts.map(([k, v]) => k === "extra" ? L.suS.extra : `${L.suS[k]} ${v > 0 ? "+" : "−"}${Math.abs(v)}%`).join(" · ");
   const c = (id, parts, warn) => `<span class="gr-chip gr-su"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span><b dir="auto">${esc(hname(id))}</b>${parts && parts.length ? `<small dir="auto">${esc(tag(parts))}${warn ? " ⚠️" : ""}</small>` : ""}</span>`;
   return `<div class="card" id="gr_su"><h3>${esc(L.suT)}</h3>
-    ${SU_ROWS.map(([k, fixed, chance]) => `<div class="gr-sub"><h4 class="gr-h4">${esc(L.suR[k])}</h4>${chance.length ? `<div class="gr-sul">${esc(L.suH[1])}</div>` : ""}<div class="gr-chips">${fixed.map(([id, p, w]) => c(id, p, w)).join("")}</div>${chance.length ? `<div class="gr-sul">${esc(L.suH[2])}</div><div class="gr-chips">${chance.map((id) => c(id)).join("")}</div>` : ""}</div>`).join("")}
+    ${SU_ROWS.map(([k, fixed, chance]) => `<div class="gr-sub"><h4 class="gr-h4">${esc(L.suR[k])}</h4>${chance.length ? `<div class="gr-sul">${esc(L.suH[1])}</div>` : ""}<div class="gr-chips">${fixed.filter(([id]) => hrIn(id)).map(([id, p, w]) => c(id, p, w)).join("")}</div>${chance.length ? `<div class="gr-sul">${esc(L.suH[2])}</div><div class="gr-chips">${chance.filter(hrIn).map((id) => c(id)).join("")}</div>` : ""}</div>`).join("")}
     ${ul(L.suRules)}
     <h4 class="gr-h4">${esc(L.spT)}</h4>
     <div class="gr-sp">${SU_SPECIAL.map((id) => `<div class="gr-spr"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span><div><b dir="auto">${esc(hname(id))}</b><div dir="auto">${esc(L.sp[id])}</div></div></div>`).join("")}</div>
@@ -466,7 +503,7 @@ const HRT = {
   pt: { title: "🦸 Heróis", intro: "Quão forte é cada herói e o que fazer com os outros: Gen 1–5, pelos nossos relatórios e simulações. Para escolher uma direção: 🧭 Crescimento.", link: "🦸 Comparação de heróis, comparar dois, participantes → Heróis" },
   ar: { title: "🦸 الأبطال", intro: "ما مدى قوة كل بطل وماذا تفعل بالآخرين: الأجيال 1–5، من تقارير معاركنا والمحاكاة. لاختيار الاتجاه: 🧭 التطوير.", link: "🦸 مقارنة الأبطال، مقارنة بطلين، المنضمون ← الأبطال" },
   ko: { title: "🦸 영웅", intro: "영웅별 강함과 나머지 영웅의 활용: 1–5세대, 우리 전투 보고서와 시뮬레이션 기준. 육성 방향은 🧭 육성에서.", link: "🦸 영웅 비교, 두 영웅 비교, 참여자 → 영웅" } };
-if (window.RESEARCH_MERGE) { window.RESEARCH_MERGE("hr", { T, HRT, HC, CMP, SU, HN }); for (const tb of [HC, CMP, SU]) for (const [l, o] of Object.entries(tb)) Object.assign(T[l], o); }   // public research pages only: 7 more languages from data/research-i18n.js (HC / CMP / SU live inside T, as above)
+if (window.RESEARCH_MERGE) { window.RESEARCH_MERGE("hr", { T, HRT, HC, CMP, SU, HN, G4 }); for (const tb of [HC, CMP, SU, G4]) for (const [l, o] of Object.entries(tb)) Object.assign(T[l], o); }   // public research pages only: 7 more languages from data/research-i18n.js (HC / CMP / SU live inside T, as above)
 const HR = () => HRT[lang] || HRT.en;
 function renderHr() {
   const L = t(), root = $("hr_root"); if (!root) return;
@@ -480,6 +517,7 @@ function renderHr() {
       <div class="gr-tw"><table class="gr-cmp gr-gj"><thead><tr>${L.gjH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${GJ.map(([c, d]) => `<tr><td><div class="gr-chips">${c.map(([id, n]) => chip([id, "", ""]).replace('<span class="gr-pic">', `<span class="gr-pic">${n > 1 ? `<b class="gr-n">×${n}</b>` : ""}`)).join("")}</div></td><td class="gr-gjv">${d ? `−${d}%` : `✅ ${esc(L.gjBest)}`}</td></tr>`).join("")}</tbody></table></div></div>
     ${suHtml(L)}
+    ${g4Html(L)}
     ${OFFICER.vidCard("hr", lang)}
     <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>`;
   cmpWire();

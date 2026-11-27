@@ -301,3 +301,18 @@
 341	Qué héroes envías, cuántos, o ser el capitán de la guarnición.
 343	Las oleadas 10 y 20 solo atacan el Cuartel general de la Alianza, no las ciudades. Los asesinatos se reparten igual, por infantería × rango, y los puntos siguen a los asesinatos.
 344	Elaborado a partir de los propios informes de batalla de NXS. No es una descripción oficial del juego; puede cambiar tras una actualización.
+345	📄 Generación 4: lo que dice una guía externa
+346	De una guía escrita fuera de NXS, no de nuestros informes de batalla. Cada punto indica cómo queda frente a nuestros propios números.
+347	✅ coincide con nuestros números
+348	❓ no lo hemos probado
+349	↔️ nuestros números difieren
+350	Con {alcar} y {margot}, las guarniciones pasan a 60 : 40 : 0 (infantería : caballería : arqueros). El motivo de la guía: la caballería mata rápido a los arqueros y más infantería aguanta el frente más tiempo.
+351	Los atacantes responden con 50 : 0 : 50: muchos arqueros atraviesan una defensa cargada de infantería más rápido que 50 : 20 : 30.
+352	Las cuentas se dividen en tres tipos: los tres tipos de tropa, defensa (infantería + caballería) o ataque (infantería + arqueros). Dos tipos de tropa cuestan menos, y con el mismo gasto el especialista gana en su terreno. El riesgo: lo que funciona puede cambiar más adelante.
+353	{alcar}: la guía lo considera imprescindible para quien lidera una guarnición. En nuestra comparación es la mejor infantería para liderar guarnición y Ataque Conjunto PvP.
+354	{alcar} contra el Oso: la guía lo propone en lugar de {zoe} para quien no tiene a {amadeus}. En nuestra comparación {zoe} queda por delante de él ahí.
+355	{margot}: para guarniciones. Quien ya subió a {petra} y no defiende puede saltársela, igual que en nuestro «{H2H}». Su Ataque +25% también la hace buena para unirse.
+356	{rosa}: fuerte como líder para el Oso y para Ataques Conjuntos de ataque, pero necesita más o menos las mismas estrellas y Complemento que {marlin} antes de sustituirlo. En nuestra comparación queda por delante de {marlin} al máximo.
+357	{saul} como tercer héroe de la guarnición junto a {alcar} y {margot}: sin arqueros solo cuentan sus habilidades, así que no necesita 5 estrellas. Nuestra comparación supone arqueros en la guarnición y no cubre este caso.
+358	Para unirse jugando gratis: {chenko} / {yeonwoo} (Letalidad +25%) o {amane} (Ataque +25%) en Ataques Conjuntos; {gordon} (Salud +25%) y {saul} (Defensa +10%, Salud +15%) en guarniciones. Igual que en nuestro «{SU}».
+359	El extra de {alcar} = daño de infantería +100% y +60% acumulados; aún sin confirmar.

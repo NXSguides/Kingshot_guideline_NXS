@@ -343,3 +343,18 @@
 342	ours
 343	Waves 10 and 20 only attack the Alliance HQ, not the cities. Kills are split the same way, by infantry × tier, and points follow kills.
 344	Worked out from NXS's own battle reports. Not an official description of the game; it may change after a game update.
+345	📄 Generation 4 — what an outside guide says
+346	From a guide written outside NXS — not from our battle reports. Each point shows how it compares with our own numbers.
+347	✅ matches our numbers
+348	❓ not tested by us
+349	↔️ our numbers differ
+350	With {alcar} and {margot}, garrisons move to 60 : 40 : 0 (infantry : cavalry : archers). The guide's reason: cavalry kills archers fast, and more infantry holds the front longer.
+351	Attackers answer with 50 : 0 : 50: many archers cut through an infantry-heavy defense faster than 50 : 20 : 30 does.
+352	Accounts split into three kinds: all three troop types, defense (infantry + cavalry) or attack (infantry + archers). Two troop types cost less to build, and at equal spending the specialist wins in their own field. The risk: what works may change later.
+353	{alcar}: the guide calls him a must for garrison leaders. In our comparison he is the best infantry for both garrison and PvP rally lead.
+354	{alcar} against the Bear: the guide suggests him instead of {zoe} for players without {amadeus}. In our comparison {zoe} is ahead of him there.
+355	{margot}: for garrisons. Players who built {petra} and do not defend can skip her — the same as our head to head. Her Attack +25% also makes her a joiner.
+356	{rosa}: a strong lead for the Bear and for attack rallies, but she needs about the same stars and Widget as {marlin} before she replaces him. In our comparison she is ahead of {marlin} at max.
+357	{saul} as the third garrison hero next to {alcar} and {margot}: with no archers only his skills count, so he does not need 5 stars. Our comparison assumes archers are in the garrison, so it does not cover this.
+358	Free-to-play joiners: {chenko} / {yeonwoo} (Lethality +25%) or {amane} (Attack +25%) for rallies; {gordon} (Health +25%) and {saul} (Defense +10%, Health +15%) for garrisons. The same as our {SU}.
+359	{alcar}'s extra = infantry damage +100% and +60% stacking — not confirmed yet.
