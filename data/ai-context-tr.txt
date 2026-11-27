@@ -603,7 +603,6 @@ Rakipler çok güçlüyse gereksiz PvP'den kaçın, Bakır toplamaya ve Cesares 
 
 ### GUIDE #f2p-heroes — F2P Kahraman Rehberi
 Mitik Parçalar ve seferberliğe özel donanımlar sınırlıdır. Her kahramanı geliştirmeye çalışma — kaynaklarını uzun vadede güçlü değer sağlayan kahramanlara yoğunlaştır.
-Aşağıdaki bazı kahramanlar ya ekran görüntüsüyle resmi olarak doğrulanmadı ya da henüz yayınlanmadı — bunlar doğrulanana kadar İngilizce kalacak.
 GEN 1
 Jabel
 Çiftçilikle elde edilebilen Mitik kahraman; ana öncelik.

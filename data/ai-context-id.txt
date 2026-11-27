@@ -603,7 +603,6 @@ Jika kalah kuat, hindari PvP yang tidak perlu dan fokus kumpulkan Tembaga dan ka
 
 ### GUIDE #f2p-heroes — Panduan Hero F2P
 Serpihan Mitos dan perlengkapan eksklusif reli jumlahnya terbatas. Jangan coba kembangkan semua hero — fokuskan sumber dayamu pada hero dengan nilai jangka panjang yang kuat.
-Beberapa hero di bawah ini belum dikonfirmasi resmi lewat screenshot, atau belum dirilis — nama-nama itu tetap dalam bahasa Inggris sampai terverifikasi.
 GEN 1
 Jabel
 Hero Mitos yang bisa di-farm; prioritas utama.

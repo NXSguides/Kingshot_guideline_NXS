@@ -603,7 +603,6 @@ Si tu es dépassé, évite les PvP inutiles et concentre-toi sur le cuivre et le
 
 ### GUIDE #f2p-heroes — Guide des héros F2P
 Les Éclats mythiques et les équipements exclusifs de ralliement sont limités. N'essayez pas de développer tous les héros — concentrez vos ressources sur ceux qui ont une valeur forte et durable.
-Quelques héros ci-dessous n'ont pas encore été confirmés officiellement par capture d'écran, ou ne sont pas encore sortis — ils restent en anglais jusqu'à vérification.
 GEN 1
 Jabel
 Héros mythique farmable ; priorité principale.
@@ -623,7 +622,7 @@ Alcar OU Margot: Facultatif. Les deux sont solides en Arène/Expédition.
 GEN 5
 Long Fei — À DÉVELOPPER (Roulette)
 Excellent pour les événements multi-équipes comme l'Épreuve Mystique, la guerre Tri-Alliance et le Choc du Glaive.
-Thrud/Vivian: Surtout Arène/PvP.
+Thrud/Viviane: Surtout Arène/PvP.
 Vous avez manqué Petra ? Envisagez Thrud.
 GEN 6
 Sophia — À DÉVELOPPER (Roulette)
@@ -749,7 +748,7 @@ Long Fei — Gén 5, Infanterie, SSR, Combat
 Thrud — Gén 5, Cavalerie, SSR, Combat
   Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ✅; Marche solo —; Arène / Conquête —
   Sa cavalerie frappe plus fort, et toute l'armée inflige plus de dégâts et en subit moins. Composant offensif : cheffe de ralliement. Difficile à obtenir (événements de classement seulement).
-Vivian — Gén 5, Archer, SSR, Combat
+Viviane — Gén 5, Archer, SSR, Combat
   Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ✅; Marche solo —; Arène / Conquête —
   Ses trois compétences d'expédition font des dégâts. Compétence de participant : les ennemis subissent +25% de dégâts, toujours (sans hasard). Composant offensif : la meilleure archère pour Chasse à l'Ours et les ralliements PvP jusqu'à la Gén 5.
 Triton — Gén 6, Infanterie, SSR, Combat

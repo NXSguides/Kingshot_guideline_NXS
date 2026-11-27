@@ -297,8 +297,8 @@ GEN 5
 Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.
 Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no Amadeus, e mantém a possibilidade de usar o Amadeus para entrar em rallies.
 Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally.
-Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.
-Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.
+Formação de tropas: 20-30-50%. O Peixe Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.
+Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.
 Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR.
 Formação de tropas: 10-20-70%. Só se Helga e o Ferramenta dela estiverem no máximo.
 Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).
@@ -603,7 +603,6 @@ Se estiver em desvantagem, evite PvP desnecessário e foque em coletar Cobre e d
 
 ### GUIDE #f2p-heroes — Guia de Heróis F2P
 Fragmentos Míticos e equipamentos exclusivos de rally são limitados. Não tente desenvolver todos os heróis — concentre seus recursos nos que têm valor forte a longo prazo.
-Alguns heróis abaixo ainda não foram confirmados oficialmente por captura de tela, ou ainda não foram lançados — eles ficam em inglês até serem confirmados.
 GEN 1
 Jabel
 Herói mítico farmável; prioridade principal.
@@ -630,7 +629,7 @@ Sophia — DESENVOLVER (Roleta)
 Útil principalmente para conteúdo multi-equipes.
 Yang — ALTA PRIORIDADE
 Excelente utilidade na Caça ao Urso; vale a pena investir Fragmentos Míticos.
-Triton: Geralmente pule se você já desenvolveu o Long Fei.
+Tritão: Geralmente pule se você já desenvolveu o Long Fei.
 GEN 7
 Wee & Woo — DEVE DESENVOLVER (Roleta)
 Excelente valor geral para F2P.
@@ -752,7 +751,7 @@ Thrud — Gen 5, Cavalaria, SSR, Combate
 Vivian — Gen 5, Arquearia, SSR, Combate
   Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ✅; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ✅; Marcha solo —; Arena / Conquista —
   As três habilidades de Expedição causam dano. Participante: inimigos recebem +25% de dano, sempre (sem sorte). Ferramenta ofensiva: a melhor arqueira para Caça ao Urso e rally PvP até a Gen 5.
-Triton — Gen 6, Infantaria, SSR, Combate
+Tritão — Gen 6, Infantaria, SSR, Combate
   Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
   Defesa +25%, dano de habilidade do herói +30% e mais Vida: infantaria defensiva. Ferramenta defensiva: líder de guarnição. A habilidade de participante (Defesa) ajuda no PvP, não em Caça ao Urso.
 Sophia — Gen 6, Cavalaria, SSR, Combate

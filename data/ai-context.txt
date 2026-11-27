@@ -603,7 +603,6 @@ If you're outmatched, avoid unnecessary PvP and focus on farming Copper and kill
 
 ### GUIDE #f2p-heroes — F2P Heroes Guide
 Mythic Shards and rally widgets are limited. Don't try to build every hero — focus your resources on heroes with strong, long-term value.
-A few heroes below either haven't been officially confirmed via screenshot or haven't been released yet — those stay in English until verified.
 GEN 1
 Jabel
 Farmable Mythic; main priority.

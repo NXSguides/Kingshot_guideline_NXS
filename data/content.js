@@ -136,7 +136,7 @@ Object.assign(UI.moreInfo, { es: "¿Quieres saber más?" });
 
 /* 英雄顯示名：編組只存英文 id，畫面依語言換成譯名
    （已依對照表修正：Jabel 中/韓、Yeonwoo 中、Marlin 韓）
-   Petra、Rosa 不在對照表，尚未驗證，一律顯示英文，待截圖確認後再補上其他語言 */
+   Rosa 已依對照表補上 12 種語言（2026-11-27） */
 const HEROES = {
   Amadeus: { zh: "阿瑪迪斯", en: "Amadeus", ko: "아마데우스", de: "Amadeus", fr: "Amadeus", pt: "Amadeus", tr: "Amadeus", id: "Amadeus", ru: "Амадей", th: "อมาดีอุส", ar: "أماديوس", es: "Amadeus" },
   Jabel: { zh: "潔貝爾", en: "Jabel", ko: "제이벨", de: "Jabel", fr: "Jabel", pt: "Jabel", tr: "Jabel", id: "Jabel", ru: "Явель", th: "จาเบล", ar: "جبل", es: "Jabel" },
@@ -149,7 +149,7 @@ const HEROES = {
   Petra: { zh: "小佩拉", en: "Petra", ko: "리틀 페라", de: "Petra", fr: "Petra", pt: "Petra", tr: "Petra", ru: "Петра", th: "เพตรา", ar: "بيترا", es: "Petra" },
   Eric: { zh: "艾瑞克", en: "Eric", ko: "에릭", de: "Eric", fr: "Éric", pt: "Eric", tr: "Eric", ru: "Эрик", th: "อีริค", ar: "إيريك", es: "Eric" },
   Jaeger: { zh: "耶格爾", en: "Jaeger", ko: "예거", de: "Jaeger", fr: "Jaeger", pt: "Jaeger", tr: "Jaeger", ru: "Йегер", th: "เยเกอร์", ar: "ييجر", es: "Jaeger" },
-  Rosa: { en: "Rosa"},
+  Rosa: { en: "Rosa", zh: "羅莎", ko: "로사", de: "Rosa", fr: "Rosa", pt: "Rosa", tr: "Rosa", id: "Rosa", ru: "Роза", th: "โรซา", ar: "روزا", es: "Rosa" },
   Chenko: { zh: "琴科", en: "Chenko", ko: "첸코", de: "Chenko", fr: "Chenko", pt: "Chenko", tr: "Chenko", id: "Chenko", ru: "Ченко", th: "เชนโกะ", ar: "تشينكو", es: "Chenko" },
   Yeonwoo: { zh: "妍羽", en: "Yeonwoo", ko: "연우", de: "Yeonwoo", fr: "Yeonwoo", pt: "Yeonwoo", tr: "Yeonwoo", id: "Yeonwoo", ru: "Ёну", th: "ยอนอู", ar: "يونوو", es: "Yeonwoo" },
   Amane: { zh: "雨音", en: "Amane", ko: "아마네", de: "Amane", fr: "Amane", pt: "Amane", tr: "Amane", id: "Amane", ru: "Амане", th: "อามาเนะ", ar: "أماني", es: "Amane" }
@@ -3561,7 +3561,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 NXS {bearHunt} — how NXS does {bearHunt}: strong heroes, coordinated rallies, precise timing and maximum alliance damage."},
         {"type":"h","text":"1. Hunting Trap Heroes — Gen 3"},
         {"type":"sub","text":"Rally Leaders — Approved Formations"},
-        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.","Troop formation: 20-40-40%. Mainly for people that didn't go for Amadeus yet, and keeps the opportunity to use Amadeus for joining rallies.","Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally."],["Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.","Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.","Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero."],["","","Troop formation: 10-20-70%. Only if {helga} and her {widget} are both maxed."],["Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).","Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).","Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%)."],["Remaining host slots not released yet."]]},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to {amadeus}'s raw stats, so an ultra-equal formation with slightly more archer troops works best.","Troop formation: 20-40-40%. Mainly for people that didn't go for {amadeus} yet, and keeps the opportunity to use {amadeus} for joining rallies.","Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally."],["Troop formation: 20-30-50%. {marlin} will boost damage a lot due to his widget. From Gen 2 up, infantry will always be {amadeus} or {helga} — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.","Troop formation: 20-30-50%. Other alternative is swapping {quinn} for {marlin} if he isn't better yet. Use {helga} in Gen 2+ only if {amadeus} isn't 5-star + max widget level; also an opportunity to use {amadeus} for joining rallies.","Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero."],["","","Troop formation: 10-20-70%. Only if {helga} and her {widget} are both maxed."],["Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck {rosa}'s 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).","Troop formation: 10-10-80%. Use {helga} as alternative if she has better stars and widget level than {amadeus}. Still force as many archers as you can, especially T10, for {rosa}'s 3rd skill (Increasing Archers' total Attack by 30%).","Troop formation: 10-10-80%. Same as alternative best heroes — {rosa}'s 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%)."],["Remaining host slots not released yet."]]},
         {"type":"sub","text":"Joiners — Approved First-Slot Heroes"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **Do not send {petra} as a joiner.** Use an approved hero in the first slot, or send **no hero**."},
@@ -3595,7 +3595,7 @@ const GUIDES = {
         {"type":"sub","text":"PREP"},
         {"type":"list","items":["Update your formations before every Bear Hunt."]},
         {"type":"list","items":["Recall gathering troops before the event starts.","Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push."]},
-        {"type":"p","text":"Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats. If you unlock **T3 Cavalry**, {petra} becomes even stronger, because her 3rd skill works very well with their stats."},
+        {"type":"p","text":"Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget ({petra}). Try even archer/cav numbers because {petra} improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with {petra}'s stats. If you unlock **T3 Cavalry**, {petra} becomes even stronger, because her 3rd skill works very well with their stats."},
         {"type":"p","text":"[[squad:guide]]"},
         {"type":"sub","text":"USE WITH CAUTION"},
         {"type":"callout","text":"⚠️ **Chance-based damage heroes:** strong effects, but they do **NOT stack**. Only use **ONE** of these heroes in the same rally: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Do not send {petra} as a joiner."},
@@ -3605,7 +3605,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 NXS {bearHunt} — NXS 怎麼打熊：強力英雄、協調的集結、精準的時機，打出最高的聯盟傷害。"},
         {"type":"h","text":"1. 狩獵陷阱英雄 — 第 3 代"},
         {"type":"sub","text":"集結隊長 — 認可的部隊編組"},
-        {"type":"leaders","gens":["第 1 代","第 2 代","第 3 代","第 4 代","第 5 代"],"notes":[["多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。","適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。","免費玩家建議永遠用手上最強的三位英雄擔任指揮。"],["馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。","若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。","目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。"],["","","兵種比例：10-20-70%。只限{helga}和她的{widget}都滿級。"],["盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。","若赫爾加星級裝備高於阿瑪迪斯可替代使用。","與替代組合相同，Rosa 三技能在重弓兵編組下效果最佳。"],["其餘指揮欄位尚未公布。"]]},
+        {"type":"leaders","gens":["第 1 代","第 2 代","第 3 代","第 4 代","第 5 代"],"notes":[["多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。","適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。","免費玩家建議永遠用手上最強的三位英雄擔任指揮。"],["馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。","若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。","目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。"],["","","兵種比例：10-20-70%。只限{helga}和她的{widget}都滿級。"],["盡量拉高弓兵數量，滿級弓兵尤佳；{rosa} 三技能可能提升弓兵總攻擊 30%。","若赫爾加星級裝備高於阿瑪迪斯可替代使用。","與替代組合相同，{rosa} 三技能在重弓兵編組下效果最佳。"],["其餘指揮欄位尚未公布。"]]},
         {"type":"sub","text":"加入者 — 認可的第一位英雄"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **加入者不要派{petra}。**第一位英雄用認可名單裡的，或**不放英雄**。"},
@@ -3693,7 +3693,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 NXS-{bearHunt} — so macht NXS die {bearHunt}: starke Helden, koordinierte Rallys, genaues Timing und maximaler Allianzschaden."},
         {"type":"h","text":"1. Helden für die Jagdfalle — Gen 3"},
         {"type":"sub","text":"Rally-Leiter — freigegebene Trupp Formationen"},
-        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.","Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen.","F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen."],["Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.","Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.","Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat."],["","","Truppenaufstellung: 10-20-70%. Nur wenn {helga} und ihr {widget} beide maximiert sind."],["So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.","Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.","Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen."],["Die übrigen Anführer-Plätze sind noch nicht veröffentlicht."]]},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Infanterie ist hier oft am stärksten, weil {amadeus} stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.","Für Spieler ohne {amadeus} — so bleibt {amadeus} frei, um fremde Rallys zu joinen.","F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen."],["{marlin} steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt {amadeus} oder {helga}.","{quinn} statt {marlin}, wenn {marlin} noch nicht stark genug ist; {helga} nur, wenn {amadeus} noch nicht voll ausgerüstet ist.","Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat."],["","","Truppenaufstellung: 10-20-70%. Nur wenn {helga} und ihr {widget} beide maximiert sind."],["So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.","{helga} nehmen, wenn ihr Stern-/Ausrüstungsgrad über {amadeus} liegt.","Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen."],["Die übrigen Anführer-Plätze sind noch nicht veröffentlicht."]]},
         {"type":"sub","text":"Teilnehmer — freigegebene erste Helden"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **Schick {petra} nicht als Teilnehmer.** Setz einen freigegebenen Helden auf den ersten Platz oder schick **keinen Helden**."},
@@ -3737,7 +3737,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 {bearHunt} NXS — comment NXS fait la {bearHunt} : héros forts, ralliements coordonnés, timing précis et dégâts d'alliance maximum."},
         {"type":"h","text":"1. Héros du Piège de Chasse — Gén 3"},
         {"type":"sub","text":"Chefs de ralliement — formations de troupe approuvées"},
-        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formation de troupe : 30-30-40 %. Dans la plupart des cas, l'Infanterie aura les meilleures stats grâce aux stats brutes d'Amadeus, donc une formation ultra-équilibrée avec un peu plus d'Archers fonctionne le mieux.","Formation de troupe : 20-40-40 %. Principalement pour ceux qui n'ont pas encore misé sur Amadeus, et cela permet d'utiliser Amadeus pour rejoindre des ralliements.","Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser toujours les 3 héros dont vous disposez pour lancer un ralliement."],["Formation de troupe : 20-30-50 %. Marlin augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours Amadeus ou Helga : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.","Formation de troupe : 20-30-50 %. Autre option : remplacer Quinn par Marlin s'il n'est pas encore meilleur. N'utilisez Helga à partir de la Gen 2 que si Amadeus n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser Amadeus pour rejoindre des ralliements.","Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR."],["","","Formation des troupes : 10-20-70 %. Seulement si {helga} et son {widget} sont tous deux au max."],["Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).","Formation de troupe : 10-10-80 %. Utilisez Helga en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'Amadeus. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de Rosa (augmente l'Attaque totale des Archers de 30 %).","Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de Rosa sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %)."],["Les autres emplacements de leader ne sont pas encore disponibles."]]},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formation de troupe : 30-30-40 %. Dans la plupart des cas, l'Infanterie aura les meilleures stats grâce aux stats brutes d'{amadeus}, donc une formation ultra-équilibrée avec un peu plus d'Archers fonctionne le mieux.","Formation de troupe : 20-40-40 %. Principalement pour ceux qui n'ont pas encore misé sur {amadeus}, et cela permet d'utiliser {amadeus} pour rejoindre des ralliements.","Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser toujours les 3 héros dont vous disposez pour lancer un ralliement."],["Formation de troupe : 20-30-50 %. {marlin} augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours {amadeus} ou {helga} : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.","Formation de troupe : 20-30-50 %. Autre option : remplacer {quinn} par {marlin} s'il n'est pas encore meilleur. N'utilisez {helga} à partir de la Gen 2 que si {amadeus} n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser {amadeus} pour rejoindre des ralliements.","Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR."],["","","Formation des troupes : 10-20-70 %. Seulement si {helga} et son {widget} sont tous deux au max."],["Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de {rosa} fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).","Formation de troupe : 10-10-80 %. Utilisez {helga} en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'{amadeus}. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de {rosa} (augmente l'Attaque totale des Archers de 30 %).","Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de {rosa} sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %)."],["Les autres emplacements de leader ne sont pas encore disponibles."]]},
         {"type":"sub","text":"Participants — premiers héros approuvés"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **N'envoie pas {petra} en participant.** Mets un héros approuvé en premier, ou envoie **sans héros**."},
@@ -3781,7 +3781,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 {bearHunt} NXS — como a NXS faz a {bearHunt}: heróis fortes, rallies coordenados, tempo preciso e dano máximo da aliança."},
         {"type":"h","text":"1. Heróis da Armadilha de Caça — Gen 3"},
         {"type":"sub","text":"Líderes de rally — formações das tropas aprovadas"},
-        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.","Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no Amadeus, e mantém a possibilidade de usar o Amadeus para entrar em rallies.","Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally."],["Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.","Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.","Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR."],["","","Formação de tropas: 10-20-70%. Só se {helga} e o {widget} dela estiverem no máximo."],["Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).","Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).","Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%)."],["Os demais espaços de líder ainda não foram divulgados."]]},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do {amadeus}, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.","Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no {amadeus}, e mantém a possibilidade de usar o {amadeus} para entrar em rallies.","Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally."],["Formação de tropas: 20-30-50%. O Peixe {marlin} aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o {amadeus} ou a {helga} — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.","Formação de tropas: 20-30-50%. Outra alternativa é trocar o {quinn} pelo Peixe {marlin}, se ele ainda não for melhor. Use a {helga} na Gen 2+ apenas se o {amadeus} não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o {amadeus} para entrar em rallies.","Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR."],["","","Formação de tropas: 10-20-70%. Só se {helga} e o {widget} dela estiverem no máximo."],["Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da {rosa} fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).","Formação de tropas: 10-10-80%. Use a {helga} como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do {amadeus}. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da {rosa} (aumenta o Ataque total dos Arquearia em 30%).","Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da {rosa} rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%)."],["Os demais espaços de líder ainda não foram divulgados."]]},
         {"type":"sub","text":"Participantes — primeiros heróis aprovados"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **Não mande {petra} como participante.** Use um herói aprovado no primeiro espaço ou mande **sem herói**."},
@@ -3825,7 +3825,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 {bearHunt} NXS — cómo hace NXS la {bearHunt}: héroes fuertes, Ataques Conjuntos coordinados, tiempo preciso y máximo daño de alianza."},
         {"type":"h","text":"1. Héroes de la Trampa de caza — Gen 3"},
         {"type":"sub","text":"Líderes del Ataque Conjunto — formaciones de tropas aprobadas"},
-        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de Amadeus, así que una formación casi equilibrada con un poco más de arqueros funciona mejor.","Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a Ataques Conjuntos.","Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar un Ataque Conjunto."],["Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su {widget}. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con {widget} de Ataque Conjunto (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el {widget} en lugar de igualar las estadísticas de infantería.","Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + {widget} al máximo; también es una oportunidad para usar a Amadeus uniéndose a Ataques Conjuntos.","Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con {widget} de Ataque Conjunto, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."],["","","Formación de tropas: 10-20-70%. Solo si {helga} y su {widget} están ambos al máximo."],["Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).","Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%).","Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%)."],["Los demás puestos de líder aún no se han publicado."]]},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de {amadeus}, así que una formación casi equilibrada con un poco más de arqueros funciona mejor.","Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a {amadeus}, y mantiene la posibilidad de usar a {amadeus} para unirse a Ataques Conjuntos.","Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar un Ataque Conjunto."],["Formación de tropas: 20-30-50%. {marlin} aumentará mucho el daño gracias a su {widget}. Desde la Gen 2 en adelante, la infantería siempre será {amadeus} o {helga} — son los únicos héroes de infantería con {widget} de Ataque Conjunto (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el {widget} en lugar de igualar las estadísticas de infantería.","Formación de tropas: 20-30-50%. Otra alternativa es cambiar {quinn} por {marlin} si aún no es mejor. Usa a {helga} en Gen 2+ solo si {amadeus} no tiene 5 estrellas + {widget} al máximo; también es una oportunidad para usar a {amadeus} uniéndose a Ataques Conjuntos.","Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con {widget} de Ataque Conjunto, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."],["","","Formación de tropas: 10-20-70%. Solo si {helga} y su {widget} están ambos al máximo."],["Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de {rosa} hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).","Formación de tropas: 10-10-80%. Usa a {helga} como alternativa si tiene más estrellas y nivel de widget que {amadeus}. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de {rosa} (aumenta el ataque total de los arqueros en un 30%).","Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de {rosa} rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%)."],["Los demás puestos de líder aún no se han publicado."]]},
         {"type":"sub","text":"Participantes — primeros héroes aprobados"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **No envíes a {petra} como participante.** Usa un héroe aprobado en el primer puesto o envía **sin héroe**."},
@@ -3869,7 +3869,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 NXS {bearHunt} — NXS'in {bearHunt} yöntemi: güçlü kahramanlar, koordineli seferberlikler, doğru zamanlama ve en yüksek ittifak hasarı."},
         {"type":"h","text":"1. Av Tuzağı Kahramanları — 3. Nesil"},
         {"type":"sub","text":"Seferberlik liderleri — onaylı birlik dizilişleri"},
-        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.","Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.","Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir."],["Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.","Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.","Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır."],["","","Asker dizilişi: %10-20-70. Sadece {helga} ve {widget}'ı ikisi de maks ise."],["Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).","Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).","Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır)."],["Kalan lider slotları henüz açıklanmadı."]]},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Birlik dizilişi: %30-30-40. Çoğu durumda {amadeus}'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.","Birlik dizilişi: %20-40-40. {amadeus}'u henüz tercih etmemiş oyuncular için; ayrıca {amadeus}'u seferberliklere katılmak için kullanma imkânı bırakır.","Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir."],["Birlik dizilişi: %20-30-50. {marlin}, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman {amadeus} veya {helga} olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.","Birlik dizilişi: %20-30-50. Diğer alternatif, {marlin} henüz daha iyi değilse {quinn} yerine onu koymaktır. {helga}'yı 2. Nesil ve sonrasında yalnızca {amadeus} 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca {amadeus}'u seferberliklere katılmak için kullanma fırsatıdır.","Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır."],["","","Asker dizilişi: %10-20-70. Sadece {helga} ve {widget}'ı ikisi de maks ise."],["Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla {rosa}'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).","Birlik dizilişi: %10-10-80. {helga}'nın yıldızı ve özel donanım seviyesi {amadeus}'tan iyiyse alternatif olarak kullanın. {rosa}'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).","Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — {rosa}'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır)."],["Kalan lider slotları henüz açıklanmadı."]]},
         {"type":"sub","text":"Katılımcılar — onaylı ilk kahramanlar"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **{petra}'yı katılımcı olarak gönderme.** İlk sıraya onaylı bir kahraman koy ya da **kahramansız** gönder."},
@@ -3913,7 +3913,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 {bearHunt} NXS — cara NXS melakukan {bearHunt}: hero kuat, reli terkoordinasi, waktu yang tepat, dan damage aliansi maksimal."},
         {"type":"h","text":"1. Hero Perangkap Berburu — Gen 3"},
         {"type":"sub","text":"Pemimpin reli — formasi pasukan yang disetujui"},
-        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.","Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.","Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli."],["Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.","Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.","Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR."],["","","Formasi pasukan: 10-20-70%. Hanya jika {helga} dan {widget}-nya sama-sama maks."],["Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).","Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).","Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%)."],["Slot pemimpin lainnya belum dirilis."]]},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar {amadeus}, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.","Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih {amadeus}, dan tetap membuka peluang memakai {amadeus} untuk bergabung ke reli.","Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli."],["Formasi pasukan: 20-30-50%. {marlin} akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu {amadeus} atau {helga} — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.","Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti {quinn} dengan {marlin} jika ia belum lebih baik. Pakai {helga} di Gen 2+ hanya jika {amadeus} belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai {amadeus} untuk bergabung ke reli.","Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR."],["","","Formasi pasukan: 10-20-70%. Hanya jika {helga} dan {widget}-nya sama-sama maks."],["Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 {rosa} akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).","Formasi pasukan: 10-10-80%. Pakai {helga} sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari {amadeus}. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 {rosa} (meningkatkan total Attack Pemanah sebesar 30%).","Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 {rosa} paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%)."],["Slot pemimpin lainnya belum dirilis."]]},
         {"type":"sub","text":"Peserta — hero pertama yang disetujui"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **Jangan kirim {petra} sebagai peserta.** Pakai hero yang disetujui di slot pertama, atau kirim **tanpa hero**."},
@@ -3957,7 +3957,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 {bearHunt} NXS — как NXS проводит {bearHunt}: сильные герои, слаженные рейды, точное время и максимальный урон альянса."},
         {"type":"h","text":"1. Герои для охотничьей ловушки — 3-е поколение"},
         {"type":"sub","text":"Лидеры рейда — утверждённые составы войска"},
-        {"type":"leaders","gens":["ПОКОЛЕНИЕ 1","ПОКОЛЕНИЕ 2","ПОКОЛЕНИЕ 3","ПОКОЛЕНИЕ 4","ПОКОЛЕНИЕ 5"],"notes":[["Состав войск: 30-30-40%. В большинстве случаев лучшие показатели будут у пехотинцев благодаря базовым показателям героя Амадей, поэтому лучше всего работает почти равный состав с чуть большим числом стрелков.","Состав войск: 20-40-40%. В основном для тех, кто ещё не выбрал героя Амадей; также сохраняет возможность использовать героя Амадей для присоединения к рейдам.","Состав войск: 30-30-40%. Для F2P рекомендуется всегда использовать 3 имеющихся героя для проведения рейда."],["Состав войск: 20-30-50%. Герой Марлин сильно повышает урон благодаря своему эксклюзивному для рейдов снаряжению. Начиная со 2-го поколения пехотинцами всегда командует герой Амадей или Хельга — только у них среди героев-пехотинцев есть эксклюзивное для рейдов снаряжение (бонус Смертоносности). Вы отправляете меньше пехотинцев, поэтому герой-пехотинец компенсирует урон стрелков за счёт этого снаряжения, а не за счёт равных показателей пехотинцев.","Состав войск: 20-30-50%. Другой вариант — поменять Куинн на Марлин, если он пока не лучше. Используйте героя Хельга со 2-го поколения и выше, только если у героя Амадей нет 5 звёзд и максимального уровня эксклюзивного снаряжения; это также возможность использовать героя Амадей для присоединения к рейдам.","Состав войск: 30-30-40%. У героев F2P по-прежнему нет эксклюзивного для рейдов снаряжения, поэтому снова подходит равномерный состав с чуть большим числом стрелков, так как показатели стрелков будут самыми низкими из-за отсутствия SSR-героя-стрелка."],["","","Состав войск: 10-20-70%. Только если {helga} и её {widget} оба на максимуме."],["Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя Rosa сделает всё за вас (увеличивает общую Атаку стрелков на 30%).","Состав войск: 10-10-80%. Используйте героя Хельга как альтернативу, если у неё больше звёзд и выше уровень эксклюзивного снаряжения, чем у героя Амадей. По-прежнему отправляйте как можно больше стрелков, особенно T10, ради 3-го навыка героя Rosa (увеличивает общую Атаку стрелков на 30%).","Состав войск: 10-10-80%. То же, что и у альтернативных лучших героев: бонусы 3-го навыка героя Rosa максимальны, если делать упор на составы с большим числом стрелков (увеличивает общую Атаку стрелков на 30%)."],["Остальные места лидеров пока не опубликованы."]]},
+        {"type":"leaders","gens":["ПОКОЛЕНИЕ 1","ПОКОЛЕНИЕ 2","ПОКОЛЕНИЕ 3","ПОКОЛЕНИЕ 4","ПОКОЛЕНИЕ 5"],"notes":[["Состав войск: 30-30-40%. В большинстве случаев лучшие показатели будут у пехотинцев благодаря базовым показателям героя Амадей, поэтому лучше всего работает почти равный состав с чуть большим числом стрелков.","Состав войск: 20-40-40%. В основном для тех, кто ещё не выбрал героя Амадей; также сохраняет возможность использовать героя Амадей для присоединения к рейдам.","Состав войск: 30-30-40%. Для F2P рекомендуется всегда использовать 3 имеющихся героя для проведения рейда."],["Состав войск: 20-30-50%. Герой Марлин сильно повышает урон благодаря своему эксклюзивному для рейдов снаряжению. Начиная со 2-го поколения пехотинцами всегда командует герой Амадей или Хельга — только у них среди героев-пехотинцев есть эксклюзивное для рейдов снаряжение (бонус Смертоносности). Вы отправляете меньше пехотинцев, поэтому герой-пехотинец компенсирует урон стрелков за счёт этого снаряжения, а не за счёт равных показателей пехотинцев.","Состав войск: 20-30-50%. Другой вариант — поменять Куинн на Марлин, если он пока не лучше. Используйте героя Хельга со 2-го поколения и выше, только если у героя Амадей нет 5 звёзд и максимального уровня эксклюзивного снаряжения; это также возможность использовать героя Амадей для присоединения к рейдам.","Состав войск: 30-30-40%. У героев F2P по-прежнему нет эксклюзивного для рейдов снаряжения, поэтому снова подходит равномерный состав с чуть большим числом стрелков, так как показатели стрелков будут самыми низкими из-за отсутствия SSR-героя-стрелка."],["","","Состав войск: 10-20-70%. Только если {helga} и её {widget} оба на максимуме."],["Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя {rosa} сделает всё за вас (увеличивает общую Атаку стрелков на 30%).","Состав войск: 10-10-80%. Используйте героя Хельга как альтернативу, если у неё больше звёзд и выше уровень эксклюзивного снаряжения, чем у героя Амадей. По-прежнему отправляйте как можно больше стрелков, особенно T10, ради 3-го навыка героя {rosa} (увеличивает общую Атаку стрелков на 30%).","Состав войск: 10-10-80%. То же, что и у альтернативных лучших героев: бонусы 3-го навыка героя {rosa} максимальны, если делать упор на составы с большим числом стрелков (увеличивает общую Атаку стрелков на 30%)."],["Остальные места лидеров пока не опубликованы."]]},
         {"type":"sub","text":"Участники — утверждённые первые герои"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **Не отправляй {petra} как участника.** Ставь утверждённого героя первым или отправляй **без героя**."},
@@ -4001,7 +4001,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 {bearHunt} ของ NXS — วิธีที่ NXS ล่าหมี: ฮีโร่แข็งแกร่ง ทีมระดมพลที่ประสานกัน จังหวะเวลาที่แม่นยำ และดาเมจพันธมิตรสูงสุด"},
         {"type":"h","text":"1. ฮีโร่สำหรับกับดักล่าสัตว์ — รุ่นที่ 3"},
         {"type":"sub","text":"ผู้นำทีมระดมพล — รูปแบบการจัดวางทหารที่อนุมัติ"},
-        {"type":"leaders","gens":["เจน 1","เจน 2","เจน 3","เจน 4","เจน 5"],"notes":[["รูปแบบทหาร: 30-30-40% ในกรณีส่วนใหญ่ ทหารราบจะมีค่าสถานะดีที่สุดเพราะค่าสถานะพื้นฐานของอมาดีอุส ดังนั้นรูปแบบที่เกือบเท่ากันโดยมีพลธนูมากกว่าเล็กน้อยให้ผลดีที่สุด","รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมทีมระดมพลได้","รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดทีมระดมพล"],["รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะทีมระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะทีมระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ","รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมทีมระดมพลด้วย","รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะทีมระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR"],["","","การจัดทหาร: 10-20-70% เฉพาะเมื่อ {helga} และ{widget} ของเธอเต็มทั้งคู่"],["รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)","รูปแบบทหาร: 10-10-80% ใช้เฮลก้าเป็นทางเลือกหากเธอมีดาวและระดับอุปกรณ์เฉพาะดีกว่าอมาดีอุส ยังคงใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะ T10 เพื่อทักษะที่ 3 ของ Rosa (เพิ่มพลังโจมตีรวมของพลธนู 30%)","รูปแบบทหาร: 10-10-80% เหมือนกับฮีโร่ทางเลือกที่ดีที่สุด — โบนัสทักษะที่ 3 ของ Rosa ได้ผลดีที่สุดหากคุณเน้นรูปแบบที่มีพลธนูจำนวนมาก (เพิ่มพลังโจมตีรวมของพลธนู 30%)"],["ช่องผู้นำที่เหลือยังไม่เปิดเผย"]]},
+        {"type":"leaders","gens":["เจน 1","เจน 2","เจน 3","เจน 4","เจน 5"],"notes":[["รูปแบบทหาร: 30-30-40% ในกรณีส่วนใหญ่ ทหารราบจะมีค่าสถานะดีที่สุดเพราะค่าสถานะพื้นฐานของอมาดีอุส ดังนั้นรูปแบบที่เกือบเท่ากันโดยมีพลธนูมากกว่าเล็กน้อยให้ผลดีที่สุด","รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมทีมระดมพลได้","รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดทีมระดมพล"],["รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะทีมระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะทีมระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ","รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมทีมระดมพลด้วย","รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะทีมระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR"],["","","การจัดทหาร: 10-20-70% เฉพาะเมื่อ {helga} และ{widget} ของเธอเต็มทั้งคู่"],["รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ {rosa} จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)","รูปแบบทหาร: 10-10-80% ใช้เฮลก้าเป็นทางเลือกหากเธอมีดาวและระดับอุปกรณ์เฉพาะดีกว่าอมาดีอุส ยังคงใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะ T10 เพื่อทักษะที่ 3 ของ {rosa} (เพิ่มพลังโจมตีรวมของพลธนู 30%)","รูปแบบทหาร: 10-10-80% เหมือนกับฮีโร่ทางเลือกที่ดีที่สุด — โบนัสทักษะที่ 3 ของ {rosa} ได้ผลดีที่สุดหากคุณเน้นรูปแบบที่มีพลธนูจำนวนมาก (เพิ่มพลังโจมตีรวมของพลธนู 30%)"],["ช่องผู้นำที่เหลือยังไม่เปิดเผย"]]},
         {"type":"sub","text":"ผู้เข้าร่วม — ฮีโร่ตัวแรกที่อนุมัติ"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **อย่าส่ง {petra} เป็นผู้เข้าร่วม** ใส่ฮีโร่ที่อนุมัติในช่องแรก หรือส่ง **โดยไม่มีฮีโร่**"},
@@ -4045,7 +4045,7 @@ const GUIDES = {
         {"type":"callout","text":"🐻 {bearHunt} في NXS — طريقة NXS في صيد الدببة: أبطال أقوياء، حشود منسقة، توقيت دقيق، وأعلى ضرر للتحالف."},
         {"type":"h","text":"1. أبطال فخ الصيد — الجيل 3"},
         {"type":"sub","text":"قادة الحشد — تشكيلات القوات المعتمدة"},
-        {"type":"leaders","gens":["الجيل 1","الجيل 2","الجيل 3","الجيل 4","الجيل 5"],"notes":[["تشكيلة القوات: 30-30-40%. في معظم الحالات ستكون أفضل سمات لديك في المشاة بسبب سمات أماديوس الأساسية، لذا تعمل التشكيلة المتقاربة جدًا مع زيادة طفيفة في الرماة بأفضل شكل.","تشكيلة القوات: 20-40-40%. مخصصة أساسًا لمن لم يستثمروا في أماديوس بعد، وتُبقي إمكانية استخدام أماديوس للانضمام إلى الحشود.","تشكيلة القوات: 30-30-40%. للاعبين F2P يُنصح دائمًا باستخدام الأبطال الثلاثة المتاحين لديك لإطلاق الحشد."],["تشكيلة القوات: 20-30-50%. سيزيد مارلين الضرر كثيرًا بفضل عتاده الخاص بالحشد. ابتداءً من الجيل 2، سيكون قائد المشاة دائمًا أماديوس أو هيلجا — فهما البطلان الوحيدان من المشاة اللذان يملكان عتادًا خاصًا بالحشد (مكافأة قوة فتك). ترسل عددًا أقل من المشاة، لذا يغطي بطل المشاة ضرر الرماة عبر هذا العتاد بدلًا من مجاراة سمات المشاة.","تشكيلة القوات: 20-30-50%. بديل آخر هو استبدال كوين بمارلين إذا لم يكن أفضل بعد. استخدم هيلجا في الجيل 2 وما بعده فقط إذا لم يكن أماديوس بـ 5 نجوم مع عتاد خاص بأعلى مستوى؛ وهي أيضًا فرصة لاستخدام أماديوس للانضمام إلى الحشود.","تشكيلة القوات: 30-30-40%. لا يزال لا يوجد بطل F2P بعتاد خاص بالحشد، لذا مرة أخرى تشكيلة متوازنة مع زيادة طفيفة في الرماة، لأن سمات الرماة ستكون الأدنى لعدم وجود بطل رماة SSR."],["","","تشكيلة الجنود: 10-20-70%. فقط إذا كانت {helga} و{widget} الخاص بها كلاهما بالحد الأقصى."],["تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ Rosa بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).","تشكيلة القوات: 10-10-80%. استخدم هيلجا كبديل إذا كانت نجومها ومستوى عتادها الخاص أفضل من أماديوس. واصل الدفع بأكبر عدد ممكن من الرماة، خاصة T10، من أجل المهارة الثالثة لـ Rosa (تزيد إجمالي هجوم الرماة بنسبة 30%).","تشكيلة القوات: 10-10-80%. مثل الأبطال البدلاء الأفضل — تحقق المهارة الثالثة لـ Rosa أفضل مكافأة إذا ركّزت على تشكيلات ثقيلة بالرماة (تزيد إجمالي هجوم الرماة بنسبة 30%)."],["خانات القادة المتبقية لم تُعلن بعد."]]},
+        {"type":"leaders","gens":["الجيل 1","الجيل 2","الجيل 3","الجيل 4","الجيل 5"],"notes":[["تشكيلة القوات: 30-30-40%. في معظم الحالات ستكون أفضل سمات لديك في المشاة بسبب سمات أماديوس الأساسية، لذا تعمل التشكيلة المتقاربة جدًا مع زيادة طفيفة في الرماة بأفضل شكل.","تشكيلة القوات: 20-40-40%. مخصصة أساسًا لمن لم يستثمروا في أماديوس بعد، وتُبقي إمكانية استخدام أماديوس للانضمام إلى الحشود.","تشكيلة القوات: 30-30-40%. للاعبين F2P يُنصح دائمًا باستخدام الأبطال الثلاثة المتاحين لديك لإطلاق الحشد."],["تشكيلة القوات: 20-30-50%. سيزيد مارلين الضرر كثيرًا بفضل عتاده الخاص بالحشد. ابتداءً من الجيل 2، سيكون قائد المشاة دائمًا أماديوس أو هيلجا — فهما البطلان الوحيدان من المشاة اللذان يملكان عتادًا خاصًا بالحشد (مكافأة قوة فتك). ترسل عددًا أقل من المشاة، لذا يغطي بطل المشاة ضرر الرماة عبر هذا العتاد بدلًا من مجاراة سمات المشاة.","تشكيلة القوات: 20-30-50%. بديل آخر هو استبدال كوين بمارلين إذا لم يكن أفضل بعد. استخدم هيلجا في الجيل 2 وما بعده فقط إذا لم يكن أماديوس بـ 5 نجوم مع عتاد خاص بأعلى مستوى؛ وهي أيضًا فرصة لاستخدام أماديوس للانضمام إلى الحشود.","تشكيلة القوات: 30-30-40%. لا يزال لا يوجد بطل F2P بعتاد خاص بالحشد، لذا مرة أخرى تشكيلة متوازنة مع زيادة طفيفة في الرماة، لأن سمات الرماة ستكون الأدنى لعدم وجود بطل رماة SSR."],["","","تشكيلة الجنود: 10-20-70%. فقط إذا كانت {helga} و{widget} الخاص بها كلاهما بالحد الأقصى."],["تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ {rosa} بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).","تشكيلة القوات: 10-10-80%. استخدم هيلجا كبديل إذا كانت نجومها ومستوى عتادها الخاص أفضل من أماديوس. واصل الدفع بأكبر عدد ممكن من الرماة، خاصة T10، من أجل المهارة الثالثة لـ {rosa} (تزيد إجمالي هجوم الرماة بنسبة 30%).","تشكيلة القوات: 10-10-80%. مثل الأبطال البدلاء الأفضل — تحقق المهارة الثالثة لـ {rosa} أفضل مكافأة إذا ركّزت على تشكيلات ثقيلة بالرماة (تزيد إجمالي هجوم الرماة بنسبة 30%)."],["خانات القادة المتبقية لم تُعلن بعد."]]},
         {"type":"sub","text":"المنضمون — الأبطال الأوائل المعتمدون"},
         {"type":"joiners"},
         {"type":"callout","text":"❌ **لا ترسل {petra} كمنضم.** ضع بطلًا معتمدًا في الخانة الأولى أو أرسل **بدون بطل**."},
@@ -6263,18 +6263,18 @@ const GUIDES = {
           { type: "callout", text: "All troop ratios are **Infantry : Cavalry : Archers**. Save separate presets with each hero in the far-left / first position." },
           { type: "callout", text: "💡 The far-left hero matters when joining rallies because their relevant Expedition skill contributes to the rally." },
           { type: "list", items: [
-            "1) Bear Hunt: Chenko — **10 : 10 : 80**",
-            "2) Bear Hunt: Amane — **10 : 10 : 80** (or closest possible)",
-            "3) Bear Hunt: Yeonwoo — **10 : 10 : 80** (or closest possible)",
-            "4) Bear Hunt: Amadeus — **10 : 10 : 80** (or closest possible)",
-            "5) Attack (General PvP): Amadeus (if built) or Chenko — **50 : 20 : 30**",
-            "6) Defense: Howard / Gordon — **60 : 20 : 20** is our balanced default. Adjust when leadership calls for a specific formation."
+            "1) Bear Hunt: {chenko} — **10 : 10 : 80**",
+            "2) Bear Hunt: {amane} — **10 : 10 : 80** (or closest possible)",
+            "3) Bear Hunt: {yeonwoo} — **10 : 10 : 80** (or closest possible)",
+            "4) Bear Hunt: {amadeus} — **10 : 10 : 80** (or closest possible)",
+            "5) Attack (General PvP): {amadeus} (if built) or {chenko} — **50 : 20 : 30**",
+            "6) Defense: {howard} / {gordon} — **60 : 20 : 20** is our balanced default. Adjust when leadership calls for a specific formation."
           ]},
           { type: "p", text: "**Rally Leaders:** Use your strongest complete offensive hero lineup." },
           { type: "p", text: "**Rally Joiners:** Please follow any troop limits posted by leadership." },
           { type: "list", items: [
-            "7) Viking HQ: Howard / Gordon — **60 : 40** Follow troop limit (~{=rally})",
-            "8) PvE – Beasts / Hunting: Diana + Fahd — **50 : 20 : 30**"
+            "7) Viking HQ: {howard} / {gordon} — **60 : 40** Follow troop limit (~{=rally})",
+            "8) PvE – Beasts / Hunting: {diana} + {fahd} — **50 : 20 : 30**"
           ]},
           { type: "p", text: "[[squad:page]]" },
 
@@ -6286,11 +6286,11 @@ const GUIDES = {
           { type: "callout", text: "**ATTACK → DEFENSE**" },
           { type: "sub", text: "⚔️ 1. CAPTURE" },
           { type: "p", text: "Join the initial rally using your ATTACK preset." },
-          { type: "p", text: "**Example:** Amadeus / Chenko **50 : 20 : 30**" },
+          { type: "p", text: "**Example:** {amadeus} / {chenko} **50 : 20 : 30**" },
           { type: "sub", text: "🛡️ 2. SWITCH TO DEFENSE" },
           { type: "p", text: "Once the building is captured:" },
           { type: "list", items: [
-            "**1.** Immediately send another march using your DEFENSE preset. **Example:** Gordon / Howard **60 : 20 : 20**",
+            "**1.** Immediately send another march using your DEFENSE preset. **Example:** {gordon} / {howard} **60 : 20 : 20**",
             "**2.** Watch your defense march travel toward the captured building.",
             "**3.** When approximately 5 seconds of march time remain — or as instructed by leadership — recall your original ATTACK march.",
             "**4.** Your DEFENSE march arrives and replaces your offensive march in the garrison."
@@ -7452,7 +7452,6 @@ const GUIDES = {
     sections: {
       zh: { title: "英雄培養指南（F2P／低課金）", blocks: [
         { type: "callout", text: "神話碎片與專屬裝置數量有限，不要每個英雄都想練。把資源集中在長期價值高的英雄上。" },
-        { type: "callout", text: "部分英雄的官方譯名尚未經截圖確認，或尚未正式上線，這篇一律保留英文原名，等日後驗證後再補上翻譯。" },
 
         { type: "sub", text: "第 1 代" },
         { type: "p", text: "**{jabel}**" },
@@ -7476,43 +7475,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "第 4 代" },
-        { type: "p", text: "**Rosa — 打造（輪盤）**" },
+        { type: "p", text: "**{rosa} — 打造（輪盤）**" },
         { type: "list", items: [
           "狩獵巨熊的強力升級。",
-          "**Alcar 或 Margot**：非必要，兩者在競技場／遠征都不錯。"
+          "**{alcar} 或 {margot}**：非必要，兩者在競技場／遠征都不錯。"
         ]},
 
         { type: "sub", text: "第 5 代" },
-        { type: "p", text: "**Long Fei — 打造（輪盤）**" },
+        { type: "p", text: "**{longfei} — 打造（輪盤）**" },
         { type: "list", items: [
           "非常適合神秘試煉、三方聯盟戰、聖劍爭奪等多隊活動。",
-          "**Thrud／Vivian**：主要用於競技場／PvP。",
-          "沒抽到 {petra}？可以考慮 Thrud。"
+          "**{thrud}／{vivian}**：主要用於競技場／PvP。",
+          "沒抽到 {petra}？可以考慮 {thrud}。"
         ]},
 
         { type: "sub", text: "第 6 代" },
-        { type: "p", text: "**Sophia — 打造（輪盤）**" },
+        { type: "p", text: "**{sophia} — 打造（輪盤）**" },
         { type: "list", items: ["主要用在多隊內容。"] },
-        { type: "p", text: "**Yang — 高優先**" },
+        { type: "p", text: "**{yang} — 高優先**" },
         { type: "list", items: [
           "狩獵巨熊實用性極佳，值得投入神話碎片。",
-          "**Triton**：如果已經練了 Long Fei，通常可以跳過。"
+          "**{triton}**：如果已經練了 {longfei}，通常可以跳過。"
         ]},
 
         { type: "sub", text: "第 7 代" },
-        { type: "p", text: "**Wee ＆ Woo — 必練（輪盤）**" },
+        { type: "p", text: "**{weewoo} — 必練（輪盤）**" },
         { type: "list", items: ["整體對 F2P 來說價值極高。"] },
-        { type: "p", text: "**Ava — 高優先**" },
+        { type: "p", text: "**{ava} — 高優先**" },
         { type: "list", items: [
           "優秀的狩獵巨熊英雄，可取代 {petra}。",
-          "**Charles**：通常可以放心跳過。"
+          "**{charles}**：通常可以放心跳過。"
         ]},
 
         { type: "h", text: "簡易 F2P 輪盤路線" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee ＆ Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "神話碎片優先順序" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "經驗法則" },
         { type: "p", text: "輪盤英雄通常是 F2P 最安全的投資。省著用資源，不要把神話碎片分散得太薄，也不用有壓力覺得每個英雄都要練。" },
@@ -7526,7 +7525,6 @@ const GUIDES = {
 
       en: { title: "F2P Heroes Guide", blocks: [
         { type: "callout", text: "Mythic Shards and rally widgets are limited. Don't try to build every hero — focus your resources on heroes with strong, long-term value." },
-        { type: "callout", text: "A few heroes below either haven't been officially confirmed via screenshot or haven't been released yet — those stay in English until verified." },
 
         { type: "sub", text: "GEN 1" },
         { type: "p", text: "**{jabel}**" },
@@ -7543,57 +7541,57 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 3" },
-        { type: "p", text: "**Petra — MUST BUILD (Roulette)**" },
+        { type: "p", text: "**{petra} — MUST BUILD (Roulette)**" },
         { type: "list", items: [
           "Excellent Bear Hunt hero with value through Gen 7.",
-          "**Eric & Jaeger**: Skip unless you're focused on PvP/garrison defense."
+          "**{eric} & {jaeger}**: Skip unless you're focused on PvP/garrison defense."
         ]},
 
         { type: "sub", text: "GEN 4" },
-        { type: "p", text: "**Rosa — BUILD (Roulette)**" },
+        { type: "p", text: "**{rosa} — BUILD (Roulette)**" },
         { type: "list", items: [
           "Strong Bear Hunt upgrade.",
-          "**Alcar OR Margot**: Optional. Both are strong in Arena/Expedition."
+          "**{alcar} OR {margot}**: Optional. Both are strong in Arena/Expedition."
         ]},
 
         { type: "sub", text: "GEN 5" },
-        { type: "p", text: "**Long Fei — BUILD (Roulette)**" },
+        { type: "p", text: "**{longfei} — BUILD (Roulette)**" },
         { type: "list", items: [
           "Great for multi-team events like Mystic Trial, Tri-Alliance & Swordland.",
-          "**Thrud/Vivian**: Mostly Arena/PvP.",
-          "Missed Petra? Consider Thrud."
+          "**{thrud}/{vivian}**: Mostly Arena/PvP.",
+          "Missed {petra}? Consider {thrud}."
         ]},
 
         { type: "sub", text: "GEN 6" },
-        { type: "p", text: "**Sophia — BUILD (Roulette)**" },
+        { type: "p", text: "**{sophia} — BUILD (Roulette)**" },
         { type: "list", items: ["Mainly useful for multi-team content."] },
-        { type: "p", text: "**Yang — HIGH PRIORITY**" },
+        { type: "p", text: "**{yang} — HIGH PRIORITY**" },
         { type: "list", items: [
           "Excellent Bear Hunt utility; worth investing Mythic Shards.",
-          "**Triton**: Generally skip if you built Long Fei."
+          "**{triton}**: Generally skip if you built {longfei}."
         ]},
 
         { type: "sub", text: "GEN 7" },
-        { type: "p", text: "**Wee & Woo — MUST BUILD (Roulette)**" },
+        { type: "p", text: "**{weewoo} — MUST BUILD (Roulette)**" },
         { type: "list", items: ["Excellent overall F2P value."] },
-        { type: "p", text: "**Ava — HIGH PRIORITY**" },
+        { type: "p", text: "**{ava} — HIGH PRIORITY**" },
         { type: "list", items: [
-          "Excellent Bear Hunt hero; replaces Petra.",
-          "**Charles**: Generally safe to skip."
+          "Excellent Bear Hunt hero; replaces {petra}.",
+          "**{charles}**: Generally safe to skip."
         ]},
 
         { type: "h", text: "SIMPLE F2P ROULETTE PATH" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "MYTHIC SHARD PRIORITIES" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "RULE OF THUMB" },
         { type: "p", text: "Roulette heroes are generally your safest F2P investments. Save your resources, avoid spreading Mythic Shards too thin, and don't feel pressured to build every hero." },
 
         { type: "h", text: "SUMMARY" },
         { type: "list", items: [
-          "**F2P Players:** Focus on {zoe} (infantry tank), {jabel} (cavalry), and Petra (offensive cavalry) from hero roulette",
+          "**F2P Players:** Focus on {zoe} (infantry tank), {jabel} (cavalry), and {petra} (offensive cavalry) from hero roulette",
           "**P2W Players:** Prioritize {amadeus} (VIP 7+) and {hilde} for maximum impact"
         ]}
       ]},
@@ -7637,7 +7635,6 @@ const GUIDES = {
 
       de: { title: "F2P-Helden-Guide", blocks: [
         { type: "callout", text: "Mythische Helden Fragmente und Rally-Ausrüstungen sind begrenzt. Versuche nicht, jeden Helden aufzubauen — konzentriere deine Ressourcen auf Helden mit starkem, langfristigem Wert." },
-        { type: "callout", text: "Einige Helden unten wurden entweder nicht per Screenshot offiziell bestätigt oder sind noch nicht veröffentlicht — diese bleiben auf Englisch, bis sie bestätigt sind." },
 
         { type: "sub", text: "GEN 1" },
         { type: "p", text: "**{jabel}**" },
@@ -7661,43 +7658,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 4" },
-        { type: "p", text: "**Rosa — AUFBAUEN (Roulette)**" },
+        { type: "p", text: "**{rosa} — AUFBAUEN (Roulette)**" },
         { type: "list", items: [
           "Starkes Upgrade für die Bärenjagd.",
-          "**Alcar ODER Margot**: Optional. Beide sind stark in Arena/Expedition."
+          "**{alcar} ODER {margot}**: Optional. Beide sind stark in Arena/Expedition."
         ]},
 
         { type: "sub", text: "GEN 5" },
-        { type: "p", text: "**Long Fei — AUFBAUEN (Roulette)**" },
+        { type: "p", text: "**{longfei} — AUFBAUEN (Roulette)**" },
         { type: "list", items: [
           "Großartig für Multi-Team-Events wie Mystic Trial, Tri-Allianz und Swordland.",
-          "**Thrud/Vivian**: Hauptsächlich Arena/PvP.",
-          "{petra} verpasst? Erwäge Thrud."
+          "**{thrud}/{vivian}**: Hauptsächlich Arena/PvP.",
+          "{petra} verpasst? Erwäge {thrud}."
         ]},
 
         { type: "sub", text: "GEN 6" },
-        { type: "p", text: "**Sophia — AUFBAUEN (Roulette)**" },
+        { type: "p", text: "**{sophia} — AUFBAUEN (Roulette)**" },
         { type: "list", items: ["Hauptsächlich nützlich für Multi-Team-Inhalte."] },
-        { type: "p", text: "**Yang — HOHE PRIORITÄT**" },
+        { type: "p", text: "**{yang} — HOHE PRIORITÄT**" },
         { type: "list", items: [
           "Exzellenter Nutzen bei der Bärenjagd; Mythische Helden Fragmente lohnen sich.",
-          "**Triton**: In der Regel überspringen, wenn du Long Fei aufgebaut hast."
+          "**{triton}**: In der Regel überspringen, wenn du {longfei} aufgebaut hast."
         ]},
 
         { type: "sub", text: "GEN 7" },
-        { type: "p", text: "**Wee & Woo — UNBEDINGT AUFBAUEN (Roulette)**" },
+        { type: "p", text: "**{weewoo} — UNBEDINGT AUFBAUEN (Roulette)**" },
         { type: "list", items: ["Insgesamt exzellenter F2P-Wert."] },
-        { type: "p", text: "**Ava — HOHE PRIORITÄT**" },
+        { type: "p", text: "**{ava} — HOHE PRIORITÄT**" },
         { type: "list", items: [
           "Exzellenter Bärenjagd-Held; ersetzt {petra}.",
-          "**Charles**: In der Regel bedenkenlos überspringen."
+          "**{charles}**: In der Regel bedenkenlos überspringen."
         ]},
 
         { type: "h", text: "EINFACHER F2P-ROULETTE-PFAD" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "PRIORITÄTEN FÜR MYTHISCHE SPLITTER" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "FAUSTREGEL" },
         { type: "p", text: "Roulette-Helden sind in der Regel deine sichersten F2P-Investitionen. Spare deine Ressourcen, verteile Mythische Helden Fragmente nicht zu dünn und fühl dich nicht unter Druck, jeden Helden aufzubauen." },
@@ -7711,7 +7708,6 @@ const GUIDES = {
 
       fr: { title: "Guide des héros F2P", blocks: [
         { type: "callout", text: "Les Éclats mythiques et les équipements exclusifs de ralliement sont limités. N'essayez pas de développer tous les héros — concentrez vos ressources sur ceux qui ont une valeur forte et durable." },
-        { type: "callout", text: "Quelques héros ci-dessous n'ont pas encore été confirmés officiellement par capture d'écran, ou ne sont pas encore sortis — ils restent en anglais jusqu'à vérification." },
 
         { type: "sub", text: "GEN 1" },
         { type: "p", text: "**{jabel}**" },
@@ -7735,43 +7731,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 4" },
-        { type: "p", text: "**Rosa — À DÉVELOPPER (Roulette)**" },
+        { type: "p", text: "**{rosa} — À DÉVELOPPER (Roulette)**" },
         { type: "list", items: [
           "Grosse amélioration pour la Chasse à l'Ours.",
-          "**Alcar OU Margot**: Facultatif. Les deux sont solides en Arène/Expédition."
+          "**{alcar} OU {margot}**: Facultatif. Les deux sont solides en Arène/Expédition."
         ]},
 
         { type: "sub", text: "GEN 5" },
-        { type: "p", text: "**Long Fei — À DÉVELOPPER (Roulette)**" },
+        { type: "p", text: "**{longfei} — À DÉVELOPPER (Roulette)**" },
         { type: "list", items: [
           "Excellent pour les événements multi-équipes comme l'Épreuve Mystique, la guerre Tri-Alliance et le Choc du Glaive.",
-          "**Thrud/Vivian**: Surtout Arène/PvP.",
-          "Vous avez manqué {petra} ? Envisagez Thrud."
+          "**{thrud}/{vivian}**: Surtout Arène/PvP.",
+          "Vous avez manqué {petra} ? Envisagez {thrud}."
         ]},
 
         { type: "sub", text: "GEN 6" },
-        { type: "p", text: "**Sophia — À DÉVELOPPER (Roulette)**" },
+        { type: "p", text: "**{sophia} — À DÉVELOPPER (Roulette)**" },
         { type: "list", items: ["Utile surtout pour le contenu multi-équipes."] },
-        { type: "p", text: "**Yang — PRIORITÉ ÉLEVÉE**" },
+        { type: "p", text: "**{yang} — PRIORITÉ ÉLEVÉE**" },
         { type: "list", items: [
           "Excellente utilité pour la Chasse à l'Ours ; ça vaut la peine d'y investir des Éclats mythiques.",
-          "**Triton**: En général à ignorer si vous avez développé Long Fei."
+          "**{triton}**: En général à ignorer si vous avez développé {longfei}."
         ]},
 
         { type: "sub", text: "GEN 7" },
-        { type: "p", text: "**Wee & Woo — À DÉVELOPPER ABSOLUMENT (Roulette)**" },
+        { type: "p", text: "**{weewoo} — À DÉVELOPPER ABSOLUMENT (Roulette)**" },
         { type: "list", items: ["Excellente valeur globale pour les F2P."] },
-        { type: "p", text: "**Ava — PRIORITÉ ÉLEVÉE**" },
+        { type: "p", text: "**{ava} — PRIORITÉ ÉLEVÉE**" },
         { type: "list", items: [
           "Excellent héros pour la Chasse à l'Ours ; remplace {petra}.",
-          "**Charles**: Généralement sûr à ignorer."
+          "**{charles}**: Généralement sûr à ignorer."
         ]},
 
         { type: "h", text: "PARCOURS ROULETTE F2P SIMPLIFIÉ" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "PRIORITÉS DES ÉCLATS MYTHIQUES" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "RÈGLE GÉNÉRALE" },
         { type: "p", text: "Les héros de la roulette sont généralement vos investissements F2P les plus sûrs. Économisez vos ressources, évitez de trop disperser vos Éclats mythiques, et ne vous sentez pas obligé de développer tous les héros." },
@@ -7785,7 +7781,6 @@ const GUIDES = {
 
       pt: { title: "Guia de Heróis F2P", blocks: [
         { type: "callout", text: "Fragmentos Míticos e equipamentos exclusivos de rally são limitados. Não tente desenvolver todos os heróis — concentre seus recursos nos que têm valor forte a longo prazo." },
-        { type: "callout", text: "Alguns heróis abaixo ainda não foram confirmados oficialmente por captura de tela, ou ainda não foram lançados — eles ficam em inglês até serem confirmados." },
 
         { type: "sub", text: "GEN 1" },
         { type: "p", text: "**{jabel}**" },
@@ -7809,43 +7804,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 4" },
-        { type: "p", text: "**Rosa — DESENVOLVER (Roleta)**" },
+        { type: "p", text: "**{rosa} — DESENVOLVER (Roleta)**" },
         { type: "list", items: [
           "Forte melhoria para a Caça ao Urso.",
-          "**Alcar OU Margot**: Opcional. Ambos são fortes em Arena/Expedição."
+          "**{alcar} OU {margot}**: Opcional. Ambos são fortes em Arena/Expedição."
         ]},
 
         { type: "sub", text: "GEN 5" },
-        { type: "p", text: "**Long Fei — DESENVOLVER (Roleta)**" },
+        { type: "p", text: "**{longfei} — DESENVOLVER (Roleta)**" },
         { type: "list", items: [
           "Ótimo para eventos multi-equipes como Julgamento Místico, Tri-Aliança e Confronto entre Espadas.",
-          "**Thrud/Vivian**: Principalmente Arena/PvP.",
-          "Perdeu a {petra}? Considere a Thrud."
+          "**{thrud}/{vivian}**: Principalmente Arena/PvP.",
+          "Perdeu a {petra}? Considere a {thrud}."
         ]},
 
         { type: "sub", text: "GEN 6" },
-        { type: "p", text: "**Sophia — DESENVOLVER (Roleta)**" },
+        { type: "p", text: "**{sophia} — DESENVOLVER (Roleta)**" },
         { type: "list", items: ["Útil principalmente para conteúdo multi-equipes."] },
-        { type: "p", text: "**Yang — ALTA PRIORIDADE**" },
+        { type: "p", text: "**{yang} — ALTA PRIORIDADE**" },
         { type: "list", items: [
           "Excelente utilidade na Caça ao Urso; vale a pena investir Fragmentos Míticos.",
-          "**Triton**: Geralmente pule se você já desenvolveu o Long Fei."
+          "**{triton}**: Geralmente pule se você já desenvolveu o {longfei}."
         ]},
 
         { type: "sub", text: "GEN 7" },
-        { type: "p", text: "**Wee & Woo — DEVE DESENVOLVER (Roleta)**" },
+        { type: "p", text: "**{weewoo} — DEVE DESENVOLVER (Roleta)**" },
         { type: "list", items: ["Excelente valor geral para F2P."] },
-        { type: "p", text: "**Ava — ALTA PRIORIDADE**" },
+        { type: "p", text: "**{ava} — ALTA PRIORIDADE**" },
         { type: "list", items: [
           "Excelente herói para Caça ao Urso; substitui a {petra}.",
-          "**Charles**: Geralmente seguro pular."
+          "**{charles}**: Geralmente seguro pular."
         ]},
 
         { type: "h", text: "CAMINHO SIMPLES DE ROLETA F2P" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "PRIORIDADES DE FRAGMENTOS MÍTICOS" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "REGRA GERAL" },
         { type: "p", text: "Heróis de roleta são geralmente seus investimentos F2P mais seguros. Economize seus recursos, evite espalhar os Fragmentos Míticos demais, e não sinta pressão para desenvolver todos os heróis." },
@@ -7858,7 +7853,6 @@ const GUIDES = {
       ]},
       es: { title: "Guía de Héroes F2P", blocks: [
         { type: "callout", text: "Los Fragmentos Míticos y los dispositivos de ataque conjunto son limitados. No intentes desarrollar a todos los héroes; concentra tus recursos en héroes con valor fuerte y a largo plazo." },
-        { type: "callout", text: "Algunos héroes de abajo aún no se han confirmado oficialmente por captura de pantalla, o todavía no han salido — esos se mantienen en inglés hasta que se confirmen." },
 
         { type: "sub", text: "GEN 1" },
         { type: "p", text: "**{jabel}**" },
@@ -7882,43 +7876,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 4" },
-        { type: "p", text: "**Rosa — DESARROLLAR (Ruleta)**" },
+        { type: "p", text: "**{rosa} — DESARROLLAR (Ruleta)**" },
         { type: "list", items: [
           "Gran mejora para la Cacería del Oso.",
-          "**Alcar O Margot**: Opcional. Ambos son fuertes en Arena/Expedición."
+          "**{alcar} O {margot}**: Opcional. Ambos son fuertes en Arena/Expedición."
         ]},
 
         { type: "sub", text: "GEN 5" },
-        { type: "p", text: "**Long Fei — DESARROLLAR (Ruleta)**" },
+        { type: "p", text: "**{longfei} — DESARROLLAR (Ruleta)**" },
         { type: "list", items: [
           "Excelente para eventos multi-equipo como el Juicio Místico, la Tri-Alianza y Swordland.",
-          "**Thrud/Vivian**: Principalmente Arena/PvP.",
-          "¿No conseguiste a {petra}? Considera a Thrud."
+          "**{thrud}/{vivian}**: Principalmente Arena/PvP.",
+          "¿No conseguiste a {petra}? Considera a {thrud}."
         ]},
 
         { type: "sub", text: "GEN 6" },
-        { type: "p", text: "**Sophia — DESARROLLAR (Ruleta)**" },
+        { type: "p", text: "**{sophia} — DESARROLLAR (Ruleta)**" },
         { type: "list", items: ["Principalmente útil para contenido multi-equipo."] },
-        { type: "p", text: "**Yang — ALTA PRIORIDAD**" },
+        { type: "p", text: "**{yang} — ALTA PRIORIDAD**" },
         { type: "list", items: [
           "Excelente utilidad para la Cacería del Oso; vale la pena invertir Fragmentos Míticos.",
-          "**Triton**: Generalmente omitir si ya desarrollaste a Long Fei."
+          "**{triton}**: Generalmente omitir si ya desarrollaste a {longfei}."
         ]},
 
         { type: "sub", text: "GEN 7" },
-        { type: "p", text: "**Wee & Woo — IMPRESCINDIBLE (Ruleta)**" },
+        { type: "p", text: "**{weewoo} — IMPRESCINDIBLE (Ruleta)**" },
         { type: "list", items: ["Excelente valor general para F2P."] },
-        { type: "p", text: "**Ava — ALTA PRIORIDAD**" },
+        { type: "p", text: "**{ava} — ALTA PRIORIDAD**" },
         { type: "list", items: [
           "Excelente héroe para la Cacería del Oso; reemplaza a {petra}.",
-          "**Charles**: Generalmente seguro de omitir."
+          "**{charles}**: Generalmente seguro de omitir."
         ]},
 
         { type: "h", text: "RUTA SIMPLE DE RULETA F2P" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "PRIORIDAD DE FRAGMENTOS MÍTICOS" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "REGLA GENERAL" },
         { type: "p", text: "Los héroes de ruleta son generalmente tu inversión F2P más segura. Ahorra tus recursos, evita repartir los Fragmentos Míticos en demasiados héroes, y no sientas presión de desarrollarlos todos." },
@@ -7931,7 +7925,6 @@ const GUIDES = {
       ]},
       tr: { title: "F2P Kahraman Rehberi", blocks: [
         { type: "callout", text: "Mitik Parçalar ve seferberliğe özel donanımlar sınırlıdır. Her kahramanı geliştirmeye çalışma — kaynaklarını uzun vadede güçlü değer sağlayan kahramanlara yoğunlaştır." },
-        { type: "callout", text: "Aşağıdaki bazı kahramanlar ya ekran görüntüsüyle resmi olarak doğrulanmadı ya da henüz yayınlanmadı — bunlar doğrulanana kadar İngilizce kalacak." },
 
         { type: "sub", text: "GEN 1" },
         { type: "p", text: "**{jabel}**" },
@@ -7955,43 +7948,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 4" },
-        { type: "p", text: "**Rosa — GELİŞTİR (Rulet)**" },
+        { type: "p", text: "**{rosa} — GELİŞTİR (Rulet)**" },
         { type: "list", items: [
           "Ayı Avı için güçlü bir yükseltme.",
-          "**Alcar VEYA Margot**: İsteğe bağlı. İkisi de Arena/Sefer'de güçlü."
+          "**{alcar} VEYA {margot}**: İsteğe bağlı. İkisi de Arena/Sefer'de güçlü."
         ]},
 
         { type: "sub", text: "GEN 5" },
-        { type: "p", text: "**Long Fei — GELİŞTİR (Rulet)**" },
+        { type: "p", text: "**{longfei} — GELİŞTİR (Rulet)**" },
         { type: "list", items: [
           "Gizemli Deneme, Üçlü İttifak ve Kılıçdiyarı gibi çok takımlı etkinlikler için harika.",
-          "**Thrud/Vivian**: Ağırlıklı olarak Arena/PvP.",
-          "{petra}'yı mı kaçırdın? Thrud'u düşün."
+          "**{thrud}/{vivian}**: Ağırlıklı olarak Arena/PvP.",
+          "{petra}'yı mı kaçırdın? {thrud}'u düşün."
         ]},
 
         { type: "sub", text: "GEN 6" },
-        { type: "p", text: "**Sophia — GELİŞTİR (Rulet)**" },
+        { type: "p", text: "**{sophia} — GELİŞTİR (Rulet)**" },
         { type: "list", items: ["Ağırlıklı olarak çok takımlı içerikler için faydalı."] },
-        { type: "p", text: "**Yang — YÜKSEK ÖNCELİK**" },
+        { type: "p", text: "**{yang} — YÜKSEK ÖNCELİK**" },
         { type: "list", items: [
           "Ayı Avı'nda mükemmel fayda sağlar; Mitik Parça yatırımına değer.",
-          "**Triton**: Long Fei'yi geliştirdiysen genellikle atlanabilir."
+          "**{triton}**: {longfei}'yi geliştirdiysen genellikle atlanabilir."
         ]},
 
         { type: "sub", text: "GEN 7" },
-        { type: "p", text: "**Wee & Woo — MUTLAKA GELİŞTİR (Rulet)**" },
+        { type: "p", text: "**{weewoo} — MUTLAKA GELİŞTİR (Rulet)**" },
         { type: "list", items: ["F2P için genel olarak mükemmel değer."] },
-        { type: "p", text: "**Ava — YÜKSEK ÖNCELİK**" },
+        { type: "p", text: "**{ava} — YÜKSEK ÖNCELİK**" },
         { type: "list", items: [
           "Mükemmel bir Ayı Avı kahramanı; {petra}'nın yerini alır.",
-          "**Charles**: Genellikle güvenle atlanabilir."
+          "**{charles}**: Genellikle güvenle atlanabilir."
         ]},
 
         { type: "h", text: "BASİT F2P RULET YOLU" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "MİTİK PARÇA ÖNCELİKLERİ" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "GENEL KURAL" },
         { type: "p", text: "Rulet kahramanları genellikle en güvenli F2P yatırımlarındır. Kaynaklarını biriktir, Mitik Parçaları çok fazla dağıtma ve her kahramanı geliştirmen gerektiğini hissetme." },
@@ -8005,7 +7998,6 @@ const GUIDES = {
 
       id: { title: "Panduan Hero F2P", blocks: [
         { type: "callout", text: "Serpihan Mitos dan perlengkapan eksklusif reli jumlahnya terbatas. Jangan coba kembangkan semua hero — fokuskan sumber dayamu pada hero dengan nilai jangka panjang yang kuat." },
-        { type: "callout", text: "Beberapa hero di bawah ini belum dikonfirmasi resmi lewat screenshot, atau belum dirilis — nama-nama itu tetap dalam bahasa Inggris sampai terverifikasi." },
 
         { type: "sub", text: "GEN 1" },
         { type: "p", text: "**{jabel}**" },
@@ -8029,43 +8021,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 4" },
-        { type: "p", text: "**Rosa — KEMBANGKAN (Roulette)**" },
+        { type: "p", text: "**{rosa} — KEMBANGKAN (Roulette)**" },
         { type: "list", items: [
           "Peningkatan kuat untuk Bear Hunt.",
-          "**Alcar ATAU Margot**: Opsional. Keduanya kuat di Arena/Ekspedisi."
+          "**{alcar} ATAU {margot}**: Opsional. Keduanya kuat di Arena/Ekspedisi."
         ]},
 
         { type: "sub", text: "GEN 5" },
-        { type: "p", text: "**Long Fei — KEMBANGKAN (Roulette)**" },
+        { type: "p", text: "**{longfei} — KEMBANGKAN (Roulette)**" },
         { type: "list", items: [
           "Sangat cocok untuk event multi-tim seperti Mystic Trial, Tri-Alliance, dan Swordland.",
-          "**Thrud/Vivian**: Sebagian besar untuk Arena/PvP.",
-          "Kelewatan {petra}? Pertimbangkan Thrud."
+          "**{thrud}/{vivian}**: Sebagian besar untuk Arena/PvP.",
+          "Kelewatan {petra}? Pertimbangkan {thrud}."
         ]},
 
         { type: "sub", text: "GEN 6" },
-        { type: "p", text: "**Sophia — KEMBANGKAN (Roulette)**" },
+        { type: "p", text: "**{sophia} — KEMBANGKAN (Roulette)**" },
         { type: "list", items: ["Terutama berguna untuk konten multi-tim."] },
-        { type: "p", text: "**Yang — PRIORITAS TINGGI**" },
+        { type: "p", text: "**{yang} — PRIORITAS TINGGI**" },
         { type: "list", items: [
           "Kegunaan Bear Hunt yang sangat baik; layak diinvestasikan Serpihan Mitos.",
-          "**Triton**: Umumnya bisa dilewati jika kamu sudah mengembangkan Long Fei."
+          "**{triton}**: Umumnya bisa dilewati jika kamu sudah mengembangkan {longfei}."
         ]},
 
         { type: "sub", text: "GEN 7" },
-        { type: "p", text: "**Wee & Woo — WAJIB DIKEMBANGKAN (Roulette)**" },
+        { type: "p", text: "**{weewoo} — WAJIB DIKEMBANGKAN (Roulette)**" },
         { type: "list", items: ["Nilai keseluruhan yang sangat baik untuk F2P."] },
-        { type: "p", text: "**Ava — PRIORITAS TINGGI**" },
+        { type: "p", text: "**{ava} — PRIORITAS TINGGI**" },
         { type: "list", items: [
           "Hero Bear Hunt yang sangat baik; menggantikan {petra}.",
-          "**Charles**: Umumnya aman untuk dilewati."
+          "**{charles}**: Umumnya aman untuk dilewati."
         ]},
 
         { type: "h", text: "JALUR ROULETTE F2P SEDERHANA" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "PRIORITAS SERPIHAN MITOS" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "ATURAN UMUM" },
         { type: "p", text: "Hero roulette umumnya adalah investasi F2P paling aman. Hemat sumber dayamu, hindari menyebarkan Serpihan Mitos terlalu tipis, dan jangan merasa harus mengembangkan semua hero." },
@@ -8079,7 +8071,6 @@ const GUIDES = {
 
       ru: { title: "Гайд по героям для F2P", blocks: [
         { type: "callout", text: "Мифические осколки и эксклюзивное снаряжение для рейдов ограничены. Не пытайтесь развивать всех героев — сосредоточьте ресурсы на героях с сильной долгосрочной ценностью." },
-        { type: "callout", text: "Некоторые герои ниже либо официально не подтверждены скриншотами, либо ещё не вышли — они остаются на английском до подтверждения." },
 
         { type: "sub", text: "ПОКОЛЕНИЕ 1" },
         { type: "p", text: "**{jabel}**" },
@@ -8103,43 +8094,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "ПОКОЛЕНИЕ 4" },
-        { type: "p", text: "**Rosa — РАЗВИВАТЬ (рулетка)**" },
+        { type: "p", text: "**{rosa} — РАЗВИВАТЬ (рулетка)**" },
         { type: "list", items: [
           "Сильное улучшение для Охоты на медведя.",
-          "**Alcar ИЛИ Margot**: Необязательно. Оба сильны на Арене/в Экспедициях."
+          "**{alcar} ИЛИ {margot}**: Необязательно. Оба сильны на Арене/в Экспедициях."
         ]},
 
         { type: "sub", text: "ПОКОЛЕНИЕ 5" },
-        { type: "p", text: "**Long Fei — РАЗВИВАТЬ (рулетка)**" },
+        { type: "p", text: "**{longfei} — РАЗВИВАТЬ (рулетка)**" },
         { type: "list", items: [
           "Отлично подходит для командных событий вроде Мистического испытания, Тройственного альянса и Битвы за Страну мечей.",
-          "**Thrud/Vivian**: В основном для Арены/PvP.",
-          "Пропустили {petra}? Рассмотрите Thrud."
+          "**{thrud}/{vivian}**: В основном для Арены/PvP.",
+          "Пропустили {petra}? Рассмотрите {thrud}."
         ]},
 
         { type: "sub", text: "ПОКОЛЕНИЕ 6" },
-        { type: "p", text: "**Sophia — РАЗВИВАТЬ (рулетка)**" },
+        { type: "p", text: "**{sophia} — РАЗВИВАТЬ (рулетка)**" },
         { type: "list", items: ["В основном полезна для командного контента."] },
-        { type: "p", text: "**Yang — ВЫСОКИЙ ПРИОРИТЕТ**" },
+        { type: "p", text: "**{yang} — ВЫСОКИЙ ПРИОРИТЕТ**" },
         { type: "list", items: [
           "Отличная полезность в Охоте на медведя; стоит вкладывать Мифические осколки.",
-          "**Triton**: Обычно можно пропустить, если вы развили Long Fei."
+          "**{triton}**: Обычно можно пропустить, если вы развили {longfei}."
         ]},
 
         { type: "sub", text: "ПОКОЛЕНИЕ 7" },
-        { type: "p", text: "**Wee и Woo — ОБЯЗАТЕЛЬНО РАЗВИВАТЬ (рулетка)**" },
+        { type: "p", text: "**{weewoo} — ОБЯЗАТЕЛЬНО РАЗВИВАТЬ (рулетка)**" },
         { type: "list", items: ["Отличная общая ценность для F2P."] },
-        { type: "p", text: "**Ava — ВЫСОКИЙ ПРИОРИТЕТ**" },
+        { type: "p", text: "**{ava} — ВЫСОКИЙ ПРИОРИТЕТ**" },
         { type: "list", items: [
           "Отличный герой для Охоты на медведя; заменяет {petra}.",
-          "**Charles**: Обычно можно спокойно пропустить."
+          "**{charles}**: Обычно можно спокойно пропустить."
         ]},
 
         { type: "h", text: "ПРОСТОЙ ПУТЬ РУЛЕТКИ ДЛЯ F2P" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee и Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "ПРИОРИТЕТЫ МИФИЧЕСКИХ ОСКОЛКОВ" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "ПРАВИЛО ПАЛЬЦА" },
         { type: "p", text: "Герои рулетки обычно являются вашими самыми безопасными вложениями для F2P. Экономьте ресурсы, не распыляйте Мифические осколки слишком тонко и не чувствуйте давления развивать каждого героя." },
@@ -8153,7 +8144,6 @@ const GUIDES = {
 
       th: { title: "คู่มือฮีโร่สาย F2P", blocks: [
         { type: "callout", text: "เศษชิ้นส่วนในตำนานและอุปกรณ์เฉพาะทีมระดมพลมีจำกัด อย่าพยายามพัฒนาทุกฮีโร่ — ทุ่มทรัพยากรไปที่ฮีโร่ที่มีคุณค่าระยะยาวสูง" },
-        { type: "callout", text: "ฮีโร่บางตัวด้านล่างยังไม่ได้รับการยืนยันอย่างเป็นทางการด้วยภาพหน้าจอ หรือยังไม่เปิดตัว จึงคงชื่อเป็นภาษาอังกฤษไว้จนกว่าจะยืนยันได้" },
 
         { type: "sub", text: "เจน 1" },
         { type: "p", text: "**{jabel}**" },
@@ -8177,43 +8167,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "เจน 4" },
-        { type: "p", text: "**Rosa — พัฒนา (รูเล็ต)**" },
+        { type: "p", text: "**{rosa} — พัฒนา (รูเล็ต)**" },
         { type: "list", items: [
           "อัพเกรดที่แข็งแกร่งสำหรับการล่าหมี",
-          "**Alcar หรือ Margot**: ไม่บังคับ ทั้งสองแข็งแกร่งในสนามประลอง/การสำรวจ"
+          "**{alcar} หรือ {margot}**: ไม่บังคับ ทั้งสองแข็งแกร่งในสนามประลอง/การสำรวจ"
         ]},
 
         { type: "sub", text: "เจน 5" },
-        { type: "p", text: "**Long Fei — พัฒนา (รูเล็ต)**" },
+        { type: "p", text: "**{longfei} — พัฒนา (รูเล็ต)**" },
         { type: "list", items: [
           "เหมาะมากสำหรับกิจกรรมหลายทีมอย่าง Mystic Trial, Tri-Alliance และศึกดวลดินแดนดาบ",
-          "**Thrud/Vivian**: ส่วนใหญ่ใช้ในสนามประลอง/PvP",
-          "พลาด {petra} ไป? ลองพิจารณา Thrud"
+          "**{thrud}/{vivian}**: ส่วนใหญ่ใช้ในสนามประลอง/PvP",
+          "พลาด {petra} ไป? ลองพิจารณา {thrud}"
         ]},
 
         { type: "sub", text: "เจน 6" },
-        { type: "p", text: "**Sophia — พัฒนา (รูเล็ต)**" },
+        { type: "p", text: "**{sophia} — พัฒนา (รูเล็ต)**" },
         { type: "list", items: ["มีประโยชน์หลักๆ สำหรับคอนเทนต์หลายทีม"] },
-        { type: "p", text: "**Yang — ลำดับความสำคัญสูง**" },
+        { type: "p", text: "**{yang} — ลำดับความสำคัญสูง**" },
         { type: "list", items: [
           "มีประโยชน์อย่างมากในการล่าหมี คุ้มค่าที่จะลงทุนเศษชิ้นส่วนในตำนาน",
-          "**Triton**: โดยทั่วไปข้ามได้หากคุณพัฒนา Long Fei แล้ว"
+          "**{triton}**: โดยทั่วไปข้ามได้หากคุณพัฒนา {longfei} แล้ว"
         ]},
 
         { type: "sub", text: "เจน 7" },
-        { type: "p", text: "**Wee & Woo — ต้องพัฒนา (รูเล็ต)**" },
+        { type: "p", text: "**{weewoo} — ต้องพัฒนา (รูเล็ต)**" },
         { type: "list", items: ["คุ้มค่ามากโดยรวมสำหรับสาย F2P"] },
-        { type: "p", text: "**Ava — ลำดับความสำคัญสูง**" },
+        { type: "p", text: "**{ava} — ลำดับความสำคัญสูง**" },
         { type: "list", items: [
           "ฮีโร่ล่าหมีที่ยอดเยี่ยม; แทนที่ {petra}",
-          "**Charles**: โดยทั่วไปข้ามได้อย่างสบายใจ"
+          "**{charles}**: โดยทั่วไปข้ามได้อย่างสบายใจ"
         ]},
 
         { type: "h", text: "เส้นทางรูเล็ต F2P แบบง่าย" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "ลำดับความสำคัญเศษชิ้นส่วนในตำนาน" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "หลักการทั่วไป" },
         { type: "p", text: "ฮีโร่จากรูเล็ตมักเป็นการลงทุนที่ปลอดภัยที่สุดสำหรับสาย F2P เก็บทรัพยากรไว้ อย่ากระจายเศษชิ้นส่วนในตำนานให้บางเกินไป และไม่ต้องรู้สึกกดดันว่าต้องพัฒนาทุกฮีโร่" },
@@ -8227,7 +8217,6 @@ const GUIDES = {
 
       ar: { title: "دليل الأبطال لللاعبين المجانيين", blocks: [
         { type: "callout", text: "شظايا الأسطورة وعتاد التحالف الحصري للحشد محدودان. لا تحاول بناء كل بطل — ركّز مواردك على الأبطال ذوي القيمة القوية طويلة المدى." },
-        { type: "callout", text: "بعض الأبطال أدناه إما لم يتم تأكيدهم رسميًا بلقطة شاشة أو لم يُطرحوا بعد — يبقون بالإنجليزية حتى يتم التحقق منهم." },
 
         { type: "sub", text: "الجيل 1" },
         { type: "p", text: "**{jabel}**" },
@@ -8251,43 +8240,43 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "الجيل 4" },
-        { type: "p", text: "**Rosa — طوّر (الروليت)**" },
+        { type: "p", text: "**{rosa} — طوّر (الروليت)**" },
         { type: "list", items: [
           "ترقية قوية لصيد الدببة.",
-          "**Alcar أو Margot**: اختياري. كلاهما قوي في الساحة/الاستكشاف."
+          "**{alcar} أو {margot}**: اختياري. كلاهما قوي في الساحة/الاستكشاف."
         ]},
 
         { type: "sub", text: "الجيل 5" },
-        { type: "p", text: "**Long Fei — طوّر (الروليت)**" },
+        { type: "p", text: "**{longfei} — طوّر (الروليت)**" },
         { type: "list", items: [
           "رائع لفعاليات الفرق المتعددة مثل المحاكمة الغامضة، التحالف الثلاثي، ومواجهة أرض السيوف.",
-          "**Thrud/Vivian**: غالبًا للساحة/PvP.",
-          "فاتك {petra}؟ فكّر في Thrud."
+          "**{thrud}/{vivian}**: غالبًا للساحة/PvP.",
+          "فاتك {petra}؟ فكّر في {thrud}."
         ]},
 
         { type: "sub", text: "الجيل 6" },
-        { type: "p", text: "**Sophia — طوّر (الروليت)**" },
+        { type: "p", text: "**{sophia} — طوّر (الروليت)**" },
         { type: "list", items: ["مفيد بشكل أساسي لمحتوى الفرق المتعددة."] },
-        { type: "p", text: "**Yang — أولوية عالية**" },
+        { type: "p", text: "**{yang} — أولوية عالية**" },
         { type: "list", items: [
           "فائدة ممتازة في صيد الدببة؛ يستحق استثمار شظايا الأسطورة.",
-          "**Triton**: يمكن تخطيه عمومًا إذا طوّرت Long Fei."
+          "**{triton}**: يمكن تخطيه عمومًا إذا طوّرت {longfei}."
         ]},
 
         { type: "sub", text: "الجيل 7" },
-        { type: "p", text: "**Wee وWoo — يجب تطويرهما (الروليت)**" },
+        { type: "p", text: "**{weewoo} — يجب تطويرهما (الروليت)**" },
         { type: "list", items: ["قيمة ممتازة بشكل عام لللاعبين المجانيين."] },
-        { type: "p", text: "**Ava — أولوية عالية**" },
+        { type: "p", text: "**{ava} — أولوية عالية**" },
         { type: "list", items: [
           "بطل ممتاز لصيد الدببة؛ يحل محل {petra}.",
-          "**Charles**: يمكن تخطيه بأمان عمومًا."
+          "**{charles}**: يمكن تخطيه بأمان عمومًا."
         ]},
 
         { type: "h", text: "مسار روليت مبسّط لللاعبين المجانيين" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee وWoo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ {rosa} ➜ {longfei} ➜ {sophia} ➜ {weewoo}" },
 
         { type: "h", text: "أولويات شظايا الأسطورة" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ {yang} ➜ {ava}" },
 
         { type: "h", text: "القاعدة العامة" },
         { type: "p", text: "أبطال الروليت عادةً هم استثماراتك الأكثر أمانًا كلاعب مجاني. وفّر مواردك، تجنّب توزيع شظايا الأسطورة بشكل مبعثر جدًا، ولا تشعر بضغط لتطوير كل بطل." },
@@ -8295,7 +8284,7 @@ const GUIDES = {
         { type: "h", text: "الملخص" },
         { type: "list", items: [
           "**اللاعبون المجانيون:** ركّزوا على {zoe} (دبابة مشاة)، {jabel} (فرسان)، و{petra} (فرسان هجومية) من روليت الأبطال",
-          "**اللاعبون الداعمون:** أعطوا الأولوية لـ {amadeus} (VIP 7+) وHilde لتحقيق أقصى تأثير"
+          "**اللاعبون الداعمون:** أعطوا الأولوية لـ {amadeus} (VIP 7+) و{hilde} لتحقيق أقصى تأثير"
         ]}
       ]}
     }
@@ -12072,22 +12061,22 @@ const HERO_CARDS = [
 
 /* ---- Hero cards guide ---- */
 Object.assign(GLOSSARY, {
-  /* Gen 4–8 hero names (zh from the game; other languages show the English name until we see them in the game) */
-  margot: { en:"Margot", zh:"瑪爾戈" },
-  alcar: { en:"Alcar", zh:"阿爾卡" },
-  rosa: { en:"Rosa", zh:"羅莎" },
-  longfei: { en:"Long Fei", zh:"龍飛" },
-  thrud: { en:"Thrud", zh:"斯露德" },
-  vivian: { en:"Vivian", zh:"薇薇安" },
-  triton: { en:"Triton", zh:"崔頓" },
-  sophia: { en:"Sophia", zh:"索菲亞" },
-  yang: { en:"Yang", zh:"楊" },
-  charles: { en:"Charles", zh:"查爾斯" },
-  ava: { en:"Ava", zh:"艾瓦" },
-  weewoo: { en:"Wee & Woo", zh:"Wee & Woo" },
-  diego: { en:"Diego", zh:"迪亞哥" },
-  liz: { en:"Liz", zh:"麗茲" },
-  luna: { en:"Luna", zh:"露娜" },
+  /* Gen 4–8 hero names (all 12 languages from the game — same as data/terms.js) */
+  margot: { en:"Margot", zh:"瑪爾戈", ko:"마르고", de:"Margot", fr:"Margot", pt:"Margot", tr:"Margot", id:"Margot", ru:"Марго", th:"มาร์โกต์", ar:"مارغوت", es:"Margot" },
+  alcar: { en:"Alcar", zh:"阿爾卡", ko:"알카", de:"Alcar", fr:"Alcar", pt:"Alcar", tr:"Alcar", id:"Alcar", ru:"Алькар", th:"อัลคาร์", ar:"ألكار", es:"Alcar" },
+  rosa: { en:"Rosa", zh:"羅莎", ko:"로사", de:"Rosa", fr:"Rosa", pt:"Rosa", tr:"Rosa", id:"Rosa", ru:"Роза", th:"โรซา", ar:"روزا", es:"Rosa" },
+  longfei: { en:"Long Fei", zh:"龍飛", ko:"용비", de:"Long Fei", fr:"Long Fei", pt:"Long Fei", tr:"Long Fei", id:"Long Fei", ru:"Лун Фэй", th:"หลงเฟย", ar:"لونغ فِي", es:"Long Fei" },
+  thrud: { en:"Thrud", zh:"斯露德", ko:"스루드", de:"Thrud", fr:"Thrud", pt:"Thrud", tr:"Thrud", id:"Thrud", ru:"Трада", th:"ทรูด", ar:"ثرود", es:"Thrud" },
+  vivian: { en:"Vivian", zh:"薇薇安", ko:"비비안", de:"Vivian", fr:"Viviane", pt:"Vivian", tr:"Vivian", id:"Vivian", ru:"Вивиан", th:"วิเวียน", ar:"فيفيان", es:"Vivian" },
+  triton: { en:"Triton", zh:"崔頓", ko:"트리톤", de:"Triton", fr:"Triton", pt:"Tritão", tr:"Triton", id:"Triton", ru:"Тритон", th:"ไทรทัน", ar:"تريتون", es:"Tritón" },
+  sophia: { en:"Sophia", zh:"索菲亞", ko:"소피아", de:"Sophia", fr:"Sophia", pt:"Sophia", tr:"Sophia", id:"Sophia", ru:"София", th:"โซเฟีย", ar:"صوفيا", es:"Sophia" },
+  yang: { en:"Yang", zh:"楊", ko:"양", de:"Yang", fr:"Yang", pt:"Yang", tr:"Yang", id:"Yang", ru:"Ян", th:"หยาง", ar:"يانج", es:"Yang" },
+  charles: { en:"Charles", zh:"查爾斯", ko:"찰스", de:"Charles", fr:"Charles", pt:"Charles", tr:"Charles", id:"Charles", ru:"Чарльз", th:"ชาร์ลส", ar:"تشارلز", es:"Charles" },
+  ava: { en:"Ava", zh:"艾瓦", ko:"아이바", de:"Ava", fr:"Ava", pt:"Ava", tr:"Ava", id:"Ava", ru:"Ава", th:"เอวา", ar:"آفا", es:"Ava" },
+  weewoo: { en:"Wee & Woo", zh:"威&隆", ko:"웨이&론", de:"Wee & Woo", fr:"Wee & Woo", pt:"Wee & Woo", tr:"Wee & Woo", id:"Wee & Woo", ru:"Ви и Ву", th:"วีและวู", ar:"ويي و وو", es:"Wee y Woo" },
+  diego: { en:"Diego", zh:"迪亞哥", ko:"디에고", de:"Diego", fr:"Diego", pt:"Diego", tr:"Diego", id:"Diego", ru:"Диего", th:"ดิเอโก", ar:"دييغو", es:"Diego" },
+  liz: { en:"Liz", zh:"麗茲", ko:"리지", de:"Liz", fr:"Liz", pt:"Liz", tr:"Liz", id:"Liz", ru:"Лиз", th:"ลิซ", ar:"ليز", es:"Liz" },
+  luna: { en:"Luna", zh:"露娜", ko:"루나", de:"Luna", fr:"Luna", pt:"Luna", tr:"Luna", id:"Luna", ru:"Луна", th:"ลูน่า", ar:"لونا", es:"Luna" },
   attack: { en:"Attack", zh:"攻擊力", ko:"공격력", de:"Angriff", fr:"Attaque", pt:"Ataque", tr:"Saldırı", id:"Attack", ru:"Атака", th:"พลังโจมตี", ar:"هجوم", es:"Ataque" },
   defense: { en:"Defense", zh:"防禦力", ko:"방어력", de:"Verteidigung", fr:"Défense", pt:"Defesa", tr:"Savunma", id:"Defense", ru:"Защита", th:"พลังป้องกัน", ar:"دفاع", es:"Defensa" },
   infirmary: { en:"Infirmary", zh:"野戰醫院", ko:"야전 병원", de:"Krankenstation", fr:"Infirmerie", pt:"Enfermaria", tr:"Revir", id:"Rumah Sakit", ru:"Лазарет", th:"โรงพยาบาล", ar:"المستوصف", es:"Enfermería" },

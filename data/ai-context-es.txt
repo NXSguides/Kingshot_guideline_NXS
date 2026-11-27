@@ -603,7 +603,6 @@ Si te superan, evita el PvP innecesario y céntrate en recolectar cobre y derrot
 
 ### GUIDE #f2p-heroes — Guía de Héroes F2P
 Los Fragmentos Míticos y los dispositivos de ataque conjunto son limitados. No intentes desarrollar a todos los héroes; concentra tus recursos en héroes con valor fuerte y a largo plazo.
-Algunos héroes de abajo aún no se han confirmado oficialmente por captura de pantalla, o todavía no han salido — esos se mantienen en inglés hasta que se confirmen.
 GEN 1
 Jabel
 Mítico farmeable; máxima prioridad.
@@ -630,15 +629,15 @@ Sophia — DESARROLLAR (Ruleta)
 Principalmente útil para contenido multi-equipo.
 Yang — ALTA PRIORIDAD
 Excelente utilidad para la Cacería del Oso; vale la pena invertir Fragmentos Míticos.
-Triton: Generalmente omitir si ya desarrollaste a Long Fei.
+Tritón: Generalmente omitir si ya desarrollaste a Long Fei.
 GEN 7
-Wee & Woo — IMPRESCINDIBLE (Ruleta)
+Wee y Woo — IMPRESCINDIBLE (Ruleta)
 Excelente valor general para F2P.
 Ava — ALTA PRIORIDAD
 Excelente héroe para la Cacería del Oso; reemplaza a Petra.
 Charles: Generalmente seguro de omitir.
 RUTA SIMPLE DE RULETA F2P
-Zoe ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo
+Zoe ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee y Woo
 PRIORIDAD DE FRAGMENTOS MÍTICOS
 Petra ➜ Yang ➜ Ava
 REGLA GENERAL
@@ -752,7 +751,7 @@ Thrud — Gen 5, Caballería, SSR, Combate
 Vivian — Gen 5, Arquero, SSR, Combate
   Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ✅; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ✅; Marcha individual —; Arena / Conquista —
   Sus tres habilidades de Expedición hacen daño. Participante: los enemigos reciben +25% de daño, siempre (sin azar). Complemento ofensivo: la mejor arquera para Cacería del Oso y rallies PvP hasta la Gen 5.
-Triton — Gen 6, Infantería, SSR, Combate
+Tritón — Gen 6, Infantería, SSR, Combate
   Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
   Defensa +25%, daño de habilidades del héroe +30% y más Salud: infantería defensiva. Complemento defensivo: líder de guarnición. Su habilidad de participante (Defensa) sirve en PvP, no en Cacería del Oso.
 Sophia — Gen 6, Caballería, SSR, Combate
@@ -767,7 +766,7 @@ Charles — Gen 7, Infantería, SSR, Combate
 Ava — Gen 7, Caballería, SSR, Combate
   Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ⚠️; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ✅; Marcha individual —; Arena / Conquista —
   Baja la Defensa enemiga un 25%, a veces hace que el enemigo reciba +50% de daño y da Letalidad +25%. Complemento ofensivo: líder de rally de caballería. Aún se comprueba si bajar la Defensa funciona con el Oso.
-Wee & Woo — Gen 7, Arquero, SSR, Combate
+Wee y Woo — Gen 7, Arquero, SSR, Combate
   Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ✅; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
   Participante: Ataque +15% y Letalidad +10%. +25% de daño contra infantería — y las tropas del Oso son todas infantería. Arqueros excelentes en Cacería del Oso. Su Complemento es defensivo, así que como líderes de rally PvP les falta una pieza.
 Diego — Gen 8, Infantería, SSR, Combate
