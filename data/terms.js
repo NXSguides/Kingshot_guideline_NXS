@@ -1168,7 +1168,7 @@ const TERMS = [
    ["Alarm Bell", "警鐘", "경종", "Alarmglocke", "Sonnette d'Alarme", "Sino de Alarme", "Alarm Çanı", "Bel Alarm", "Набат", "ระฆังแจ้งเตือน", "جرس الإنذار", "Campana de alarma", "City view label (screenshots in all 12 languages)."],
    ["Suggestion Box", "民意信箱", "민원 편지함", "Vorschlagsbox", "Boîte à Idées", "Caixa de Sugestões", "Öneri Kutusu", "Kotak Saran", "Почтовый ящик", "กล่องรับความเห็น", "صندوق الاقتراحات", "Buzón sugerencias", "City view label (screenshots in all 12 languages)."],
    ["Quarry (city)", "石材廠", "석재 공장", "—", "Carrière", "Pedreira", "Taş Ocağı", "Tambang", "Каменоломня", "เหมืองหิน", "المحجر", "Cantera", "City view label of the stone building in the town (EN 'Quarry'). ZH 石材廠 differs from the map tile 採石場."],
-   ["Iron Mine (city)", "—", "제철 공장", "Eisenbergwerk", "La Mine de Fer", "Mina de Ferro", "Demir Madeni", "Tambang Besi", "Железный рудник", "เหมืองเหล็ก", "منجم الحديد", "Mina de hierro", "City view label of the iron building in the town (EN 'Iron Mine'; ZH not seen yet — map tile is 鐵礦場)."],
+   ["Iron Mine (city)", "鐵礦廠", "제철 공장", "Eisenbergwerk", "La Mine de Fer", "Mina de Ferro", "Demir Madeni", "Tambang Besi", "Железный рудник", "เหมืองเหล็ก", "منجم الحديد", "Mina de hierro", "City view label of the iron building in the town (EN 'Iron Mine'; ZH not seen yet — map tile is 鐵礦場)."],
    ["Sawmill (city)", "伐木場", "벌목장", "—", "—", "Serraria", "—", "—", "—", "—", "المنشرة", "Aserradero", "City view label of the wood building in the town (EN not seen; ID cut off '…ggergajian'). Map tile is 'Sawmill'."],
   ]
  },
@@ -1385,6 +1385,27 @@ const TERMS = [
    ["Enact", "頒布", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Aventura", "Governor Order button (costs ★: Comprehensive Care 150,000 · Double Time 800,000)."],
    ["Resident time", "居民時間", "—", "—", "—", "—", "—", "—", "—", "—", "—", "tiempo de residente", "Governor Order effects run on resident time, not real time."],
    ["No sick residents in town", "城鎮內沒有生病的居民", "—", "—", "—", "—", "—", "—", "—", "—", "—", "No hay residentes enfermos en el Pueblo.", "Shown instead of the Enact button on Comprehensive Care."]
+  ]
+ },
+ {
+  "cat": "Resident Status",
+  "rows": [
+   ["Resident Status", "居民狀態", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Window title (tap the resident count at the top of the town). Resident Status screens, EN + ZH, 2026-11-26 / 27."],
+   ["Status (Resident Status tab)", "狀態", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab: who is working, sick or resting, and the staff of each building."],
+   ["Details (Resident Status tab)", "屬性詳情", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab: the two indexes and the four bars under them."],
+   ["Tips (Resident Status)", "提示", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Box at the top of the Details tab."],
+   ["Overview (Resident Status)", "分配總覽", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Header of the Status tab, with the On / Off switch."],
+   ["Working", "工作中", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Status tab count."],
+   ["Sick", "生病中", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Status tab count."],
+   ["Resting", "休息中", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Status tab count."],
+   ["Health Condition", "健康指數", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Red bar (0–100). From Fullness and Sleep Quality; when low, residents fall sick."],
+   ["Happiness", "幸福指數", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Orange bar (0–100). From Comfort and Mood; when low, residents are less productive."],
+   ["Fullness", "飽食度", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Bar under Health Condition. Raised by eating; better Kitchen food adds more."],
+   ["Sleep Quality", "睡眠品質", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Bar under Health Condition."],
+   ["Comfort", "舒適值", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Bar under Happiness. Festivities gives +30."],
+   ["Mood", "心情值", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Bar under Happiness. Urgent Mobilization and Productivity Day give -10 each, Festivities +50."],
+   ["Clinic", "診所", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City building in the Status tab list."],
+   ["Kitchen (city)", "廚房", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City building in the Status tab list."]
   ]
  },
  {
