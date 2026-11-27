@@ -118,6 +118,7 @@ function applyTexts() {
   document.documentElement.lang = HTML_LANG(lang);
   ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
   if (OFFICER.who() === "f") { const h = ROOT.querySelector('h1[data-t="title"]'); if (h) h.textContent = h.textContent.replace("NXS", "nxs"); }   // 🏰 the title names the alliance this page was opened for
+  expWire();
   $("rk_q").placeholder = tr("search"); if ($("rk_byRankL")) $("rk_byRankL").textContent = rg("byRank"); $("rk_topN").value = topN || ""; $("rk_topN").placeholder = tr("topNAll");
   $("rk_mode").innerHTML = `<option value="sp">${esc(tr("modeSp"))}</option><option value="w">${esc(tr("modeW"))}</option>`; $("rk_mode").value = mode;
   $("rk_wRow").hidden = mode !== "w"; $("rk_spNote").hidden = mode === "w"; $("rk_wNote").hidden = mode !== "w";
@@ -343,6 +344,36 @@ function setWeights(w) {
   renderWeights(); persist(); renderResult();
 }
 
+/* ⬇️ Export member data (admins only; Sherry 2026-11-28): one JSON file with everything the stats source gives for NXS and nxs,
+   saved to THIS device only — it is for working out rally strength outside the site (fit against the Bear screenshots).
+   Nothing is uploaded. Last-login / online fields are dropped (we do not keep those anywhere). */
+const EXP = { en: { btn: "⬇️ Export member data", ok: "Saved {n} members to this device.", err: "Could not read the member data." },
+  zh: { btn: "⬇️ 匯出成員資料", ok: "已把 {n} 位成員存到這台裝置。", err: "讀不到成員資料。" },
+  pt: { btn: "⬇️ Exportar dados dos membros", ok: "{n} membros salvos neste aparelho.", err: "Não foi possível ler os dados dos membros." },
+  ar: { btn: "⬇️ تصدير بيانات الأعضاء", ok: "تم حفظ {n} عضوًا على هذا الجهاز.", err: "تعذرت قراءة بيانات الأعضاء." },
+  ko: { btn: "⬇️ 연맹원 데이터 내보내기", ok: "연맹원 {n}명을 이 기기에 저장했어요.", err: "연맹원 데이터를 읽지 못했어요." } };
+const ex = (k) => (EXP[lang] || EXP.en)[k];
+function expClean(v) {
+  if (Array.isArray(v)) return v.map(expClean);
+  if (v && typeof v === "object") { const o = {}; for (const [k, x] of Object.entries(v)) if (!/last_?(login|online|active|seen)|online|is_?active/i.test(k)) o[k] = expClean(x); return o; }
+  return v;
+}
+async function expRun() {
+  const msg = $("rk_expMsg"); msg.textContent = "…";
+  try {
+    const out = { made: new Date().toISOString(), alliances: {} }; let n = 0;
+    for (const [tag, url] of [["NXS", "data/roster-x7k2p9.json"], ["nxs", "data/n2-roster-x7k2p9.json"]]) {
+      let d = null; try { d = await OfficerData.fetchJson(url); } catch (e) {}
+      if (!d || !d.members) continue;
+      out.alliances[tag] = expClean({ ...d, members: d.members }); n += d.members.length;
+    }
+    if (!n) throw 0;
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(out)], { type: "application/json" }));
+    a.download = `nxs-members-${new Date().toISOString().slice(0, 10)}.json`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+    msg.textContent = ex("ok").replace("{n}", n);
+  } catch (e) { msg.textContent = ex("err"); }
+}
+function expWire() { const b = $("rk_exp"); if (!b) return; b.hidden = !(OFFICER.isAdmin && OFFICER.isAdmin()); b.textContent = ex("btn"); b.onclick = expRun; }
 async function init() {
   applyTexts();
   try {
