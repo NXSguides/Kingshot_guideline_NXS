@@ -328,12 +328,66 @@ function renderPresets() {
   /* 🔱 TAC: one map for both versions since 2026-11-28 (Sherry: "直接用這個就好") — the labelled A / B / C map from cafe.naver.com/kingshot1, watermark kept.
      The older maps (figures/tri-v1.webp, figures/tri.webp) stay in the repo. */
   const img = pr.id === "tri" ? "figures/tri-v3.webp" : pr.img;
-  const pic = img ? `<a class="grp-img" href="${img}" target="_blank" rel="noopener"><img src="${img}" alt="${esc(pr.name[lang] || pr.name.en)}" loading="lazy"></a>` : "";
-  if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>` + pic; return; }
+  const pic = pr.id === "tri" ? tacPic() : img ? `<a class="grp-img" href="${img}" target="_blank" rel="noopener"><img src="${img}" alt="${esc(pr.name[lang] || pr.name.en)}" loading="lazy"></a>` : "";
+  if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>` + pic; if (pr.id === "tri") tacDraw(); return; }
   $("presetOut").innerHTML = `<div class="grp-wrap"><div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
     <h3>${esc(g.name[lang] || ptOf(g.name.en))} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
     ${list.length ? `<ol>${list.map((m) => `<li><bdi>${esc(m.name)}</bdi> <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`;
+  if (pr.id === "tri") tacDraw();
 }
+/* 🔱 TAC corner labels (2026-11-28, ELR via Sherry: "people don't know their directions"): officers pick our corner from the game's
+   Tri-Alliance Clash screen and the map gets US on our corner and CLOCKWISE / COUNTER-CLOCKWISE on the two enemies, black & white
+   (the corner colours never change: blue top left, red top right, purple bottom). Kept with the plan (TB.side), so a shared plan shares it. */
+const TAC_SPOT = { tl: [300, 90], tr: [1600, 85], b: [370, 1255] };   // label centres on figures/tri-v3.webp (1800 px wide)
+const TAC_CCW = { b: "tr", tr: "tl", tl: "b" }, TAC_CW = { b: "tl", tl: "tr", tr: "b" };   // counter-clockwise on this map: bottom, top right, top left
+const TAC_T = {
+  en: { side: "Our corner this time (see the game's Tri-Alliance Clash screen):", tl: "Blue · top left", tr: "Red · top right", b: "Purple · bottom", none: "Not set", dl: "⬇️ Download map" },
+  zh: { side: "這次我們在哪一角（看遊戲裡三盟爭霸的畫面）：", tl: "藍 · 左上", tr: "紅 · 右上", b: "紫 · 下面", none: "不標", dl: "⬇️ 下載地圖" },
+  pt: { side: "Nosso canto desta vez (veja a tela do Confronto Tri-Aliança no jogo):", tl: "Azul · em cima à esquerda", tr: "Vermelho · em cima à direita", b: "Roxo · embaixo", none: "Sem marcar", dl: "⬇️ Baixar mapa" },
+  ar: { side: "زاويتنا هذه المرة (انظر شاشة صراع التحالف الثلاثي في اللعبة):", tl: "أزرق · أعلى اليسار", tr: "أحمر · أعلى اليمين", b: "بنفسجي · الأسفل", none: "بدون", dl: "⬇️ تنزيل الخريطة" },
+  ko: { side: "이번 우리 위치 (게임의 삼대 연맹전 화면 참고):", tl: "파랑 · 왼쪽 위", tr: "빨강 · 오른쪽 위", b: "보라 · 아래", none: "표시 안 함", dl: "⬇️ 지도 받기" },
+};
+const tacT = (k) => (TAC_T[lang] || TAC_T.en)[k];
+function tacPic() {
+  const side = TAC_SPOT[TB.side] ? TB.side : "";
+  const btn = (k) => `<button type="button" class="btn small${side === k ? " on" : ""}" data-tacside="${k}">${esc(tacT(k || "none"))}</button>`;
+  return `<div class="grp-img" id="rk_tacMap"><div class="row" id="rk_tacSide" style="gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="muted" style="font-size:12.5px">${esc(tacT("side"))}</span>${["tl", "tr", "b", ""].map(btn).join("")}</div>`
+    + `<canvas style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--rule)"></canvas>`
+    + `<button type="button" class="btn small" data-tacdl="1" style="margin-top:6px">${esc(tacT("dl"))}</button></div>`;
+}
+let tacImg = null;
+function tacPill(x, cx, cy, lines, fill, ink, fs) {
+  x.font = `800 ${fs}px Arial, Helvetica, sans-serif`;
+  const w = Math.max(...lines.map((t) => x.measureText(t).width)) + fs * 1.3, lh = fs * 1.08, h = lines.length * lh + fs * 0.7, X = cx - w / 2, Y = cy - h / 2;
+  const box = (a, b, c, d, r) => { x.beginPath(); if (x.roundRect) x.roundRect(a, b, c, d, r); else x.rect(a, b, c, d); };
+  x.save(); x.shadowColor = "rgba(0,0,0,.35)"; x.shadowBlur = 18; x.shadowOffsetY = 6; box(X, Y, w, h, 20); x.fillStyle = fill; x.fill(); x.restore();
+  x.lineWidth = 6; x.strokeStyle = ink; box(X + 3, Y + 3, w - 6, h - 6, 17); x.stroke();
+  x.fillStyle = ink; x.textAlign = "center"; x.textBaseline = "middle";
+  lines.forEach((t, i) => x.fillText(t, cx, cy + (i - (lines.length - 1) / 2) * lh + 2));
+}
+function tacDraw() {
+  if (!document.querySelector("#rk_tacMap canvas")) return;
+  const paint = () => {
+    const c = document.querySelector("#rk_tacMap canvas"); if (!c) return;   // the canvas on screen now (a re-render may have replaced it)
+    c.width = tacImg.naturalWidth; c.height = tacImg.naturalHeight;
+    const x = c.getContext("2d"), us = TB.side; x.drawImage(tacImg, 0, 0);
+    if (!TAC_SPOT[us]) return;
+    tacPill(x, ...TAC_SPOT[us], ["US"], "#111111", "#ffffff", 64);
+    tacPill(x, ...TAC_SPOT[TAC_CCW[us]], ["\u21BA COUNTER-", "CLOCKWISE"], "#ffffff", "#111111", 44);
+    tacPill(x, ...TAC_SPOT[TAC_CW[us]], ["\u21BB CLOCKWISE"], "#ffffff", "#111111", 44);
+  };
+  if (tacImg && tacImg.complete && tacImg.naturalWidth) { paint(); return; }
+  if (!tacImg) { tacImg = new Image(); tacImg.src = "figures/tri-v3.webp"; }
+  tacImg.addEventListener("load", paint, { once: true });
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest && e.target.closest("#rk_tacMap [data-tacside], #rk_tacMap [data-tacdl]"); if (!b) return;
+  if (b.dataset.tacdl) {
+    const c = document.querySelector("#rk_tacMap canvas"); if (!c || !c.width) return;
+    const a = document.createElement("a"); a.download = `tac-map${TB.side ? "-" + TB.side : ""}.png`; a.href = c.toDataURL("image/png"); document.body.appendChild(a); a.click(); a.remove(); return;
+  }
+  TB.side = b.dataset.tacside || ""; tbSave(); renderPresets();
+});
 function renderAll() { applyTexts(); renderResult(); }
 function persist() { for (const k of Object.keys(rep)) if (!picked.has(Number(k) || k)) delete rep[k]; store.rep = { ...rep }; store.wts = wts; store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
 
