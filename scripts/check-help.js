@@ -54,7 +54,7 @@ const FEATURES = [
   ["Territory: its own page (banner planning off the Map) + 📡 publish switch", /TERRITORY PAGE \(2026-11-14/, /pl01: "🚩 Territory: all banner planning lives here/],
   ["Territory: 🏫 Academy roster (reference)", /ACADEMY ROSTER \(2026-11-14/, /pl02: "🏫 Academy roster \(reference\)/],
   ["Events: 👤 Only remind (to-do sent by the server to chosen officers only)", /"👤 Only remind" \(只提醒/, /👤 Only remind: tick officers/],
-  ["Heroes: 📄 Generation 4 outside-guide card + page shows Gen 1–4 only", /📄 Generation 4 — outside guide card \(🦸 Heroes tab, last card/, /hr02: "📄 Generation 4: what a guide from outside NXS says/],
+  ["Heroes: 📄 Generation 4 key points card + page shows Gen 1–4 only", /📄 Generation 4 — key points card \(🦸 Heroes tab, last card/, /hr02: "📄 Generation 4: the key points, then 🟡 To be confirmed/],
   ["Heroes: ⚖️ compare two heroes", /⚖️ Compare two heroes \(🦸 Heroes tab, card after/, /⚖️ Compare two heroes: pick a troop slot/],
   ["Heroes: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(🦸 Heroes tab, card after/, /🎯 Second uses: a joiner only uses/],
   ["Events: a to-do links several in-game guides (ig list)", /ig can also be a LIST of guide titles/, /A task can link several guides \(ig as a list\)/],
