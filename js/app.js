@@ -67,6 +67,22 @@ async function loadSecret() {
   dropExpired(); pendingAnn = annKey(a);
   if (langChosen) openPendingAnn(); else renderAll();
 }
+/* 📲 "Have a link? Paste it" under the board (Sherry 2026-11-28): a link opened from Discord lands in the browser, not in the app on the
+   home screen — copy the link, open the app, tap this. Reads the clipboard when the phone allows it, otherwise asks for the link. */
+const SECRET_PASTE = {
+  btn: { en: "🔒 Have a link? Paste it", zh: "🔒 有機密公告連結？貼上", ko: "🔒 링크가 있나요? 붙여넣기", de: "🔒 Link erhalten? Einfügen", fr: "🔒 Un lien ? Collez-le", pt: "🔒 Tem um link? Cole aqui", tr: "🔒 Bağlantın mı var? Yapıştır", id: "🔒 Punya tautan? Tempel", ru: "🔒 Есть ссылка? Вставьте", th: "🔒 มีลิงก์? วางที่นี่", ar: "🔒 لديك رابط؟ الصقه", es: "🔒 ¿Tienes un enlace? Pégalo" },
+  ask: { en: "Paste the announcement link:", zh: "貼上公告連結：", ko: "공지 링크를 붙여넣으세요:", de: "Füge den Link der Ankündigung ein:", fr: "Collez le lien de l'annonce :", pt: "Cole o link do anúncio:", tr: "Duyuru bağlantısını yapıştır:", id: "Tempel tautan pengumuman:", ru: "Вставьте ссылку на объявление:", th: "วางลิงก์ประกาศ:", ar: "الصق رابط الإعلان:", es: "Pega el enlace del anuncio:" },
+};
+const secretIdIn = (x) => { const m = String(x || "").trim().match(/(?:#s\/)?([A-Za-z0-9_-]{20,40})\s*$/); return m ? m[1] : ""; };
+async function secretPaste() {
+  let id = ""; try { const m = String(await navigator.clipboard.readText()).match(/#s\/([A-Za-z0-9_-]{20,40})/); if (m) id = m[1]; } catch (e) {}   // the clipboard counts only when it holds a link
+  if (!id) { const v = window.prompt(t(SECRET_PASTE.ask)); if (v == null) return; id = secretIdIn(v); }
+  if (!id) { secretGone(); return; }
+  const have = announcements.findIndex((a) => a.secret === id);
+  if (have >= 0) { currentAnnIndex = have; renderAll(); return; }
+  pendingSecret = id; await loadSecret();
+}
+window.secretPaste = secretPaste;
 function secretGone() {
   const el = document.createElement("div");
   el.setAttribute("role", "status"); el.textContent = "🔒 " + t(SECRET_GONE);
@@ -653,6 +669,7 @@ const BLOCKS = {
         <div class="ann-tabs" data-drag="all">${tabs}</div>
         <div class="ann-body">${annBodyHtml(announcements[currentAnnIndex])}</div>
       </div>
+      <div style="text-align:end;margin:4px 2px 0"><button type="button" class="kvk-plan-link" style="font-size:12.5px;opacity:.85" onclick="secretPaste()" dir="auto">${escapeHtml(t(SECRET_PASTE.btn))}</button></div>
     `;
   },
   checklist: (b, guide) => {
