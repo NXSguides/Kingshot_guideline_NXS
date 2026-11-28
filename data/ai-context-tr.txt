@@ -1224,19 +1224,6 @@ Bu etkinlikte saldırı Aletleri SAYILMAZ, savunma Aletleri SAYILIR — güçlü
 Gelgitler Tapınağı = ANA HEDEF — en sonda açılır.
 Sohbette kullandığımız adlar: Shrine = Harabeler Kümesi, Altar = Harabeler.
 Binalara saldırıp ele geçirmek sadece savunmaktan/tutmaktan daha çok puan verir — Kılıçdiyarı Hesaplaşması'ndan farklı olarak.
-👥 TAKIMLAR & GÖREVLER
-Oyuncular farklı hatlarda yaklaşık 3 takıma ayrılır — her hedefe en güçlü oyuncu + bir yedek, böylece gücümüz verimli dağılır.
-Takım 3 — Başta tarafsız binaları ele geçir
-Savaş açılır açılmaz bölgemizdeki tarafsız binaları EN KISA SÜREDE ele geçir.
-Hedefin güvenceye alınınca ilerlemeye devam et.
-Takım 2 — İlerle & fırsatları değerlendir
-Zayıf takımların önünde kal, hattındaki bir sonraki hedefe ilerle ve baskıyı sürdür.
-Düşman hareketlerini dikkatle izle. Düşman ilerlemek için bir binayı terk edince, az önce bıraktığı binaya gir ve savunmasızken ele geçir.
-Bölge ve puan için her böyle fırsatı kullan.
-Takım 1 — Düşman Garnizonuna ilerle
-Ana görev: 20. dakikadan önce düşman garnizonu bölgesine ulaşmak.
-Hattında ilerleyip düşman garnizonuna en yakın düşman binasına (Shrine / Harabeler Kümesi) var.
-Garnizon açılmadan ÖNCE yerinde ol ki tam 20:00'de ele geçirebilelim.
 R4'ler
 R4'ler ve lejyon sorumluları savaş boyunca Önder atamalarını aktif olarak yönetmeli.
 Önder = en güçlü oyuncular. Haritada dolaşıp hedef ele geçirdikleri için en çok Enerji'ye ihtiyaç duyarlar.
@@ -1252,38 +1239,17 @@ Harabeler (Altar): 15.000 — mavi
 Hedef: ekipleri ayarla ve haritayı tanı. Mor, kırmızı ve sarı bölgeleri hatırla — ele geçirdiğimizler maviye döner. Düşmanların gücüne bak ve hangi ittifaka odaklanacağımıza karar ver.
 2. Aşama: Ele Geçir ve Fethet (3:00–20:00)
 Hedef: iç bölgeyi hızla ele geçirmek.
-Önce Takım 3, sonra Takım 2.
 Dakika başı düzenli puan (PPM) için Transit Merkezlerini / bağlantı binalarını tut. Garnizonlar hâlâ kalkanlı.
-Bu sırada Takım 1 düşman garnizonuna doğru düşman bölgesinin derinlerine ilerler.
 3. Aşama: Garnizon İşgali (20:00–40:00)
 Hedef: Garnizonlar'ın (A24, B24, C24) kalkanları kalkar.
-Takım 3: kendi garnizonumuzu (+1.800 PPM) savunurken düşman garnizonuna koordineli saldırılar yap — gerekirse bölünün.
 Savunmasız binaları, zayıf savunulan düşman bölgelerini, genişleme fırsatlarını ve kişisel/ittifak puanı için kolay ele geçirmeleri aramaya devam edin.
 4. Aşama: Tapınağa Hücum (40:00–60:00)
 Hedef: ortadaki Gelgitler Tapınağı açılır. Çok yüksek puan verir; sonunda onu elinde tutana 50.000 puan bonus. Bundan sonra ittifakın ana hedefi odur.
-🌊 TAPINAK SIRASI
-Takım 3 + 2 → önce girer (Takım 3 bölgemizi / garnizonumuzu kaybetmemek için gözünü ayırmaz).
-Takım 1 → en son girer.
-Ele geçir → takviye et → tut.
 ⚠️ Tapınak NPC'lerine saldırırken en güçlü oyuncu EN SON girer — böylece gücünü kolay bir rakipte harcamak yerine kalan en güçlü NPC ile savaşır.
 Tapınağı aldıktan sonra
 Hemen kilitle — tapınağa en kısa sürede takviye gönder.
 Kontrolü koru.
 Tapınağı kaybetme riski varsa daha düşük değerli hedeflerin peşine düşme.
-📋 TAKIM ÖZETİ
-Takım 3 — İç bölge
-2. aşama → tarafsız binaları en kısa sürede ele geçir
-3. aşama → garnizonumuzu koru + saldıranları destekle
-4. aşama → Tapınak: önce gir ama bölgemizi izle — kaybetme
-Takım 2 — Düşman ele geçirmeleri
-2. aşama → Takım 1'i geçip düşman bölgesine ilerle
-3. aşama → düşman / terk edilmiş binaları ele geçir
-4. aşama → Tapınak: önce gir
-Takım 1 — Derin saldırı
-2. aşama → düşman bölgesinin derinlerine ilerle, hedef düşman garnizonu yanındaki Shrine (Harabeler Kümesi)
-3. aşama → düşman garnizonunu işgal et
-4. aşama → Tapınak: en son gir
-🧱 Tapınak engelleme taktiği (Takım 1): Gelgitler Tapınağı yakınında düşman Transit Merkezi'nin arkasındaki binayı / Shrine'ı ele geçir ve TUT — hemen ayrılma. Böylece Takım 1 düşmanın tapınak hamlesini bozabilir ve tapınak açılmadan önde kontrolü alırız.
 ⚡ Enerji YÖNETİMİ
 Her hareket/eylem Enerji harcar — akıllıca kullan.
 Konuşlandırmak — ekibini yeni uygun bir konuma gönder.

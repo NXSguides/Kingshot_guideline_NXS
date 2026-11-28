@@ -1226,19 +1226,6 @@ Offensive Element zählen in diesem Event NICHT. Defensive Element zählen — b
 Tempel der Gezeiten = HAUPTZIEL — er öffnet am Ende.
 Namen in unserem Chat: Shrine = Anhäufung von Ruinen, Altar = Ruinen.
 Gebäude angreifen und erobern bringt mehr Punkte als nur verteidigen/halten — anders als beim Schwertland-Showdown.
-👥 TEAMS & ROLLEN
-Die Spieler werden in etwa 3 Teams auf verschiedenen Pfaden aufgeteilt — pro Ziel der stärkste Spieler plus ein Backup, damit unsere Stärke gut verteilt ist.
-Team 3 — Zu Beginn neutrale Gebäude erobern
-Erobere die neutralen Gebäude auf unserem Gebiet SO SCHNELL WIE MÖGLICH, sobald der Kampf beginnt.
-Ist dein Ziel gesichert, rück weiter vor.
-Team 2 — Vorrücken & Gelegenheiten nutzen
-Bleib schwächeren Teams voraus, geh zum nächsten Ziel auf deinem Pfad und halte den Druck aufrecht.
-Beobachte die Gegner genau. Verlassen sie ein Gebäude, um vorzurücken, zieh in das gerade verlassene Gebäude und erobere es, solange es unverteidigt ist.
-Nutze jede solche Lücke für Gebiet und Punkte.
-Team 1 — Vorstoß zu den gegnerischen Garnisonen
-Hauptaufgabe: vor Minute 20 das Gebiet der gegnerischen Garnisonen erreichen.
-Rück auf deinem Pfad vor, bis du das gegnerische Gebäude direkt neben ihren Garnisonen erreichst (Shrine / Anhäufung von Ruinen).
-Sei VOR dem Öffnen der Garnisonen in Position, damit wir sie genau bei 20:00 erobern können.
 R4
 R4 und Legionsleiter müssen die Kapitän-Ernennungen während des ganzen Kampfes aktiv verwalten.
 Kapitän = die stärksten Spieler. Sie ziehen über die Karte und erobern Ziele, also brauchen sie die meiste Energie.
@@ -1254,38 +1241,17 @@ Phase 1: Vorbereitung (0:00–3:00)
 Ziel: Schwadronen einstellen und die Karte kennenlernen. Merk dir die lila, roten und gelben Zonen — die von uns besetzten werden blau. Prüft die Stärke der Gegner und entscheidet, auf welche Allianz wir uns konzentrieren.
 Phase 2: Ergreifen & Erobern (3:00–20:00)
 Ziel: schnell das eigene Gebiet erobern.
-Team 3 zuerst, dann Team 2.
 Sichert Knotenpunkt und Verbindungsgebäude für stetige Punkte pro Minute (PPM). Die Garnisonen haben noch Schilde.
-Gleichzeitig stößt Team 1 tief ins Feindgebiet Richtung ihrer Garnisonen vor.
 Phase 3: Garnisonsbesetzung (20:00–40:00)
 Ziel: Die Schilde der Garnisonen (A24, B24, C24) fallen.
-Team 3: unsere Garnisonen (+1.800 PPM) verteidigen und koordiniert gegnerische Garnisonen angreifen — bei Bedarf aufteilen.
 Sucht weiter nach unverteidigten Gebäuden, schwach verteidigtem Feindgebiet, Chancen zum Ausbreiten und leichten Eroberungen für persönliche und Allianzpunkte.
 Phase 4: Ansturm auf Tempel (40:00–60:00)
 Ziel: Der zentrale Tempel der Gezeiten öffnet. Er bringt riesige Punkte plus 50.000 Bonuspunkte für den, der ihn am Ende hält. Ab jetzt ist er das Hauptziel der Allianz.
-🌊 REIHENFOLGE AM TEMPEL
-Team 3 + 2 → zuerst rein (Team 3 behält unser Gebiet / unsere Garnisonen im Auge, damit wir nichts verlieren).
-Team 1 → zuletzt rein.
-Erobern → verstärken → halten.
 ⚠️ Beim Angriff auf die Tempel-NPCs geht der stärkste Spieler ZULETZT rein — so kämpft er gegen den stärksten verbleibenden NPC, statt seine Kraft an einem leichteren Gegner zu verschwenden.
 Wenn wir den Tempel haben
 Sofort absichern — den Tempel so schnell wie möglich verstärken.
 Kontrolle halten.
 Keine weniger wertvollen Ziele jagen, wenn dadurch der Tempel verloren gehen könnte.
-📋 TEAM-ÜBERSICHT
-Team 3 — Eigenes Gebiet
-Phase 2 → neutrale Gebäude so schnell wie möglich erobern
-Phase 3 → unsere Garnisonen sichern + Angreifer unterstützen
-Phase 4 → Tempel: zuerst rein, aber unser Gebiet im Auge behalten — nicht verlieren
-Team 2 — Feindliche Gebäude
-Phase 2 → an Team 1 vorbei ins Feindgebiet vorrücken
-Phase 3 → feindliche / verlassene Gebäude erobern
-Phase 4 → Tempel: zuerst rein
-Team 1 — Tiefer Angriff
-Phase 2 → tief ins Feindgebiet vorstoßen, Ziel ist der Shrine (Anhäufung von Ruinen) neben den gegnerischen Garnisonen
-Phase 3 → die gegnerischen Garnisonen besetzen
-Phase 4 → Tempel: zuletzt rein
-🧱 Tempel-Blockade (Team 1): Erobert das Gebäude / den Shrine hinter dem gegnerischen Knotenpunkt nahe dem Tempel der Gezeiten und HALTET es — nicht sofort verlassen. So kann Team 1 den Tempelvorstoß der Gegner stören, und wir haben vor der Tempelöffnung die Kontrolle an der Front.
 ⚡ Energie-MANAGEMENT
 Jede Bewegung/Aktion kostet Energie — setz sie klug ein.
 Aufstellen — deine Schwadron an einen neuen verfügbaren Ort schicken.

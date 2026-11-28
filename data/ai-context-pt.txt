@@ -1224,19 +1224,6 @@ Ferramenta ofensivos NÃO contam neste evento. Ferramenta defensivos contam — 
 Templo das Marés = OBJETIVO PRINCIPAL — abre no final.
 Nomes usados no nosso chat: Shrine = Aglomerado de Ruínas, Altar = Ruínas.
 Atacar e capturar construções dá mais pontos do que apenas defender/manter — diferente do Confronto entre Espadas.
-👥 EQUIPES & FUNÇÕES
-Os jogadores são divididos em cerca de 3 equipes em rotas diferentes — o jogador mais forte mais um reserva por alvo, para distribuir bem nossa força.
-Equipe 3 — Capturar construções neutras no início
-Capture as construções neutras do nosso território O MAIS RÁPIDO POSSÍVEL quando a batalha abrir.
-Depois de garantir seu alvo, continue avançando.
-Equipe 2 — Avançar & aproveitar oportunidades
-Continue à frente das equipes mais fracas rumo ao próximo alvo da sua rota e mantenha a pressão.
-Observe o movimento inimigo. Quando o inimigo sair de uma construção para avançar, entre na construção que ele acabou de deixar e capture-a enquanto está sem defesa.
-Aproveite toda brecha assim para ganhar território e pontos.
-Equipe 1 — Avançar até a Guarnição inimiga
-Missão principal: chegar à área da Guarnição inimiga antes dos 20 minutos.
-Avance pela sua rota até a construção inimiga mais próxima da Guarnição deles (Shrine / Aglomerado de Ruínas).
-Esteja em posição ANTES da Guarnição abrir para capturá-la logo aos 20:00.
 R4
 R4 e líderes de legião devem gerenciar ativamente as nomeações de Capitão durante toda a batalha.
 Capitão = os jogadores mais fortes. Eles percorrem o mapa capturando alvos, então precisam de mais Energia.
@@ -1252,38 +1239,17 @@ Fase 1: Preparação (0:00–3:00)
 Objetivo: configurar os esquadrões e conhecer o mapa. Lembre das zonas roxa, vermelha e amarela — as que ocupamos ficam azuis. Veja a força dos inimigos e decida em qual aliança focar.
 Fase 2: Capturar e conquistar (3:00–20:00)
 Objetivo: capturar rapidamente o território interno.
-Equipe 3 vai primeiro, depois a Equipe 2.
 Garanta os Centro de Trânsito / conexões para ganhar pontos constantes por minuto (PPM). As Guarnições ainda estão com escudo.
-Enquanto isso, a Equipe 1 avança fundo no território inimigo rumo à Guarnição deles.
 Fase 3: Ocupação da Guarnição (20:00–40:00)
 Objetivo: os escudos das Guarnições (A24, B24, C24) caem.
-Equipe 3: defenda nossa Guarnição (+1.800 PPM) enquanto ataca de forma coordenada as Guarnições inimigas — dividam-se se necessário.
 Continue procurando construções sem defesa, território inimigo mal defendido, chances de expandir e capturas fáceis para pontos pessoais e da aliança.
 Fase 4: Atacar o Templo (40:00–60:00)
 Objetivo: o Templo das Marés central abre. Dá muitos pontos, mais um bônus de 50.000 pontos para quem o controlar no final. A partir daí, é o foco principal da aliança.
-🌊 ORDEM NO TEMPLO
-Equipes 3 + 2 → entram primeiro (a Equipe 3 continua de olho no nosso território / Guarnição para não perdê-los).
-Equipe 1 → entra por último.
-Capturar → reforçar → segurar.
 ⚠️ Ao atacar os NPCs do Templo, o jogador mais forte entra POR ÚLTIMO — assim enfrenta o NPC mais forte que restar, sem desperdiçar força num adversário mais fácil.
 Depois de capturar o Templo
 Trave-o imediatamente — reforce o Templo o quanto antes.
 Mantenha o controle.
 Não persiga alvos de menor valor se isso arriscar perder o Templo.
-📋 RESUMO DAS EQUIPES
-Equipe 3 — Território interno
-Fase 2 → capturar construções neutras o mais rápido possível
-Fase 3 → garantir nossa Guarnição + apoiar os atacantes
-Fase 4 → Templo: entrar primeiro, mas vigiar nosso território — não perdê-lo
-Equipe 2 — Capturas inimigas
-Fase 2 → avançar além da Equipe 1 no território inimigo
-Fase 3 → capturar construções inimigas / abandonadas
-Fase 4 → Templo: entrar primeiro
-Equipe 1 — Ataque profundo
-Fase 2 → avançar fundo no território inimigo, mirando o Shrine (Aglomerado de Ruínas) ao lado da Guarnição inimiga
-Fase 3 → ocupar a Guarnição inimiga
-Fase 4 → Templo: entrar por último
-🧱 Truque de bloqueio do Templo (Equipe 1): capture a construção / Shrine atrás do Centro de Trânsito inimigo perto do Templo das Marés e SEGURE — não saia logo. Assim a Equipe 1 pode atrapalhar o avanço inimigo ao Templo e temos controle à frente antes de ele abrir.
 ⚡ GESTÃO DE Energia
 Todo movimento/ação gasta Energia — use com sabedoria.
 Posicionar — mover seu esquadrão para um novo local disponível.

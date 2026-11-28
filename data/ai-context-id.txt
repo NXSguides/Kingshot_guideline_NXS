@@ -1224,19 +1224,6 @@ Widget ofensif TIDAK berlaku di event ini. Widget defensif BERLAKU — utamakan 
 Kuil Dewa Laut = TARGET UTAMA — dibuka di akhir.
 Nama yang dipakai di chat kita: Shrine = Kluster Reruntuhan, Altar = Reruntuhan.
 Menyerang dan merebut bangunan memberi poin lebih banyak daripada hanya bertahan/menguasai — berbeda dengan Swordland Showdown.
-👥 TIM & PERAN
-Pemain dibagi menjadi sekitar 3 tim di jalur berbeda — pemain terkuat + satu cadangan untuk tiap target, agar kekuatan kita tersebar efektif.
-Tim 3 — Rebut bangunan netral di awal
-Rebut bangunan netral di wilayah kita SECEPATNYA saat pertempuran dimulai.
-Setelah targetmu aman, terus maju.
-Tim 2 — Maju & manfaatkan peluang
-Tetap di depan tim yang lebih lemah menuju target berikutnya di jalurmu dan jaga tekanan.
-Awasi pergerakan musuh. Saat musuh meninggalkan bangunan untuk maju, masuki bangunan yang baru mereka tinggalkan dan rebut selagi tidak dijaga.
-Manfaatkan setiap celah seperti ini untuk wilayah dan poin.
-Tim 1 — Dorong ke Garnisun musuh
-Tugas utama: mencapai area Garnisun musuh sebelum menit ke-20.
-Terus maju di jalurmu sampai bangunan musuh terdekat dengan Garnisun mereka (Shrine / Kluster Reruntuhan).
-Sudah di posisi SEBELUM Garnisun dibuka agar kita bisa merebutnya tepat di 20:00.
 R4
 R4 dan penanggung jawab legiun harus aktif mengatur penunjukan Kapten sepanjang pertempuran.
 Kapten = pemain terkuat. Mereka berpindah-pindah di peta merebut target, jadi butuh Energi paling banyak.
@@ -1252,38 +1239,17 @@ Fase 1: Persiapan (0:00–3:00)
 Tujuan: atur skuad dan kenali peta. Ingat zona ungu, merah, dan kuning — yang kita kuasai berubah biru. Cek kekuatan musuh dan tentukan aliansi mana yang mau difokuskan.
 Fase 2: Rebut & Taklukkan (3:00–20:00)
 Tujuan: cepat merebut wilayah internal.
-Tim 3 duluan, lalu Tim 2.
 Kuasai Pusat Transit / bangunan penghubung untuk poin per menit (PPM) yang stabil. Garnisun masih berperisai.
-Sementara itu Tim 1 menerobos jauh ke wilayah musuh menuju Garnisun mereka.
 Fase 3: Penguasaan Garnisun (20:00–40:00)
 Tujuan: perisai Garnisun (A24, B24, C24) hilang.
-Tim 3: pertahankan Garnisun kita (+1.800 PPM) sambil menyerang Garnisun musuh secara terkoordinasi — berpencar bila perlu.
 Terus cari bangunan tak dijaga, wilayah musuh yang lemah, peluang ekspansi, dan rebutan mudah untuk poin pribadi dan aliansi.
 Fase 4: Penyerangan Kuil (40:00–60:00)
 Tujuan: Kuil Dewa Laut di tengah dibuka. Poinnya sangat besar, plus bonus 50.000 poin bagi yang menguasainya di akhir. Sejak saat ini kuil jadi fokus utama aliansi.
-🌊 URUTAN MASUK KUIL
-Tim 3 + 2 → masuk duluan (Tim 3 tetap mengawasi wilayah / Garnisun kita agar tidak hilang).
-Tim 1 → masuk terakhir.
-Rebut → perkuat → pertahankan.
 ⚠️ Saat menyerang NPC Kuil, pemain terkuat masuk TERAKHIR — agar ia melawan NPC terkuat yang tersisa, bukan membuang kekuatan pada lawan yang lebih mudah.
 Setelah Kuil direbut
 Kunci segera — perkuat Kuil secepatnya.
 Pertahankan kendali.
 Jangan kejar target bernilai rendah jika berisiko kehilangan Kuil.
-📋 RINGKASAN TIM
-Tim 3 — Wilayah internal
-Fase 2 → rebut bangunan netral secepatnya
-Fase 3 → amankan Garnisun kita + dukung penyerang
-Fase 4 → Kuil: masuk duluan, tapi awasi wilayah kita — jangan sampai hilang
-Tim 2 — Rebutan musuh
-Fase 2 → maju melewati Tim 1 ke wilayah musuh
-Fase 3 → rebut bangunan musuh / yang ditinggalkan
-Fase 4 → Kuil: masuk duluan
-Tim 1 — Serangan dalam
-Fase 2 → menerobos jauh ke wilayah musuh, incar Shrine (Kluster Reruntuhan) di samping Garnisun musuh
-Fase 3 → duduki Garnisun musuh
-Fase 4 → Kuil: masuk terakhir
-🧱 Trik blokir Kuil (Tim 1): rebut bangunan / Shrine di belakang Pusat Transit musuh dekat Kuil Dewa Laut dan PERTAHANKAN — jangan langsung pergi. Dengan begitu Tim 1 bisa mengganggu serangan musuh ke Kuil dan kita sudah menguasai garis depan sebelum Kuil dibuka.
 ⚡ MANAJEMEN Energi
 Setiap gerakan/aksi memakai Energi — gunakan dengan bijak.
 Mengerahkan — pindahkan skuad ke lokasi baru yang tersedia.

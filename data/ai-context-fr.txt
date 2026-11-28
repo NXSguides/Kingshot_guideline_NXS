@@ -1225,19 +1225,6 @@ Les Composant offensifs NE comptent PAS dans cet événement. Les Composant déf
 Temple des Marées = OBJECTIF PRINCIPAL — il ouvre à la fin.
 Noms utilisés dans notre chat : Shrine = Groupe de ruines, Altar = Ruines.
 Attaquer et capturer des bâtiments rapporte plus de points que simplement les défendre/tenir — contrairement au Choc du Glaive.
-👥 ÉQUIPES & RÔLES
-Les joueurs sont répartis en environ 3 équipes sur différentes voies — le joueur le plus fort plus un renfort par cible, pour bien répartir notre force.
-Équipe 3 — Capturer les bâtiments neutres au début
-Capturez les bâtiments neutres de notre territoire AU PLUS VITE dès l'ouverture.
-Une fois votre cible sécurisée, continuez d'avancer.
-Équipe 2 — Avancer & saisir les occasions
-Restez devant les équipes plus faibles, allez vers la cible suivante de votre voie et maintenez la pression.
-Surveillez les mouvements ennemis. Quand l'ennemi quitte un bâtiment pour avancer, entrez dans le bâtiment qu'il vient de quitter et capturez-le tant qu'il n'est pas défendu.
-Profitez de chaque ouverture pour gagner du territoire et des points.
-Équipe 1 — Pousser jusqu'à la Garnison ennemie
-Mission principale : atteindre la zone de la Garnison ennemie avant la 20e minute.
-Avancez sur votre voie jusqu'au bâtiment ennemi le plus proche de leur Garnison (Shrine / Groupe de ruines).
-Soyez en position AVANT l'ouverture de la Garnison pour la capturer dès 20:00.
 R4
 Les R4 et les responsables de légion doivent gérer activement les nominations de Capitaine pendant toute la bataille.
 Capitaine = les joueurs les plus forts. Ils parcourent la carte pour capturer des cibles, ils ont donc besoin du plus d'énergie.
@@ -1253,38 +1240,17 @@ Phase 1 : Préparations (0:00–3:00)
 Objectif : configurer vos escouades et découvrir la carte. Retenez les zones violette, rouge et jaune — celles que vous occupez deviennent bleues. Évaluez la force des ennemis et choisissez l'alliance à cibler.
 Phase 2 : Capture & Conquête (3:00–20:00)
 Objectif : capturer rapidement le territoire intérieur.
-L'équipe 3 part en premier, puis l'équipe 2.
 Verrouillez les Pôle de Transit et bâtiments de liaison pour des points réguliers par minute (PPM). Les Garnison sont encore protégées.
-Pendant ce temps, l'équipe 1 s'enfonce en territoire ennemi vers leur Garnison.
 Phase 3 : Occupation de Garnison (20:00–40:00)
 Objectif : les boucliers des Garnison (A24, B24, C24) tombent.
-Équipe 3 : défendez notre Garnison (+1 800 PPM) tout en lançant des attaques coordonnées sur les Garnison ennemies — séparez-vous si besoin.
 Cherchez toujours les bâtiments non défendus, le territoire ennemi mal défendu, les occasions d'expansion et les captures faciles pour des points individuels et d'alliance.
 Phase 4 : Assaut du Temple (40:00–60:00)
 Objectif : le Temple des Marées central ouvre. Il rapporte énormément de points, plus un bonus de 50 000 points pour qui le tient à la fin. À partir de là, c'est l'objectif principal de l'alliance.
-🌊 ORDRE D'ENTRÉE AU TEMPLE
-Équipes 3 + 2 → entrent en premier (l'équipe 3 surveille aussi notre territoire / notre Garnison pour ne rien perdre).
-Équipe 1 → entre en dernier.
-Capturer → renforcer → tenir.
 ⚠️ Contre les PNJ du Temple, le joueur le plus fort entre EN DERNIER — il affronte ainsi le PNJ restant le plus fort au lieu de gaspiller sa puissance sur un adversaire plus facile.
 Une fois le Temple capturé
 Verrouillez-le immédiatement — renforcez le Temple au plus vite.
 Gardez le contrôle.
 Ne courez pas après des cibles moins précieuses si cela risque de faire perdre le Temple.
-📋 RÉSUMÉ DES ÉQUIPES
-Équipe 3 — Territoire intérieur
-Phase 2 → capturer les bâtiments neutres au plus vite
-Phase 3 → sécuriser notre Garnison + soutenir les attaquants
-Phase 4 → Temple : entrer en premier, mais surveiller notre territoire — ne pas le perdre
-Équipe 2 — Captures ennemies
-Phase 2 → avancer au-delà de l'équipe 1 en territoire ennemi
-Phase 3 → capturer les bâtiments ennemis / abandonnés
-Phase 4 → Temple : entrer en premier
-Équipe 1 — Attaque en profondeur
-Phase 2 → s'enfoncer en territoire ennemi, objectif : le Shrine (Groupe de ruines) à côté de la Garnison ennemie
-Phase 3 → occuper la Garnison ennemie
-Phase 4 → Temple : entrer en dernier
-🧱 Blocage du Temple (équipe 1) : capturez le bâtiment / Shrine derrière le Pôle de Transit ennemi près du Temple des Marées et TENEZ-LE — ne partez pas tout de suite. L'équipe 1 peut alors gêner la poussée ennemie vers le Temple, et nous contrôlons l'avant avant l'ouverture du Temple.
 ⚡ GESTION DE L'énergie
 Chaque déplacement/action coûte de l'énergie — utilisez-la avec soin.
 Déployer — envoyer votre escouade vers un nouvel emplacement disponible.

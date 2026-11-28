@@ -1223,19 +1223,6 @@ Offensive Widgets DO NOT count in this event. Defensive Widgets DO count — pri
 Temple of Tides = PRIMARY OBJECTIVE — it opens at the end.
 Names used in our chat: Shrine = Cluster of Ruins, Altar = Ruins.
 Attacking and capturing buildings gives more points than just defending/holding them — unlike Swordland Showdown.
-👥 TEAMS & ROLES
-Players are split into about 3 teams working different lanes — the strongest player plus a back-up for each target, so our strength is spread effectively.
-Team 3 — Capture neutral buildings at the start
-Capture the neutral buildings on our territory ASAP when the battle opens.
-Once your target is secured, keep advancing.
-Team 2 — Advance & opportunity captures
-Keep moving ahead of weaker teams to the next target in your lane and keep the pressure on.
-Watch enemy movement closely. When enemies leave a building to advance, move into the building they just left and capture it while it's undefended.
-Use every opening like this to gain territory and points.
-Team 1 — Push to the enemy Garrison
-Main job: reach the enemy Garrison area before the 20-minute mark.
-Keep advancing through your lane until you reach the enemy building closest to their Garrison (Shrine / Cluster of Ruins).
-Be in position BEFORE the Garrison opens so we can capture it right at 20:00.
 R4s
 R4s and Legion commanders must actively manage Captain assignments throughout the battle.
 Captains = the strongest players. They move across the map capturing targets, so they need the most Energy.
@@ -1251,38 +1238,17 @@ Phase 1: Preparations (0:00–3:00)
 Goal: set up your squads and get to know the map. Remember the purple, red and yellow zones — the ones you occupy turn blue. Check the enemies' strength and decide which alliance to focus on.
 Phase 2: Seize & Conquer (3:00–20:00)
 Goal: rapidly capture internal territory.
-Team 3 goes first, then Team 2.
 Lock down Transit Hubs / connectors to gain steady points per minute (PPM). The Garrisons are still shielded.
-Meanwhile Team 1 pushes deep into enemy territory toward their Garrison.
 Phase 3: Garrison Occupation (20:00–40:00)
 Goal: shields drop on the Garrisons (A24, B24, C24).
-Team 3: defend our Garrison (+1,800 PPM) while launching coordinated strikes on enemy Garrisons — split up as needed.
 Keep looking for undefended buildings, weakly defended enemy territory, chances to expand, and easy captures for personal and alliance points.
 Phase 4: Temple Onslaught (40:00–60:00)
 Goal: the central Temple of Tides opens. It gives massive points, plus a 50,000-point bonus to whoever holds it at the end. From now on it is the alliance's main focus.
-🌊 TEMPLE ORDER
-Teams 3 + 2 → go first (Team 3 keeps watching our territory / Garrison so we don't lose them).
-Team 1 → enters last.
-Capture → reinforce → hold.
 ⚠️ When attacking the Temple NPCs, the strongest player enters LAST — so they fight the strongest remaining NPC instead of wasting their strength on an easier one.
 Once we capture the Temple
 Lock it down immediately — reinforce the Temple ASAP.
 Keep control.
 Don't chase lower-value targets if it risks losing the Temple.
-📋 TEAM SUMMARY
-Team 3 — Internal territory
-Phase 2 → capture neutral buildings ASAP
-Phase 3 → secure our Garrison + support attackers
-Phase 4 → Temple: go first, but watch our territory — don't lose it
-Team 2 — Enemy captures
-Phase 2 → advance past Team 1 into enemy territory
-Phase 3 → capture enemy / abandoned buildings
-Phase 4 → Temple: go first
-Team 1 — Deep attack
-Phase 2 → push deep into enemy territory, aiming for the Shrine (Cluster of Ruins) next to the enemy Garrison
-Phase 3 → occupy the enemy Garrison
-Phase 4 → Temple: enter last
-🧱 Temple block trick (Team 1): capture the building / Shrine behind the enemy Transit Hub near the Temple of Tides and HOLD it — don't leave right away. This puts Team 1 in position to disrupt the enemy's Temple push and gives us forward control before the Temple opens.
 ⚡ Energy MANAGEMENT
 Every move/action costs Energy — use it wisely.
 Deploy — move your squad to a new available location.

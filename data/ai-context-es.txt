@@ -1224,19 +1224,6 @@ Los Complemento ofensivos NO cuentan en este evento. Los Complemento defensivos 
 Templo de las Mareas = OBJETIVO PRINCIPAL: se abre al final.
 Nombres que usamos en el chat: Shrine = Conjunto de Ruinas, Altar = Ruinas.
 Atacar y capturar edificios da más puntos que solo defenderlos/mantenerlos, a diferencia del Enfrentamiento en Tierra de espadas.
-👥 EQUIPOS Y FUNCIONES
-Los jugadores se dividen en unos 3 equipos en rutas distintas: el jugador más fuerte más un refuerzo por objetivo, para repartir bien nuestra fuerza.
-Equipo 3 — Capturar edificios neutrales al inicio
-Captura los edificios neutrales de nuestro territorio LO ANTES POSIBLE en cuanto empiece la batalla.
-Cuando asegures tu objetivo, sigue avanzando.
-Equipo 2 — Avanzar y aprovechar oportunidades
-Mantente por delante de los equipos más débiles, ve al siguiente objetivo de tu ruta y mantén la presión.
-Vigila los movimientos enemigos. Cuando el enemigo deje un edificio para avanzar, entra en el edificio que acaba de abandonar y captúralo mientras está sin defensa.
-Aprovecha cada hueco así para ganar territorio y puntos.
-Equipo 1 — Empujar hasta la Guarnición enemiga
-Tarea principal: llegar a la zona de la Guarnición enemiga antes del minuto 20.
-Avanza por tu ruta hasta el edificio enemigo más cercano a su Guarnición (Shrine / Conjunto de Ruinas).
-Colócate ANTES de que se abra la Guarnición para capturarla justo a los 20:00.
 R4
 Los R4 y los responsables de legión deben gestionar activamente los nombramientos de Capitán durante toda la batalla.
 Capitán = los jugadores más fuertes. Recorren el mapa capturando objetivos, así que necesitan más Energía.
@@ -1252,38 +1239,17 @@ Fase 1: Preparativos (0:00–3:00)
 Objetivo: configurar los escuadrones y conocer el mapa. Recuerda las zonas morada, roja y amarilla: las que ocupamos se vuelven azules. Revisa la fuerza de los enemigos y decide en qué alianza centrarnos.
 Fase 2: Capturar y Conquistar (3:00–20:00)
 Objetivo: capturar rápido el territorio interno.
-Primero el Equipo 3, luego el Equipo 2.
 Asegura los Centro de Tránsito y edificios de conexión para sumar puntos constantes por minuto (PPM). Las Guarniciones siguen con escudo.
-Mientras tanto, el Equipo 1 se adentra en territorio enemigo hacia su Guarnición.
 Fase 3: Ocupación de Guarniciones (20:00–40:00)
 Objetivo: caen los escudos de las Guarniciones (A24, B24, C24).
-Equipo 3: defiende nuestra Guarnición (+1.800 PPM) mientras lanza ataques coordinados contra las Guarniciones enemigas; divídanse si hace falta.
 Sigan buscando edificios sin defensa, territorio enemigo mal defendido, oportunidades de expansión y capturas fáciles para puntos personales y de alianza.
 Fase 4: Asalto al Templo (40:00–60:00)
 Objetivo: se abre el Templo de las Mareas central. Da muchísimos puntos, más un bono de 50.000 puntos para quien lo tenga al final. Desde ese momento es el objetivo principal de la alianza.
-🌊 ORDEN EN EL TEMPLO
-Equipos 3 + 2 → entran primero (el Equipo 3 sigue vigilando nuestro territorio / Guarnición para no perderlos).
-Equipo 1 → entra el último.
-Capturar → reforzar → mantener.
 ⚠️ Al atacar a los PNJ del Templo, el jugador más fuerte entra el ÚLTIMO: así se enfrenta al PNJ más fuerte que quede en vez de gastar su fuerza en un rival más fácil.
 Cuando capturemos el Templo
 Asegúralo de inmediato: refuerza el Templo cuanto antes.
 Mantén el control.
 No persigas objetivos de menor valor si eso pone en riesgo el Templo.
-📋 RESUMEN DE EQUIPOS
-Equipo 3 — Territorio interno
-Fase 2 → capturar los edificios neutrales lo antes posible
-Fase 3 → asegurar nuestra Guarnición + apoyar a los atacantes
-Fase 4 → Templo: entrar primero, pero vigilar nuestro territorio y no perderlo
-Equipo 2 — Capturas enemigas
-Fase 2 → avanzar más allá del Equipo 1 hacia territorio enemigo
-Fase 3 → capturar edificios enemigos / abandonados
-Fase 4 → Templo: entrar primero
-Equipo 1 — Ataque profundo
-Fase 2 → adentrarse en territorio enemigo, apuntando al Shrine (Conjunto de Ruinas) junto a la Guarnición enemiga
-Fase 3 → ocupar la Guarnición enemiga
-Fase 4 → Templo: entrar el último
-🧱 Truco de bloqueo del Templo (Equipo 1): captura el edificio / Shrine detrás del Centro de Tránsito enemigo cerca del Templo de las Mareas y MANTENLO, no te vayas enseguida. Así el Equipo 1 puede estorbar el avance enemigo al Templo y tenemos control adelantado antes de que se abra.
 ⚡ GESTIÓN DE LA Energía
 Cada movimiento/acción gasta Energía: úsala con cabeza.
 Desplegar: mover tu escuadrón a una nueva ubicación disponible.
