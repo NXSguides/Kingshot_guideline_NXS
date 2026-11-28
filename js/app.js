@@ -1758,7 +1758,7 @@ function dailyHintHtml() {
   return `<button type="button" class="kvk-plan-link" id="dailyHint" onclick="switchGuide('${DAILY_GUIDE}');setTimeout(()=>{const c=document.getElementById('dailyCard');if(c)c.scrollIntoView({behavior:'smooth',block:'start'})},60)" dir="auto">${escapeHtml(t(DAILY_TXT.hint))} · ${done}/${d.total} ›</button>`;
 }
 
-/* Grouped events (Swordland roles, Tri-Alliance teams): buttons that jump to your group's part of the guide.
+/* Grouped events (Swordland roles): buttons that jump to your group's part of the guide.
    Labels come from the guide's own headings, so every language works. Link form: #/en/swordland-showdown/role-2 */
 const JUMP_TXT = {
   en: "📍 Where were you assigned? Tap to jump there", zh: "📍 你被分到哪裡？點一下直接跳過去", ko: "📍 배정받은 곳을 누르면 바로 이동해요",
@@ -1776,13 +1776,7 @@ function jumpCard(doc) {
       return el && { id: `role-${n}`, el, label: e + " " + clean(el.textContent.replace(/[0-9]\s*[)）]|⚔️|🛡️|🤝/g, "")) };
     }).filter(Boolean);
     if (roles.length) rows.push(roles);
-  } else if (currentGuide === "tri-alliance-clash") {
-    const teams = [1, 2, 3].map((n) => {
-      const el = subs.find((h) => new RegExp(`(^|\\D)${n}(\\D|$)`).test(h.textContent) && /—|：/.test(h.textContent));
-      return el && { id: `team-${n}`, el, label: clean(el.textContent) };
-    }).filter(Boolean);
-    if (teams.length) rows.push(teams);
-  }
+  }   // 🔱 Tri-Alliance: no team buttons since 2026-11-28 — the guide keeps only the general parts; each battle's teams are in the officers' plan
   if (!rows.length) return;
   const all = rows.flat();
   all.forEach((x) => { x.el.id = "j-" + x.id; x.el.classList.add("jump-target"); });
