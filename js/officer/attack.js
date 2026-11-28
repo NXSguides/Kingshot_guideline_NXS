@@ -269,8 +269,8 @@ async function ssLoad() {
 function ourList() {
   const p = PLANS && PLANS[PLAN.ss.plan]; if (!p) return [];
   const byId = new Map(((ROSTER && ROSTER.members) || []).map((m) => [String(m.id), m])), subs = new Set((p.subs || []).map(String));
-  /* only confirmed people (✅, or 🟡 safe and not ❌) — like 📊 Ranking. A battle-only officer gets the list already filtered by the Worker (filtered: true). */
-  const rep = p.rep || {}, ok = (id) => p.filtered || rep[id] === "y" || (SAFE_IDS.has(id) && rep[id] !== "n");
+  /* everyone ticked except ❌ can't come (Sherry 2026-11-28; before: only ✅ / 🟡) — like 📊 Ranking. A battle-only officer gets the list already filtered by the Worker (filtered: true). */
+  const rep = p.rep || {}, ok = (id) => p.filtered || rep[id] !== "n";
   return (p.picked || []).map(String).filter(ok).map((id) => { const m = byId.get(id) || {}, pl = PL[id], s = sFrom(pl && pl.b, m.power || (pl && pl.b.personal_power));
     const ov = PLAN.ss.ov[id]; return { id, name: m.name || (pl && pl.name) || id, power: m.power || (pl && pl.b.personal_power) || 0, S: s.S, est: s.est, sub: ov ? ov === "s" : subs.has(id) }; })
     .sort((a, b) => (b.S || 0) - (a.S || 0) || b.power - a.power);
