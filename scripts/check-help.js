@@ -158,6 +158,7 @@ const FEATURES = [
   ["Board", /💬 Board/, /bd01:/],
   ["Attendance", /📋 Attendance/, /at01:/],
   ["Ranking: ✅ Registration on ticked names (⏳/✅/❌ replies, 🟡 safe players)", /✅ Registration \(報名確認/, /rk05r:/],
+  ["Post: 🔒 officers see link-only announcements on the board", /🔒 LINK-ONLY FOR OFFICERS \(2026-11-28/, /without the link|不用連結也會/],
   ["Post: 💾 unsent draft kept on this device", /💾 UNSENT DRAFT \(2026-11-28/, /draft back|草稿（含圖片）/],
   ["Ranking: 🔱 TAC corner labels (US / clockwise / counter-clockwise)", /🔱 TAC CORNER LABELS \(2026-11-28/, /CLOCKWISE \/ COUNTER-CLOCKWISE/],
   ["Ranking: 🔱 one labelled TAC map for both versions", /🔱 TAC MAP \(2026-11-28/, /labelled A \/ B \/ C TAC map/],

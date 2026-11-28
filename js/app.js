@@ -1000,7 +1000,24 @@ async function loadAnnouncements() {
   dropExpired();
   renderAll();
   openPendingAnn();
-  loadSecret();
+  loadSecret().finally(loadOfficerSecrets);
+}
+/* 🔒 officers see every link-only announcement too (Sherry 2026-11-28: "連結跟幹部都看得到"): a browser logged in to the officer page
+   (Discord) asks the Worker for the live ones; anyone the 👥 table lists gets them. Shown with the 🔒 mark like one opened by its link. */
+async function loadOfficerSecrets() {
+  let tk = ""; try { tk = localStorage.getItem("nxs-discord-v1") || ""; } catch (e) {} if (!tk) return;
+  let j = null;
+  try { const r = await fetch(SECRET_API.replace(/\/get$/, ""), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: tk, op: "feed" }), cache: "no-store" });
+    j = await r.json(); if (j && j.token) { try { localStorage.setItem("nxs-discord-v1", j.token); } catch (e) {} } } catch (e) { return; }
+  if (!j || !j.ok || !Array.isArray(j.list) || !j.list.length) return;
+  const have = new Set(announcements.filter((a) => a.secret).map((a) => a.secret));
+  const add = j.list.filter((x) => x && x.id && !have.has(x.id)).map((x) => ({ author: x.author, createdAt: x.createdAt, expiresAt: x.expiresAt || "", style: x.style || "", title: x.title, content: x.content, secret: x.id, images: [] }));
+  if (!add.length) return;
+  const keep = announcements[currentAnnIndex];
+  announcements = [...announcements.filter((a) => a.secret), ...add, ...announcements.filter((a) => !a.secret)];
+  dropExpired();
+  const i = keep ? announcements.indexOf(keep) : -1; currentAnnIndex = i >= 0 ? i : 0;
+  if (langChosen) renderAll();
 }
 /* auto-delete time set on the officer Post page: hidden right on time (the hourly clean-up then removes it from the files) */
 function dropExpired() {

@@ -381,6 +381,7 @@ EVERYONE TICKED IS RANKED AND PLACED UNLESS MARKED ❌ (Sherry, 2026-11-28 — t
 [ranking] - 📊 Ranking tab → "📋 Plan" (中文: 方案) at the top: "🔒 Only on this device" (default, private) or a shared plan made with "+ New shared plan" (e.g. "Legion 1"). In a shared plan every officer sees the same ticked participants, weights, group sizes and battle table; changes show for the others within about 10 seconds to a minute. Shared plans are saved on the Worker (Discord login, no GitHub key): each save sends only what changed on that device, so two officers editing at once — or an old tab left open — don't undo each other. A box at the top of the screen shows the save: ✅ Saved · time / ⏳ Saving / ⚠️ Not saved yet (kept on that device and retried by itself, also after a reload; don't close the page). Rename / Delete buttons next to it. Officers whose 👥 Ranking right is "view" can look but not change a plan.
 [post] - 📢 Post → 💾 UNSENT DRAFT (2026-11-28, Sherry): the Write form (title, message, guide, language, auto-delete, look, publish time, 🔒 link only, and pictures / battle tables not yet uploaded) is saved on THIS device while typing; a reload or closed tab brings it back with a note "Your unsent draft is back". Publishing a new or link-only announcement clears it; not kept while editing an existing or scheduled one; kept 7 days.
 [post] - 📢 Post → 🔒 LINK ONLY (機密, 2026-11-19, Sherry): a tick box above the preview, for things that must not be on the site (a battle strategy). Write it as usual, tick "🔒 Link only (confidential)", press Publish. It is NOT put on the site or in the public files: it is kept on our server, translated into all 12 languages (same game-term list; the page shows "Translating… n / 12" — keep it open; about a minute), and the link is copied. It opens only through that link (…/#s/…); the reader sees it on the home page's announcement board like any other announcement, in their own language, and can switch language. The card "🔒 Link-only announcements" at the bottom of the Post tab lists them: 🔗 Copy link, 🌐 Finish translating (when some languages are missing), Delete. Deleting makes the link stop working at once; "Auto-delete" works too. Pictures, battle tables and videos work since 2026-11-28 (uploaded to the repo like a normal announcement's — public files, just not listed; Sherry: the point is only keeping people out for a short time). Limits: cannot be scheduled or edited yet (delete and post again — the link changes); at most 40. It keeps honest people out, nothing more: anyone holding the link can read it and pass it on, no login is asked. Only officers who may post announcements see the list and the links.
+[post] - 🔒 LINK-ONLY FOR OFFICERS (2026-11-28, Sherry: the link AND officers can see it): any browser logged in to the officer page with Discord (anyone in the 👥 table) also sees every live link-only announcement on the site's announcement board, with the 🔒 mark — no link needed. Members still need the link.
 [post] - 📢 Post tab → "Auto-delete" (中文: 自動刪除) under the guide button: Never / when today ends (00:00 UTC) / when tomorrow ends / after 1, 2, 3 or 7 days / pick a date & time (UTC). The announcement disappears from the site on time by itself (the files are cleaned up within the hour). The list shows "🗑️ auto-delete …". To change or remove the time: Edit → Edit the whole announcement → change Auto-delete → Save (it is not translated again).
 - Changes are saved on the site for all officers (other officers see them after refreshing, about 1 minute). Saving uses the same GitHub key as the Post tab; "Someone else changed the events meanwhile" → refresh and try again. The event texts are encrypted like the other officer data.
 - Changing the dates of KvK, Viking Vengeance, Swordland Showdown, Tri-Alliance Clash, Eternity's Reach, All Out, Fishing Tournament, Hero Roulette or Cesares Fury also changes when the main site shows those events (with a link to their guide) in 📅 This week and the 📆 calendar on the 🏠 Home page.
@@ -1683,8 +1684,14 @@ async function secretList(stub) {   // the list officers see; expired ones are r
   if (keep.length !== ids.length) await stub.kvSet("secrets", keep);
   return out.sort((a, b) => b.at - a.at);
 }
-async function secretRoute(env, stub, user, body, token, mayPost) {
+async function secretRoute(env, stub, user, body, token, mayPost, role) {
   const op = String(body.op || "list");
+  if (op === "feed") {   // 🔒 every live link-only announcement for anyone in the 👥 table (Sherry 2026-11-28: the link AND officers can see them) — shown on the site's board
+    if (!role) return json({ error: "no_access", token }, 403);
+    const out = [];
+    for (const r of await secretList(stub)) { const x = await stub.kvGet("sec-" + r.id); if (secLive(x)) out.push({ id: x.id, author: x.author, createdAt: new Date(x.at).toISOString(), expiresAt: x.exp || "", style: x.style || "", title: x.title, content: x.content }); }
+    return json({ ok: true, token, list: out });
+  }
   if (!mayPost) return json({ error: "view_only", token }, 403);   // only officers who may post announcements ever see the list (the list holds the links)
   if (op === "list") return json({ ok: true, token, list: await secretList(stub) });
   if (op === "save") {
@@ -2379,7 +2386,7 @@ async function authRoute(req, env, path, ctx) {
     if (path === "/rewards") return rewardsRoute(stub, u, body, token, perms);
     if (path === "/perms") return permsRoute(stub, u, body, token, role);
     if (path === "/ws") return wsRoute(stub, s.u, body, token, role, perms);
-    if (path === "/secret") return secretRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "post"));
+    if (path === "/secret") return secretRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "post"), role);
     if (path === "/directed") {   // 👤 to-dos sent only to chosen officers (Events editor "Only remind"): the Worker sends them, no phone set-up needed
       if (!canEdit(perms, s.u.id, "events")) return json({ error: "view_only", token }, 403);
       const now = Date.now();
