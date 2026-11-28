@@ -811,7 +811,53 @@ function applyTexts() {
   if (typeof showEditing === "function") showEditing();
   if (cur) fillEditLang();
 }
-function showApp() { $("setupCard").hidden = true; $("po_app").hidden = false; renderPreview(); loadList(); loadSched(); loadSec(); takeCarriedImage(); }
+function showApp() { $("setupCard").hidden = true; $("po_app").hidden = false; draftRestore().finally(() => { renderPreview(); loadList(); loadSched(); loadSec(); takeCarriedImage(); }); }
+/* ===== 💾 unsent draft (Sherry 2026-11-28: "重新整理整個公告頁面會消失…你能不能有暫存檔") =====
+   The Write form is kept on THIS device while you type: the text fields in localStorage, the pictures / battle tables still waiting
+   to be uploaded in IndexedDB. A reload or closing the tab brings it back; publishing (or clearing the form) removes it. Not kept
+   while an existing or scheduled announcement is open for editing — that one is still on the server. Kept 7 days. */
+const DRAFT_LS = "nxs-post-draft-v1", DRAFT_DAYS = 7;
+for (const [l, o] of Object.entries({ en: { draftBack: "💾 Your unsent draft is back (saved on this device)." }, zh: { draftBack: "💾 已恢復你還沒發出的草稿（存在這台裝置）。" },
+  pt: { draftBack: "💾 Seu rascunho não enviado voltou (salvo neste aparelho)." }, ar: { draftBack: "💾 عادت مسودتك غير المرسلة (محفوظة على هذا الجهاز)." },
+  ko: { draftBack: "💾 보내지 않은 초안을 되돌렸어요 (이 기기에 저장됨)." } })) Object.assign(T[l] = T[l] || {}, o);
+const draftDb = () => new Promise((ok, no) => { const r = indexedDB.open("nxs-post-draft", 1); r.onupgradeneeded = () => r.result.createObjectStore("f"); r.onsuccess = () => ok(r.result); r.onerror = () => no(r.error); });
+const draftTx = async (mode, fn) => { const db = await draftDb(); return new Promise((ok, no) => { const tx = db.transaction("f", mode), st = tx.objectStore("f"); const out = fn(st); tx.oncomplete = () => { db.close(); ok(out && out.result); }; tx.onerror = () => { db.close(); no(tx.error); }; }); };
+let draftTimer = null, draftFiles = "";
+function draftEmpty() { return !$("annTitle").value.trim() && !$("body").value.trim(); }
+function draftSave() {
+  clearTimeout(draftTimer);
+  draftTimer = setTimeout(async () => {
+    if (editing || editingSched || $("po_app").hidden) return;
+    if (draftEmpty()) return draftClear();
+    const body = fullBody(), files = Object.keys(pendingImgs).filter((p) => body.includes(`[[img:${p}]]`) || body.includes(`[[table:${p}]]`) || body.includes(`[[video:${p}]]`));
+    const d = { t: Date.now(), title: $("annTitle").value, body: $("body").value, guide: $("guide").value, lang: $("srcLang").value, exp: expValue(), style: styleValue(), at: atValue(), sec: $("secChk").checked, files };
+    try { localStorage.setItem(DRAFT_LS, JSON.stringify(d)); } catch (e) {}
+    const key = files.join("|"); if (key === draftFiles) return;   // the pictures only change now and then
+    try { await draftTx("readwrite", (st) => { st.clear(); files.forEach((p) => st.put(pendingImgs[p].blob, p)); }); draftFiles = key; } catch (e) {}
+  }, 600);
+}
+function draftClear() {
+  clearTimeout(draftTimer); draftFiles = "";
+  try { localStorage.removeItem(DRAFT_LS); } catch (e) {}
+  draftTx("readwrite", (st) => st.clear()).catch(() => {});
+}
+async function draftRestore() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(DRAFT_LS)); } catch (e) {}
+  if (!d || !(d.title || d.body)) return;
+  if (Date.now() - (d.t || 0) > DRAFT_DAYS * 864e5) return draftClear();
+  if (editing || editingSched || !draftEmpty()) return;
+  for (const p of d.files || []) {
+    try { const blob = await draftTx("readonly", (st) => st.get(p)); if (blob) pendingImgs[p] = { blob, url: URL.createObjectURL(blob) }; } catch (e) {}
+  }
+  draftFiles = (d.files || []).filter((p) => pendingImgs[p]).join("|");
+  $("annTitle").value = d.title || ""; $("body").value = d.body || ""; $("guide").value = d.guide || "";
+  if (d.lang) $("srcLang").value = d.lang;
+  setExp(d.exp); setStyle(d.style); setAt(d.at); $("secChk").checked = !!d.sec;
+  if (typeof showEditing === "function") showEditing();
+  showMsg("pubMsg", "info", tr("draftBack"));
+}
+["annTitle", "body", "guide", "srcLang", "expSel", "expDate", "expHour", "annStyle", "annFlag", "pubAt", "secChk"].forEach((id) => { const el = $(id); if (el) { el.addEventListener("input", draftSave); el.addEventListener("change", draftSave); } });
+
 
 async function tryUnlock(pw, silent, retried) {
   try { TOKEN = await decryptToken(keyBlob, pw); }
@@ -935,7 +981,7 @@ async function secPublish({ author, title, expires }) {
     await secCopy(j.item.id);
     showMsg("pubMsg", "ok", done.langs.length >= SEC_ALL.length ? tr("secOk") : tr("secOkPart").replace("{n}", done.langs.length).replace("{t}", SEC_ALL.length));
     $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); $("secChk").checked = false; demoKeep = null; $("fmtDemoNote").hidden = true;
-    Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {}; renderPreview(); showEditing();
+    Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {}; draftClear(); renderPreview(); showEditing();
     btn.disabled = false; return true;
   } catch (e) { showMsg("pubMsg", "err", secErr(e)); btn.disabled = false; return false; }
 }
@@ -1003,7 +1049,7 @@ $("publishBtn").onclick = async () => {
       showMsg("pubMsg", "ok", tr("pubOk"));
     }
     $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); setAt(""); renderSched(); demoKeep = null; $("fmtDemoNote").hidden = true;
-    Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {};
+    Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {}; draftClear();
     renderPreview(); loadList();
   } catch (e) { showMsg("pubMsg", "err", e.message === "nokey" ? tr("schedNeedKey") : e.message === "gone" ? tr("gone") : e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }
   btn.disabled = false;
