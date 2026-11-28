@@ -325,7 +325,9 @@ function renderPresets() {
   if (typeof tbFollow === "function") tbFollow(pr);   // ④ follows the event picked here (an empty table switches by itself)
   if (!document.activeElement || !document.activeElement.closest("#presetCounts")) renderCounts();
   if (!pr) { $("presetOut").innerHTML = ""; return; }
-  const img = pr.id === "tri" && TB.triVer !== "2" ? "figures/tri-v1.webp" : pr.img;   // 🔱 layout 1 has its own route map
+  /* 🔱 TAC: one map for both versions since 2026-11-28 (Sherry: "直接用這個就好") — the labelled A / B / C map from cafe.naver.com/kingshot1, watermark kept.
+     The older maps (figures/tri-v1.webp, figures/tri.webp) stay in the repo. */
+  const img = pr.id === "tri" ? "figures/tri-v3.webp" : pr.img;
   const pic = img ? `<a class="grp-img" href="${img}" target="_blank" rel="noopener"><img src="${img}" alt="${esc(pr.name[lang] || pr.name.en)}" loading="lazy"></a>` : "";
   if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>` + pic; return; }
   $("presetOut").innerHTML = `<div class="grp-wrap"><div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
@@ -1055,7 +1057,7 @@ function tbInput(e) {
     store.counts = store.counts || {}; store.counts[ev] = store.counts[ev] || {};
     store.counts[ev][t.dataset.rolecount] = v; save(); renderPresets(); return;
   }
-  if (t.dataset.trivver !== undefined) { TB.triVer = t.value; tbSave(); renderPresets(); return; }   // 🔱 used by the next TAC draft; ③ shows that layout's map
+  if (t.dataset.trivver !== undefined) { TB.triVer = t.value; tbSave(); renderPresets(); return; }   // 🔱 used by the next TAC draft (③ shows the same map for both)
   if (t.dataset.ssver !== undefined) { TB.ssVer = t.value; tbSave(); return; }   // used by the next ⚔️ Swordland draft
   if (t.dataset.togadd !== undefined) { const l = TB.tog && TB.tog[+t.dataset.togadd], m = t.value && data.members.find((x) => String(x.id) === t.value); if (l && m && !l.some((id) => String(id) === String(m.id))) l.push(m.id); tbSave(); tbRender(); if (TB.ev === "tri") renderPresets(); return; }
   if (t.dataset.gsec !== undefined) { TB.groups[t.dataset.gsec].sec = +t.value; tbSave(); tbRender(); return; }
