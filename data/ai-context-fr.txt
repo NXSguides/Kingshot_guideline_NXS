@@ -399,13 +399,8 @@ Génère des Points de Relique d'Alliance
 -50 % d'intervalle entre les téléportations
 -50 % du temps nécessaire pour contrôler les bâtiments
 ZONES ASSIGNÉES
-Les R4 répartiront les membres confirmés en équipes/zones avant la bataille.
-Nos meilleurs attaquants se verront d'abord attribuer une zone :
-🟣 Violet — Clocher
-🟡 Jaune — Écuries Royales
-🔵 Bleu — Sanctuaire Nord-Ouest
-🟢 Vert — Sanctuaire Sud-Est
-Les autres membres seront affectés au soutien de l'une de ces zones/équipes. Une rotation peut être nécessaire selon la situation : surveillez toujours le chat d'escouade pour les détails.
+Les R4 répartissent les équipes et les zones à chaque bataille selon les inscrits — c'est l'annonce de cette bataille qui compte.
+Une rotation peut être nécessaire selon la situation : surveillez toujours le chat d'escouade pour les détails.
 Restez dans votre zone assignée, sauf ordre contraire des officiers.
 🟣 Zone violette — Clocher / Camp de Mercenaires
 🔵 Zone bleue — Sanctuaire Nord-Ouest / Abbaye
@@ -413,7 +408,7 @@ Restez dans votre zone assignée, sauf ordre contraire des officiers.
 🟢 Zone verte — Sanctuaire Sud-Est / Abbaye
 ⚪ Centre
 RÔLES ET RESPONSABILITÉS
-Les R4 répartiront les membres confirmés, selon leur puissance, en 3 fonctions : attaquants, défenseurs et soutien/participants aux ralliements.
+À chaque bataille, les R4 répartissent les rôles selon les inscrits et leur puissance. Les trois habituels sont attaquants, défenseurs et soutien/participants aux ralliements ; qui va où figure dans l'annonce de cette bataille.
 ⚔️ 1) ATTAQUANTS
 Qui : nos joueurs les plus puissants, avec de nombreuses Relocalisations Avancées.
 Votre mission :

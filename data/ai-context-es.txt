@@ -399,13 +399,8 @@ Genera Puntos de Reliquia de Alianza
 -50% de enfriamiento de teletransporte
 -50% de tiempo de captura de edificios
 ZONAS ASIGNADAS
-R4 dividirá a los miembros confirmados en equipos/zonas antes de la batalla.
-Nuestros Atacantes más fuertes serán asignados inicialmente a una zona:
-🟣 Morado — Campanario
-🟡 Amarillo — Establos Reales
-🔵 Azul — Santuario del Noroeste
-🟢 Verde — Santuario del Sureste
-Los miembros restantes serán asignados para apoyar una de estas zonas/equipos. Puede ser necesaria una rotación según las condiciones de la batalla — vigila siempre el Chat de Escuadrón para más detalles.
+R4 asigna equipos y zonas en cada batalla según quién se inscribió; lo que cuenta es el anuncio de esa batalla.
+Puede ser necesaria una rotación según las condiciones de la batalla — vigila siempre el Chat de Escuadrón para más detalles.
 Permanece en tu zona asignada a menos que el liderazgo te indique moverte.
 🟣 Zona Morada — Campanario / Campamento de Mercenarios
 🔵 Zona Azul — Santuario del Noroeste / Abadía
@@ -413,7 +408,7 @@ Permanece en tu zona asignada a menos que el liderazgo te indique moverte.
 🟢 Zona Verde — Santuario del Sureste / Abadía
 ⚪ Centro
 ROLES Y RESPONSABILIDADES
-R4 dividirá a los miembros confirmados en 3 funciones según su poder: Atacantes, Defensores y Apoyo/Participantes.
+En cada batalla, R4 reparte las funciones según quién se inscribió y su poder. Las tres habituales son Atacantes, Defensores y Apoyo/Participantes; quién va a dónde está en el anuncio de esa batalla.
 ⚔️ 1) ATACANTES
 Quién: Nuestros jugadores más fuertes. Tienen suficientes Teletransportadores Avanzados.
 Tu tarea:

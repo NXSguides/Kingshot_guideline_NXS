@@ -399,13 +399,8 @@ Yüksek değerli İttifak Yadigâr Puanı
 Işınlanmalar arasındaki süre -%50
 Binaları kontrol etme süresi -%50
 ATANAN BÖLGELER
-R4, savaştan önce onaylı üyeleri takımlara/bölgelere ayıracak.
-En güçlü Hücumcularımız önce bir bölgeye atanacak:
-🟣 Mor — Çan Kulesi
-🟡 Sarı — Kraliyet Ahırları
-🔵 Mavi — Kuzeybatı Tapınağı
-🟢 Yeşil — Güneydoğu Tapınağı
-Kalan üyeler bu bölgelerden/takımlardan birini desteklemek üzere atanacak. Savaş koşullarına göre rotasyon gerekebilir; ayrıntılar için her zaman Ekip Sohbeti'ni takip et.
+R4 her savaşta takımları ve bölgeleri kayıt olanlara göre belirler; geçerli olan o savaşın duyurusudur.
+Savaş koşullarına göre rotasyon gerekebilir; ayrıntılar için her zaman Ekip Sohbeti'ni takip et.
 Yönetim başka yere geçmeni söylemedikçe atandığın bölgede kal.
 🟣 Mor Bölge — Çan Kulesi / Paralı Asker Kampı
 🔵 Mavi Bölge — Kuzeybatı Tapınağı / Manastır
@@ -413,7 +408,7 @@ Yönetim başka yere geçmeni söylemedikçe atandığın bölgede kal.
 🟢 Yeşil Bölge — Güneydoğu Tapınağı / Manastır
 ⚪ Merkez
 ROLLER VE SORUMLULUKLAR
-R4, onaylı üyeleri güce göre 3 göreve ayıracak: Hücumcular, Savunucular ve Destek/Katılımcılar.
+R4 her savaşta görevleri kayıt olanlara ve güce göre dağıtır. Genelde üç görev vardır: Hücumcular, Savunucular ve Destek/Katılımcılar; kimin nereye gideceği o savaşın duyurusundadır.
 ⚔️ 1) HÜCUMCULAR
 Kimler: En güçlü oyuncularımız. Yeterince Gelişmiş Işınlayıcı'ya sahip olanlar.
 Görevin:

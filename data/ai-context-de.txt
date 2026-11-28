@@ -399,13 +399,8 @@ Erzeugt Allianz-Reliktpunkte
 -50 % Teleport-Cooldown
 -50 % Zeit für die Kontrolle von Gebäuden
 🗺️ ZUGEWIESENE ZONEN
-R4 wird bestätigte Mitglieder vor der Schlacht in Teams/Zonen aufteilen.
-Unsere Stärksten Angreifer werden zunächst einer Zone zugewiesen:
-🟣 Lila — Glockenturm
-🟡 Gelb — Königliche Ställe
-🔵 Blau — Nordwestliches Heiligtum
-🟢 Grün — Südwestliches Heiligtum
-Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details.
+R4 teilt Teams und Zonen für jede Schlacht nach den Anmeldungen ein – maßgeblich ist die Ankündigung zu dieser Schlacht.
+Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details.
 Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst.
 🟣 Lila Zone — Glockenturm / Söldnerlager
 🔵 Blaue Zone — Nordwestliches Heiligtum / Abtei
@@ -413,7 +408,7 @@ Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du 
 🟢 Grüne Zone — Südwestliches Heiligtum / Abtei
 ⚪ Mitte
 👥 ROLLEN & VERANTWORTLICHKEITEN
-R4 wird bestätigte Mitglieder in 3 Funktionen aufteilen: Angreifer, Verteidiger und Unterstützer/Joiner basierend auf Stärke.
+R4 verteilt die Rollen für jede Schlacht nach den Anmeldungen und der Macht. Üblich sind drei: Angreifer, Verteidiger und Unterstützung/Beitretende; wer wohin geht, steht in der Ankündigung zu dieser Schlacht.
 1) ⚔️ ANGREIFER
 Wer: Unsere stärksten Spieler. Haben reichlich Fortgeschrittene Umsiedlungen.
 Deine Aufgabe:

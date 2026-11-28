@@ -399,13 +399,8 @@ Menghasilkan Poin Relik Aliansi
 -50% interval teleportasi
 -50% waktu yang diperlukan untuk menguasai bangunan
 ZONA YANG DITUGASKAN
-R4 akan membagi anggota yang terkonfirmasi ke dalam tim/zona sebelum pertempuran.
-Penyerbu terkuat kita akan lebih dulu ditugaskan ke satu zona:
-🟣 Ungu — Menara Lonceng
-🟡 Kuning — Kandang Kuda Kerajaan
-🔵 Biru — Sanctum Barat Laut
-🟢 Hijau — Sanctum Tenggara
-Anggota lainnya akan ditugaskan untuk mendukung salah satu zona/tim ini. Rotasi mungkin diperlukan sesuai kondisi pertempuran — selalu pantau Chat Skuad untuk detailnya.
+R4 menentukan tim dan zona di setiap pertempuran sesuai siapa yang mendaftar — yang berlaku adalah pengumuman pertempuran itu.
+Rotasi mungkin diperlukan sesuai kondisi pertempuran — selalu pantau Chat Skuad untuk detailnya.
 Tetap di zona yang ditugaskan kecuali pimpinan menyuruhmu berpindah.
 🟣 Zona Ungu — Menara Lonceng / Kamp Tentara Bayaran
 🔵 Zona Biru — Sanctum Barat Laut / Biara
@@ -413,7 +408,7 @@ Tetap di zona yang ditugaskan kecuali pimpinan menyuruhmu berpindah.
 🟢 Zona Hijau — Sanctum Tenggara / Biara
 ⚪ Tengah
 PERAN DAN TANGGUNG JAWAB
-R4 akan membagi anggota yang terkonfirmasi ke dalam 3 fungsi berdasarkan kekuatan: Penyerbu, Pembela, dan Pendukung/Joiner.
+Di setiap pertempuran, R4 membagi peran sesuai siapa yang mendaftar dan kekuatannya. Biasanya ada tiga: Penyerbu, Pembela, dan Pendukung/Joiner; siapa ke mana ada di pengumuman pertempuran itu.
 ⚔️ 1) PENYERBU
 Siapa: Pemain terkuat kita. Punya banyak Teleporter Lanjutan.
 Tugasmu:

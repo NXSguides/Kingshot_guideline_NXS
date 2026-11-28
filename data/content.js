@@ -4150,15 +4150,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
 
           { type: "h", text: "分配區域" },
-          { type: "p", text: "R4 會在開戰前，把確定參加的成員分成小隊／區域。" },
-          { type: "p", text: "我們**最強的攻擊手**會先被分配到以下區域：" },
-          { type: "list", items: [
-            "🟣 **紫色 — {belltower}**",
-            "🟡 **黃色 — {stables}**",
-            "🔵 **藍色 — {sanctumNW}**",
-            "🟢 **綠色 — {sanctumSE}**"
-          ]},
-          { type: "p", text: "其餘成員會被分配去支援其中一區。視戰況可能需要輪調，請隨時關注戰場聊天頻道。" },
+          { type: "p", text: "R4 每場會依報名的人分配小隊和區域，以當場公告為準。" },
+          { type: "p", text: "視戰況可能需要輪調，請隨時關注戰場聊天頻道。" },
           { type: "p", text: "除非幹部指示移動，否則請留在自己的區域。" },
           { type: "zones", labels: {
             purple: "🟣 紫色區域 — {belltower}／{mercenary}",
@@ -4170,7 +4163,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "職責分工" },
-          { type: "p", text: "R4 會依戰力，把確定參加的成員分成 3 種職責：**攻擊手、防守者、支援／集結加入者**。" },
+          { type: "p", text: "R4 每場依報名的人和戰力分配職責，常見的有 3 種：**攻擊手、防守者、支援／集結加入者**。誰負責哪裡，以當場公告為準。" },
 
           { type: "sub", text: "⚔️ 1）攻擊手" },
           { type: "p", text: "**人選：** 戰力最強的玩家，備有充足的高級遷城。" },
@@ -4324,15 +4317,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "ASSIGNED ZONES" },
-          { type: "p", text: "R4 will divide confirmed members into teams/zones before battle." },
-          { type: "p", text: "Our **strongest Attackers** will initially be assigned a zone:" },
-          { type: "list", items: [
-            "🟣 **Purple — {belltower}**",
-            "🟡 **Yellow — {stables}**",
-            "🔵 **Blue — {sanctumNW}**",
-            "🟢 **Green — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Remaining members will be assigned to support one of these zones/teams. Rotation may be needed based on battle conditions — always monitor Squad Chat for details." },
+          { type: "p", text: "R4 assign teams and zones for each battle based on who signed up — the announcement for that battle is what counts." },
+          { type: "p", text: "Rotation may be needed based on battle conditions — always monitor Squad Chat for details." },
           { type: "p", text: "Stay with your assigned zone unless leadership tells you to move." },
           { type: "zones", labels: {
             purple: "🟣 Purple Zone — {belltower} / {mercenary}",
@@ -4344,7 +4330,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "ROLES & RESPONSIBILITIES" },
-          { type: "p", text: "R4 will divide confirmed members into 3 functions based on power: **Attackers, Defenders and Support/Joiners**." },
+          { type: "p", text: "For each battle, R4 assign roles based on who signed up and their power. The usual three are **Attackers, Defenders and Support/Joiners**; who goes where is in that battle's announcement." },
 
           { type: "sub", text: "⚔️ 1) ATTACKERS" },
           { type: "p", text: "**Who:** Our strongest players. Have plenty of advanced teleports." },
@@ -4518,20 +4504,13 @@ const GUIDES = {
           { type: "list", items: ["오픈 시간: 15분", "우선순위: 🟡 보통 (MED)", "효과: 적이 점령한 건물 약화"] },
 
           { type: "h", text: "🗺️ 배정 구역" },
-          { type: "p", text: "R4(임원진)가 전투 전에 참석이 확인된 멤버들을 팀과 구역으로 나눌 예정입니다." },
-          { type: "p", text: "우리 연맹의 **최정예 공격수들**은 처음에 다음 구역 중 하나에 배치됩니다:" },
-          { type: "list", items: [
-            "🟣 **보라색(Purple) — 시계탑 (Bell Tower)**",
-            "🟡 **노란색(Yellow) — 마구간 (Royal Stables)**",
-            "🔵 **파란색(Blue) — 북서 성소 (Northwest Sanctum)**",
-            "🟢 **초록색(Green) — 남동 성소 (Southeast Sanctum)**"
-          ]},
-          { type: "p", text: "나머지 멤버들은 위 구역/팀 중 한 곳을 지원하도록 배정됩니다. 전황에 따라 로테이션이 필요할 수 있으니 — 항상 스쿼드 채팅을 예의 주시해 주세요." },
+          { type: "p", text: "R4(임원진)가 매번 신청한 멤버에 맞춰 팀과 구역을 배정합니다. 그 전투의 공지가 기준입니다." },
+          { type: "p", text: "전황에 따라 로테이션이 필요할 수 있으니 — 항상 스쿼드 채팅을 예의 주시해 주세요." },
           { type: "p", text: "리더십의 지시가 있기 전까지는 배정된 구역에 머물러 주세요." },
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "👥 역할 및 책임" },
-          { type: "p", text: "R4(임원진)가 전투력을 기준으로 참석이 확인된 멤버들을 **공격수, 방어수, 지원/참여자**의 3가지 역할로 나눌 것입니다." },
+          { type: "p", text: "R4(임원진)가 매번 신청한 멤버와 전투력에 맞춰 역할을 나눕니다. 보통은 **공격수, 방어수, 지원/참여자**의 3가지이며, 누가 어디를 맡는지는 그 전투의 공지를 따릅니다." },
 
           { type: "sub", text: "1) ⚔️ 공격수 (ATTACKERS)" },
           { type: "p", text: "**대상:** 가장 강력한 플레이어들. 고급 도시 이전이 충분히 있는 분들." },
@@ -4715,21 +4694,14 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "🗺️ ZUGEWIESENE ZONEN" },
-          { type: "p", text: "R4 wird bestätigte Mitglieder vor der Schlacht in Teams/Zonen aufteilen." },
-          { type: "p", text: "Unsere **Stärksten Angreifer** werden zunächst einer Zone zugewiesen:" },
-          { type: "list", items: [
-            "🟣 **Lila — Glockenturm**",
-            "🟡 **Gelb — Königliche Ställe**",
-            "🔵 **Blau — {sanctumNW}**",
-            "🟢 **Grün — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details." },
+          { type: "p", text: "R4 teilt Teams und Zonen für jede Schlacht nach den Anmeldungen ein – maßgeblich ist die Ankündigung zu dieser Schlacht." },
+          { type: "p", text: "Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details." },
           { type: "p", text: "Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst." },
           { type: "zones", labels: { purple: "🟣 Lila Zone — {belltower} / {mercenary}", blue: "🔵 Blaue Zone — {sanctumNW} / {abbey}", yellow: "🟡 Gelbe Zone — {stables} / {abbey}", green: "🟢 Grüne Zone — {sanctumSE} / {abbey}", center: "⚪ Mitte" } },
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "👥 ROLLEN & VERANTWORTLICHKEITEN" },
-          { type: "p", text: "R4 wird bestätigte Mitglieder in 3 Funktionen aufteilen: **Angreifer, Verteidiger und Unterstützer/Joiner** basierend auf Stärke." },
+          { type: "p", text: "R4 verteilt die Rollen für jede Schlacht nach den Anmeldungen und der Macht. Üblich sind drei: **Angreifer, Verteidiger und Unterstützung/Beitretende**; wer wohin geht, steht in der Ankündigung zu dieser Schlacht." },
 
           { type: "sub", text: "1) ⚔️ ANGREIFER" },
           { type: "p", text: "**Wer:** Unsere stärksten Spieler. Haben reichlich Fortgeschrittene Umsiedlungen." },
@@ -4897,15 +4869,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "ZONES ASSIGNÉES" },
-          { type: "p", text: "Les R4 répartiront les membres confirmés en équipes/zones avant la bataille." },
-          { type: "p", text: "Nos **meilleurs attaquants** se verront d'abord attribuer une zone :" },
-          { type: "list", items: [
-            "🟣 **Violet — {belltower}**",
-            "🟡 **Jaune — {stables}**",
-            "🔵 **Bleu — {sanctumNW}**",
-            "🟢 **Vert — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Les autres membres seront affectés au soutien de l'une de ces zones/équipes. Une rotation peut être nécessaire selon la situation : surveillez toujours le chat d'escouade pour les détails." },
+          { type: "p", text: "Les R4 répartissent les équipes et les zones à chaque bataille selon les inscrits — c'est l'annonce de cette bataille qui compte." },
+          { type: "p", text: "Une rotation peut être nécessaire selon la situation : surveillez toujours le chat d'escouade pour les détails." },
           { type: "p", text: "Restez dans votre zone assignée, sauf ordre contraire des officiers." },
           { type: "zones", labels: {
             purple: "🟣 Zone violette — {belltower} / {mercenary}",
@@ -4917,7 +4882,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "RÔLES ET RESPONSABILITÉS" },
-          { type: "p", text: "Les R4 répartiront les membres confirmés, selon leur puissance, en 3 fonctions : **attaquants, défenseurs et soutien/participants aux ralliements**." },
+          { type: "p", text: "À chaque bataille, les R4 répartissent les rôles selon les inscrits et leur puissance. Les trois habituels sont **attaquants, défenseurs et soutien/participants aux ralliements** ; qui va où figure dans l'annonce de cette bataille." },
 
           { type: "sub", text: "⚔️ 1) ATTAQUANTS" },
           { type: "p", text: "**Qui :** nos joueurs les plus puissants, avec de nombreuses Relocalisations Avancées." },
@@ -5070,15 +5035,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
 
           { type: "h", text: "ZONAS ASIGNADAS" },
-          { type: "p", text: "R4 dividirá a los miembros confirmados en equipos/zonas antes de la batalla." },
-          { type: "p", text: "Nuestros **Atacantes más fuertes** serán asignados inicialmente a una zona:" },
-          { type: "list", items: [
-            "🟣 **Morado — {belltower}**",
-            "🟡 **Amarillo — {stables}**",
-            "🔵 **Azul — {sanctumNW}**",
-            "🟢 **Verde — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Los miembros restantes serán asignados para apoyar una de estas zonas/equipos. Puede ser necesaria una rotación según las condiciones de la batalla — vigila siempre el Chat de Escuadrón para más detalles." },
+          { type: "p", text: "R4 asigna equipos y zonas en cada batalla según quién se inscribió; lo que cuenta es el anuncio de esa batalla." },
+          { type: "p", text: "Puede ser necesaria una rotación según las condiciones de la batalla — vigila siempre el Chat de Escuadrón para más detalles." },
           { type: "p", text: "Permanece en tu zona asignada a menos que el liderazgo te indique moverte." },
           { type: "zones", labels: {
             purple: "🟣 Zona Morada — {belltower} / {mercenary}",
@@ -5090,7 +5048,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "ROLES Y RESPONSABILIDADES" },
-          { type: "p", text: "R4 dividirá a los miembros confirmados en 3 funciones según su poder: **Atacantes, Defensores y Apoyo/Participantes**." },
+          { type: "p", text: "En cada batalla, R4 reparte las funciones según quién se inscribió y su poder. Las tres habituales son **Atacantes, Defensores y Apoyo/Participantes**; quién va a dónde está en el anuncio de esa batalla." },
 
           { type: "sub", text: "⚔️ 1) ATACANTES" },
           { type: "p", text: "**Quién:** Nuestros jugadores más fuertes. Tienen suficientes Teletransportadores Avanzados." },
@@ -5243,15 +5201,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "ATANAN BÖLGELER" },
-          { type: "p", text: "R4, savaştan önce onaylı üyeleri takımlara/bölgelere ayıracak." },
-          { type: "p", text: "En **güçlü Hücumcularımız** önce bir bölgeye atanacak:" },
-          { type: "list", items: [
-            "🟣 **Mor — {belltower}**",
-            "🟡 **Sarı — {stables}**",
-            "🔵 **Mavi — {sanctumNW}**",
-            "🟢 **Yeşil — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Kalan üyeler bu bölgelerden/takımlardan birini desteklemek üzere atanacak. Savaş koşullarına göre rotasyon gerekebilir; ayrıntılar için her zaman Ekip Sohbeti'ni takip et." },
+          { type: "p", text: "R4 her savaşta takımları ve bölgeleri kayıt olanlara göre belirler; geçerli olan o savaşın duyurusudur." },
+          { type: "p", text: "Savaş koşullarına göre rotasyon gerekebilir; ayrıntılar için her zaman Ekip Sohbeti'ni takip et." },
           { type: "p", text: "Yönetim başka yere geçmeni söylemedikçe atandığın bölgede kal." },
           { type: "zones", labels: {
             purple: "🟣 Mor Bölge — {belltower} / {mercenary}",
@@ -5262,7 +5213,7 @@ const GUIDES = {
           }},
 
           { type: "h", text: "ROLLER VE SORUMLULUKLAR" },
-          { type: "p", text: "R4, onaylı üyeleri güce göre 3 göreve ayıracak: **Hücumcular, Savunucular ve Destek/Katılımcılar**." },
+          { type: "p", text: "R4 her savaşta görevleri kayıt olanlara ve güce göre dağıtır. Genelde üç görev vardır: **Hücumcular, Savunucular ve Destek/Katılımcılar**; kimin nereye gideceği o savaşın duyurusundadır." },
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "sub", text: "⚔️ 1) HÜCUMCULAR" },
@@ -5417,15 +5368,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "ZONA YANG DITUGASKAN" },
-          { type: "p", text: "R4 akan membagi anggota yang terkonfirmasi ke dalam tim/zona sebelum pertempuran." },
-          { type: "p", text: "**Penyerbu terkuat** kita akan lebih dulu ditugaskan ke satu zona:" },
-          { type: "list", items: [
-            "🟣 **Ungu — {belltower}**",
-            "🟡 **Kuning — {stables}**",
-            "🔵 **Biru — {sanctumNW}**",
-            "🟢 **Hijau — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Anggota lainnya akan ditugaskan untuk mendukung salah satu zona/tim ini. Rotasi mungkin diperlukan sesuai kondisi pertempuran — selalu pantau Chat Skuad untuk detailnya." },
+          { type: "p", text: "R4 menentukan tim dan zona di setiap pertempuran sesuai siapa yang mendaftar — yang berlaku adalah pengumuman pertempuran itu." },
+          { type: "p", text: "Rotasi mungkin diperlukan sesuai kondisi pertempuran — selalu pantau Chat Skuad untuk detailnya." },
           { type: "p", text: "Tetap di zona yang ditugaskan kecuali pimpinan menyuruhmu berpindah." },
           { type: "zones", labels: {
             purple: "🟣 Zona Ungu — {belltower} / {mercenary}",
@@ -5437,7 +5381,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "PERAN DAN TANGGUNG JAWAB" },
-          { type: "p", text: "R4 akan membagi anggota yang terkonfirmasi ke dalam 3 fungsi berdasarkan kekuatan: **Penyerbu, Pembela, dan Pendukung/Joiner**." },
+          { type: "p", text: "Di setiap pertempuran, R4 membagi peran sesuai siapa yang mendaftar dan kekuatannya. Biasanya ada tiga: **Penyerbu, Pembela, dan Pendukung/Joiner**; siapa ke mana ada di pengumuman pertempuran itu." },
 
           { type: "sub", text: "⚔️ 1) PENYERBU" },
           { type: "p", text: "**Siapa:** Pemain terkuat kita. Punya banyak Teleporter Lanjutan." },
@@ -5591,15 +5535,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "НАЗНАЧЕННЫЕ ЗОНЫ" },
-          { type: "p", text: "Офицеры R4 перед битвой разделят подтвержденных участников на команды/зоны." },
-          { type: "p", text: "Наши **сильнейшие атакующие** сначала будут назначены в одну из зон:" },
-          { type: "list", items: [
-            "🟣 **Фиолетовая — {belltower}**",
-            "🟡 **Жёлтая — {stables}**",
-            "🔵 **Синяя — {sanctumNW}**",
-            "🟢 **Зелёная — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Остальные участники будут назначены поддерживать одну из этих зон/команд. В зависимости от ситуации может потребоваться ротация — всегда следите за чатом отряда." },
+          { type: "p", text: "Офицеры R4 распределяют команды и зоны к каждой битве по тем, кто записался; ориентируйтесь на объявление к этой битве." },
+          { type: "p", text: "В зависимости от ситуации может потребоваться ротация — всегда следите за чатом отряда." },
           { type: "p", text: "Оставайтесь в назначенной зоне, если офицеры не скажут перемещаться." },
           { type: "zones", labels: {
             purple: "🟣 Фиолетовая зона — {belltower} / {mercenary}",
@@ -5611,7 +5548,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "РОЛИ И ОБЯЗАННОСТИ" },
-          { type: "p", text: "R4 разделит подтвержденных участников по силе на 3 функции: **атакующие, защитники и поддержка/присоединяющиеся**." },
+          { type: "p", text: "К каждой битве R4 распределяют роли по тем, кто записался, и по силе. Обычно их три: **атакующие, защитники и поддержка/присоединяющиеся**; кто куда идёт — в объявлении к этой битве." },
 
           { type: "sub", text: "⚔️ 1) АТАКУЮЩИЕ" },
           { type: "p", text: "**Кто:** наши сильнейшие игроки. Имеют много продвинутых телепортов." },
@@ -5765,15 +5702,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "โซนที่กำหนด" },
-          { type: "p", text: "R4 จะแบ่งสมาชิกที่ยืนยันแล้วเป็นกลุ่ม/โซนก่อนการสู้รบ" },
-          { type: "p", text: "**หน่วยบุกที่แข็งแกร่งที่สุด**ของเราจะได้รับมอบหมายโซนก่อน:" },
-          { type: "list", items: [
-            "🟣 **ม่วง — {belltower}**",
-            "🟡 **เหลือง — {stables}**",
-            "🔵 **น้ำเงิน — {sanctumNW}**",
-            "🟢 **เขียว — {sanctumSE}**"
-          ]},
-          { type: "p", text: "สมาชิกที่เหลือจะถูกมอบหมายให้สนับสนุนโซน/กลุ่มใดกลุ่มหนึ่งเหล่านี้ อาจต้องสลับหมุนเวียนตามสถานการณ์ — ติดตามแชททีมเพื่อดูรายละเอียดเสมอ" },
+          { type: "p", text: "R4 จะจัดกลุ่มและโซนในแต่ละครั้งตามคนที่ลงชื่อ โดยยึดตามประกาศของการสู้รบครั้งนั้น" },
+          { type: "p", text: "อาจต้องสลับหมุนเวียนตามสถานการณ์ — ติดตามแชททีมเพื่อดูรายละเอียดเสมอ" },
           { type: "p", text: "อยู่ในโซนที่ได้รับมอบหมาย เว้นแต่ผู้บริหารสั่งให้ย้าย" },
           { type: "zones", labels: {
             purple: "🟣 โซนม่วง — {belltower} / {mercenary}",
@@ -5785,7 +5715,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "บทบาทและหน้าที่" },
-          { type: "p", text: "R4 จะแบ่งสมาชิกที่ยืนยันแล้วตามพลังเป็น 3 หน้าที่: **หน่วยบุก หน่วยรับ และหน่วยสนับสนุน/ผู้เข้าร่วมระดมพล**" },
+          { type: "p", text: "ในแต่ละครั้ง R4 จะแบ่งหน้าที่ตามคนที่ลงชื่อและพลัง ปกติมี 3 หน้าที่: **หน่วยบุก หน่วยรับ และหน่วยสนับสนุน/ผู้เข้าร่วมระดมพล** ใครอยู่ตรงไหนดูได้จากประกาศของการสู้รบครั้งนั้น" },
 
           { type: "sub", text: "⚔️ 1) หน่วยบุก" },
           { type: "p", text: "**ใคร:** ผู้เล่นที่แข็งแกร่งที่สุดของเรา มีการย้ายถิ่นฐานขั้นสูงเพียงพอ" },
@@ -5939,15 +5869,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "المناطق المخصصة" },
-          { type: "p", text: "سيقسّم R4 الأعضاء المؤكدين إلى مجموعات/مناطق قبل المعركة." },
-          { type: "p", text: "سيُخصَّص **أقوى المقتحمين** لدينا لمنطقة في البداية:" },
-          { type: "list", items: [
-            "🟣 **البنفسجية — {belltower}**",
-            "🟡 **الصفراء — {stables}**",
-            "🔵 **الزرقاء — {sanctumNW}**",
-            "🟢 **الخضراء — {sanctumSE}**"
-          ]},
-          { type: "p", text: "سيُخصَّص بقية الأعضاء لدعم إحدى هذه المناطق/المجموعات. قد يلزم التناوب بحسب ظروف المعركة — راقب دردشة الفرقة دائمًا لمعرفة التفاصيل." },
+          { type: "p", text: "يوزّع R4 المجموعات والمناطق في كل معركة بحسب المسجّلين، والمعتمد هو إعلان تلك المعركة." },
+          { type: "p", text: "قد يلزم التناوب بحسب ظروف المعركة — راقب دردشة الفرقة دائمًا لمعرفة التفاصيل." },
           { type: "p", text: "ابقَ في منطقتك المخصصة ما لم تطلب منك القيادة الانتقال." },
           { type: "zones", labels: {
             purple: "🟣 المنطقة البنفسجية — {belltower} / {mercenary}",
@@ -5959,7 +5882,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "الأدوار والمسؤوليات" },
-          { type: "p", text: "سيقسّم R4 الأعضاء المؤكدين بحسب القوة إلى 3 وظائف: **المقتحمون والحماة والدعم/المنضمون**." },
+          { type: "p", text: "في كل معركة يوزّع R4 الأدوار بحسب المسجّلين وقوتهم. المعتاد ثلاثة: **المقتحمون والحماة والدعم/المنضمون**، ومن يذهب إلى أين تجده في إعلان تلك المعركة." },
 
           { type: "sub", text: "⚔️ 1) المقتحمون" },
           { type: "p", text: "**من هم:** أقوى لاعبينا. لديهم الكثير من الناقلات المتقدمة." },
@@ -6113,15 +6036,8 @@ const GUIDES = {
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "ZONAS DESIGNADAS" },
-          { type: "p", text: "Os R4 dividirão os membros confirmados em equipes/zonas antes da batalha." },
-          { type: "p", text: "Nossos **melhores atacantes** serão designados primeiro para uma zona:" },
-          { type: "list", items: [
-            "🟣 **Roxa — {belltower}**",
-            "🟡 **Amarela — {stables}**",
-            "🔵 **Azul — {sanctumNW}**",
-            "🟢 **Verde — {sanctumSE}**"
-          ]},
-          { type: "p", text: "Os demais membros serão designados para apoiar uma dessas zonas/equipes. Pode ser necessário fazer rodízio conforme a situação da batalha — acompanhe sempre o Chat do Esquadrão para saber os detalhes." },
+          { type: "p", text: "Os R4 definem equipes e zonas a cada batalha conforme quem se inscreveu — vale o anúncio daquela batalha." },
+          { type: "p", text: "Pode ser necessário fazer rodízio conforme a situação da batalha — acompanhe sempre o Chat do Esquadrão para saber os detalhes." },
           { type: "p", text: "Permaneça na zona designada, a menos que a liderança mande você se mover." },
           { type: "zones", labels: {
             purple: "🟣 Zona Roxa — {belltower} / {mercenary}",
@@ -6133,7 +6049,7 @@ const GUIDES = {
           { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
            
           { type: "h", text: "FUNÇÕES E RESPONSABILIDADES" },
-          { type: "p", text: "Os R4 dividirão os membros confirmados, conforme o poder, em 3 funções: **Assaltantes, Guardiões e Apoio/Participantes**." },
+          { type: "p", text: "A cada batalha, os R4 dividem as funções conforme quem se inscreveu e o poder. As três de sempre são **Assaltantes, Guardiões e Apoio/Participantes**; quem vai para onde está no anúncio daquela batalha." },
 
           { type: "sub", text: "⚔️ 1) ASSALTANTES" },
           { type: "p", text: "**Quem:** nossos jogadores mais fortes, com bastantes Teletransportadores Avançados." },

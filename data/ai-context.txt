@@ -399,13 +399,8 @@ Generates Alliance Relic Points
 -50% teleport cooldown
 -50% building capture time
 ASSIGNED ZONES
-R4 will divide confirmed members into teams/zones before battle.
-Our strongest Attackers will initially be assigned a zone:
-🟣 Purple — Belltower
-🟡 Yellow — Royal Stables
-🔵 Blue — Northwest Sanctum
-🟢 Green — Southeast Sanctum
-Remaining members will be assigned to support one of these zones/teams. Rotation may be needed based on battle conditions — always monitor Squad Chat for details.
+R4 assign teams and zones for each battle based on who signed up — the announcement for that battle is what counts.
+Rotation may be needed based on battle conditions — always monitor Squad Chat for details.
 Stay with your assigned zone unless leadership tells you to move.
 🟣 Purple Zone — Belltower / Mercenary Camp
 🔵 Blue Zone — Northwest Sanctum / Abbey
@@ -413,7 +408,7 @@ Stay with your assigned zone unless leadership tells you to move.
 🟢 Green Zone — Southeast Sanctum / Abbey
 ⚪ Center
 ROLES & RESPONSIBILITIES
-R4 will divide confirmed members into 3 functions based on power: Attackers, Defenders and Support/Joiners.
+For each battle, R4 assign roles based on who signed up and their power. The usual three are Attackers, Defenders and Support/Joiners; who goes where is in that battle's announcement.
 ⚔️ 1) ATTACKERS
 Who: Our strongest players. Have plenty of advanced teleports.
 Your job:

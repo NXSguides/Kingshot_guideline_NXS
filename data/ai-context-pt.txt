@@ -399,13 +399,8 @@ Gera Pontos de Relíquia da Aliança
 -50% no intervalo entre teletransportes
 -50% no tempo necessário para assumir o controle das construções
 ZONAS DESIGNADAS
-Os R4 dividirão os membros confirmados em equipes/zonas antes da batalha.
-Nossos melhores atacantes serão designados primeiro para uma zona:
-🟣 Roxa — Torre do Sino
-🟡 Amarela — Estábulos da Realeza
-🔵 Azul — Santuário do Noroeste
-🟢 Verde — Santuário do Sudeste
-Os demais membros serão designados para apoiar uma dessas zonas/equipes. Pode ser necessário fazer rodízio conforme a situação da batalha — acompanhe sempre o Chat do Esquadrão para saber os detalhes.
+Os R4 definem equipes e zonas a cada batalha conforme quem se inscreveu — vale o anúncio daquela batalha.
+Pode ser necessário fazer rodízio conforme a situação da batalha — acompanhe sempre o Chat do Esquadrão para saber os detalhes.
 Permaneça na zona designada, a menos que a liderança mande você se mover.
 🟣 Zona Roxa — Torre do Sino / Acampamento Mercenário
 🔵 Zona Azul — Santuário do Noroeste / Abadia
@@ -413,7 +408,7 @@ Permaneça na zona designada, a menos que a liderança mande você se mover.
 🟢 Zona Verde — Santuário do Sudeste / Abadia
 ⚪ Centro
 FUNÇÕES E RESPONSABILIDADES
-Os R4 dividirão os membros confirmados, conforme o poder, em 3 funções: Assaltantes, Guardiões e Apoio/Participantes.
+A cada batalha, os R4 dividem as funções conforme quem se inscreveu e o poder. As três de sempre são Assaltantes, Guardiões e Apoio/Participantes; quem vai para onde está no anúncio daquela batalha.
 ⚔️ 1) ASSALTANTES
 Quem: nossos jogadores mais fortes, com bastantes Teletransportadores Avançados.
 Sua missão:
