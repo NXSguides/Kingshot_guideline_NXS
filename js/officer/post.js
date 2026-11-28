@@ -528,7 +528,11 @@ async function takeCarriedImage() {
   let url = null, map = null; try { url = sessionStorage.getItem("nxs-carry-img"); map = sessionStorage.getItem("nxs-carry-map"); sessionStorage.removeItem("nxs-carry-img"); sessionStorage.removeItem("nxs-carry-map"); } catch (e) {}
   if (!url) return;
   // the event map goes right under the table (it's already on the site, so no upload)
-  const mapTag = map && /^figures\/[\w./-]+$/.test(map) ? `\n[[img:${map}]]` : "";
+  let mapTag = map && /^figures\/[\w./-]+$/.test(map) ? `\n[[img:${map}]]` : "";
+  // 🔱 a map drawn on the officer page (our corner labelled) comes as a picture: uploaded with the announcement like the table
+  if (map && /^data:image\//.test(map)) { try { const mb = await (await fetch(map)).blob();
+    const mp = `figures/ann/${new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-")}-${++imgCounter}.jpg`;
+    pendingImgs[mp] = { blob: mb, url: URL.createObjectURL(mb) }; mapTag = `\n[[img:${mp}]]`; } catch (e) {} }
   // ⚔️🔱 the same table as data, so the site shows it in every reader's language (js/battle-table.js); the picture stays English for Discord
   let tabTag = ""; try { const tj = sessionStorage.getItem("nxs-carry-table"); sessionStorage.removeItem("nxs-carry-table");
     if (tj && JSON.parse(tj)) { const tpath = `data/ann/${new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-")}-${++imgCounter}.json`;

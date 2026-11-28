@@ -365,20 +365,27 @@ function tacPill(x, cx, cy, lines, fill, ink, fs) {
   x.fillStyle = ink; x.textAlign = "center"; x.textBaseline = "middle";
   lines.forEach((t, i) => x.fillText(t, cx, cy + (i - (lines.length - 1) / 2) * lh + 2));
 }
-function tacDraw() {
-  if (!document.querySelector("#rk_tacMap canvas")) return;
-  const paint = () => {
-    const c = document.querySelector("#rk_tacMap canvas"); if (!c) return;   // the canvas on screen now (a re-render may have replaced it)
+function tacPaint(c) {
     c.width = tacImg.naturalWidth; c.height = tacImg.naturalHeight;
     const x = c.getContext("2d"), us = TB.side; x.drawImage(tacImg, 0, 0);
     if (!TAC_SPOT[us]) return;
     tacPill(x, ...TAC_SPOT[us], ["US"], "#111111", "#ffffff", 64);
     tacPill(x, ...TAC_SPOT[TAC_CCW[us]], ["\u21BA COUNTER-", "CLOCKWISE"], "#ffffff", "#111111", 44);
     tacPill(x, ...TAC_SPOT[TAC_CW[us]], ["\u21BB CLOCKWISE"], "#ffffff", "#111111", 44);
-  };
-  if (tacImg && tacImg.complete && tacImg.naturalWidth) { paint(); return; }
+}
+const tacReady = () => new Promise((ok, no) => {
   if (!tacImg) { tacImg = new Image(); tacImg.src = "figures/tri-v3.webp"; }
-  tacImg.addEventListener("load", paint, { once: true });
+  if (tacImg.complete && tacImg.naturalWidth) return ok();
+  tacImg.addEventListener("load", ok, { once: true }); tacImg.addEventListener("error", no, { once: true });
+});
+function tacDraw() {
+  if (!document.querySelector("#rk_tacMap canvas")) return;
+  tacReady().then(() => { const c = document.querySelector("#rk_tacMap canvas"); if (c) tacPaint(c); }).catch(() => {});   // the canvas on screen now (a re-render may have replaced it)
+}
+/* the map for 📢 Post: with our corner set, the labelled picture (uploaded with the announcement); without, the plain map already on the site */
+async function tacPostMap() {
+  if (!TAC_SPOT[TB.side]) return "figures/tri-v3.webp";
+  try { await tacReady(); const c = document.createElement("canvas"); tacPaint(c); return c.toDataURL("image/jpeg", 0.88); } catch (e) { return "figures/tri-v3.webp"; }
 }
 document.addEventListener("click", (e) => {
   const b = e.target.closest && e.target.closest("#rk_tacMap [data-tacside], #rk_tacMap [data-tacdl]"); if (!b) return;
@@ -1463,7 +1470,10 @@ function tbShowImg(url) {
     <button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
   m.onclick = (e) => {
     if (e.target === m || e.target.dataset.close) m.remove();
-    if (e.target.dataset.topost) { const pr = PRESETS.find((x) => x.id === activePreset) || PRESETS.find((x) => x.id === "swordland"); try { sessionStorage.setItem("nxs-carry-img", url); sessionStorage.setItem("nxs-carry-table", JSON.stringify(tbExport())); if (pr && pr.img) sessionStorage.setItem("nxs-carry-map", pr.img); } catch (err) {} location.hash = "#post"; }
+    if (e.target.dataset.topost) { const pr = PRESETS.find((x) => x.id === activePreset) || PRESETS.find((x) => x.id === "swordland");
+      // 🔱 the table's own event decides the map: TAC = the labelled corner map (or the plain A / B / C map), not the old figures/tri.webp
+      const mapP = TB.ev === "tri" ? tacPostMap() : Promise.resolve(pr && pr.img);
+      mapP.then((map) => { try { sessionStorage.setItem("nxs-carry-img", url); sessionStorage.setItem("nxs-carry-table", JSON.stringify(tbExport())); if (map) sessionStorage.setItem("nxs-carry-map", map); } catch (err) {} location.hash = "#post"; }); }
   };
   ROOT.appendChild(m);
 }
