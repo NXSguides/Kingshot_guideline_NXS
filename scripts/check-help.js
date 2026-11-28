@@ -46,7 +46,7 @@ const FEATURES = [
   ["Hive: the other alliance faint in the background + Y 704 border", /🐝 Hive map \(2026-11-17\)/, /mv21: "🏰 The faint white squares/],
   ["Officers: 🏰 alliance per officer (NXS / nxs / both) + one shared NXS | nxs pick", /🏰 Alliance column \(2026-11-16\)/, /pm07: "🏰 Alliance: NXS \+ nxs/],
   ["Site: 🗺️ Swordland map with the names on it", /the map is drawn with a box at each building/, /🗺️ When a Swordland table is in the announcement, its map shows/],
-  ["Site: 🔒 paste a link-only link in the app", /Have a link\? Paste it” under the announcement board/, /Have a link\? Paste it” under the board/],
+  ["Site: 📥 paste a link in the app", /📥 Paste a link \(top row/, /📥 next to it opens a link you copied/],
   ["Site: 🔗 link straight to one announcement", /🔗 Copy link" next to its date/, /🔗 Copy link gives a link that opens straight on this announcement/],
   ["Territory: members, Bear Traps and the Hive plan on the map", /MEMBERS ON THE TERRITORY MAP \(2026-11-14\)/, /🏠 shows members' cities, Bear Traps and the Hive plan/],
   ["Territory: banner check / reshuffle / node switch-off for nxs too", /SAME TOOLS FOR nxs \(2026-11-14\)/, /work for whichever alliance is picked/],

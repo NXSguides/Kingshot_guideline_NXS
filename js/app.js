@@ -43,7 +43,7 @@ function formatHeroes(heroes) {
   return heroes.map((id) => heroName(id)).join(" · ");
 }
 
-let pendingJump = "";
+let pendingJump = "", guideLand = false;
 /* 🔗 a link straight to one announcement (Sherry 2026-11-15): …/#a/<key>. No language in it, so each reader keeps their own; the board opens on that
    announcement, scrolled into view, and does not auto-switch away until the reader moves on. */
 let pendingAnn = "", annLinkHold = false;
@@ -77,22 +77,28 @@ async function loadSecret() {
   else { const k = keep ? announcements.indexOf(keep) : -1; currentAnnIndex = k >= 0 ? k : 0; }
   renderAll();
 }
-/* 📲 "Have a link? Paste it" under the board (Sherry 2026-11-28): a link opened from Discord lands in the browser, not in the app on the
-   home screen — copy the link, open the app, tap this. Reads the clipboard when the phone allows it, otherwise asks for the link. */
-const SECRET_PASTE = {
-  btn: { en: "🔒 Have a link? Paste it", zh: "🔒 有機密公告連結？貼上", ko: "🔒 링크가 있나요? 붙여넣기", de: "🔒 Link erhalten? Einfügen", fr: "🔒 Un lien ? Collez-le", pt: "🔒 Tem um link? Cole aqui", tr: "🔒 Bağlantın mı var? Yapıştır", id: "🔒 Punya tautan? Tempel", ru: "🔒 Есть ссылка? Вставьте", th: "🔒 มีลิงก์? วางที่นี่", ar: "🔒 لديك رابط؟ الصقه", es: "🔒 ¿Tienes un enlace? Pégalo" },
-  ask: { en: "Paste the announcement link:", zh: "貼上公告連結：", ko: "공지 링크를 붙여넣으세요:", de: "Füge den Link der Ankündigung ein:", fr: "Collez le lien de l'annonce :", pt: "Cole o link do anúncio:", tr: "Duyuru bağlantısını yapıştır:", id: "Tempel tautan pengumuman:", ru: "Вставьте ссылку на объявление:", th: "วางลิงก์ประกาศ:", ar: "الصق رابط الإعلان:", es: "Pega el enlace del anuncio:" },
-};
-const secretIdIn = (x) => { const m = String(x || "").trim().match(/(?:#s\/)?([A-Za-z0-9_-]{20,40})\s*$/); return m ? m[1] : ""; };
-async function secretPaste() {
-  let id = ""; try { const m = String(await navigator.clipboard.readText()).match(/#s\/([A-Za-z0-9_-]{20,40})/); if (m) id = m[1]; } catch (e) {}   // the clipboard counts only when it holds a link
-  if (!id) { const v = window.prompt(t(SECRET_PASTE.ask)); if (v == null) return; id = secretIdIn(v); }
-  if (!id) { secretGone(); return; }
-  const have = announcements.findIndex((a) => a.secret === id);
-  if (have >= 0) { currentAnnIndex = have; renderAll(); return; }
-  pendingSecret = id; await loadSecret();
+/* 📥 Paste a link (top row, in the home-screen app; Sherry 2026-11-28): a link opened from Discord lands in the browser, not in the app —
+   copy it, open the app, tap 📥. Any link to this site works (a guide, a page, an announcement); a link-only one opens like its link would.
+   Reads the clipboard when the phone allows it, otherwise asks for the link. Nothing on it says anything is locked. */
+const PASTE_ASK = { en: "Paste the link:", zh: "貼上連結：", ko: "링크를 붙여넣으세요:", de: "Link einfügen:", fr: "Collez le lien :", pt: "Cole o link:", tr: "Bağlantıyı yapıştır:", id: "Tempel tautan:", ru: "Вставьте ссылку:", th: "วางลิงก์:", ar: "الصق الرابط:", es: "Pega el enlace:" };
+async function pasteLink(btn) {
+  const flash = (ok) => { if (!btn) return; const was = btn.textContent; btn.textContent = ok ? "✓" : "✕"; setTimeout(() => { btn.textContent = was; }, 1500); };
+  let v = ""; try { v = String(await navigator.clipboard.readText() || ""); } catch (e) {}
+  if (!/nxsguides\.github\.io\/Kingshot_guideline_NXS|#s\//i.test(v)) { const x = window.prompt(t(PASTE_ASK)); if (x == null) return; v = String(x); }
+  v = v.trim();
+  const sec = v.match(/#s\/([A-Za-z0-9_-]{20,40})/);
+  if (sec) {
+    const have = announcements.findIndex((a) => a.secret === sec[1]);
+    if (have >= 0) { goToAnnouncements(have); flash(true); return; }
+    pendingSecret = sec[1]; currentGuide = "recent-events"; await loadSecret(); flash(true); return;
+  }
+  const m = v.match(/nxsguides\.github\.io\/Kingshot_guideline_NXS\/([^\s]*)/i);
+  if (!m) { flash(false); return; }
+  const rest = m[1], page = rest.split(/[?#]/)[0];
+  if (!page || page === "index.html") { const h = rest.slice(rest.indexOf("#")); if (rest.includes("#")) { location.hash = h; flash(true); } else flash(false); return; }
+  if (/^[\w.-]+\.html$/.test(page)) { location.href = rest; return; }   // another page of the site, inside the app
+  flash(false);
 }
-window.secretPaste = secretPaste;
 function secretGone() {
   const el = document.createElement("div");
   el.setAttribute("role", "status"); el.textContent = "🔒 " + t(SECRET_GONE);
@@ -111,6 +117,7 @@ function readHash() {
   { const m = hash.match(/^s\/([A-Za-z0-9_-]{20,40})$/); if (m) { pendingSecret = m[1]; return; } }
   const [lang, guide, jump] = hash.split("/");
   pendingJump = jump || "";
+  guideLand = !!(lang && guide && !jump && pickGuide(guide) !== HOME_GUIDE);   // a link to a guide lands on the guide, not on the top of the page
   if (lang) { currentLang = pickLang(lang); langChosen = true; }
   if (guide) currentGuide = pickGuide(guide);
 }
@@ -152,6 +159,7 @@ function setupReloadButton() {
   const btn = document.getElementById("reloadBtn");
   if (!btn || !isInstalledApp()) return;
   setupCopyUrlButton(document.getElementById("copyUrlBtn"));
+  const pb = document.getElementById("pasteUrlBtn"); if (pb) { pb.hidden = false; pb.onclick = () => pasteLink(pb); }
   btn.hidden = false;
   btn.onclick = async () => {
     btn.disabled = true; btn.style.opacity = ".5";
@@ -679,7 +687,6 @@ const BLOCKS = {
         <div class="ann-tabs" data-drag="all">${tabs}</div>
         <div class="ann-body">${annBodyHtml(announcements[currentAnnIndex])}</div>
       </div>
-      <div style="text-align:end;margin:4px 2px 0"><button type="button" class="kvk-plan-link" style="font-size:12.5px;opacity:.85" onclick="secretPaste()" dir="auto">${escapeHtml(t(SECRET_PASTE.btn))}</button></div>
     `;
   },
   checklist: (b, guide) => {
@@ -1820,6 +1827,9 @@ function renderAllNow() {
   renderLangRow();
   renderGuideRow();
   renderDoc();
+  /* 🔗 opened from a link (Sherry 2026-11-28: "公告就去那個公告區 攻略就到那個攻略區"): a guide link scrolls to the guide itself
+     (announcement links already go to the board — openPendingAnn) */
+  if (guideLand && currentGuide !== HOME_GUIDE) { guideLand = false; setTimeout(() => { const d = document.querySelector("#doc .doc-title") || document.getElementById("doc"); if (d) d.scrollIntoView({ block: "start" }); }, 120); }
 }
 
 const EVENT_POPUP = {
