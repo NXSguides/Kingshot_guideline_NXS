@@ -915,17 +915,27 @@ async function secTranslate(item, msgId) {
   return cur;
 }
 async function secPublish({ author, title, expires }) {
-  if (/\[\[(img|table|video):/.test(fullBody())) { showMsg("pubMsg", "err", tr("secNoPics")); return false; }
   if (!(await askYesNo(tr("secConfirmPub")))) return false;
   const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("secSaving"));
   try {
+    /* pictures / battle tables / videos (Sherry 2026-11-28: "你根本不用管資料隱密的問題 重點是在於短時間內擋掉人而已"): uploaded to the repo
+       like any announcement's; only the text stays on the Worker. The files are public, just not listed anywhere. */
+    const used = Object.keys(pendingImgs).filter((path) => fullBody().includes(`[[img:${path}]]`) || fullBody().includes(`[[table:${path}]]`) || fullBody().includes(`[[video:${path}]]`));
+    if (used.length) {
+      showMsg("pubMsg", "info", tr("uploadingImg"));
+      for (const path of used) {
+        const b64 = b64enc(await pendingImgs[path].blob.arrayBuffer());
+        await gh("PUT", path, { message: `Add picture for a link-only announcement`, content: b64, branch: BRANCH });
+      }
+    }
     const j = await sapi("save", { title, text: fullBody(), author, lang: $("srcLang").value, style: styleValue(), exp: expires });
     store.author = author; save();
     secItems = [j.item, ...secItems]; renderSec();
     const done = await secTranslate(j.item, "pubMsg");
     await secCopy(j.item.id);
     showMsg("pubMsg", "ok", done.langs.length >= SEC_ALL.length ? tr("secOk") : tr("secOkPart").replace("{n}", done.langs.length).replace("{t}", SEC_ALL.length));
-    $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); $("secChk").checked = false; demoKeep = null; $("fmtDemoNote").hidden = true; renderPreview(); showEditing();
+    $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp(""); setStyle(""); $("secChk").checked = false; demoKeep = null; $("fmtDemoNote").hidden = true;
+    Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {}; renderPreview(); showEditing();
     btn.disabled = false; return true;
   } catch (e) { showMsg("pubMsg", "err", secErr(e)); btn.disabled = false; return false; }
 }
