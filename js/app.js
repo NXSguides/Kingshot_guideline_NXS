@@ -49,23 +49,33 @@ let pendingJump = "";
 let pendingAnn = "", annLinkHold = false;
 /* 🔒 a link-only announcement (Sherry 2026-11-19): …/#s/<id>. It is not in data/announcements.json — it is fetched from our Worker with the id in
    the link, shown on the board like any other (every language, the reader's own), and gone once an officer deletes it. The id leaves the
-   address bar as soon as the page opens (the usual #/lang/guide takes its place); it is kept for this tab only, so a reload still shows it. */
+   address bar as soon as the page opens (the usual #/lang/guide takes its place); since 2026-11-28 it is kept on the device (below). */
 let pendingSecret = "";
 const SECRET_API = "https://nxs-ai.tapegirljoke.workers.dev/secret/get", SECRET_SS = "nxs-secret";
 const SECRET_GONE = { en: "This announcement is no longer available.", zh: "這則公告已經不存在了。", ko: "이 공지는 더 이상 볼 수 없어요.", de: "Diese Ankündigung ist nicht mehr verfügbar.", fr: "Cette annonce n'est plus disponible.", pt: "Este anúncio não está mais disponível.", tr: "Bu duyuru artık mevcut değil.", id: "Pengumuman ini sudah tidak tersedia.", ru: "Это объявление больше недоступно.", th: "ประกาศนี้ไม่มีอยู่แล้ว", ar: "هذا الإعلان لم يعد متاحًا.", es: "Este anuncio ya no está disponible." };
+/* 📲 kept on this device (Sherry 2026-11-28: "解鎖後會跟著裝置…關掉後打開還會在"): every link opened here is remembered in localStorage and
+   asked for again on each visit until the officers delete it or it expires (then it is dropped quietly). */
+const SECRET_LS = "nxs-secrets-v1";
+const secKept = () => { try { const l = JSON.parse(localStorage.getItem(SECRET_LS)); return Array.isArray(l) ? l.filter((x) => /^[A-Za-z0-9_-]{20,40}$/.test(x)) : []; } catch (e) { return []; } };
+const secKeep = (l) => { try { localStorage.setItem(SECRET_LS, JSON.stringify([...new Set(l)].slice(-30))); } catch (e) {} };
 async function loadSecret() {
   let id = pendingSecret; pendingSecret = "";
-  if (!id) { try { id = sessionStorage.getItem(SECRET_SS) || ""; } catch (e) {} }
-  if (!id || announcements.some((a) => a.secret === id)) return;
-  let j = null;
-  try { const r = await fetch(SECRET_API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }), cache: "no-store" }); j = await r.json(); } catch (e) { return; }   // offline: keep the id, try again on the next load
-  if (!j || !j.ok || !j.a) { try { sessionStorage.removeItem(SECRET_SS); } catch (e) {} if (j && j.error === "gone") secretGone(); return; }
-  try { sessionStorage.setItem(SECRET_SS, id); } catch (e) {}
-  if (announcements.some((a) => a.secret === id)) return;
-  const a = { ...j.a, secret: id, images: [] };
-  announcements = [a, ...announcements]; currentAnnIndex = 0;
-  dropExpired(); pendingAnn = annKey(a);
-  if (langChosen) openPendingAnn(); else renderAll();
+  let ss = ""; try { ss = sessionStorage.getItem(SECRET_SS) || ""; sessionStorage.removeItem(SECRET_SS); } catch (e) {}   // older tabs kept it here
+  const ids = [...new Set([id, ss, ...secKept()].filter(Boolean))].filter((x) => !announcements.some((a) => a.secret === x));
+  if (!ids.length) return;
+  const got = await Promise.all(ids.map(async (x) => { try { const r = await fetch(SECRET_API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: x }), cache: "no-store" }); return { x, j: await r.json() }; } catch (e) { return { x, j: null }; } }));
+  const gone = new Set(got.filter((g) => g.j && g.j.error === "gone").map((g) => g.x));   // offline / errors: keep the id, try again next time
+  secKeep([...secKept(), ...got.filter((g) => g.j && g.j.ok).map((g) => g.x)].filter((x) => !gone.has(x)));
+  if (id && gone.has(id)) secretGone();
+  const add = got.filter((g) => g.j && g.j.ok && g.j.a && !announcements.some((a) => a.secret === g.x)).map((g) => ({ ...g.j.a, secret: g.x, images: [] }));
+  if (!add.length) return;
+  const keep = announcements[currentAnnIndex];
+  announcements = [...add, ...announcements];
+  dropExpired();
+  const opened = id && announcements.find((a) => a.secret === id);
+  if (opened) { currentAnnIndex = announcements.indexOf(opened); pendingAnn = annKey(opened); if (langChosen) { openPendingAnn(); return; } }
+  else { const k = keep ? announcements.indexOf(keep) : -1; currentAnnIndex = k >= 0 ? k : 0; }
+  renderAll();
 }
 /* 📲 "Have a link? Paste it" under the board (Sherry 2026-11-28): a link opened from Discord lands in the browser, not in the app on the
    home screen — copy the link, open the app, tap this. Reads the clipboard when the phone allows it, otherwise asks for the link. */
